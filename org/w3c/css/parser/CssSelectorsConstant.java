@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectorsConstant.java,v 1.4 2002-08-19 07:24:39 sijtsche Exp $
+// $Id: CssSelectorsConstant.java,v 1.5 2002-08-21 09:00:28 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 20th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -7,7 +7,10 @@
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssSelectorsConstant.java,v $
- * Revision 1.4  2002-08-19 07:24:39  sijtsche
+ * Revision 1.5  2002-08-21 09:00:28  sijtsche
+ * pseudo element ::marker added
+ *
+ * Revision 1.4  2002/08/19 07:24:39  sijtsche
  * tv profile restrictions added
  *
  * Revision 1.3  2002/07/22 14:19:06  sijtsche
@@ -20,7 +23,7 @@
 package org.w3c.css.parser;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public interface CssSelectorsConstant {
 
@@ -57,7 +60,7 @@ public interface CssSelectorsConstant {
 
     public static final String[] PSEUDOELEMENT_CONSTANTS =
     { "first-line", "first-letter", "before", "after",
-      "selection"
+      "selection", "marker"
     };
 
     // lang is special, and contains and nth-element and nth-type-of
