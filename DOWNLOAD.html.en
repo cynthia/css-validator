@@ -42,7 +42,7 @@
     </p>
     <p>
       Sijtsche sent <a
-      href='http://lists.w3.org/Archives/Public/www-validator-css/2003Jan/0037.html'>insrtuctions</a>
+      href='http://lists.w3.org/Archives/Public/www-validator-css/2003Jan/0037.html'>instructions</a>
       on to install the CSS Validator on your computer.
     </p>
     <hr />
@@ -50,6 +50,6 @@
       <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" 
 	alt="Valid CSS!" /></a>
     <a href="Email.html">validator-css</a><br />
-    $Date: 2003-02-27 23:16:10 $
+    $Date: 2003-02-27 23:28:14 $
   </body>
 </html>
