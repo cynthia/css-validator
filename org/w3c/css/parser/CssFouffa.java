@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.6 2002-08-19 07:26:03 sijtsche Exp $
+// $Id: CssFouffa.java,v 1.7 2003-01-03 12:08:24 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -399,27 +399,30 @@ public final class CssFouffa extends CssParser {
 	}
 
 	try {
-	    prop = properties.createProperty(ac, getAtRule(),
+		if (getMediaDeclaration().equals("on") && getAtRule() instanceof AtRuleMedia) {
+			prop = properties.createMediaFeature(ac, getAtRule(), property, expression);
+		} else {
+			prop = properties.createProperty(ac, getAtRule(),
 					     property, expression);
+		}
 
 	} catch (InvalidParamException e) {
 	    throw e;
 	} catch (Exception e) {
 	    if (Util.onDebug) {
-		e.printStackTrace();
+			e.printStackTrace();
 	    }
 	    throw new InvalidParamException(e.toString(), ac);
 	}
 
-	if (expression.end()) {
-	    // set the importance
-	    if (important) {
+	// set the importance
+	if (important) {
 		prop.setImportant();
-	    }
-	    prop.setOrigin(origin);
-	    // set informations for errors and warnings
-	    prop.setInfo(ac.getFrame().getLine(), ac.getFrame().getSourceFile());
 	}
+	prop.setOrigin(origin);
+	// set informations for errors and warnings
+	prop.setInfo(ac.getFrame().getLine(), ac.getFrame().getSourceFile());
+
 	// ok, return the new property
 
 	return prop;
