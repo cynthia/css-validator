@@ -65,7 +65,7 @@
       Om alles naar behoren te laten werken is het noodzakelijk dat
       uw CSS stylesheet een correcte grammaticale opbouw heeft.
       Dit betekent dat u <a href="http://validator.w3.org/">
-      correct HTML</a>.
+      correct HTML</a> dient te gebruiken.
     </p>
     
     
@@ -83,7 +83,7 @@
         alt="CSS Valide!" /></a>
 
     <address><a href="Email.html">www-validator-css</a></address><br />
-    $Date: 2002-05-18 21:40:55 $
+    $Date: 2002-07-26 07:29:23 $
   </body>
 </html>
 
