@@ -1,12 +1,15 @@
 //
-// $Id: StyleSheetGeneratorHTML.java,v 1.1 2002-03-13 19:55:01 plehegar Exp $
+// $Id: StyleSheetGeneratorHTML.java,v 1.2 2002-05-19 04:16:31 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetGeneratorHTML.java,v $
- * Revision 1.1  2002-03-13 19:55:01  plehegar
+ * Revision 1.2  2002-05-19 04:16:31  plehegar
+ * Replaced the email address
+ *
+ * Revision 1.1  2002/03/13 19:55:01  plehegar
  * New
  *
  *
@@ -48,7 +51,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public final class StyleSheetGeneratorHTML implements CssPrinterStyle {
 
@@ -504,8 +507,8 @@ public final class StyleSheetGeneratorHTML implements CssPrinterStyle {
 		java.io.InputStream f = url.openStream();
 		properties.load(f);
 		f.close();
-		properties.put("author","Philippe Le H&eacute;garet");
-		properties.put("author-email", "www-validator-css@w3.org");
+		properties.put("author","www-validator-css");
+		properties.put("author-email", "Email.html");
 	    } catch (Exception e) {
 		System.err.println("org.w3c.css.css.StyleSheetGenerator: "
 				   + "couldn't load properties " + document);
