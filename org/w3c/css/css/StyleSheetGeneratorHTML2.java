@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.11 2004-11-25 13:29:30 sijtsche Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.12 2005-01-17 02:46:33 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport
     implements CssPrinterStyle {
@@ -223,7 +223,7 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
         ret.append(" : <a href=\"");
         ret.append(getURLProperty("@url-base"));
         ret.append(getURLProperty(name)).append("\">");
-        ret.append(name).append("</a>");
+        ret.append(name).append("</a> ");
     }
     if ((error.getException() != null) && (error.getMessage() != null)) {
         if (error.isParseException()) {
@@ -360,9 +360,10 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
                 !warn.getWarningMessage().equals(oldMessage)) {
                 oldLine = warn.getLine();
                 oldMessage = warn.getWarningMessage();
-                ret.append("\n<li><span class='warning'>Line : ");
-                ret.append(oldLine);
-                
+                ret.append("\n<li><span class='warning'>");
+                ret.append(ac.getMsg().getGeneratorString("line"));
+                ret.append(" : ");
+                ret.append(oldLine); 
                 if (warn.getLevel() != 0) {
                 ret.append(" Level : ");
                 ret.append(warn.getLevel());
