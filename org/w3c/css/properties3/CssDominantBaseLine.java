@@ -1,5 +1,5 @@
 //
-// $Id: CssDominantBaseLine.java,v 1.2 2002-08-20 08:43:04 sijtsche Exp $
+// $Id: CssDominantBaseLine.java,v 1.3 2002-08-20 09:02:23 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -44,7 +44,7 @@ public class CssDominantBaseLine extends CssProperty {
 	"auto", "use-script", "no-change", "reset-size",
 	"ideographic", "alphabetic", "hanging", "mathematical",
 	"central", "middle", "text-after-edge", "text-before-edge",
-	"inherit"
+	"inherit", "initial"
     };
 
     /**

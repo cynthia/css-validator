@@ -1,12 +1,15 @@
 //
-// $Id: CssLineHeight.java,v 1.3 2002-08-20 08:42:09 sijtsche Exp $
+// $Id: CssLineHeight.java,v 1.4 2002-08-20 09:06:01 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssLineHeight.java,v $
- * Revision 1.3  2002-08-20 08:42:09  sijtsche
+ * Revision 1.4  2002-08-20 09:06:01  sijtsche
+ * value initial added
+ *
+ * Revision 1.3  2002/08/20 08:42:09  sijtsche
  * new values added
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -81,7 +84,7 @@ import org.w3c.css.util.ApplContext;
  *   DIV { line-height: 120%; font-size: 10pt }    /* percentage * /
  * </PRE>
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssLineHeight extends CssProperty {
 
@@ -90,6 +93,7 @@ public class CssLineHeight extends CssProperty {
     private static CssIdent normal = new CssIdent("normal");
 	private static CssIdent number = new CssIdent("number");
 	private static CssIdent none = new CssIdent("none");
+	private static CssIdent initial = new CssIdent("initial");
 
     /**
      * Create a new CssLineHeight
@@ -136,6 +140,10 @@ public class CssLineHeight extends CssProperty {
 		return;
 	} else if (none.equals(val)) {
 		value = none;
+		expression.next();
+		return;
+	} else if (initial.equals(val)) {
+		value = initial;
 		expression.next();
 		return;
 	}
