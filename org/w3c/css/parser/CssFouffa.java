@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.5 2002-07-26 08:21:06 sijtsche Exp $
+// $Id: CssFouffa.java,v 1.6 2002-08-19 07:26:03 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -663,6 +663,9 @@ public final class CssFouffa extends CssParser {
 		} else if (profile.equals("atsc-tv")) {
 		    URL url = style.getResource(config.getProperty("atsc-tv"));
 		    properties = new CssPropertyFactory(url);
+		} else if (profile.equals("tv")) {
+			URL url = style.getResource(config.getProperty("tv"));
+			properties = new CssPropertyFactory(url);
 		}
 
 		// aural mode

@@ -8,7 +8,10 @@
  * I'm waiting for Bert Bos to have a new version.
  *
  * $Log: CssParser.jj,v $
- * Revision 1.5  2002-07-24 14:50:06  sijtsche
+ * Revision 1.6  2002-08-19 07:27:48  sijtsche
+ * TV profile added
+ *
+ * Revision 1.5  2002/07/24 14:50:06  sijtsche
  * compile bug fixed in relation with other sources getUserMedium function deleted
  *
  * Revision 1.4  2002/07/24 09:51:56  sijtsche
@@ -87,7 +90,7 @@ import org.w3c.css.css.StyleSheetCom;
  * A CSS2 parser  
  *
  * @author Philippe Le Hégaret
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public abstract class CssParser {
 
@@ -240,7 +243,8 @@ public abstract class CssParser {
      * Returns the current line in the style sheet
      */
     public final int getLine() {
-	return token.beginLine;
+	//return token.beginLine;
+	return 0;
     }
 
     /**
@@ -1076,6 +1080,10 @@ CssSelectors selector() :
 			throw new InvalidParamException("nocomb", "+", ac);
 		    if (comb == '>')
 			throw new InvalidParamException("nocomb", ">", ac);
+		  } else if (ac.getProfile().equals("tv")) {
+		    if (comb == '+')
+			throw new InvalidParamException("nocomb", "+", ac);
+		    
 		  }
                  }
 		  if (!ac.getCssVersion().equals("css3")) {
