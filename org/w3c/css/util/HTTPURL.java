@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.5 2002-07-22 12:51:47 sijtsche Exp $
+ * $Id: HTTPURL.java,v 1.6 2002-09-18 19:06:47 plehegar Exp $
  */
 package org.w3c.css.util;
 
@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.*;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -142,14 +142,21 @@ public class HTTPURL {
 	if (count > 5) {
 	    throw new ProtocolException("Server redirected too many times (5)");
 	}
-	URLConnection urlC = url.openConnection();
 
-	if (Util.servlet && !(urlC instanceof HttpURLConnection)) {
-	    System.err.println( "[WARNING] : someone is trying to get the file: "
-				+ url );
-	    throw new FileNotFoundException("import " + url +
-					    ": Operation not permitted");
+	if (Util.servlet) {
+	    int port = url.getPort();
+	    String protocol = url.getProtocol();
+
+	    if (((port < 1024) && (port != 80))
+		|| ("http".equalsIgnoreCase(protocol))) {		
+		System.err.println( "[WARNING] : someone is trying to get the file: "
+				    + url );
+		throw new FileNotFoundException("import " + url +
+						": Operation not permitted");
+	    }
 	}
+
+	URLConnection urlC = url.openConnection();
 
 	if (Util.onDebug) {
 	    System.err.println( "Accessing " + url);
