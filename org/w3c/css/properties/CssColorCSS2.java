@@ -1,12 +1,15 @@
 //
-// $Id: CssColorCSS2.java,v 1.2 2002-04-08 21:17:43 plehegar Exp $
+// $Id: CssColorCSS2.java,v 1.3 2003-08-28 19:51:33 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssColorCSS2.java,v $
- * Revision 1.2  2002-04-08 21:17:43  plehegar
+ * Revision 1.3  2003-08-28 19:51:33  plehegar
+ * Bug fix from Sijtsche
+ *
+ * Revision 1.2  2002/04/08 21:17:43  plehegar
  * New
  *
  * Revision 3.3  1997/09/09 13:03:38  plehegar
@@ -69,50 +72,50 @@ import org.w3c.css.util.ApplContext;
  *   EM { color: red }              /* natural language * /
 				     *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
 									 * </PRE>
-									 * @version $Revision: 1.2 $
+									 * @version $Revision: 1.3 $
 									 */
 public class CssColorCSS2 extends CssProperty {
-    
+
     CssValue color;
-    
+
     /**
      * Create a new CssColorCSS2
      */
     public CssColorCSS2() {
 	color = inherit;
-    }  
-    
+    }
+
     /**
      * Set the value of the property
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
-     */  
+     */
     public CssColorCSS2(ApplContext ac, CssExpression expression) throws InvalidParamException {
 	CssValue val = expression.getValue();
 	setByUser();
-	
+
 	if (val.equals(inherit)) {
 	    color = inherit;
 	    expression.next();
-	} else if (val instanceof org.w3c.css.values.CssColorCSS2) {
+	} else if (val instanceof org.w3c.css.values.CssColor) {
 	    color = val;
 	    expression.next();
 	} else if (val instanceof CssIdent) {
 	    color = new org.w3c.css.values.CssColorCSS2(ac, (String) val.get());
 	    expression.next();
 	} else {
-	    throw new InvalidParamException("value", expression.getValue(), 
+	    throw new InvalidParamException("value", expression.getValue(),
 					    getPropertyName(), ac);
 	}
     }
-    
+
     /**
      * Returns the value of this property
      */
     public Object get() {
 	return color;
     }
-    
+
     /**
      * Returns the color
      */
@@ -127,7 +130,7 @@ public class CssColorCSS2 extends CssProperty {
 	    return (org.w3c.css.values.CssColorCSS2) color;
 	}
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -135,14 +138,14 @@ public class CssColorCSS2 extends CssProperty {
     public boolean isSoftlyInherited() {
 	return color.equals(inherit);
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
 	return color.toString();
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -155,13 +158,13 @@ public class CssColorCSS2 extends CssProperty {
 	}
 	style0.cssColorCSS2 = this;
     }
-    
+
     /**
      * Get this property in the style.
      *
      * @param style The style where the property is
      * @param resolve if true, resolve the style to find this property
-     */  
+     */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
 	    return ((Css1Style) style).getColorCSS2();
@@ -169,22 +172,22 @@ public class CssColorCSS2 extends CssProperty {
 	    return ((Css1Style) style).cssColorCSS2;
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
      * @param value The other property.
-     */  
+     */
     public boolean equals(CssProperty property) {
-	return (property instanceof CssColorCSS2 && 
+	return (property instanceof CssColorCSS2 &&
 		color.equals(((CssColorCSS2) property).color));
     }
-    
+
     /**
      * Returns the name of this property
-     */  
+     */
     public String getPropertyName() {
 	return "color";
     }
-    
+
 }
