@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.6 2002-09-18 19:06:47 plehegar Exp $
+ * $Id: HTTPURL.java,v 1.7 2002-09-18 19:31:26 plehegar Exp $
  */
 package org.w3c.css.util;
 
@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.*;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -148,7 +148,7 @@ public class HTTPURL {
 	    String protocol = url.getProtocol();
 
 	    if (((port < 1024) && (port != 80))
-		|| ("http".equalsIgnoreCase(protocol))) {		
+		|| (!"http".equalsIgnoreCase(protocol))) {		
 		System.err.println( "[WARNING] : someone is trying to get the file: "
 				    + url );
 		throw new FileNotFoundException("import " + url +
