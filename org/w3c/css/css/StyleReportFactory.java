@@ -1,4 +1,4 @@
-// $Id: StyleReportFactory.java,v 1.2 2003-10-17 14:01:54 ylafon Exp $
+// $Id: StyleReportFactory.java,v 1.3 2003-10-20 13:30:06 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -27,9 +27,9 @@ public class StyleReportFactory {
 						warningLevel);
 	}
 	if (document.equals("soap12")) {
-	    return new StyleSheetGeneratorHTML2(ac, title, style,
-						"html",
-						warningLevel);
+	    return new StyleReportSOAP12(ac, title, style,
+					 document,
+					 warningLevel);
 	}
 	return new StyleSheetGeneratorHTML2(ac, title, style,
 					    "html",
