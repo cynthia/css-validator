@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.9 2003-01-08 12:48:14 sijtsche Exp $
+// $Id: CssFouffa.java,v 1.10 2003-04-13 15:32:16 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -618,21 +618,24 @@ public final class CssFouffa extends CssParser {
      */
     public static void loadConfig(String version, String profile) {
 	try {
+
+		URL allprops = CssFouffa.class.getResource("allcss.properties");
+
 	    if (version == null) {
-		// load the CssStyle
-		String classStyle = config.getProperty("style2");
-		Class style = Class.forName(classStyle);
-		CssSelectors.setStyle(style);
+			// load the CssStyle
+			String classStyle = config.getProperty("style2");
+			Class style = Class.forName(classStyle);
+			CssSelectors.setStyle(style);
 
-		// load properties
-		URL url = style.getResource(config.getProperty("properties2"));
-		properties = new CssPropertyFactory(url);
+			// load properties
+			URL url = style.getResource(config.getProperty("properties2"));
+			properties = new CssPropertyFactory(url, allprops);
 
-		// aural mode
-		String mode0 = config.getProperty("extended-parser");
-		if (mode0 != null) {
-		    mode = mode0.equals("true");
-		}
+			// aural mode
+			String mode0 = config.getProperty("extended-parser");
+			if (mode0 != null) {
+			    mode = mode0.equals("true");
+			}
 	    }
 	    else if (version.equals("css1")) {
 			// load the CssStyle
@@ -642,7 +645,7 @@ public final class CssFouffa extends CssParser {
 
 			// load properties
 			URL url = style.getResource(config.getProperty("properties1"));
-			properties = new CssPropertyFactory(url);
+			properties = new CssPropertyFactory(url, allprops);
 
 			// aural mode
 			String mode0 = config.getProperty("extended-parser");
@@ -654,7 +657,7 @@ public final class CssFouffa extends CssParser {
 			Class style = Class.forName(classStyle);
 			CssSelectors.setStyle(style);
 			URL url = style.getResource(config.getProperty("atsc-tv"));
-		    properties = new CssPropertyFactory(url);
+		    properties = new CssPropertyFactory(url, allprops);
 		}
 	    else if (version.equals("css2")) {
 			// load the CssStyle
@@ -665,13 +668,13 @@ public final class CssFouffa extends CssParser {
 			// load properties
 			if (profile == null || "".equals(profile)) {
 			    URL url = style.getResource(config.getProperty("properties2"));
-			    properties = new CssPropertyFactory(url);
+			    properties = new CssPropertyFactory(url, allprops);
 			} else if (profile.equals("mobile")) {
 			    URL url = style.getResource(config.getProperty("mobile"));
-			    properties = new CssPropertyFactory(url);
+			    properties = new CssPropertyFactory(url, allprops);
 			} else if (profile.equals("tv")) {
 				URL url = style.getResource(config.getProperty("tv"));
-				properties = new CssPropertyFactory(url);
+				properties = new CssPropertyFactory(url, allprops);
 			}
 
 			// aural mode
@@ -687,7 +690,7 @@ public final class CssFouffa extends CssParser {
 
 			// load properties
 			URL url = style.getResource(config.getProperty("properties3"));
-			properties = new CssPropertyFactory(url);
+			properties = new CssPropertyFactory(url, allprops);
 
 			// aural mode
 			String mode0 = config.getProperty("extended-parser");
@@ -701,7 +704,7 @@ public final class CssFouffa extends CssParser {
 			CssSelectors.setStyle(style);
 
 			URL url = style.getResource(config.getProperty("svg"));
-			properties = new CssPropertyFactory(url);
+			properties = new CssPropertyFactory(url, allprops);
 
 			// aural mode
 			String mode0 = config.getProperty("extended-parser");
@@ -715,7 +718,7 @@ public final class CssFouffa extends CssParser {
  			CssSelectors.setStyle(style);
 
  			URL url = style.getResource(config.getProperty("svgtiny"));
- 			properties = new CssPropertyFactory(url);
+ 			properties = new CssPropertyFactory(url, allprops);
 
  			// aural mode
  			String mode0 = config.getProperty("extended-parser");
@@ -729,7 +732,7 @@ public final class CssFouffa extends CssParser {
  			CssSelectors.setStyle(style);
 
  			URL url = style.getResource(config.getProperty("svgbasic"));
- 			properties = new CssPropertyFactory(url);
+ 			properties = new CssPropertyFactory(url, allprops);
 
  			// aural mode
  			String mode0 = config.getProperty("extended-parser");
