@@ -23,7 +23,7 @@
     <p>
       W3C CSS 検証サービスへようこそ!
     </p>
-    <hr>
+    <hr />
     <h2>カスケーディングスタイルシート(CSS)の検証を行います</h2>
     
     <p>
@@ -92,7 +92,7 @@
     
     <hr />
     <address><a href="Email.html">validator-css</a></address><br />
-    $Date: 2002-08-19 07:43:47 $
+    $Date: 2004-03-01 09:19:17 $
   </body>
 </html>
 
