@@ -44,7 +44,7 @@ import org.w3c.css.css.StyleSheetCom;
  * A CSS3 parser  
  *
  * @author Philippe Le Hégaret and Sijtsche Smeman
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -2126,6 +2126,12 @@ CssSelectors param = null;
      skipAfterExpression(e);
      {if (true) return null;}
     } catch (ParseException e) {
+     skipAfterExpression(e);
+     {if (true) return null;}
+    } catch (NullPointerException e) {
+	// NullPointerException happen if in handling a property
+	// something bad happen (like setting values on sub properties
+	// that had not been initialized (for an unknown reason yet).
      skipAfterExpression(e);
      {if (true) return null;}
     }
