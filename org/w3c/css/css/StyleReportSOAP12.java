@@ -1,4 +1,4 @@
-// $Id: StyleReportSOAP12.java,v 1.2 2003-10-20 13:30:39 ylafon Exp $
+// $Id: StyleReportSOAP12.java,v 1.3 2003-10-28 16:00:12 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -42,7 +42,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public final class StyleReportSOAP12 extends StyleReport
     implements CssPrinterStyle {
@@ -189,11 +189,6 @@ public final class StyleReportSOAP12 extends StyleReport
     // prints the stylesheet at the screen
     public void produceStyleSheet() {
 
-	Vector atRules = style.newGetRules();
-	for (int idx = 0; idx < atRules.size(); idx++) {
-	    out.print(((CssRuleList)atRules.
-		       elementAt(idx)).toHTML() + "\n");
-	}
     }
     
     public void print(CssProperty property) {
@@ -315,7 +310,7 @@ public final class StyleReportSOAP12 extends StyleReport
 			ret.append("\n<p>");
 			CssErrorToken terror = (CssErrorToken) error[i];
 			ret.append(terror.getErrorDescription()).append(" : ");
-			ret.append(terror.getSkippedString()).append('\n');			
+			ret.append(terror.getSkippedString()).append('\n');
 		    } else {
 			ret.append("\n<p>");
 			ret.append("<span class='error'>Uncaught error</span>");
