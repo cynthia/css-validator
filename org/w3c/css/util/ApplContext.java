@@ -4,14 +4,14 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+ * $Id: ApplContext.java,v 1.3 2003-10-24 16:47:45 ylafon Exp $
  */
 package org.w3c.css.util;
 
 import org.w3c.css.parser.Frame;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 public class ApplContext {
@@ -24,6 +24,7 @@ public class ApplContext {
     String cssversion;
     String profile;
     String input;
+    Class cssselectorstyle;
 
     int origin = -1;
     String medium;
@@ -52,6 +53,14 @@ public class ApplContext {
 
     public Frame getFrame() {
 	return frame;
+    }
+
+    public Class getCssSelectorsStyle() {
+	return cssselectorstyle;
+    }
+
+    public void setCssSelectorsStyle(Class s) {
+	cssselectorstyle = s;
     }
 
     public Messages getMsg() {

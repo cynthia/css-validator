@@ -44,7 +44,7 @@ import org.w3c.css.css.StyleSheetCom;
  * A CSS3 parser  
  *
  * @author Philippe Le Hégaret and Sijtsche Smeman
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -75,7 +75,7 @@ public abstract class CssParser implements CssParserConstants {
      * <code>true</code> if the parser should recognized Aural properties, 
      * <code>false</code> otherwise.
      */
-    protected static boolean mode;
+    protected boolean mode;
 
     /**
      * <code>true</code> if the parser had recognize a rule,
