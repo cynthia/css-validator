@@ -1,31 +1,9 @@
 //
-// $Id: StyleSheet.java,v 1.4 2003-10-27 18:37:26 ylafon Exp $
+// $Id: StyleSheet.java,v 1.5 2003-10-28 12:24:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: StyleSheet.java,v $
- * Revision 1.4  2003-10-27 18:37:26  ylafon
- * added debug statement in a debug test (avoid using stringbuffers unnecessarily)
- *
- * Revision 1.3  2003/07/30 06:57:39  sijtsche
- * atrule is passed to rulelist as atrule object
- *
- * Revision 1.2  2002/04/08 21:16:38  plehegar
- * New
- *
- * Revision 2.7  1997/08/26 14:25:01  plehegar
- * Updated
- * Supressed getAllApplyContext(CssSelectors selector)
- *
- *
- * Revision 2.1  1997/08/11 08:05:18  plehegar
- * Freeze
- *
- * Revision 1.4  1997/07/21 22:21:49  plehegar
- * Added a lot of stuff
- */
 
 package org.w3c.css.css;
 
@@ -50,7 +28,7 @@ import org.w3c.css.properties.CssProperty;
 /**
  * This class contains a style sheet with all rules, errors and warnings.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class StyleSheet {
 
@@ -62,7 +40,7 @@ public class StyleSheet {
     private Vector atRuleList;
     private boolean doNotAddRule;
     private boolean doNotAddAtRule;
-    private static final debug boolean = false;
+    private static final boolean debug = false;
 
     /**
      * Create a new StyleSheet.
