@@ -1,5 +1,5 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.10 2004-01-08 15:50:34 ylafon Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.11 2004-01-09 16:00:15 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
     
@@ -111,7 +111,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		    HtmlParser htmlParser;
 		    htmlParser = new HtmlParser(ac, "html4", urlString,
 						connection);
-//		    InputStream ucis = connection.getInputStream();
+		    InputStream ucis = connection.getInputStream();
 //		    if (ucis.markSupported()) {
 //			ucis.mark(16384);
 //		    }
@@ -130,7 +130,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 //				ucis.reset();
 //			    } catch (IOException ioex) {
 //				try {
-//				    ucis.close();
+				    ucis.close();
 //				} catch (Exception clex) {};
 //				connection = HTTPURL.getConnection(htmlURL,ac);
 //			    }
