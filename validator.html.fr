@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
@@ -7,7 +7,7 @@
 <link rev="made" href="mailto:www-validator@w3.org" />
 <link rev="start" href="./" title="Page d'accueil" />
 <style type="text/css" media="all">@import "./base.css";</style>
-<meta name="revision" content="$Id: validator.html.fr,v 1.7 2004-04-26 02:20:31 ot Exp $" />
+<meta name="revision" content="$Id: validator.html.fr,v 1.8 2004-05-20 15:26:54 bjoern Exp $" />
 </head>
 
 <body>
@@ -71,8 +71,8 @@ Validation CSS : <a href="#validate-by-uri">par URI</a> |
 <form method="post" enctype="multipart/form-data" action="validator">
 <p>Choisissez le document dont vous souhaitez la validation&nbsp;:</p>
 <p>
-	<label title="Choisissez un fichier local à télécharger vers le serveur et à valider" for="uploaded_file">Fichier CSS local :</label>
-	<input type="file" id="uploaded_file" name="uploaded_file" size="30" />
+	<label title="Choisissez un fichier local à télécharger vers le serveur et à valider" for="file">Fichier CSS local :</label>
+	<input type="file" id="file" name="file" size="30" />
 	<input name="usermedium" value="all" type="hidden"></input>
 	<label title="Envoyer le fichier à valider"><input type="submit" value="Soumettre le fichier" /></label>
 </p>
@@ -106,8 +106,8 @@ Validation CSS : <a href="#validate-by-uri">par URI</a> |
 	<a href="http://validator.w3.org/check/referer"><img src="http://www.w3.org/Icons/valid-xhtml10" height="31" width="88" alt="Valid XHTML 1.0!" /></a>
 	<a class="right" href="http://jigsaw.w3.org/css-validator"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
 	<a title="Faire part de vos remarques à l'équipe du service de validation du W3C" href="Email">L'équipe du validateur CSS du W3C</a><br />
-$Date: 2004-04-26 02:20:31 $
-<!-- SSI Template Version: $Id: validator.html.fr,v 1.7 2004-04-26 02:20:31 ot Exp $ -->
+$Date: 2004-05-20 15:26:54 $
+<!-- SSI Template Version: $Id: validator.html.fr,v 1.8 2004-05-20 15:26:54 bjoern Exp $ -->
 </address>
 <p class="copyright">
 <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2003
