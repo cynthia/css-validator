@@ -1,13 +1,15 @@
 // InterruptedGetException.java
-// $Id: InterruptedGetException.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+// $Id: InterruptedGetException.java,v 1.3 2004-02-27 12:22:06 ylafon Exp $
 // (c) COPYRIGHT MIT, INRIA and Keio, 1999.
 // Please first read the full copyright statement in file COPYRIGHT.html
  
-import java.io.*;
+package org.w3c.css.util;
+
+import java.io.IOException;
 
 /**
  * Thrown when a HTTP Get is interrupted
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Benoît Mahé (bmahe@w3.org)
  */
 public class InterruptedGetException extends IOException {
