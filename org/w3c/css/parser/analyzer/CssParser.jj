@@ -4,7 +4,10 @@
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
  * $Log: CssParser.jj,v $
- * Revision 1.11  2003-10-24 16:47:45  ylafon
+ * Revision 1.12  2004-01-16 17:26:04  ylafon
+ * don't ask, or see CssParser.java comments...
+ *
+ * Revision 1.11  2003/10/24 16:47:45  ylafon
  * Remove dangerous use of statics in CssFouffa and CssSelectorsStyle creation
  * using static and getClones, speed up of the configuration reuse
  * Various stringbuffer optimisation in toString() calls
@@ -123,7 +126,7 @@ import org.w3c.css.css.StyleSheetCom;
  * A CSS3 parser  
  *
  * @author Philippe Le Hégaret and Sijtsche Smeman
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public abstract class CssParser {
 
@@ -1584,7 +1587,13 @@ try {
  } catch (ParseException e) {
      skipAfterExpression(e);
      return null;
- }
+ } catch (NullPointerException e) {
+	// NullPointerException happen if in handling a property
+	// something bad happen (like setting values on sub properties
+	// that had not been initialized (for an unknown reason yet).
+     skipAfterExpression(e);
+     return null;
+  }
 }
 
 /**
