@@ -1,12 +1,15 @@
 //
-// $Id: CssValidator.java,v 1.4 2002-07-12 20:58:36 plehegar Exp $
+// $Id: CssValidator.java,v 1.5 2002-07-21 14:05:08 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssValidator.java,v $
- * Revision 1.4  2002-07-12 20:58:36  plehegar
+ * Revision 1.5  2002-07-21 14:05:08  sijtsche
+ * CSS3, SVG, SVG tiny and SVG basic added as validation options
+ *
+ * Revision 1.4  2002/07/12 20:58:36  plehegar
  * Removed dimensions for the icon
  *
  * Revision 1.3  2002/05/19 04:11:34  plehegar
@@ -71,7 +74,7 @@ import org.w3c.css.css.HTMLStyleSheetParser;
 import org.w3c.css.css.StyleSheet;
 import org.w3c.css.css.StyleSheetGeneratorHTML2;
 import org.w3c.css.aural.ACssStyle;
-import org.w3c.css.util.Util; 
+import org.w3c.css.util.Util;
 import org.w3c.css.util.FakeFile;
 import org.w3c.css.util.Messages;
 
@@ -80,27 +83,27 @@ import org.xml.sax.SAXParseException;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public final class CssValidator extends HttpServlet {
-    
+
     private CssParser parser;
     private URL htmlURL;
     private boolean auralMode;
-    
+
     private String returnMode;
-    
+
     final static String texthtml    = "text/html";
     final static String textplain   = "text/plain";
     final static String textunknwon = "text/unknown";
     final static String server_name = "Jigsaw/2.2.0 W3C_CSS_Validator_JFouffa/2.0";
-    
+
     /**
      * Create a new CssValidator.
      */
     public CssValidator() {
     }
-    
+
     /**
      * Initializes the servlet and logs the initialization. The init
      * method is called once, automatically, by the network service each
@@ -126,23 +129,23 @@ public final class CssValidator extends HttpServlet {
      *     For security reasons, you shoud be careful when you lunch the servlet
      *     on a HTTP server with special access authorization.
      * <DT>input
-     * <DD><code>html</code> if the user have an HTML input or <code>xml</code> 
+     * <DD><code>html</code> if the user have an HTML input or <code>xml</code>
      *     otherwise. <strong>deprecated</strong>
      * </DL>
      *
      * @param config servlet configuration information.
-     * @exception ServletException if a servlet exception has occurred.  
+     * @exception ServletException if a servlet exception has occurred.
      */
     public void init(ServletConfig config) throws ServletException {
 	super.init(config);
-	
+
 
 	// [SECURITY] don't forget this !
 	Util.servlet = true;
-	
+
 	if (config.getInitParameter("debug") != null) {
 	    // servlet debug mode
-	    // define a boolean property CSS.StyleSheet.debug if you want more debug.	    
+	    // define a boolean property CSS.StyleSheet.debug if you want more debug.
 	    Util.onDebug = config.getInitParameter("debug").equals("true");
 	    System.err.println( "RUN IN DEBUG MODE: "
 				+ config.getInitParameter("debug").equals("true"));
@@ -150,15 +153,15 @@ public final class CssValidator extends HttpServlet {
 	    System.err.println( "RUN IN DEBUG MODE but activated outside the servlet" );
 	}
 	parser = new StyleSheetParser();
-	
+
 	if ((config.getInitParameter("import") != null) &&
 	    (config.getInitParameter("import").equals("false"))) {
 	    Util.importSecurity = true;
 	}
-	
+
     }
-    
-    private PrintWriter getLocalPrintWriter(OutputStream os, String encoding) 
+
+    private PrintWriter getLocalPrintWriter(OutputStream os, String encoding)
 	throws IOException {
 	if (encoding != null) {
 	    return new PrintWriter(new OutputStreamWriter(os, encoding));
@@ -167,7 +170,7 @@ public final class CssValidator extends HttpServlet {
 	}
     }
 
-    /** 
+    /**
      * Performs the HTTP GET operation.  An HTTP BAD_REQUEST error is
      * reported if an error occurs. This servlet writers shouldn't set the
      * headers for the requested entity (content type and encoding).
@@ -205,7 +208,7 @@ public final class CssValidator extends HttpServlet {
      * @param req encapsulates the request to the servlet.
      * @param resp encapsulates the response from the servlet.
      * @exception ServletException if the request could not be handled.
-     * @exception IOException if detected when handling the request.  
+     * @exception IOException if detected when handling the request.
      * @see org.w3c.css.css.StyleSheetGenerator
      */
     public void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -239,21 +242,22 @@ public final class CssValidator extends HttpServlet {
 		System.err.println("SWITCH DEBUG MODE REQUEST");
 	    }
 	}
-	
+
 	text = Util.suppressWhiteSpace(text);
 	uri = Util.suppressWhiteSpace(uri);
-	
+
 	if (output == null) {
 	    output = texthtml;
 	}
 
 	if (profile != null && !"none".equals(profile)) {
-	    if ("css1".equals(profile) || "css2".equals(profile)) {
-		/*		"css3".equals(profile) || "svg".equals(profile)) { */
-		ac.setCssVersion(profile);
+	    if ("css1".equals(profile) || "css2".equals(profile) ||
+	    	"css3".equals(profile) || "svg".equals(profile) ||
+			"svgbasic".equals(profile) || "svgtiny".equals(profile)) {
+				ac.setCssVersion(profile);
 	    } else {
-		ac.setProfile(profile);
-		ac.setCssVersion("css2");
+			ac.setProfile(profile);
+			ac.setCssVersion("css2");
 	    }
 	} else {
 	    ac.setCssVersion("css2");
@@ -262,17 +266,17 @@ public final class CssValidator extends HttpServlet {
 	    System.err.println( "[DEBUG]  profile is : " + ac.getCssVersion()
 				+ " medium is " + usermedium);
 	}
-	
+
 	// verify the request
 	if ((uri == null) && (text == null)) {
 	    // res.sendError(res.SC_BAD_REQUEST, "You have send an invalid request.");
-	    handleError(res, "No file", 
+	    handleError(res, "No file",
                    new IOException(ac.getMsg().getServletString("invalid-request")));
 	    return;
 	}
 
 	in.close();
-	
+
 	// set the warning output
 	if (warning != null) {
 	    if (warning.equals("no")) {
@@ -285,12 +289,12 @@ public final class CssValidator extends HttpServlet {
 		}
 	    }
 	}
-	
+
 	// set the error erport
 	if (error != null && error.equals("no")) {
 	    errorReport = false;
 	}
-	
+
 	// debug mode
 	Util.verbose("\nServlet request ");
 	if (uri != null) {
@@ -298,9 +302,9 @@ public final class CssValidator extends HttpServlet {
 	} else {
 	    Util.verbose("TEXTAREA Input");
 	}
-	//	verbose("From " + req.getRemoteHost() + 
+	//	verbose("From " + req.getRemoteHost() +
 	//       " (" + req.getRemoteAddr() + ") at " + (new Date()) );
-	
+
 	if (uri != null) {
 	    // HTML document
 	    try {
@@ -314,7 +318,7 @@ public final class CssValidator extends HttpServlet {
 		}
 		res.setHeader("WWW-Authenticate", pex.getMessage());
 		res.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-	    } catch (Exception e) {		
+	    } catch (Exception e) {
 		handleError(res, uri, e);
 	    }
 	} else {
@@ -324,7 +328,7 @@ public final class CssValidator extends HttpServlet {
 
 	    // change to have the right parser
 	    parser.reInit();
-	    
+
 	    try {
 		parser.parseStyleElement(ac, new ByteArrayInputStream(text.getBytes()),
 					 null, usermedium,
@@ -339,7 +343,7 @@ public final class CssValidator extends HttpServlet {
 	}
 	Util.verbose("CssValidator: Request terminated.\n");
     }
-    
+
     /**
      * Performs the HTTP POST operation.  An HTTP BAD_REQUEST error is reported if
      * an error occurs. The headers that are set should include content type,
@@ -369,10 +373,10 @@ public final class CssValidator extends HttpServlet {
      * @param req encapsulates the request to the servlet
      * @param resp encapsulates the response from the servlet
      * @exception ServletException if the request could not be handled
-     * @exception IOException if detected when handling the request 
-     * @see org.w3c.css.css.StyleSheetGenerator 
+     * @exception IOException if detected when handling the request
+     * @see org.w3c.css.css.StyleSheetGenerator
      */
-    public void doPost(HttpServletRequest req, HttpServletResponse res) 
+    public void doPost(HttpServletRequest req, HttpServletResponse res)
 	throws ServletException, IOException {
 
 	ApplContext ac = new ApplContext(req.getHeader("Accept-Language"));
@@ -386,7 +390,7 @@ public final class CssValidator extends HttpServlet {
 	String error = null;
 	String profile = null;
 	String usermedium = null;
-	
+
 	ServletInputStream in = req.getInputStream();
 	byte[] buf = new byte[2048];
 	byte[] general = new byte[65536];
@@ -399,16 +403,16 @@ public final class CssValidator extends HttpServlet {
 		System.err.println("SWITCH DEBUG MODE REQUEST");
 	    }
 	}
-	
+
 	Util.verbose("\nCssValidator: Servlet request ");
-	//	verbose("From " + req.getRemoteHost() + 
+	//	verbose("From " + req.getRemoteHost() +
 	//		" (" + req.getRemoteAddr() + ") at " + (new Date()) );
 	Util.verbose("Content-length : " + req.getContentLength());
-	
+
 	if (req.getContentType().trim().startsWith("multipart/form-data")) {
 	    Util.verbose("Content-type : multipart/form-data");
 	}
-	
+
 	try {
 	    while ((len = in.readLine(buf, 0, buf.length)) != -1) {
 		if (len >= 2 && buf[len-1] == '\n' && buf[len-2] == '\r') {
@@ -418,7 +422,7 @@ public final class CssValidator extends HttpServlet {
 		if (len  != 0 && buf[len-1] == '\r') {
 		    buf[len-1] = (byte) '\n';
 		}
-		
+
 		if (general.length < (count + len)) {
 		    byte[] old = general;
 		    general = new byte[old.length * 2];
@@ -450,7 +454,7 @@ public final class CssValidator extends HttpServlet {
 		    profile = (String) tmp[i].getValue();
 		} else if (tmp[i].getName().equals("usermedium")) {
 		    usermedium = (String) tmp[i].getValue();
-		    ac.setMedium(usermedium);	
+		    ac.setMedium(usermedium);
 		}
 	    }
 	} catch (Exception e) {
@@ -461,13 +465,13 @@ public final class CssValidator extends HttpServlet {
 	    output = texthtml;
 	}
 	if (file == null || file.getSize() == 0) {
-	    //	    res.sendError(res.SC_BAD_REQUEST, 
+	    //	    res.sendError(res.SC_BAD_REQUEST,
 	    //	  "You have send an invalid request");
 	    handleError(res, "No file",
 			new IOException(ac.getMsg().getServletString("invalid-request")));
 	    return;
 	}
-	
+
 	// set the warning output
 	if (warning != null) {
 	    if (warning.equals("no")) {
@@ -480,42 +484,42 @@ public final class CssValidator extends HttpServlet {
 		}
 	    }
 	}
-	
+
 	// set the error report
 	if (error != null && error.equals("no")) {
 	    errorReport = false;
 	}
-	
+
 	Util.verbose("File : " + file.getName());
-	
+
 	parser.reInit();
 
 	try {
-	    parser.parseStyleElement(ac, file.getInputStream(), 
+	    parser.parseStyleElement(ac, file.getInputStream(),
 				     null, null,
-				     new URL("file://localhost/" 
+				     new URL("file://localhost/"
 					     + file.getName()),
 				     0);
-				     
-	    handleRequest(ac, res, "file://localhost/" + file.getName(), 
-			  parser.getStyleSheet(), output, 
+
+	    handleRequest(ac, res, "file://localhost/" + file.getName(),
+			  parser.getStyleSheet(), output,
 			  warningLevel, errorReport);
 	} catch (Exception e) {
 	    handleError(res, file.getName(), e);
 	}
-	
+
 	if (XMLinput) {
 	    parser = new StyleSheetParser();
 	}
-	
+
 	Util.verbose("CssValidator: Request terminated.\n");
     }
-    
+
     private void handleRequest(ApplContext ac,
 			       HttpServletResponse res,
-			       String title, StyleSheet styleSheet, 
-			       String output, int warningLevel, 
-			       boolean errorReport) 
+			       String title, StyleSheet styleSheet,
+			       String output, int warningLevel,
+			       boolean errorReport)
             throws Exception {
 
 	// I don't want cache for the response (inhibits proxy)
@@ -524,7 +528,7 @@ public final class CssValidator extends HttpServlet {
 
 	// Here is a little joke :-)
 	res.setHeader("Server", server_name);
-	
+
 	// set the content-type for the response
 	if (output.equals(texthtml)) {
 	    res.setContentType(texthtml);
@@ -542,10 +546,10 @@ public final class CssValidator extends HttpServlet {
 	}
 
 	if (styleSheet == null) {
-	    throw new IOException(ac.getMsg().getServletString("process") 
+	    throw new IOException(ac.getMsg().getServletString("process")
 				  + " " + title);
 	}
-	
+
 	if ("text/xml".equals(ac.getInput())
 	    && "text/html".equals(output)) {
 	    output = "xhtml";
@@ -553,10 +557,10 @@ public final class CssValidator extends HttpServlet {
 	    output = "html";
 	}
 	styleSheet.findConflicts(ac);
-	
+
 	StyleSheetGeneratorHTML2 style;
 
-	style = new StyleSheetGeneratorHTML2(ac, title, styleSheet, 
+	style = new StyleSheetGeneratorHTML2(ac, title, styleSheet,
 					     output,
 					     warningLevel);
 	if (!errorReport) {
@@ -571,7 +575,7 @@ public final class CssValidator extends HttpServlet {
 	    out.close();
 	}
     }
-    
+
     private void handleError(HttpServletResponse res,
 			     String title, Exception e) {
 	System.err.println( "[ERROR] " + title);
@@ -583,9 +587,9 @@ public final class CssValidator extends HttpServlet {
 
 	// Here is a little joke :-)
 	res.setHeader("Server", server_name);
-	res.setHeader("Content-Language", "en");	
-	res.setHeader("Content-Type", "text/html; charset=us-ascii");	
-	// res.setHeader("Content-Encoding", "us-ascii");	
+	res.setHeader("Content-Language", "en");
+	res.setHeader("Content-Type", "text/html; charset=us-ascii");
+	// res.setHeader("Content-Encoding", "us-ascii");
 
 	PrintWriter out = null;
 
@@ -620,7 +624,7 @@ public final class CssValidator extends HttpServlet {
 		    out.println(e.toString());
 		}
 		out.println("</p></div>");
-    
+
 		out.println("<hr />");
 		out.println("<p><img src='images/mwcss.gif' alt='made with CSS' /></p>");
 		out.println("<address><a href='Email.html'>www-validator-css</a></address>");
@@ -643,5 +647,5 @@ public final class CssValidator extends HttpServlet {
 	    }
 	}
     }
-    
+
 }
