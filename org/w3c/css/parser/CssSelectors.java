@@ -1,12 +1,15 @@
 //
-// $Id: CssSelectors.java,v 1.3 2002-07-12 16:39:21 plehegar Exp $
+// $Id: CssSelectors.java,v 1.4 2002-07-12 21:46:31 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssSelectors.java,v $
- * Revision 1.3  2002-07-12 16:39:21  plehegar
+ * Revision 1.4  2002-07-12 21:46:31  plehegar
+ * infinity loop. Bug reported by numagaki.
+ *
+ * Revision 1.3  2002/07/12 16:39:21  plehegar
  * Removed HTML tags check.
  *
  * Revision 1.2  2002/04/08 21:24:12  plehegar
@@ -53,7 +56,7 @@ import org.w3c.css.util.Util;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public final class CssSelectors implements CssSelectorsConstant {
 
@@ -626,7 +629,7 @@ public final class CssSelectors implements CssSelectorsConstant {
 		    specificity += 100;
 		}
 	    }
-	    for (Enumeration e = getPseudoClass(); e.hasMoreElements();) {
+	    for (Enumeration e = getPseudoClass(); e.hasMoreElements();e.nextElement(); ) {
 		specificity += 100;
 	    }
 	}
