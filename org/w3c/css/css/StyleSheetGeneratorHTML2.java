@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.6 2003-10-28 16:01:35 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.7 2003-11-04 13:28:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport
     implements CssPrinterStyle {
@@ -306,8 +306,8 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
 			ret.append(terror.getErrorDescription()).append(" : ");
 			ret.append(terror.getSkippedString()).append('\n');			
 		    } else {
-			ret.append("\n<p>");
-			ret.append("<span class='error'>Uncaught error</span>");
+			ret.append("\n<p>" +
+				 "<span class='error'>Uncaught error</span> ");
 			ret.append(ex).append('\n');
 			
 			if (ex instanceof NullPointerException) {
