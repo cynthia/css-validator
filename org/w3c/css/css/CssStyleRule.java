@@ -1,4 +1,4 @@
-// $Id: CssStyleRule.java,v 1.3 2003-10-20 13:01:14 ylafon Exp $
+// $Id: CssStyleRule.java,v 1.4 2003-10-20 13:02:01 ylafon Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -21,7 +21,7 @@ public class CssStyleRule {
     }
 
     public String toString() {
-	String ret = new StringBuffer();
+	StringBuffer ret = new StringBuffer();
 	if (selectors != null) {
 	    ret.append(selectors);
 	    ret.append(' ');
