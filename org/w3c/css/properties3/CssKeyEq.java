@@ -1,5 +1,5 @@
 //
-// $Id: CssKeyEq.java,v 1.2 2002-12-20 15:59:30 sijtsche Exp $
+// $Id: CssKeyEq.java,v 1.3 2004-05-30 05:06:52 bjoern Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -176,7 +176,7 @@ public class CssKeyEq extends CssProperty {
 	    counter++;
 	    val = expression.getValue();
 	    op = expression.getOperator();
-	    ks.clear();
+	    ks.removeAllElements();
 	}
 
     }

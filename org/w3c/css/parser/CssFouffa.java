@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.25 2004-05-06 12:53:32 ylafon Exp $
+// $Id: CssFouffa.java,v 1.26 2004-05-30 05:06:52 bjoern Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.25 $
+ * @version $Revision: 1.26 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -383,7 +383,7 @@ public final class CssFouffa extends CssParser {
 		    return;
 		}
 	    }
-	    visited.add(surl);
+	    visited.addElement(surl);
 	    
 	    if (Util.importSecurity) {
 		throw new FileNotFoundException("[SECURITY] You can't "+

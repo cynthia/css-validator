@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheet.java,v 1.5 2003-10-28 12:24:13 ylafon Exp $
+// $Id: StyleSheet.java,v 1.6 2004-05-30 05:06:51 bjoern Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -28,7 +28,7 @@ import org.w3c.css.properties.CssProperty;
 /**
  * This class contains a style sheet with all rules, errors and warnings.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class StyleSheet {
 
@@ -250,7 +250,7 @@ public class StyleSheet {
 						      properties, important);
 	    if (!atRuleList.isEmpty()) {
 		rulelist = (CssRuleList)atRuleList.lastElement();
-		useless = atRuleList.remove(rulelist);
+		useless = atRuleList.removeElement(rulelist);
 	    } else {
 		rulelist = new CssRuleList();
 	    }

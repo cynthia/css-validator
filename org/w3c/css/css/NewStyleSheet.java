@@ -1,5 +1,5 @@
 //
-// $Id: NewStyleSheet.java,v 1.2 2003-07-30 06:58:49 sijtsche Exp $
+// $Id: NewStyleSheet.java,v 1.3 2004-05-30 05:06:51 bjoern Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -101,7 +101,7 @@ public class NewStyleSheet {
 	CssRuleList rulelist;
 	if (!atRuleList.isEmpty()) {
 	    rulelist = (CssRuleList)atRuleList.lastElement();
-	    useless = atRuleList.remove(rulelist);
+	    useless = atRuleList.removeElement(rulelist);
 	} else {
 	    rulelist = new CssRuleList();
 	}

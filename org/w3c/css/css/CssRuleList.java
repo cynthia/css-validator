@@ -1,4 +1,4 @@
-// $Id: CssRuleList.java,v 1.6 2003-10-28 16:00:33 ylafon Exp $
+// $Id: CssRuleList.java,v 1.7 2004-05-30 05:06:51 bjoern Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -123,7 +123,7 @@ public class CssRuleList {
 
     public void clear() {
 	atRuleString = "";
-	rulelist.clear();
+	rulelist.removeAllElements();
 	pseudopage = "";
     }
 }

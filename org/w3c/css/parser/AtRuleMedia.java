@@ -1,12 +1,12 @@
 //
-// $Id: AtRuleMedia.java,v 1.5 2003-10-24 16:47:45 ylafon Exp $
+// $Id: AtRuleMedia.java,v 1.6 2004-05-30 05:06:52 bjoern Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleMedia.java
- * $Id: AtRuleMedia.java,v 1.5 2003-10-24 16:47:45 ylafon Exp $
+ * $Id: AtRuleMedia.java,v 1.6 2004-05-30 05:06:52 bjoern Exp $
  */
 package org.w3c.css.parser;
 
@@ -21,7 +21,7 @@ import java.util.Vector;
 /**
  * This class manages all media defines by CSS2
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @author  Philippe Le Hégaret
  */
 public class AtRuleMedia extends AtRule {
@@ -74,7 +74,7 @@ public class AtRuleMedia extends AtRule {
 	    if (prop.toString() != null) {
 		expression += " : " + prop.toString();
 	    }
-	    mediafeatures.add(expression);
+	    mediafeatures.addElement(expression);
 	}
     }
 

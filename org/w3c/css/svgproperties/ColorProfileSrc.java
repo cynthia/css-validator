@@ -1,5 +1,5 @@
 //
-// $Id: ColorProfileSrc.java,v 1.2 2002-07-26 14:09:31 sijtsche Exp $
+// $Id: ColorProfileSrc.java,v 1.3 2004-05-30 05:06:52 bjoern Exp $
 // From Sijtsche Smeman (sijtsche@wisdom.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -78,8 +78,8 @@ public class ColorProfileSrc extends CssProperty implements CssOperator {
 				}
 
 				if (val instanceof CssURL) {
-					cpSrcs.add(cpSrc);
-					cpSrcs.add(val);
+					cpSrcs.addElement(cpSrc);
+					cpSrcs.addElement(val);
 					cpSrc = null;
 					expression.next();
 				}
