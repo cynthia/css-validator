@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.5 2002-08-09 11:54:56 sijtsche Exp $
+// $Id: Css3Style.java,v 1.6 2002-08-09 12:29:14 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -119,6 +119,7 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	CssBackgroundSpacing cssBackgroundSpacing;
 	CssTextDecorationCSS3 cssTextDecoration;
 	CssWhiteSpaceCSS3 cssWhiteSpace;
+	CssWordSpacingCSS3 cssWordSpacing;
 
     public CssOpacity getOpacity() {
 	if (cssOpacity == null) {
@@ -1040,6 +1041,15 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 		return cssWhiteSpace;
 	}
 
+	public CssWordSpacingCSS3 getCssWordSpacing() {
+		if (cssWordSpacing == null) {
+			cssWordSpacing =
+				(CssWordSpacingCSS3) style.CascadingOrder(
+						new CssWordSpacingCSS3(), style, selector);
+		}
+		return cssWordSpacing;
+	}
+
 
     /**
      * Print this style
@@ -1348,6 +1358,9 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	}
 	if (cssWhiteSpace != null) {
 		cssWhiteSpace.print(printer);
+	}
+	if (cssWordSpacing != null) {
+		cssWordSpacing.print(printer);
 	}
     }
 
