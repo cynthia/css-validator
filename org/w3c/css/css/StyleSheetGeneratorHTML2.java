@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.10 2004-11-25 13:23:25 sijtsche Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.11 2004-11-25 13:29:30 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport
     implements CssPrinterStyle {
@@ -331,7 +331,7 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
     }
     
     public void produceWarning() {
-        System.out.println("In producewarning");
+
     boolean open = false;
     StringBuffer ret = new StringBuffer(1024);
     String oldSourceFile = "";
