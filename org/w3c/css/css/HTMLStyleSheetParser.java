@@ -1,5 +1,5 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.8 2004-01-08 14:26:35 ylafon Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.9 2004-01-08 14:26:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
     
@@ -212,7 +212,6 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
      * @param msg an error message information
      */
     public void notifyFatalError(HtmlTag root, Exception x, String s) {
-//	org.w3c.util.Trace.showTrace("notifyfatalerror: "+s + " [" + root +"]");
 	exception = x;
     }
     
