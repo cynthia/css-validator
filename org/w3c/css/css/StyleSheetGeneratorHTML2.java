@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.3 2002-05-19 04:16:20 plehegar Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.4 2003-10-17 13:54:02 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,9 +42,10 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
-public final class StyleSheetGeneratorHTML2 implements CssPrinterStyle {
+public final class StyleSheetGeneratorHTML2 extends StyleReport
+    implements CssPrinterStyle {
 
     StyleSheet style;
     Vector items;
