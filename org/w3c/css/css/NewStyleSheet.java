@@ -1,5 +1,5 @@
 //
-// $Id: NewStyleSheet.java,v 1.1 2002-03-13 19:55:01 plehegar Exp $
+// $Id: NewStyleSheet.java,v 1.2 2003-07-30 06:58:49 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -32,33 +32,33 @@ public class NewStyleSheet {
      * Add some errors to this style.
      *
      * @param errors Some errors.
-     */  
+     */
     public void addErrors(Errors errors) {
 	if (errors.getErrorCount() != 0) {
 	    getErrors().addErrors(errors);
 	}
     }
-    
+
     /**
      * Add some warnings to this style.
      *
      * @param warnings Some warnings.
-     */  
+     */
     public void addWarnings(Warnings warnings) {
 	if (warnings.getWarningCount() != 0)
 	    getWarnings().addWarnings(warnings);
     }
-    
+
     /**
      * Returns all errors.
-     */  
+     */
     public final Errors getErrors() {
 	return errors;
     }
-    
+
     /**
      * Returns all warnings.
-     */  
+     */
     public final Warnings getWarnings() {
 	return warnings;
     }
@@ -67,7 +67,7 @@ public class NewStyleSheet {
 
     public void newAtRule(AtRule atRule) {
 	CssRuleList rulelist = new CssRuleList();
-	rulelist.addAtRule(atRule.toString());
+	rulelist.addAtRule(atRule);
 	atRuleList.addElement(rulelist);
 	indent = "   ";
     }
@@ -96,7 +96,7 @@ public class NewStyleSheet {
     }
 
     public void endOfRule() {
-	CssStyleRule stylerule = new CssStyleRule(indent, selectortext, 
+	CssStyleRule stylerule = new CssStyleRule(indent, selectortext,
 						  properties, important);
 	CssRuleList rulelist;
 	if (!atRuleList.isEmpty()) {
@@ -112,7 +112,7 @@ public class NewStyleSheet {
     public void pseudoPage(String name) {
 	pseudopage = name;
     }
-    
+
     public Vector getRules() {
 	return atRuleList;
     }
