@@ -115,7 +115,7 @@
 
     <hr />
     <img src="images/mwcss.gif" alt="made with CSS" />
-    Philippe Le H&eacute;garet<br />
-    $Date: 2002-05-17 16:16:19 $
+    Philippe Le H&eacute;garet &amp; Sijtsche Smeman<br />
+    $Date: 2002-05-19 04:15:54 $
   </body>
 </html>
