@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.5 2003-02-28 00:14:37 plehegar Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.6 2003-09-24 17:58:07 plehegar Exp $
  */
 package org.w3c.css.css;
 
@@ -42,7 +42,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.xml.XMLCatalog;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 
@@ -231,7 +231,8 @@ public class XMLStyleSheetHandler implements ContentHandler,
 				       + "\" type=\"" + type
 				       + "\"" + "   href=\"" + href + "\"");
 		}
-		if (!"text/css".equalsIgnoreCase(type)) {
+		// Spif
+		if ((type != null) && !type.equalsIgnoreCase("text/css")) {
 		    return;
 		}
 		if (href == null) {
@@ -269,13 +270,13 @@ public class XMLStyleSheetHandler implements ContentHandler,
 					   + "should parse CSS url: " 
 					   + url.toString() + "]");
 		    }
-		    String media = atts.getValue(null, "media");
+		    String media = atts.getValue("media");
 		    if (media == null) {
 			media="all";
 		    }
 		    styleSheetParser.parseURL(ac,
 					      url, 
-					      atts.getValue(null, "title"),
+					      atts.getValue("title"),
 					      rel,
 					      media,
 					      StyleSheetOrigin.AUTHOR);
@@ -313,7 +314,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 		    text.setLength(0);
 		    inStyle = true;
 		}
-	    } else if (atts.getValue(null, "style") != null) {
+	    } else if (atts.getValue("style") != null) {
 		String value = atts.getValue("style");
 
 		if (value != null) { // here we have a style attribute
@@ -424,15 +425,21 @@ public class XMLStyleSheetHandler implements ContentHandler,
 	if (publicId != null) {
 	    if ("-//W3C//DTD XHTML 1.0 Transitional//EN".equals(publicId)) {
 		if (!"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd".equals(systemId)) {
-		    ac.getFrame().addWarning("xhtml.system_identifier.invalid");
+		    if (ac != null && ac.getFrame() != null) {
+			ac.getFrame().addWarning("xhtml.system_identifier.invalid");
+		    }
 		}
 	    } else if ("-//W3C//DTD XHTML 1.0 Strict//EN".equals(publicId)) {
 		if (!"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd".equals(systemId)) {
-		    ac.getFrame().addWarning("xhtml.system_identifier.invalid");
+		    if (ac != null && ac.getFrame() != null) {
+			ac.getFrame().addWarning("xhtml.system_identifier.invalid");
+		    }
 		}
 	    } else if ("-//W3C//DTD XHTML 1.0 Frameset//EN".equals(publicId)) {
 		if (!"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd".equals(systemId)) {
-		    ac.getFrame().addWarning("xhtml.system_identifier.invalid");
+		    if (ac != null && ac.getFrame() != null) {
+			ac.getFrame().addWarning("xhtml.system_identifier.invalid");
+		    }
 		}
 	    }
 	    uri = catalog.getProperty(publicId);
