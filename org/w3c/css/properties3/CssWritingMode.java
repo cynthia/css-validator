@@ -1,5 +1,5 @@
 //
-// $Id: CssWritingMode.java,v 1.1 2002-07-19 20:30:12 sijtsche Exp $
+// $Id: CssWritingMode.java,v 1.2 2003-07-11 14:04:40 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -31,17 +31,18 @@ import org.w3c.css.util.ApplContext;
 public class CssWritingMode extends CssProperty {
 
     CssValue mode;
-    
+
     static CssIdent lrtb = new CssIdent("lr-tb");
     static CssIdent rltb = new CssIdent("rl-tb");
     static CssIdent tbrl = new CssIdent("tb-rl");
     static CssIdent tblr = new CssIdent("tb-lr");
-    static CssIdent btrl = new CssIdent("bt-rl");
-    static CssIdent btlr = new CssIdent("bt-lr");
     static CssIdent lr = new CssIdent("lr");
     static CssIdent rl = new CssIdent("rl");
     static CssIdent tb = new CssIdent("tb");
-    
+	static CssIdent ltr = new CssIdent("ltr");
+    static CssIdent rtl = new CssIdent("rtl");
+
+
     /**
      * Create a new CssWritingMode
      */
@@ -69,16 +70,12 @@ public class CssWritingMode extends CssProperty {
 	    mode = tbrl;
 	    expression.next();
 	}
-	else if (val.equals(btrl)) { 
+	else if (val.equals(btrl)) {
 	    mode = btrl;
 	    expression.next();
 	}
 	else if (val.equals(tblr)) {
 	    mode = tblr;
-	    expression.next();
-	}
-	else if (val.equals(btlr)) {
-	    mode = btlr;
 	    expression.next();
 	}
 	else if (val.equals(lr)) {
@@ -91,6 +88,14 @@ public class CssWritingMode extends CssProperty {
 	}
 	else if (val.equals(tb)) {
 	    mode = tb;
+	    expression.next();
+	}
+	else if (val.equals(ltr)) {
+	    mode = ltr;
+	    expression.next();
+	}
+	else if (val.equals(rtl)) {
+	    mode = rtl;
 	    expression.next();
 	}
 	else if (val.equals(inherit)) {
@@ -138,7 +143,7 @@ public class CssWritingMode extends CssProperty {
 	return (property instanceof CssWritingMode &&
 		mode.equals(((CssWritingMode) property).mode));
     }
-    
+
     /**
      * Returns the name of this property
      */
