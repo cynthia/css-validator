@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.1 2002-07-19 20:30:11 sijtsche Exp $
+// $Id: Css3Style.java,v 1.2 2002-07-26 13:54:13 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -965,6 +965,7 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	return cssColumnBorderWidth;
     }
 
+    /*
     public CssColumnSpan getColumnSpan() {
 	if (cssColumnSpan == null) {
 	    cssColumnSpan =
@@ -973,6 +974,7 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	}
 	return cssColumnSpan;
     }
+    */
 /*
     public ACssVolume getACssVolume() {
 	if (cssACssVolume == null) {
