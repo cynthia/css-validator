@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.19 2003-10-25 10:01:09 ylafon Exp $
+// $Id: CssFouffa.java,v 1.20 2003-10-28 15:35:35 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.19 $
+ * @version $Revision: 1.20 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -136,7 +136,8 @@ public final class CssFouffa extends CssParser {
      * @exception   IOException  if an I/O error occurs.
      */
     public CssFouffa(ApplContext ac, InputStream input, URL file)
-	throws IOException {
+	throws IOException 
+    {
 	this(ac, input, file, 0);
     }
 
@@ -161,7 +162,10 @@ public final class CssFouffa extends CssParser {
      */
     private CssFouffa(ApplContext ac, InputStream in, URL url,
 		      Vector listeners, Vector urlvisited, 
-		      CssPropertyFactory cssfactory) throws IOException {
+		      CssPropertyFactory cssfactory, 
+		      boolean mode) 
+	throws IOException
+    {
 	this(ac, in, url, 0);
 	this.visited = urlvisited;
 	setURL(url);
@@ -169,6 +173,7 @@ public final class CssFouffa extends CssParser {
 	setApplContext(ac);
 	this.listeners = listeners;
 	this.properties = cssfactory;
+	this.mode = mode;
     }
 
     private void ReInit(ApplContext ac, InputStream input,
@@ -379,7 +384,7 @@ public final class CssFouffa extends CssParser {
 		CssFouffa cssFouffa
 		    = new CssFouffa(ac, importURL.getInputStream(),
 				    importedURL, listeners, visited, 
-				    properties);
+				    properties, mode);
 		cssFouffa.setOrigin(getOrigin());
 		if (!media.isEmpty()) {
 		    cssFouffa.setAtRule(media);
