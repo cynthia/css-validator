@@ -1,12 +1,15 @@
 //
-// $Id: CssValidator.java,v 1.7 2003-10-17 13:56:12 ylafon Exp $
+// $Id: CssValidator.java,v 1.8 2003-10-17 15:25:48 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssValidator.java,v $
- * Revision 1.7  2003-10-17 13:56:12  ylafon
+ * Revision 1.8  2003-10-17 15:25:48  ylafon
+ * removed trace
+ *
+ * Revision 1.7  2003/10/17 13:56:12  ylafon
  * user the StyleReport factory
  *
  * Revision 1.6  2003/10/16 20:56:15  ylafon
@@ -97,7 +100,7 @@ import org.xml.sax.SAXParseException;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -551,9 +554,6 @@ public final class CssValidator extends HttpServlet {
 	// Here is a little joke :-)
 //	res.setHeader("Server", server_name);
 
-	if (output != null) {
-	    System.out.println("*** output ["+output+"]");
-	}
 	// set the content-type for the response
 	MimeType outputMt = null;
 	if (output.equals(texthtml)) {
