@@ -1,5 +1,5 @@
 //
-// $Id: CssOverflowY.java,v 1.1 2002-12-20 15:58:14 sijtsche Exp $
+// $Id: CssOverflowY.java,v 1.2 2002-12-24 13:03:49 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYLeft 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -26,6 +26,7 @@ public class CssOverflowY extends CssProperty {
     static CssIdent visible = new CssIdent("visible");
     static CssIdent hidden = new CssIdent("hidden");
     static CssIdent scroll = new CssIdent("scroll");
+    static CssIdent initial = new CssIdent("initial");
 
     /**
      * Create a new CssOverflowY
@@ -58,6 +59,9 @@ public class CssOverflowY extends CssProperty {
 		    overflowY = val;
 		    expression.next();
 		} else if (val.equals(auto)) {
+		    overflowY = val;
+		    expression.next();
+		} else if (val.equals(initial)) {
 		    overflowY = val;
 		    expression.next();
 		} else {
