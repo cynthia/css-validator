@@ -3,9 +3,9 @@
  *
  * @author Vincent Mallet  (vmallet@sophia.inria.fr)
  *
- * $Id: LinkTag.java,v 1.3 2002-07-12 16:50:12 plehegar Exp $
+ * $Id: LinkTag.java,v 1.4 2003-02-28 00:16:31 plehegar Exp $
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 
 // TODO: handle the content-type properly.
@@ -83,7 +83,7 @@ public class LinkTag extends Flow {
 	
 	if ((rel != null || type != null)
 	    && ((rel == null) || rel.toLowerCase().indexOf("stylesheet") != -1)
-	    && ((type == null) || type.equals("text/css"))) {
+	    && ((type == null) || type.equalsIgnoreCase("text/css"))) {
 	    // we're dealing with a stylesheet...
 	    URL url;
 	    

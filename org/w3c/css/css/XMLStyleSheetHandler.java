@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.4 2002-07-12 20:32:42 plehegar Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.5 2003-02-28 00:14:37 plehegar Exp $
  */
 package org.w3c.css.css;
 
@@ -42,7 +42,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.xml.XMLCatalog;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 
@@ -135,12 +135,12 @@ public class XMLStyleSheetHandler implements ContentHandler,
 				   + "\"" + "   href=\"" + href + "\"?>");
 	    }
 
-	    if ("yes".equals(rel)) {
+	    if ("yes".equalsIgnoreCase(rel)) {
 		rel = "alternate stylesheet";
 	    } else {
 		rel = "stylesheet";
 	    }
-	    if ((type == null) || (href == null)) {
+	    if (href == null) {
 		int line = -1;
 
 		if (locator != null) {
@@ -154,7 +154,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 		styleSheetParser.notifyErrors(ers);
 	    }
 
-	    if (type.equals("text/css")) {
+	    if (type.equalsIgnoreCase("text/css")) {
 		// we're dealing with a stylesheet...
 		URL url;
 		
@@ -231,7 +231,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 				       + "\" type=\"" + type
 				       + "\"" + "   href=\"" + href + "\"");
 		}
-		if (type == null || !type.equals("text/css")) {		    
+		if (!"text/css".equalsIgnoreCase(type)) {
 		    return;
 		}
 		if (href == null) {

@@ -3,9 +3,9 @@
  *
  * @author Vincent Mallet  (vmallet@sophia.inria.fr)
  *
- * $Id: StyleTag.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
+ * $Id: StyleTag.java,v 1.3 2003-02-28 00:16:09 plehegar Exp $
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 
@@ -23,7 +23,7 @@ import html.parser.*;
  *
  * @author Vincent Mallet (Vincent.Mallet@sophia.inria.fr)
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public class StyleTag extends Block {
@@ -78,7 +78,7 @@ public class StyleTag extends Block {
 	String text = getChildText(htmlChild);
 	
 	if (text != null) {
-	    if ((type == null) || type.equals("text/css")) {
+	    if ((type == null) || type.equalsIgnoreCase("text/css")) {
 		if (media == null) {
 		    media = "all";
 		}
