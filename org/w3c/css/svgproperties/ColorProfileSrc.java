@@ -1,5 +1,5 @@
 //
-// $Id: ColorProfileSrc.java,v 1.1 2002-07-19 20:58:01 sijtsche Exp $
+// $Id: ColorProfileSrc.java,v 1.2 2002-07-26 14:09:31 sijtsche Exp $
 // From Sijtsche Smeman (sijtsche@wisdom.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -49,10 +49,7 @@ public class ColorProfileSrc extends CssProperty implements CssOperator {
 		char op = expression.getOperator();
 		CssValue val = expression.getValue();
 
-		if (val.equals(inherit)) {
-			cpSrc = inherit;
-			expression.next();
-		} else if ((val.toString().toLowerCase()).equals("srgb")) {
+		if ((val.toString().toLowerCase()).equals("srgb")) {
 			cpSrc = sRGB;
 			expression.next();
 		} else if (val instanceof CssFunction) {
