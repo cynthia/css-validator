@@ -1,12 +1,12 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.1 2002-03-13 19:55:01 plehegar Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.2 2002-04-08 21:16:38 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: HTMLStyleSheetParser.java,v $
- * Revision 1.1  2002-03-13 19:55:01  plehegar
+ * Revision 1.2  2002-04-08 21:16:38  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:23:27  plehegar
@@ -32,7 +32,7 @@ import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
     
@@ -73,7 +73,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		    }
 		} catch (html.parser.XMLInputException e) {
 		    XMLStyleSheetHandler handler = new XMLStyleSheetHandler(htmlURL, ac);
-		    handler.parse(htmlURL, ac.getCredential());
+		    handler.parse(htmlURL);
 		    style = handler.getStyleSheet();
 		    if (style != null) {
 			style.setType("text/xml");
@@ -96,7 +96,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		// @@ hum, maybe? (plh, yes probably :-) )
 		String credential = ac.getCredential();
 
-		connection = HTTPURL.getConnection(htmlURL, ac.getCredential());
+		connection = HTTPURL.getConnection(htmlURL, ac);
 
 		contentType = connection.getContentType();
 		if (contentType == null) {

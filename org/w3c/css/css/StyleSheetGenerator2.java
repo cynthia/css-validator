@@ -33,7 +33,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Util;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public final class StyleSheetGenerator2 {
     
@@ -51,8 +51,6 @@ public final class StyleSheetGenerator2 {
     private static Properties availableFormat;
     private static Hashtable formats = new Hashtable();
 
-    //    private NewStyleSheet stylesheet3 = new NewStyleSheet();
-    
     /**
      * Create a new StyleSheetGenerator2
      *

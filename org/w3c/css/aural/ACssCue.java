@@ -1,12 +1,12 @@
 //
-// $Id: ACssCue.java,v 1.1 2002-03-13 19:54:48 plehegar Exp $
+// $Id: ACssCue.java,v 1.2 2002-04-08 21:16:56 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ACssCue.java,v $
- * Revision 1.1  2002-03-13 19:54:48  plehegar
+ * Revision 1.2  2002-04-08 21:16:56  plehegar
  * New
  *
  * Revision 2.1  1997/08/29 13:11:50  plehegar
@@ -63,7 +63,7 @@ import org.w3c.css.util.ApplContext;
  * this content, rather than using two special-purpose properties. This
  * would be more general.</p>
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class ACssCue extends ACssProperty implements CssOperator {
     

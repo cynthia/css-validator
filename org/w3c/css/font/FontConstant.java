@@ -1,12 +1,12 @@
 //
-// $Id: FontConstant.java,v 1.1 2002-03-13 19:55:10 plehegar Exp $
+// $Id: FontConstant.java,v 1.2 2002-04-08 21:17:08 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: FontConstant.java,v $
- * Revision 1.1  2002-03-13 19:55:10  plehegar
+ * Revision 1.2  2002-04-08 21:17:08  plehegar
  * New
  *
  * Revision 1.3  1997/07/30 13:19:59  plehegar
@@ -22,7 +22,7 @@
 package org.w3c.css.font;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public interface FontConstant {
 

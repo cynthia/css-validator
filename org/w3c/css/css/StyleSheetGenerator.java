@@ -1,12 +1,12 @@
 //
-// $Id: StyleSheetGenerator.java,v 1.1 2002-03-13 19:55:01 plehegar Exp $
+// $Id: StyleSheetGenerator.java,v 1.2 2002-04-08 21:16:38 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetGenerator.java,v $
- * Revision 1.1  2002-03-13 19:55:01  plehegar
+ * Revision 1.2  2002-04-08 21:16:38  plehegar
  * New
  *
  * Revision 1.2  1998/02/25 09:25:40  plehegar
@@ -73,7 +73,7 @@ import org.w3c.css.util.Util;
 
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public final class StyleSheetGenerator implements CssPrinterStyle {
     

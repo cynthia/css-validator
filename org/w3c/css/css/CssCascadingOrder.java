@@ -1,12 +1,12 @@
 //
-// $Id: CssCascadingOrder.java,v 1.1 2002-03-13 19:55:01 plehegar Exp $
+// $Id: CssCascadingOrder.java,v 1.2 2002-04-08 21:16:38 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /**
  * $Log: CssCascadingOrder.java,v $
- * Revision 1.1  2002-03-13 19:55:01  plehegar
+ * Revision 1.2  2002-04-08 21:16:38  plehegar
  * New
  *
  * Revision 1.5  1997/08/26 14:25:19  plehegar
@@ -115,7 +115,7 @@ import org.w3c.css.util.Util;
  * rules. In a transition phase, this policy will make it easier for stylistic
  * attributes to coexist with style sheets.
  *
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.2 $ 
  */
 public final class CssCascadingOrder {
     

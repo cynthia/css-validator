@@ -1,5 +1,5 @@
 //
-// $Id: Page.java,v 1.1 2002-03-13 19:55:21 plehegar Exp $
+// $Id: Page.java,v 1.2 2002-04-08 21:17:21 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -20,7 +20,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class Page extends CssProperty 
     implements CssOperator {

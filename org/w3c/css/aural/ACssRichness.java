@@ -1,12 +1,12 @@
 //
-// $Id: ACssRichness.java,v 1.1 2002-03-13 19:54:48 plehegar Exp $
+// $Id: ACssRichness.java,v 1.2 2002-04-08 21:16:56 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ACssRichness.java,v $
- * Revision 1.1  2002-03-13 19:54:48  plehegar
+ * Revision 1.2  2002-04-08 21:16:56  plehegar
  * New
  *
  */
@@ -36,7 +36,7 @@ import org.w3c.css.util.ApplContext;
  * <em>carries</em> --reducing richness produces a soft, mellifluous
  * voice.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class ACssRichness extends ACssProperty {
     
