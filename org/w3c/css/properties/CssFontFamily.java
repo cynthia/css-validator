@@ -1,12 +1,15 @@
 //
-// $Id: CssFontFamily.java,v 1.2 2002-04-08 21:17:43 plehegar Exp $
+// $Id: CssFontFamily.java,v 1.3 2002-08-07 12:57:54 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssFontFamily.java,v $
- * Revision 1.2  2002-04-08 21:17:43  plehegar
+ * Revision 1.3  2002-08-07 12:57:54  sijtsche
+ * value none added
+ *
+ * Revision 1.2  2002/04/08 21:17:43  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:13:46  plehegar
@@ -34,7 +37,7 @@ import org.w3c.css.values.CssString;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
 
-/** 
+/**
  *   <H4>
  *     &nbsp;&nbsp; 'font-family'
  *   </H4>
@@ -89,36 +92,39 @@ import org.w3c.css.util.ApplContext;
  *   If quoting is omitted, any whitespace characters before and after the font
  *   name are ignored and any sequence of whitespace characters inside the font
  *   name is converted to a single space.
- * 
+ *
  * @see CssFont
- * @version $Revision: 1.2 $ 
+ * @version $Revision: 1.3 $
  */
 public class CssFontFamily extends CssProperty implements CssOperator {
-    
+
     Vector family_name = new Vector();
 
     boolean inheritedValue;
 
+	CssIdent none = new CssIdent("none");
+	CssValue fontfamily = null;
+
     static String[] genericFamily = { "serif", "sans-serif", "cursive",
 				      "fantasy", "monospace" };
-    
+
     static int[] genericFamilyHash;
-    
+
     boolean withSpace = false;
 
     /**
      * Create a new CssFontFamily
      */
     public CssFontFamily() {
-    }  
-    
+    }
+
     /**
      * Create a new CssFontFamily
      *
      * @param expression the font name
      * @exception InvalidParamException The expression is incorrect
      */
-    public CssFontFamily(ApplContext ac, CssExpression expression) 
+    public CssFontFamily(ApplContext ac, CssExpression expression)
 	    throws InvalidParamException {
 	boolean family = true;
 	CssValue val = expression.getValue();
@@ -126,24 +132,28 @@ public class CssFontFamily extends CssProperty implements CssOperator {
 
 	setByUser();
 	//@@ and if name is already in the vector ?
-	
+
 
 	if (val.equals(inherit)) {
 	    inheritedValue = true;
 	    expression.next();
 	    return;
+	} else if (val.equals(none)) {
+		fontfamily = none;
+		expression.next();
+		return;
 	}
 
 	while (family) {
 	    val = expression.getValue();
 	    op = expression.getOperator();
-	    
+
 	    if ((op != COMMA) && (op != SPACE)) {
-		throw new InvalidParamException("operator", 
+		throw new InvalidParamException("operator",
 						((new Character(op)).toString()),
 						ac);
 	    }
-	    
+
 	    if (val instanceof CssString) {
 		String familyName = null;
 		if (op == COMMA) { // "helvetica", "roman"
@@ -172,9 +182,9 @@ public class CssFontFamily extends CssProperty implements CssOperator {
 		    expression.next();
 		} else {
 		    CssValue next = expression.getNextValue();
-		    
+
 		    if (next instanceof CssIdent) {
-			CssIdent New = new CssIdent(val.get() + " " 
+			CssIdent New = new CssIdent(val.get() + " "
 						    + next.get());
 			withSpace = true;
 			expression.remove();
@@ -197,31 +207,35 @@ public class CssFontFamily extends CssProperty implements CssOperator {
 	    ac.getFrame().addWarning("no-generic-family", "font-family");
 	}
     }
-    
+
     /**
      * Returns all fonts name
-     */  
+     */
     public Enumeration elements() {
 	return family_name.elements();
     }
-    
+
     /**
      * Returns the size
      */
     public int size() {
 	return family_name.size();
     }
-    
+
     /**
      * Returns the font (null if no font)
-     */  
+     */
     public Object get() {
-	if (family_name.size() == 0) {
-	    return null;
-	}
-	return family_name.firstElement();
+
+		if (fontfamily != null) {
+			return fontfamily;
+		} else if (family_name.size() == 0) {
+		    return null;
+		}
+
+		return family_name.firstElement();
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -229,11 +243,11 @@ public class CssFontFamily extends CssProperty implements CssOperator {
     public boolean isSoftlyInherited() {
 	return inheritedValue;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
-    public String toString() {  
+    public String toString() {
 	if (inheritedValue) {
 	    return inherit.toString();
 	} else {
@@ -247,12 +261,12 @@ public class CssFontFamily extends CssProperty implements CssOperator {
 	    return r.substring(2);
 	}
     }
-    
+
     String convertString (String value) {
 	if (value.indexOf('"') != -1) {
 	    return '\'' + value + '\'';
 	} else if (value.indexOf('\'') != -1) {
-	    return '"' + value + '"';	    
+	    return '"' + value + '"';
 	} else {
 	    return value;
 	}
@@ -260,11 +274,11 @@ public class CssFontFamily extends CssProperty implements CssOperator {
 
     /**
      * Returns the name of this property
-     */  
+     */
     public String getPropertyName() {
 	return "font-family";
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -277,13 +291,13 @@ public class CssFontFamily extends CssProperty implements CssOperator {
 	    style.addRedefinitionWarning(ac, this);
 	cssFont.fontFamily = this;
     }
-    
+
     /**
      * Get this property in the style.
      *
      * @param style The style where the property is
      * @param resolve if true, resolve the style to find this property
-     */  
+     */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
 	    return ((Css1Style) style).getFontFamily();
@@ -291,40 +305,40 @@ public class CssFontFamily extends CssProperty implements CssOperator {
 	    return ((Css1Style) style).cssFont.fontFamily;
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
      * @param value The other property.
-     */  
+     */
     public boolean equals(CssProperty property) {
 	return false; //@@ FIXME
     }
-    
+
     private static String trimToOneSpace(String name) {
 	int count = name.length();
 	char[] dst = new char[count];
 	char[] src = new char[count];
 	int index = -1;
-	
+
 	name.getChars(0, count, src, 0);
 	for(int i=0; i < count; i++)
-	    if ( i == 0 || ! Util.isWhiteSpace(src[i]) || 
-		 ( Util.isWhiteSpace(src[i]) && 
+	    if ( i == 0 || ! Util.isWhiteSpace(src[i]) ||
+		 ( Util.isWhiteSpace(src[i]) &&
 		   !Util.isWhiteSpace(dst[index]) ) )
 		dst[++index] = src[i];
-	
+
 	return new String(dst, 0, index+1);
     }
-    
+
     /**
      * Returns true if this property contains a generic family name
-     */  
+     */
     public boolean containsGenericFamily() {
 	if (family_name.size() == 0) {
 	    return true;
 	} else {
-	    for (Enumeration e = family_name.elements(); 
+	    for (Enumeration e = family_name.elements();
 		 e.hasMoreElements();) {
 		int hash = ((String) e.nextElement()).toLowerCase().hashCode();
 		for (int i = 0; i < genericFamilyHash.length; i++) {
@@ -335,8 +349,8 @@ public class CssFontFamily extends CssProperty implements CssOperator {
 	    return false;
 	}
     }
-    
-    
+
+
     static {
 	genericFamilyHash = new int[genericFamily.length];
 	for (int i = 0; i < genericFamily.length; i++) {
