@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.15 2003-10-17 09:27:26 ylafon Exp $
+// $Id: CssFouffa.java,v 1.16 2003-10-17 09:29:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -49,7 +49,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -320,11 +320,9 @@ public final class CssFouffa extends CssParser {
 	String surl = url.toString();
 	if (visited == null) {
 	    visited = new Vector(2);
-	    System.out.println("importing 0 level ");
 	} else {
 	    // check that we didn't already got this URL, or that the
 	    // number of imports is not exploding
-	    System.out.println("importing " + visited.size() + " level ");
 	    if (visited.contains(surl)) {
 		CssError cerr = new CssError(new Exception("Import loop"
 							   +" detected in "
