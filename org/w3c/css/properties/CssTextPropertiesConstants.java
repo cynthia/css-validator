@@ -1,12 +1,15 @@
 //
-// $Id: CssTextPropertiesConstants.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
+// $Id: CssTextPropertiesConstants.java,v 1.3 2002-08-19 07:40:17 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssTextPropertiesConstants.java,v $
- * Revision 1.2  2002-04-08 21:17:44  plehegar
+ * Revision 1.3  2002-08-19 07:40:17  sijtsche
+ * new values added
+ *
+ * Revision 1.2  2002/04/08 21:17:44  plehegar
  * New
  *
  * Revision 1.2  1997/07/30 13:20:21  plehegar
@@ -19,26 +22,35 @@
 package org.w3c.css.properties;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface CssTextPropertiesConstants {
-  public static String[] TEXTDECORATION = { 
+  public static String[] TEXTDECORATION = {
     "underline", "overline", "line-through", "blink", "inherit" };
-					    
-  public static String[] TEXTDECORATIONMOB = { 
+
+  public static String[] TEXTDECORATIONTV = {
+	"none", "underline", "overline", "line-through", "inherit" };
+
+  public static String[] TEXTDECORATIONMOB = {
     "underline", "inherit" };
 
-  public static String[] VERTICALALIGN = { 
+  public static String[] VERTICALALIGN = {
     "baseline", "sub", "super", "top", "text-top", "middle",
     "bottom", "text-bottom", "inherit" };
 
-  public static String[] VERTICALALIGNMOB = { 
+  public static String[] VERTICALALIGNMOB = {
     "baseline", "sub", "super", "inherit" };
+
+  public static String[] VERTICALALIGNTV = {
+    "baseline", "sub", "super", "top", "middle", "bottom", "inherit" };
 
   public static String[] TEXTTRANSFORM = {
     "none", "capitalize", "uppercase", "lowercase", "inherit" };
 
   public static String[] TEXTALIGN = {
     "left", "right", "center", "justify", "inherit", "start", "end" };
-   
+
+  public static String[] TEXTALIGNTV = {
+	"left", "right", "center", "justify", "inherit" };
+
 }
