@@ -1,4 +1,4 @@
-// $Id: CssRuleList.java,v 1.4 2003-10-20 12:52:17 ylafon Exp $
+// $Id: CssRuleList.java,v 1.5 2003-10-20 13:02:31 ylafon Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -53,7 +53,7 @@ public class CssRuleList {
 	} else {
 	    if (!atRuleString.equals("")) {
 		ret.append(atRuleString);
-		ret.appent(' ');
+		ret.append(' ');
 		ret.append('{');
 		ret.append('\n');
 		indent = "   ";
