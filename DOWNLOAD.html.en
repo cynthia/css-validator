@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-fr" xml:lang="en-fr">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <title>CSS Validator Project</title>
 
@@ -43,6 +43,6 @@
       <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" 
 	alt="Valid CSS!" /></a>
     <a href="Email.html">validator-css</a><br />
-    $Date: 2002-05-17 16:26:14 $
+    $Date: 2002-05-18 21:40:55 $
   </body>
 </html>
