@@ -1,12 +1,15 @@
 //
-// $Id: CssListStyleConstants.java,v 1.3 2002-08-19 07:40:17 sijtsche Exp $
+// $Id: CssListStyleConstants.java,v 1.4 2002-08-21 09:01:24 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssListStyleConstants.java,v $
- * Revision 1.3  2002-08-19 07:40:17  sijtsche
+ * Revision 1.4  2002-08-21 09:01:24  sijtsche
+ * new values added for list-style-type
+ *
+ * Revision 1.3  2002/08/19 07:40:17  sijtsche
  * new values added
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -22,19 +25,22 @@
 package org.w3c.css.properties;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public interface CssListStyleConstants {
 
   public static String[] LISTSTYLETYPE = {
-      "disc", "circle", "square", "decimal", "decimal-leading-zero",
-      "lower-roman", "upper-roman",
-      "lower-greek", "upper-greek",
-      "lower-latin", "upper-latin",
-      "lower-alpha", "upper-alpha",
-      "hebrew", "armenian", "georgian", "cjk-ideographic",
-      "katakana", "katakana-iroha",
-      "hiragana", "hiragana-iroha",
+      "disc", "circle", "square", "box", "decimal", "decimal-leading-zero",
+      "lower-roman", "upper-roman", "lower-greek", "lower-latin", "upper-latin",
+      "lower-alpha", "upper-alpha", "hebrew", "armenian", "georgian", "cjk-ideographic",
+      "katakana", "katakana-iroha", "hiragana", "hiragana-iroha",
+      "simp-chinese-formal", "simp-chinese-informal", "trad-chinese-formal",
+      "trad-chinese-informal", "japanese-formal", "japanese-informal", "hangul",
+      "hangul-consonant", "cjk-heavenly-stem", "cjk-earthly-branch", "arabic-indic",
+      "persian", "devanagari", "gurmukhi", "gurajati", "kannada", "malayalam",
+      "bengali", "tamil", "telugu", "thai", "lao", "myanmar", "khmer",
+      "hangule-consonant", "ethiopic-halehame", "ethiopic-abegede", "ethiopic-numeric",
+      "urdu", "oriya",
       "none", "inherit" };
 
     public static String[] LISTSTYLETYPECSS1 = {
