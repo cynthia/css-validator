@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.5 2003-10-28 15:36:32 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.6 2003-10-28 16:01:35 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport
     implements CssPrinterStyle {
@@ -179,7 +179,8 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
 
 	Vector atRules = style.newGetRules();
 	for (int idx = 0; idx < atRules.size(); idx++) {
-	    out.print(((CssRuleList)atRules.elementAt(idx)).toHTML());
+//	    out.print(((CssRuleList)atRules.elementAt(idx)).toHTML());
+	    ((CssRuleList)atRules.elementAt(idx)).toHTML(out);
 	    out.print("\n");
 	}
     }
