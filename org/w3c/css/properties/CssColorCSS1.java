@@ -1,12 +1,15 @@
 //
-// $Id: CssColorCSS1.java,v 1.3 2003-08-28 19:50:08 plehegar Exp $
+// $Id: CssColorCSS1.java,v 1.4 2003-08-29 12:31:59 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssColorCSS1.java,v $
- * Revision 1.3  2003-08-28 19:50:08  plehegar
+ * Revision 1.4  2003-08-29 12:31:59  plehegar
+ * Fixed equals
+ *
+ * Revision 1.3  2003/08/28 19:50:08  plehegar
  * Bug fix from Sijtsche
  *
  * Revision 1.2  2002/04/08 21:17:43  plehegar
@@ -72,7 +75,7 @@ import org.w3c.css.util.ApplContext;
  *   EM { color: red }              /* natural language * /
 				     *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
 									 * </PRE>
-									 * @version $Revision: 1.3 $
+									 * @version $Revision: 1.4 $
 									 */
 public class CssColorCSS1 extends CssProperty {
 
@@ -179,8 +182,8 @@ public class CssColorCSS1 extends CssProperty {
      * @param value The other property.
      */
     public boolean equals(CssProperty property) {
-	return (property instanceof CssColor &&
-		color.equals(((CssColor) property).color));
+	return (property instanceof CssColorCSS1 &&
+		color.equals(((CssColorCSS1) property).color));
     }
 
     /**
