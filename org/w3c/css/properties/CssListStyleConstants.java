@@ -1,12 +1,15 @@
 //
-// $Id: CssListStyleConstants.java,v 1.4 2002-08-21 09:01:24 sijtsche Exp $
+// $Id: CssListStyleConstants.java,v 1.5 2002-12-20 16:03:36 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssListStyleConstants.java,v $
- * Revision 1.4  2002-08-21 09:01:24  sijtsche
+ * Revision 1.5  2002-12-20 16:03:36  sijtsche
+ * new values added
+ *
+ * Revision 1.4  2002/08/21 09:01:24  sijtsche
  * new values added for list-style-type
  *
  * Revision 1.3  2002/08/19 07:40:17  sijtsche
@@ -25,7 +28,7 @@
 package org.w3c.css.properties;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public interface CssListStyleConstants {
 
@@ -41,7 +44,7 @@ public interface CssListStyleConstants {
       "bengali", "tamil", "telugu", "thai", "lao", "myanmar", "khmer",
       "hangule-consonant", "ethiopic-halehame", "ethiopic-abegede", "ethiopic-numeric",
       "urdu", "oriya",
-      "none", "inherit" };
+      "none", "inherit", "check", "diamond" };
 
     public static String[] LISTSTYLETYPECSS1 = {
 	"disc", "circle", "square", "decimal",
