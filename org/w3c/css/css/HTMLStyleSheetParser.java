@@ -1,5 +1,5 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.9 2004-01-08 14:26:59 ylafon Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.10 2004-01-08 15:50:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
     
@@ -111,10 +111,10 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		    HtmlParser htmlParser;
 		    htmlParser = new HtmlParser(ac, "html4", urlString,
 						connection);
-		    InputStream ucis = connection.getInputStream();
-		    if (ucis.markSupported()) {
-			ucis.mark(16384);
-		    }
+//		    InputStream ucis = connection.getInputStream();
+//		    if (ucis.markSupported()) {
+//			ucis.mark(16384);
+//		    }
 		    try {
 			Util.fromHTMLFile = true;
 			htmlParser.addParserListener(this);
@@ -125,18 +125,18 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 			}
 		    } catch (html.parser.XMLInputException e) {
 			isXML = true;
-			if (ucis.markSupported()) {
-			    try {
-				ucis.reset();
-			    } catch (IOException ioex) {
-				try {
-				    ucis.close();
-				} catch (Exception clex) {};
-				connection = HTTPURL.getConnection(htmlURL,ac);
-			    }
-			} else {
+//			if (ucis.markSupported()) {
+//			    try {
+//				ucis.reset();
+//			    } catch (IOException ioex) {
+//				try {
+//				    ucis.close();
+//				} catch (Exception clex) {};
+//				connection = HTTPURL.getConnection(htmlURL,ac);
+//			    }
+//			} else {
 			    connection = HTTPURL.getConnection(htmlURL, ac);
-			}
+//			}
 		    } finally {
 			Util.fromHTMLFile = false;
 		    }
