@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.10 2003-04-13 15:32:16 sijtsche Exp $
+// $Id: CssFouffa.java,v 1.11 2003-07-02 14:39:50 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -22,7 +22,6 @@ import java.util.Vector;
 import java.util.Hashtable;
 import java.util.Enumeration;
 import java.util.Properties;
-import javax.servlet.http.HttpServletResponse;
 
 import org.w3c.css.properties.CssProperty;
 import org.w3c.css.parser.analyzer.CssParser;
@@ -50,7 +49,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public final class CssFouffa extends CssParser {
 

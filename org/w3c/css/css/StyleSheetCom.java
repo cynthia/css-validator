@@ -1,12 +1,15 @@
 //
-// $Id: StyleSheetCom.java,v 1.4 2002-08-19 07:33:36 sijtsche Exp $
+// $Id: StyleSheetCom.java,v 1.5 2003-07-02 14:39:03 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetCom.java,v $
- * Revision 1.4  2002-08-19 07:33:36  sijtsche
+ * Revision 1.5  2003-07-02 14:39:03  plehegar
+ * Removed HttpServletResponse import
+ *
+ * Revision 1.4  2002/08/19 07:33:36  sijtsche
  * TV profile added
  *
  * Revision 1.3  2002/07/22 13:20:38  sijtsche
@@ -31,7 +34,6 @@ import java.net.MalformedURLException;
 
 import html.tags.HtmlTree;
 import html.tags.HtmlParser;
-import javax.servlet.http.HttpServletResponse;
 import html.tags.HtmlParserListener;
 import html.tags.HtmlTag;
 
@@ -44,7 +46,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.4 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.5 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 

@@ -1,12 +1,15 @@
 //
-// $Id: CssParser.java,v 1.2 2002-04-08 21:16:38 plehegar Exp $
+// $Id: CssParser.java,v 1.3 2003-07-02 14:39:02 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssParser.java,v $
- * Revision 1.2  2002-04-08 21:16:38  plehegar
+ * Revision 1.3  2003-07-02 14:39:02  plehegar
+ * Removed HttpServletResponse import
+ *
+ * Revision 1.2  2002/04/08 21:16:38  plehegar
  * New
  *
  */
@@ -14,7 +17,6 @@ package org.w3c.css.css;
 
 import java.io.InputStream;
 import java.net.URL;
-import javax.servlet.http.HttpServletResponse;
 
 import org.w3c.css.util.ApplContext;
 
@@ -41,7 +43,7 @@ import org.w3c.css.util.ApplContext;
  * </code>
  *
  * @see org.w3c.css.css.StyleSheetParser
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface CssParser {
 

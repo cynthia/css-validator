@@ -1,12 +1,15 @@
 //
-// $Id: CssValidatorListener.java,v 1.2 2002-04-08 21:24:12 plehegar Exp $
+// $Id: CssValidatorListener.java,v 1.3 2003-07-02 14:39:50 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssValidatorListener.java,v $
- * Revision 1.2  2002-04-08 21:24:12  plehegar
+ * Revision 1.3  2003-07-02 14:39:50  plehegar
+ * Removed HttpServletResponse import
+ *
+ * Revision 1.2  2002/04/08 21:24:12  plehegar
  * New
  *
  * Revision 2.1  1997/08/08 15:50:53  plehegar
@@ -21,7 +24,6 @@
  */
 package org.w3c.css.parser;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.Vector;
 
 
@@ -31,7 +33,7 @@ import org.w3c.css.util.ApplContext;
 /**
  * Implements this interface if you want to use the CSS1 parser.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface CssValidatorListener {  
 
