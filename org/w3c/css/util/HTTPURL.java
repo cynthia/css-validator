@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+ * $Id: HTTPURL.java,v 1.3 2002-05-19 01:04:56 plehegar Exp $
  */
 package org.w3c.css.util;
 
@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.*;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -173,7 +173,7 @@ public class HTTPURL {
 	}
 	// should I put an Accept header?
 	urlC.setRequestProperty("Accept",
-				"text/css,text/html,test/xml,application/xml,image/svg+xml,*/*;q=0");
+				"text/css,text/html,test/xml,application/xhtml+xml,application/xml,image/svg+xml,*/*;q=0");
 
 	urlC.connect();
 
