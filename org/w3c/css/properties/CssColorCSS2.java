@@ -1,12 +1,15 @@
 //
-// $Id: CssColorCSS2.java,v 1.3 2003-08-28 19:51:33 plehegar Exp $
+// $Id: CssColorCSS2.java,v 1.4 2004-03-30 13:09:39 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssColorCSS2.java,v $
- * Revision 1.3  2003-08-28 19:51:33  plehegar
+ * Revision 1.4  2004-03-30 13:09:39  ylafon
+ * fixed the too many values case
+ *
+ * Revision 1.3  2003/08/28 19:51:33  plehegar
  * Bug fix from Sijtsche
  *
  * Revision 1.2  2002/04/08 21:17:43  plehegar
@@ -70,10 +73,10 @@ import org.w3c.css.util.ApplContext;
  *   the <EM>foreground</EM> color). There are different ways to specify red:
  *   <PRE>
  *   EM { color: red }              /* natural language * /
-				     *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
-									 * </PRE>
-									 * @version $Revision: 1.3 $
-									 */
+ *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
+ * </PRE>
+ * @version $Revision: 1.4 $
+ */
 public class CssColorCSS2 extends CssProperty {
 
     CssValue color;
@@ -90,10 +93,14 @@ public class CssColorCSS2 extends CssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssColorCSS2(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssColorCSS2(ApplContext ac, CssExpression expression)
+	throws InvalidParamException
+    {
+	if (expression.getCount() > 1 ) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
 	CssValue val = expression.getValue();
 	setByUser();
-
 	if (val.equals(inherit)) {
 	    color = inherit;
 	    expression.next();
@@ -101,7 +108,8 @@ public class CssColorCSS2 extends CssProperty {
 	    color = val;
 	    expression.next();
 	} else if (val instanceof CssIdent) {
-	    color = new org.w3c.css.values.CssColorCSS2(ac, (String) val.get());
+	    color = new org.w3c.css.values.CssColorCSS2(ac,
+							(String) val.get());
 	    expression.next();
 	} else {
 	    throw new InvalidParamException("value", expression.getValue(),
