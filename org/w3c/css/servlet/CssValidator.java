@@ -1,12 +1,15 @@
 //
-// $Id: CssValidator.java,v 1.6 2003-10-16 20:56:15 ylafon Exp $
+// $Id: CssValidator.java,v 1.7 2003-10-17 13:56:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssValidator.java,v $
- * Revision 1.6  2003-10-16 20:56:15  ylafon
+ * Revision 1.7  2003-10-17 13:56:12  ylafon
+ * user the StyleReport factory
+ *
+ * Revision 1.6  2003/10/16 20:56:15  ylafon
  * character encoding was using Content-Encoding instead of
  * the charset paremeter in the mime type.
  * Now fixed.
@@ -80,7 +83,8 @@ import org.w3c.css.css.CssParser;
 import org.w3c.css.css.StyleSheetParser;
 import org.w3c.css.css.HTMLStyleSheetParser;
 import org.w3c.css.css.StyleSheet;
-import org.w3c.css.css.StyleSheetGeneratorHTML2;
+import org.w3c.css.css.StyleReportFactory;
+import org.w3c.css.css.StyleReport;
 import org.w3c.css.aural.ACssStyle;
 import org.w3c.css.util.Util;
 import org.w3c.css.util.FakeFile;
@@ -93,7 +97,7 @@ import org.xml.sax.SAXParseException;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -547,6 +551,9 @@ public final class CssValidator extends HttpServlet {
 	// Here is a little joke :-)
 //	res.setHeader("Server", server_name);
 
+	if (output != null) {
+	    System.out.println("*** output ["+output+"]");
+	}
 	// set the content-type for the response
 	MimeType outputMt = null;
 	if (output.equals(texthtml)) {
@@ -577,14 +584,15 @@ public final class CssValidator extends HttpServlet {
 	    output = "xhtml";
 	} else if ("text/html".equals(output)) {
 	    output = "html";
+	} else if ("application/soap+xml".equals(output)) {
+	    output = "soap12";
 	}
 	styleSheet.findConflicts(ac);
 
-	StyleSheetGeneratorHTML2 style;
-
-	style = new StyleSheetGeneratorHTML2(ac, title, styleSheet,
-					     output,
-					     warningLevel);
+	StyleReport style = StyleReportFactory.getStyleReport(ac, title, 
+							      styleSheet,
+							      output,
+							      warningLevel);
 	if (!errorReport) {
 	    style.desactivateError();
 	}
