@@ -1,5 +1,5 @@
 //
-// $Id: AttributeOneOf.java,v 1.2 2002-04-08 21:24:12 plehegar Exp $
+// $Id: AttributeOneOf.java,v 1.3 2003-10-27 10:25:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -127,14 +127,20 @@ public class AttributeOneOf extends Attribute implements CssSelectorsConstant {
      * Returns a string representation of the object.
      */
     public String toString() {    
-	String ret = "";
+	StringBuffer ret = new StringBuffer();
 	for (int i = 0; i < length; i++) {
 	    if (isClass()) {
-		ret += "." + values[i];
+		ret.append('.');
+		ret.append(values[i]);
 	    } else {
-		ret += "[" + name + "~=" + values[i] + "]";
+		ret.append('[');
+		ret.append(name);
+		ret.append('~');
+		ret.append('=');
+		ret.append(values[i]);
+		ret.append(']');
 	    }
 	}
-	return ret;
+	return ret.toString();
     }
 }
