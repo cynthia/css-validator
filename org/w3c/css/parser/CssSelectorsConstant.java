@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectorsConstant.java,v 1.3 2002-07-22 14:19:06 sijtsche Exp $
+// $Id: CssSelectorsConstant.java,v 1.4 2002-08-19 07:24:39 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 20th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -7,7 +7,10 @@
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssSelectorsConstant.java,v $
- * Revision 1.3  2002-07-22 14:19:06  sijtsche
+ * Revision 1.4  2002-08-19 07:24:39  sijtsche
+ * tv profile restrictions added
+ *
+ * Revision 1.3  2002/07/22 14:19:06  sijtsche
  * new elements and classes added and order of constants changed because of representation errors in output
  *
  * Revision 1.2  2002/05/23 09:03:47  dejong
@@ -17,13 +20,13 @@
 package org.w3c.css.parser;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public interface CssSelectorsConstant {
 
     public static final String[] PSEUDOCLASS_CONSTANTS =
-    { "link", "visited", "target", "active",
-      "hover", "focus", "first-child",
+    { "link", "visited", "active", "focus", "target",
+      "hover", "first-child",
       "enabled", "disabled",
       "checked", "indeterminate", "root", "last-child",
       "first-of-type", "last-of-type", "only-of-type",
@@ -31,13 +34,18 @@ public interface CssSelectorsConstant {
 
     public static final String[] PSEUDOCLASS_CONSTANTSCSS2 =
     {
-      "link", "visited", "target", "active",
-      "hover", "focus", "first-child"
+      "link", "visited", "active", "target", "focus",
+      "hover", "first-child"
     };
+
+    public static final String[] PSEUDOCLASS_CONSTANTSTV =
+    {
+	  "link", "visited", "active", "focus", "first-child"
+	};
 
     public static final String[] PSEUDOCLASS_CONSTANTSCSS1 =
     {
-      "link", "visited", "target", "active"
+      "link", "visited", "active", "target"
     };
 
 	public static final String[] PSEUDOCLASS_CONSTANTS_MOBILE =

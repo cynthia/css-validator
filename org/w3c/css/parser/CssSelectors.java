@@ -1,12 +1,15 @@
 //
-// $Id: CssSelectors.java,v 1.6 2002-07-24 14:52:21 sijtsche Exp $
+// $Id: CssSelectors.java,v 1.7 2002-08-19 07:24:39 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssSelectors.java,v $
- * Revision 1.6  2002-07-24 14:52:21  sijtsche
+ * Revision 1.7  2002-08-19 07:24:39  sijtsche
+ * tv profile restrictions added
+ *
+ * Revision 1.6  2002/07/24 14:52:21  sijtsche
  * compile bug fixed
  *
  * Revision 1.5  2002/07/22 15:03:33  sijtsche
@@ -56,7 +59,7 @@ import org.w3c.css.util.Util;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public final class CssSelectors implements CssSelectorsConstant {
 
@@ -356,6 +359,9 @@ public final class CssSelectors implements CssSelectorsConstant {
 			}
 	    }
 
+		if (ac.getProfile().equals("tv")) {
+			throw new InvalidParamException("notfortv", "attributes", ac);
+		}
 
 	    switch (selectorType) {
 	    case ATTRIBUTE_ANY:
@@ -456,16 +462,15 @@ public final class CssSelectors implements CssSelectorsConstant {
 			addPseudoClass(index);
 	    }
 	} else {
+
+		if (ac.getProfile().equals("tv")) {
+			throw new InvalidParamException("pseudo", pseudo, ac);
+		}
+
 	    index = getPseudoElementIndex(pseudo);
 	    if (index != -1) {
 		addPseudoElement(index);
 	    } else {
-		/*CssErrorToken e =
-		    new CssErrorToken(0,
-				      ac.getMsg().getErrorString("pseudo"),
-				      new String[0]);
-				      e.skippedString = pseudo;
-				      ac.getFrame().addError(e); */
 		    throw new InvalidParamException("pseudo", pseudo, ac);
 	    }
 	}
@@ -485,6 +490,12 @@ public final class CssSelectors implements CssSelectorsConstant {
 			if (ac.getProfile().equals("mobile")) {
 			    for (int i = 0; i < PSEUDOCLASS_CONSTANTS_MOBILE.length; i++) {
 					if (pseudo.equals(PSEUDOCLASS_CONSTANTS_MOBILE[i])) {
+					    return i;
+					}
+			    }
+			} else if (ac.getProfile().equals("tv")) {
+			    for (int i = 0; i < PSEUDOCLASS_CONSTANTSTV.length; i++) {
+					if (pseudo.equals(PSEUDOCLASS_CONSTANTSTV[i])) {
 					    return i;
 					}
 			    }
@@ -543,6 +554,8 @@ public final class CssSelectors implements CssSelectorsConstant {
 			if (ac.getProfile() != null) {
 				if (ac.getProfile().equals("mobile")) {
 					return new PseudoEnumeration(pseudoClass, PSEUDOCLASS_CONSTANTS_MOBILE);
+				} else if (ac.getProfile().equals("tv")) {
+					return new PseudoEnumeration(pseudoClass, PSEUDOCLASS_CONSTANTSTV);
 				} else {
 					return new PseudoEnumeration(pseudoClass, PSEUDOCLASS_CONSTANTSCSS2);
 				}
@@ -567,6 +580,8 @@ public final class CssSelectors implements CssSelectorsConstant {
 		if (ac.getProfile() != null) {
 			if (ac.getProfile().equals("mobile")) {
 			    throw new InvalidParamException("notformobile", pseudo, ac);
+			} else if (ac.getProfile().equals("tv")) {
+				throw new InvalidParamException("notfortv", pseudo, ac);
 			}
 		}
 	    pseudofun = pseudo;
