@@ -1,5 +1,5 @@
 //
-// $Id: CssWrapOption.java,v 1.1 2002-08-15 09:07:45 sijtsche Exp $
+// $Id: CssWrapOption.java,v 1.2 2002-12-23 08:19:46 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -25,7 +25,7 @@ import org.w3c.css.properties.CssProperty;
 	CssValue wrapoption;
 
 	private static CssIdent wrap = new CssIdent("wrap");
-	private static CssIdent nowrap = new CssIdent("no-wrap");
+	private static CssIdent softwrap = new CssIdent("soft-wrap");
 	private static CssIdent hardwrap = new CssIdent("hard-wrap");
 	private static CssIdent emergency = new CssIdent("emergency");
 
@@ -48,8 +48,8 @@ import org.w3c.css.properties.CssProperty;
 			wrapoption = wrap;
 			expression.next();
 	    }
-	    else if (val.equals(nowrap)) {
-			wrapoption = nowrap;
+	    else if (val.equals(softwrap)) {
+			wrapoption = softwrap;
 			expression.next();
 	    }
 	    else if (val.equals(hardwrap)) {

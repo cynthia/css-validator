@@ -1,12 +1,15 @@
 //
-// $Id: CssWhiteSpaceCSS3.java,v 1.1 2002-08-09 11:41:57 sijtsche Exp $
+// $Id: CssWhiteSpaceCSS3.java,v 1.2 2002-12-23 08:19:46 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssWhiteSpaceCSS3.java,v $
- * Revision 1.1  2002-08-09 11:41:57  sijtsche
+ * Revision 1.2  2002-12-23 08:19:46  sijtsche
+ * values changed
+ *
+ * Revision 1.1  2002/08/09 11:41:57  sijtsche
  * new value for CSS3 white-space property
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -66,14 +69,14 @@ import org.w3c.css.properties.CssProperty;
  *   have default values for all HTML elements according to the suggested
  *   rendering of elements in the HTML specification.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssWhiteSpaceCSS3 extends CssProperty {
 
     int value;
 
     private static String[] WHITESPACE = {
-	"normal", "pre", "nowrap", "pre-wrap", "inherit" };
+	"normal", "pre", "nowrap", "pre-wrap", "pre-lines", "inherit" };
     private static int[] hash_values;
 
     /**
