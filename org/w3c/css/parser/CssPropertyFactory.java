@@ -1,12 +1,15 @@
 //
-// $Id: CssPropertyFactory.java,v 1.3 2003-01-03 12:08:24 sijtsche Exp $
+// $Id: CssPropertyFactory.java,v 1.4 2003-01-06 15:54:11 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssPropertyFactory.java,v $
- * Revision 1.3  2003-01-03 12:08:24  sijtsche
+ * Revision 1.4  2003-01-06 15:54:11  sijtsche
+ * value inherit enabled for all CSS3 properties
+ *
+ * Revision 1.3  2003/01/03 12:08:24  sijtsche
  * functionality added for media queries
  *
  * Revision 1.2  2002/04/08 21:24:12  plehegar
@@ -24,13 +27,14 @@ import java.util.Properties;
 
 import org.w3c.css.properties.CssProperty;
 import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @author  Philippe Le Hégaret
  */
 public class CssPropertyFactory {
@@ -235,19 +239,39 @@ public class CssPropertyFactory {
 		    }
 		}
 
-		try {
-		    // create an instance of your property class
-		    Class[] parametersType = { ac.getClass(), expression.getClass() };
-		    Constructor constructor =
-			Class.forName(classname).getConstructor(parametersType);
-		    Object[] parameters = { ac, expression };
-		    // invoke the constructor
-		    return (CssProperty) constructor.newInstance(parameters);
-		} catch (InvocationTargetException e) {
-		    // catch InvalidParamException
-		    InvocationTargetException iv = e;
-		    Exception ex = (Exception) iv.getTargetException();
-		    throw ex;
+		CssIdent initial = new CssIdent("initial");
+
+		if (expression.getValue().equals(initial) && ac.getCssVersion().equals("css3")) {
+			try {
+			    // create an instance of your property class
+			    Class[] parametersType = { };
+			    Constructor constructor =
+				Class.forName(classname).getConstructor(parametersType);
+			    Object[] parameters = { };
+			    // invoke the constructor
+			    return (CssProperty) constructor.newInstance(parameters);
+			} catch (InvocationTargetException e) {
+			    // catch InvalidParamException
+			    InvocationTargetException iv = e;
+			    Exception ex = (Exception) iv.getTargetException();
+			    throw ex;
+			}
+		} else {
+
+			try {
+			    // create an instance of your property class
+			    Class[] parametersType = { ac.getClass(), expression.getClass() };
+			    Constructor constructor =
+				Class.forName(classname).getConstructor(parametersType);
+			    Object[] parameters = { ac, expression };
+			    // invoke the constructor
+			    return (CssProperty) constructor.newInstance(parameters);
+			} catch (InvocationTargetException e) {
+			    // catch InvalidParamException
+			    InvocationTargetException iv = e;
+			    Exception ex = (Exception) iv.getTargetException();
+			    throw ex;
+			}
 		}
     }
 }
