@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * BaseTag.java
- * $Id: BaseTag.java,v 1.1 2002-03-13 20:36:59 plehegar Exp $
+ * $Id: BaseTag.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
  */
 
 package html.tags;

@@ -1,12 +1,12 @@
 //
-// $Id: CssTextIndentMob.java,v 1.1 2002-03-13 19:56:10 plehegar Exp $
+// $Id: CssTextIndentMob.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssTextIndentMob.java,v $
- * Revision 1.1  2002-03-13 19:56:10  plehegar
+ * Revision 1.2  2002-04-08 21:17:44  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:14:05  plehegar
@@ -59,7 +59,7 @@ import org.w3c.css.util.ApplContext;
  *   <PRE>
  *   P { text-indent: 3em }
  * </PRE>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssTextIndentMob extends CssProperty  {
     

@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.1 2002-03-13 19:56:35 plehegar Exp $
+// $Id: Css2Style.java,v 1.2 2002-04-08 21:18:23 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -15,7 +15,7 @@ import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.aural.ACssStyle;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class Css2Style extends ACssStyle {
     

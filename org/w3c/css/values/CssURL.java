@@ -1,12 +1,12 @@
 //
-// $Id: CssURL.java,v 1.1 2002-03-13 19:57:22 plehegar Exp $
+// $Id: CssURL.java,v 1.2 2002-04-08 21:19:46 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssURL.java,v $
- * Revision 1.1  2002-03-13 19:57:22  plehegar
+ * Revision 1.2  2002-04-08 21:19:46  plehegar
  * New
  *
  * Revision 2.4  1997/08/26 14:27:07  plehegar
@@ -55,7 +55,7 @@ import org.w3c.css.util.ApplContext;
  *  <A NAME="ref11">[11]</A> T Berners-Lee, L Masinter, M McCahill: "Uniform
  *  Resource Locators (URL)", <A href="ftp://ds.internic.net/rfc/rfc1738.txt">RFC
  *  1738</A>, CERN, Xerox Corporation, University of Minnesota, December 1994
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssURL extends CssValue {
     

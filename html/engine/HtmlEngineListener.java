@@ -3,9 +3,9 @@
  *
  * @author Vincent Mallet (Vincent.Mallet@sophia.inria.fr)
  *
- * $Id: HtmlEngineListener.java,v 1.1 2002-03-13 19:58:18 plehegar Exp $
+ * $Id: HtmlEngineListener.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
  *
- * @Revision $Revision: 1.1 $
+ * @Revision $Revision: 1.2 $
  */
 
 
@@ -22,7 +22,7 @@ import html.tags.*;
  * @see HtmlEngine
  *
  * @author Vincent Mallet  (Vincent.Mallet@sophia.inria.fr)
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 public interface HtmlEngineListener {

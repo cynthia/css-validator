@@ -1,5 +1,5 @@
 //
-// $Id: CssListStyleType.java,v 1.1 2002-03-13 19:56:10 plehegar Exp $
+// $Id: CssListStyleType.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 14th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -7,7 +7,7 @@
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssListStyleType.java,v $
- * Revision 1.1  2002-03-13 19:56:10  plehegar
+ * Revision 1.2  2002-04-08 21:17:44  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:13:53  plehegar
@@ -68,7 +68,7 @@ import org.w3c.css.util.ApplContext;
 					    *   OL { list-style-type: lower-alpha }   /* a b c d e etc. * /
 										       *   OL { list-style-type: lower-roman }   /* i ii iii iv v etc. * /
 																  *   </PRE>
-																  * @version $Revision: 1.1 $ */
+																  * @version $Revision: 1.2 $ */
 public class CssListStyleType extends CssProperty 
     implements CssListStyleConstants {
     

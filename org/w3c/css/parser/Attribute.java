@@ -1,5 +1,5 @@
 //
-// $Id: Attribute.java,v 1.1 2002-03-13 19:55:33 plehegar Exp $
+// $Id: Attribute.java,v 1.2 2002-04-08 21:24:12 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.

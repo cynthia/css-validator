@@ -1,12 +1,12 @@
 //
-// $Id: CssColorCSS2.java,v 1.1 2002-03-13 19:56:10 plehegar Exp $
+// $Id: CssColorCSS2.java,v 1.2 2002-04-08 21:17:43 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssColorCSS2.java,v $
- * Revision 1.1  2002-03-13 19:56:10  plehegar
+ * Revision 1.2  2002-04-08 21:17:43  plehegar
  * New
  *
  * Revision 3.3  1997/09/09 13:03:38  plehegar
@@ -69,7 +69,7 @@ import org.w3c.css.util.ApplContext;
  *   EM { color: red }              /* natural language * /
 				     *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
 									 * </PRE>
-									 * @version $Revision: 1.1 $
+									 * @version $Revision: 1.2 $
 									 */
 public class CssColorCSS2 extends CssProperty {
     

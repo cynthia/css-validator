@@ -1,12 +1,12 @@
 //
-// $Id: FakeFile.java,v 1.1 2002-03-13 19:56:54 plehegar Exp $
+// $Id: FakeFile.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: FakeFile.java,v $
- * Revision 1.1  2002-03-13 19:56:54  plehegar
+ * Revision 1.2  2002-04-08 21:19:15  plehegar
  * New
  *
  */
@@ -17,7 +17,7 @@ import java.io.InputStream;
 import java.io.ByteArrayInputStream;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class FakeFile {
   

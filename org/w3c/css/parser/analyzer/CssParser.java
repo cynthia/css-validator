@@ -40,7 +40,7 @@ import org.w3c.css.css.StyleSheetCom;
  * A CSS2 parser  
  *
  * @author Philippe Le Hégaret
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public abstract class CssParser implements CssParserConstants {
 

@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: TextShadowFace.java,v 1.1 2002-03-13 19:56:10 plehegar Exp $
+ * $Id: TextShadowFace.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
  */
 package org.w3c.css.properties;
 

@@ -1,12 +1,12 @@
 //
-// $Id: CssValidatorListener.java,v 1.1 2002-03-13 19:55:33 plehegar Exp $
+// $Id: CssValidatorListener.java,v 1.2 2002-04-08 21:24:12 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssValidatorListener.java,v $
- * Revision 1.1  2002-03-13 19:55:33  plehegar
+ * Revision 1.2  2002-04-08 21:24:12  plehegar
  * New
  *
  * Revision 2.1  1997/08/08 15:50:53  plehegar
@@ -31,7 +31,7 @@ import org.w3c.css.util.ApplContext;
 /**
  * Implements this interface if you want to use the CSS1 parser.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public interface CssValidatorListener {  
 

@@ -1,7 +1,7 @@
 /*
  * HtmlEngine
  *
- * $Id: HtmlEngine.java,v 1.1 2002-03-13 19:58:18 plehegar Exp $
+ * $Id: HtmlEngine.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
  *
  * @author Vincent Mallet (Vincent.Mallet@sophia.inria.fr)
  *
@@ -25,7 +25,7 @@ import html.tags.*;
  *
  * @see HtmlEngineListener
  * @author Vincent Mallet  (Vincent.Mallet@sophia.inria.fr)
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class HtmlEngine {
   static final int PARSER_PRIORITY    = Thread.NORM_PRIORITY-1;

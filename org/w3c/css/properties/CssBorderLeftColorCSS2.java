@@ -1,12 +1,12 @@
 //
-// $Id: CssBorderLeftColorCSS2.java,v 1.1 2002-03-13 19:56:10 plehegar Exp $
+// $Id: CssBorderLeftColorCSS2.java,v 1.2 2002-04-08 21:17:43 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBorderLeftColorCSS2.java,v $
- * Revision 1.1  2002-03-13 19:56:10  plehegar
+ * Revision 1.2  2002-04-08 21:17:43  plehegar
  * New
  *
  * Revision 3.2  1997/09/09 10:52:21  plehegar
@@ -32,7 +32,7 @@ import org.w3c.css.util.ApplContext;
 /**
  * Be careful, this is not a CSS1 property !
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBorderLeftColorCSS2 extends CssProperty {
 

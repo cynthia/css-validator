@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HTTPMessage.java,v 1.1 2002-03-13 19:56:54 plehegar Exp $
+ * $Id: HTTPMessage.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
  */
 
 package org.w3c.css.util;
@@ -17,7 +17,7 @@ package org.w3c.css.util;
 import java.util.Hashtable;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPMessage {

@@ -1,12 +1,12 @@
 //
-// $Id: CssTime.java,v 1.1 2002-03-13 19:57:22 plehegar Exp $
+// $Id: CssTime.java,v 1.2 2002-04-08 21:19:46 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssTime.java,v $
- * Revision 1.1  2002-03-13 19:57:22  plehegar
+ * Revision 1.2  2002-04-08 21:19:46  plehegar
  * New
  *
  * Revision 1.3  1997/08/29 13:11:08  plehegar
@@ -39,7 +39,7 @@ import org.w3c.css.util.ApplContext;
  *
  * <p>Time values may not be negative.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssTime extends CssValue {
 

@@ -2,9 +2,9 @@
  * ParserFrame
  * @author Vincent Mallet  (vmallet@sophia.inria.fr)
  * 
- * $Id: ParserFrame.java,v 1.1 2002-03-13 20:36:59 plehegar Exp $
+ * $Id: ParserFrame.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 

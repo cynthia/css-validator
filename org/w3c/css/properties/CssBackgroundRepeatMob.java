@@ -1,12 +1,12 @@
 //
-// $Id: CssBackgroundRepeatMob.java,v 1.1 2002-03-13 19:56:09 plehegar Exp $
+// $Id: CssBackgroundRepeatMob.java,v 1.2 2002-04-08 21:17:42 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundRepeatMob.java,v $
- * Revision 1.1  2002-03-13 19:56:09  plehegar
+ * Revision 1.2  2002-04-08 21:17:42  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:13:31  plehegar
@@ -63,7 +63,7 @@ import org.w3c.css.util.ApplContext;
  *  </PRE>
  *   <P>
  *   In the example above, the image will only be repeated vertically.
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBackgroundRepeatMob extends CssProperty implements CssBackgroundConstants {
     

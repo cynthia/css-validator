@@ -1,12 +1,12 @@
 //
-// $Id: CssColorCSS2.java,v 1.1 2002-03-13 19:57:22 plehegar Exp $
+// $Id: CssColorCSS2.java,v 1.2 2002-04-08 21:19:46 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssColorCSS2.java,v $
- * Revision 1.1  2002-03-13 19:57:22  plehegar
+ * Revision 1.2  2002-04-08 21:19:46  plehegar
  * New
  *
  * Revision 2.2  1997/08/20 11:38:07  plehegar
@@ -168,7 +168,7 @@ import org.w3c.css.util.ApplContext;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssColorCSS2 extends CssColor {
     

@@ -1,5 +1,5 @@
 //
-// $Id: Cursor.java,v 1.1 2002-03-13 19:56:44 plehegar Exp $
+// $Id: Cursor.java,v 1.2 2002-04-08 21:18:33 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated september 14th 2000 by Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -21,7 +21,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class Cursor extends CssProperty 
     implements CssOperator {

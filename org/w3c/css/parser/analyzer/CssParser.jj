@@ -8,7 +8,7 @@
  * I'm waiting for Bert Bos to have a new version.
  *
  * $Log: CssParser.jj,v $
- * Revision 1.1  2002-03-13 19:55:52  plehegar
+ * Revision 1.2  2002-04-08 21:24:03  plehegar
  * New
  *
  * Revision 1.2  1998/02/22 16:48:11  plehegar
@@ -80,7 +80,7 @@ import org.w3c.css.css.StyleSheetCom;
  * A CSS2 parser  
  *
  * @author Philippe Le Hégaret
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public abstract class CssParser {
 

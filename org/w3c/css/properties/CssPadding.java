@@ -1,12 +1,12 @@
 //
-// $Id: CssPadding.java,v 1.1 2002-03-13 19:56:10 plehegar Exp $
+// $Id: CssPadding.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssPadding.java,v $
- * Revision 1.1  2002-03-13 19:56:10  plehegar
+ * Revision 1.2  2002-04-08 21:17:44  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:13:58  plehegar
@@ -78,7 +78,7 @@ import org.w3c.css.util.ApplContext;
  *   is equal to the size of the font in use.
  *   <P>
  *   Padding values cannot be negative.
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssPadding extends CssProperty implements CssOperator {
     

@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RootTag.java,v 1.1 2002-03-13 20:36:59 plehegar Exp $
+ * $Id: RootTag.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
  */
 
 package html.tags;
@@ -47,6 +47,7 @@ public class RootTag extends Block {
 	if (atts != null) {
 	    String xml = atts.get("xmlns");
 	    if (xml != null) {
+		System.err.println( "xmlns is " + xml);
 		throw new XMLInputException(xml);
 	    }
 	}

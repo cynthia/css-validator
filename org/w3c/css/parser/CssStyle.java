@@ -1,12 +1,12 @@
 //
-// $Id: CssStyle.java,v 1.1 2002-03-13 19:55:33 plehegar Exp $
+// $Id: CssStyle.java,v 1.2 2002-04-08 21:24:12 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssStyle.java,v $
- * Revision 1.1  2002-03-13 19:55:33  plehegar
+ * Revision 1.2  2002-04-08 21:24:12  plehegar
  * New
  *
  */
@@ -22,7 +22,7 @@ import org.w3c.css.css.StyleSheet;
 /**
  * This class represents a class for one context
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssStyle {
 
@@ -66,7 +66,7 @@ public class CssStyle {
    */  
   public final void addRedefinitionWarning(ApplContext ac, 
 					   CssProperty property) {
-    warnings.addWarning(new Warning(property, "redefinition", 1, ac));
+    warnings.addWarning(new Warning(property, "redefinition", 2, ac));
   }
 
   /**

@@ -1,5 +1,5 @@
 //
-// $Id: Util.java,v 1.1 2002-03-13 19:56:54 plehegar Exp $
+// $Id: Util.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ package org.w3c.css.util;
 /**
  * This class holds various utility methods.
  *
- * @version	$Revision: 1.1 $
+ * @version	$Revision: 1.2 $
  */
 
 public final class Util {
@@ -273,7 +273,7 @@ public final class Util {
      *
      * @see #verbose
      */  
-    //    public static boolean onDebug = Boolean.getBoolean("CSS.debug");
-    public static boolean onDebug = false;
+    public static boolean onDebug = Boolean.getBoolean("CSS.debug");
+    //    public static boolean onDebug = false;
 }
 

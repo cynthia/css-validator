@@ -1,5 +1,5 @@
 //
-// $Id: SpeakHeader.java,v 1.1 2002-03-13 19:56:35 plehegar Exp $
+// $Id: SpeakHeader.java,v 1.2 2002-04-08 21:18:23 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.

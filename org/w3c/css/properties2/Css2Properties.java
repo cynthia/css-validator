@@ -1,5 +1,5 @@
 //
-// $Id: Css2Properties.java,v 1.1 2002-03-13 19:56:19 plehegar Exp $
+// $Id: Css2Properties.java,v 1.2 2002-04-08 21:18:00 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,7 +12,7 @@ import java.net.URL;
 import org.w3c.css.properties.CssProperty;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class Css2Properties {
   public static Properties properties;

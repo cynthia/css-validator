@@ -9,11 +9,11 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HTTP.java,v 1.1 2002-03-13 19:56:54 plehegar Exp $
+ * $Id: HTTP.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
  */
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @author  Philippe Le Hegaret
  */
 

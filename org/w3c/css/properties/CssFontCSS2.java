@@ -1,12 +1,12 @@
 //
-// $Id: CssFontCSS2.java,v 1.1 2002-03-13 19:56:10 plehegar Exp $
+// $Id: CssFontCSS2.java,v 1.2 2002-04-08 21:17:43 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssFontCSS2.java,v $
- * Revision 1.1  2002-03-13 19:56:10  plehegar
+ * Revision 1.2  2002-04-08 21:17:43  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:13:45  plehegar
@@ -85,7 +85,7 @@ import org.w3c.css.util.ApplContext;
  * @see CssFontFamily
  * @see CssPercentage
  * @see CssLength
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.2 $ 
  */
 public class CssFontCSS2 extends CssProperty 
     implements CssOperator, CssFontConstant {

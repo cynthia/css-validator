@@ -1,5 +1,5 @@
 //
-// $Id: AtRulePreference.java,v 1.1 2002-03-13 19:55:33 plehegar Exp $
+// $Id: AtRulePreference.java,v 1.2 2002-04-08 21:24:12 plehegar Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)

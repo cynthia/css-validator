@@ -1,12 +1,12 @@
 //
-// $Id: CssBorderBottomCSS1.java,v 1.1 2002-03-13 19:56:09 plehegar Exp $
+// $Id: CssBorderBottomCSS1.java,v 1.2 2002-04-08 21:17:42 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBorderBottomCSS1.java,v $
- * Revision 1.1  2002-03-13 19:56:09  plehegar
+ * Revision 1.2  2002-04-08 21:17:42  plehegar
  * New
  *
  * Revision 3.2  1997/09/09 10:54:31  plehegar
@@ -70,7 +70,7 @@ import org.w3c.css.util.ApplContext;
  *   Note that while the 'border-style' property accepts up to four values, this
  *   property only accepts one style value.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBorderBottomCSS1 extends CssProperty implements CssOperator {
     

@@ -1,12 +1,12 @@
 //
-// $Id: CssListStyleConstants.java,v 1.1 2002-03-13 19:56:10 plehegar Exp $
+// $Id: CssListStyleConstants.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssListStyleConstants.java,v $
- * Revision 1.1  2002-03-13 19:56:10  plehegar
+ * Revision 1.2  2002-04-08 21:17:44  plehegar
  * New
  *
  * Revision 1.2  1997/07/30 13:20:06  plehegar
@@ -19,7 +19,7 @@
 package org.w3c.css.properties;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public interface CssListStyleConstants {
 

@@ -1,12 +1,12 @@
 //
-// $Id: CssBackgroundColor.java,v 1.1 2002-03-13 19:56:09 plehegar Exp $
+// $Id: CssBackgroundColor.java,v 1.2 2002-04-08 21:17:42 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundColor.java,v $
- * Revision 1.1  2002-03-13 19:56:09  plehegar
+ * Revision 1.2  2002-04-08 21:17:42  plehegar
  * New
  *
  * Revision 3.3  1997/09/09 13:03:57  plehegar
@@ -60,7 +60,7 @@ import org.w3c.css.util.ApplContext;
  *   <PRE>
  *   H1 { background-color: #F00 }
  *   </PRE>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBackgroundColor extends CssProperty {
     

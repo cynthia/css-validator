@@ -1,12 +1,12 @@
 //
-// $Id: InvalidParamException.java,v 1.1 2002-03-13 19:56:54 plehegar Exp $
+// $Id: InvalidParamException.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: InvalidParamException.java,v $
- * Revision 1.1  2002-03-13 19:56:54  plehegar
+ * Revision 1.2  2002-04-08 21:19:15  plehegar
  * New
  *
  * Revision 2.1  1997/08/08 15:53:08  plehegar
@@ -29,7 +29,7 @@ import org.w3c.css.parser.analyzer.ParseException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class InvalidParamException extends ParseException {
     
@@ -46,7 +46,7 @@ public class InvalidParamException extends ParseException {
      * @param message the error message
      */
     public InvalidParamException(String message, ApplContext ac) {
-	super(ac.getMsg().getErrorString("error." + message));
+	super(ac.getMsg().getErrorString((message != null)? message : ""));
     }
     
     /**

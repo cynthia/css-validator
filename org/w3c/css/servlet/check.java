@@ -1,12 +1,12 @@
 //
-// $Id: check.java,v 1.1 2002-03-13 19:56:26 plehegar Exp $
+// $Id: check.java,v 1.2 2002-04-08 21:18:10 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: check.java,v $
- * Revision 1.1  2002-03-13 19:56:26  plehegar
+ * Revision 1.2  2002-04-08 21:18:10  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:23:27  plehegar
@@ -59,15 +59,17 @@ import org.w3c.css.css.CssParser;
 import org.w3c.css.css.StyleSheetParser;
 import org.w3c.css.css.HTMLStyleSheetParser;
 import org.w3c.css.css.StyleSheet;
-import org.w3c.css.css.StyleSheetGeneratorHTML;
+import org.w3c.css.css.StyleSheetGeneratorHTML2;
 import org.w3c.css.aural.ACssStyle;
 import org.w3c.css.util.Util; 
 import org.w3c.css.util.FakeFile;
 
+import org.xml.sax.SAXParseException;
+
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public final class check extends HttpServlet {
     
@@ -312,8 +314,8 @@ public final class check extends HttpServlet {
 	    output = "html";
 	}
 	
-	StyleSheetGeneratorHTML style;
-	style = new StyleSheetGeneratorHTML(ac, title, styleSheet, 
+	StyleSheetGeneratorHTML2 style;
+	style = new StyleSheetGeneratorHTML2(ac, title, styleSheet, 
 					    output, warningLevel);
 	if (!errorReport) {
 	    style.desactivateError();
@@ -330,20 +332,33 @@ public final class check extends HttpServlet {
 		    out.print((char) in.readUnsignedByte());
 		}
 	    } catch (EOFException eof) {
-		out.println("<H2>Target: " + title + "</H2>");
+		out.println("<h2>Target: " + title + "</h2>");
 		out.println("<div class=\"error\">");
 		if (e instanceof IOException) {
-		    out.println("I/O Error: ");
+		    out.println("<p>I/O Error: ");
 		    out.println(e.getMessage());
+		} else if (e instanceof SAXParseException) {
+		    SAXParseException saxe = (SAXParseException) e;
+		    out.println("<p>Please, validate your XML document first!</p>");
+		    if (saxe.getLineNumber() != -1) {
+			out.println("<p>Line " + saxe.getLineNumber() + "</p>");
+		    }
+		    if (saxe.getColumnNumber() != -1) {
+			out.println("<p>Column " + saxe.getColumnNumber() + "</p>");
+		    }
+		    out.println("<p>" + e.getMessage());
+		} else if (e instanceof NullPointerException) {
+		    out.println("<p>Oups! Internal error!</p><p>");
+		    e.printStackTrace();
 		} else {
 		    out.println(e.toString());
 		}
-		out.println("</div>");
+		out.println("</p></div>");
     
-		out.println("<hr>");
-		out.println("<img src='images/mwcss.gif' alt='made with CSS'>");
-		out.println("<ADDRESS><a href='mailto:plh@w3.org'>Philippe Le Hégaret</a><BR>");
-		out.println("</BODY></HTML>");
+		out.println("<hr />");
+		out.println("<p><img src='images/mwcss.gif' alt='made with CSS'  width='72' height='48' /></p>");
+		out.println("<address><a href='mailto:www-validator-css@w3.org'>www-validator-css</a></address>");
+		out.println("</body></html>");
 		out.flush();
 		System.err.println("CSS Validator: request failed.");
 		e.printStackTrace();
