@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.10 2004-01-09 15:58:40 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.11 2004-01-12 11:04:41 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -44,7 +44,7 @@ import org.w3c.css.util.xml.XMLCatalog;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 
@@ -445,10 +445,10 @@ public class XMLStyleSheetHandler implements ContentHandler,
 		}
 	    }
 	    uri = catalog.getProperty(publicId);
-	} else if (systemId != null) {
+	} 
+	if (uri == null && systemId != null) {
 	    uri = catalog.getProperty(systemId);
 	}
-	
 	if (uri != null) {
 	    return new InputSource(uri);
 	} else {
