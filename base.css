@@ -5,7 +5,7 @@
    Copyright 2000 W3C (MIT, INRIA, Keio). All Rights Reserved.
    See http://www.w3.org/Consortium/Legal/ipr-notice.html#Copyright
 
-   $Id: base.css,v 1.1 2004-05-06 14:31:28 ot Exp $
+   $Id: base.css,v 1.2 2004-05-06 14:36:35 ot Exp $
 */
 
 @import url(navbar.css);  /* CSS for navigation menu. */
@@ -189,12 +189,13 @@ h1 {
   text-decoration: none;
 }
 #banner h1 {font-size: 1.3em;
-border-bottom: 1px solid black;}
+}
 
 #banner {background-image: url(images/header);
 background-repeat: no-repeat;
 background-attachment: scroll;
 height: 50px;
+border-bottom: 1px solid black;
 background-position: right;
 margin:0; padding:0;}
 
