@@ -1,12 +1,15 @@
 //
-// $Id: CssTextPropertiesConstants.java,v 1.3 2002-08-19 07:40:17 sijtsche Exp $
+// $Id: CssTextPropertiesConstants.java,v 1.4 2002-08-20 08:42:10 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssTextPropertiesConstants.java,v $
- * Revision 1.3  2002-08-19 07:40:17  sijtsche
+ * Revision 1.4  2002-08-20 08:42:10  sijtsche
+ * new values added
+ *
+ * Revision 1.3  2002/08/19 07:40:17  sijtsche
  * new values added
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -22,7 +25,7 @@
 package org.w3c.css.properties;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public interface CssTextPropertiesConstants {
   public static String[] TEXTDECORATION = {
@@ -35,8 +38,8 @@ public interface CssTextPropertiesConstants {
     "underline", "inherit" };
 
   public static String[] VERTICALALIGN = {
-    "baseline", "sub", "super", "top", "text-top", "middle",
-    "bottom", "text-bottom", "inherit" };
+    "auto", "use-script", "baseline", "sub", "super", "top", "text-top",
+    "central", "middle", "bottom", "text-bottom", "inherit" };
 
   public static String[] VERTICALALIGNMOB = {
     "baseline", "sub", "super", "inherit" };
