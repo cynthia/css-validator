@@ -1,12 +1,15 @@
 //
-// $Id: Messages.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+// $Id: Messages.java,v 1.3 2005-01-17 02:50:12 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: Messages.java,v $
- * Revision 1.2  2002-04-08 21:19:15  plehegar
+ * Revision 1.3  2005-01-17 02:50:12  ot
+ * adding spanish as a potential message lang - thanks Carlos Iglesias
+ *
+ * Revision 1.2  2002/04/08 21:19:15  plehegar
  * New
  *
  */
@@ -19,7 +22,7 @@ import java.util.StringTokenizer;
 import java.net.URL;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class Messages {
     
@@ -225,6 +228,24 @@ public class Messages {
 	    }
 	} catch (Exception e) {
 	    System.err.println("org.w3c.css.util.Messages: couldn't load properties nl");
+	    System.err.println("  " + e.toString() );
+	}
+
+	// ------------------------------------------------
+
+        try {
+	    URL url = Messages.class.getResource("Messages.properties.es");
+	    java.io.InputStream f = url.openStream();
+	    try {
+		tmp = new Properties();
+		tmp.load(f);
+		languages.put("es", tmp);
+		languages.put("es_ES", tmp);
+	    } finally {
+		f.close();
+	    }
+	} catch (Exception e) {
+	    System.err.println("org.w3c.css.util.Messages: couldn't load properties es");
 	    System.err.println("  " + e.toString() );
 	}
 
