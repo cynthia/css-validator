@@ -7,7 +7,7 @@
     <link rev="made" href="mailto:www-validator@w3.org" />
     <link rev="start" href="./" title="Home Page" />
     <style type="text/css" media="all">@import "./base.css";</style>
-     <meta name="revision" content="$Id: validator-upload.html.en,v 1.8 2004-04-26 02:07:12 ot Exp $" />
+     <meta name="revision" content="$Id: validator-upload.html.en,v 1.9 2004-10-04 01:18:59 ot Exp $" />
   </head>
 
   <body>
@@ -43,7 +43,7 @@
     <fieldset id="validate-by-upload"><legend>Validate by File Upload</legend>
     <form action="validator" method="post" enctype="multipart/form-data">
     <p>
-      Choose the document you would like validated:
+      Choose the document (CSS files only) you would like validated:
     </p>
       
       <p>Local file:
@@ -111,8 +111,8 @@
 	alt="Valid CSS!" /></a>
 	<a title="Send Feedback for the W3C CSS Validation Service"
         href="Email">The W3C CSS Validator Team</a><br />
-      $Date: 2004-04-26 02:07:12 $
-      <!-- SSI Template Version: $Id: validator-upload.html.en,v 1.8 2004-04-26 02:07:12 ot Exp $ -->
+      $Date: 2004-10-04 01:18:59 $
+      <!-- SSI Template Version: $Id: validator-upload.html.en,v 1.9 2004-10-04 01:18:59 ot Exp $ -->
     </address>
     <p class="copyright">
       <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2004
