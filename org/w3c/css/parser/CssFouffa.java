@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.21 2003-10-29 16:27:44 ylafon Exp $
+// $Id: CssFouffa.java,v 1.22 2003-11-04 13:22:55 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -332,8 +332,13 @@ public final class CssFouffa extends CssParser {
     public void parseStyle() {
 	try {
 	    parserUnit();
-	} catch (Exception e) {
-	    e.printStackTrace();
+	} catch (Throwable e) {
+	    if (Util.onDebug) {
+		e.printStackTrace();
+	    }
+	    RuntimeException ne = new RuntimeException(e.getMessage());
+	    ne.fillInStackTrace();
+	    throw (ne);
 	}
 
 	// That's all folks, notify all errors and warnings
