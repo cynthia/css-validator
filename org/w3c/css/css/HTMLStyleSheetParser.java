@@ -1,5 +1,5 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.12 2004-01-12 12:28:28 ylafon Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.13 2004-05-06 12:48:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
     
@@ -91,6 +91,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		String credential = ac.getCredential();
 
 		connection = HTTPURL.getConnection(htmlURL, ac);
+		htmlURL = connection.getURL();
 
 		String httpCL = connection.getHeaderField("Content-Location");
 		if (httpCL != null) {
