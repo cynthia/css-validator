@@ -1,12 +1,15 @@
 //
-// $Id: ACssStyle.java,v 1.4 2003-07-28 14:55:50 sijtsche Exp $
+// $Id: ACssStyle.java,v 1.5 2003-07-30 06:54:50 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ACssStyle.java,v $
- * Revision 1.4  2003-07-28 14:55:50  sijtsche
+ * Revision 1.5  2003-07-30 06:54:50  sijtsche
+ * new properties added
+ *
+ * Revision 1.4  2003/07/28 14:55:50  sijtsche
  * new properties and CSS3 property versions added
  *
  * Revision 1.3  2003/07/28 14:21:52  sijtsche
@@ -49,7 +52,7 @@ import org.w3c.css.properties.Css1Style;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class ACssStyle extends Css1Style {
 
@@ -80,6 +83,9 @@ public class ACssStyle extends Css1Style {
   ACssVoiceRate    acssVoiceRate;
   ACssVoicePitchRange acssVoicePitchRange;
   ACssVoiceStress  acssVoiceStress;
+  ACssVoiceDuration acssVoiceDuration;
+  ACssInterpretAs  acssInterpretAs;
+  ACssPhonemes 	   acssPhonemes;
 
   /**
    * Get the volume
@@ -369,6 +375,30 @@ public class ACssStyle extends Css1Style {
     return acssVoiceStress;
   }
 
+  public ACssVoiceDuration getVoiceDuration() {
+    if (acssVoiceDuration == null) {
+      acssVoiceDuration =
+	(ACssVoiceDuration) style.CascadingOrder(new ACssVoiceDuration(), style, selector);
+    }
+    return acssVoiceDuration;
+  }
+
+  public ACssInterpretAs getInterpretAs() {
+    if (acssInterpretAs == null) {
+      acssInterpretAs =
+	(ACssInterpretAs) style.CascadingOrder(new ACssInterpretAs(), style, selector);
+    }
+    return acssInterpretAs;
+  }
+
+  public ACssPhonemes getPhonemes() {
+    if (acssPhonemes == null) {
+      acssPhonemes =
+	(ACssPhonemes) style.CascadingOrder(new ACssPhonemes(), style, selector);
+    }
+    return acssPhonemes;
+  }
+
   public void print(CssPrinterStyle printer) {
     super.print(printer);
     if (acssVolume != null)
@@ -417,7 +447,12 @@ public class ACssStyle extends Css1Style {
 	  acssVoicePitchRange.print(printer);
 	if (acssVoiceStress != null)
 	  acssVoiceStress.print(printer);
-
+	if (acssVoiceDuration != null)
+	  acssVoiceDuration.print(printer);
+	if (acssInterpretAs != null)
+	  acssInterpretAs.print(printer);
+	if (acssPhonemes != null)
+	  acssPhonemes.print(printer);
 
   }
 
