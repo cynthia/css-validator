@@ -1,5 +1,5 @@
 //
-// $Id: CssGlyphOrVert.java,v 1.2 2002-08-07 13:49:18 sijtsche Exp $
+// $Id: CssGlyphOrVert.java,v 1.3 2003-07-14 14:39:23 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -34,8 +34,9 @@ import org.w3c.css.values.CssAngle;
 public class CssGlyphOrVert extends CssProperty {
 
     CssValue vert;
-
-    static CssIdent auto = new CssIdent("auto");
+    CssIdent auto = new CssIdent("auto");
+    CssIdent inline = new CssIdent("inline");
+    CssIdent upright = new CssIdent("upright");
 
     /**
      * Create a new CssGlyphOrVert
@@ -58,13 +59,23 @@ public class CssGlyphOrVert extends CssProperty {
 	if (val.equals(inherit)) {
 	    vert = inherit;
 	    expression.next();
-	}
-	else if (val.equals(auto)) {
-	    vert = auto;
-	    expression.next();
 	} else if (val instanceof CssAngle) {
 		vert = val;
 		expression.next();
+	} else if (val instanceof CssIdent) {
+		if (val.equals(auto)) {
+			vert = val;
+			expression.next();
+		} else if (val.equals(inline)) {
+			vert = val;
+			expression.next();
+		} else if (val.equals(upright)) {
+			vert = val;
+			expression.next();
+		} else {
+		    throw new InvalidParamException("value", val.toString(),
+					    getPropertyName(), ac);
+		}
 	}
 	else {
 	    throw new InvalidParamException("value", val.toString(),

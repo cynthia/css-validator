@@ -1,5 +1,5 @@
 //
-// $Id: CssGlyphHor.java,v 1.2 2002-08-07 13:49:18 sijtsche Exp $
+// $Id: CssGlyphHor.java,v 1.3 2003-07-14 14:39:23 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -35,6 +35,8 @@ public class CssGlyphHor extends CssProperty {
 
     CssValue hor;
     ApplContext ac;
+    CssIdent auto = new CssIdent("auto");
+    CssIdent inline = new CssIdent("inline");
 
     /**
      * Create a new CssGlyphHor
@@ -63,6 +65,17 @@ public class CssGlyphHor extends CssProperty {
 	} else if (val instanceof CssAngle) {
 		hor = val;
 		expression.next();
+	} else if (val instanceof CssIdent) {
+		if (val.equals(auto)) {
+			hor = val;
+			expression.next();
+		} else if (val.equals(inline)) {
+			hor = val;
+			expression.next();
+		} else {
+		    throw new InvalidParamException("value", val.toString(),
+					    getPropertyName(), ac);
+		}
 	}
 	else {
 	    throw new InvalidParamException("value", val.toString(),
