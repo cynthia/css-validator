@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.8 2003-01-08 10:52:50 sijtsche Exp $
+// $Id: CssFouffa.java,v 1.9 2003-01-08 12:48:14 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -649,8 +649,8 @@ public final class CssFouffa extends CssParser {
 			if (mode0 != null) {
 			    mode = mode0.equals("true");
 			}
-	    } else if (profile.equals("atsc-tv")) {
-			String classStyle = config.getProperty("styleATSC");
+	    } else if ("atsc-tv".equals(profile)) {
+			String classStyle = config.getProperty("styleatsc");
 			Class style = Class.forName(classStyle);
 			CssSelectors.setStyle(style);
 			URL url = style.getResource(config.getProperty("atsc-tv"));
