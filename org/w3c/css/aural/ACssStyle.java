@@ -1,12 +1,15 @@
 //
-// $Id: ACssStyle.java,v 1.2 2002-04-08 21:16:56 plehegar Exp $
+// $Id: ACssStyle.java,v 1.3 2003-07-28 14:21:52 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ACssStyle.java,v $
- * Revision 1.2  2002-04-08 21:16:56  plehegar
+ * Revision 1.3  2003-07-28 14:21:52  sijtsche
+ * new properties and CSS3 property versions added
+ *
+ * Revision 1.2  2002/04/08 21:16:56  plehegar
  * New
  *
  * Revision 2.1  1997/08/29 13:11:50  plehegar
@@ -43,7 +46,7 @@ import org.w3c.css.properties.Css1Style;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ACssStyle extends Css1Style {
 
@@ -60,12 +63,17 @@ public class ACssStyle extends Css1Style {
 
   ACssStress acssStress;
   ACssRichness acssRichness;
-  
+
   ACssSpeakPunctuation acssSpeakPunctuation;
   ACssSpeakDate    acssSpeakDate;
   ACssSpeakNumeral acssSpeakNumeral;
   ACssSpeakTime    acssSpeakTime;
   ACssSpeak        acssSpeak;
+
+  ACssSpeakCSS3    acssSpeakCSS3;
+  ACssVoiceVolume  acssVoiceVolume;
+  ACssVoiceBalance acssVoiceBalance;
+  ACssVoiceFamilyCSS3 acssVoiceFamilyCSS3;
 
   /**
    * Get the volume
@@ -115,8 +123,8 @@ public class ACssStyle extends Css1Style {
    */
   public ACssAzimuth getAzimuth() {
     if (acssAzimuth == null) {
-      acssAzimuth = 
-	(ACssAzimuth) style.CascadingOrder(new ACssAzimuth(), 
+      acssAzimuth =
+	(ACssAzimuth) style.CascadingOrder(new ACssAzimuth(),
 					   style, selector);
     }
     return acssAzimuth;
@@ -127,8 +135,8 @@ public class ACssStyle extends Css1Style {
    */
   public ACssElevation getElevation() {
     if (acssElevation == null) {
-      acssElevation = 
-	(ACssElevation) style.CascadingOrder(new ACssElevation(), 
+      acssElevation =
+	(ACssElevation) style.CascadingOrder(new ACssElevation(),
 					     style, selector);
     }
     return acssElevation;
@@ -212,8 +220,8 @@ public class ACssStyle extends Css1Style {
    */
   public ACssPlayDuring getPlayDuring() {
     if (acssPlayDuring == null) {
-      acssPlayDuring = 
-	(ACssPlayDuring) style.CascadingOrder(new ACssPlayDuring(), 
+      acssPlayDuring =
+	(ACssPlayDuring) style.CascadingOrder(new ACssPlayDuring(),
 					      style, selector);
     }
     return acssPlayDuring;
@@ -224,8 +232,8 @@ public class ACssStyle extends Css1Style {
    */
   public ACssStress getStress() {
     if (acssStress == null) {
-      acssStress = 
-	(ACssStress) style.CascadingOrder(new ACssStress(), 
+      acssStress =
+	(ACssStress) style.CascadingOrder(new ACssStress(),
 					    style, selector);
     }
     return acssStress;
@@ -236,8 +244,8 @@ public class ACssStyle extends Css1Style {
    */
   public ACssRichness getRichness() {
     if (acssRichness == null) {
-      acssRichness = 
-	(ACssRichness) style.CascadingOrder(new ACssRichness(), 
+      acssRichness =
+	(ACssRichness) style.CascadingOrder(new ACssRichness(),
 					    style, selector);
     }
     return acssRichness;
@@ -248,8 +256,8 @@ public class ACssStyle extends Css1Style {
    */
   public ACssSpeakPunctuation getSpeakPunctuation() {
     if (acssSpeakPunctuation == null) {
-      acssSpeakPunctuation = 
-	(ACssSpeakPunctuation) style.CascadingOrder(new ACssSpeakPunctuation(), 
+      acssSpeakPunctuation =
+	(ACssSpeakPunctuation) style.CascadingOrder(new ACssSpeakPunctuation(),
 						    style, selector);
     }
     return acssSpeakPunctuation;
@@ -260,7 +268,7 @@ public class ACssStyle extends Css1Style {
    */
   public ACssSpeakDate getSpeakDate() {
     if (acssSpeakDate == null) {
-      acssSpeakDate = 
+      acssSpeakDate =
 	(ACssSpeakDate) style.CascadingOrder(new ACssSpeakDate(), style, selector);
     }
     return acssSpeakDate;
@@ -271,7 +279,7 @@ public class ACssStyle extends Css1Style {
    */
   public ACssSpeakNumeral getSpeakNumeral() {
     if (acssSpeakNumeral == null) {
-      acssSpeakNumeral = 
+      acssSpeakNumeral =
 	(ACssSpeakNumeral) style.CascadingOrder(new ACssSpeakNumeral(), style, selector);
     }
     return acssSpeakNumeral;
@@ -282,7 +290,7 @@ public class ACssStyle extends Css1Style {
    */
   public ACssSpeakTime getSpeakTime() {
     if (acssSpeakTime == null) {
-      acssSpeakTime = 
+      acssSpeakTime =
 	(ACssSpeakTime) style.CascadingOrder(new ACssSpeakTime(), style, selector);
     }
     return acssSpeakTime;
@@ -293,10 +301,42 @@ public class ACssStyle extends Css1Style {
    */
   public ACssSpeak getSpeak() {
     if (acssSpeak == null) {
-      acssSpeak = 
+      acssSpeak =
 	(ACssSpeak) style.CascadingOrder(new ACssSpeak(), style, selector);
     }
     return acssSpeak;
+  }
+
+  public ACssSpeakCSS3 getSpeakCSS3() {
+    if (acssSpeakCSS3 == null) {
+      acssSpeakCSS3 =
+	(ACssSpeakCSS3) style.CascadingOrder(new ACssSpeakCSS3(), style, selector);
+    }
+    return acssSpeakCSS3;
+  }
+
+  public ACssVoiceVolume getVoiceVolume() {
+    if (acssVoiceVolume == null) {
+      acssVoiceVolume =
+	(ACssVoiceVolume) style.CascadingOrder(new ACssVoiceVolume(), style, selector);
+    }
+    return acssVoiceVolume;
+  }
+
+  public ACssVoiceBalance getVoiceBalance() {
+    if (acssVoiceBalance == null) {
+      acssVoiceBalance =
+	(ACssVoiceBalance) style.CascadingOrder(new ACssVoiceBalance(), style, selector);
+    }
+    return acssVoiceBalance;
+  }
+
+  public ACssVoiceFamilyCSS3 getVoiceFamilyCSS3() {
+    if (acssVoiceFamilyCSS3 == null) {
+      acssVoiceFamilyCSS3 =
+	(ACssVoiceFamilyCSS3) style.CascadingOrder(new ACssVoiceFamilyCSS3(), style, selector);
+    }
+    return acssVoiceFamilyCSS3;
   }
 
   public void print(CssPrinterStyle printer) {
@@ -333,6 +373,14 @@ public class ACssStyle extends Css1Style {
       acssSpeakTime.print(printer);
     if (acssSpeak != null)
       acssSpeak.print(printer);
+    if (acssSpeakCSS3 != null)
+	  acssSpeakCSS3.print(printer);
+	if (acssVoiceVolume != null)
+	  acssVoiceVolume.print(printer);
+	if (acssVoiceBalance != null)
+	  acssVoiceBalance.print(printer);
+	if (acssVoiceFamilyCSS3 != null)
+	  acssVoiceFamilyCSS3.print(printer);
   }
 
   /**
@@ -344,9 +392,9 @@ public class ACssStyle extends Css1Style {
   public void findConflicts(ApplContext ac, Warnings warnings, Enumeration allSelectors) {
     super.findConflicts(ac, warnings, allSelectors);
 
-    if (acssVoiceFamily != null) {  
+    if (acssVoiceFamily != null) {
 	if (!acssVoiceFamily.containsGenericFamily()) {
-	warnings.addWarning(new Warning(acssVoiceFamily, 
+	warnings.addWarning(new Warning(acssVoiceFamily,
 					"no-generic-family", 2, ac));
 	}
 	if (acssVoiceFamily.withSpace) {
@@ -359,18 +407,18 @@ public class ACssStyle extends Css1Style {
 	!acssPause.getBefore().isSoftlyInherited() &&
 	!(acssPause.getBefore().get() instanceof CssPercentage)) {
       // Using relative units gives more robust stylesheets
-      warnings.addWarning(new Warning(acssPause.getBefore(), 
+      warnings.addWarning(new Warning(acssPause.getBefore(),
 				      "relative", 2, ac));
     }
     if ((acssPause.getAfter() != null) &&
 	!acssPause.getAfter().isSoftlyInherited() &&
 	!(acssPause.getAfter().get() instanceof CssPercentage)) {
       // Using relative units gives more robust stylesheets
-      warnings.addWarning(new Warning(acssPause.getAfter(), 
+      warnings.addWarning(new Warning(acssPause.getAfter(),
 				      "relative", 2, ac));
     }
 
-    
+
   }
 
 }
