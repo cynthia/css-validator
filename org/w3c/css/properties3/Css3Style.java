@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.4 2002-08-09 11:44:03 sijtsche Exp $
+// $Id: Css3Style.java,v 1.5 2002-08-09 11:54:56 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -55,7 +55,6 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
     CssBaselineShift cssBaselineShift;
     CssLineBreak cssLineBreak;
     CssWordBreakCJK cssWordBreakCJK;
-    CssWordBreakWrap cssWordBreakWrap;
     CssWordBreakInside cssWordBreakInside;
     CssWordBreak cssWordBreak;
     CssTextSpace cssTextSpace;
@@ -461,15 +460,6 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 			    new CssWordBreakCJK(), style, selector);
 	}
 	return cssWordBreakCJK;
-    }
-
-    public CssWordBreakWrap getWordBreakWrap() {
-	if (cssWordBreakWrap == null) {
-	    cssWordBreakWrap =
-		(CssWordBreakWrap) style.CascadingOrder (
-			    new CssWordBreakWrap(), style, selector);
-	}
-	return cssWordBreakWrap;
     }
 
     public CssWordBreakInside getWordBreakInside() {
@@ -1172,9 +1162,6 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	}
 	if (cssWordBreakCJK != null) {
 	    cssWordBreakCJK.print(printer);
-	}
-	if (cssWordBreakWrap != null) {
-	    cssWordBreakWrap.print(printer);
 	}
 	if (cssWordBreakInside != null) {
 	    cssWordBreakInside.print(printer);
