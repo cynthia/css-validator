@@ -1,12 +1,15 @@
 //
-// $Id: CssValidator.java,v 1.8 2003-10-17 15:25:48 ylafon Exp $
+// $Id: CssValidator.java,v 1.9 2003-10-20 13:15:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssValidator.java,v $
- * Revision 1.8  2003-10-17 15:25:48  ylafon
+ * Revision 1.9  2003-10-20 13:15:49  ylafon
+ * formatting
+ *
+ * Revision 1.8  2003/10/17 15:25:48  ylafon
  * removed trace
  *
  * Revision 1.7  2003/10/17 13:56:12  ylafon
@@ -100,7 +103,7 @@ import org.xml.sax.SAXParseException;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -560,6 +563,7 @@ public final class CssValidator extends HttpServlet {
 	    outputMt = MimeType.TEXT_HTML.getClone();
 	} else if (output.equals(soap12)) {
 	    outputMt = new MimeType(soap12);
+// testing only	    outputMt = MimeType.TEXT_PLAIN.getClone();
 	} else {
 	    outputMt = MimeType.TEXT_PLAIN.getClone();
 	}

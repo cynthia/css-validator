@@ -1,12 +1,15 @@
 //
-// $Id: CssMargin.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
+// $Id: CssMargin.java,v 1.3 2003-10-20 13:15:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssMargin.java,v $
- * Revision 1.2  2002-04-08 21:17:44  plehegar
+ * Revision 1.3  2003-10-20 13:15:49  ylafon
+ * formatting
+ *
+ * Revision 1.2  2002/04/08 21:17:44  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:13:53  plehegar
@@ -81,7 +84,7 @@ import org.w3c.css.util.ApplContext;
  *   <P>
  *   Negative margin values are allowed, but there may be implementation-specific
  *   limits.
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssMargin extends CssProperty implements CssOperator {
     
@@ -104,7 +107,9 @@ public class CssMargin extends CssProperty implements CssOperator {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */  
-    public CssMargin(ApplContext ac, CssExpression expression)  throws InvalidParamException {
+    public CssMargin(ApplContext ac, CssExpression expression)  
+	throws InvalidParamException {
+	
 	CssValue val = expression.getValue();
 	setByUser();
 
@@ -336,6 +341,10 @@ public class CssMargin extends CssProperty implements CssOperator {
      */  
     public void setInfo(int line, String source) {
 	super.setInfo(line, source);
+	// it assumes that values exists, that may not be the case
+	// always. What would be the cause of that, an invalid clause?
+	// in this case a proper exception should be sent 
+	// So... a FIXME
 	top.setInfo(line, source);
 	right.setInfo(line, source);
 	bottom.setInfo(line, source);
