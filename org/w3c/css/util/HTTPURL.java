@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.11 2004-01-09 15:57:46 ylafon Exp $
+ * $Id: HTTPURL.java,v 1.12 2005-03-18 08:19:23 ot Exp $
  */
 package org.w3c.css.util;
 
@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.*;
 
 /**
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -152,15 +152,6 @@ public class HTTPURL {
 	if (Util.servlet) {
 	    int port = url.getPort();
 	    String protocol = url.getProtocol();
-	    
-	    if (((port < 1024) && (port != 80) && (port > 0))
-		|| (!"http".equalsIgnoreCase(protocol))) {		
-		System.err.println( "[WARNING] : someone is trying to "
-				    + "get the file: "
-				    + url );
-		throw new FileNotFoundException("import " + url +
-						": Operation not permitted");
-	    }
 	}
 	
 	URLConnection urlC = url.openConnection();
