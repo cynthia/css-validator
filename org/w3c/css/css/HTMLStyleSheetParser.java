@@ -1,36 +1,14 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.7 2003-10-29 16:27:44 ylafon Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.8 2004-01-08 14:26:35 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: HTMLStyleSheetParser.java,v $
- * Revision 1.7  2003-10-29 16:27:44  ylafon
- * fixed content-location bug
- *
- * Revision 1.6  2003/10/20 13:28:47  ylafon
- * reformatting
- *
- * Revision 1.5  2003/10/15 10:10:14  plehegar
- * Changes from Yves
- *
- * Revision 1.4  2002/05/19 03:44:31  plehegar
- * Fixed application/xhtml+xml
- *
- * Revision 1.3  2002/05/19 01:08:31  plehegar
- * Added application/xhtml+xml
- *
- * Revision 1.2  2002/04/08 21:16:38  plehegar
- * New
- *
- * Revision 3.1  1997/08/29 13:23:27  plehegar
- * Freeze
- *
- */
+
 package org.w3c.css.css;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.HttpURLConnection;
@@ -47,7 +25,7 @@ import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
     
@@ -87,7 +65,6 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 			throw (Exception) exception.fillInStackTrace();
 		    }
 		} catch (html.parser.XMLInputException e) {
-			e.printStackTrace();
 		    XMLStyleSheetHandler handler;
 		    handler = new XMLStyleSheetHandler(htmlURL, ac);
 		    handler.parse(htmlURL);
@@ -131,8 +108,13 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		}
 
 		if (contentType.indexOf("text/html") != -1) {
-		    HtmlParser htmlParser = new HtmlParser(ac, "html4", 
-							   urlString);
+		    HtmlParser htmlParser;
+		    htmlParser = new HtmlParser(ac, "html4", urlString,
+						connection);
+		    InputStream ucis = connection.getInputStream();
+		    if (ucis.markSupported()) {
+			ucis.mark(16384);
+		    }
 		    try {
 			Util.fromHTMLFile = true;
 			htmlParser.addParserListener(this);
@@ -143,6 +125,18 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 			}
 		    } catch (html.parser.XMLInputException e) {
 			isXML = true;
+			if (ucis.markSupported()) {
+			    try {
+				ucis.reset();
+			    } catch (IOException ioex) {
+				try {
+				    ucis.close();
+				} catch (Exception clex) {};
+				connection = HTTPURL.getConnection(htmlURL,ac);
+			    }
+			} else {
+			    connection = HTTPURL.getConnection(htmlURL, ac);
+			}
 		    } finally {
 			Util.fromHTMLFile = false;
 		    }
@@ -218,6 +212,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
      * @param msg an error message information
      */
     public void notifyFatalError(HtmlTag root, Exception x, String s) {
+//	org.w3c.util.Trace.showTrace("notifyfatalerror: "+s + " [" + root +"]");
 	exception = x;
     }
     
