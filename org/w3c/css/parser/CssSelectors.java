@@ -1,12 +1,15 @@
 //
-// $Id: CssSelectors.java,v 1.5 2002-07-22 15:03:33 sijtsche Exp $
+// $Id: CssSelectors.java,v 1.6 2002-07-24 14:52:21 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssSelectors.java,v $
- * Revision 1.5  2002-07-22 15:03:33  sijtsche
+ * Revision 1.6  2002-07-24 14:52:21  sijtsche
+ * compile bug fixed
+ *
+ * Revision 1.5  2002/07/22 15:03:33  sijtsche
  * extra pseudoelements, functions and constants added
  *
  * Revision 1.2  2002/05/23 09:59:20  dejong
@@ -53,7 +56,7 @@ import org.w3c.css.util.Util;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public final class CssSelectors implements CssSelectorsConstant {
 
@@ -750,7 +753,7 @@ public final class CssSelectors implements CssSelectorsConstant {
 				}
 		    }
 
-	    	for (Enumeration e = getPseudoClass(); e.hasMoreElements();e.nextElement(); ) {
+	    	for (Enumeration e = getPseudoClass(); e.hasMoreElements();e.nextElement() ) {
 		    	specificity += 100;
 		    }
 		}
