@@ -56,7 +56,9 @@
 	<option value="svgbasic">SVG basic</option>
 	<option value="svgtiny">SVG tiny</option>
 	<option value="mobile">mobiel</option>
-	<option value="atsc-tv">TV profiel</option>
+	<option value="atsc-tv">ATSC TV profiel</option>
+	<option value="tv">TV profiel</option>
+	
       </select>
 
       Medium :
@@ -93,7 +95,7 @@
     
     <hr />
     <address><a href="Email.html">www-validator-css</a></address><br />
-    $Date: 2002-07-26 08:31:14 $
+    $Date: 2002-08-19 07:43:26 $
   </body>
 </html>
 
