@@ -1,5 +1,5 @@
 //
-// $Id: CssFit.java,v 1.1 2002-07-19 20:30:12 sijtsche Exp $
+// $Id: CssFit.java,v 1.2 2002-12-24 13:13:01 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -25,9 +25,9 @@ import org.w3c.css.util.ApplContext;
  *  <EM>Percentages:</EM>no<BR>
  *  <EM>Media:</EM>:visual
  *  <P>
- *  This property gives a hint for how to scale a replaced element if neither its 
- *  'width' nor its 'height' property is 'auto'. Not all replaced objects can be 
- *  scaled, but images typically can. 
+ *  This property gives a hint for how to scale a replaced element if neither its
+ *  'width' nor its 'height' property is 'auto'. Not all replaced objects can be
+ *  scaled, but images typically can.
  */
 
 public class CssFit extends CssProperty {
@@ -35,9 +35,9 @@ public class CssFit extends CssProperty {
     CssValue fit;
 
     static CssIdent hidden = new CssIdent("hidden");
-     
+
     private static String[] values = {
-	"fill", "hidden", "meet", "slice"
+	"fill", "hidden", "meet", "slice", "initial", "inherit"
     };
 
     /**
@@ -107,7 +107,7 @@ public class CssFit extends CssProperty {
 	return (property instanceof CssFit &&
 		fit.equals(((CssFit) property).fit));
     }
-    
+
     /**
      * Returns the name of this property
      */
