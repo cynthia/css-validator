@@ -7,7 +7,7 @@
     <link rev="made" href="mailto:www-validator@w3.org" />
     <link rev="start" href="./" title="Home Page" />
     <style type="text/css" media="all">@import "./base.css";</style>
-    <meta name="revision" content="$Id: validator.html.en,v 1.9 2004-05-20 15:26:54 bjoern Exp $" />
+    <meta name="revision" content="$Id: validator.html.en,v 1.10 2004-07-15 06:06:47 bjoern Exp $" />
   </head>
 
   <body>
@@ -61,7 +61,7 @@
 	<label title="Address of page to Validate" for="uri">Address:
 	<input type="text" name="uri" id="uri" size="45" /></label>
 	<label title="Submit file for validation"><input type="submit" value="Check" /></label>
-	<input name="usermedium" value="all" type="hidden"></input>
+	<input name="usermedium" value="all" type="hidden" />
       </p>
       </form>
       <p>
@@ -76,7 +76,7 @@
       <p>
 	<label title="Choose a Local File to Upload and Validate" for="file">Local CSS file:</label>
 	<input type="file" id="file" name="file" size="30" />
-	<input name="usermedium" value="all" type="hidden"></input>
+	<input name="usermedium" value="all" type="hidden" />
 	<label title="Submit file for validation"><input type="submit" value="Check" /></label>
       </p>
       </form>
@@ -90,7 +90,7 @@
       <p>Enter the CSS you would like validated:</p>
       <p>
 	<textarea name="text" rows="12" cols="75"></textarea>
-	<input name="usermedium" value="all" type="hidden"></input>
+	<input name="usermedium" value="all" type="hidden" />
         <br />
 	<label title="Submit text for validation">
 	<input type="submit" value="Check" />
@@ -114,8 +114,8 @@
 	alt="Valid CSS!" /></a>
 	<a title="Send Feedback for the W3C Markup Validation Service"
         href="Email">The W3C CSS Validator Team</a><br />
-      $Date: 2004-05-20 15:26:54 $
-      <!-- SSI Template Version: $Id: validator.html.en,v 1.9 2004-05-20 15:26:54 bjoern Exp $ -->
+      $Date: 2004-07-15 06:06:47 $
+      <!-- SSI Template Version: $Id: validator.html.en,v 1.10 2004-07-15 06:06:47 bjoern Exp $ -->
     </address>
     <p class="copyright">
       <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2003

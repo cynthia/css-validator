@@ -7,7 +7,7 @@
     <link rev="made" href="mailto:www-validator@w3.org" />
     <link rev="start" href="./" title="Pagina Iniziale" />
     <style type="text/css" media="all">@import "./base.css";</style>
-    <meta name="revision" content="$Id: validator.html.it,v 1.2 2004-05-20 15:26:54 bjoern Exp $" />
+    <meta name="revision" content="$Id: validator.html.it,v 1.3 2004-07-15 06:06:47 bjoern Exp $" />
     <meta name="keywords" content="CSS, Fogli di stile a cascata, Validazione, Servizio di Validazione del W3C per i fogli di stile" />
     <meta name="description" content="Sistema di validazione per i fogli di stile" />
     <meta name="translator" content="Roberto Scano - International Webmasters Association / The HTML Writers Guild" />
@@ -60,7 +60,7 @@
 	<label title="Address of page to Validate" for="uri">Indirizzo:
 	<input type="text" name="uri" id="uri" size="45" /></label>
 	<label title="Invia l'indirizzo al sistema di validazione"><input type="submit" value="Controlla" /></label>
-	<input name="usermedium" value="all" type="hidden"></input>
+	<input name="usermedium" value="all" type="hidden" />
       </p>
       </form>
       <p>
@@ -74,7 +74,7 @@
       <p>
 	<label title="Seleziona un documento locale da trasferire e validare" for="file">Documento in locale:</label>
 	<input type="file" id="file" name="file" size="30" />
-	<input name="usermedium" value="all" type="hidden"></input>
+	<input name="usermedium" value="all" type="hidden" />
 	<label title="Invia il documento al sistema di validazione"><input type="submit" value="Controlla" /></label>
       </p>
       </form>
@@ -88,7 +88,7 @@
       <p>Inserisci il testo del CSS che desideri validare:</p>
       <p>
 	<textarea name="text" rows="12" cols="75"></textarea>
-	<input name="usermedium" value="all" type="hidden"></input>
+	<input name="usermedium" value="all" type="hidden" />
         <br />
 	<label title="Invia il testo al sistema di validazione">
 	<input type="submit" value="Controlla" />
@@ -112,8 +112,8 @@
 	alt="CSS Validato!" /></a>
 	<a title="Invia dei commenti al gruppo del W3C che si occupa della validazione"
         href="Email">Il Gruppo W3C CSS Validator</a><br />
-      $Date: 2004-05-20 15:26:54 $
-      <!-- SSI Template Version: $Id: validator.html.it,v 1.2 2004-05-20 15:26:54 bjoern Exp $ -->
+      $Date: 2004-07-15 06:06:47 $
+      <!-- SSI Template Version: $Id: validator.html.it,v 1.3 2004-07-15 06:06:47 bjoern Exp $ -->
     </address>
     <p class="copyright">
       <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2003

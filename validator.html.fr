@@ -7,7 +7,7 @@
 <link rev="made" href="mailto:www-validator@w3.org" />
 <link rev="start" href="./" title="Page d'accueil" />
 <style type="text/css" media="all">@import "./base.css";</style>
-<meta name="revision" content="$Id: validator.html.fr,v 1.8 2004-05-20 15:26:54 bjoern Exp $" />
+<meta name="revision" content="$Id: validator.html.fr,v 1.9 2004-07-15 06:06:47 bjoern Exp $" />
 </head>
 
 <body>
@@ -58,7 +58,7 @@ Validation CSS : <a href="#validate-by-uri">par URI</a> |
 	<label title="Adresse de la page à valider" for="uri">Adresse :
 	<input type="text" name="uri" id="uri" size="45" value="http://" /></label>
 	<label title="Valider le fichier"><input type="submit" value="Soumettre l'adresse" /></label>
-	<input name="usermedium" value="all" type="hidden"></input>
+	<input name="usermedium" value="all" type="hidden" />
 </p>
 </form>
 <p>
@@ -73,7 +73,7 @@ Validation CSS : <a href="#validate-by-uri">par URI</a> |
 <p>
 	<label title="Choisissez un fichier local à télécharger vers le serveur et à valider" for="file">Fichier CSS local :</label>
 	<input type="file" id="file" name="file" size="30" />
-	<input name="usermedium" value="all" type="hidden"></input>
+	<input name="usermedium" value="all" type="hidden" />
 	<label title="Envoyer le fichier à valider"><input type="submit" value="Soumettre le fichier" /></label>
 </p>
 </form>
@@ -87,7 +87,7 @@ Validation CSS : <a href="#validate-by-uri">par URI</a> |
 <p>Saisissez la feuille de style dont vous souhaitez la validation&nbsp;:</p>
 <p>
 	<textarea name="text" rows="12" cols="75"></textarea>
-	<input name="usermedium" value="all" type="hidden"></input>
+	<input name="usermedium" value="all" type="hidden" />
 <br />
 	<label title="Envoyer le texte saisi pour validation">
 	<input type="submit" value="Soumettre la saisie" />
@@ -106,8 +106,8 @@ Validation CSS : <a href="#validate-by-uri">par URI</a> |
 	<a href="http://validator.w3.org/check/referer"><img src="http://www.w3.org/Icons/valid-xhtml10" height="31" width="88" alt="Valid XHTML 1.0!" /></a>
 	<a class="right" href="http://jigsaw.w3.org/css-validator"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
 	<a title="Faire part de vos remarques à l'équipe du service de validation du W3C" href="Email">L'équipe du validateur CSS du W3C</a><br />
-$Date: 2004-05-20 15:26:54 $
-<!-- SSI Template Version: $Id: validator.html.fr,v 1.8 2004-05-20 15:26:54 bjoern Exp $ -->
+$Date: 2004-07-15 06:06:47 $
+<!-- SSI Template Version: $Id: validator.html.fr,v 1.9 2004-07-15 06:06:47 bjoern Exp $ -->
 </address>
 <p class="copyright">
 <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2003
