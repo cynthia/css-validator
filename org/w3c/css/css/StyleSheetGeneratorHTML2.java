@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.8 2004-01-06 14:22:51 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.9 2004-10-06 10:03:19 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport
     implements CssPrinterStyle {
@@ -271,7 +271,7 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
 		    if (!file.equals(oldSourceFile)) {
 			oldSourceFile = file;
 			if (open) {
-			    ret.append("</div>");
+			    ret.append("</ul>\n</div>");
 			}
 			ret.append("\n<div><h3>URI : "
 				   + "<a href=\"");
@@ -316,6 +316,9 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
 			}
 		    }
 		    ret.append("</p></li>");
+		}
+		if (open) {
+		    ret.append("\n</ul>");
 		}
 		ret.append("</div>");
 	    }
@@ -373,7 +376,10 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
 			}
 		    }
 		}
-		ret.append("</ul></div>");
+		if (open) {
+		    ret.append("\n</ul>");
+		}
+		ret.append("</div>");
 	    }
 	    out.println(ret.toString());
 	} catch (Exception e) {
