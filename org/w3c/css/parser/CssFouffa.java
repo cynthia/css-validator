@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.23 2003-11-05 10:55:04 ylafon Exp $
+// $Id: CssFouffa.java,v 1.24 2004-03-22 15:45:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.23 $
+ * @version $Revision: 1.24 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -374,7 +374,7 @@ public final class CssFouffa extends CssParser {
 							       +surl));
 		    ac.getFrame().addError(cerr);
 		    return;
-		} else if (visited.size() > 12) {
+		} else if (visited.size() > 42) {
 		    CssError cerr = new CssError(new Exception("Maximum number"
 							       +" of imports "
 							       +"reached"));
