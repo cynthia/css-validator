@@ -1,12 +1,15 @@
 //
-// $Id: StyleSheetCom.java,v 1.3 2002-07-22 13:20:38 sijtsche Exp $
+// $Id: StyleSheetCom.java,v 1.4 2002-08-19 07:33:36 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetCom.java,v $
- * Revision 1.3  2002-07-22 13:20:38  sijtsche
+ * Revision 1.4  2002-08-19 07:33:36  sijtsche
+ * TV profile added
+ *
+ * Revision 1.3  2002/07/22 13:20:38  sijtsche
  * versions CSS3, SVG, SVG basic and SVG tiny added for validation
  *
  * Revision 1.2  2002/04/08 21:16:38  plehegar
@@ -41,7 +44,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.3 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.4 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 
@@ -187,8 +190,10 @@ public class StyleSheetCom implements HtmlParserListener {
 			   argument.equals("svgbasic") ||
 			   argument.equals("svgtiny")) {
 		    style.cssversion = argument;
-		} else if (argument.equals("mobile") || (argument.equals("atsc"))) {
+		} else if (argument.equals("mobile") || argument.equals("tv")) {
 		    style.profile = argument;
+	    } else if (argument.equals("atsc")) {
+			style.profile = "atsc-tv";
 		} else {
 		    int idx = argument.lastIndexOf('.');
 		    if(idx >= 0 && idx < argument.length() - 1) {
@@ -223,7 +228,7 @@ public class StyleSheetCom implements HtmlParserListener {
 	    System.out.println( "\tuse the option -format to see"
 				+ " available format.");
 	    System.out.println( "\tCSS version\t-css1 || -css2 || -css3 || -svg || -svgbasic || -svgtiny");
-	    System.out.println( "\tProfile\t\t -atsc || -mobile");
+	    System.out.println( "\tProfile\t\t -atsc || -mobile || tv");
 	    //System.out.println( "\tCSS version\t-css1 || -css2");
 	    //	    System.out.println( "\tProfile\t\t-svg || -atsc || -mobile");
 	    System.exit(1);
