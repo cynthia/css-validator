@@ -8,7 +8,10 @@
  * I'm waiting for Bert Bos to have a new version.
  *
  * $Log: CssParser.jj,v $
- * Revision 1.8  2003-01-03 15:28:35  sijtsche
+ * Revision 1.9  2003-04-13 16:30:42  sijtsche
+ * trailing semicolon requirement bug for @page rule fixed. Bugzilla nr 158
+ *
+ * Revision 1.8  2003/01/03 15:28:35  sijtsche
  * media query functionality added
  *
  * Revision 1.7  2003/01/03 12:08:24  sijtsche
@@ -97,7 +100,7 @@ import org.w3c.css.css.StyleSheetCom;
  * A CSS2 parser  
  *
  * @author Philippe Le Hégaret
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public abstract class CssParser {
 
@@ -727,11 +730,9 @@ void page() :
 
   ( pseudo_page(newRule) )? <LBRACE> ( <S> )* ( v=pageContent() 
 	{ 
-		for (int i = 0; i < v.size(); i++) {
-			collectv.addElement(v.elementAt(i));
-		}
+		collectv = v;
 	}
- )+ <RBRACE> ( <S> )*
+ ) <RBRACE> ( <S> )*
    {
 	if (!ac.getCssVersion().equals("css1")) {
 	    newAtRule(getAtRule());
@@ -769,9 +770,8 @@ Vector pageContent() :
   Vector v = new Vector();
 }
 {
-	prop=declaration() <SEMICOLON> ( <S> )* 
+	v=declarations()
 	{
-		v.addElement(prop);
 		return v;
 	}
     |   
