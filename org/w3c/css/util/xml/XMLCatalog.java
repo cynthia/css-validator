@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLCatalog.java,v 1.1 2002-04-08 21:19:22 plehegar Exp $
+ * $Id: XMLCatalog.java,v 1.2 2004-01-12 11:00:58 ylafon Exp $
  */
 package org.w3c.css.util.xml;
 
@@ -27,7 +27,7 @@ import java.util.Properties;
 import java.net.URL;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @author  Philippe Le Hegaret
  */
 public class XMLCatalog extends Properties implements ContentHandler {
@@ -66,6 +66,16 @@ public class XMLCatalog extends Properties implements ContentHandler {
 	    if ((systemId != null) && (uri != null)) {
 		try {
 		    setProperty(systemId, (new URL(baseURI, uri)).toString());
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+	    }
+	} else if ("public".equals(qName)) {
+	    String publicId = atts.getValue("publicId");
+	    String uri = atts.getValue("uri");
+	    if ((publicId != null) && (uri != null)) {
+		try {
+		    setProperty(publicId, (new URL(baseURI, uri)).toString());
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
