@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.8 2003-10-29 16:27:44 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.9 2004-01-06 14:25:36 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -44,7 +44,7 @@ import org.w3c.css.util.xml.XMLCatalog;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 
@@ -519,8 +519,17 @@ public class XMLStyleSheetHandler implements ContentHandler,
 	if (ctype != null) {
 	    try {
 		MimeType repmime = new MimeType(ctype);
-		if (repmime.hasParameter("charset"))
+		if (repmime.hasParameter("charset")) {
 		    source.setEncoding(repmime.getParameterValue("charset"));
+		} else {
+		    // if text/html and no given charset, let's assume
+		    // iso-8859-1. Ideally, the parser would change the
+		    // encoding if it find a mismatch, not sure, but well...
+		    if (repmime.match(MimeType.TEXT_HTML) == 
+			                     MimeType.MATCH_SPECIFIC_SUBTYPE) {
+			source.setEncoding("iso-8859-1");
+		    }
+		}
 	    } catch (Exception ex) {}
 	}
 	source.setSystemId(urlString);
