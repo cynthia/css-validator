@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.17 2003-01-08 12:49:17 sijtsche Exp $
+// $Id: Css3Style.java,v 1.18 2003-07-11 14:08:42 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -210,6 +210,7 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	CssBorderImageTransform cssBorderImageTransform;
 	CssBorderBreak cssBorderBreak;
 	CssBoxShadow cssBoxShadow;
+	CssTextIndentCSS3 cssTextIndentCSS3;
 
 	//media features for media queries
 
@@ -1971,6 +1972,14 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 		return cssBoxShadow;
 	}
 
+	public CssTextIndentCSS3 getTextIndentCSS3() {
+		if (cssTextIndentCSS3 == null) {
+			cssTextIndentCSS3 =
+				(CssTextIndentCSS3) style.CascadingOrder(
+						new CssTextIndentCSS3(), style, selector);
+		}
+		return cssTextIndentCSS3;
+	}
 
 // media features
 
@@ -2816,6 +2825,9 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	}
 	if (cssBoxShadow != null) {
 		cssBoxShadow.print(printer);
+	}
+	if (cssTextIndentCSS3 != null) {
+		cssTextIndentCSS3.print(printer);
 	}
 
 
