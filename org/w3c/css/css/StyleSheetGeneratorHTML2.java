@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.4 2003-10-17 13:54:02 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.5 2003-10-28 15:36:32 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport
     implements CssPrinterStyle {
@@ -179,8 +179,8 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
 
 	Vector atRules = style.newGetRules();
 	for (int idx = 0; idx < atRules.size(); idx++) {
-	    out.print(((CssRuleList)atRules.
-		       elementAt(idx)).toHTML() + "\n");
+	    out.print(((CssRuleList)atRules.elementAt(idx)).toHTML());
+	    out.print("\n");
 	}
     }
     
@@ -346,8 +346,8 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
 				ret.append("\n</ul></div>");
 			    }
 			    oldSourceFile = warn.getSourceFile();
-			    ret.append("\n<div><h3>URI : "
-				       + "<a href=\"");
+			    ret.append("\n<div><h3>URI : ");
+			    ret.append("<a href=\"");
 			    ret.append(oldSourceFile).append("\">");
 			    ret.append(oldSourceFile).append("</a></h3><ul>");
 			    open = true;
@@ -488,8 +488,10 @@ public final class StyleSheetGeneratorHTML2 extends StyleReport
 	out.println( " -- listing available output format --" );
 	while (e.hasMoreElements()) {
 	    String key = ((String) e.nextElement()).toLowerCase();
-	    out.println( "Format : " + key );
-	    out.println( "   File : " + getDocumentName(null, key) );
+	    out.print( "Format : ");
+	    out.println(key);
+	    out.print( "   File : ");
+	    out.println(getDocumentName(null, key));
 	}
 	out.flush();
     }
