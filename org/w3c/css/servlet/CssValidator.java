@@ -1,12 +1,15 @@
 //
-// $Id: CssValidator.java,v 1.3 2002-05-19 04:11:34 plehegar Exp $
+// $Id: CssValidator.java,v 1.4 2002-07-12 20:58:36 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssValidator.java,v $
- * Revision 1.3  2002-05-19 04:11:34  plehegar
+ * Revision 1.4  2002-07-12 20:58:36  plehegar
+ * Removed dimensions for the icon
+ *
+ * Revision 1.3  2002/05/19 04:11:34  plehegar
  * Replaced the email address
  *
  * Revision 1.2  2002/04/08 21:18:10  plehegar
@@ -77,7 +80,7 @@ import org.xml.sax.SAXParseException;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public final class CssValidator extends HttpServlet {
     
@@ -619,7 +622,7 @@ public final class CssValidator extends HttpServlet {
 		out.println("</p></div>");
     
 		out.println("<hr />");
-		out.println("<p><img src='images/mwcss.gif' alt='made with CSS'  width='72' height='48' /></p>");
+		out.println("<p><img src='images/mwcss.gif' alt='made with CSS' /></p>");
 		out.println("<address><a href='Email.html'>www-validator-css</a></address>");
 		out.println("</body></html>");
 		out.flush();
