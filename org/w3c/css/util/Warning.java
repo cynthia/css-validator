@@ -1,12 +1,15 @@
 //
-// $Id: Warning.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+// $Id: Warning.java,v 1.3 2002-07-12 20:36:25 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: Warning.java,v $
- * Revision 1.2  2002-04-08 21:19:15  plehegar
+ * Revision 1.3  2002-07-12 20:36:25  plehegar
+ * s/System.out/System.err/
+ *
+ * Revision 1.2  2002/04/08 21:19:15  plehegar
  * New
  *
  * Revision 2.2  1997/09/08 13:35:45  plehegar
@@ -23,7 +26,7 @@ import org.w3c.css.properties.CssProperty;
 
 /**
  * This class is use to manage all warning every where
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class Warning {
     String sourceFile;
@@ -170,10 +173,10 @@ public class Warning {
      * debug trace
      */
     public void dump() {
-	System.out.println( getSourceFile() );
-	System.out.println( getLine() );
-	System.out.println( getWarningMessage() );
-	System.out.println( getLevel() );
+	System.err.println( getSourceFile() );
+	System.err.println( getLine() );
+	System.err.println( getWarningMessage() );
+	System.err.println( getLevel() );
     }
     
     private String warm(String warning, String arg1, String arg2, 

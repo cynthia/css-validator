@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.3 2002-05-19 01:04:56 plehegar Exp $
+ * $Id: HTTPURL.java,v 1.4 2002-07-12 20:36:07 plehegar Exp $
  */
 package org.w3c.css.util;
 
@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.*;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -145,7 +145,7 @@ public class HTTPURL {
 	URLConnection urlC = url.openConnection();
 
 	if (Util.servlet && !(urlC instanceof HttpURLConnection)) {
-	    System.out.println( "[WARNING] : someone is trying to get the file: "
+	    System.err.println( "[WARNING] : someone is trying to get the file: "
 				+ url );
 	    throw new FileNotFoundException("import " + url + 
 					    ": Operation not permitted");
@@ -239,7 +239,7 @@ public class HTTPURL {
 	InputStream in = HTTPURL.getConnection(getURL(args[0])).getInputStream();
 
 	while ((c = in.read()) != -1) {
-	    System.out.print((char) c);
+	    System.err.print((char) c);
 	}
 	System.exit(0);
     }    

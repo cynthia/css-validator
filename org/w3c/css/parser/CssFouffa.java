@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.2 2002-04-08 21:24:12 plehegar Exp $
+// $Id: CssFouffa.java,v 1.3 2002-07-12 20:35:30 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public final class CssFouffa extends CssParser {
     
@@ -95,7 +95,7 @@ public final class CssFouffa extends CssParser {
 	    try {
 		media.addMedia(ac.getMedium(), ac);
 	    } catch (Exception e) {
-		System.out.println(e.getMessage());
+		System.err.println(e.getMessage());
 		try { 
 		    media.addMedia("all", ac);
 		} catch (InvalidParamException ex) {} //ignore
@@ -177,7 +177,7 @@ public final class CssFouffa extends CssParser {
 	    try {
 		media.addMedia(ac.getMedium(), ac);
 	    } catch (Exception e) {
-		System.out.println(e.getMessage());
+		System.err.println(e.getMessage());
 		try { 
 		    media.addMedia("all", ac);
 		} catch (InvalidParamException ex) {} //ignore

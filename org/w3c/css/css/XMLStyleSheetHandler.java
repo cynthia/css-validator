@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.3 2002-07-12 20:31:54 plehegar Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.4 2002-07-12 20:32:42 plehegar Exp $
  */
 package org.w3c.css.css;
 
@@ -42,7 +42,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.xml.XMLCatalog;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 
@@ -130,7 +130,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 	    String href = (String) atts.get("href");
 	    
 	    if (Util.onDebug) {
-		System.out.println("<?xml-stylesheet alternate=\"" + rel 
+		System.err.println("<?xml-stylesheet alternate=\"" + rel 
 				   + "\" type=\"" + type
 				   + "\"" + "   href=\"" + href + "\"?>");
 	    }
@@ -169,7 +169,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 		}
 		
 		if (Util.onDebug) {
-		    System.out.println("[XMLStyleSheetHandler::initialize(): "
+		    System.err.println("[XMLStyleSheetHandler::initialize(): "
 				       + "should parse CSS url: " 
 				       + url.toString() + "]");
 		}
@@ -184,7 +184,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 					  media,
 					  StyleSheetOrigin.AUTHOR);
 		if (Util.onDebug) {
-		    System.out.println("[parsed!]");
+		    System.err.println("[parsed!]");
 		}
 	    }
 	}
@@ -207,7 +207,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 		String href = atts.getValue("href");
 	
 		if (Util.onDebug) {
-		    System.out.println("BASE href=\"" + href + "\"");
+		    System.err.println("BASE href=\"" + href + "\"");
 		}
 	
 		if (href != null) {
@@ -227,7 +227,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 		String href = atts.getValue("href");
 		
 		if (Util.onDebug) {
-		    System.out.println("link rel=\"" + rel 
+		    System.err.println("link rel=\"" + rel 
 				       + "\" type=\"" + type
 				       + "\"" + "   href=\"" + href + "\"");
 		}
@@ -265,7 +265,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 		    }
 		    
 		    if (Util.onDebug) {
-			System.out.println("[XMLStyleSheetHandler::initialize(): "
+			System.err.println("[XMLStyleSheetHandler::initialize(): "
 					   + "should parse CSS url: " 
 					   + url.toString() + "]");
 		    }
@@ -280,7 +280,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 					      media,
 					      StyleSheetOrigin.AUTHOR);
 		    if (Util.onDebug) {
-			System.out.println("[parsed!]");
+			System.err.println("[parsed!]");
 		    }
 		}
 	    } else if ("style".equals(localName)) {
@@ -292,7 +292,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 		    media = "all";
 		}
 		if (Util.onDebug) {
-		    System.out.println("style media=\"" + media
+		    System.err.println("style media=\"" + media
 				       + "\" type=\"" + type
 				       + "\"" + "   title=\"" + title + "\"");
 		}
