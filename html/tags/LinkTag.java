@@ -3,9 +3,9 @@
  *
  * @author Vincent Mallet  (vmallet@sophia.inria.fr)
  *
- * $Id: LinkTag.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
+ * $Id: LinkTag.java,v 1.3 2002-07-12 16:50:12 plehegar Exp $
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 // TODO: handle the content-type properly.
@@ -81,8 +81,9 @@ public class LinkTag extends Flow {
 			       + "\"" + "   href=\"" + href + "\"");
 	}
 	
-	if (((rel != null) && rel.toLowerCase().indexOf("stylesheet") != -1)
-	        || ((type != null) && type.equals("text/css"))) {
+	if ((rel != null || type != null)
+	    && ((rel == null) || rel.toLowerCase().indexOf("stylesheet") != -1)
+	    && ((type == null) || type.equals("text/css"))) {
 	    // we're dealing with a stylesheet...
 	    URL url;
 	    
