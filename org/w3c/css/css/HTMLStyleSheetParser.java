@@ -1,12 +1,15 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.4 2002-05-19 03:44:31 plehegar Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.5 2003-10-15 10:10:14 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: HTMLStyleSheetParser.java,v $
- * Revision 1.4  2002-05-19 03:44:31  plehegar
+ * Revision 1.5  2003-10-15 10:10:14  plehegar
+ * Changes from Yves
+ *
+ * Revision 1.4  2002/05/19 03:44:31  plehegar
  * Fixed application/xhtml+xml
  *
  * Revision 1.3  2002/05/19 01:08:31  plehegar
@@ -38,7 +41,7 @@ import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
     
@@ -141,7 +144,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		if ((contentType.indexOf("text/xml") != -1) || isXML
 		    || (contentType.indexOf("application/xhtml+xml") != -1)) {
 		    XMLStyleSheetHandler handler = new XMLStyleSheetHandler(htmlURL, ac);
-		    handler.parse(urlString, connection.getInputStream());
+		    handler.parse(urlString, connection);
 		    style = handler.getStyleSheet();
 		    if (style != null) {
 			style.setType("text/xml");

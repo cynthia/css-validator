@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.6 2003-09-24 17:58:07 plehegar Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.7 2003-10-15 10:10:15 plehegar Exp $
  */
 package org.w3c.css.css;
 
@@ -41,8 +41,10 @@ import org.w3c.css.util.InvalidParamException;
 
 import org.w3c.css.util.xml.XMLCatalog;
 
+import org.w3c.www.mime.MimeType;
+
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 
@@ -477,6 +479,14 @@ public class XMLStyleSheetHandler implements ContentHandler,
 
 	connection = HTTPURL.getConnection(url, ac);
 	in = connection.getInputStream();
+	String ctype = connection.getContentType();
+	if (ctype != null) {
+	    try {
+		MimeType repmime = new MimeType(ctype);
+		if (repmime.hasParameter("charset"))
+		    source.setEncoding(repmime.getParameterValue("charset"));
+	    } catch (Exception ex) {}
+	}
 	source.setByteStream(in);
 	try {
 	    xmlParser.parse(url.toString());
@@ -485,7 +495,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
 	}
     }
 
-    void parse(String urlString, InputStream input) throws Exception {
+    void parse(String urlString, URLConnection connection) throws Exception {
 	org.xml.sax.XMLReader xmlParser = new org.apache.xerces.parsers.SAXParser();
 	try {
 	    xmlParser.setProperty("http://xml.org/sax/properties/lexical-handler",
@@ -499,7 +509,15 @@ public class XMLStyleSheetHandler implements ContentHandler,
 	    ex.printStackTrace();
 	}
 	xmlParser.setContentHandler(this);
-	InputSource source = new InputSource(input);
+	InputSource source = new InputSource(connection.getInputStream());
+	String ctype = connection.getContentType();
+	if (ctype != null) {
+	    try {
+		MimeType repmime = new MimeType(ctype);
+		if (repmime.hasParameter("charset"))
+		    source.setEncoding(repmime.getParameterValue("charset"));
+	    } catch (Exception ex) {}
+	}
 	source.setSystemId(urlString);
 	xmlParser.parse(source);
     }

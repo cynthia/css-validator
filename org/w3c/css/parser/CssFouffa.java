@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.12 2003-08-29 12:46:47 plehegar Exp $
+// $Id: CssFouffa.java,v 1.13 2003-10-15 10:10:15 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -49,7 +49,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -317,7 +317,7 @@ public final class CssFouffa extends CssParser {
 
 	number_of_imports++;
 
-	if (number_of_imports > 1000) {
+	if (number_of_imports > 12) {
 		ac.getFrame().addError(new CssError(new Exception("Maximum number of imports reached")));
 	}
 
