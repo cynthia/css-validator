@@ -1,42 +1,10 @@
 //
-// $Id: CssPadding.java,v 1.3 2004-03-30 13:14:38 ylafon Exp $
+// $Id: CssPadding.java,v 1.4 2004-03-30 13:44:40 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssPadding.java,v $
- * Revision 1.3  2004-03-30 13:14:38  ylafon
- * fixed invalid separators or too many values
- *
- * Revision 1.2  2002/04/08 21:17:44  plehegar
- * New
- *
- * Revision 3.1  1997/08/29 13:13:58  plehegar
- * Freeze
- *
- * Revision 2.3  1997/08/26 13:57:30  plehegar
- * Added setSelectors
- *
- * Revision 2.2  1997/08/20 11:41:27  plehegar
- * Freeze
- *
- * Revision 2.1  1997/08/08 15:52:30  plehegar
- * Nothing
- *
- * Revision 1.4  1997/08/06 17:30:14  plehegar
- * Updated set, now it's a constructor
- *
- * Revision 1.3  1997/07/30 13:20:13  plehegar
- * Updated package
- *
- * Revision 1.2  1997/07/25 15:47:34  plehegar
- * ??
- *
- * Revision 1.1  1997/07/24 01:28:24  plehegar
- * Initial revision
- *
- */
+
 package org.w3c.css.properties;
 
 import org.w3c.css.parser.CssStyle;
@@ -81,7 +49,7 @@ import org.w3c.css.util.ApplContext;
  *   is equal to the size of the font in use.
  *   <P>
  *   Padding values cannot be negative.
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssPadding extends CssProperty implements CssOperator {
     
@@ -121,8 +89,6 @@ public class CssPadding extends CssProperty implements CssOperator {
 	    left.value = inherit;
 	}
 
-	String valueset = expression.toString();
-
 	switch (expression.getCount()) {
 	case 1:
 	    top = new CssPaddingTop(ac, expression);
@@ -132,7 +98,7 @@ public class CssPadding extends CssProperty implements CssOperator {
 	    break;
 	case 2:
 	    if (expression.getOperator() != SPACE)
-		throw new InvalidParamException("", ac);
+		throw new InvalidParamException("unrecognize", val, ac);
 	    top = new CssPaddingTop(ac, expression);
 	    right = new CssPaddingRight(ac, expression);
 	    bottom = new CssPaddingBottom(top);
@@ -140,29 +106,23 @@ public class CssPadding extends CssProperty implements CssOperator {
 	    break;
 	case 3:
 	    if (expression.getOperator() != SPACE)
-		throw new InvalidParamException(valueset, ac);
+		throw new InvalidParamException("unrecognize", val, ac);
 	    top = new CssPaddingTop(ac, expression);
 	    if (expression.getOperator() != SPACE)
-		throw new InvalidParamException(valueset, ac);
+		throw new InvalidParamException("unrecognize", val, ac);
 	    right = new CssPaddingRight(ac, expression);
 	    bottom = new CssPaddingBottom(ac, expression);
 	    left = new CssPaddingLeft(right);
 	    break;
 	case 4:
 	    if (expression.getOperator() != SPACE)
-		throw new InvalidParamException("padding",
-						""+expression.getOperator(),
-						ac);
+		throw new InvalidParamException("unrecognize", val, ac);
 	    top = new CssPaddingTop(ac, expression);
 	    if (expression.getOperator() != SPACE)
-		throw new InvalidParamException("padding",
-						""+expression.getOperator(),
-						ac);
+		throw new InvalidParamException("unrecognize", val, ac);
 	    right = new CssPaddingRight(ac, expression);
 	    if (expression.getOperator() != SPACE)
-		throw new InvalidParamException("padding",
-						""+expression.getOperator(),
-						ac);
+		throw new InvalidParamException("unrecognize", val, ac);
 	    bottom = new CssPaddingBottom(ac, expression);
 	    left = new CssPaddingLeft(ac, expression);
 	    break;
