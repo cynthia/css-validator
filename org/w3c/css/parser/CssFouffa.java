@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.4 2002-07-22 15:12:20 sijtsche Exp $
+// $Id: CssFouffa.java,v 1.5 2002-07-26 08:21:06 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -659,6 +659,9 @@ public final class CssFouffa extends CssParser {
 		    properties = new CssPropertyFactory(url);
 		} else if (profile.equals("mobile")) {
 		    URL url = style.getResource(config.getProperty("mobile"));
+		    properties = new CssPropertyFactory(url);
+		} else if (profile.equals("atsc-tv")) {
+		    URL url = style.getResource(config.getProperty("atsc-tv"));
 		    properties = new CssPropertyFactory(url);
 		}
 
