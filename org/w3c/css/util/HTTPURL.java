@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.10 2004-01-07 14:21:26 ylafon Exp $
+ * $Id: HTTPURL.java,v 1.11 2004-01-09 15:57:46 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.*;
 
 /**
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -173,7 +173,7 @@ public class HTTPURL {
 	}
 	// avoid all kind of caches
 	urlC.setRequestProperty("Pragma", "no-cache");
-	urlC.setRequestProperty("Cache-Control", "no-cache");
+	urlC.setRequestProperty("Cache-Control", "no-cache, no-store");
 	// for the fun
 	urlC.setRequestProperty("User-Agent",
 				"Jigsaw/2.2.3 W3C_CSS_Validator_JFouffa/2.0");
