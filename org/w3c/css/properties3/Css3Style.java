@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.8 2002-08-15 09:05:16 sijtsche Exp $
+// $Id: Css3Style.java,v 1.9 2002-08-19 07:33:00 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -119,8 +119,8 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	CssLineGridProgression cssLineGridProgression;
 	CssLinefeedTreatment cssLinefeedTreatment;
 	CssScript cssScript;
-	//CssTextOverflow cssTextOverflow;
-	//CssTextOverflowEllipsis cssTextOverflowEllipsis;
+	CssTextOverflow cssTextOverflow;
+	CssTextOverflowEllipsis cssTextOverflowEllipsis;
 	CssTextOverflowMode cssTextOverflowMode;
 	CssWhiteSpaceTreatment cssWhiteSpaceTreatment;
 	CssWrapOption cssWrapOption;
@@ -1045,7 +1045,7 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 		}
 		return cssScript;
 	}
-/*
+
 	public CssTextOverflow getTextOverflow() {
 		if (cssTextOverflow == null) {
 			cssTextOverflow =
@@ -1063,7 +1063,7 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 		}
 		return cssTextOverflowEllipsis;
 	}
-*/
+
 	public CssTextOverflowMode getTextOverflowMode() {
 		if (cssTextOverflowMode == null) {
 			cssTextOverflowMode =
@@ -1400,13 +1400,12 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	if (cssScript != null) {
 		cssScript.print(printer);
 	}
-	/*
 	if (cssTextOverflow != null) {
 		cssTextOverflow.print(printer);
 	}
 	if (cssTextOverflowEllipsis != null) {
-		cssTextOverflow.print(printer);
-	}*/
+		cssTextOverflowEllipsis.print(printer);
+	}
 	if (cssTextOverflowMode != null) {
 		cssTextOverflowMode.print(printer);
 	}
