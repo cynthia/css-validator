@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
@@ -7,7 +7,7 @@
     <link rev="made" href="mailto:www-validator@w3.org" />
     <link rev="start" href="./" title="Página de Inicio" />
     <style type="text/css" media="all">@import "./base.css";</style>
-    <meta name="revision" content="$Id: validator-upload.html.es,v 1.1 2005-01-17 02:24:42 ot Exp $" />
+    <meta name="revision" content="$Id: validator-upload.html.es,v 1.2 2005-01-17 02:31:24 ot Exp $" />
   </head>
 
   <body>
@@ -125,7 +125,7 @@
 	alt="¡CSS Válido!" /></a>
 	<a title="Haga sus sugerencias sobre el Servicio de Validación CSS del W3C" href="Email">El Equipo del Validador de CSS del W3C</a><br/>
       $Fecha: 27/12/2004 02:07:12 $
-      <!-- SSI Template Version: $Id: validator-upload.html.es,v 1.1 2005-01-17 02:24:42 ot Exp $ -->
+      <!-- SSI Template Version: $Id: validator-upload.html.es,v 1.2 2005-01-17 02:31:24 ot Exp $ -->
     </address>
     <p class="copyright">
 			<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright" hreflang="en-us" xml:lang="en-us">Copyright</a> &#xa9; 1994-2004
