@@ -1,12 +1,15 @@
 //
-// $Id: StyleSheetCom.java,v 1.6 2003-07-11 13:48:59 sijtsche Exp $
+// $Id: StyleSheetCom.java,v 1.7 2004-01-10 06:22:24 bjoern Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetCom.java,v $
- * Revision 1.6  2003-07-11 13:48:59  sijtsche
+ * Revision 1.7  2004-01-10 06:22:24  bjoern
+ * Fix for http://www.w3.org/Bugs/Public/show_bug.cgi?id=292
+ *
+ * Revision 1.6  2003/07/11 13:48:59  sijtsche
  * compile error in useless use of HttpServletResponse fixed
  *
  * Revision 1.5  2003/07/02 14:39:03  plehegar
@@ -49,7 +52,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.6 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.7 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 
@@ -172,6 +175,9 @@ public class StyleSheetCom implements HtmlParserListener {
 	CssSelectors selector = null;
 
 	StyleSheetCom style = new StyleSheetCom();
+
+        // Fix for http://www.w3.org/Bugs/Public/show_bug.cgi?id=292
+        style.contenttype = "text";
 
 	try {
 	    style.file = args[i];
