@@ -1,67 +1,10 @@
 //
-// $Id: CssSelectors.java,v 1.9 2003-10-24 16:47:45 ylafon Exp $
+// $Id: CssSelectors.java,v 1.10 2003-10-27 09:21:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssSelectors.java,v $
- * Revision 1.9  2003-10-24 16:47:45  ylafon
- * Remove dangerous use of statics in CssFouffa and CssSelectorsStyle creation
- * using static and getClones, speed up of the configuration reuse
- * Various stringbuffer optimisation in toString() calls
- * Overall cpu and memory optimization.
- * Figures of memory optimizations (validation of www.w3.org):
- *
- * without optim
- * char[]: +3773K
- * String: +1191K
- * StringBuffer: +614K
- *
- * use of getClone
- * char[] +1914k
- * String: +455k
- * StringBuffer +168k
- *
- * all:
- * char[] +1868k
- * String: +428k
- * StringBuffer +147k
- *
- * Revision 1.8  2003/04/08 09:23:41  sijtsche
- * bug in display of class names fixed
- *
- * Revision 1.7  2002/08/19 07:24:39  sijtsche
- * tv profile restrictions added
- *
- * Revision 1.6  2002/07/24 14:52:21  sijtsche
- * compile bug fixed
- *
- * Revision 1.5  2002/07/22 15:03:33  sijtsche
- * extra pseudoelements, functions and constants added
- *
- * Revision 1.2  2002/05/23 09:59:20  dejong
- * extra pseudoelements, functions and constants added
- *
- * Revision 2.5  1997/08/27 15:31:43  plehegar
- * Desactivated warning on block and inline element ...
- *
- * Revision 2.4  1997/08/22 14:55:48  plehegar
- * Added isEmpty()
- *
- * Revision 2.3  1997/08/21 07:25:30  plehegar
- * Added auralMode, getNext, setNext
- *
- * Revision 2.2  1997/08/20 11:41:28  plehegar
- * Freeze
- *
- * Revision 2.1  1997/08/08 15:52:34  plehegar
- * Nothing
- *
- * Revision 1.1  1997/08/01 19:35:24  plehegar
- * Initial revision
- *
- */
+
 package org.w3c.css.parser;
 
 import java.net.URL;
@@ -84,7 +27,7 @@ import org.w3c.css.util.Util;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public final class CssSelectors implements CssSelectorsConstant {
 
