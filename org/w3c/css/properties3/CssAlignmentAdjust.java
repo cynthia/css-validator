@@ -1,5 +1,5 @@
 //
-// $Id: CssAlignmentAdjust.java,v 1.2 2002-08-20 08:23:56 sijtsche Exp $
+// $Id: CssAlignmentAdjust.java,v 1.3 2002-08-20 08:50:39 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -43,7 +43,7 @@ public class CssAlignmentAdjust extends CssProperty {
     private static String[] values = {
 	"auto", "baseline", "before-edge",
 	"text-before-edge", "middle", "central", "after-edge", "text-after-edge",
-	"ideographic", "alphabetic", "hanging", "mathematical", "inherit"
+	"ideographic", "alphabetic", "hanging", "mathematical", "inherit", "initial"
     };
 
     /**

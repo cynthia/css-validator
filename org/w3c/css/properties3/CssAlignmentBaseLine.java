@@ -1,5 +1,5 @@
 //
-// $Id: CssAlignmentBaseLine.java,v 1.2 2002-08-20 08:23:56 sijtsche Exp $
+// $Id: CssAlignmentBaseLine.java,v 1.3 2002-08-20 08:50:39 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -40,7 +40,7 @@ public class CssAlignmentBaseLine extends CssProperty {
     private static String[] values = {
 	"baseline", "use-script", "before-edge",
 	"text-before-edge", "after-edge", "text-after-edge", "central", "middle",
-	"ideographic", "alphabetic", "hanging", "mathematical", "inherit"
+	"ideographic", "alphabetic", "hanging", "mathematical", "inherit", "initial"
     };
 
     /**

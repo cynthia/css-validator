@@ -1,12 +1,15 @@
 //
-// $Id: CssTextPropertiesConstants.java,v 1.4 2002-08-20 08:42:10 sijtsche Exp $
+// $Id: CssTextPropertiesConstants.java,v 1.5 2002-08-20 08:50:39 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssTextPropertiesConstants.java,v $
- * Revision 1.4  2002-08-20 08:42:10  sijtsche
+ * Revision 1.5  2002-08-20 08:50:39  sijtsche
+ * value initial added
+ *
+ * Revision 1.4  2002/08/20 08:42:10  sijtsche
  * new values added
  *
  * Revision 1.3  2002/08/19 07:40:17  sijtsche
@@ -25,7 +28,7 @@
 package org.w3c.css.properties;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public interface CssTextPropertiesConstants {
   public static String[] TEXTDECORATION = {
@@ -39,7 +42,7 @@ public interface CssTextPropertiesConstants {
 
   public static String[] VERTICALALIGN = {
     "auto", "use-script", "baseline", "sub", "super", "top", "text-top",
-    "central", "middle", "bottom", "text-bottom", "inherit" };
+    "central", "middle", "bottom", "text-bottom", "inherit", "initial" };
 
   public static String[] VERTICALALIGNMOB = {
     "baseline", "sub", "super", "inherit" };
