@@ -1,12 +1,15 @@
 //
-// $Id: CssBackgroundColorCSS1.java,v 1.2 2002-04-08 21:17:42 plehegar Exp $
+// $Id: CssBackgroundColorCSS1.java,v 1.3 2003-08-29 15:23:39 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundColorCSS1.java,v $
- * Revision 1.2  2002-04-08 21:17:42  plehegar
+ * Revision 1.3  2003-08-29 15:23:39  plehegar
+ * Fix from Sijtsche
+ *
+ * Revision 1.2  2002/04/08 21:17:42  plehegar
  * New
  *
  * Revision 3.3  1997/09/09 13:03:57  plehegar
@@ -60,33 +63,33 @@ import org.w3c.css.util.ApplContext;
  *   <PRE>
  *   H1 { background-color: #F00 }
  *   </PRE>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBackgroundColorCSS1 extends CssProperty {
-    
+
     CssValue color;
-    
+
     static CssIdent transparent = new CssIdent("transparent");
-    
+
     /**
      * Create a new CssBackgroundColorCSS1
      */
     public CssBackgroundColorCSS1() {
 	color = transparent;
-    }  
-    
+    }
+
     /**
      * Create a new CssBackgroundColorCSS1
      *
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssBackgroundColorCSS1(ApplContext ac, CssExpression expression) 
+    public CssBackgroundColorCSS1(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	setByUser();
 	CssValue val = expression.getValue();
-	
-	if (val instanceof org.w3c.css.values.CssColorCSS1) {
+
+	if (val instanceof org.w3c.css.values.CssColor) {
 	    color = val;
 	    expression.next();
 	} else if (val instanceof CssIdent) {
@@ -101,25 +104,25 @@ public class CssBackgroundColorCSS1 extends CssProperty {
 		expression.next();
 	    }
 	} else {
-	    throw new InvalidParamException("value", val.toString(), 
+	    throw new InvalidParamException("value", val.toString(),
 					    getPropertyName(), ac);
 	}
-    }  
-    
+    }
+
     /**
      * Returns the value of this property
      */
     public Object get() {
 	return color;
     }
-    
+
     /**
      * Returns the color
      */
     public final CssValue getColor() {
 	return color;
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -127,15 +130,15 @@ public class CssBackgroundColorCSS1 extends CssProperty {
     public boolean isSoftlyInherited() {
 	return color.equals(inherit);
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
 	return color.toString();
     }
-    
-    
+
+
     /**
      * Add this property to the CssStyle.
      *
@@ -147,13 +150,13 @@ public class CssBackgroundColorCSS1 extends CssProperty {
 	    style.addRedefinitionWarning(ac, this);
 	cssBackground.color = this;
     }
-    
+
     /**
      * Get this property in the style.
      *
      * @param style The style where the property is
      * @param resolve if true, resolve the style to find this property
-     */  
+     */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
 	    return ((Css1Style) style).getBackgroundColorCSS1();
@@ -161,30 +164,30 @@ public class CssBackgroundColorCSS1 extends CssProperty {
 	    return ((Css1Style) style).cssBackgroundCSS1.color;
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
      * @param value The other property.
-     */  
+     */
     public boolean equals(CssProperty property) {
-	return (property instanceof CssBackgroundColorCSS1 && 
+	return (property instanceof CssBackgroundColorCSS1 &&
 		color.equals( ((CssBackgroundColorCSS1) property).color));
     }
-    
+
     /**
      * Returns the name of this property
-     */  
+     */
     public String getPropertyName() {
 	return "background-color";
     }
-    
+
     /**
      * Is the value of this property is a default value.
      * It is used by all macro for the function <code>print</code>
-     */  
+     */
     public boolean isDefault() {
 	return color == transparent;
     }
-    
+
 }

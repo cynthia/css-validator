@@ -1,12 +1,15 @@
 //
-// $Id: CssBorder.java,v 1.3 2003-01-08 10:24:47 sijtsche Exp $
+// $Id: CssBorder.java,v 1.4 2003-08-29 15:23:39 plehegar Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBorder.java,v $
- * Revision 1.3  2003-01-08 10:24:47  sijtsche
+ * Revision 1.4  2003-08-29 15:23:39  plehegar
+ * Fix from Sijtsche
+ *
+ * Revision 1.3  2003/01/08 10:24:47  sijtsche
  * changes for CSS3 border
  *
  * Revision 1.2  2002/04/08 21:17:42  plehegar
@@ -43,7 +46,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBorder extends CssProperty implements CssOperator {
 
@@ -53,10 +56,10 @@ public class CssBorder extends CssProperty implements CssOperator {
     CssValue uri = null;
     CssBorderImageTransform imagetransform = null;
 
-    CssBorderTop top;
-    CssBorderRight right;
-    CssBorderBottom bottom;
-    CssBorderLeft left;
+    CssBorderTop top = new CssBorderTop();
+    CssBorderRight right = new CssBorderRight();
+    CssBorderBottom bottom = new CssBorderBottom();
+    CssBorderLeft left = new CssBorderLeft();
 
     /**
      * Create a new CssBorder
