@@ -1,12 +1,15 @@
 //
-// $Id: CssTextPropertiesConstantsCSS3.java,v 1.1 2002-08-07 14:21:31 sijtsche Exp $
+// $Id: CssTextPropertiesConstantsCSS3.java,v 1.2 2002-12-23 08:24:07 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssTextPropertiesConstantsCSS3.java,v $
- * Revision 1.1  2002-08-07 14:21:31  sijtsche
+ * Revision 1.2  2002-12-23 08:24:07  sijtsche
+ * text-decoration values changed
+ *
+ * Revision 1.1  2002/08/07 14:21:31  sijtsche
  * lining values added
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -22,12 +25,11 @@
 package org.w3c.css.properties3;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public interface CssTextPropertiesConstantsCSS3 {
   public static String[] TEXTDECORATION = {
-    "underline", "overline", "line-through", "blink", "inherit", "none", "solid", "double", "dotted", "thick",
-    "dashed", "dot-dash", "dot-dot-dash", "wave"};
+    "none", "underline", "overline", "line-through", "blink", "inherit" };
 
   public static String[] TEXTDECORATIONMOB = {
     "underline", "inherit" };
