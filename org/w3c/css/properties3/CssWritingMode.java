@@ -1,5 +1,5 @@
 //
-// $Id: CssWritingMode.java,v 1.2 2003-07-11 14:04:40 sijtsche Exp $
+// $Id: CssWritingMode.java,v 1.3 2003-07-14 13:56:56 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -68,10 +68,6 @@ public class CssWritingMode extends CssProperty {
 	}
 	else if (val.equals(tbrl)) {
 	    mode = tbrl;
-	    expression.next();
-	}
-	else if (val.equals(btrl)) {
-	    mode = btrl;
 	    expression.next();
 	}
 	else if (val.equals(tblr)) {
