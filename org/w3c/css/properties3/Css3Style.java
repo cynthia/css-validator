@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.13 2002-12-20 15:51:33 sijtsche Exp $
+// $Id: Css3Style.java,v 1.14 2002-12-23 08:23:14 sijtsche Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -148,6 +148,7 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	CssOverflowX cssOverflowX;
 	CssOverflowY cssOverflowY;
 	CssRubySpan cssRubySpan;
+	CssTextBlink cssTextBlink;
 
     public CssOpacity getOpacity() {
 	if (cssOpacity == null) {
@@ -1331,6 +1332,14 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 		return cssRubySpan;
 	}
 
+	public CssTextBlink getTextBlink() {
+		if (cssTextBlink == null) {
+			cssTextBlink =
+				(CssTextBlink) style.CascadingOrder(
+						new CssTextBlink(), style, selector);
+		}
+		return cssTextBlink;
+	}
 
 	/**
      * Print this style
@@ -1726,6 +1735,9 @@ public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 	}
 	if (cssRubySpan != null) {
 		cssRubySpan.print(printer);
+	}
+	if (cssTextBlink != null) {
+		cssTextBlink.print(printer);
 	}
 
     }
