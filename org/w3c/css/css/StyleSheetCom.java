@@ -1,12 +1,15 @@
 //
-// $Id: StyleSheetCom.java,v 1.5 2003-07-02 14:39:03 plehegar Exp $
+// $Id: StyleSheetCom.java,v 1.6 2003-07-11 13:48:59 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetCom.java,v $
- * Revision 1.5  2003-07-02 14:39:03  plehegar
+ * Revision 1.6  2003-07-11 13:48:59  sijtsche
+ * compile error in useless use of HttpServletResponse fixed
+ *
+ * Revision 1.5  2003/07/02 14:39:03  plehegar
  * Removed HttpServletResponse import
  *
  * Revision 1.4  2002/08/19 07:33:36  sijtsche
@@ -46,7 +49,7 @@ import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.5 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.6 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 
@@ -264,7 +267,6 @@ public class StyleSheetCom implements HtmlParserListener {
 		} else if (urlLower.endsWith(".xml")) {
 		    style.xmlRequest();
 		} else {
-		    HttpServletResponse res = null;
 		    URLConnection urlC = HTTPURL.getConnection(style.htmlURL, null);
 
 		    if (urlC.getContentType() != null) {
