@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.9 2004-01-06 14:25:36 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.10 2004-01-09 15:58:40 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -44,7 +44,7 @@ import org.w3c.css.util.xml.XMLCatalog;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 
@@ -514,7 +514,8 @@ public class XMLStyleSheetHandler implements ContentHandler,
 	    ex.printStackTrace();
 	}
 	xmlParser.setContentHandler(this);
-	InputSource source = new InputSource(connection.getInputStream());
+	InputStream cis = connection.getInputStream();
+	InputSource source = new InputSource(cis);
 	String ctype = connection.getContentType();
 	if (ctype != null) {
 	    try {
@@ -533,7 +534,11 @@ public class XMLStyleSheetHandler implements ContentHandler,
 	    } catch (Exception ex) {}
 	}
 	source.setSystemId(urlString);
-	xmlParser.parse(source);
+	try {
+	    xmlParser.parse(source);
+	} finally {
+	    cis.close();
+	}
     }
     
     Hashtable getValues(String data) {
