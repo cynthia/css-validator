@@ -1,4 +1,4 @@
-// $Id: CssRuleList.java,v 1.5 2003-10-20 13:02:31 ylafon Exp $
+// $Id: CssRuleList.java,v 1.6 2003-10-28 16:00:33 ylafon Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -7,6 +7,7 @@ package org.w3c.css.css;
 
 import org.w3c.css.parser.AtRule;
 import java.util.Vector;
+import java.io.PrintWriter;
 
 public class CssRuleList {
 
@@ -71,7 +72,7 @@ public class CssRuleList {
 	return ret.toString();
     }
 
-    public String toHTML() {
+/*    public String toHTML() {
 	StringBuffer ret = new StringBuffer();
 
 	if (null != atRule && atRule.isEmpty()) {
@@ -95,6 +96,29 @@ public class CssRuleList {
 	    }
 	}
 	return ret.toString();
+    }
+*/
+    public void toHTML(PrintWriter out) {
+	if (null != atRule && atRule.isEmpty()) {
+	    if (!atRuleString.equals("")) {
+		out.print("<li><span class='atSelector'>");
+		out.print(atRuleString);
+		out.print("</span></li> \n\n");
+	    }
+	} else {
+	    if (!atRuleString.equals("")) {
+		out.print("<li><span class='atSelector'>");
+		out.print(atRuleString);
+		out.print("</span> {\n<ul>\n");
+	    }
+	    for (int i = 0; i < rulelist.size() ; i++ ) {
+		((CssStyleRule)rulelist.elementAt(i)).toHTML(out);
+	    }
+	    
+	    if (!atRuleString.equals("")) {
+		out.print("</ul>}</li>\n");
+	    }
+	}
     }
 
     public void clear() {
