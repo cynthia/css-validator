@@ -1,5 +1,5 @@
 //
-// $Id: CssDisplay.java,v 1.3 2002-12-24 12:32:47 sijtsche Exp $
+// $Id: CssDisplay.java,v 1.4 2003-07-25 11:00:58 sijtsche Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 14th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -7,7 +7,10 @@
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssDisplay.java,v $
- * Revision 1.3  2002-12-24 12:32:47  sijtsche
+ * Revision 1.4  2003-07-25 11:00:58  sijtsche
+ * additional values for UI added
+ *
+ * Revision 1.3  2002/12/24 12:32:47  sijtsche
  * new values added
  *
  * Revision 1.2  2002/04/08 21:17:43  plehegar
@@ -43,7 +46,7 @@ import org.w3c.css.util.ApplContext;
 
 /**
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssDisplay extends CssProperty {
 
@@ -53,7 +56,7 @@ public class CssDisplay extends CssProperty {
 		"none", "block", "inline", "list-item", "run-in", "compact", "table-row",
 		"table-cell", "table-row-group", "table-header-group", "table-footer-group",
 		"table-column", "table-column-group", "table-caption", "ruby-text", "ruby-base",
-		"ruby-base-group", "ruby-text-group", "initial", "inherit"
+		"ruby-base-group", "ruby-text-group", "initial", "inherit", "inline-block", "icon"
     };
 
     private static int[] hash_values;
