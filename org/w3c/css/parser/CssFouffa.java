@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.20 2003-10-28 15:35:35 ylafon Exp $
+// $Id: CssFouffa.java,v 1.21 2003-10-29 16:27:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -50,7 +50,7 @@ import org.w3c.css.css.StyleSheetCom;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.20 $
+ * @version $Revision: 1.21 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -149,7 +149,23 @@ public final class CssFouffa extends CssParser {
      * @exception   IOException  if an I/O error occurs.
      */
     public CssFouffa(ApplContext ac, URL file) throws IOException {
-	this(ac, HTTPURL.getConnection(file, ac).getInputStream(), file, 0);
+	this(ac, HTTPURL.getConnection(file, ac), file);
+	
+    }
+
+    /**
+     * Create a new CssFouffa.
+     * internal, to get the URLCOnnection and fill the URL with the relevant
+     * one */
+
+    private CssFouffa(ApplContext ac, URLConnection uco , URL file)
+	throws IOException 
+    {
+	this(ac, uco.getInputStream(), file, 0);
+	String httpCL = uco.getHeaderField("Content-Location");
+	if (httpCL != null) {
+	    setURL(HTTPURL.getURL(getURL(), httpCL));
+	}
     }
 
     /**
@@ -372,6 +388,10 @@ public final class CssFouffa extends CssParser {
 
 	    if (importURL instanceof HttpURLConnection) {
 		HttpURLConnection httpURL = (HttpURLConnection) importURL;
+		String httpCL = httpURL.getHeaderField("Content-Location");
+		if (httpCL != null) {
+		    importedURL = HTTPURL.getURL(importedURL, httpCL);
+		}
 		String mtype = httpURL.getContentType();
 		if (mtype.toLowerCase().indexOf("text/html") != -1) {
 		    throw new FileNotFoundException(importURL.getURL() +
