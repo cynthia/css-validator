@@ -44,7 +44,7 @@ par la version en ligne. Vous pouvez donc obtenir des r&eacute;sultats diff&eacu
     </p>
     <p>
       Sijtsche a envoy&eacute; des <a
-      href='http://lists.w3.org/Archives/Public/www-validator-css/2003Jan/0037.html'>insrtuctions</a>
+      href='http://lists.w3.org/Archives/Public/www-validator-css/2003Jan/0037.html'>instructions</a>
       pour installer le validateur CSS sur un ordinateur.
     </p>
     <hr />
@@ -52,6 +52,6 @@ par la version en ligne. Vous pouvez donc obtenir des r&eacute;sultats diff&eacu
       <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" 
 	alt="Valid CSS!" /></a>
     <a href="Email.html">validator-css</a><br />
-    $Date: 2003-02-27 23:18:04 $
+    $Date: 2003-06-23 14:33:04 $
   </body>
 </html>
