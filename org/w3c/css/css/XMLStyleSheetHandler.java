@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.2 2002-04-08 21:16:38 plehegar Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.3 2002-07-12 20:31:54 plehegar Exp $
  */
 package org.w3c.css.css;
 
@@ -42,7 +42,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.xml.XMLCatalog;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 
@@ -419,17 +419,26 @@ public class XMLStyleSheetHandler implements ContentHandler,
     
     public InputSource resolveEntity(String publicId, String systemId)
 	throws SAXException, IOException {
-	// I explicitly refuse to support public identifier.
-	if (("-//W3C//DTD XHTML 1.0 Transitional//EN".equals(publicId)
-	     && !"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd".equals(systemId))
-	    || ("-//W3C//DTD XHTML 1.0 Strict//EN".equals(publicId)
-		&& !"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd".equals(systemId))
-	    || ("-//W3C//DTD XHTML 1.0 Frameset//EN".equals(publicId)
-		&& !"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd".equals(systemId))) {
-	    throw new SAXException("Please, fix your system identifier (URI) in the DOCTYPE rule.");
-	}
+	String uri = null;
 
-	String uri = catalog.getProperty(systemId);
+	if (publicId != null) {
+	    if ("-//W3C//DTD XHTML 1.0 Transitional//EN".equals(publicId)) {
+		if (!"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd".equals(systemId)) {
+		    ac.getFrame().addWarning("xhtml.system_identifier.invalid");
+		}
+	    } else if ("-//W3C//DTD XHTML 1.0 Strict//EN".equals(publicId)) {
+		if (!"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd".equals(systemId)) {
+		    ac.getFrame().addWarning("xhtml.system_identifier.invalid");
+		}
+	    } else if ("-//W3C//DTD XHTML 1.0 Frameset//EN".equals(publicId)) {
+		if (!"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd".equals(systemId)) {
+		    ac.getFrame().addWarning("xhtml.system_identifier.invalid");
+		}
+	    }
+	    uri = catalog.getProperty(publicId);
+	} else if (systemId != null) {
+	    uri = catalog.getProperty(systemId);
+	}
 	
 	if (uri != null) {
 	    return new InputSource(uri);
