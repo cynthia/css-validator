@@ -1,19 +1,20 @@
 //
-// $Id: CssProperties.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
+// $Id: CssProperties.java,v 1.3 2005-07-12 14:47:55 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties;
 
-import java.util.Properties;
 import java.net.URL;
 
+import org.w3c.css.util.Utf8Properties;
+
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssProperties {
-  public static Properties properties;
+	public static Utf8Properties properties;
 
   public static String getString(CssProperty property, String prop) {
     StringBuffer st = new StringBuffer(property.getPropertyName());
@@ -25,15 +26,16 @@ public class CssProperties {
   }
   
   static {
-    properties = new Properties();
+		properties = new Utf8Properties();
     try {
       URL url = CssProperties.class.getResource("CSS1Default.properties");
       java.io.InputStream f = url.openStream();
       properties.load(f);
       f.close();
     } catch (Exception e) {
-      System.err.println("org.w3c.css.properties.CssProperties: couldn't load properties ");
-      System.err.println("  " + e.toString() );
+			System.err
+					.println("org.w3c.css.properties.CssProperties: couldn't load properties ");
+			System.err.println("  " + e.toString());
     }
   }
 }

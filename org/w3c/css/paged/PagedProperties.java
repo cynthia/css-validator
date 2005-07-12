@@ -1,24 +1,24 @@
 //
-// $Id: PagedProperties.java,v 1.2 2002-04-08 21:17:21 plehegar Exp $
+// $Id: PagedProperties.java,v 1.3 2005-07-12 14:47:55 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.paged;
 
-import java.util.Properties;
 import java.net.URL;
 
 import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.Utf8Properties;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class PagedProperties {
-  public static Properties properties;
+	public static Utf8Properties properties;
 
   public static String getString(CssProperty property, String prop) {
-    return properties.getProperty(property.getPropertyName()+"."+prop);
+		return properties.getProperty(property.getPropertyName() + "." + prop);
   }
 
   public static boolean getInheritance(CssProperty property) {
@@ -26,13 +26,15 @@ public class PagedProperties {
   }
   
   static {
-    properties = new Properties();
+		Utf8Properties properties = new Utf8Properties();
     try {
-      URL url = PagedProperties.class.getResource("PagedDefault.properties");
+			URL url = PagedProperties.class
+					.getResource("PagedDefault.properties");
       properties.load(url.openStream());
     } catch (Exception e) {
-      System.err.println("org.w3c.css.paged.PagedProperties: couldn't load properties ");
-      System.err.println("  " + e.toString() );
+			System.err
+					.println("org.w3c.css.paged.PagedProperties: couldn't load properties ");
+			System.err.println("  " + e.toString());
     }
   }
 }
