@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.16 2005-07-12 13:21:34 ylafon Exp $
+// $Id: CssValidator.java,v 1.17 2005-07-12 16:08:09 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -45,7 +45,7 @@ import org.xml.sax.SAXParseException;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.16 $
+ * @version $Revision: 1.17 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -550,8 +550,8 @@ public final class CssValidator extends HttpServlet {
 	} else if (output.equals("soap12")) {
 	    // invert the comments on the following two lines to activate
 	    // the soap Mime Type
-	    //outputMt = new MimeType(soap12);
-	    outputMt = MimeType.TEXT_PLAIN.getClone();
+	    outputMt = new MimeType(soap12);
+	    //outputMt = MimeType.TEXT_PLAIN.getClone();
 	} else {
 	    // Change this line if you want text/html output when incorrect
 	    // output is passed
