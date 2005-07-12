@@ -1,4 +1,4 @@
-// $Id: StyleReportSOAP12.java,v 1.6 2005-07-12 13:44:53 ylafon Exp $
+// $Id: StyleReportSOAP12.java,v 1.7 2005-07-12 13:45:42 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -34,10 +34,10 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
-public final class StyleReportSOAP12 extends StyleReport implements
-CssPrinterStyle {
+public final class StyleReportSOAP12 extends StyleReport 
+    implements CssPrinterStyle {
 
     StyleSheet style;
 
