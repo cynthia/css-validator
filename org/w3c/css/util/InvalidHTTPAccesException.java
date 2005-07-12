@@ -9,18 +9,17 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: InvalidHTTPAccesException.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+ * $Id: InvalidHTTPAccesException.java,v 1.3 2005-07-12 13:22:32 ylafon Exp $
  */
 
 package org.w3c.css.util;
 
-import java.util.Properties;
 
 /**
  * InvalidAccesException is a runtime exception throwed when an acces is
  * impossible to a HTTP ressource.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 public class InvalidHTTPAccesException extends InvalidAccesException {
@@ -35,13 +34,13 @@ public class InvalidHTTPAccesException extends InvalidAccesException {
     String message;
 
     // additional informations
-    Properties informations;
+	Utf8Properties informations;
 
     /**
      * Creates a new InvalidHTTPAccesException
      */
-    public InvalidHTTPAccesException(int status, String uri,
-				     String message, Properties informations) {
+	public InvalidHTTPAccesException(int status, String uri, String message,
+			Utf8Properties informations) {
 	super(message);
 	this.status = status;
 	this.uri = uri;
@@ -52,14 +51,12 @@ public class InvalidHTTPAccesException extends InvalidAccesException {
     /**
      * Creates a new InvalidHTTPAccesException
      */
-    public InvalidHTTPAccesException(int status, String uri,
-				     String message) {
+	public InvalidHTTPAccesException(int status, String uri, String message) {
 	this(status, uri, message, null);	
     }
     
     /**
-     * Returns the HTTP reason of the failure
-     * NOT_FOUND, UNAUTHORIZED, ...
+	 * Returns the HTTP reason of the failure NOT_FOUND, UNAUTHORIZED, ...
      */    
     public int getHTTPReason() {
 	return status;
@@ -73,20 +70,20 @@ public class InvalidHTTPAccesException extends InvalidAccesException {
     }
 
     /**
-     * Get the error message
-     * The message can come from the server or from the application.
+	 * Get the error message The message can come from the server or from the
+	 * application.
      */    
     public String getMessage() {
 	return message;
     }
 
     /**
-     * Returns some additionals HTTP information.
-     * These informations are useful if you want to reply to the client
-     * For example, if the HTTP reason is UNAUTHORIZED, it will contain
-     * the header WWW-Authenticate and Authentication-Info.
+	 * Returns some additionals HTTP information. These informations are useful
+	 * if you want to reply to the client For example, if the HTTP reason is
+	 * UNAUTHORIZED, it will contain the header WWW-Authenticate and
+	 * Authentication-Info.
      */    
-    public Properties getInformations() {
+	public Utf8Properties getInformations() {
 	return informations;
     }
 }
