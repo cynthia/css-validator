@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.27 2005-07-12 14:47:55 ylafon Exp $
+// $Id: CssFouffa.java,v 1.28 2005-07-20 12:35:37 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -45,7 +45,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.27 $
+ * @version $Revision: 1.28 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -401,9 +401,15 @@ public final class CssFouffa extends CssParser {
 		    importedURL = HTTPURL.getURL(importedURL, httpCL);
 		}
 		String mtype = httpURL.getContentType();
-		if (mtype.toLowerCase().indexOf("text/html") != -1) {
-					throw new FileNotFoundException(importURL.getURL()
-							+ ": You can't import" + " an HTML document");
+		if (mtype == null) {
+		    throw new FileNotFoundException(importURL.getURL() +
+						    "No Media Type defined");
+		} else {
+		    if (mtype.toLowerCase().indexOf("text/html") != -1) {
+			throw new FileNotFoundException(importURL.getURL()
+							+": You can't import" 
+							+" an HTML document");
+		    }
 		}
 	    }
 	    Frame f = ac.getFrame();
