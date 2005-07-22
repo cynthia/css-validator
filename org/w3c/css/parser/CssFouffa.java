@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.28 2005-07-20 12:35:37 ylafon Exp $
+// $Id: CssFouffa.java,v 1.29 2005-07-22 09:45:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -20,9 +20,12 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import org.w3c.css.css.StyleSheetOrigin;
+import org.w3c.css.parser.CssParseException;
+import org.w3c.css.parser.Errors;
 import org.w3c.css.parser.analyzer.CssParser;
 import org.w3c.css.parser.analyzer.CssParserTokenManager;
 import org.w3c.css.parser.analyzer.ParseException;
+import org.w3c.css.parser.analyzer.TokenMgrError;
 import org.w3c.css.properties.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.HTTPURL;
@@ -45,7 +48,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.28 $
+ * @version $Revision: 1.29 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -335,6 +338,8 @@ public final class CssFouffa extends CssParser {
     public void parseStyle() {
 	try {
 	    parserUnit();
+	} catch(TokenMgrError e) {
+	    throw e;
 	} catch (Throwable e) {
 	    if (Util.onDebug) {
 		e.printStackTrace();

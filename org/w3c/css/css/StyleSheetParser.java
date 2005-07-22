@@ -1,12 +1,15 @@
 //
-// $Id: StyleSheetParser.java,v 1.2 2002-04-08 21:16:38 plehegar Exp $
+// $Id: StyleSheetParser.java,v 1.3 2005-07-22 09:45:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetParser.java,v $
- * Revision 1.2  2002-04-08 21:16:38  plehegar
+ * Revision 1.3  2005-07-22 09:45:18  ylafon
+ * Added code for error Handling (Jean-Guilhem Rouel)
+ *
+ * Revision 1.2  2002/04/08 21:16:38  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:23:27  plehegar
@@ -27,6 +30,7 @@ import java.util.Vector;
 import java.util.StringTokenizer;
 import java.net.URL;
 
+import org.w3c.css.parser.CssParseException;
 import org.w3c.css.parser.CssValidatorListener;
 import org.w3c.css.parser.CssFouffa;
 import org.w3c.css.parser.Errors;
@@ -40,10 +44,11 @@ import org.w3c.css.parser.AtRulePage;
 import org.w3c.css.parser.AtRuleMedia;
 import org.w3c.css.parser.AtRule;
 import org.w3c.css.parser.CssError;
+import org.w3c.css.parser.analyzer.TokenMgrError;
 import org.w3c.css.util.InvalidParamException;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public final class StyleSheetParser 
     implements CssValidatorListener, CssParser {
@@ -268,6 +273,14 @@ public final class StyleSheetParser
 	    Errors er = new Errors();
 	    er.addError(new org.w3c.css.parser.CssError(url.toString(), 
 							-1, e));
+	    notifyErrors(er);
+	} catch(TokenMgrError e) {
+	    Errors er = new Errors();
+	    er.addError(new org.w3c.css.parser.CssError(url.toString(), e.getErrorLine(), new CssParseException(new Exception(e))));
+	    notifyErrors(er);
+	} catch(RuntimeException e) {
+	    Errors er = new Errors();
+	    er.addError(new org.w3c.css.parser.CssError(url.toString(), cssFouffa.getLine(), new CssParseException(e)));
 	    notifyErrors(er);
 	}
     }

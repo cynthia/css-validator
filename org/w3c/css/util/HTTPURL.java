@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.13 2005-03-18 08:37:59 ot Exp $
+ * $Id: HTTPURL.java,v 1.14 2005-07-22 09:45:18 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.*;
 
 /**
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -114,12 +114,13 @@ public class HTTPURL {
     }
 
     public static URL getURL(String url) throws IOException {
-	//	url = URLEncoder.encode(url);
+	// url = URLEncoder.encode(url);
 	try {
 	    return new URL(url);
 	} catch (MalformedURLException e) {
-	    if (!url.startsWith("http:")) {
-		return new URL("http://" + url);
+	    //if (!url.startsWith("http:")) { // ook!? dkfj://wwww.3.org -> http://dkfj://www.w3.org
+	    if(url.indexOf("://") == -1) { // the protocol is missing
+	    	return new URL("http://" + url);
 	    } else {
 		throw (IOException) e.fillInStackTrace();
 	    }
