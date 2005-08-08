@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.3 2002-07-25 07:41:57 sijtsche Exp $
+// $Id: Css2Style.java,v 1.4 2005-08-08 13:19:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,14 +8,11 @@
  */
 package org.w3c.css.table;
 
-import java.util.Enumeration;
-
-import org.w3c.css.util.Warnings;
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.aural.ACssStyle;
+import org.w3c.css.parser.CssPrinterStyle;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class Css2Style extends ACssStyle {
 

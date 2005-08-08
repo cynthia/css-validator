@@ -1,5 +1,5 @@
 //
-// $Id: CssWritingMode.java,v 1.3 2003-07-14 13:56:56 sijtsche Exp $
+// $Id: CssWritingMode.java,v 1.4 2005-08-08 13:18:54 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -9,12 +9,12 @@
 package org.w3c.css.properties3;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
 
 /**
  *  <P>
@@ -39,7 +39,7 @@ public class CssWritingMode extends CssProperty {
     static CssIdent lr = new CssIdent("lr");
     static CssIdent rl = new CssIdent("rl");
     static CssIdent tb = new CssIdent("tb");
-	static CssIdent ltr = new CssIdent("ltr");
+    static CssIdent ltr = new CssIdent("ltr");
     static CssIdent rtl = new CssIdent("rtl");
 
 
@@ -53,7 +53,8 @@ public class CssWritingMode extends CssProperty {
     /**
      * Create a new CssWritingMode
      */
-    public CssWritingMode(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssWritingMode(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 
 	setByUser();
 	CssValue val = expression.getValue();
@@ -104,6 +105,11 @@ public class CssWritingMode extends CssProperty {
 	}
     }
 
+    public CssWritingMode(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Add this property to the CssStyle
      *

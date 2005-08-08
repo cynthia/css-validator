@@ -1,5 +1,5 @@
 //
-// $Id: FontSize.java,v 1.2 2002-04-08 21:17:08 plehegar Exp $
+// $Id: FontSize.java,v 1.3 2005-08-08 13:18:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,16 +9,17 @@
 package org.w3c.css.font;
 
 import java.util.Vector;
+
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssOperator;
-import org.w3c.css.values.CssValue;
+import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssNumber;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
+import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssValue;
 
 /**
  */
@@ -41,7 +42,8 @@ public class FontSize extends CssProperty implements FontConstant {
      * @param expression the font size
      * @exception InvalidParamException values are incorrect
      */  
-    public FontSize(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public FontSize(ApplContext ac, CssExpression expression, boolean check)
+    	throws InvalidParamException {
 	char op = expression.getOperator();
 	CssValue val = expression.getValue();
 	setByUser();
@@ -66,6 +68,11 @@ public class FontSize extends CssProperty implements FontConstant {
 	    expression.next();
 	} while (op == CssOperator.COMMA);
 	
+    }
+    
+    public FontSize(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**

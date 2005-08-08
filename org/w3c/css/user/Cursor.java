@@ -1,5 +1,5 @@
 //
-// $Id: Cursor.java,v 1.3 2002-12-18 09:21:01 sijtsche Exp $
+// $Id: Cursor.java,v 1.4 2005-08-08 13:19:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated september 14th 2000 by Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -10,18 +10,18 @@
 package org.w3c.css.user;
 import java.util.Vector;
 
-import org.w3c.css.properties.CssProperty;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssURL;
-import org.w3c.css.values.CssOperator;
-import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.properties.CssProperty;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssURL;
+import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class Cursor extends CssProperty
     implements CssOperator {
@@ -54,21 +54,27 @@ public class Cursor extends CssProperty
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public Cursor(ApplContext ac, CssExpression expression)
-	throws InvalidParamException {
+    public Cursor(ApplContext ac, CssExpression expression, boolean check)
+	throws InvalidParamException {		
+	
 	CssValue val = expression.getValue();
 	char op = expression.getOperator();
 
 	setByUser();
 
 	if (val.equals(inherit)) {
+	    if(expression.getCount() > 1) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    inheritedValue = true;
 	    expression.next();
 	    return;
 	}
 
-	while ((op == COMMA)
-	       && (val instanceof CssURL)) {
+	while ((op == COMMA)&& (val instanceof CssURL)) {
+	    if(val != null && val.equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    uris.addElement(val);
 	    expression.next();
 	    val = expression.getValue();
@@ -87,6 +93,9 @@ public class Cursor extends CssProperty
 		if (hash_values[i] == hash) {
 		    value = i;
 		    expression.next();
+		    if(check && !expression.end()) {
+			throw new InvalidParamException("unrecognize", ac);
+		    }
 		    return;
 		}
 	    }
@@ -96,6 +105,11 @@ public class Cursor extends CssProperty
 					val.toString(), getPropertyName(), ac);
     }
 
+    public Cursor(ApplContext ac, CssExpression expression)
+	throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */

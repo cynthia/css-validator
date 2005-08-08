@@ -1,5 +1,5 @@
 //
-// $Id: ATSCStyle.java,v 1.2 2003-01-08 10:59:44 sijtsche Exp $
+// $Id: ATSCStyle.java,v 1.3 2005-08-08 13:18:03 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -8,13 +8,10 @@
 
 package org.w3c.css.atsc;
 
-import java.util.Enumeration;
-
-import org.w3c.css.util.Warnings;
 import org.w3c.css.parser.CssPrinterStyle;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ATSCStyle extends org.w3c.css.font.Css2Style {
 

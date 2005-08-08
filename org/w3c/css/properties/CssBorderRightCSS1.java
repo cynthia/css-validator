@@ -1,12 +1,22 @@
 //
-// $Id: CssBorderRightCSS1.java,v 1.2 2002-04-08 21:17:43 plehegar Exp $
+// $Id: CssBorderRightCSS1.java,v 1.3 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBorderRightCSS1.java,v $
- * Revision 1.2  2002-04-08 21:17:43  plehegar
+ * Revision 1.3  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:17:43  plehegar
  * New
  *
  * Revision 3.2  1997/09/09 10:54:11  plehegar
@@ -31,14 +41,14 @@
 package org.w3c.css.properties;
 
 import org.w3c.css.parser.CssPrinterStyle;
-import org.w3c.css.parser.CssStyle;
 import org.w3c.css.parser.CssSelectors;
+import org.w3c.css.parser.CssStyle;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssOperator;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
+import org.w3c.css.values.CssValue;
 
 /**
  *   <H4>
@@ -70,7 +80,7 @@ import org.w3c.css.util.ApplContext;
  *   Note that while the 'border-style' property accepts up to four values, this
  *   property only accepts one style value.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBorderRightCSS1 extends CssProperty implements CssOperator {
     
@@ -88,14 +98,22 @@ public class CssBorderRightCSS1 extends CssProperty implements CssOperator {
      * Create a new CssBorderFaceCSS1
      *
      * @param expression The expression for this property
+     * @param check true will test the number of parameters
      * @exception InvalidParamException The expression is incorrect
      */  
-    public CssBorderRightCSS1(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssBorderRightCSS1(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
 	CssValue val = null;
 	char op = SPACE;
 	boolean find = true;
 	
+	if(check && expression.getCount() > 3) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	setByUser();
+	
 	while (find) {
 	    find = false;
 	    val = expression.getValue();
@@ -114,6 +132,7 @@ public class CssBorderRightCSS1 extends CssProperty implements CssOperator {
 		    width = new CssBorderRightWidthCSS1(ac, expression);
 		    find = true;
 		} catch (InvalidParamException e) {
+		    // nothing to do, style will test this value
 		}
 	    }
 	    if (!find && style == null) {
@@ -122,24 +141,34 @@ public class CssBorderRightCSS1 extends CssProperty implements CssOperator {
 		    find = true;
 		}
 		catch (InvalidParamException e) {
+		    // nothing to do, color will test this value
 		}
 	    }
 	    if (!find && color == null) {
-		try {
-		    color = new CssBorderRightColorCSS1(ac, expression);
-		    find = true;
-		}
-		catch (InvalidParamException e) {
-		}
+		color = new CssBorderRightColorCSS1(ac, expression);
+		find = true;
 	    }
 	}
-	
+	/*
 	if (width == null)
 	    width = new CssBorderRightWidthCSS1();
 	if (style == null)
 	    style = new CssBorderRightStyleCSS1();
 	if (color == null)
 	    color = new CssBorderRightColorCSS1();
+	*/
+    }
+    
+    /**
+     * Create a new CssBorderFaceCSS1
+     *
+     * @param expression The expression for this property
+     * @param check true will test the number of parameters
+     * @exception InvalidParamException The expression is incorrect
+     */  
+    public CssBorderRightCSS1(ApplContext ac, CssExpression expression)
+    	throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**
@@ -186,9 +215,22 @@ public class CssBorderRightCSS1 extends CssProperty implements CssOperator {
      * Returns a string representation of the object.
      */
     public String toString() {
-	String ret = width + " " + style;
-	if (!color.face.isDefault())
-	    ret += " " + color;
+	String ret = "";
+	if(width != null) {
+	    ret += width;
+	}
+	if(style != null) {
+	    if(!ret.equals("")) {
+		ret += " ";
+	    }
+	    ret += style;
+	}
+	if(color != null) {
+	    if(!ret.equals("")) {
+		ret += " ";
+	    }
+	    ret += color;
+	}
 	return ret;
     }
     
@@ -204,9 +246,15 @@ public class CssBorderRightCSS1 extends CssProperty implements CssOperator {
      * Overrides this method for a macro
      */  
     public void setImportant() {
-	width.important = true;
-	style.important = true;
-	color.important = true;
+	if(width != null) {
+	    width.important = true;
+	}
+	if(style != null) {
+	    style.important = true;
+	}
+	if(color != null) {
+	    color.important = true;
+	}
     }
     
     /**
@@ -246,34 +294,20 @@ public class CssBorderRightCSS1 extends CssProperty implements CssOperator {
     }
     
     /**
-     * Set the context.
-     * Overrides this method for a macro
-     *
-     * @see org.w3c.css.css.CssCascadingOrder#order
-     * @see org.w3c.css.css.StyleSheetParser#handleRule
-     */
-    public void setSelectors(CssSelectors selector) {
-	super.setSelectors(selector);
-	if (width != null) {
-	    width.setSelectors(selector);
-	}
-	if (style != null) {
-	    style.setSelectors(selector);
-	}
-	if (color != null) {
-	    color.setSelectors(selector);
-	}
-    }
-    
-    /**
      * Add this property to the CssStyle
      *
      * @param style The CssStyle
      */
-    public void addToStyle(ApplContext ac, CssStyle style) {
-	width.addToStyle(ac, style);
-	this.style.addToStyle(ac, style);
-	color.addToStyle(ac, style);
+    public void addToStyle(ApplContext ac, CssStyle style) {	
+	if(width != null) {
+	    width.addToStyle(ac, style);
+	}
+	if(this.style != null) {
+	    this.style.addToStyle(ac, style);
+	}
+	if(color != null) {
+	    color.addToStyle(ac, style);
+	}
     }
     
     /**
@@ -298,10 +332,36 @@ public class CssBorderRightCSS1 extends CssProperty implements CssOperator {
      * @param source The source file where this property is defined
      */  
     public void setInfo(int line, String source) {
-	super.setInfo(line, source);
-	width.setInfo(line, source);
-	style.setInfo(line, source);
-	color.setInfo(line, source);
+	super.setInfo(line, source);	
+	if(width != null) {
+	    width.setInfo(line, source);
+	}
+	if(style != null) {
+	    style.setInfo(line, source);
+	}
+	if(color != null) {
+	    color.setInfo(line, source);
+	}
+    }
+    
+    /**
+     * Set the context.
+     * Overrides this method for a macro
+     *
+     * @see org.w3c.css.css.CssCascadingOrder#order
+     * @see org.w3c.css.css.StyleSheetParser#handleRule
+     */
+    public void setSelectors(CssSelectors selector) {
+	super.setSelectors(selector);
+	if (width != null) {
+	    width.setSelectors(selector);
+	}
+	if (style != null) {
+	    style.setSelectors(selector);
+	}
+	if (color != null) {
+	    color.setSelectors(selector);
+	}
     }
     
     /**
@@ -312,8 +372,9 @@ public class CssBorderRightCSS1 extends CssProperty implements CssOperator {
     public boolean equals(CssProperty property) {
 	if (property instanceof CssBorderRightCSS1) {
 	    CssBorderRightCSS1 right = (CssBorderRightCSS1) property;
-	    return (width.equals(right.width) && 
-		    style.equals(right.style) && color.equals(right.color));
+	    return (width != null && width.equals(right.width) && 
+		    style != null && style.equals(right.style) && 
+		    color != null && color.equals(right.color));
 	} else {
 	    return false;
 	}

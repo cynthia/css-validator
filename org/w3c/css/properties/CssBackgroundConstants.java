@@ -1,12 +1,22 @@
 //
-// $Id: CssBackgroundConstants.java,v 1.2 2002-04-08 21:17:42 plehegar Exp $
+// $Id: CssBackgroundConstants.java,v 1.3 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundConstants.java,v $
- * Revision 1.2  2002-04-08 21:17:42  plehegar
+ * Revision 1.3  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:17:42  plehegar
  * New
  *
  * Revision 1.4  1997/07/30 13:19:45  plehegar
@@ -23,11 +33,9 @@
  *
  */
 package org.w3c.css.properties;
-import org.w3c.css.values.*;
-import org.w3c.css.util.*;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface CssBackgroundConstants {
   static String[] REPEAT = { "repeat", "repeat-x", "repeat-y", "no-repeat", "inherit" };
@@ -61,4 +69,9 @@ public interface CssBackgroundConstants {
    * The right position
    */  
   static int POSITION_RIGHT = 4;
+  
+  /**
+   * Inherit
+   */  
+  static int POSITION_INHERIT = 5;
 }

@@ -1,12 +1,22 @@
 //
-// $Id: Css1Style.java,v 1.3 2002-08-19 07:41:36 sijtsche Exp $
+// $Id: Css1Style.java,v 1.4 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: Css1Style.java,v $
- * Revision 1.3  2002-08-19 07:41:36  sijtsche
+ * Revision 1.4  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.3  2002/08/19 07:41:36  sijtsche
  * new properties added
  *
  * Revision 1.2  2002/04/08 21:17:42  plehegar
@@ -43,19 +53,18 @@
 
 package org.w3c.css.properties;
 
-import java.util.*;
+import java.util.Enumeration;
 
+import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.parser.CssPrinterStyle;
-import org.w3c.css.values.CssPercentage;
-import org.w3c.css.values.CssLength;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.css.StyleSheet;
-import org.w3c.css.util.Warning;
-import org.w3c.css.util.Util;
-import org.w3c.css.util.Warnings;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.Util;
+import org.w3c.css.util.Warning;
+import org.w3c.css.util.Warnings;
+import org.w3c.css.values.CssLength;
+import org.w3c.css.values.CssPercentage;
+import org.w3c.css.values.CssValue;
 
 /**
  * The Css1Style main class.
@@ -1656,7 +1665,7 @@ public class Css1Style extends CssStyle {
     /**
      * Get the border property
      */
-    public final CssBorder getBorder() {
+    public final CssBorder getBorder() {	
 	getBorderTop();
 	getBorderRight();
 	getBorderBottom();
@@ -2653,7 +2662,7 @@ public class Css1Style extends CssStyle {
 	    while (allSelectors.hasMoreElements()) {
 		// looking for inherited values.
 		Css1Style style =
-		    (Css1Style) ((CssSelectors) allSelectors.nextElement()).getStyle();
+		    (Css1Style) ((CssSelectors) allSelectors.nextElement()).getStyle();		
 		if (style.cssBackground.getColor() != null) {
 		    if (style.cssBackground.getColor().equals(cssColor.getColor())) {
 			warnings.addWarning(new Warning(cssColor, "same-colors2", 1,

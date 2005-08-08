@@ -1,12 +1,22 @@
 //
-// $Id: CssTextDecorationCSS3.java,v 1.1 2002-08-07 14:22:12 sijtsche Exp $
+// $Id: CssTextDecorationCSS3.java,v 1.2 2005-08-08 13:18:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssTextDecorationCSS3.java,v $
- * Revision 1.1  2002-08-07 14:22:12  sijtsche
+ * Revision 1.2  2005-08-08 13:18:54  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.1  2002/08/07 14:22:12  sijtsche
  * separate version for CSS3: lining values added
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -37,12 +47,12 @@
 package org.w3c.css.properties3;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
 import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
  *   <H4>
@@ -77,7 +87,7 @@ import org.w3c.css.properties.CssProperty;
  *   UAs must recognize the keyword 'blink', but are not required to support the
  *   blink effect.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssTextDecorationCSS3 extends CssProperty
         implements CssTextPropertiesConstantsCSS3 {
@@ -104,8 +114,8 @@ public class CssTextDecorationCSS3 extends CssProperty
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssTextDecorationCSS3(ApplContext ac, CssExpression expression)
-	    throws InvalidParamException {
+    public CssTextDecorationCSS3(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 	CssValue val = expression.getValue();
 	boolean find = true;
 	int computed = 0;
@@ -123,7 +133,7 @@ public class CssTextDecorationCSS3 extends CssProperty
 	    return;
 	}
 	val = null;
-
+	
 	while (find) {
 	    find = false;
 	    val = expression.getValue();
@@ -131,7 +141,7 @@ public class CssTextDecorationCSS3 extends CssProperty
 		index = getIndex((CssIdent) val, ac);
 		if (values[index] == true) {
 		    throw new InvalidParamException("same-value",
-						    TEXTDECORATION[index], ac);
+			    TEXTDECORATION[index], ac);
 		} else {
 		    values[index] = true;
 		    find = true;
@@ -139,11 +149,16 @@ public class CssTextDecorationCSS3 extends CssProperty
 		}
 	    } else if (val != null) {
 		throw new InvalidParamException("value", val.toString(),
-						getPropertyName(), ac);
+			getPropertyName(), ac);
 	    }
 	}
     }
-
+    
+    public CssTextDecorationCSS3(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */

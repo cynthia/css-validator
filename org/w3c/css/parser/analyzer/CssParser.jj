@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.13 2004-03-30 13:24:18 ylafon Exp $
+ * $Id: CssParser.jj,v 1.14 2005-08-08 13:18:11 ylafon Exp $
  *
  */
 
@@ -61,8 +61,8 @@ import org.w3c.css.css.StyleSheetCom;
 /**
  * A CSS3 parser  
  *
- * @author Philippe Le Hégaret and Sijtsche Smeman
- * @version $Revision: 1.13 $
+ * @author Philippe Le Hï¿½garet and Sijtsche Smeman
+ * @version $Revision: 1.14 $
  */
 public abstract class CssParser {
 
@@ -959,7 +959,9 @@ void atRuleDeclaration() :
 {
  n=<ATKEYWORD>
     {
-	ac.getFrame().addWarning("at-rule", token.toString());
+	//ac.getFrame().addWarning("at-rule", token.toString());
+	ac.getFrame().addError(
+        	new CssError(new InvalidParamException("at-rule", token, ac)));
 	skipStatement();
     }
 }

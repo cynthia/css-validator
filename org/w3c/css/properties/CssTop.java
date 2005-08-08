@@ -1,5 +1,5 @@
 //
-// $Id: CssTop.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
+// $Id: CssTop.java,v 1.3 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,9 +9,9 @@
 package org.w3c.css.properties;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
 
 /**
  */
@@ -30,8 +30,14 @@ public class CssTop extends CssBoxOffsetFace {
    * @param expression The expression for this property.
    * @exception InvalidParamException Values are incorrect
    */
-  public CssTop(ApplContext ac, CssExpression expression) throws InvalidParamException {
-    super(ac, expression);
+  public CssTop(ApplContext ac, CssExpression expression,boolean check)
+  	throws InvalidParamException {
+    super(ac, expression, check);
+  }
+  
+  public CssTop(ApplContext ac, CssExpression expression)
+	throws InvalidParamException {
+	this(ac, expression, false);
   }
   
   /**

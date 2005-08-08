@@ -1,12 +1,22 @@
 //
-// $Id: CssBorderFaceStyleCSS1.java,v 1.2 2002-04-08 21:17:43 plehegar Exp $
+// $Id: CssBorderFaceStyleCSS1.java,v 1.3 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBorderFaceStyleCSS1.java,v $
- * Revision 1.2  2002-04-08 21:17:43  plehegar
+ * Revision 1.3  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:17:43  plehegar
  * New
  *
  * Revision 2.3  1997/09/09 08:50:28  plehegar
@@ -27,15 +37,14 @@
  */
 package org.w3c.css.properties;
 
-import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBorderFaceStyleCSS1 {
     
@@ -67,10 +76,15 @@ public class CssBorderFaceStyleCSS1 {
      * Create a new CssBorderFaceStyleCSS1
      *
      * @param expression The expression for this face
+     * @param check true will test the number of parameters
      * @exception InvalidParamException The expression is incorrect
      */  
-    public CssBorderFaceStyleCSS1(ApplContext ac, CssExpression expression) 
-	throws InvalidParamException {
+    public CssBorderFaceStyleCSS1(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
 	
 	CssValue val = expression.getValue();
 	
@@ -85,6 +99,17 @@ public class CssBorderFaceStyleCSS1 {
 	}
 	
 	throw new InvalidParamException("value", val.toString(), "style", ac);
+    }
+    
+    /**
+     * Create a new CssBorderFaceStyleCSS1
+     *
+     * @param check true will test the number of parameters
+     * @exception InvalidParamException The expression is incorrect
+     */  
+    public CssBorderFaceStyleCSS1(ApplContext ac, CssExpression expression)
+    	throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**

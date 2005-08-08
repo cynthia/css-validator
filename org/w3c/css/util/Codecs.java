@@ -1,5 +1,5 @@
 //
-// $Id: Codecs.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+// $Id: Codecs.java,v 1.3 2005-08-08 13:19:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -38,12 +38,7 @@
 
 package org.w3c.css.util;
 
-import java.util.BitSet;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 
 /**
  * This class collects various encoders and decoders.

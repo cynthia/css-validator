@@ -1,12 +1,22 @@
 //
-// $Id: CssListStyleConstants.java,v 1.6 2002-12-24 12:32:47 sijtsche Exp $
+// $Id: CssListStyleConstants.java,v 1.7 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssListStyleConstants.java,v $
- * Revision 1.6  2002-12-24 12:32:47  sijtsche
+ * Revision 1.7  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.6  2002/12/24 12:32:47  sijtsche
  * new values added
  *
  * Revision 1.5  2002/12/20 16:03:36  sijtsche
@@ -31,40 +41,45 @@
 package org.w3c.css.properties;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public interface CssListStyleConstants {
-
-  public static String[] LISTSTYLETYPE = {
+    
+    public static String[] LISTSTYLETYPE = {
 	"box", "check", "circle", "diamond", "disc", "hyphen", "square",
 	"armenian", "cjk-ideographic", "ethiopic-numeric", "georgian", "hebrew",
-    "japanese-formal", "japanese-informal", "lower-armenian", "lower-roman",
-    "simp-chinese-formal", "simp-chinese-informal", "syriac", "tamil", "trad-chinese-formal",
-    "trad-chinese-informal", "upper-armenian", "upper-roman",
-	"arabic-indic", "binary", "bengali", "cambodian", "decimal", "decimal-leading-zero",
-	"devanagari", "gujarati", "gurmukhi", "kannada", "khmer", "lao", "lower-hexadecimal",
-	"malayalam", "mongolian", "myanmar", "octal", "oriya", "persian", "telugu", "tibetan",
-	"thai", "upper-hexadecimal", "urdu",
-	"afar", "amharic", "amharic-abegede", "cjk-earthly-branch", "cjk-heavenly-stem", "ethiopic",
-	"ethiopic-abegede", "ethiopic-abegede-am-et", "ethiopic-abegede-gez", "ethiopic-abegede-ti-er",
-	"ethiopic-abegede-ti-et", "ethiopic-halehame-aa-er", "ethiopic-halehame-aa-et",
-	"ethiopic-halehame-am-et", "ethiopic-halehame-gez", "ethiopic-halehame-om-et", "ethiopic-halehame-sid-et",
-	"ethiopic-halehame-so-et", "ethiopic-halehame-ti-er", "ethiopic-halehame-ti-et", "ethiopic-halehame-tig",
-	"hangul", "hangul-consonant", "hiragana", "hiragana-iroha", "katakana", "katakana-iroha", "lower-alpha",
-	"lower-greek", "lower-norwegian", "lower-latin", "oromo", "sidama", "somali", "tigre", "tigrinya-er",
-	"tigrinya-er-abegede", "tigrinya-et", "tigrinya-et-abegede", "upper-alpha", "upper-greek",
-	"upper-norwegian", "upper-latin",
-	"asterisks", "footnotes",
-	"circled-decimal", "circled-lower-latin", "circled-upper-latin", "dotted-decimal", "double-circled-decimal",
-	"filled-circled-decimal", "parenthesised-decimal", "parenthesised-lower-latin",
-	"normal", "none"
-  };
+	"japanese-formal", "japanese-informal", "lower-armenian", "lower-roman",
+	"simp-chinese-formal", "simp-chinese-informal", "syriac", "tamil", 
+	"trad-chinese-formal", "trad-chinese-informal", "upper-armenian",
+	"upper-roman", "arabic-indic", "binary", "bengali", "cambodian", 
+	"decimal", "decimal-leading-zero", "devanagari", "gujarati", "gurmukhi",
+	"kannada", "khmer", "lao", "lower-hexadecimal", "malayalam",
+	"mongolian", "myanmar", "octal", "oriya", "persian", "telugu", 
+	"tibetan", "thai", "upper-hexadecimal", "urdu",	"afar", "amharic", 
+	"amharic-abegede", "cjk-earthly-branch", "cjk-heavenly-stem", "ethiopic",
+	"ethiopic-abegede", "ethiopic-abegede-am-et", "ethiopic-abegede-gez",
+	"ethiopic-abegede-ti-er", "ethiopic-abegede-ti-et", 
+	"ethiopic-halehame-aa-er", "ethiopic-halehame-aa-et", 
+	"ethiopic-halehame-am-et", "ethiopic-halehame-gez", 
+	"ethiopic-halehame-om-et", "ethiopic-halehame-sid-et",
+	"ethiopic-halehame-so-et", "ethiopic-halehame-ti-er", 
+	"ethiopic-halehame-ti-et", "ethiopic-halehame-tig", "hangul", 
+	"hangul-consonant", "hiragana", "hiragana-iroha", "katakana", 
+	"katakana-iroha", "lower-alpha", "lower-greek", "lower-norwegian", 
+	"lower-latin", "oromo", "sidama", "somali", "tigre", "tigrinya-er",
+	"tigrinya-er-abegede", "tigrinya-et", "tigrinya-et-abegede", 
+	"upper-alpha", "upper-greek", "upper-norwegian", "upper-latin", 
+	"asterisks", "footnotes", "circled-decimal", "circled-lower-latin", 
+	"circled-upper-latin", "dotted-decimal", "double-circled-decimal",
+	"filled-circled-decimal", "parenthesised-decimal", 
+	"parenthesised-lower-latin", "normal", "none", "inherit"
+    };
 
     public static String[] LISTSTYLETYPECSS1 = {
 	"disc", "circle", "square", "decimal",
 	"lower-roman", "upper-roman",
 	"lower-alpha", "upper-alpha",
-	"none", "inherit"
+	"none"
     };
 
     public static String[] LISTSTYLETYPETV = {

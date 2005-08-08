@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.5 2004-05-30 05:06:52 bjoern Exp $
+// $Id: CssColor.java,v 1.6 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,16 +7,16 @@
 
 package org.w3c.css.properties;
 
-import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssFunction;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
-import org.w3c.css.values.CssOperator;
-
 import java.util.Vector;
+
+import org.w3c.css.parser.CssStyle;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssFunction;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssValue;
 
 /**
  *   <H4>
@@ -35,7 +35,7 @@ import java.util.Vector;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssColor extends CssProperty implements CssOperator {
 
@@ -55,12 +55,13 @@ public class CssColor extends CssProperty implements CssOperator {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssColor(ApplContext ac, CssExpression expression) 
-	throws InvalidParamException 
-    {
-	if (expression.getCount() > 1 ) {
-            throw new InvalidParamException("unrecognize", ac);
-        }
+    public CssColor(ApplContext ac, CssExpression expression, boolean check) 
+	throws InvalidParamException {
+	
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	CssValue val = expression.getValue();
 	setByUser();
 	if (val.equals(inherit)) {
@@ -233,6 +234,11 @@ public class CssColor extends CssProperty implements CssOperator {
 	}
     }
 
+    public CssColor(ApplContext ac, CssExpression expression) 
+	throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */

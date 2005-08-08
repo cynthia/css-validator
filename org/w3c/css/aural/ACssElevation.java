@@ -1,31 +1,40 @@
 //
-// $Id: ACssElevation.java,v 1.2 2002-04-08 21:16:56 plehegar Exp $
+// $Id: ACssElevation.java,v 1.3 2005-08-08 13:18:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ACssElevation.java,v $
- * Revision 1.2  2002-04-08 21:16:56  plehegar
+ * Revision 1.3  2005-08-08 13:18:03  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:16:56  plehegar
  * New
  *
  */
 package org.w3c.css.aural;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssNumber;
-import org.w3c.css.values.CssAngle;
 import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssAngle;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 
 /**
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ACssElevation extends ACssProperty {
     
@@ -51,12 +60,18 @@ public class ACssElevation extends ACssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */  
-    public ACssElevation(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public ACssElevation(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 	this();
+	
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	CssValue val = expression.getValue();
-	int index;
+	//int index;
 	setByUser();
-
+		
 	if (val.equals(inherit)) {	    
 	    value = inherit;
 	    expression.next();
@@ -82,6 +97,11 @@ public class ACssElevation extends ACssProperty {
 	throw new InvalidParamException("value", 
 					expression.getValue().toString(), 
 					getPropertyName(), ac);
+    }
+    
+    public ACssElevation(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**

@@ -1,12 +1,22 @@
 //
-// $Id: CssListStyleTV.java,v 1.1 2002-08-19 07:39:13 sijtsche Exp $
+// $Id: CssListStyleTV.java,v 1.2 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssListStyleTV.java,v $
- * Revision 1.1  2002-08-19 07:39:13  sijtsche
+ * Revision 1.2  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.1  2002/08/19 07:39:13  sijtsche
  * new TV profile property variant
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -36,14 +46,14 @@
  */
 package org.w3c.css.properties;
 
-import org.w3c.css.parser.CssStyle;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssOperator;
-import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.parser.CssStyle;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssValue;
 
 /**
  *   <H4>
@@ -100,7 +110,7 @@ import org.w3c.css.util.ApplContext;
  *   <P> In the example above, the 'disc' will be used when the image is
  *   unavailable.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssListStyleTV extends CssProperty implements CssOperator {
 
@@ -123,7 +133,13 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssListStyleTV(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssListStyleTV(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
+	if(check && expression.getCount() > 3) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	CssValue val = expression.getValue();
 	char op = SPACE;
 	boolean find = true;
@@ -131,6 +147,9 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
 	setByUser();
 
 	if (val.equals(inherit)) {
+	    if(expression.getCount() > 1) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    inheritedValue = true;
 	    expression.next();
 	    return;
@@ -140,7 +159,11 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
 	    find = false;
 	    val = expression.getValue();
 	    op = expression.getOperator();
-
+	    
+	    if(val.equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
+	    
 	    if ((listStyleType == null)
 		&& (val != null)) {
 		try {
@@ -158,14 +181,9 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
 		} catch (InvalidParamException e) {
 		}
 	    }
-	    if (!find
-		&& (val != null)
-		&& (listStylePosition == null)) {
-		try {
-		    listStylePosition = new CssListStylePositionCSS2(ac, expression);
-		    find = true;
-		} catch (InvalidParamException e) {
-		}
+	    if (!find && (val != null) && (listStylePosition == null)) {
+		listStylePosition = new CssListStylePositionCSS2(ac, expression);
+		find = true;
 	    }
 	    if (op != SPACE) {
 		throw new InvalidParamException("operator",
@@ -173,7 +191,7 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
 						ac);
 	    }
 	}
-
+	/*
 	if (listStyleType == null) {
 	    listStyleType = new CssListStyleTypeTV();
 	}
@@ -185,8 +203,14 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
 	if (listStylePosition == null) {
 	    listStylePosition = new CssListStylePositionCSS2();
 	}
+	*/
     }
 
+    CssListStyleTV(ApplContext ac, CssExpression expression)
+    	throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */
@@ -216,14 +240,17 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
 	if (inheritedValue) {
 	    return inherit.toString();
 	} else {
-	    String ret = listStyleType.toString();
-	    if (!listStyleImage.isDefault()) {
+	    String ret = "";
+	    if(listStyleType != null) {
+		ret = listStyleType.toString();
+	    }
+	    if (listStyleImage != null &&!listStyleImage.isDefault()) {
 		ret += " " + listStyleImage;
 	    }
-	    if (!listStylePosition.isDefault()) {
+	    if (listStyleImage != null && !listStylePosition.isDefault()) {
 		ret += " " + listStylePosition;
 	    }
-	    return ret;
+	    return ret.trim();
 	}
     }
 
@@ -235,9 +262,12 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
      */
     public void setImportant() {
 	if (!inheritedValue) {
-	    listStyleType.important = true;
-	    listStyleImage.important = true;
-	    listStylePosition.important = true;
+	    if(listStyleType != null)	    
+		listStyleType.important = true;
+	    if(listStyleImage != null)
+		listStyleImage.important = true;
+	    if(listStylePosition != null)
+		listStylePosition.important = true;
 	}
     }
 
@@ -308,9 +338,12 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
 	if (!inheritedValue) {
-	    listStyleType.addToStyle(ac, style);
-	    listStyleImage.addToStyle(ac, style);
-	    listStylePosition.addToStyle(ac, style);
+	    if(listStyleType != null)
+		listStyleType.addToStyle(ac, style);
+	    if(listStyleImage != null)
+		listStyleImage.addToStyle(ac, style);
+	    if(listStylePosition != null)
+		listStylePosition.addToStyle(ac, style);
 	} else {
 	    ((Css1Style) style).cssListStyleTV.inheritedValue = true;
 	}
@@ -340,9 +373,12 @@ public class CssListStyleTV extends CssProperty implements CssOperator {
     public void setInfo(int line, String source) {
 	super.setInfo(line, source);
 	if (!inheritedValue) {
-	    listStyleType.setInfo(line, source);
-	    listStyleImage.setInfo(line, source);
-	    listStylePosition.setInfo(line, source);
+	    if(listStyleType != null)
+		listStyleType.setInfo(line, source);
+	    if(listStyleImage != null)
+		listStyleImage.setInfo(line, source);
+	    if(listStylePosition != null)
+		listStylePosition.setInfo(line, source);
 	}
     }
 

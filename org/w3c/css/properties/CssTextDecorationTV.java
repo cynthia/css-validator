@@ -1,12 +1,22 @@
 //
-// $Id: CssTextDecorationTV.java,v 1.1 2002-08-19 07:38:04 sijtsche Exp $
+// $Id: CssTextDecorationTV.java,v 1.2 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssTextDecorationTV.java,v $
- * Revision 1.1  2002-08-19 07:38:04  sijtsche
+ * Revision 1.2  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.1  2002/08/19 07:38:04  sijtsche
  * new tv profile property variant
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -37,11 +47,11 @@
 package org.w3c.css.properties;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
  *   <H4>
@@ -76,7 +86,7 @@ import org.w3c.css.util.ApplContext;
  *   UAs must recognize the keyword 'blink', but are not required to support the
  *   blink effect.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssTextDecorationTV extends CssProperty
         implements CssTextPropertiesConstants {
@@ -103,29 +113,45 @@ public class CssTextDecorationTV extends CssProperty
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssTextDecorationTV(ApplContext ac, CssExpression expression)
-	    throws InvalidParamException {
+    public CssTextDecorationTV(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
 	CssValue val = expression.getValue();
 	boolean find = true;
-	int computed = 0;
+	//int computed = 0;
 	int index = INVALID;
 
 	setByUser();
 
 	if (val.equals(none)) {
+	    if(expression.getCount() > 1) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    value = none;
 	    expression.next();
 	    return;
 	} else if (val.equals(inherit)) {
+	    if(expression.getCount() > 1) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    value = inherit;
 	    expression.next();
 	    return;
 	}
 	val = null;
 
+	if(check && expression.getCount() > 4) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	while (find) {
 	    find = false;
 	    val = expression.getValue();
+	    
+	    if(val != null && val.equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
+	    
 	    if (val instanceof CssIdent) {
 		index = getIndex((CssIdent) val, ac);
 		if (values[index] == true) {
@@ -143,6 +169,11 @@ public class CssTextDecorationTV extends CssProperty
 	}
     }
 
+    public CssTextDecorationTV(ApplContext ac, CssExpression expression) 
+	throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */

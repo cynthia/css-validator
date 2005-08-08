@@ -1,5 +1,5 @@
 //
-// $Id: CssLineGrid.java,v 1.1 2002-08-15 09:07:45 sijtsche Exp $
+// $Id: CssLineGrid.java,v 1.2 2005-08-08 13:18:54 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -8,17 +8,13 @@
 
 package org.w3c.css.properties3;
 
-import java.util.Hashtable;
-
-import org.w3c.css.values.CssColor;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssExpression;
 import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssValue;
 
 /**
  *
@@ -43,7 +39,8 @@ implements CssOperator {
      * @param expression The expression for this property
      * @exception InvalidParamException The expression is incorrect
      */
-    public CssLineGrid(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssLineGrid(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 
 	CssValue val = expression.getValue();
 	int maxvalues = 2;
@@ -82,6 +79,10 @@ implements CssOperator {
 
     }
 
+    public CssLineGrid(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
 
     /**
      * Add this property to the CssStyle

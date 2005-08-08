@@ -1,12 +1,22 @@
 //
-// $Id: CssMargin.java,v 1.3 2003-10-20 13:15:49 ylafon Exp $
+// $Id: CssMargin.java,v 1.4 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssMargin.java,v $
- * Revision 1.3  2003-10-20 13:15:49  ylafon
+ * Revision 1.4  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.3  2003/10/20 13:15:49  ylafon
  * formatting
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -39,14 +49,13 @@
  */
 package org.w3c.css.properties;
 
-import org.w3c.css.parser.CssStyle;
-import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssPrinterStyle;
+import org.w3c.css.parser.CssSelectors;
+import org.w3c.css.parser.CssStyle;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssOperator;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
 
 /**
  *   <H4>
@@ -84,7 +93,7 @@ import org.w3c.css.util.ApplContext;
  *   <P>
  *   Negative margin values are allowed, but there may be implementation-specific
  *   limits.
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssMargin extends CssProperty implements CssOperator {
     
@@ -107,13 +116,13 @@ public class CssMargin extends CssProperty implements CssOperator {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */  
-    public CssMargin(ApplContext ac, CssExpression expression)  
+    public CssMargin(ApplContext ac, CssExpression expression, boolean check)  
 	throws InvalidParamException {
 	
-	CssValue val = expression.getValue();
+	//CssValue val = expression.getValue();
 	setByUser();
 
-	if (val.equals(inherit)) {
+	/*if (val.equals(inherit)) {
 	    inheritedValue = true;
 	    top = new CssMarginTop();
 	    top.value = inherit;
@@ -123,8 +132,7 @@ public class CssMargin extends CssProperty implements CssOperator {
 	    right.value = inherit;
 	    left = new CssMarginLeft();
 	    left.value = inherit;
-	}
-	
+	}*/	
 	switch (expression.getCount()) {
 	case 1:
 	    top = new CssMarginTop(ac, expression);
@@ -134,36 +142,82 @@ public class CssMargin extends CssProperty implements CssOperator {
 	    break;
 	case 2:
 	    if (expression.getOperator() != SPACE)
-		return;
+		throw new InvalidParamException("operator",
+			((new Character(expression.getOperator())).toString()),
+			ac);
+	    if(expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    top = new CssMarginTop(ac, expression);
+	    if(expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    right = new CssMarginRight(ac, expression);
 	    bottom = new CssMarginBottom(top);
 	    left = new CssMarginLeft(right);
 	    break;
 	case 3:
 	    if (expression.getOperator() != SPACE)
-		return;
+		throw new InvalidParamException("operator",
+			((new Character(expression.getOperator())).toString()),
+			ac);
+	    if(expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    top = new CssMarginTop(ac, expression);
 	    if (expression.getOperator() != SPACE)
-		return;
+		throw new InvalidParamException("operator",
+			((new Character(expression.getOperator())).toString()),
+			ac);
+	    if(expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    right = new CssMarginRight(ac, expression);
+	    if(expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    bottom = new CssMarginBottom(ac, expression);
 	    left = new CssMarginLeft(right);
 	    break;
 	case 4:
 	    if (expression.getOperator() != SPACE)
-		return;
+		throw new InvalidParamException("operator",
+			((new Character(expression.getOperator())).toString()),
+			ac);
+	    if(expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    top = new CssMarginTop(ac, expression);
 	    if (expression.getOperator() != SPACE)
-		return;
+		throw new InvalidParamException("operator",
+			((new Character(expression.getOperator())).toString()),
+			ac);
+	    if(expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    right = new CssMarginRight(ac, expression);
 	    if (expression.getOperator() != SPACE)
-		return;
+		throw new InvalidParamException("operator",
+			((new Character(expression.getOperator())).toString()),
+			ac);
+	    if(expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    bottom = new CssMarginBottom(ac, expression);
+	    if(expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    left = new CssMarginLeft(ac, expression);
 	    break;
 	default:
+	    if(check)
+		throw new InvalidParamException("unrecognize", ac);
 	}
+    }
+    
+    public CssMargin(ApplContext ac, CssExpression expression)
+	throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**
@@ -235,10 +289,18 @@ public class CssMargin extends CssProperty implements CssOperator {
      * Overrides this method for a macro
      */  
     public void setImportant() {
-	top.important = true;
-	right.important = true;
-	bottom.important = true;
-	left.important = true;
+	if(top != null) {
+	    top.important = true;
+	}
+	if(right != null) {
+	    right.important = true;
+	}
+	if(bottom != null) {
+	    bottom.important = true;
+	}
+	if(left != null) {
+	    left.important = true;
+	}
     }
     
     /**
@@ -312,10 +374,18 @@ public class CssMargin extends CssProperty implements CssOperator {
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
 	((Css1Style) style).cssMargin.inheritedValue = inheritedValue;
-	top.addToStyle(ac, style);
-	right.addToStyle(ac, style);
-	bottom.addToStyle(ac, style);
-	left.addToStyle(ac, style);
+	if(top != null) {
+	    top.addToStyle(ac, style);
+	}
+	if(right != null) {
+	    right.addToStyle(ac, style);
+	}
+	if(bottom != null) {
+	    bottom.addToStyle(ac, style);
+	}
+	if(left != null) {
+	    left.addToStyle(ac, style);
+	}
     }
     
     /**

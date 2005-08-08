@@ -1,12 +1,22 @@
 //
-// $Id: StyleSheetCom.java,v 1.7 2004-01-10 06:22:24 bjoern Exp $
+// $Id: StyleSheetCom.java,v 1.8 2005-08-08 13:18:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetCom.java,v $
- * Revision 1.7  2004-01-10 06:22:24  bjoern
+ * Revision 1.8  2005-08-08 13:18:04  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.7  2004/01/10 06:22:24  bjoern
  * Fix for http://www.w3.org/Bugs/Public/show_bug.cgi?id=292
  *
  * Revision 1.6  2003/07/11 13:48:59  sijtsche
@@ -30,29 +40,29 @@
  */
 package org.w3c.css.css;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.OutputStreamWriter;
-import java.io.File;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.MalformedURLException;
-
-import html.tags.HtmlTree;
 import html.tags.HtmlParser;
 import html.tags.HtmlParserListener;
 import html.tags.HtmlTag;
+import html.tags.HtmlTree;
 
-import org.w3c.css.parser.CssSelectors;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
 import org.w3c.css.parser.CssFouffa;
+import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.Util;
-import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.7 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.8 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 

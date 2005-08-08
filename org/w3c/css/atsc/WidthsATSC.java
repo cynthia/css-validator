@@ -1,5 +1,5 @@
 //
-// $Id: WidthsATSC.java,v 1.1 2002-07-24 14:42:28 sijtsche Exp $
+// $Id: WidthsATSC.java,v 1.2 2005-08-08 13:18:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,15 +9,16 @@
 package org.w3c.css.atsc;
 
 import java.util.Vector;
+
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.CssProperty;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssOperator;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssUnicodeRange;
-import org.w3c.css.values.CssNumber;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssNumber;
+import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssUnicodeRange;
+import org.w3c.css.values.CssValue;
 
 /**
  */
@@ -38,10 +39,11 @@ public class WidthsATSC extends CssProperty implements CssOperator {
      * @param expression the unicode em
      * @exception InvalidParamException values are incorrect
      */  
-    public WidthsATSC(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public WidthsATSC(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 	CssValue val;
 	char op;
-	int i = 0;
+	//int i = 0;
 	setByUser();	
 	{
 	    val = expression.getValue();
@@ -80,6 +82,11 @@ public class WidthsATSC extends CssProperty implements CssOperator {
 	    values.addElement(", ");
 	} while (op == CssOperator.COMMA);
 
+    }
+    
+    public WidthsATSC(ApplContext ac, CssExpression expression)
+	throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**

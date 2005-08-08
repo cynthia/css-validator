@@ -1,14 +1,12 @@
 // MimeType.java
-// $Id: MimeType.java,v 1.1 2004-02-09 09:42:02 sijtsche Exp $
+// $Id: MimeType.java,v 1.2 2005-08-08 13:19:47 ylafon Exp $
 // (c) COPYRIGHT MIT and INRIA, 1996.
 // Please first read the full copyright statement in file COPYRIGHT.html
 
 package org.w3c.www.mime ;
 
-import java.util.Vector;
-
-import java.io.PrintStream;
 import java.io.Serializable;
+import java.util.Vector;
 
 /**
  * This class is used to represent parsed MIME types. 

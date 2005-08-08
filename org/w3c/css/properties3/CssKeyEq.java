@@ -1,5 +1,5 @@
 //
-// $Id: CssKeyEq.java,v 1.3 2004-05-30 05:06:52 bjoern Exp $
+// $Id: CssKeyEq.java,v 1.4 2005-08-08 13:18:54 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -11,14 +11,14 @@ package org.w3c.css.properties3;
 import java.util.Vector;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssExpression;
 import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
-import org.w3c.css.values.CssOperator;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssFunction;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssValue;
 
 /**
  *  <P>
@@ -73,7 +73,8 @@ public class CssKeyEq extends CssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssKeyEq(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssKeyEq(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 	String kc = new String();
 	int hyphenindex;
 	int counter = 0;
@@ -181,6 +182,11 @@ public class CssKeyEq extends CssProperty {
 
     }
 
+    public CssKeyEq(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Add this property to the CssStyle.
      *

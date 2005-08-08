@@ -1,5 +1,5 @@
 //
-// $Id: OutlineStyle.java,v 1.3 2002-12-20 16:04:43 sijtsche Exp $
+// $Id: OutlineStyle.java,v 1.4 2005-08-08 13:19:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,15 +10,15 @@
 package org.w3c.css.user;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
 import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class OutlineStyle extends UserProperty {
 
@@ -43,8 +43,12 @@ public class OutlineStyle extends UserProperty {
      * @param expression The expression for this face
      * @exception InvalidParamException The expression is incorrect
      */
-    public OutlineStyle(ApplContext ac, CssExpression expression)
-	throws InvalidParamException {
+    public OutlineStyle(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
 
 	CssValue val = expression.getValue();
 	setByUser();
@@ -64,6 +68,11 @@ public class OutlineStyle extends UserProperty {
 					getPropertyName(), ac);
     }
 
+    public OutlineStyle(ApplContext ac, CssExpression expression)
+	throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the internal value
      */

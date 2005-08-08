@@ -1,5 +1,5 @@
 //
-// $Id: CssUnicodeRange.java,v 1.2 2002-04-08 21:19:46 plehegar Exp $
+// $Id: CssUnicodeRange.java,v 1.3 2005-08-08 13:19:47 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,8 +8,6 @@
  */
 package org.w3c.css.values;
 
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.Util;
 import org.w3c.css.util.ApplContext;
 
 /**

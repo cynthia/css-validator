@@ -1,5 +1,5 @@
 //
-// $Id: AtRuleColorProfile.java,v 1.1 2002-07-19 20:58:01 sijtsche Exp $
+// $Id: AtRuleColorProfile.java,v 1.2 2005-08-08 13:19:34 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -7,7 +7,6 @@
 // http://www.w3.org/Consortium/Legal/copyright-software-19980720
 package org.w3c.css.svgproperties;
 
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.parser.AtRule;
 
 
@@ -20,46 +19,46 @@ public class AtRuleColorProfile extends AtRule {
      * Create a new AtRuleColorProfile
      */
     public AtRuleColorProfile() {
-		hash = ++internal;
+	hash = ++internal;
     }
 
     /**
      * Returns the at rule keyword
      */
     public String keyword() {
-		return "color-profile";
+	return "color-profile";
     }
 
     /**
      * The second must be exactly the same as this one
      */
     public boolean canApply(AtRule atRule) {
-		return (atRule instanceof AtRuleColorProfile);
+	return (atRule instanceof AtRuleColorProfile);
     }
 
     /**
      * Return true if other is an instance of AtRuleColorProfile
      */
     public boolean equals(Object other) {
-		return (other instanceof AtRuleColorProfile);
+	return (other instanceof AtRuleColorProfile);
     }
 
     /**
      * The second must only match this one
      */
     public boolean canMatched(AtRule atRule) {
-		return (atRule instanceof AtRuleColorProfile);
+	return (atRule instanceof AtRuleColorProfile);
     }
 
     /**
      * Returns a string representation of the object
      */
-     public String toString() {
-	 	return "@" + keyword();
-     }
+    public String toString() {
+	return "@" + keyword();
+    }
 
     public int hashCode() {
-		return hash;
+	return hash;
     }
 
 }

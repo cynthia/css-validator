@@ -1,5 +1,5 @@
 //
-// $Id: ATSCNavUp.java,v 1.2 2003-01-08 10:58:09 sijtsche Exp $
+// $Id: ATSCNavUp.java,v 1.3 2005-08-08 13:18:03 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -9,15 +9,14 @@
 package org.w3c.css.atsc;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssString;
 import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.Util;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssNumber;
+import org.w3c.css.values.CssString;
+import org.w3c.css.values.CssValue;
 
 /**
  *  <P>
@@ -45,7 +44,7 @@ public class ATSCNavUp extends CssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public ATSCNavUp (ApplContext ac, CssExpression expression)
+    public ATSCNavUp (ApplContext ac, CssExpression expression, boolean check)
 	throws InvalidParamException {
 
 		this.ac = ac;
@@ -67,6 +66,11 @@ public class ATSCNavUp extends CssProperty {
 		}
     }
 
+    public ATSCNavUp(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Add this property to the CssStyle.
      *

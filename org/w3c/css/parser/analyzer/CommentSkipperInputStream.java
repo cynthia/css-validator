@@ -9,16 +9,16 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: CommentSkipperInputStream.java,v 1.2 2002-04-08 21:24:03 plehegar Exp $
+ * $Id: CommentSkipperInputStream.java,v 1.3 2005-08-08 13:18:11 ylafon Exp $
  */
 package org.w3c.css.parser.analyzer;
 
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 public class CommentSkipperInputStream extends InputStream { 

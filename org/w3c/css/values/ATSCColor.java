@@ -1,12 +1,22 @@
 //
-// $Id: ATSCColor.java,v 1.2 2002-04-08 21:19:46 plehegar Exp $
+// $Id: ATSCColor.java,v 1.3 2005-08-08 13:19:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ATSCColor.java,v $
- * Revision 1.2  2002-04-08 21:19:46  plehegar
+ * Revision 1.3  2005-08-08 13:19:46  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:19:46  plehegar
  * New
  *
  * Revision 2.2  1997/08/20 11:38:07  plehegar
@@ -19,9 +29,9 @@
 package org.w3c.css.values;
 
 import java.util.Hashtable;
-import org.w3c.css.util.Util;
-import org.w3c.css.util.InvalidParamException;
+
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 
 /**
  *   <H3>
@@ -168,7 +178,7 @@ import org.w3c.css.util.ApplContext;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ATSCColor extends CssValue 
         implements CssColorConstants, CssOperator {

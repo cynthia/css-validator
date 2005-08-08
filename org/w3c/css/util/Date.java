@@ -1,11 +1,11 @@
 //
-// $Id: Date.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+// $Id: Date.java,v 1.3 2005-08-08 13:19:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 // DateThread.java
-// $Id: Date.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+// $Id: Date.java,v 1.3 2005-08-08 13:19:46 ylafon Exp $
 // From Yves Lafon (ylafon@w3.org)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,10 +13,10 @@
 
 package org.w3c.css.util;
 
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class Date {
   protected static String days[] = { "Sun", "Mon", "Tue", "Wed",

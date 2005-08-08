@@ -1,5 +1,5 @@
 //
-// $Id: SVGBasicStyle.java,v 1.1 2002-07-19 20:58:01 sijtsche Exp $
+// $Id: SVGBasicStyle.java,v 1.2 2005-08-08 13:19:34 ylafon Exp $
 // From Sijtsche de Jong
 //
 // COPYRIGHT (c) 1995-2002 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -8,11 +8,7 @@
 
 package org.w3c.css.svgproperties;
 
-import org.w3c.css.util.Warnings;
-import org.w3c.css.util.Warning;
-import org.w3c.css.util.ApplContext;
 import org.w3c.css.parser.CssPrinterStyle;
-import org.w3c.css.values.CssValue;
 
 public class SVGBasicStyle extends org.w3c.css.properties3.Css3Style {
 

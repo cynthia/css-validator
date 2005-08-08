@@ -1,12 +1,22 @@
 //
-// $Id: CssBorderCSS2.java,v 1.2 2002-04-08 21:17:42 plehegar Exp $
+// $Id: CssBorderCSS2.java,v 1.3 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBorderCSS2.java,v $
- * Revision 1.2  2002-04-08 21:17:42  plehegar
+ * Revision 1.3  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:17:42  plehegar
  * New
  *
  * Revision 3.2  1997/09/09 08:34:26  plehegar
@@ -28,16 +38,16 @@
  */
 package org.w3c.css.properties;
 
-import org.w3c.css.parser.CssStyle;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
+import org.w3c.css.parser.CssStyle;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBorderCSS2 extends CssProperty {
     
@@ -62,44 +72,61 @@ public class CssBorderCSS2 extends CssProperty {
      * @param value The value for this property
      * @exception InvalidParamException The value is incorrect
      */  
-    public CssBorderCSS2(ApplContext ac, CssExpression value) throws InvalidParamException {
+    public CssBorderCSS2(ApplContext ac, CssExpression value,
+	    boolean check) throws InvalidParamException {
+	
+	if(check && value.getCount() > 3) {
+	     throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	CssValue val = value.getValue();
 	
-	setByUser();
-	
+	setByUser();	
 	
 	top = new CssBorderTopCSS2(ac, value);
-
+	
 	if (val == value.getValue()) {
 	    throw new InvalidParamException("value", 
 					    value.getValue(), 
 					    getPropertyName(), ac);
-	}
-	
+	}	
 	right = new CssBorderRightCSS2();
 	bottom = new CssBorderBottomCSS2();
 	left = new CssBorderLeftCSS2();
-
-	right.width  = 
-	    new CssBorderRightWidthCSS2((CssBorderFaceWidthCSS2) top.width.get());
-	left.width = 
-	    new CssBorderLeftWidthCSS2((CssBorderFaceWidthCSS2) top.width.get());
-	bottom.width = 
-	    new CssBorderBottomWidthCSS2((CssBorderFaceWidthCSS2) top.width.get());
 	
-	right.style = 
-	    new CssBorderRightStyleCSS2((CssBorderFaceStyleCSS2) top.style.get());
-	left.style = 
-	    new CssBorderLeftStyleCSS2((CssBorderFaceStyleCSS2) top.style.get());
-	bottom.style = 
-	    new CssBorderBottomStyleCSS2((CssBorderFaceStyleCSS2) top.style.get());
+	CssBorderTopWidthCSS2 w = top.width;
+	CssBorderTopStyleCSS2 s = top.style;
+	CssBorderTopColorCSS2 c = top.color;	
 	
-	right.color = 
-	    new CssBorderRightColorCSS2((CssBorderFaceColorCSS2) top.color.get());
-	left.color = 
-	    new CssBorderLeftColorCSS2((CssBorderFaceColorCSS2) top.color.get());
-	bottom.color = 
-	    new CssBorderBottomColorCSS2((CssBorderFaceColorCSS2) top.color.get());
+	if(w != null) {	    
+	    right.width  = 
+		new CssBorderRightWidthCSS2((CssBorderFaceWidthCSS2) w.get());	    
+	    left.width = 
+		new CssBorderLeftWidthCSS2((CssBorderFaceWidthCSS2) w.get());	    
+	    bottom.width = 
+		new CssBorderBottomWidthCSS2((CssBorderFaceWidthCSS2) w.get());	    
+	}	
+	if(s != null) {
+	    right.style = 
+		new CssBorderRightStyleCSS2((CssBorderFaceStyleCSS2) s.get());
+	    left.style = 
+		new CssBorderLeftStyleCSS2((CssBorderFaceStyleCSS2) s.get());
+	    bottom.style = 
+		new CssBorderBottomStyleCSS2((CssBorderFaceStyleCSS2) s.get());
+	}	
+	if(c != null) {
+	    right.color = 
+		new CssBorderRightColorCSS2((CssBorderFaceColorCSS2) c.get());
+	    left.color = 
+		new CssBorderLeftColorCSS2((CssBorderFaceColorCSS2) c.get());
+	    bottom.color = 
+		new CssBorderBottomColorCSS2((CssBorderFaceColorCSS2) c.get());
+	}	
+    }
+    
+    public CssBorderCSS2(ApplContext ac, CssExpression expression) 
+	throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**
@@ -141,7 +168,10 @@ public class CssBorderCSS2 extends CssProperty {
      * Returns a string representation of the object.
      */
     public String toString() {
-	return top.toString();
+	if(top != null) {
+	    return top.toString();
+	}
+	return "";
     }
     
     public boolean equals(CssProperty property) {
@@ -160,17 +190,25 @@ public class CssBorderCSS2 extends CssProperty {
      * Overrides this method for a macro
      */  
     public void setImportant() {
-	top.setImportant();
-	right.setImportant();
-	left.setImportant();
-	bottom.setImportant();
+	if(top != null) {
+	    top.setImportant();
+	}
+	if(right != null) {
+	    right.setImportant();
+	}
+	if(left != null) {
+	    left.setImportant();
+	}
+	if(bottom != null) {
+	    bottom.setImportant();
+	}
     }
     
     /**
      * Returns true if this property is important.
      * Overrides this method for a macro
      */
-    public boolean getImportant() {
+    public boolean getImportant() { // FIXME
 	return (top.getImportant() &&
 		right.getImportant() &&
 		left.getImportant() &&
@@ -287,10 +325,18 @@ public class CssBorderCSS2 extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-	top.addToStyle(ac, style);
-	right.addToStyle(ac, style);
-	left.addToStyle(ac, style);
-	bottom.addToStyle(ac, style);
+	if(top != null) {
+	    top.addToStyle(ac, style);
+	}
+	if(right != null) {
+	    right.addToStyle(ac, style);
+	}
+	if(left != null) {
+	    left.addToStyle(ac, style);
+	}
+	if(bottom != null) {
+	    bottom.addToStyle(ac, style);
+	}
     }
     
     /**
@@ -316,16 +362,32 @@ public class CssBorderCSS2 extends CssProperty {
      */  
     public void setInfo(int line, String source) {
 	super.setInfo(line, source);
-	top.setInfo(line, source);
-	right.setInfo(line, source);
-	left.setInfo(line, source);
-	bottom.setInfo(line, source);
+	if(top != null) {
+	    top.setInfo(line, source);
+	}
+	if(right != null) {
+	    right.setInfo(line, source);
+	}
+	if(left != null) {
+	    left.setInfo(line, source);
+	}
+	if(bottom != null) {
+	    bottom.setInfo(line, source);
+	}
     }
     
     void check() {
-	top.check();
-	bottom.check();
-	right.check();
-	left.check();
+	if(top != null) {
+	    top.check();
+	}
+	if(bottom != null) {
+	    bottom.check();
+	}
+	if(right != null) {
+	    right.check();
+	}
+	if(left != null) {
+	    left.check();
+	}
     }
 }

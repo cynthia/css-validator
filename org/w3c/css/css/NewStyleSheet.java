@@ -1,5 +1,5 @@
 //
-// $Id: NewStyleSheet.java,v 1.3 2004-05-30 05:06:51 bjoern Exp $
+// $Id: NewStyleSheet.java,v 1.4 2005-08-08 13:18:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -8,18 +8,11 @@
 
 package org.w3c.css.css;
 
-import java.util.Hashtable;
 import java.util.Vector;
-import java.util.Enumeration;
 
+import org.w3c.css.parser.AtRule;
 import org.w3c.css.parser.Errors;
 import org.w3c.css.util.Warnings;
-import org.w3c.css.parser.AtRule;
-import org.w3c.css.parser.AtRuleMedia;
-import org.w3c.css.parser.AtRuleFontFace;
-import org.w3c.css.parser.AtRulePreference;
-import org.w3c.css.parser.CssSelectors;
-import org.w3c.css.properties.CssProperty;
 
 public class NewStyleSheet {
 

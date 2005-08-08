@@ -1,12 +1,22 @@
 //
-// $Id: ACssSpeakDate.java,v 1.2 2002-04-08 21:16:56 plehegar Exp $
+// $Id: ACssSpeakDate.java,v 1.3 2005-08-08 13:18:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ACssSpeakDate.java,v $
- * Revision 1.2  2002-04-08 21:16:56  plehegar
+ * Revision 1.3  2005-08-08 13:18:03  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:16:56  plehegar
  * New
  *
  */
@@ -14,12 +24,12 @@
 package org.w3c.css.aural;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
 import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
  * <H3>&nbsp;&nbsp 'speak-date'</H3>
@@ -44,106 +54,115 @@ import org.w3c.css.util.ApplContext;
  * </pre>
  *
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ACssSpeakDate extends ACssProperty {
-  
-  CssValue value;
-  
-  /**
-   * Create a new ACssSpeakDate
-   */  
-  public ACssSpeakDate() {
-    value = myd; // browser specific
-  }
-  
-  /**
-   * Creates a new ACssSpeakDate
-   *
-   * @param expression the expression of the size
-   * @exception InvalidParamException The expression is incorrect
-   */  
-  public ACssSpeakDate(ApplContext ac, CssExpression expression) 
+    
+    CssValue value;
+    
+    /**
+     * Create a new ACssSpeakDate
+     */  
+    public ACssSpeakDate() {
+	value = myd; // browser specific
+    }
+    
+    /**
+     * Creates a new ACssSpeakDate
+     *
+     * @param expression the expression of the size
+     * @exception InvalidParamException The expression is incorrect
+     */  
+    public ACssSpeakDate(ApplContext ac, CssExpression expression, boolean check) 
     throws InvalidParamException {
-
-    CssValue val = expression.getValue();
-    
-    if (val.equals(dmy)) {
-      value = dmy;
-      expression.next();
-      return;
-    } else if (val.equals(ymd)) {
-      value = ymd;
-      expression.next();
-      return;
-    } else if (val.equals(myd)) {
-      value = myd;
-      expression.next();
-      return;
+	
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
+	CssValue val = expression.getValue();
+	
+	if (val.equals(dmy)) {
+	    value = dmy;
+	    expression.next();
+	    return;
+	} else if (val.equals(ymd)) {
+	    value = ymd;
+	    expression.next();
+	    return;
+	} else if (val.equals(myd)) {
+	    value = myd;
+	    expression.next();
+	    return;
+	}
+	
+	throw new InvalidParamException("value", val.toString(), getPropertyName(), ac);
     }
     
-    throw new InvalidParamException("value", val.toString(), getPropertyName(), ac);
-  }
-  
-  /**
-   * Returns the current value
-   */  
-  public Object get() {
-    return value;
-  }
-  
-  /**
-   * Returns a string representation of the object.
-   */
-  public String toString() {
-    return value.toString();
-  }
-  
-  
-  /**
-   * Returns the name of this property
-   */  
-  public String getPropertyName() {
-    return "speak-date";
-  }
-  
-  /**
-   * Add this property to the CssStyle.
-   *
-   * @param style The CssStyle
-   */
-  public void addToStyle(ApplContext ac, CssStyle style) {
-    if (((ACssStyle) style).acssSpeakDate != null)
-      ((ACssStyle) style).addRedefinitionWarning(ac, this);
-    ((ACssStyle) style).acssSpeakDate = this;
-  }
-  
-  /**
-   * Compares two properties for equality.
-   *
-   * @param value The other property.
-   */  
-  public boolean equals(CssProperty property) {
-    return (property instanceof ACssSpeakDate && 
-	    value.equals(((ACssSpeakDate) property).value));
-  }
-  
-  
-  /**
-   * Get this property in the style.
-   *
-   * @param style The style where the property is
-   * @param resolve if true, resolve the style to find this property
-   */  
-  public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
-    if (resolve) {
-      return ((ACssStyle) style).getSpeakDate();
-    } else {
-      return ((ACssStyle) style).acssSpeakDate;
+    public ACssSpeakDate(ApplContext ac, CssExpression expression)
+    throws InvalidParamException {
+	this(ac, expression, false);
     }
-  }
-  
-  private static CssIdent myd = new CssIdent("myd");
-  private static CssIdent dmy = new CssIdent("dmy");
-  private static CssIdent ymd = new CssIdent("ymd");
+    
+    /**
+     * Returns the current value
+     */  
+    public Object get() {
+	return value;
+    }
+    
+    /**
+     * Returns a string representation of the object.
+     */
+    public String toString() {
+	return value.toString();
+    }
+    
+    
+    /**
+     * Returns the name of this property
+     */  
+    public String getPropertyName() {
+	return "speak-date";
+    }
+    
+    /**
+     * Add this property to the CssStyle.
+     *
+     * @param style The CssStyle
+     */
+    public void addToStyle(ApplContext ac, CssStyle style) {
+	if (((ACssStyle) style).acssSpeakDate != null)
+	    ((ACssStyle) style).addRedefinitionWarning(ac, this);
+	((ACssStyle) style).acssSpeakDate = this;
+    }
+    
+    /**
+     * Compares two properties for equality.
+     *
+     * @param value The other property.
+     */  
+    public boolean equals(CssProperty property) {
+	return (property instanceof ACssSpeakDate && 
+		value.equals(((ACssSpeakDate) property).value));
+    }
+    
+    
+    /**
+     * Get this property in the style.
+     *
+     * @param style The style where the property is
+     * @param resolve if true, resolve the style to find this property
+     */  
+    public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
+	if (resolve) {
+	    return ((ACssStyle) style).getSpeakDate();
+	} else {
+	    return ((ACssStyle) style).acssSpeakDate;
+	}
+    }
+    
+    private static CssIdent myd = new CssIdent("myd");
+    private static CssIdent dmy = new CssIdent("dmy");
+    private static CssIdent ymd = new CssIdent("ymd");
 }

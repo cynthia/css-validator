@@ -1,12 +1,22 @@
 //
-// $Id: CssFloatCSS3.java,v 1.2 2002-12-24 13:44:39 sijtsche Exp $
+// $Id: CssFloatCSS3.java,v 1.3 2005-08-08 13:18:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssFloatCSS3.java,v $
- * Revision 1.2  2002-12-24 13:44:39  sijtsche
+ * Revision 1.3  2005-08-08 13:18:54  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/12/24 13:44:39  sijtsche
  * values changed
  *
  * Revision 1.1  2002/07/19 20:30:12  sijtsche
@@ -37,12 +47,12 @@
 package org.w3c.css.properties3;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
-import org.w3c.css.properties.CssProperty;
 
 /**
  *   <H4>
@@ -152,7 +162,7 @@ import org.w3c.css.properties.CssProperty;
  *     inside
  *   </UL>
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssFloatCSS3 extends CssProperty {
 
@@ -178,7 +188,8 @@ public class CssFloatCSS3 extends CssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssFloatCSS3(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssFloatCSS3(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 	CssValue val = expression.getValue();
 	setByUser();
 	if ( val instanceof CssIdent) {
@@ -194,6 +205,11 @@ public class CssFloatCSS3 extends CssProperty {
 					getPropertyName(), ac);
     }
 
+    public CssFloatCSS3(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */

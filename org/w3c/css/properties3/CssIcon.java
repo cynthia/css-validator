@@ -1,5 +1,5 @@
 //
-// $Id: CssIcon.java,v 1.1 2002-12-18 09:18:18 sijtsche Exp $
+// $Id: CssIcon.java,v 1.2 2005-08-08 13:18:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated september 14th 2000 by Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -10,18 +10,18 @@
 package org.w3c.css.properties3;
 import java.util.Vector;
 
-import org.w3c.css.properties.CssProperty;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssURL;
-import org.w3c.css.values.CssOperator;
-import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.properties.CssProperty;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssURL;
+import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssIcon extends CssProperty
     implements CssOperator {
@@ -45,45 +45,51 @@ public class CssIcon extends CssProperty
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssIcon(ApplContext ac, CssExpression expression) throws InvalidParamException {
-
-		CssValue val = expression.getValue();
-		char op = expression.getOperator();
-
-		setByUser();
-		boolean correct = false;
-
-
-		if (val.equals(inherit)) {
-			inheritedValue = true;
-		    icon = inherit;
-		    expression.next();
-		    return;
-		} else if (val.equals(auto)) {
-			icon = auto;
-			expression.next();
-			return;
-		}
-
-		while (val != null) {
-		    if (val instanceof CssURL) {
-		    	uris.addElement(val);
-		    	expression.next();
-		    	val = expression.getValue();
-		    	op = expression.getOperator();
-				correct = true;
-			} else {
-				throw new InvalidParamException("value",
-					val.toString(), getPropertyName(), ac);
-			}
-		}
-
-		if (!correct) {
-			throw new InvalidParamException("value",
-						val.toString(), getPropertyName(), ac);
-		}
+    public CssIcon(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
+	CssValue val = expression.getValue();
+	char op = expression.getOperator();
+	
+	setByUser();
+	boolean correct = false;
+	
+	
+	if (val.equals(inherit)) {
+	    inheritedValue = true;
+	    icon = inherit;
+	    expression.next();
+	    return;
+	} else if (val.equals(auto)) {
+	    icon = auto;
+	    expression.next();
+	    return;
+	}
+	
+	while (val != null) {
+	    if (val instanceof CssURL) {
+		uris.addElement(val);
+		expression.next();
+		val = expression.getValue();
+		op = expression.getOperator();
+		correct = true;
+	    } else {
+		throw new InvalidParamException("value",
+			val.toString(), getPropertyName(), ac);
+	    }
+	}
+	
+	if (!correct) {
+	    throw new InvalidParamException("value",
+		    val.toString(), getPropertyName(), ac);
+	}
     }
-
+    
+    public CssIcon(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */

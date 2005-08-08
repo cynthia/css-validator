@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.7 2004-03-30 13:04:30 ylafon Exp $
+// $Id: CssColor.java,v 1.8 2005-08-08 13:19:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,14 +8,11 @@
 package org.w3c.css.values;
 
 import java.util.Hashtable;
-import org.w3c.css.util.Util;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
-import org.w3c.css.values.CssAngle;
-import org.w3c.css.values.CssPercentage;
-import org.w3c.css.values.CssNumber;
-
 import java.util.Vector;
+
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.util.Util;
 
 /**
  *   <H3>
@@ -162,7 +159,7 @@ import java.util.Vector;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class CssColor extends CssValue
     implements CssColorConstants, CssOperator {

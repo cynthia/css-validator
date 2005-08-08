@@ -1,28 +1,27 @@
 //
-// $Id: AtRuleMedia.java,v 1.6 2004-05-30 05:06:52 bjoern Exp $
+// $Id: AtRuleMedia.java,v 1.7 2005-08-08 13:18:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleMedia.java
- * $Id: AtRuleMedia.java,v 1.6 2004-05-30 05:06:52 bjoern Exp $
+ * $Id: AtRuleMedia.java,v 1.7 2005-08-08 13:18:11 ylafon Exp $
  */
 package org.w3c.css.parser;
 
 import java.util.Enumeration;
-
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
-import org.w3c.css.css.StyleSheetCom;
-import org.w3c.css.properties.CssProperty;
 import java.util.Vector;
+
+import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 
 /**
  * This class manages all media defines by CSS2
  *
- * @version $Revision: 1.6 $
- * @author  Philippe Le Hégaret
+ * @version $Revision: 1.7 $
+ * @author  Philippe Le Hï¿½garet
  */
 public class AtRuleMedia extends AtRule {
 

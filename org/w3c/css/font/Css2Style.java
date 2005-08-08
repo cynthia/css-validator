@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.2 2002-04-08 21:17:08 plehegar Exp $
+// $Id: Css2Style.java,v 1.3 2005-08-08 13:18:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,13 +8,10 @@
  */
 package org.w3c.css.font;
 
-import java.util.Enumeration;
-
-import org.w3c.css.util.Warnings;
 import org.w3c.css.parser.CssPrinterStyle;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class Css2Style extends org.w3c.css.paged.Css2Style {
 

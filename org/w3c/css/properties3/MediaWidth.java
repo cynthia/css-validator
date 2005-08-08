@@ -1,12 +1,22 @@
 //
-// $Id: MediaWidth.java,v 1.1 2003-01-08 10:01:44 sijtsche Exp $
+// $Id: MediaWidth.java,v 1.2 2005-08-08 13:18:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: MediaWidth.java,v $
- * Revision 1.1  2003-01-08 10:01:44  sijtsche
+ * Revision 1.2  2005-08-08 13:18:54  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.1  2003/01/08 10:01:44  sijtsche
  * new media feature for media queries
  *
  * Revision 1.1  2002/12/24 13:18:36  sijtsche
@@ -40,79 +50,84 @@
 package org.w3c.css.properties3;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssNumber;
-import org.w3c.css.values.CssLength;
-import org.w3c.css.values.CssPercentage;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
 import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssLength;
+import org.w3c.css.values.CssNumber;
+import org.w3c.css.values.CssPercentage;
+import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class MediaWidth extends CssProperty {
-
+    
     CssValue value;
-
+    
     /**
      * Create a new MediaWidth
      */
     public MediaWidth() {
-		//empty
+	//empty
     }
-
+    
     /**
      * Create a new MediaWidth.
      *
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public MediaWidth(ApplContext ac, CssExpression expression) throws InvalidParamException {
-
-		CssValue val = null;
-
-		if (expression != null) {
-			val = expression.getValue();
-		}
-
-		setByUser();
-
-		if (val != null) {
-			if (val instanceof CssLength || val instanceof CssPercentage) {
-			    float f = ((Float) val.get()).floatValue();
-			    if (f < 0) {
-					throw new InvalidParamException("negative-value",
-								val.toString(), ac);
-			    }
-			    value = val;
-			} else if (val instanceof CssNumber) {
-			    value = ((CssNumber) val).getLength();
-			} else {
-			    throw new InvalidParamException("value", expression.getValue(),
-							    getPropertyName(), ac);
-			}
-
-			expression.next();
-		}
+    public MediaWidth(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
+	CssValue val = null;
+	
+	if (expression != null) {
+	    val = expression.getValue();
 	}
-
+	
+	setByUser();
+	
+	if (val != null) {
+	    if (val instanceof CssLength || val instanceof CssPercentage) {
+		float f = ((Float) val.get()).floatValue();
+		if (f < 0) {
+		    throw new InvalidParamException("negative-value",
+			    val.toString(), ac);
+		}
+		value = val;
+	    } else if (val instanceof CssNumber) {
+		value = ((CssNumber) val).getLength();
+	    } else {
+		throw new InvalidParamException("value", expression.getValue(),
+			getPropertyName(), ac);
+	    }
+	    
+	    expression.next();
+	}
+    }
+    
+    public MediaWidth(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property.
      */
     public Object get() {
 	return value;
     }
-
+    
     /**
      * Returns the name of this property.
      */
     public String getPropertyName() {
 	return "width";
     }
-
+    
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -120,19 +135,19 @@ public class MediaWidth extends CssProperty {
     public boolean isSoftlyInherited() {
 	return value == inherit;
     }
-
+    
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
-		if (value != null) {
-			return value.toString();
-		} else {
-			return null;
-		}
+	if (value != null) {
+	    return value.toString();
+	} else {
+	    return null;
+	}
     }
-
-
+    
+    
     /**
      * Add this property to the CssStyle.
      *
@@ -144,7 +159,7 @@ public class MediaWidth extends CssProperty {
 	    style0.addRedefinitionWarning(ac, this);
 	style0.mediaWidth = this;
     }
-
+    
     /**
      * Get this property in the style.
      *
@@ -158,7 +173,7 @@ public class MediaWidth extends CssProperty {
 	    return ((Css3Style) style).mediaWidth;
 	}
     }
-
+    
     /**
      * Compares two properties for equality.
      *
@@ -167,7 +182,7 @@ public class MediaWidth extends CssProperty {
     public boolean equals(CssProperty property) {
 	return (property instanceof MediaWidth && value.equals(((MediaWidth) property).value));
     }
-
+    
     /**
      * Is the value of this property is a default value.
      * It is used by all macro for the function <code>print</code>
@@ -175,5 +190,5 @@ public class MediaWidth extends CssProperty {
     public boolean isDefault() {
 	return false;
     }
-
+    
 }

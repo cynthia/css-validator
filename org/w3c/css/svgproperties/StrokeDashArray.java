@@ -1,5 +1,5 @@
 //
-// $Id: StrokeDashArray.java,v 1.1 2002-07-19 20:58:01 sijtsche Exp $
+// $Id: StrokeDashArray.java,v 1.2 2005-08-08 13:19:34 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -11,14 +11,14 @@ package org.w3c.css.svgproperties;
 import java.util.Vector;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssExpression;
 import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssValue;
 
 
 /**
@@ -42,7 +42,8 @@ public class StrokeDashArray extends CssProperty implements CssOperator {
     /** 
      * Create a new StrokeDashArray
      */
-    public StrokeDashArray(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public StrokeDashArray(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 
 	//setByUser();
 	char op = COMMA;
@@ -79,6 +80,11 @@ public class StrokeDashArray extends CssProperty implements CssOperator {
 	}
     }
 
+    public StrokeDashArray(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Add this property to the CssStyle.
      *

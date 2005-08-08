@@ -1,5 +1,5 @@
 //
-// $Id: AtRulePreference.java,v 1.2 2002-04-08 21:24:12 plehegar Exp $
+// $Id: AtRulePreference.java,v 1.3 2005-08-08 13:18:11 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -8,7 +8,6 @@
 
 package org.w3c.css.parser;
 
-import org.w3c.css.util.InvalidParamException;
 
 public class AtRulePreference extends AtRule {
 

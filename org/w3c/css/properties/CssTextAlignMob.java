@@ -1,12 +1,22 @@
 //
-// $Id: CssTextAlignMob.java,v 1.2 2002-04-08 21:17:44 plehegar Exp $
+// $Id: CssTextAlignMob.java,v 1.3 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssTextAlignMob.java,v $
- * Revision 1.2  2002-04-08 21:17:44  plehegar
+ * Revision 1.3  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:17:44  plehegar
  * New
  *
  * Revision 3.1  1997/08/29 13:14:04  plehegar
@@ -31,12 +41,11 @@
 package org.w3c.css.properties;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssString;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
  *   <H4>
@@ -62,7 +71,7 @@ import org.w3c.css.util.ApplContext;
  *   the width of the element, not the canvas. If 'justify' is not supported,
  *   the UA will supply a replacement. Typically, this will be 'left' for western
  *   languages.
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssTextAlignMob extends CssProperty 
         implements CssTextPropertiesConstants {
@@ -84,7 +93,13 @@ public class CssTextAlignMob extends CssProperty
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */  
-    public CssTextAlignMob(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssTextAlignMob(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	CssValue val = expression.getValue();
 	int hash = val.hashCode();
 	
@@ -105,6 +120,11 @@ public class CssTextAlignMob extends CssProperty
 	}
 
 	throw new InvalidParamException("value", val.toString(), getPropertyName(), ac);
+    }
+    
+    public CssTextAlignMob(ApplContext ac, CssExpression expression) 
+	throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**

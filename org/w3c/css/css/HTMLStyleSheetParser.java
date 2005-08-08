@@ -1,5 +1,5 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.13 2004-05-06 12:48:42 ylafon Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.14 2005-08-08 13:18:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,25 +7,22 @@
 
 package org.w3c.css.css;
 
+import html.tags.HtmlParser;
+import html.tags.HtmlParserListener;
+import html.tags.HtmlTag;
+import html.tags.HtmlTree;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-// import org.w3c.www.protocol.http.HttpURLConnection;
 
-import html.tags.HtmlTree;
-import html.tags.HtmlParser;
-import html.tags.HtmlParserListener;
-import html.tags.HtmlTag;
-
-import org.w3c.css.util.Util;
-import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.HTTPURL;
+import org.w3c.css.util.Util;
 
 /**
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
     

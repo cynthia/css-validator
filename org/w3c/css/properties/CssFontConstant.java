@@ -1,12 +1,22 @@
 //
-// $Id: CssFontConstant.java,v 1.3 2002-12-18 09:21:01 sijtsche Exp $
+// $Id: CssFontConstant.java,v 1.4 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssFontConstant.java,v $
- * Revision 1.3  2002-12-18 09:21:01  sijtsche
+ * Revision 1.4  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.3  2002/12/18 09:21:01  sijtsche
  * values changed
  *
  * Revision 1.2  2002/04/08 21:17:43  plehegar
@@ -25,7 +35,7 @@
 package org.w3c.css.properties;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public interface CssFontConstant {
 
@@ -65,10 +75,10 @@ public interface CssFontConstant {
   /**
    * Array of font values
    */
-  static String[] FONT = { "icon", "window", "status-bar", "document", "workspace", "desktop",
-  						   "tooltip", "message-box", "dialog", "small-caption", "caption", "button",
-  						   "default-button", "hyperlink", "menu", "pull-down-menu", "pop-up-menu",
-  						   "list-menu", "field", "inherit"
-	  					 };
-
+  static String[] FONT = { "icon", "window", "status-bar", "document", 
+      "workspace", "desktop", "tooltip", "message-box", "dialog", 
+      "small-caption", "caption", "button", "default-button", "hyperlink",
+      "menu", "pull-down-menu", "pop-up-menu", "list-menu", "field", "inherit"
+  };
+  
 }

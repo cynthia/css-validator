@@ -1,12 +1,22 @@
 //
-// $Id: ACssStyle.java,v 1.5 2003-07-30 06:54:50 sijtsche Exp $
+// $Id: ACssStyle.java,v 1.6 2005-08-08 13:18:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ACssStyle.java,v $
- * Revision 1.5  2003-07-30 06:54:50  sijtsche
+ * Revision 1.6  2005-08-08 13:18:03  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.5  2003/07/30 06:54:50  sijtsche
  * new properties added
  *
  * Revision 1.4  2003/07/28 14:55:50  sijtsche
@@ -44,15 +54,15 @@ package org.w3c.css.aural;
 
 import java.util.Enumeration;
 
-import org.w3c.css.util.Warnings;
-import org.w3c.css.util.Warning;
-import org.w3c.css.util.ApplContext;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.properties.Css1Style;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.Warning;
+import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class ACssStyle extends Css1Style {
 

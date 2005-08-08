@@ -1,12 +1,22 @@
 //
-// $Id: CssBackgroundPositionATSC.java,v 1.1 2002-07-24 14:42:28 sijtsche Exp $
+// $Id: CssBackgroundPositionATSC.java,v 1.2 2005-08-08 13:18:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundPositionATSC.java,v $
- * Revision 1.1  2002-07-24 14:42:28  sijtsche
+ * Revision 1.2  2005-08-08 13:18:03  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.1  2002/07/24 14:42:28  sijtsche
  * ATSC TV profile files
  *
  * Revision 1.2  2002/05/31 12:33:18  dejong
@@ -46,17 +56,18 @@
 package org.w3c.css.atsc;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
+import org.w3c.css.properties.CssBackgroundAttachment;
+import org.w3c.css.properties.CssBackgroundConstants;
 import org.w3c.css.properties.CssProperty;
-import org.w3c.css.values.CssValue;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssPercentage;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssOperator;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
-import org.w3c.css.properties.CssBackgroundConstants;
+import org.w3c.css.values.CssPercentage;
+import org.w3c.css.values.CssValue;
 
 
 /**
@@ -132,7 +143,7 @@ import org.w3c.css.properties.CssBackgroundConstants;
  *   <P>
  *   In the example above, the image is placed in the lower right corner of the
  *   canvas.
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @see CssBackgroundAttachment
  */
 public class CssBackgroundPositionATSC extends CssProperty
@@ -155,8 +166,8 @@ public class CssBackgroundPositionATSC extends CssProperty
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssBackgroundPositionATSC(ApplContext ac, CssExpression expression)
-	throws InvalidParamException {
+    public CssBackgroundPositionATSC(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 	setByUser();
 	CssValue val = expression.getValue();
 	char op  = expression.getOperator();
@@ -217,6 +228,11 @@ public class CssBackgroundPositionATSC extends CssProperty
 
     }
 
+    public CssBackgroundPositionATSC(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */

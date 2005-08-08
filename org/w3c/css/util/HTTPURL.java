@@ -4,15 +4,21 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.14 2005-07-22 09:45:18 ylafon Exp $
+ * $Id: HTTPURL.java,v 1.15 2005-08-08 13:19:46 ylafon Exp $
  */
 package org.w3c.css.util;
 
-import java.io.*;
-import java.net.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLConnection;
 
 /**
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {

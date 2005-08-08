@@ -1,5 +1,5 @@
 //
-// $Id: FontFamily.java,v 1.2 2002-04-08 21:17:08 plehegar Exp $
+// $Id: FontFamily.java,v 1.3 2005-08-08 13:18:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,18 +9,19 @@
 
 package org.w3c.css.font;
 
-import java.util.Vector;
 import java.util.Enumeration;
-import org.w3c.css.util.Util;
-import org.w3c.css.properties.CssProperty;
-import org.w3c.css.values.CssOperator;
+import java.util.Vector;
+
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssString;
-import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.properties.CssProperty;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.util.Util;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssString;
+import org.w3c.css.values.CssValue;
 
 /** 
  */
@@ -40,7 +41,7 @@ public class FontFamily extends FontProperty implements CssOperator {
      * @param expression the font name
      * @exception InvalidParamException The expression is incorrect
      */
-    public FontFamily(ApplContext ac, CssExpression expression) 
+    public FontFamily(ApplContext ac, CssExpression expression, boolean check) 
 	    throws InvalidParamException {
 	boolean family = true;
 	CssValue val = expression.getValue();
@@ -97,6 +98,11 @@ public class FontFamily extends FontProperty implements CssOperator {
 						getPropertyName(), ac);
 	}
 	
+    }
+    
+    public FontFamily(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**

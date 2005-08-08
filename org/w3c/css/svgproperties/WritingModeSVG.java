@@ -1,5 +1,5 @@
 //
-// $Id: WritingModeSVG.java,v 1.1 2002-07-19 20:58:01 sijtsche Exp $
+// $Id: WritingModeSVG.java,v 1.2 2005-08-08 13:19:34 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -9,12 +9,12 @@
 package org.w3c.css.svgproperties;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
 
 /**
  *  <P>
@@ -49,7 +49,8 @@ public class WritingModeSVG extends CssProperty {
     /**
      * Create a new CssWritingModeSVG
      */
-    public WritingModeSVG(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public WritingModeSVG(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 
 	setByUser();
 	CssValue val = expression.getValue();
@@ -88,6 +89,11 @@ public class WritingModeSVG extends CssProperty {
 	}
     }
 
+    public WritingModeSVG(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Add this property to the CssStyle
      *

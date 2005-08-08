@@ -1,5 +1,5 @@
 //
-// $Id: CssTextLTMode.java,v 1.2 2003-07-14 14:33:56 sijtsche Exp $
+// $Id: CssTextLTMode.java,v 1.3 2005-08-08 13:18:54 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -9,12 +9,12 @@
 package org.w3c.css.properties3;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
 
 /**
  *  <P>
@@ -50,7 +50,8 @@ public class CssTextLTMode extends CssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException Incorrect values
      */
-    public CssTextLTMode(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssTextLTMode(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 	setByUser();
 	CssValue val = expression.getValue();
 
@@ -73,6 +74,11 @@ public class CssTextLTMode extends CssProperty {
 	}
     }
 
+    public CssTextLTMode(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Add this property to the CssStyle
      *

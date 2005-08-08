@@ -1,5 +1,5 @@
 //
-// $Id: BorderSpacingATSC.java,v 1.2 2002-04-08 21:18:23 plehegar Exp $
+// $Id: BorderSpacingATSC.java,v 1.3 2005-08-08 13:19:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,15 +9,15 @@
 
 package org.w3c.css.table;
 
-import org.w3c.css.properties.CssProperty;
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssOperator;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
+import org.w3c.css.values.CssValue;
 
 
 /**
@@ -40,7 +40,13 @@ public class BorderSpacingATSC extends TableProperty implements CssOperator {
      * @param expression the expression of the size
      * @exception InvalidParamException The expression is incorrect
      */  
-    public BorderSpacingATSC(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public BorderSpacingATSC(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
+	if(check && expression.getCount() > 2) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	CssValue val = expression.getValue();
 	CssLength le = getLength(val);
 	setByUser();
@@ -48,11 +54,17 @@ public class BorderSpacingATSC extends TableProperty implements CssOperator {
 	ac.getFrame().addWarning("atsc", val.toString());
 
 	if (val.equals(inherit)) {
+	    if(expression.getCount() > 1) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    value = inherit;
 	} else if (le != null) {
 	    value = le;
 	    if (expression.getOperator() == SPACE) {
 		expression.next();
+		if(expression.getValue().equals(inherit)) {
+		    throw new InvalidParamException("unrecognize", ac);
+		}
 		le = getLength(expression.getValue());
 		if (le != null) {
 		    second = le;
@@ -68,6 +80,11 @@ public class BorderSpacingATSC extends TableProperty implements CssOperator {
 	}
 
 	expression.next();
+    }
+    
+    public BorderSpacingATSC(ApplContext ac, CssExpression expression) 
+	throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**

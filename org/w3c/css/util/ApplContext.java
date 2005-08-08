@@ -4,22 +4,19 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.4 2005-07-12 13:14:49 ylafon Exp $
+ * $Id: ApplContext.java,v 1.5 2005-08-08 13:19:46 ylafon Exp $
  */
 package org.w3c.css.util;
 
 import java.nio.charset.Charset;
-import java.nio.charset.IllegalCharsetNameException;
-import java.util.StringTokenizer;
 
 import org.w3c.css.parser.Frame;
-import org.w3c.www.http.HttpAccept;
 import org.w3c.www.http.HttpAcceptCharset;
 import org.w3c.www.http.HttpAcceptCharsetList;
 import org.w3c.www.http.HttpFactory;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  * @author  Philippe Le Hegaret
  */
 public class ApplContext {

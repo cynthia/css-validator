@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheet.java,v 1.6 2004-05-30 05:06:51 bjoern Exp $
+// $Id: StyleSheet.java,v 1.7 2005-08-08 13:18:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,23 +12,20 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import org.w3c.css.util.Warnings;
-import org.w3c.css.util.Util;
-import org.w3c.css.util.SortedHashtable;
-import org.w3c.css.util.ApplContext;
-import org.w3c.css.parser.Errors;
-import org.w3c.css.parser.CssStyle;
 import org.w3c.css.parser.AtRule;
-import org.w3c.css.parser.AtRuleMedia;
-import org.w3c.css.parser.AtRuleFontFace;
-import org.w3c.css.parser.AtRulePreference;
 import org.w3c.css.parser.CssSelectors;
+import org.w3c.css.parser.CssStyle;
+import org.w3c.css.parser.Errors;
 import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.SortedHashtable;
+import org.w3c.css.util.Util;
+import org.w3c.css.util.Warnings;
 
 /**
  * This class contains a style sheet with all rules, errors and warnings.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class StyleSheet {
 

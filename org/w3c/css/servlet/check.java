@@ -1,12 +1,22 @@
 //
-// $Id: check.java,v 1.4 2004-11-25 13:23:25 sijtsche Exp $
+// $Id: check.java,v 1.5 2005-08-08 13:19:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: check.java,v $
- * Revision 1.4  2004-11-25 13:23:25  sijtsche
+ * Revision 1.5  2005-08-08 13:19:34  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.4  2004/11/25 13:23:25  sijtsche
  * HTML output escaped
  *
  * Revision 1.3  2002/05/19 04:12:37  plehegar
@@ -31,51 +41,33 @@
 
 package org.w3c.css.servlet;
 
-import java.io.IOException;
-import java.io.EOFException;
-import java.io.PrintWriter;
-import java.io.InputStream;
-import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URL;
-import java.net.MalformedURLException;
-import java.util.Date;
-import java.util.Properties;
 
-import javax.servlet.ServletException;
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletInputStream;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// multipart/form-data
-import org.w3c.css.util.Codecs;
-import org.w3c.css.util.NVPair;
-
-import org.w3c.css.util.ApplContext;
-
-import org.w3c.css.util.HTTPURL;
-
-import org.w3c.css.parser.CssFouffa;
 import org.w3c.css.css.CssParser;
-// import org.w3c.css.css.StyleSheetXMLParser;
-import org.w3c.css.css.StyleSheetParser;
 import org.w3c.css.css.HTMLStyleSheetParser;
 import org.w3c.css.css.StyleSheet;
 import org.w3c.css.css.StyleSheetGeneratorHTML2;
-import org.w3c.css.aural.ACssStyle;
-import org.w3c.css.util.Util; 
-import org.w3c.css.util.FakeFile;
-
+import org.w3c.css.css.StyleSheetParser;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.HTTPURL;
+import org.w3c.css.util.Util;
 import org.xml.sax.SAXParseException;
 
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public final class check extends HttpServlet {
     

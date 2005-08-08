@@ -9,42 +9,39 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.12 2004-02-26 15:23:43 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.13 2005-08-08 13:18:04 ylafon Exp $
  */
 package org.w3c.css.css;
 
-import org.xml.sax.ext.LexicalHandler;
-import org.xml.sax.ContentHandler;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
-import org.xml.sax.ErrorHandler;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.Locator;
-import org.xml.sax.InputSource;
-
-import java.net.URL;
-import java.net.MalformedURLException;
-import java.io.StringBufferInputStream;
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringBufferInputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLConnection;
 import java.util.Hashtable;
 
-import org.w3c.css.util.Util;
-import org.w3c.css.util.HTTPURL;
-import org.w3c.css.util.ApplContext;
 import org.w3c.css.parser.CssError;
 import org.w3c.css.parser.Errors;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.InvalidParamException;
-
+import org.w3c.css.util.Util;
 import org.w3c.css.util.xml.XMLCatalog;
-
 import org.w3c.www.mime.MimeType;
+import org.xml.sax.Attributes;
+import org.xml.sax.ContentHandler;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.InputSource;
+import org.xml.sax.Locator;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+import org.xml.sax.ext.LexicalHandler;
 
 /**
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 

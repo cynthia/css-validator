@@ -1,5 +1,5 @@
 //
-// $Id: CssDisplay.java,v 1.4 2003-07-25 11:00:58 sijtsche Exp $
+// $Id: CssDisplay.java,v 1.5 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 14th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -7,7 +7,17 @@
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssDisplay.java,v $
- * Revision 1.4  2003-07-25 11:00:58  sijtsche
+ * Revision 1.5  2005-08-08 13:18:12  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.4  2003/07/25 11:00:58  sijtsche
  * additional values for UI added
  *
  * Revision 1.3  2002/12/24 12:32:47  sijtsche
@@ -38,15 +48,15 @@
 package org.w3c.css.properties;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssDisplay extends CssProperty {
 
@@ -74,7 +84,13 @@ public class CssDisplay extends CssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorect
      */
-    public CssDisplay(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssDisplay(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
+	
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	CssValue val = expression.getValue();
 
 	setByUser();
@@ -94,6 +110,11 @@ public class CssDisplay extends CssProperty {
 					getPropertyName(), ac);
     }
 
+    public CssDisplay(ApplContext ac, CssExpression expression)
+	throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */

@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.19 2003-07-14 13:58:02 sijtsche Exp $
+// $Id: Css3Style.java,v 1.20 2005-08-08 13:18:54 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -8,12 +8,7 @@
 
 package org.w3c.css.properties3;
 
-import org.w3c.css.util.Warnings;
-import org.w3c.css.util.Warning;
-import org.w3c.css.util.ApplContext;
 import org.w3c.css.parser.CssPrinterStyle;
-import org.w3c.css.properties2.Css2Style;
-import org.w3c.css.values.CssValue;
 
 public class Css3Style extends org.w3c.css.atsc.ATSCStyle {
 

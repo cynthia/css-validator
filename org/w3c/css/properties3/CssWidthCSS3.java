@@ -1,12 +1,22 @@
 //
-// $Id: CssWidthCSS3.java,v 1.1 2002-12-24 13:18:36 sijtsche Exp $
+// $Id: CssWidthCSS3.java,v 1.2 2005-08-08 13:18:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssWidthCSS3.java,v $
- * Revision 1.1  2002-12-24 13:18:36  sijtsche
+ * Revision 1.2  2005-08-08 13:18:54  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.1  2002/12/24 13:18:36  sijtsche
  * new version for CSS3: value initial added
  *
  * Revision 1.2  2002/04/08 21:17:44  plehegar
@@ -37,15 +47,15 @@
 package org.w3c.css.properties3;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssNumber;
-import org.w3c.css.values.CssLength;
-import org.w3c.css.values.CssPercentage;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
 import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssLength;
+import org.w3c.css.values.CssNumber;
+import org.w3c.css.values.CssPercentage;
+import org.w3c.css.values.CssValue;
 
 /**
  *   <H4>
@@ -72,7 +82,7 @@ import org.w3c.css.properties.CssProperty;
  *   properties will be set to the intrinsic dimensions of the element.
  *   <P>
  *   Negative values are not allowed.
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssWidthCSS3 extends CssProperty {
 
@@ -94,7 +104,8 @@ public class CssWidthCSS3 extends CssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */
-    public CssWidthCSS3(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssWidthCSS3(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 	CssValue val = expression.getValue();
 
 	setByUser();
@@ -122,6 +133,11 @@ public class CssWidthCSS3 extends CssProperty {
 	expression.next();
     }
 
+    public CssWidthCSS3(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property.
      */

@@ -1,12 +1,22 @@
 //
-// $Id: Frame.java,v 1.4 2004-11-19 20:26:06 sijtsche Exp $
+// $Id: Frame.java,v 1.5 2005-08-08 13:18:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: Frame.java,v $
- * Revision 1.4  2004-11-19 20:26:06  sijtsche
+ * Revision 1.5  2005-08-08 13:18:11  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.4  2004/11/19 20:26:06  sijtsche
  * error message linenr bug fixed
  *
  * Revision 1.3  2002/08/19 07:23:08  sijtsche
@@ -22,12 +32,12 @@
 
 package org.w3c.css.parser;
 
+import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
-import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class Frame {
 

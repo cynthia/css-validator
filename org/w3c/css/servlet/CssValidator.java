@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.18 2005-07-22 09:45:18 ylafon Exp $
+// $Id: CssValidator.java,v 1.19 2005-08-08 13:19:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,8 +8,6 @@
 package org.w3c.css.servlet;
 
 import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -17,7 +15,6 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.util.StringTokenizer;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -43,12 +40,11 @@ import org.w3c.css.util.Utf8Properties;
 import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
 import org.w3c.www.mime.MimeTypeFormatException;
-import org.xml.sax.SAXParseException;
 
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.18 $
+ * @version $Revision: 1.19 $
  */
 public final class CssValidator extends HttpServlet {
 

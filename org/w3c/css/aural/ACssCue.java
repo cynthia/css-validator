@@ -1,12 +1,22 @@
 //
-// $Id: ACssCue.java,v 1.2 2002-04-08 21:16:56 plehegar Exp $
+// $Id: ACssCue.java,v 1.3 2005-08-08 13:18:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ACssCue.java,v $
- * Revision 1.2  2002-04-08 21:16:56  plehegar
+ * Revision 1.3  2005-08-08 13:18:03  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:16:56  plehegar
  * New
  *
  * Revision 2.1  1997/08/29 13:11:50  plehegar
@@ -26,14 +36,14 @@
  */
 package org.w3c.css.aural;
 
+import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.parser.CssPrinterStyle;
+import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssOperator;
-import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
 
 
 /**
@@ -63,7 +73,7 @@ import org.w3c.css.util.ApplContext;
  * this content, rather than using two special-purpose properties. This
  * would be more general.</p>
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ACssCue extends ACssProperty implements CssOperator {
     
@@ -83,7 +93,8 @@ public class ACssCue extends ACssProperty implements CssOperator {
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
      */  
-    public ACssCue(ApplContext ac, CssExpression expression)  throws InvalidParamException {
+    public ACssCue(ApplContext ac, CssExpression expression, boolean check)
+    	throws InvalidParamException {
 	switch (expression.getCount()) {
 	case 1:
 	    same = true;
@@ -93,14 +104,28 @@ public class ACssCue extends ACssProperty implements CssOperator {
 	case 2:
 	    if (expression.getOperator() != SPACE) {
 		throw new InvalidParamException("operator", 
-						(new Character(expression.getOperator()).toString()),
-						ac);
+			(new Character(expression.getOperator()).toString()),
+			ac);
+	    }
+	    if(check && expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    cueBefore = new ACssCueBefore(ac, expression);
+	    if(check && expression.getValue().equals(inherit)) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	    cueAfter = new ACssCueAfter(ac, expression);
 	    break;
 	default:
+	    if(check) {
+		throw new InvalidParamException("unrecognize", ac);
+	    }
 	}
+    }
+    
+    public ACssCue(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**

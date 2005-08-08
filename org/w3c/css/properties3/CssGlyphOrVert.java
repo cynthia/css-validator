@@ -1,5 +1,5 @@
 //
-// $Id: CssGlyphOrVert.java,v 1.3 2003-07-14 14:39:23 sijtsche Exp $
+// $Id: CssGlyphOrVert.java,v 1.4 2005-08-08 13:18:54 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -9,14 +9,13 @@
 package org.w3c.css.properties3;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.values.CssAngle;
+import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
-import org.w3c.css.values.CssNumber;
-import org.w3c.css.values.CssAngle;
 
 /**
  *  <P>
@@ -51,7 +50,8 @@ public class CssGlyphOrVert extends CssProperty {
      * @param expression The expression for this property
      8 @exception InvalidParamException Incorrect value
      */
-    public CssGlyphOrVert(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssGlyphOrVert(ApplContext ac, CssExpression expression,
+	    boolean check) throws InvalidParamException {
 
 	setByUser();
 	CssValue val = expression.getValue();
@@ -83,6 +83,10 @@ public class CssGlyphOrVert extends CssProperty {
 	}
     }
 
+    public CssGlyphOrVert(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
 
     /**
      * Add this property to the CssStyle

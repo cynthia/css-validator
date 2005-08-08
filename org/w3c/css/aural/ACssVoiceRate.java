@@ -1,12 +1,22 @@
 //
-// $Id: ACssVoiceRate.java,v 1.1 2003-07-28 14:56:30 sijtsche Exp $
+// $Id: ACssVoiceRate.java,v 1.2 2005-08-08 13:18:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: ACssVoiceRate.java,v $
- * Revision 1.1  2003-07-28 14:56:30  sijtsche
+ * Revision 1.2  2005-08-08 13:18:04  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.1  2003/07/28 14:56:30  sijtsche
  * new CSS3 speech property
  *
  * Revision 1.2  2002/04/08 21:16:56  plehegar
@@ -31,13 +41,13 @@
 package org.w3c.css.aural;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.CssProperty;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssNumber;
-import org.w3c.css.properties.CssProperty;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
+import org.w3c.css.values.CssValue;
 
 /**
  *  &nbsp;&nbsp; 'voice-rate'
@@ -54,7 +64,7 @@ import org.w3c.css.util.ApplContext;
  * keyword values are allowed. (compare with font-weight').
  *
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class ACssVoiceRate extends ACssProperty {
 
@@ -79,9 +89,14 @@ public class ACssVoiceRate extends ACssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException Expressions are incorrect
      */
-    public ACssVoiceRate(ApplContext ac, CssExpression expression)
+    public ACssVoiceRate(ApplContext ac, CssExpression expression, boolean check)
 	    throws InvalidParamException {
 	this();
+	
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	CssValue val = expression.getValue();
 	int index;
 
@@ -100,6 +115,11 @@ public class ACssVoiceRate extends ACssProperty {
 	expression.next();
     }
 
+    public ACssVoiceRate(ApplContext ac, CssExpression expression)
+	    throws InvalidParamException {
+	this(ac, expression, false);
+    }
+    
     /**
      * Returns the value of this property
      */

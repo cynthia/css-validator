@@ -1,12 +1,22 @@
 //
-// $Id: InvalidParamException.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+// $Id: InvalidParamException.java,v 1.3 2005-08-08 13:19:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: InvalidParamException.java,v $
- * Revision 1.2  2002-04-08 21:19:15  plehegar
+ * Revision 1.3  2005-08-08 13:19:46  ylafon
+ * All those changed made by Jean-Guilhem Rouel:
+ *
+ * Huge patch, imports fixed (automatic)
+ * Bug fixed: 372, 920, 778, 287, 696, 764, 233
+ * Partial bug fix for 289
+ *
+ * Issue with "inherit" in CSS2.
+ * The validator now checks the number of values (extraneous values were previously ignored)
+ *
+ * Revision 1.2  2002/04/08 21:19:15  plehegar
  * New
  *
  * Revision 2.1  1997/08/08 15:53:08  plehegar
@@ -26,10 +36,9 @@ package org.w3c.css.util;
 
 
 import org.w3c.css.parser.analyzer.ParseException;
-import org.w3c.css.values.CssExpression;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class InvalidParamException extends ParseException {
     

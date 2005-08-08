@@ -1,5 +1,5 @@
 //
-// $Id: CssClip.java,v 1.2 2002-04-08 21:17:43 plehegar Exp $
+// $Id: CssClip.java,v 1.3 2005-08-08 13:18:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,15 +9,15 @@
 package org.w3c.css.properties;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssValue;
+import org.w3c.css.values.CssFunction;
+import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssNumber;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssFunction;
 import org.w3c.css.values.CssOperator;
-import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.ApplContext;
+import org.w3c.css.values.CssValue;
 
 /**
  */
@@ -40,7 +40,13 @@ public class CssClip extends CssProperty {
      * @param expression The expression for this property
      * @exception InvalidParamException The expression is incorrect
      */  
-    public CssClip(ApplContext ac, CssExpression expression) throws InvalidParamException {
+    public CssClip(ApplContext ac, CssExpression expression, boolean check)
+    	throws InvalidParamException {
+	
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+	
 	CssValue val = expression.getValue();
 	
 	setByUser();
@@ -92,6 +98,11 @@ public class CssClip extends CssProperty {
 					    getPropertyName(), ac);
 	}
 	
+    }
+    
+    public CssClip(ApplContext ac, CssExpression expression) 
+	throws InvalidParamException {
+	this(ac, expression, false);
     }
     
     /**
@@ -170,7 +181,7 @@ public class CssClip extends CssProperty {
     private void isValidParameter(CssValue val, ApplContext ac)
 	    throws InvalidParamException {
 	if (val instanceof CssNumber) {
-	    CssLength le = ((CssNumber) val).getLength();
+	    //CssLength le = ((CssNumber) val).getLength();
 	    return;
 	} else if (auto.equals(val)
 		   || (val instanceof CssLength)) {
