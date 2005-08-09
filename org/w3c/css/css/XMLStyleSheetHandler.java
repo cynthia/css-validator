@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.13 2005-08-08 13:18:04 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.14 2005-08-09 14:07:25 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -41,7 +41,7 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.LexicalHandler;
 
 /**
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, 
@@ -520,15 +520,12 @@ public class XMLStyleSheetHandler implements ContentHandler,
 		MimeType repmime = new MimeType(ctype);
 		if (repmime.hasParameter("charset")) {
 		    source.setEncoding(repmime.getParameterValue("charset"));
-		} else {
-		    // if text/html and no given charset, let's assume
-		    // iso-8859-1. Ideally, the parser would change the
-		    // encoding if it find a mismatch, not sure, but well...
-		    if (repmime.match(MimeType.TEXT_HTML) == 
-			                     MimeType.MATCH_SPECIFIC_SUBTYPE) {
-			source.setEncoding("iso-8859-1");
-		    }
 		}
+		// if not, then we may be in trouble.
+		// http://www.w3.org/TR/xhtml-media-types/#text-html
+		// says that UA should not assume any defaut charset
+		// the XML decl is a SHOULD and not a MUST, and the
+		// meta http-equiv is more than evil
 	    } catch (Exception ex) {}
 	}
 	source.setSystemId(urlString);
