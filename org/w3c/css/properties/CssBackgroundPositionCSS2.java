@@ -1,12 +1,15 @@
 //
-// $Id: CssBackgroundPositionCSS2.java,v 1.3 2005-08-08 13:18:12 ylafon Exp $
+// $Id: CssBackgroundPositionCSS2.java,v 1.4 2005-08-10 15:30:26 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundPositionCSS2.java,v $
- * Revision 1.3  2005-08-08 13:18:12  ylafon
+ * Revision 1.4  2005-08-10 15:30:26  ylafon
+ * error on value 0 fixed (Jean-Guilhem Rouel)
+ *
+ * Revision 1.3  2005/08/08 13:18:12  ylafon
  * All those changed made by Jean-Guilhem Rouel:
  *
  * Huge patch, imports fixed (automatic)
@@ -55,6 +58,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLength;
+import org.w3c.css.values.CssNumber;
 //import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssPercentage;
@@ -133,7 +137,7 @@ import org.w3c.css.values.CssValue;
  *   <P>
  *   In the example above, the image is placed in the lower right corner of the
  *   canvas.
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @see CssBackgroundAttachment 
  */
 public class CssBackgroundPositionCSS2 extends CssProperty 
@@ -206,8 +210,12 @@ public class CssBackgroundPositionCSS2 extends CssProperty
 		}
 	    }
 	    // a keyword and a percentage/length
-	    else if(next instanceof CssLength || next instanceof CssPercentage) {
+	    else if(next instanceof CssLength || next instanceof CssPercentage
+		    || next instanceof CssNumber) {
 		if(isHorizontal(index1)) {
+		    if(next instanceof CssNumber) {
+			next = ((CssNumber) next).getLength();
+		    }
 		    first = val;
 		    second = next;
 		}
@@ -231,7 +239,11 @@ public class CssBackgroundPositionCSS2 extends CssProperty
 		first = val;
 	    }
 	}
-	else if(val instanceof CssLength || val instanceof CssPercentage) {
+	else if(val instanceof CssLength || val instanceof CssPercentage ||
+		val instanceof CssNumber) {
+	    if(val instanceof CssNumber) {
+		val = ((CssNumber) val).getLength();
+	    }
 	    // a percentage/length and an keyword
 	    if(next instanceof CssIdent) {
 		int index = IndexOfIdent((String) next.get());
@@ -248,7 +260,11 @@ public class CssBackgroundPositionCSS2 extends CssProperty
 		    first = val;
 		}
 	    }
-	    else if(next instanceof CssLength || next instanceof CssPercentage) {
+	    else if(next instanceof CssLength || next instanceof CssPercentage
+		    || next instanceof CssNumber) {
+		if(next instanceof CssNumber) {
+		    next = ((CssNumber) next).getLength();
+		}
 		first = val;
 		second = next;
 	    }
