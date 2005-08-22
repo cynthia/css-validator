@@ -1,5 +1,5 @@
 //
-// $Id: check.java,v 1.6 2005-08-22 11:25:38 ylafon Exp $
+// $Id: check.java,v 1.7 2005-08-22 11:37:20 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.xml.sax.SAXParseException;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public final class check extends HttpServlet {
     
@@ -103,8 +103,10 @@ public final class check extends HttpServlet {
 
     public void init(ServletConfig config) throws ServletException {
 	super.init(config);
-	if (config.getInitParameter("validatorURI") != null) {
+	if (config.getInitParameter("validatorURI") == null) {
 	    validatorURI = "validator";
+	} else {
+	    validatorURI = config.getInitParameter("validatorURI");
 	}
     }
 }
