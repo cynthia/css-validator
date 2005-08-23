@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheet.java,v 1.7 2005-08-08 13:18:04 ylafon Exp $
+// $Id: StyleSheet.java,v 1.8 2005-08-23 16:22:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import org.w3c.css.parser.AtRule;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.parser.Errors;
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.SortedHashtable;
 import org.w3c.css.util.Util;
@@ -25,7 +25,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class contains a style sheet with all rules, errors and warnings.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class StyleSheet {
 

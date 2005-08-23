@@ -1,12 +1,18 @@
 //
-// $Id: CssStyle.java,v 1.4 2005-08-08 13:18:11 ylafon Exp $
+// $Id: CssStyle.java,v 1.5 2005-08-23 16:22:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssStyle.java,v $
- * Revision 1.4  2005-08-08 13:18:11  ylafon
+ * Revision 1.5  2005-08-23 16:22:54  ylafon
+ * Patch by Jean-Guilhem Rouel
+ *
+ * Better handling of media and properties files
+ * Major reorganization of those properties files
+ *
+ * Revision 1.4  2005/08/08 13:18:11  ylafon
  * All those changed made by Jean-Guilhem Rouel:
  *
  * Huge patch, imports fixed (automatic)
@@ -28,7 +34,7 @@ package org.w3c.css.parser;
 import java.util.Enumeration;
 
 import org.w3c.css.css.StyleSheet;
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
@@ -36,7 +42,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class represents a class for one context
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssStyle {
 

@@ -1,12 +1,18 @@
 //
-// $Id: StyleSheetCom.java,v 1.8 2005-08-08 13:18:04 ylafon Exp $
+// $Id: StyleSheetCom.java,v 1.9 2005-08-23 16:22:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetCom.java,v $
- * Revision 1.8  2005-08-08 13:18:04  ylafon
+ * Revision 1.9  2005-08-23 16:22:54  ylafon
+ * Patch by Jean-Guilhem Rouel
+ *
+ * Better handling of media and properties files
+ * Major reorganization of those properties files
+ *
+ * Revision 1.8  2005/08/08 13:18:04  ylafon
  * All those changed made by Jean-Guilhem Rouel:
  *
  * Huge patch, imports fixed (automatic)
@@ -56,13 +62,13 @@ import java.net.URLConnection;
 import org.w3c.css.parser.CssFouffa;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.Util;
 
 /**
- * @version $Revision: 1.8 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.9 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 
@@ -147,12 +153,12 @@ public class StyleSheetCom implements HtmlParserListener {
 	parser.getStyleSheet().findConflicts(ac);
 	if (selector != null) {
 	    System.err.println("<color value=\""
-			       + parser.getStyleSheet().CascadingOrder(new org.w3c.css.properties.CssColor(),
+			       + parser.getStyleSheet().CascadingOrder(new org.w3c.css.properties.css1.CssColor(),
 								       parser.getStyleSheet(),
 								       selector));
 	    CssStyle s = parser.getStyleSheet().getStyle(selector);
 	    CssProperty _sl =
-		((org.w3c.css.properties.Css1Style) s).getColor();
+		((org.w3c.css.properties.css1.Css1Style) s).getColor();
 
 	    s.print(new org.w3c.css.parser.CssPrinterStyle () {
 		    public void print(CssProperty property) {

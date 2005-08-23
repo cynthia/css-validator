@@ -1,12 +1,18 @@
 //
-// $Id: StyleSheetGeneratorHTML.java,v 1.3 2005-07-12 14:47:55 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML.java,v 1.4 2005-08-23 16:22:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetGeneratorHTML.java,v $
- * Revision 1.3  2005-07-12 14:47:55  ylafon
+ * Revision 1.4  2005-08-23 16:22:54  ylafon
+ * Patch by Jean-Guilhem Rouel
+ *
+ * Better handling of media and properties files
+ * Major reorganization of those properties files
+ *
+ * Revision 1.3  2005/07/12 14:47:55  ylafon
  * Utf8 properties (Jean-Guilhem Rouel)
  *
  * Revision 1.2  2002/05/19 04:16:31  plehegar
@@ -37,7 +43,7 @@ import org.w3c.css.parser.CssParseException;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.Errors;
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.SortedHashtable;
@@ -47,7 +53,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public final class StyleSheetGeneratorHTML implements CssPrinterStyle {
 

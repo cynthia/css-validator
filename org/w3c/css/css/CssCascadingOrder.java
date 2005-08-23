@@ -1,12 +1,18 @@
 //
-// $Id: CssCascadingOrder.java,v 1.3 2005-08-08 13:18:04 ylafon Exp $
+// $Id: CssCascadingOrder.java,v 1.4 2005-08-23 16:22:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /**
  * $Log: CssCascadingOrder.java,v $
- * Revision 1.3  2005-08-08 13:18:04  ylafon
+ * Revision 1.4  2005-08-23 16:22:54  ylafon
+ * Patch by Jean-Guilhem Rouel
+ *
+ * Better handling of media and properties files
+ * Major reorganization of those properties files
+ *
+ * Revision 1.3  2005/08/08 13:18:04  ylafon
  * All those changed made by Jean-Guilhem Rouel:
  *
  * Huge patch, imports fixed (automatic)
@@ -41,7 +47,7 @@ import java.util.Enumeration;
 
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.CompareFunction;
 import org.w3c.css.util.QuickSortAlgorithm;
 import org.w3c.css.util.SortAlgorithm;
@@ -126,7 +132,7 @@ import org.w3c.css.util.Util;
  * rules. In a transition phase, this policy will make it easier for stylistic
  * attributes to coexist with style sheets.
  *
- * @version $Revision: 1.3 $ 
+ * @version $Revision: 1.4 $ 
  */
 public final class CssCascadingOrder {
     

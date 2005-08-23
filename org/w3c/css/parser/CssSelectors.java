@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.11 2005-07-12 14:47:55 ylafon Exp $
+// $Id: CssSelectors.java,v 1.12 2005-08-23 16:22:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Utf8Properties;
@@ -26,7 +26,7 @@ import org.w3c.css.util.Warnings;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public final class CssSelectors implements CssSelectorsConstant {
 
@@ -109,7 +109,7 @@ public final class CssSelectors implements CssSelectorsConstant {
      */
     public CssSelectors(ApplContext ac) {
 	style = ac.getCssSelectorsStyle();
-	try {
+	try {	    
 	    properties = (CssStyle) style.newInstance();
 	} catch (Exception e) {
 	    e.printStackTrace();

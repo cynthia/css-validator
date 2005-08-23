@@ -1,4 +1,4 @@
-// $Id: CssStyleRule.java,v 1.7 2005-08-08 13:18:04 ylafon Exp $
+// $Id: CssStyleRule.java,v 1.8 2005-08-23 16:22:54 ylafon Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -8,7 +8,7 @@ package org.w3c.css.css;
 import java.io.PrintWriter;
 import java.util.Vector;
 
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.Util;
 
 

@@ -1,4 +1,4 @@
-// $Id: StyleReportSOAP12.java,v 1.8 2005-08-08 13:18:04 ylafon Exp $
+// $Id: StyleReportSOAP12.java,v 1.9 2005-08-23 16:22:54 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -25,7 +25,7 @@ import org.w3c.css.parser.CssParseException;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.Errors;
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Utf8Properties;
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public final class StyleReportSOAP12 extends StyleReport 
     implements CssPrinterStyle {

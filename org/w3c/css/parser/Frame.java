@@ -1,12 +1,18 @@
 //
-// $Id: Frame.java,v 1.5 2005-08-08 13:18:11 ylafon Exp $
+// $Id: Frame.java,v 1.6 2005-08-23 16:22:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: Frame.java,v $
- * Revision 1.5  2005-08-08 13:18:11  ylafon
+ * Revision 1.6  2005-08-23 16:22:54  ylafon
+ * Patch by Jean-Guilhem Rouel
+ *
+ * Better handling of media and properties files
+ * Major reorganization of those properties files
+ *
+ * Revision 1.5  2005/08/08 13:18:11  ylafon
  * All those changed made by Jean-Guilhem Rouel:
  *
  * Huge patch, imports fixed (automatic)
@@ -37,7 +43,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class Frame {
 
@@ -120,6 +126,20 @@ public class Frame {
                     warningMessage, 0, message, "", ac));
     }
 
+    /**
+     * Adds a warning to this frame with a message.
+     *
+     * @param warningMessage the warning message
+     *                       (see org.w3c.css.util.Messages.properties).
+     * @param message        An add-on message.
+     * @see                  org.w3c.css.util.Warning
+     */
+    public void addWarning(String warningMessage, String message1,
+	    String message2) {
+    warnings.addWarning(new Warning(getSourceFile(), getLine(),
+                    warningMessage, 0, message1, message2, ac));
+    }
+    
     /**
      * Get all warnings.
      */

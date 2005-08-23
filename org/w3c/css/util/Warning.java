@@ -1,12 +1,18 @@
 //
-// $Id: Warning.java,v 1.3 2002-07-12 20:36:25 plehegar Exp $
+// $Id: Warning.java,v 1.4 2005-08-23 16:25:15 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: Warning.java,v $
- * Revision 1.3  2002-07-12 20:36:25  plehegar
+ * Revision 1.4  2005-08-23 16:25:15  ylafon
+ * Patch by Jean-Guilhem Rouel
+ *
+ * Better handling of media and properties files
+ * Major reorganization of those properties files
+ *
+ * Revision 1.3  2002/07/12 20:36:25  plehegar
  * s/System.out/System.err/
  *
  * Revision 1.2  2002/04/08 21:19:15  plehegar
@@ -22,11 +28,11 @@
 package org.w3c.css.util;
 
 import org.w3c.css.parser.CssSelectors;
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 
 /**
  * This class is use to manage all warning every where
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class Warning {
     String sourceFile;
@@ -103,7 +109,7 @@ public class Warning {
      * @param level the warning level
      *
      * @see org.w3c.css.util.Messages
-     * @see org.w3c.css.properties.CssProperty#setInfo
+     * @see org.w3c.css.properties.css1.CssProperty#setInfo
      */
     public Warning(CssProperty property, String warningMessage, int level, 
 		   ApplContext ac) {

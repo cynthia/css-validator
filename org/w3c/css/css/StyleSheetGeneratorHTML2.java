@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.14 2005-08-08 13:18:04 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.15 2005-08-23 16:22:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.css.parser.CssParseException;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.Errors;
-import org.w3c.css.properties.CssProperty;
+import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Utf8Properties;
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -51,7 +51,7 @@ CssPrinterStyle {
     
     private CssSelectors selector;
     
-    private CssProperty property;
+    //private CssProperty property;
     
     private PrintWriter out;
     
@@ -245,7 +245,7 @@ CssPrinterStyle {
 		ret.append(queryReplace(error.getExp().toString()));
 		ret.append("</span>\n");        
 	    }
-	} else {
+	} else {		    
 	    ret.append(ac.getMsg().getGeneratorString("unrecognize"));
 	    ret.append(" - <span class='error'>");
 	    ret.append(queryReplace(error.getSkippedString()));
