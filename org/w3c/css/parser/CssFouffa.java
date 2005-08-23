@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.30 2005-08-08 13:18:11 ylafon Exp $
+// $Id: CssFouffa.java,v 1.31 2005-08-23 09:42:20 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -46,7 +46,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.30 $
+ * @version $Revision: 1.31 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -388,7 +388,8 @@ public final class CssFouffa extends CssParser {
 		    return;
 		}
 	    }
-	    visited.addElement(surl);
+	    Vector newVisited = (Vector) visited.clone();
+	    newVisited.addElement(surl);
 	    
 	    if (Util.importSecurity) {
 		throw new FileNotFoundException("[SECURITY] You can't "
@@ -418,7 +419,7 @@ public final class CssFouffa extends CssParser {
 	    Frame f = ac.getFrame();
 	    try {
 		CssFouffa cssFouffa = new CssFouffa(ac, importURL
-			.getInputStream(), importedURL, listeners, visited,
+			.getInputStream(), importedURL, listeners, newVisited,
 			properties, mode);
 		cssFouffa.setOrigin(getOrigin());
 		if (!media.isEmpty()) {
