@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.13 2005-08-26 14:09:49 ylafon Exp $
+// $Id: CssSelectors.java,v 1.14 2005-08-26 14:33:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -17,7 +17,6 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Utf8Properties;
 import org.w3c.css.util.Util;
 import org.w3c.css.util.Warnings;
-import org.w3c.util.Trace;
 
 /**
  * This class manages all contextual selector.
@@ -27,7 +26,7 @@ import org.w3c.util.Trace;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public final class CssSelectors implements CssSelectorsConstant {
 
@@ -266,7 +265,6 @@ public final class CssSelectors implements CssSelectorsConstant {
     }
     
     void addAttribute(Attribute attr) {	
-	Trace.showTrace();
 	Attribute old = (Attribute) attributes.get(attr.getName());
 	if (old != null) {	    
 	    try {
