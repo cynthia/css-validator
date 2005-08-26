@@ -1,12 +1,30 @@
 //
-// $Id: CssAngle.java,v 1.3 2005-08-08 13:19:46 ylafon Exp $
+// $Id: CssAngle.java,v 1.4 2005-08-26 14:09:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssAngle.java,v $
- * Revision 1.3  2005-08-08 13:19:46  ylafon
+ * Revision 1.4  2005-08-26 14:09:50  ylafon
+ * All changes made by Jean-Guilhem Rouel:
+ *
+ * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
+ *
+ * Errors in font, the handling of 'transparent', CSS Parser reinits...
+ *
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
+ *
+ * Revision 1.3  2005/08/08 13:19:46  ylafon
  * All those changed made by Jean-Guilhem Rouel:
  *
  * Huge patch, imports fixed (automatic)
@@ -48,7 +66,7 @@ import org.w3c.css.util.Util;
  * <p>Values in these units may be negative. They should be normalized to the
  * range 0-360deg by the UA. For example, -10deg and 350deg are equivalent.
  *
- * @version $Revision: 1.3 $ */
+ * @version $Revision: 1.4 $ */
 public class CssAngle extends CssValue implements CssValueFloat {
     
     Float value;
@@ -89,7 +107,7 @@ public class CssAngle extends CssValue implements CssValueFloat {
 	s = s.toLowerCase();
 	int length = s.length();
 	String unit;
-	float v;
+	//float v;
 	if (s.indexOf("grad") == -1) {
 	    unit = s.substring(length-3, length);
 	    value = new Float(s.substring(0, length-3));
@@ -168,25 +186,38 @@ public class CssAngle extends CssValue implements CssValueFloat {
     }
 
 
+    private float normalize(float degree) {
+	while (degree < 0) {
+	    degree += 360;
+	}
+	while (degree > 360) {
+	    degree -= 360;
+	}
+	return degree;
+    }
+    
     //@@FIXME I should return the remainder for all ...
 
     public float getDegree() {
-	float deg = value.floatValue();
+	float angle = value.floatValue();
 	switch (unit) {
-	case 0:
-	    // deg % 360
-	    return deg;
-	case 1:
-	    return (deg * (180 / ((float) Math.PI)));
-	case 2:
-	    return (deg * (9 / 5));
-	default:
+	case 0:	
+	    // angle % 360
+	    return normalize(angle);
+	case 1:	    
+	    return normalize(angle * (9.f / 10.f));	    
+	case 2:	    
+	    return normalize(angle * (180.f / ((float) Math.PI)));
+	default:	    
 	    System.err.println("[ERROR] in org.w3c.css.values.CssAngle");
 	    System.err.println("[ERROR] Please report (" + unit + ")");
 	    return (float) 0;
 	}
     }
-
+/*
+ // These functions are not used, don't normalize angles, and are false
+ // (int operations instead of float ones)
+  
     public float getGradian() {
 	float grad = value.floatValue();
 	switch (unit) {
@@ -218,7 +249,7 @@ public class CssAngle extends CssValue implements CssValueFloat {
 	    return (float) 0;
 	}
     }
-
+*/
     public boolean isDegree() {
 	return unit == 0;
     }

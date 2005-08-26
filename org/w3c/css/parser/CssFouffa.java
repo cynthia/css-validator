@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.32 2005-08-23 16:22:54 ylafon Exp $
+// $Id: CssFouffa.java,v 1.33 2005-08-26 14:09:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -47,7 +47,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.32 $
+ * @version $Revision: 1.33 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -623,8 +623,8 @@ public final class CssFouffa extends CssParser {
      * used for the output of the stylesheet
      * 
      * @param charset
-     *            the
-     * @charset rule that has been found by the parser
+     *            the @charset 
+     *            rule that has been found by the parser
      */
     public void addCharSet(String charset) {
 	for (Enumeration e = listeners.elements(); e.hasMoreElements();) {

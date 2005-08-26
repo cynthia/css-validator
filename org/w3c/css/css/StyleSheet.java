@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheet.java,v 1.8 2005-08-23 16:22:54 ylafon Exp $
+// $Id: StyleSheet.java,v 1.9 2005-08-26 14:09:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class contains a style sheet with all rules, errors and warnings.
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class StyleSheet {
 
@@ -242,7 +242,7 @@ public class StyleSheet {
     public void endOfRule() {
 	CssRuleList rulelist;
 	boolean useless;
-	if (!doNotAddRule) {
+	if (!doNotAddRule) {	    
 	    CssStyleRule stylerule = new CssStyleRule(indent, selectortext,
 						      properties, important);
 	    if (!atRuleList.isEmpty()) {

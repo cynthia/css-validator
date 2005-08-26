@@ -1,12 +1,30 @@
 //
-// $Id: CssFontVariantCSS2.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssFontVariantCSS2.java,v 1.2 2005-08-26 14:09:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssFontVariantCSS2.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-08-26 14:09:49  ylafon
+ * All changes made by Jean-Guilhem Rouel:
+ *
+ * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
+ *
+ * Errors in font, the handling of 'transparent', CSS Parser reinits...
+ *
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -105,7 +123,7 @@ import org.w3c.css.values.CssIdent;
  *
  * @see CssFont
  * @see TextTransform
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.2 $ 
  */
 public class CssFontVariantCSS2 extends CssProperty implements CssFontConstantCSS2 {
     
@@ -185,7 +203,7 @@ public class CssFontVariantCSS2 extends CssProperty implements CssFontConstantCS
      *
      * @param style The CssStyle
      */
-    public void addToStyle(ApplContext ac, CssStyle style) {
+    public void addToStyle(ApplContext ac, CssStyle style) {	
 	CssFontCSS2 cssFont = ((Css1Style) style).cssFontCSS2;
 	if (cssFont.fontVariant != null)
 	    style.addRedefinitionWarning(ac, this);

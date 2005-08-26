@@ -1,5 +1,5 @@
 //
-// $Id: CssDisplay.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssDisplay.java,v 1.2 2005-08-26 14:09:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 14th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -7,7 +7,25 @@
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssDisplay.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-08-26 14:09:49  ylafon
+ * All changes made by Jean-Guilhem Rouel:
+ *
+ * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
+ *
+ * Errors in font, the handling of 'transparent', CSS Parser reinits...
+ *
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -62,17 +80,17 @@ import org.w3c.css.values.CssValue;
 
 /**
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssDisplay extends CssProperty {
 
     int value;
 
     private static String[] DISPLAY = {
-		"none", "block", "inline", "list-item", "run-in", "compact", "table-row",
-		"table-cell", "table-row-group", "table-header-group", "table-footer-group",
-		"table-column", "table-column-group", "table-caption", "ruby-text", "ruby-base",
-		"ruby-base-group", "ruby-text-group", "initial", "inherit", "inline-block", "icon"
+	"none", "block", "inline", "list-item", "run-in", "compact", "table", "table-row",
+	"table-cell", "table-row-group", "table-header-group", "table-footer-group",
+	"table-column", "table-column-group", "table-caption", "ruby-text", "ruby-base",
+	"ruby-base-group", "ruby-text-group", "initial", "inherit", "inline-block", "icon"
     };
 
     private static int[] hash_values;

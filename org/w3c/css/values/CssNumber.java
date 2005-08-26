@@ -1,12 +1,30 @@
 //
-// $Id: CssNumber.java,v 1.3 2005-08-08 13:19:47 ylafon Exp $
+// $Id: CssNumber.java,v 1.4 2005-08-26 14:09:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssNumber.java,v $
- * Revision 1.3  2005-08-08 13:19:47  ylafon
+ * Revision 1.4  2005-08-26 14:09:50  ylafon
+ * All changes made by Jean-Guilhem Rouel:
+ *
+ * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
+ *
+ * Errors in font, the handling of 'transparent', CSS Parser reinits...
+ *
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
+ *
+ * Revision 1.3  2005/08/08 13:19:47  ylafon
  * All those changed made by Jean-Guilhem Rouel:
  *
  * Huge patch, imports fixed (automatic)
@@ -41,12 +59,13 @@ import org.w3c.css.util.Util;
 /**
  * A CSS float number.
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssNumber extends CssValue implements CssValueFloat {
     
     ApplContext ac;
     Float value;
+    boolean isInt = false;
 
     /**
      * Create a new CssNumber
@@ -73,7 +92,16 @@ public class CssNumber extends CssValue implements CssValueFloat {
      * @param frame For errors and warnings reports.
      */  
     public void set(String s, ApplContext ac) {
-	value = new Float(s);
+	try {
+	    new Integer(s);	    
+	    isInt = true;
+	}
+	catch(NumberFormatException e) {
+	    isInt = false;
+	}
+	finally {	 
+	    value = new Float(s);
+	}
 	this.ac = ac;
     }
     
@@ -91,9 +119,17 @@ public class CssNumber extends CssValue implements CssValueFloat {
 	return value.floatValue();
     }
 
+    public int getInt() throws InvalidParamException {
+	if(isInt) {
+	    return value.intValue();
+	}
+	else {
+	    throw new InvalidParamException("invalid-color", ac);
+	}
+    }
+    
     public boolean isInteger() {
-	float f = (float) value.intValue();
-	return (f == value.floatValue());
+	return isInt;
     }
     
     /**

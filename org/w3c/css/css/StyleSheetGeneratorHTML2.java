@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.15 2005-08-23 16:22:54 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.16 2005-08-26 14:09:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -172,9 +172,8 @@ CssPrinterStyle {
     }
     
     // prints the stylesheet at the screen
-    public void produceStyleSheet() {
-	
-	Vector atRules = style.newGetRules();	
+    public void produceStyleSheet() {	
+	Vector atRules = style.newGetRules();		
 	for (int idx = 0; idx < atRules.size(); idx++) {	    
 	    // out.print(((CssRuleList)atRules.elementAt(idx)).toHTML());
 	    ((CssRuleList) atRules.elementAt(idx)).toHTML(out);
@@ -437,10 +436,11 @@ CssPrinterStyle {
 			str = str.substring(lastIndexOfEntity + 3);
 			i = 0;
 		    }
-		} else if (entity.equals("selector")) {
+		} else if (entity.equals("selector")) {		    
 		    str = str.substring(lastIndexOfEntity + 3);
 		    i = 0;
 		} else if (entity.equals("charset")) {
+		    out.print(str.substring(0, i));
 		    str = str.substring(lastIndexOfEntity+3);
 		    i = 0;
 		    out.print(style.charset);
@@ -466,7 +466,7 @@ CssPrinterStyle {
 				general.get("file-title").toString()));
 		    } else {
 			out.println(ac.getMsg().getGeneratorString("doc"));
-		    }
+		    }		    
 		} else {
 		    String value = prop.getProperty(entity);
 		    if (value != null) {

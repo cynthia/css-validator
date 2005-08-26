@@ -1,12 +1,30 @@
 //
-// $Id: Css1Style.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: Css1Style.java,v 1.2 2005-08-26 14:09:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: Css1Style.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-08-26 14:09:49  ylafon
+ * All changes made by Jean-Guilhem Rouel:
+ *
+ * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
+ *
+ * Errors in font, the handling of 'transparent', CSS Parser reinits...
+ *
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -76,7 +94,7 @@ import org.w3c.css.values.CssValue;
  * The Css1Style main class.
  */
 public class Css1Style extends CssStyle {
-
+    
     /** Font properties */
     protected CssFont cssFont = new CssFont();
     protected CssFontCSS2 cssFontCSS2 = new CssFontCSS2();
@@ -86,7 +104,7 @@ public class Css1Style extends CssStyle {
     protected CssFontStretchCSS1 cssFontStretchCSS1;
     protected CssFontSizeAdjust cssFontSizeAdjust;
     protected CssFontSizeAdjustCSS2 cssFontSizeAdjustCSS2;
-
+    
     /* Color and Background properties */
     /** Color property */
     protected CssColor cssColor;
@@ -97,7 +115,7 @@ public class Css1Style extends CssStyle {
     protected CssBackgroundCSS2 cssBackgroundCSS2 = new CssBackgroundCSS2();
     protected CssBackgroundCSS1 cssBackgroundCSS1 = new CssBackgroundCSS1();
     protected CssBackgroundMob cssBackgroundMob = new CssBackgroundMob();
-
+    
     /* Text properties */
     /** word-spacing property */
     protected CssWordSpacing cssWordSpacing;
@@ -122,7 +140,7 @@ public class Css1Style extends CssStyle {
     protected CssTextShadow cssTextShadow;
     protected CssTextShadowATSC cssTextShadowATSC;
     // line-heigth : see cssFont
-
+    
     /* Box properties */
     /** margin properties */
     protected CssMargin cssMargin = new CssMargin();
@@ -135,21 +153,21 @@ public class Css1Style extends CssStyle {
     /** width property */
     protected CssWidth cssWidth;
     protected CssWidthMob cssWidthMob;
-
+    
     /** min-width property */
     protected CssMinWidth cssMinWidth;
     protected CssMinWidthATSC cssMinWidthATSC;
     /** max-width property */
     protected CssMaxWidth cssMaxWidth;
     protected CssMaxWidthATSC cssMaxWidthATSC;
-
+    
     /** min-height property */
     protected CssMinHeight cssMinHeight;
     protected CssMinHeightATSC cssMinHeightATSC;
     /** max-height property */
     protected CssMaxHeight cssMaxHeight;
     protected CssMaxHeightATSC cssMaxHeightATSC;
-
+    
     /** height property */
     protected CssHeight cssHeight;
     protected CssHeightMob cssHeightMob;
@@ -157,8 +175,8 @@ public class Css1Style extends CssStyle {
     protected CssFloat cssFloat;
     /** clear property */
     protected CssClear cssClear;
-
-
+    
+    
     /* Classification properties */
     /** display property */
     protected CssDisplay cssDisplay;
@@ -166,7 +184,7 @@ public class Css1Style extends CssStyle {
     protected CssDisplayCSS1 cssDisplayCSS1;
     /** position property */
     protected CssPosition cssPosition;
-
+    
     /** top property */
     protected CssTop cssTop;
     /** left property */
@@ -175,34 +193,34 @@ public class Css1Style extends CssStyle {
     protected CssRight cssRight;
     /** bottom property */
     protected CssBottom cssBottom;
-
+    
     /** z-index property */
     protected CssZIndex cssZIndex;
-
+    
     /** direction property */
     protected CssDirection cssDirection;
     protected CssDirectionATSC cssDirectionATSC;
-
+    
     /** unicode-bidi property */
     protected CssUnicodeBidi cssUnicodeBidi;
     protected CssUnicodeBidiATSC cssUnicodeBidiATSC;
-
+    
     /** white-space property */
     protected CssWhiteSpace cssWhiteSpace;
     /** list-style properties */
     protected CssListStyle cssListStyle = new CssListStyle();
     protected CssListStyleCSS2 cssListStyleCSS2 = new CssListStyleCSS2();
     protected CssListStyleCSS1 cssListStyleCSS1 = new CssListStyleCSS1();
-
+    
     /** overflow property */
     protected CssOverflow cssOverflow;
-
+    
     /** clip property */
     protected CssClip cssClip;
-
+    
     /** visibility property */
     protected CssVisibility cssVisibility;
-
+    
     /** content property */
     protected CssContentCSS2 cssContentCSS2;
     protected CssContent cssContent;
@@ -216,24 +234,24 @@ public class Css1Style extends CssStyle {
     /** marker-offset property */
     protected CssMarkerOffset cssMarkerOffset;
     protected CssMarkerOffsetATSC cssMarkerOffsetATSC;
-
-	/**TV property */
-	protected CssListStyleTypeTV cssListStyleTypeTV;
-	/**TV property */
-	protected CssListStyleTV cssListStyleTV;
-	/**TV property */
-	protected CssPositionTV cssPositionTV;
-	/**TV property */
-	protected CssTextAlignTV cssTextAlignTV;
-	/**TV property */
-	protected CssTextDecorationTV cssTextDecorationTV;
-	/**TV property */
-	protected CssVerticalAlignTV cssVerticalAlignTV;
-
+    
+    /**TV property */
+    protected CssListStyleTypeTV cssListStyleTypeTV;
+    /**TV property */
+    protected CssListStyleTV cssListStyleTV;
+    /**TV property */
+    protected CssPositionTV cssPositionTV;
+    /**TV property */
+    protected CssTextAlignTV cssTextAlignTV;
+    /**TV property */
+    protected CssTextDecorationTV cssTextDecorationTV;
+    /**TV property */
+    protected CssVerticalAlignTV cssVerticalAlignTV;
+    
     /*
      * Font Properties
      */
-
+    
     /**
      * Get the font-style property
      */
@@ -241,29 +259,29 @@ public class Css1Style extends CssStyle {
 	if (cssFont.fontStyle == null) {
 	    cssFont.fontStyle =
 		(CssFontStyle) style.CascadingOrder(new CssFontStyle(),
-						    style, selector);
+			style, selector);
 	}
 	return cssFont.fontStyle;
     }
-
+    
     public final CssFontStyleCSS2 getFontStyleCSS2() {
 	if (cssFontCSS2.fontStyle == null) {
 	    cssFontCSS2.fontStyle =
 		(CssFontStyleCSS2) style.CascadingOrder(new CssFontStyleCSS2(),
-						    style, selector);
+			style, selector);
 	}
 	return cssFontCSS2.fontStyle;
     }
-
+    
     public final CssFontStyleCSS1 getFontStyleCSS1() {
 	if (cssFontCSS1.fontStyle == null) {
 	    cssFontCSS1.fontStyle =
 		(CssFontStyleCSS1) style.CascadingOrder(new CssFontStyleCSS1(),
-						    style, selector);
+			style, selector);
 	}
 	return cssFontCSS1.fontStyle;
     }
-
+    
     /**
      * Get the font-variant property
      */
@@ -271,29 +289,29 @@ public class Css1Style extends CssStyle {
 	if (cssFont.fontVariant == null) {
 	    cssFont.fontVariant =
 		(CssFontVariant) style.CascadingOrder(new CssFontVariant(),
-						      style, selector);
+			style, selector);
 	}
 	return cssFont.fontVariant;
     }
-
+    
     public final CssFontVariantCSS2 getFontVariantCSS2() {
 	if (cssFontCSS2.fontVariant == null) {
 	    cssFontCSS2.fontVariant =
 		(CssFontVariantCSS2) style.CascadingOrder(new CssFontVariantCSS2(),
-						      style, selector);
+			style, selector);
 	}
 	return cssFontCSS2.fontVariant;
     }
-
+    
     public final CssFontVariantCSS1 getFontVariantCSS1() {
 	if (cssFontCSS1.fontVariant == null) {
 	    cssFontCSS1.fontVariant =
 		(CssFontVariantCSS1) style.CascadingOrder(new CssFontVariantCSS1(),
-						      style, selector);
+			style, selector);
 	}
 	return cssFontCSS1.fontVariant;
     }
-
+    
     /**
      * Get the font-weight property
      */
@@ -301,29 +319,29 @@ public class Css1Style extends CssStyle {
 	if (cssFontCSS2.fontWeight == null) {
 	    cssFontCSS2.fontWeight =
 		(CssFontWeightCSS2) style.CascadingOrder(new CssFontWeightCSS2(),
-						     style, selector);
+			style, selector);
 	}
 	return cssFontCSS2.fontWeight;
     }
-
+    
     public final CssFontWeight getFontWeight() {
 	if (cssFont.fontWeight == null) {
 	    cssFont.fontWeight =
 		(CssFontWeight) style.CascadingOrder(new CssFontWeight(),
-						     style, selector);
+			style, selector);
 	}
 	return cssFont.fontWeight;
     }
-
+    
     public final CssFontWeightCSS1 getFontWeightCSS1() {
 	if (cssFontCSS1.fontWeight == null) {
 	    cssFontCSS1.fontWeight =
 		(CssFontWeightCSS1) style.CascadingOrder(new CssFontWeightCSS1(),
-						     style, selector);
+			style, selector);
 	}
 	return cssFontCSS1.fontWeight;
     }
-
+    
     /**
      * Get the font-stretch property
      */
@@ -331,29 +349,29 @@ public class Css1Style extends CssStyle {
 	if (cssFontStretch == null) {
 	    cssFontStretch =
 		(CssFontStretch) style.CascadingOrder(new CssFontStretch(),
-						      style, selector);
+			style, selector);
 	}
 	return cssFontStretch;
     }
-
+    
     public final CssFontStretchCSS2 getFontStretchCSS2() {
 	if (cssFontStretchCSS2 == null) {
 	    cssFontStretchCSS2 =
 		(CssFontStretchCSS2) style.CascadingOrder(new CssFontStretchCSS2(),
-						      style, selector);
+			style, selector);
 	}
 	return cssFontStretchCSS2;
     }
-
+    
     public final CssFontStretchCSS1 getFontStretchCSS1() {
 	if (cssFontStretchCSS1 == null) {
 	    cssFontStretchCSS1 =
 		(CssFontStretchCSS1) style.CascadingOrder(new CssFontStretchCSS1(),
-						      style, selector);
+			style, selector);
 	}
 	return cssFontStretchCSS1;
     }
-
+    
     /**
      * Get the font-size property
      */
@@ -361,29 +379,29 @@ public class Css1Style extends CssStyle {
 	if (cssFontCSS2.fontSize == null) {
 	    cssFontCSS2.fontSize =
 		(CssFontSizeCSS2) style.CascadingOrder(new CssFontSizeCSS2(),
-						   style, selector);
+			style, selector);
 	}
 	return cssFontCSS2.fontSize;
     }
-
+    
     public final CssFontSize getFontSize() {
 	if (cssFont.fontSize == null) {
 	    cssFont.fontSize =
 		(CssFontSize) style.CascadingOrder(new CssFontSize(),
-						   style, selector);
+			style, selector);
 	}
 	return cssFont.fontSize;
     }
-
+    
     public final CssFontSizeCSS1 getFontSizeCSS1() {
 	if (cssFontCSS1.fontSize == null) {
 	    cssFontCSS1.fontSize =
 		(CssFontSizeCSS1) style.CascadingOrder(new CssFontSizeCSS1(),
-						   style, selector);
+			style, selector);
 	}
 	return cssFontCSS1.fontSize;
     }
-
+    
     /**
      * Get the font-size-adjust property
      */
@@ -391,22 +409,22 @@ public class Css1Style extends CssStyle {
 	if (cssFontSizeAdjustCSS2 == null) {
 	    cssFontSizeAdjustCSS2 =
 		(CssFontSizeAdjustCSS2) style.CascadingOrder(
-					      new CssFontSizeAdjustCSS2(),
-					      style, selector);
+			new CssFontSizeAdjustCSS2(),
+			style, selector);
 	}
 	return cssFontSizeAdjustCSS2;
     }
-
+    
     public final CssFontSizeAdjust getFontSizeAdjust() {
 	if (cssFontSizeAdjust == null) {
 	    cssFontSizeAdjust =
 		(CssFontSizeAdjust) style.CascadingOrder(
-					      new CssFontSizeAdjust(),
-					      style, selector);
+			new CssFontSizeAdjust(),
+			style, selector);
 	}
 	return cssFontSizeAdjust;
     }
-
+    
     /**
      * Get the font-family property
      */
@@ -414,29 +432,29 @@ public class Css1Style extends CssStyle {
 	if (cssFont.fontFamily == null) {
 	    cssFont.fontFamily =
 		(CssFontFamily) style.CascadingOrder(new CssFontFamily(),
-						     style, selector);
+			style, selector);
 	}
 	return cssFont.fontFamily;
     }
-
+    
     public final CssFontFamilyCSS2 getFontFamilyCSS2() {
 	if (cssFontCSS2.fontFamily == null) {
 	    cssFontCSS2.fontFamily =
 		(CssFontFamilyCSS2) style.CascadingOrder(new CssFontFamilyCSS2(),
-						     style, selector);
+			style, selector);
 	}
 	return cssFontCSS2.fontFamily;
     }
-
+    
     public final CssFontFamilyCSS1 getFontFamilyCSS1() {
 	if (cssFontCSS1.fontFamily == null) {
 	    cssFontCSS1.fontFamily =
 		(CssFontFamilyCSS1) style.CascadingOrder(new CssFontFamilyCSS1(),
-						     style, selector);
+			style, selector);
 	}
 	return cssFontCSS1.fontFamily;
     }
-
+    
     /**
      * Get the font property
      */
@@ -465,7 +483,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssFont;
     }
-
+    
     public final CssFontCSS2 getFontCSS2() {
 	if (cssFontCSS2.value != null) {
 	    // nothing
@@ -491,7 +509,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssFontCSS2;
     }
-
+    
     public final CssFontCSS1 getFontCSS1() {
 	if (cssFontCSS1.value != null) {
 	    // nothing
@@ -517,38 +535,38 @@ public class Css1Style extends CssStyle {
 	}
 	return cssFontCSS1;
     }
-
+    
     /*
      * Color and Background properties
      */
-
+    
     /**
      * Get the color property
      */
     public final CssColor getColor() {
 	if (cssColor == null) {
 	    cssColor = (CssColor)
-		style.CascadingOrder(new CssColor(), style, selector);
+	    style.CascadingOrder(new CssColor(), style, selector);
 	}
 	return cssColor;
     }
-
+    
     public final CssColorCSS2 getColorCSS2() {
 	if (cssColorCSS2 == null) {
 	    cssColorCSS2 = (CssColorCSS2)
-		style.CascadingOrder(new CssColorCSS2(), style, selector);
+	    style.CascadingOrder(new CssColorCSS2(), style, selector);
 	}
 	return cssColorCSS2;
     }
-
+    
     public final CssColorCSS1 getColorCSS1() {
 	if (cssColorCSS1 == null) {
 	    cssColorCSS1 = (CssColorCSS1)
-		style.CascadingOrder(new CssColorCSS1(), style, selector);
+	    style.CascadingOrder(new CssColorCSS1(), style, selector);
 	}
 	return cssColorCSS1;
     }
-
+    
     /**
      * Get the background-color property
      */
@@ -556,41 +574,41 @@ public class Css1Style extends CssStyle {
 	if (cssBackground.color == null) {
 	    cssBackground.color =
 		(CssBackgroundColor) style.CascadingOrder(new CssBackgroundColor(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBackground.color;
     }
-
+    
     public final CssBackgroundColorCSS2 getBackgroundColorCSS2() {
 	if (cssBackgroundCSS2.color == null) {
 	    cssBackgroundCSS2.color =
 		(CssBackgroundColorCSS2) style.CascadingOrder(
-					     new CssBackgroundColorCSS2(),
-					     style, selector);
+			new CssBackgroundColorCSS2(),
+			style, selector);
 	}
 	return cssBackgroundCSS2.color;
     }
-
+    
     public final CssBackgroundColorCSS1 getBackgroundColorCSS1() {
 	if (cssBackgroundCSS1.color == null) {
 	    cssBackgroundCSS1.color =
 		(CssBackgroundColorCSS1) style.CascadingOrder(
-					     new CssBackgroundColorCSS1(),
-					     style, selector);
+			new CssBackgroundColorCSS1(),
+			style, selector);
 	}
 	return cssBackgroundCSS1.color;
     }
-
+    
     public final CssBackgroundColorMob getBackgroundColorMob() {
 	if (cssBackgroundMob.color == null) {
 	    cssBackgroundMob.color =
 		(CssBackgroundColorMob) style.CascadingOrder(
-					     new CssBackgroundColorMob(),
-					     style, selector);
+			new CssBackgroundColorMob(),
+			style, selector);
 	}
 	return cssBackgroundMob.color;
     }
-
+    
     /**
      * Get the background-image property
      */
@@ -598,38 +616,38 @@ public class Css1Style extends CssStyle {
 	if (cssBackground.image == null) {
 	    cssBackground.image =
 		(CssBackgroundImage) style.CascadingOrder(new CssBackgroundImage(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBackground.image;
     }
-
+    
     public final CssBackgroundImageCSS2 getBackgroundImageCSS2() {
 	if (cssBackgroundCSS2.image == null) {
 	    cssBackgroundCSS2.image =
 		(CssBackgroundImageCSS2) style.CascadingOrder(new CssBackgroundImageCSS2(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBackgroundCSS2.image;
     }
-
+    
     public final CssBackgroundImageCSS1 getBackgroundImageCSS1() {
 	if (cssBackgroundCSS1.image == null) {
 	    cssBackgroundCSS1.image =
 		(CssBackgroundImageCSS1) style.CascadingOrder(new CssBackgroundImageCSS1(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBackgroundCSS1.image;
     }
-
+    
     public final CssBackgroundImageMob getBackgroundImageMob() {
 	if (cssBackgroundMob.image == null) {
 	    cssBackgroundMob.image =
 		(CssBackgroundImageMob) style.CascadingOrder(new CssBackgroundImageMob(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBackgroundMob.image;
     }
-
+    
     /**
      * Get the background-repeat property
      */
@@ -637,38 +655,38 @@ public class Css1Style extends CssStyle {
 	if (cssBackground.repeat == null) {
 	    cssBackground.repeat =
 		(CssBackgroundRepeat) style.CascadingOrder(new CssBackgroundRepeat(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBackground.repeat;
     }
-
+    
     public final CssBackgroundRepeatCSS2 getBackgroundRepeatCSS2() {
 	if (cssBackgroundCSS2.repeat == null) {
 	    cssBackgroundCSS2.repeat =
 		(CssBackgroundRepeatCSS2) style.CascadingOrder(new CssBackgroundRepeatCSS2(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBackgroundCSS2.repeat;
     }
-
+    
     public final CssBackgroundRepeatCSS1 getBackgroundRepeatCSS1() {
 	if (cssBackgroundCSS1.repeat == null) {
 	    cssBackgroundCSS1.repeat =
 		(CssBackgroundRepeatCSS1) style.CascadingOrder(new CssBackgroundRepeatCSS1(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBackgroundCSS1.repeat;
     }
-
+    
     public final CssBackgroundRepeatMob getBackgroundRepeatMob() {
 	if (cssBackgroundMob.repeat == null) {
 	    cssBackgroundMob.repeat =
 		(CssBackgroundRepeatMob) style.CascadingOrder(new CssBackgroundRepeatMob(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBackgroundMob.repeat;
     }
-
+    
     /**
      * Get the background-attachment property
      */
@@ -676,38 +694,38 @@ public class Css1Style extends CssStyle {
 	if (cssBackground.attachment == null) {
 	    cssBackground.attachment =
 		(CssBackgroundAttachment) style.CascadingOrder(new CssBackgroundAttachment(),
-							       style, selector);
+			style, selector);
 	}
 	return cssBackground.attachment;
     }
-
+    
     public final CssBackgroundAttachmentCSS2 getBackgroundAttachmentCSS2() {
 	if (cssBackgroundCSS2.attachment == null) {
 	    cssBackgroundCSS2.attachment =
 		(CssBackgroundAttachmentCSS2) style.CascadingOrder(new CssBackgroundAttachmentCSS2(),
-							       style, selector);
+			style, selector);
 	}
 	return cssBackgroundCSS2.attachment;
     }
-
+    
     public final CssBackgroundAttachmentCSS1 getBackgroundAttachmentCSS1() {
 	if (cssBackgroundCSS1.attachment == null) {
 	    cssBackgroundCSS1.attachment =
 		(CssBackgroundAttachmentCSS1) style.CascadingOrder(new CssBackgroundAttachmentCSS1(),
-							       style, selector);
+			style, selector);
 	}
 	return cssBackgroundCSS1.attachment;
     }
-
+    
     public final CssBackgroundAttachmentMob getBackgroundAttachmentMob() {
 	if (cssBackgroundMob.attachment == null) {
 	    cssBackgroundMob.attachment =
 		(CssBackgroundAttachmentMob) style.CascadingOrder(new CssBackgroundAttachmentMob(),
-							       style, selector);
+			style, selector);
 	}
 	return cssBackgroundMob.attachment;
     }
-
+    
     /**
      * Get the background-position property
      */
@@ -715,38 +733,38 @@ public class Css1Style extends CssStyle {
 	if (cssBackground.position == null) {
 	    cssBackground.position =
 		(CssBackgroundPosition) style.CascadingOrder(new CssBackgroundPosition(),
-							     style, selector);
+			style, selector);
 	}
 	return cssBackground.position;
     }
-
+    
     public final CssBackgroundPositionCSS2 getBackgroundPositionCSS2() {
 	if (cssBackgroundCSS2.position == null) {
 	    cssBackgroundCSS2.position =
 		(CssBackgroundPositionCSS2) style.CascadingOrder(new CssBackgroundPositionCSS2(),
-							     style, selector);
+			style, selector);
 	}
 	return cssBackgroundCSS2.position;
     }
-
+    
     public final CssBackgroundPositionCSS1 getBackgroundPositionCSS1() {
 	if (cssBackgroundCSS1.position == null) {
 	    cssBackgroundCSS1.position =
 		(CssBackgroundPositionCSS1) style.CascadingOrder(new CssBackgroundPositionCSS1(),
-							     style, selector);
+			style, selector);
 	}
 	return cssBackgroundCSS1.position;
     }
-
+    
     public final CssBackgroundPositionMob getBackgroundPositionMob() {
 	if (cssBackgroundMob.position == null) {
 	    cssBackgroundMob.position =
 		(CssBackgroundPositionMob) style.CascadingOrder(new CssBackgroundPositionMob(),
-							     style, selector);
+			style, selector);
 	}
 	return cssBackgroundMob.position;
     }
-
+    
     /**
      * Get the background property
      */
@@ -768,7 +786,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBackground;
     }
-
+    
     public final CssBackgroundCSS2 getBackgroundCSS2() {
 	if (cssBackgroundCSS2.getColor() == null) {
 	    cssBackgroundCSS2.color = getBackgroundColorCSS2();
@@ -787,7 +805,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBackgroundCSS2;
     }
-
+    
     public final CssBackgroundCSS1 getBackgroundCSS1() {
 	if (cssBackgroundCSS1.getColor() == null) {
 	    cssBackgroundCSS1.color = getBackgroundColorCSS1();
@@ -806,7 +824,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBackgroundCSS1;
     }
-
+    
     public final CssBackgroundMob getBackgroundMob() {
 	if (cssBackgroundMob.getColor() == null) {
 	    cssBackgroundMob.color = getBackgroundColorMob();
@@ -825,11 +843,11 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBackgroundMob;
     }
-
+    
     /*
      * Text properties
      */
-
+    
     /**
      * Get the word-spacing property
      */
@@ -837,11 +855,11 @@ public class Css1Style extends CssStyle {
 	if (cssWordSpacing == null) {
 	    cssWordSpacing =
 		(CssWordSpacing) style.CascadingOrder(new CssWordSpacing(),
-						      style, selector);
+			style, selector);
 	}
 	return cssWordSpacing;
     }
-
+    
     /**
      * Get the letter-spacing property
      */
@@ -849,11 +867,11 @@ public class Css1Style extends CssStyle {
 	if (cssLetterSpacing == null) {
 	    cssLetterSpacing =
 		(CssLetterSpacing) style.CascadingOrder(new CssLetterSpacing(),
-							style, selector);
+			style, selector);
 	}
 	return cssLetterSpacing;
     }
-
+    
     /**
      * Get the text-decoration property
      */
@@ -861,20 +879,20 @@ public class Css1Style extends CssStyle {
 	if (cssTextDecoration == null) {
 	    cssTextDecoration =
 		(CssTextDecoration) style.CascadingOrder(new CssTextDecoration(),
-							 style, selector);
+			style, selector);
 	}
 	return cssTextDecoration;
     }
-
+    
     public final CssTextDecorationMob getTextDecorationMob() {
 	if (cssTextDecorationMob == null) {
 	    cssTextDecorationMob =
 		(CssTextDecorationMob) style.CascadingOrder(new CssTextDecorationMob(),
-							 style, selector);
+			style, selector);
 	}
 	return cssTextDecorationMob;
     }
-
+    
     /**
      * Get the vertical-align property
      */
@@ -882,29 +900,29 @@ public class Css1Style extends CssStyle {
 	if (cssVerticalAlign == null) {
 	    cssVerticalAlign =
 		(CssVerticalAlign) style.CascadingOrder(new CssVerticalAlign(),
-							style, selector);
+			style, selector);
 	}
 	return cssVerticalAlign;
     }
-
+    
     public final CssVerticalAlignMob getVerticalAlignMob() {
 	if (cssVerticalAlignMob == null) {
 	    cssVerticalAlignMob =
 		(CssVerticalAlignMob) style.CascadingOrder(new CssVerticalAlignMob(),
-							style, selector);
+			style, selector);
 	}
 	return cssVerticalAlignMob;
     }
-
+    
     public final CssVerticalAlignCSS1 getVerticalAlignCSS1() {
 	if (cssVerticalAlignCSS1 == null) {
 	    cssVerticalAlignCSS1 =
 		(CssVerticalAlignCSS1) style.CascadingOrder(new CssVerticalAlignCSS1(),
-							style, selector);
+			style, selector);
 	}
 	return cssVerticalAlignCSS1;
     }
-
+    
     /**
      * Get the text-transform property
      */
@@ -912,11 +930,11 @@ public class Css1Style extends CssStyle {
 	if (cssTextTransform == null) {
 	    cssTextTransform =
 		(CssTextTransform) style.CascadingOrder(new CssTextTransform(),
-							style, selector);
+			style, selector);
 	}
 	return cssTextTransform;
     }
-
+    
     /**
      * Get the text-align property
      */
@@ -924,20 +942,20 @@ public class Css1Style extends CssStyle {
 	if (cssTextAlign == null) {
 	    cssTextAlign =
 		(CssTextAlign) style.CascadingOrder(new CssTextAlign(),
-						    style, selector);
+			style, selector);
 	}
 	return cssTextAlign;
     }
-
+    
     public final CssTextAlignMob getTextAlignMob() {
 	if (cssTextAlignMob == null) {
 	    cssTextAlignMob =
 		(CssTextAlignMob) style.CascadingOrder(new CssTextAlignMob(),
-						    style, selector);
+			style, selector);
 	}
 	return cssTextAlignMob;
     }
-
+    
     /**
      * Get the text-indent property
      */
@@ -945,20 +963,20 @@ public class Css1Style extends CssStyle {
 	if (cssTextIndent == null) {
 	    cssTextIndent =
 		(CssTextIndent) style.CascadingOrder(new CssTextIndent(),
-						     style, selector);
+			style, selector);
 	}
 	return cssTextIndent;
     }
-
+    
     public final CssTextIndentMob getTextIndentMob() {
 	if (cssTextIndentMob == null) {
 	    cssTextIndentMob =
 		(CssTextIndentMob) style.CascadingOrder(new CssTextIndentMob(),
-						     style, selector);
+			style, selector);
 	}
 	return cssTextIndentMob;
     }
-
+    
     /**
      * Get the text-shadow property
      */
@@ -966,20 +984,20 @@ public class Css1Style extends CssStyle {
 	if (cssTextShadow == null) {
 	    cssTextShadow =
 		(CssTextShadow) style.CascadingOrder(new CssTextShadow(),
-						     style, selector);
+			style, selector);
 	}
 	return cssTextShadow;
     }
-
+    
     public final CssTextShadowATSC getTextShadowATSC() {
 	if (cssTextShadowATSC == null) {
 	    cssTextShadowATSC =
 		(CssTextShadowATSC) style.CascadingOrder(new CssTextShadowATSC(),
-						     style, selector);
+			style, selector);
 	}
 	return cssTextShadowATSC;
     }
-
+    
     /**
      * Get the line-height property
      */
@@ -987,33 +1005,33 @@ public class Css1Style extends CssStyle {
 	if (cssFont.lineHeight == null) {
 	    cssFont.lineHeight =
 		(CssLineHeight) style.CascadingOrder(new CssLineHeight(),
-						     style, selector);
+			style, selector);
 	}
 	return cssFont.lineHeight;
     }
-
+    
     public final CssLineHeightCSS2 getLineHeightCSS2() {
 	if (cssFontCSS2.lineHeight == null) {
 	    cssFontCSS2.lineHeight =
 		(CssLineHeightCSS2) style.CascadingOrder(new CssLineHeightCSS2(),
-						     style, selector);
+			style, selector);
 	}
 	return cssFontCSS2.lineHeight;
     }
-
+    
     public final CssLineHeightCSS1 getLineHeightCSS1() {
 	if (cssFontCSS1.lineHeight == null) {
 	    cssFontCSS1.lineHeight =
 		(CssLineHeightCSS1) style.CascadingOrder(new CssLineHeightCSS1(),
-						     style, selector);
+			style, selector);
 	}
 	return cssFontCSS1.lineHeight;
     }
-
+    
     /*
      * Box properties
      */
-
+    
     /**
      * Get the margin-top property
      */
@@ -1021,11 +1039,11 @@ public class Css1Style extends CssStyle {
 	if (cssMargin.top == null) {
 	    cssMargin.top =
 		(CssMarginTop) style.CascadingOrder(new CssMarginTop(),
-						    style, selector);
+			style, selector);
 	}
 	return cssMargin.top;
     }
-
+    
     /**
      * Get the margin-right property
      */
@@ -1033,11 +1051,11 @@ public class Css1Style extends CssStyle {
 	if (cssMargin.right == null) {
 	    cssMargin.right =
 		(CssMarginRight) style.CascadingOrder(new CssMarginRight(),
-						      style, selector);
+			style, selector);
 	}
 	return cssMargin.right;
     }
-
+    
     /**
      * Get the margin-bottom property
      */
@@ -1045,11 +1063,11 @@ public class Css1Style extends CssStyle {
 	if (cssMargin.bottom == null) {
 	    cssMargin.bottom =
 		(CssMarginBottom) style.CascadingOrder(new CssMarginBottom(),
-						       style, selector);
+			style, selector);
 	}
 	return cssMargin.bottom;
     }
-
+    
     /**
      * Get the margin-left property
      */
@@ -1057,11 +1075,11 @@ public class Css1Style extends CssStyle {
 	if (cssMargin.left == null) {
 	    cssMargin.left =
 		(CssMarginLeft) style.CascadingOrder(new CssMarginLeft(),
-						     style, selector);
+			style, selector);
 	}
 	return cssMargin.left;
     }
-
+    
     /**
      * Get the margin property
      */
@@ -1076,7 +1094,7 @@ public class Css1Style extends CssStyle {
 	    cssMargin.left = getMarginLeft();
 	return cssMargin;
     }
-
+    
     /**
      * Get the padding-top property
      */
@@ -1084,11 +1102,11 @@ public class Css1Style extends CssStyle {
 	if (cssPadding.top == null) {
 	    cssPadding.top =
 		(CssPaddingTop) style.CascadingOrder(new CssPaddingTop(),
-						     style, selector);
+			style, selector);
 	}
 	return cssPadding.top;
     }
-
+    
     /**
      * Get the padding-right property
      */
@@ -1096,11 +1114,11 @@ public class Css1Style extends CssStyle {
 	if (cssPadding.right == null) {
 	    cssPadding.right =
 		(CssPaddingRight) style.CascadingOrder(new CssPaddingRight(),
-						       style, selector);
+			style, selector);
 	}
 	return cssPadding.right;
     }
-
+    
     /**
      * Get the padding-bottom property
      */
@@ -1108,11 +1126,11 @@ public class Css1Style extends CssStyle {
 	if (cssPadding.bottom == null) {
 	    cssPadding.bottom =
 		(CssPaddingBottom) style.CascadingOrder(new CssPaddingBottom(),
-							style, selector);
+			style, selector);
 	}
 	return cssPadding.bottom;
     }
-
+    
     /**
      * Get the padding-left property
      */
@@ -1120,11 +1138,11 @@ public class Css1Style extends CssStyle {
 	if (cssPadding.left == null) {
 	    cssPadding.left =
 		(CssPaddingLeft) style.CascadingOrder(new CssPaddingLeft(),
-						      style, selector);
+			style, selector);
 	}
 	return cssPadding.left;
     }
-
+    
     /**
      * Get the padding property
      */
@@ -1139,7 +1157,7 @@ public class Css1Style extends CssStyle {
 	    cssPadding.left = getPaddingLeft();
 	return cssPadding;
     }
-
+    
     /**
      * Get the border-top-width property
      */
@@ -1147,29 +1165,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getTop().getWidth() == null) {
 	    cssBorder.getTop().width =
 		(CssBorderTopWidth) style.CascadingOrder(new CssBorderTopWidth(),
-							 style, selector);
+			style, selector);
 	}
 	return cssBorder.getTop().width;
     }
-
+    
     public final CssBorderTopWidthCSS2 getBorderTopWidthCSS2() {
 	if (cssBorderCSS2.getTop().getWidth() == null) {
 	    cssBorderCSS2.getTop().width =
 		(CssBorderTopWidthCSS2) style.CascadingOrder(new CssBorderTopWidthCSS2(),
-							 style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getTop().width;
     }
-
+    
     public final CssBorderTopWidthCSS1 getBorderTopWidthCSS1() {
 	if (cssBorderCSS1.getTop().getWidth() == null) {
 	    cssBorderCSS1.getTop().width =
 		(CssBorderTopWidthCSS1) style.CascadingOrder(new CssBorderTopWidthCSS1(),
-							 style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getTop().width;
     }
-
+    
     /**
      * Get the border-top-style property
      */
@@ -1177,29 +1195,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getTop().getStyle() == null) {
 	    cssBorder.getTop().style =
 		(CssBorderTopStyle) style.CascadingOrder(new CssBorderTopStyle(),
-							 style, selector);
+			style, selector);
 	}
 	return cssBorder.getTop().style;
     }
-
+    
     public final CssBorderTopStyleCSS2 getBorderTopStyleCSS2() {
 	if (cssBorderCSS2.getTop().getStyle() == null) {
 	    cssBorderCSS2.getTop().style =
 		(CssBorderTopStyleCSS2) style.CascadingOrder(new CssBorderTopStyleCSS2(),
-							 style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getTop().style;
     }
-
+    
     public final CssBorderTopStyleCSS1 getBorderTopStyleCSS1() {
 	if (cssBorderCSS1.getTop().getStyle() == null) {
 	    cssBorderCSS1.getTop().style =
 		(CssBorderTopStyleCSS1) style.CascadingOrder(new CssBorderTopStyleCSS1(),
-							 style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getTop().style;
     }
-
+    
     /**
      * Get the border-top-color property
      */
@@ -1207,29 +1225,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorderCSS2.getTop().getColor() == null) {
 	    cssBorderCSS2.getTop().color =
 		(CssBorderTopColorCSS2) style.CascadingOrder(new CssBorderTopColorCSS2(),
-							 style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getTop().color;
     }
-
+    
     public final CssBorderTopColor getBorderTopColor() {
 	if (cssBorder.getTop().getColor() == null) {
 	    cssBorder.getTop().color =
 		(CssBorderTopColor) style.CascadingOrder(new CssBorderTopColor(),
-							 style, selector);
+			style, selector);
 	}
 	return cssBorder.getTop().color;
     }
-
+    
     public final CssBorderTopColorCSS1 getBorderTopColorCSS1() {
 	if (cssBorderCSS1.getTop().getColor() == null) {
 	    cssBorderCSS1.getTop().color =
 		(CssBorderTopColorCSS1) style.CascadingOrder(new CssBorderTopColorCSS1(),
-							 style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getTop().color;
     }
-
+    
     /**
      * Get the border-right-width property
      */
@@ -1237,29 +1255,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getRight().getWidth() == null) {
 	    cssBorder.getRight().width =
 		(CssBorderRightWidth) style.CascadingOrder(new CssBorderRightWidth(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBorder.getRight().width;
     }
-
+    
     public final CssBorderRightWidthCSS2 getBorderRightWidthCSS2() {
 	if (cssBorderCSS2.getRight().getWidth() == null) {
 	    cssBorderCSS2.getRight().width =
 		(CssBorderRightWidthCSS2) style.CascadingOrder(new CssBorderRightWidthCSS2(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getRight().width;
     }
-
+    
     public final CssBorderRightWidthCSS1 getBorderRightWidthCSS1() {
 	if (cssBorderCSS1.getRight().getWidth() == null) {
 	    cssBorderCSS1.getRight().width =
 		(CssBorderRightWidthCSS1) style.CascadingOrder(new CssBorderRightWidthCSS1(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getRight().width;
     }
-
+    
     /**
      * Get the border-right-style property
      */
@@ -1267,29 +1285,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getRight().getStyle() == null) {
 	    cssBorder.getRight().style =
 		(CssBorderRightStyle) style.CascadingOrder(new CssBorderRightStyle(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBorder.getRight().style;
     }
-
+    
     public final CssBorderRightStyleCSS2 getBorderRightStyleCSS2() {
 	if (cssBorderCSS2.getRight().getStyle() == null) {
 	    cssBorderCSS2.getRight().style =
 		(CssBorderRightStyleCSS2) style.CascadingOrder(new CssBorderRightStyleCSS2(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getRight().style;
     }
-
+    
     public final CssBorderRightStyleCSS1 getBorderRightStyleCSS1() {
 	if (cssBorderCSS1.getRight().getStyle() == null) {
 	    cssBorderCSS1.getRight().style =
 		(CssBorderRightStyleCSS1) style.CascadingOrder(new CssBorderRightStyleCSS1(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getRight().style;
     }
-
+    
     /**
      * Get the border-right-color property
      */
@@ -1297,29 +1315,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getRight().getColor() == null) {
 	    cssBorder.getRight().color =
 		(CssBorderRightColor) style.CascadingOrder(new CssBorderRightColor(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBorder.getRight().color;
     }
-
+    
     public final CssBorderRightColorCSS2 getBorderRightColorCSS2() {
 	if (cssBorderCSS2.getRight().getColor() == null) {
 	    cssBorderCSS2.getRight().color =
 		(CssBorderRightColorCSS2) style.CascadingOrder(new CssBorderRightColorCSS2(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getRight().color;
     }
-
+    
     public final CssBorderRightColorCSS1 getBorderRightColorCSS1() {
 	if (cssBorderCSS1.getRight().getColor() == null) {
 	    cssBorderCSS1.getRight().color =
 		(CssBorderRightColorCSS1) style.CascadingOrder(new CssBorderRightColorCSS1(),
-							   style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getRight().color;
     }
-
+    
     /**
      * Get the border-bottom-width property
      */
@@ -1327,29 +1345,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getBottom().getWidth() == null) {
 	    cssBorder.getBottom().width =
 		(CssBorderBottomWidth) style.CascadingOrder(new CssBorderBottomWidth(),
-							    style, selector);
+			style, selector);
 	}
 	return cssBorder.getBottom().width;
     }
-
+    
     public final CssBorderBottomWidthCSS2 getBorderBottomWidthCSS2() {
 	if (cssBorderCSS2.getBottom().getWidth() == null) {
 	    cssBorderCSS2.getBottom().width =
 		(CssBorderBottomWidthCSS2) style.CascadingOrder(new CssBorderBottomWidthCSS2(),
-							    style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getBottom().width;
     }
-
+    
     public final CssBorderBottomWidthCSS1 getBorderBottomWidthCSS1() {
 	if (cssBorderCSS1.getBottom().getWidth() == null) {
 	    cssBorderCSS1.getBottom().width =
 		(CssBorderBottomWidthCSS1) style.CascadingOrder(new CssBorderBottomWidthCSS1(),
-							    style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getBottom().width;
     }
-
+    
     /**
      * Get the border-bottom-style property
      */
@@ -1357,29 +1375,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getBottom().getStyle() == null) {
 	    cssBorder.getBottom().style =
 		(CssBorderBottomStyle) style.CascadingOrder(new CssBorderBottomStyle(),
-							    style, selector);
+			style, selector);
 	}
 	return cssBorder.getBottom().style;
     }
-
+    
     public final CssBorderBottomStyleCSS2 getBorderBottomStyleCSS2() {
 	if (cssBorderCSS2.getBottom().getStyle() == null) {
 	    cssBorderCSS2.getBottom().style =
 		(CssBorderBottomStyleCSS2) style.CascadingOrder(new CssBorderBottomStyleCSS2(),
-							    style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getBottom().style;
     }
-
+    
     public final CssBorderBottomStyleCSS1 getBorderBottomStyleCSS1() {
 	if (cssBorderCSS1.getBottom().getStyle() == null) {
 	    cssBorderCSS1.getBottom().style =
 		(CssBorderBottomStyleCSS1) style.CascadingOrder(new CssBorderBottomStyleCSS1(),
-							    style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getBottom().style;
     }
-
+    
     /**
      * Get the border-bottom-color property
      */
@@ -1387,29 +1405,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getBottom().getColor() == null) {
 	    cssBorder.getBottom().color =
 		(CssBorderBottomColor) style.CascadingOrder(new CssBorderBottomColor(),
-							    style, selector);
+			style, selector);
 	}
 	return cssBorder.getBottom().color;
     }
-
+    
     public final CssBorderBottomColorCSS2 getBorderBottomColorCSS2() {
 	if (cssBorderCSS2.getBottom().getColor() == null) {
 	    cssBorderCSS2.getBottom().color =
 		(CssBorderBottomColorCSS2) style.CascadingOrder(new CssBorderBottomColorCSS2(),
-							    style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getBottom().color;
     }
-
+    
     public final CssBorderBottomColorCSS1 getBorderBottomColorCSS1() {
 	if (cssBorderCSS1.getBottom().getColor() == null) {
 	    cssBorderCSS1.getBottom().color =
 		(CssBorderBottomColorCSS1) style.CascadingOrder(new CssBorderBottomColorCSS1(),
-							    style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getBottom().color;
     }
-
+    
     /**
      * Get the border-left-width property
      */
@@ -1417,29 +1435,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getLeft().getWidth() == null) {
 	    cssBorder.getLeft().width =
 		(CssBorderLeftWidth) style.CascadingOrder(new CssBorderLeftWidth(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBorder.getLeft().width;
     }
-
+    
     public final CssBorderLeftWidthCSS2 getBorderLeftWidthCSS2() {
 	if (cssBorderCSS2.getLeft().getWidth() == null) {
 	    cssBorderCSS2.getLeft().width =
 		(CssBorderLeftWidthCSS2) style.CascadingOrder(new CssBorderLeftWidthCSS2(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getLeft().width;
     }
-
+    
     public final CssBorderLeftWidthCSS1 getBorderLeftWidthCSS1() {
 	if (cssBorderCSS1.getLeft().getWidth() == null) {
 	    cssBorderCSS1.getLeft().width =
 		(CssBorderLeftWidthCSS1) style.CascadingOrder(new CssBorderLeftWidthCSS1(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getLeft().width;
     }
-
+    
     /**
      * Get the border-left-style property
      */
@@ -1447,29 +1465,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getLeft().getStyle() == null) {
 	    cssBorder.getLeft().style =
 		(CssBorderLeftStyle) style.CascadingOrder(new CssBorderLeftStyle(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBorder.getLeft().style;
     }
-
+    
     public final CssBorderLeftStyleCSS2 getBorderLeftStyleCSS2() {
 	if (cssBorderCSS2.getLeft().getStyle() == null) {
 	    cssBorderCSS2.getLeft().style =
 		(CssBorderLeftStyleCSS2) style.CascadingOrder(new CssBorderLeftStyleCSS2(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getLeft().style;
     }
-
+    
     public final CssBorderLeftStyleCSS1 getBorderLeftStyleCSS1() {
 	if (cssBorderCSS1.getLeft().getStyle() == null) {
 	    cssBorderCSS1.getLeft().style =
 		(CssBorderLeftStyleCSS1) style.CascadingOrder(new CssBorderLeftStyleCSS1(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getLeft().style;
     }
-
+    
     /**
      * Get the border-left-color property
      */
@@ -1477,29 +1495,29 @@ public class Css1Style extends CssStyle {
 	if (cssBorder.getLeft().getColor() == null) {
 	    cssBorder.getLeft().color =
 		(CssBorderLeftColor) style.CascadingOrder(new CssBorderLeftColor(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBorder.getLeft().color;
     }
-
+    
     public final CssBorderLeftColorCSS2 getBorderLeftColorCSS2() {
 	if (cssBorderCSS2.getLeft().getColor() == null) {
 	    cssBorderCSS2.getLeft().color =
 		(CssBorderLeftColorCSS2) style.CascadingOrder(new CssBorderLeftColorCSS2(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBorderCSS2.getLeft().color;
     }
-
+    
     public final CssBorderLeftColorCSS1 getBorderLeftColorCSS1() {
 	if (cssBorderCSS1.getLeft().getColor() == null) {
 	    cssBorderCSS1.getLeft().color =
 		(CssBorderLeftColorCSS1) style.CascadingOrder(new CssBorderLeftColorCSS1(),
-							  style, selector);
+			style, selector);
 	}
 	return cssBorderCSS1.getLeft().color;
     }
-
+    
     /**
      * Get the border-top property
      */
@@ -1515,7 +1533,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorder.getTop();
     }
-
+    
     public final CssBorderTopCSS2 getBorderTopCSS2() {
 	if (cssBorderCSS2.getTop().getWidth() == null) {
 	    cssBorderCSS2.getTop().width = getBorderTopWidthCSS2();
@@ -1528,7 +1546,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorderCSS2.getTop();
     }
-
+    
     public final CssBorderTopCSS1 getBorderTopCSS1() {
 	if (cssBorderCSS1.getTop().getWidth() == null) {
 	    cssBorderCSS1.getTop().width = getBorderTopWidthCSS1();
@@ -1541,7 +1559,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorderCSS1.getTop();
     }
-
+    
     /**
      * Get the border-right property
      */
@@ -1557,7 +1575,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorder.getRight();
     }
-
+    
     public final CssBorderRightCSS2 getBorderRightCSS2() {
 	if (cssBorderCSS2.getRight().getWidth() == null) {
 	    cssBorderCSS2.getRight().width = getBorderRightWidthCSS2();
@@ -1570,7 +1588,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorderCSS2.getRight();
     }
-
+    
     public final CssBorderRightCSS1 getBorderRightCSS1() {
 	if (cssBorderCSS1.getRight().getWidth() == null) {
 	    cssBorderCSS1.getRight().width = getBorderRightWidthCSS1();
@@ -1583,7 +1601,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorderCSS1.getRight();
     }
-
+    
     /**
      * Get the border-bottom property
      */
@@ -1599,7 +1617,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorder.getBottom();
     }
-
+    
     public final CssBorderBottomCSS2 getBorderBottomCSS2() {
 	if (cssBorderCSS2.getBottom().getWidth() == null) {
 	    cssBorderCSS2.getBottom().width = getBorderBottomWidthCSS2();
@@ -1612,7 +1630,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorderCSS2.getBottom();
     }
-
+    
     public final CssBorderBottomCSS1 getBorderBottomCSS1() {
 	if (cssBorderCSS1.getBottom().getWidth() == null) {
 	    cssBorderCSS1.getBottom().width = getBorderBottomWidthCSS1();
@@ -1625,7 +1643,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorderCSS1.getBottom();
     }
-
+    
     /**
      * Get the border-left property
      */
@@ -1641,7 +1659,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorder.getLeft();
     }
-
+    
     public final CssBorderLeftCSS2 getBorderLeftCSS2() {
 	if (cssBorderCSS2.getLeft().getWidth() == null) {
 	    cssBorderCSS2.getLeft().width = getBorderLeftWidthCSS2();
@@ -1654,7 +1672,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorderCSS2.getLeft();
     }
-
+    
     public final CssBorderLeftCSS1 getBorderLeftCSS1() {
 	if (cssBorderCSS1.getLeft().getWidth() == null) {
 	    cssBorderCSS1.getLeft().width = getBorderLeftWidthCSS1();
@@ -1667,7 +1685,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBorderCSS1.getLeft();
     }
-
+    
     /**
      * Get the border property
      */
@@ -1678,7 +1696,7 @@ public class Css1Style extends CssStyle {
 	getBorderLeft();
 	return cssBorder;
     }
-
+    
     public final CssBorderCSS2 getBorderCSS2() {
 	getBorderTopCSS2();
 	getBorderRightCSS2();
@@ -1686,7 +1704,7 @@ public class Css1Style extends CssStyle {
 	getBorderLeftCSS2();
 	return cssBorderCSS2;
     }
-
+    
     public final CssBorderCSS1 getBorderCSS1() {
 	getBorderTopCSS1();
 	getBorderRightCSS1();
@@ -1694,88 +1712,88 @@ public class Css1Style extends CssStyle {
 	getBorderLeftCSS1();
 	return cssBorderCSS1;
     }
-
+    
     /**
      * Get the border-width property
      */
     public final CssBorderWidth getBorderWidth() {
 	// WARNING invalid fields in this property ....
 	return new CssBorderWidth(getBorderTopWidth(),
-				  getBorderBottomWidth(),
-				  getBorderRightWidth(),
-				  getBorderLeftWidth());
+		getBorderBottomWidth(),
+		getBorderRightWidth(),
+		getBorderLeftWidth());
     }
-
+    
     public final CssBorderWidthCSS2 getBorderWidthCSS2() {
 	// WARNING invalid fields in this property ....
 	return new CssBorderWidthCSS2(getBorderTopWidthCSS2(),
-				  getBorderBottomWidthCSS2(),
-				  getBorderRightWidthCSS2(),
-				  getBorderLeftWidthCSS2());
+		getBorderBottomWidthCSS2(),
+		getBorderRightWidthCSS2(),
+		getBorderLeftWidthCSS2());
     }
-
+    
     public final CssBorderWidthCSS1 getBorderWidthCSS1() {
 	// WARNING invalid fields in this property ....
 	return new CssBorderWidthCSS1(getBorderTopWidthCSS1(),
-				  getBorderBottomWidthCSS1(),
-				  getBorderRightWidthCSS1(),
-				  getBorderLeftWidthCSS1());
+		getBorderBottomWidthCSS1(),
+		getBorderRightWidthCSS1(),
+		getBorderLeftWidthCSS1());
     }
-
+    
     /**
      * Get the border-style property
      */
     public final CssBorderStyle getBorderStyle() {
 	// WARNING invalid fields in this property ....
 	return new CssBorderStyle(getBorderTopStyle(),
-				  getBorderBottomStyle(),
-				  getBorderRightStyle(),
-				  getBorderLeftStyle());
+		getBorderBottomStyle(),
+		getBorderRightStyle(),
+		getBorderLeftStyle());
     }
-
+    
     public final CssBorderStyleCSS2 getBorderStyleCSS2() {
 	// WARNING invalid fields in this property ....
 	return new CssBorderStyleCSS2(getBorderTopStyleCSS2(),
-				  getBorderBottomStyleCSS2(),
-				  getBorderRightStyleCSS2(),
-				  getBorderLeftStyleCSS2());
+		getBorderBottomStyleCSS2(),
+		getBorderRightStyleCSS2(),
+		getBorderLeftStyleCSS2());
     }
-
+    
     public final CssBorderStyleCSS1 getBorderStyleCSS1() {
 	// WARNING invalid fields in this property ....
 	return new CssBorderStyleCSS1(getBorderTopStyleCSS1(),
-				  getBorderBottomStyleCSS1(),
-				  getBorderRightStyleCSS1(),
-				  getBorderLeftStyleCSS1());
+		getBorderBottomStyleCSS1(),
+		getBorderRightStyleCSS1(),
+		getBorderLeftStyleCSS1());
     }
-
+    
     /**
      * Get the border-color property
      */
     public final CssBorderColor getBorderColor() {
 	// WARNING invalid fields in this porperty ....
 	return new CssBorderColor(getBorderTopColor(),
-				  getBorderBottomColor(),
-				  getBorderRightColor(),
-				  getBorderLeftColor());
+		getBorderBottomColor(),
+		getBorderRightColor(),
+		getBorderLeftColor());
     }
-
+    
     public final CssBorderColorCSS2 getBorderColorCSS2() {
 	// WARNING invalid fields in this porperty ....
 	return new CssBorderColorCSS2(getBorderTopColorCSS2(),
-				  getBorderBottomColorCSS2(),
-				  getBorderRightColorCSS2(),
-				  getBorderLeftColorCSS2());
+		getBorderBottomColorCSS2(),
+		getBorderRightColorCSS2(),
+		getBorderLeftColorCSS2());
     }
-
+    
     public final CssBorderColorCSS1 getBorderColorCSS1() {
 	// WARNING invalid fields in this porperty ....
 	return new CssBorderColorCSS1(getBorderTopColorCSS1(),
-				  getBorderBottomColorCSS1(),
-				  getBorderRightColorCSS1(),
-				  getBorderLeftColorCSS1());
+		getBorderBottomColorCSS1(),
+		getBorderRightColorCSS1(),
+		getBorderLeftColorCSS1());
     }
-
+    
     /**
      * Get the width property
      */
@@ -1786,7 +1804,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssWidth;
     }
-
+    
     public final CssWidthMob getWidthMob() {
 	if (cssWidthMob == null) {
 	    cssWidthMob =
@@ -1794,7 +1812,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssWidthMob;
     }
-
+    
     /**
      * Get the min-width property
      */
@@ -1805,7 +1823,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssMinWidth;
     }
-
+    
     public final CssMinWidthATSC getMinWidthATSC() {
 	if (cssMinWidthATSC == null) {
 	    cssMinWidthATSC =
@@ -1813,7 +1831,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssMinWidthATSC;
     }
-
+    
     /**
      * Get the max-width property
      */
@@ -1824,7 +1842,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssMaxWidth;
     }
-
+    
     public final CssMaxWidthATSC getMaxWidthATSC() {
 	if (cssMaxWidthATSC == null) {
 	    cssMaxWidthATSC =
@@ -1832,7 +1850,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssMaxWidthATSC;
     }
-
+    
     /**
      * Get the min-height property
      */
@@ -1843,7 +1861,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssMinHeight;
     }
-
+    
     public final CssMinHeightATSC getMinHeightATSC() {
 	if (cssMinHeightATSC == null) {
 	    cssMinHeightATSC =
@@ -1851,7 +1869,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssMinHeightATSC;
     }
-
+    
     /**
      * Get the max-height property
      */
@@ -1862,7 +1880,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssMaxHeight;
     }
-
+    
     public final CssMaxHeightATSC getMaxHeightATSC() {
 	if (cssMaxHeightATSC == null) {
 	    cssMaxHeightATSC =
@@ -1870,7 +1888,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssMaxHeightATSC;
     }
-
+    
     /**
      * Get the height property
      */
@@ -1881,7 +1899,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssHeight;
     }
-
+    
     public final CssHeightMob getHeightMob() {
 	if (cssHeightMob == null) {
 	    cssHeightMob =
@@ -1889,7 +1907,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssHeightMob;
     }
-
+    
     /**
      * Get the float property
      */
@@ -1900,7 +1918,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssFloat;
     }
-
+    
     /**
      * Get the clear property
      */
@@ -1911,7 +1929,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssClear;
     }
-
+    
     /**
      * Get the top property
      */
@@ -1922,7 +1940,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssTop;
     }
-
+    
     /**
      * Get the left property
      */
@@ -1933,7 +1951,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssLeft;
     }
-
+    
     /**
      * Get the right property
      */
@@ -1944,7 +1962,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssRight;
     }
-
+    
     /**
      * Get the bottom property
      */
@@ -1955,11 +1973,11 @@ public class Css1Style extends CssStyle {
 	}
 	return cssBottom;
     }
-
+    
     /*
      * Classification properties
      */
-
+    
     /**
      * Get the display property
      */
@@ -1970,7 +1988,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssDisplay;
     }
-
+    
     public final CssDisplayCSS2 getDisplayCSS2() {
 	if (cssDisplayCSS2 == null) {
 	    cssDisplayCSS2 =
@@ -1978,7 +1996,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssDisplayCSS2;
     }
-
+    
     public final CssDisplayCSS1 getDisplayCSS1() {
 	if (cssDisplayCSS1 == null) {
 	    cssDisplayCSS1 =
@@ -1986,8 +2004,8 @@ public class Css1Style extends CssStyle {
 	}
 	return cssDisplayCSS1;
     }
-
-
+    
+    
     /**
      * Get the position property
      */
@@ -1998,7 +2016,7 @@ public class Css1Style extends CssStyle {
 	}
 	return cssPosition;
     }
-
+    
     /**
      * Get the z-index property
      */
@@ -2006,11 +2024,11 @@ public class Css1Style extends CssStyle {
 	if (cssZIndex == null) {
 	    cssZIndex =
 		(CssZIndex) style.CascadingOrder(new CssZIndex(),
-						 style, selector);
+			style, selector);
 	}
 	return cssZIndex;
     }
-
+    
     /**
      * Get the direction property
      */
@@ -2018,20 +2036,20 @@ public class Css1Style extends CssStyle {
 	if (cssDirection == null) {
 	    cssDirection =
 		(CssDirection) style.CascadingOrder(new CssDirection(),
-						 style, selector);
+			style, selector);
 	}
 	return cssDirection;
     }
-
+    
     public final CssDirectionATSC getDirectionATSC() {
 	if (cssDirectionATSC == null) {
 	    cssDirectionATSC =
 		(CssDirectionATSC) style.CascadingOrder(new CssDirectionATSC(),
-						 style, selector);
+			style, selector);
 	}
 	return cssDirectionATSC;
     }
-
+    
     /**
      * Get the overflow property
      */
@@ -2039,11 +2057,11 @@ public class Css1Style extends CssStyle {
 	if (cssOverflow == null) {
 	    cssOverflow =
 		(CssOverflow) style.CascadingOrder(new CssOverflow(),
-						 style, selector);
+			style, selector);
 	}
 	return cssOverflow;
     }
-
+    
     /**
      * Get the clip property
      */
@@ -2051,11 +2069,11 @@ public class Css1Style extends CssStyle {
 	if (cssClip == null) {
 	    cssClip =
 		(CssClip) style.CascadingOrder(new CssClip(),
-						 style, selector);
+			style, selector);
 	}
 	return cssClip;
     }
-
+    
     /**
      * Get the visibility property
      */
@@ -2063,11 +2081,11 @@ public class Css1Style extends CssStyle {
 	if (cssVisibility == null) {
 	    cssVisibility =
 		(CssVisibility) style.CascadingOrder(new CssVisibility(),
-						 style, selector);
+			style, selector);
 	}
 	return cssVisibility;
     }
-
+    
     /**
      * Get the unicode-bidi property
      */
@@ -2075,20 +2093,20 @@ public class Css1Style extends CssStyle {
 	if (cssUnicodeBidi == null) {
 	    cssUnicodeBidi =
 		(CssUnicodeBidi) style.CascadingOrder(new CssUnicodeBidi(),
-						 style, selector);
+			style, selector);
 	}
 	return cssUnicodeBidi;
     }
-
+    
     public final CssUnicodeBidiATSC getUnicodeBidiATSC() {
 	if (cssUnicodeBidiATSC == null) {
 	    cssUnicodeBidiATSC =
 		(CssUnicodeBidiATSC) style.CascadingOrder(new CssUnicodeBidiATSC(),
-						 style, selector);
+			style, selector);
 	}
 	return cssUnicodeBidiATSC;
     }
-
+    
     /**
      * Get the white-space property
      */
@@ -2096,11 +2114,11 @@ public class Css1Style extends CssStyle {
 	if (cssWhiteSpace == null) {
 	    cssWhiteSpace =
 		(CssWhiteSpace) style.CascadingOrder(new CssWhiteSpace(),
-						     style, selector);
+			style, selector);
 	}
 	return cssWhiteSpace;
     }
-
+    
     /**
      * Get the list-style-type property
      */
@@ -2108,29 +2126,29 @@ public class Css1Style extends CssStyle {
 	if (cssListStyle.listStyleType == null) {
 	    cssListStyle.listStyleType =
 		(CssListStyleType) style.CascadingOrder(new CssListStyleType(),
-							style, selector);
+			style, selector);
 	}
 	return cssListStyle.listStyleType;
     }
-
+    
     public final CssListStyleTypeCSS2 getListStyleTypeCSS2() {
 	if (cssListStyleCSS2.listStyleType == null) {
 	    cssListStyleCSS2.listStyleType =
 		(CssListStyleTypeCSS2) style.CascadingOrder(new CssListStyleTypeCSS2(),
-							style, selector);
+			style, selector);
 	}
 	return cssListStyleCSS2.listStyleType;
     }
-
+    
     public final CssListStyleTypeCSS1 getListStyleTypeCSS1() {
 	if (cssListStyleCSS1.listStyleType == null) {
 	    cssListStyleCSS1.listStyleType =
 		(CssListStyleTypeCSS1) style.CascadingOrder(new CssListStyleTypeCSS1(),
-							style, selector);
+			style, selector);
 	}
 	return cssListStyleCSS1.listStyleType;
     }
-
+    
     /**
      * Get the list-style-image property
      */
@@ -2138,29 +2156,29 @@ public class Css1Style extends CssStyle {
 	if (cssListStyle.listStyleImage == null) {
 	    cssListStyle.listStyleImage =
 		(CssListStyleImage) style.CascadingOrder(new CssListStyleImage(),
-							 style, selector);
+			style, selector);
 	}
 	return cssListStyle.listStyleImage;
     }
-
+    
     public final CssListStyleImageCSS2 getListStyleImageCSS2() {
 	if (cssListStyleCSS2.listStyleImage == null) {
 	    cssListStyleCSS2.listStyleImage =
 		(CssListStyleImageCSS2) style.CascadingOrder(new CssListStyleImageCSS2(),
-							 style, selector);
+			style, selector);
 	}
 	return cssListStyleCSS2.listStyleImage;
     }
-
+    
     public final CssListStyleImageCSS1 getListStyleImageCSS1() {
 	if (cssListStyleCSS1.listStyleImage == null) {
 	    cssListStyleCSS1.listStyleImage =
 		(CssListStyleImageCSS1) style.CascadingOrder(new CssListStyleImageCSS1(),
-							 style, selector);
+			style, selector);
 	}
 	return cssListStyleCSS1.listStyleImage;
     }
-
+    
     /**
      * Get the list-style-position property
      */
@@ -2169,31 +2187,31 @@ public class Css1Style extends CssStyle {
 	    cssListStyle.listStylePosition =
 		(CssListStylePosition)
 		style.CascadingOrder(new CssListStylePosition(),
-				     style, selector);
+			style, selector);
 	}
 	return cssListStyle.listStylePosition;
     }
-
+    
     public final CssListStylePositionCSS2 getListStylePositionCSS2() {
 	if (cssListStyleCSS2.listStylePosition == null) {
 	    cssListStyleCSS2.listStylePosition =
 		(CssListStylePositionCSS2)
 		style.CascadingOrder(new CssListStylePositionCSS2(),
-				     style, selector);
+			style, selector);
 	}
 	return cssListStyleCSS2.listStylePosition;
     }
-
+    
     public final CssListStylePositionCSS1 getListStylePositionCSS1() {
 	if (cssListStyleCSS1.listStylePosition == null) {
 	    cssListStyleCSS1.listStylePosition =
 		(CssListStylePositionCSS1)
 		style.CascadingOrder(new CssListStylePositionCSS1(),
-				     style, selector);
+			style, selector);
 	}
 	return cssListStyleCSS1.listStylePosition;
     }
-
+    
     /**
      * Get the list-style property
      */
@@ -2206,7 +2224,7 @@ public class Css1Style extends CssStyle {
 	    cssListStyle.listStylePosition = getListStylePosition();
 	return cssListStyle;
     }
-
+    
     public final CssListStyleCSS2 getListStyleCSS2() {
 	if (cssListStyleCSS2.listStyleType == null)
 	    cssListStyleCSS2.listStyleType = getListStyleTypeCSS2();
@@ -2216,7 +2234,7 @@ public class Css1Style extends CssStyle {
 	    cssListStyleCSS2.listStylePosition = getListStylePositionCSS2();
 	return cssListStyleCSS2;
     }
-
+    
     public final CssListStyleCSS1 getListStyleCSS1() {
 	if (cssListStyleCSS1.listStyleType == null)
 	    cssListStyleCSS1.listStyleType = getListStyleTypeCSS1();
@@ -2226,7 +2244,7 @@ public class Css1Style extends CssStyle {
 	    cssListStyleCSS1.listStylePosition = getListStylePositionCSS1();
 	return cssListStyleCSS1;
     }
-
+    
     /**
      * Get the content property
      */
@@ -2234,20 +2252,20 @@ public class Css1Style extends CssStyle {
 	if (cssContent == null) {
 	    cssContent =
 		(CssContent) style.CascadingOrder(new CssContent(),
-						 style, selector);
+			style, selector);
 	}
 	return cssContent;
     }
-
+    
     public final CssContentCSS2 getContentCSS2() {
 	if (cssContentCSS2 == null) {
 	    cssContentCSS2 =
 		(CssContentCSS2) style.CascadingOrder(new CssContentCSS2(),
-						 style, selector);
+			style, selector);
 	}
 	return cssContentCSS2;
     }
-
+    
     /**
      * Get the quotes property
      */
@@ -2255,20 +2273,20 @@ public class Css1Style extends CssStyle {
 	if (cssQuotes == null) {
 	    cssQuotes =
 		(CssQuotes) style.CascadingOrder(new CssQuotes(),
-						 style, selector);
+			style, selector);
 	}
 	return cssQuotes;
     }
-
+    
     public final CssQuotesATSC getQuotesATSC() {
 	if (cssQuotesATSC == null) {
 	    cssQuotesATSC =
 		(CssQuotesATSC) style.CascadingOrder(new CssQuotesATSC(),
-						 style, selector);
+			style, selector);
 	}
 	return cssQuotesATSC;
     }
-
+    
     /**
      * Get the counter-reset property
      */
@@ -2276,11 +2294,11 @@ public class Css1Style extends CssStyle {
 	if (cssCounterReset == null) {
 	    cssCounterReset =
 		(CssCounterReset) style.CascadingOrder(new CssCounterReset(),
-						 style, selector);
+			style, selector);
 	}
 	return cssCounterReset;
     }
-
+    
     /**
      * Get the counter-increment property
      */
@@ -2288,11 +2306,11 @@ public class Css1Style extends CssStyle {
 	if (cssCounterIncrement == null) {
 	    cssCounterIncrement =
 		(CssCounterIncrement) style.CascadingOrder(new CssCounterIncrement(),
-							   style, selector);
+			style, selector);
 	}
 	return cssCounterIncrement;
     }
-
+    
     /**
      * Get the marker-offset property
      */
@@ -2300,88 +2318,88 @@ public class Css1Style extends CssStyle {
 	if (cssMarkerOffset == null) {
 	    cssMarkerOffset =
 		(CssMarkerOffset) style.CascadingOrder(new CssMarkerOffset(),
-						       style, selector);
+			style, selector);
 	}
 	return cssMarkerOffset;
     }
-
+    
     public final CssMarkerOffsetATSC getMarkerOffsetATSC() {
 	if (cssMarkerOffsetATSC == null) {
 	    cssMarkerOffsetATSC =
 		(CssMarkerOffsetATSC) style.CascadingOrder(new CssMarkerOffsetATSC(),
-						       style, selector);
+			style, selector);
 	}
 	return cssMarkerOffsetATSC;
     }
-
+    
     public final CssListStyleTypeTV getListStyleTypeTV() {
-		if (cssListStyleTypeTV == null) {
-			cssListStyleTypeTV =
-			(CssListStyleTypeTV) style.CascadingOrder(new CssListStyleTypeTV(),
-								style, selector);
-		}
-
-		return cssListStyleTypeTV;
+	if (cssListStyleTypeTV == null) {
+	    cssListStyleTypeTV =
+		(CssListStyleTypeTV) style.CascadingOrder(new CssListStyleTypeTV(),
+			style, selector);
 	}
-
+	
+	return cssListStyleTypeTV;
+    }
+    
     public final CssListStyleTV getListStyleTV() {
-		if (cssListStyleTV == null) {
-			cssListStyleTV =
-			(CssListStyleTV) style.CascadingOrder(new CssListStyleTV(),
-								style, selector);
-		}
-
-		return cssListStyleTV;
+	if (cssListStyleTV == null) {
+	    cssListStyleTV =
+		(CssListStyleTV) style.CascadingOrder(new CssListStyleTV(),
+			style, selector);
 	}
-
+	
+	return cssListStyleTV;
+    }
+    
     public final CssPositionTV getPositionTV() {
-		if (cssPositionTV == null) {
-			cssPositionTV =
-			(CssPositionTV) style.CascadingOrder(new CssPositionTV(),
-								style, selector);
-		}
-
-		return cssPositionTV;
+	if (cssPositionTV == null) {
+	    cssPositionTV =
+		(CssPositionTV) style.CascadingOrder(new CssPositionTV(),
+			style, selector);
 	}
-
+	
+	return cssPositionTV;
+    }
+    
     public final CssTextAlignTV getTextAlignTV() {
-		if (cssTextAlignTV == null) {
-			cssTextAlignTV =
-			(CssTextAlignTV) style.CascadingOrder(new CssTextAlignTV(),
-								style, selector);
-		}
-
-		return cssTextAlignTV;
+	if (cssTextAlignTV == null) {
+	    cssTextAlignTV =
+		(CssTextAlignTV) style.CascadingOrder(new CssTextAlignTV(),
+			style, selector);
 	}
-
+	
+	return cssTextAlignTV;
+    }
+    
     public final CssTextDecorationTV getTextDecorationTV() {
-		if (cssTextDecorationTV == null) {
-			cssTextDecorationTV =
-			(CssTextDecorationTV) style.CascadingOrder(new CssTextDecorationTV(),
-								style, selector);
-		}
-
-		return cssTextDecorationTV;
+	if (cssTextDecorationTV == null) {
+	    cssTextDecorationTV =
+		(CssTextDecorationTV) style.CascadingOrder(new CssTextDecorationTV(),
+			style, selector);
 	}
-
+	
+	return cssTextDecorationTV;
+    }
+    
     public final CssVerticalAlignTV getVerticalAlignTV() {
-		if (cssVerticalAlignTV == null) {
-			cssVerticalAlignTV =
-			(CssVerticalAlignTV) style.CascadingOrder(new CssVerticalAlignTV(),
-								style, selector);
-		}
-
-		return cssVerticalAlignTV;
+	if (cssVerticalAlignTV == null) {
+	    cssVerticalAlignTV =
+		(CssVerticalAlignTV) style.CascadingOrder(new CssVerticalAlignTV(),
+			style, selector);
 	}
-
-
+	
+	return cssVerticalAlignTV;
+    }
+    
+    
     /**
      * Print this style.
      *
      * @param printer The printer interface.
      */
     public void print(CssPrinterStyle printer) {
-
+	
 	// Note : macro are never null
 	cssFont.print(printer);
 	if (cssFontStretch != null) {
@@ -2541,37 +2559,37 @@ public class Css1Style extends CssStyle {
 	if (cssQuotesATSC != null) {
 	    cssQuotesATSC.print(printer);
 	}
- 	if (cssCounterReset != null)
+	if (cssCounterReset != null)
 	    cssCounterReset.print(printer);
-  	if (cssCounterIncrement != null)
+	if (cssCounterIncrement != null)
 	    cssCounterIncrement.print(printer);
-  	if (cssMarkerOffset != null)
+	if (cssMarkerOffset != null)
 	    cssMarkerOffset.print(printer);
 	if (cssMarkerOffsetATSC != null) {
 	    cssMarkerOffsetATSC.print(printer);
 	}
 	if (cssListStyleTV != null) {
-		cssListStyleTV.print(printer);
+	    cssListStyleTV.print(printer);
 	}
 	if (cssListStyleTypeTV != null) {
-		cssListStyleTypeTV.print(printer);
+	    cssListStyleTypeTV.print(printer);
 	}
 	if (cssPositionTV != null) {
-		cssPositionTV.print(printer);
+	    cssPositionTV.print(printer);
 	}
 	if (cssTextAlignTV != null) {
-		cssTextAlignTV.print(printer);
+	    cssTextAlignTV.print(printer);
 	}
 	if (cssTextDecorationTV != null) {
-		cssTextDecorationTV.print(printer);
+	    cssTextDecorationTV.print(printer);
 	}
 	if (cssVerticalAlignTV != null) {
-		cssVerticalAlignTV.print(printer);
+	    cssVerticalAlignTV.print(printer);
 	}
     }
-
-
-
+    
+    
+    
     /**
      * Find conflicts in this Style
      *
@@ -2582,89 +2600,89 @@ public class Css1Style extends CssStyle {
 	// if border-style == none, border-width should be 0
 	// @@ this is a horrible place to do this ...
 	cssBorder.check();
-
+	
 	if (cssFont.fontFamily != null) {
 	    if (!cssFont.fontFamily.containsGenericFamily()) {
 		warnings.addWarning(new Warning(cssFont.fontFamily,
-						"no-generic-family", 2, ac));
+			"no-generic-family", 2, ac));
 	    }
 	    if (cssFont.fontFamily.withSpace) {
 		warnings.addWarning(new Warning(cssFont.fontFamily,
-						"with-space", 1, ac));
+			"with-space", 1, ac));
 	    }
-	}
+	}	
 	if (cssBackground.getColor() != null) {
 	    if (cssColor != null) {
 		if (cssBackground.getColor().equals(cssColor.getColor())) {
 		    // background and color can't have the same color
 		    warnings.addWarning(new Warning(cssBackground.color,
-						    "same-colors", 1, cssColor, ac));
+			    "same-colors", 1, cssColor, ac));
 		}
 	    } else {
 		CssValue color = cssBackground.getColor();
-
+		
 		if (!color.equals(CssBackgroundColor.transparent)) {
 		    // It's better to have a color when a background is defined.
 		    warnings.addWarning(new Warning(cssBackground.color,
-						    "no-color", 1, ac));
+			    "no-color", 1, ac));
 		}
 	    }
-
+	    
 	    // Note : For borders, I don't look for inherited value.
 	    //        So I can't find same colors in two differents contexts.
-
+	    
 	    if (cssBorder.getTop().getColor() != null) {
 		CssValue color = cssBorder.getTop().getColor();
 		if (color != CssProperty.inherit
-		    && cssBackground.getColor().equals(color)) {
+			&& cssBackground.getColor().equals(color)) {
 		    // background and border-color can't have the same color
 		    warnings.addWarning(new Warning(cssBackground.color,
-						    "same-colors", 1,
-						    cssBorder.getTop().color, ac));
+			    "same-colors", 1,
+			    cssBorder.getTop().color, ac));
 		}
 	    }
 	    if (cssBorder.getRight().getColor() != null) {
 		CssValue color = cssBorder.getRight().getColor();
 		if (color != CssProperty.inherit
-		    && cssBackground.getColor().equals(color)) {
+			&& cssBackground.getColor().equals(color)) {
 		    // background and border-color can't have the same color
 		    warnings.addWarning(new Warning(cssBackground.color,
-						    "same-colors", 1,
-						    cssBorder.getRight().color, ac));
+			    "same-colors", 1,
+			    cssBorder.getRight().color, ac));
 		}
 	    }
 	    if (cssBorder.getBottom().getColor() != null) {
 		CssValue color = cssBorder.getBottom().getColor();
 		if (color != CssProperty.inherit
-		    && cssBackground.getColor().equals(color)) {
+			&& cssBackground.getColor().equals(color)) {
 		    // background and border-color can't have the same color
 		    warnings.addWarning(new Warning(cssBackground.color,
-						    "same-colors", 1,
-						    cssBorder.getBottom().color, ac));
+			    "same-colors", 1,
+			    cssBorder.getBottom().color, ac));
 		}
 	    }
 	    if (cssBorder.getLeft().getColor() != null) {
 		CssValue color = cssBorder.getLeft().getColor();
 		if (color != CssProperty.inherit
-		    && cssBackground.getColor().equals(color)) {
+			&& cssBackground.getColor().equals(color)) {
 		    // background and border-color can't have the same color
 		    warnings.addWarning(new Warning(cssBackground.color,
-						    "same-colors", 1,
-						    cssBorder.getLeft().color, ac));
+			    "same-colors", 1,
+			    cssBorder.getLeft().color, ac));
 		}
 	    }
 	    /* suppressed 03-09-98
-	       if ((cssPadding.top == null) ||
-	       (cssPadding.right == null) ||
-	       (cssPadding.bottom == null) ||
-	       (cssPadding.left == null)) {
-	       // It's better to have a padding with a background color.
-	       warnings.addWarning(new Warning(cssBackground.color, "no-padding", 2));
-	       }
-	    */
+	     if ((cssPadding.top == null) ||
+	     (cssPadding.right == null) ||
+	     (cssPadding.bottom == null) ||
+	     (cssPadding.left == null)) {
+	     // It's better to have a padding with a background color.
+	      warnings.addWarning(new Warning(cssBackground.color, "no-padding", 2));
+	      }
+	      */	    
 	} else if (cssColor != null) {
 	    // It's better to have a background color with a color
-	    warnings.addWarning(new Warning(cssColor, "no-background-color", 1, ac));
+	    warnings.addWarning(new Warning(cssColorCSS2, "no-background-color", 1, ac));
 	    while (allSelectors.hasMoreElements()) {
 		// looking for inherited values.
 		Css1Style style =
@@ -2672,19 +2690,19 @@ public class Css1Style extends CssStyle {
 		if (style.cssBackground.getColor() != null) {
 		    if (style.cssBackground.getColor().equals(cssColor.getColor())) {
 			warnings.addWarning(new Warning(cssColor, "same-colors2", 1,
-							style.cssBackground.color.getSelectors().toString(),
-							cssColor.getSelectors().toString(), ac));
+				style.cssBackground.color.getSelectors().toString(),
+				cssColor.getSelectors().toString(), ac));
 		    }
 		}
 	    }
 	}
-
+	
 	// now testing for % and length in padding and marging
 	// @@FIXME I don't be carreful with the value zero ...
-
+	
 	RelativeAndAbsolute checker = new RelativeAndAbsolute();
 	CssProperty info = null;
-
+	
 	if (cssMargin.getTop() != null) {
 	    info = cssMargin.getTop();
 	    checker.compute(cssMargin.getTop().getValue());
@@ -2695,12 +2713,12 @@ public class Css1Style extends CssStyle {
 	}
 	if (checker.isNotRobust()) {
 	    warnings.addWarning(new Warning(info.getSourceFile(),
-					    info.getLine(),
-					    "relative-absolute", 2,
-					    "margin", "", ac));
+		    info.getLine(),
+		    "relative-absolute", 2,
+		    "margin", "", ac));
 	}
 	checker.reset();
-
+	
 	if (cssMargin.getRight() != null) {
 	    info = cssMargin.getRight();
 	    checker.compute(cssMargin.getRight().getValue());
@@ -2711,12 +2729,12 @@ public class Css1Style extends CssStyle {
 	}
 	if (checker.isNotRobust()) {
 	    warnings.addWarning(new Warning(info.getSourceFile(),
-					    info.getLine(),
-					    "relative-absolute", 2,
-					    "margin", "", ac));
+		    info.getLine(),
+		    "relative-absolute", 2,
+		    "margin", "", ac));
 	}
 	checker.reset();
-
+	
 	if (cssPadding.getTop() != null) {
 	    info = cssPadding.getTop();
 	    checker.compute(cssPadding.getTop().getValue());
@@ -2727,12 +2745,12 @@ public class Css1Style extends CssStyle {
 	}
 	if (checker.isNotRobust()) {
 	    warnings.addWarning(new Warning(info.getSourceFile(),
-					    info.getLine(),
-					    "relative-absolute", 2,
-					    "padding", "", ac));
+		    info.getLine(),
+		    "relative-absolute", 2,
+		    "padding", "", ac));
 	}
 	checker.reset();
-
+	
 	if (cssPadding.getRight() != null) {
 	    info = cssPadding.getRight();
 	    checker.compute(cssPadding.getRight().getValue());
@@ -2741,45 +2759,45 @@ public class Css1Style extends CssStyle {
 	    info = cssPadding.getLeft();
 	    checker.compute(cssPadding.getLeft().getValue());
 	}
-
+	
 	if (checker.isNotRobust()) {
 	    warnings.addWarning(new Warning(info.getSourceFile(),
-					    info.getLine(),
-					    "relative-absolute", 2,
-					    "padding", "", ac));
+		    info.getLine(),
+		    "relative-absolute", 2,
+		    "padding", "", ac));
 	}
-
+	
 	if (Util.fromHTMLFile) {
 	    if ((cssTextIndent != null)
 		    && (selector != null)
 		    && (!selector.isBlockLevelElement())) {
 		warnings.addWarning(new Warning(cssTextAlign,
-						"block-level", 1, ac));
+			"block-level", 1, ac));
 	    }
 	    if ((cssTextAlign != null)
 		    && (selector != null)
 		    && (!selector.isBlockLevelElement())) {
 		warnings.addWarning(new Warning(cssTextAlign,
-						"block-level", 1, ac));
+			"block-level", 1, ac));
 	    }
 	    if ((cssWhiteSpace != null)
 		    && (selector != null)
-	            && (!selector.isBlockLevelElement())) {
+		    && (!selector.isBlockLevelElement())) {
 		warnings.addWarning(new Warning(cssWhiteSpace,
-						"block-level", 1, ac));
+			"block-level", 1, ac));
 	    }
 	}
-
+	
 	if (cssMarkerOffset != null) {
 	    //@@ beurk you know what ? 5 is horrible.
 	    if ((cssDisplay == null)
-		|| (cssDisplay.value != 5)) {
+		    || (cssDisplay.value != 5)) {
 		warnings.addWarning(new Warning(cssMarkerOffset,
-						"marker", 1, ac));
+			"marker", 1, ac));
 	    }
 	}
     }
-
+    
 }
 
 class RelativeAndAbsolute {
@@ -2798,12 +2816,12 @@ class RelativeAndAbsolute {
 	} else if (value instanceof CssLength) {
 	    CssLength length = (CssLength) value;
 	    if (!length.getUnit().equals("ex")
-		|| !length.getUnit().equals("em")) {
+		    || !length.getUnit().equals("em")) {
 		absolute |= true;
 	    } else {
 		relative |= true;
 	    }
 	}
     }
-
+    
 }

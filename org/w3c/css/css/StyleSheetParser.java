@@ -1,12 +1,30 @@
 //
-// $Id: StyleSheetParser.java,v 1.5 2005-08-23 16:22:54 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.6 2005-08-26 14:09:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetParser.java,v $
- * Revision 1.5  2005-08-23 16:22:54  ylafon
+ * Revision 1.6  2005-08-26 14:09:49  ylafon
+ * All changes made by Jean-Guilhem Rouel:
+ *
+ * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
+ *
+ * Errors in font, the handling of 'transparent', CSS Parser reinits...
+ *
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
+ *
+ * Revision 1.5  2005/08/23 16:22:54  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -64,7 +82,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public final class StyleSheetParser 
     implements CssValidatorListener, CssParser {
@@ -198,12 +216,12 @@ public final class StyleSheetParser
 	
 	try {
 	    ac.setOrigin(origin);
-	    if (cssFouffa == null) {
-		cssFouffa = new CssFouffa(ac, url);
-		cssFouffa.addListener(this);
-	    } else {
-		cssFouffa.ReInit(ac, url);
-	    }
+//	    if (cssFouffa == null) {
+	    cssFouffa = new CssFouffa(ac, url);
+	    cssFouffa.addListener(this);
+//	    } else {
+//		cssFouffa.ReInit(ac, url);
+//	    }
 
 	    //	    cssFouffa.setResponse(res);
 
@@ -258,12 +276,12 @@ public final class StyleSheetParser
 	}
 	try {
 
-	    if (cssFouffa == null) {
+//	    if (cssFouffa == null) {
 		cssFouffa = new CssFouffa(ac, input, url, lineno);
 		cssFouffa.addListener(this);
-	    } else {
-		cssFouffa.ReInit(ac, input, url, lineno);
-	    } 
+//	    } else {
+//		cssFouffa.ReInit(ac, input, url, lineno);
+//	    } 
 	    
 	    //	    cssFouffa.setResponse(res);
 	    //	    cssFouffa.setDefaultMedium(defaultmedium);
@@ -330,11 +348,11 @@ public final class StyleSheetParser
 	}
 	
 	try {
-	    if (cssFouffa == null) {
+//	    if (cssFouffa == null) {
 		cssFouffa = new CssFouffa(ac, input, url, lineno);
 		cssFouffa.addListener(this);
-	    } else
-		cssFouffa.ReInit(ac, input, url, lineno);
+//	    } else
+//		cssFouffa.ReInit(ac, input, url, lineno);
 	    CssSelectors selector = new CssSelectors(ac);
 
 	    try {

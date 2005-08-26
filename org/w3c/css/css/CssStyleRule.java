@@ -1,4 +1,4 @@
-// $Id: CssStyleRule.java,v 1.8 2005-08-23 16:22:54 ylafon Exp $
+// $Id: CssStyleRule.java,v 1.9 2005-08-26 14:09:49 ylafon Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -79,7 +79,7 @@ public class CssStyleRule {
     public void toHTML(PrintWriter out) {
 	if(properties != null) {
 	    out.print("<li><span class='selector'>"); 
-	    if (selectors != null) {
+	    if (selectors != null) {		
 		out.print(selectors);
 		out.print("</span> {<ul class='vRule'>\n");
 	    }

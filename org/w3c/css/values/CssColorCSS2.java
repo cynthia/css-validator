@@ -1,12 +1,30 @@
 //
-// $Id: CssColorCSS2.java,v 1.4 2005-08-08 13:19:47 ylafon Exp $
+// $Id: CssColorCSS2.java,v 1.5 2005-08-26 14:09:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssColorCSS2.java,v $
- * Revision 1.4  2005-08-08 13:19:47  ylafon
+ * Revision 1.5  2005-08-26 14:09:50  ylafon
+ * All changes made by Jean-Guilhem Rouel:
+ *
+ * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
+ *
+ * Errors in font, the handling of 'transparent', CSS Parser reinits...
+ *
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
+ *
+ * Revision 1.4  2005/08/08 13:19:47  ylafon
  * All those changed made by Jean-Guilhem Rouel:
  *
  * Huge patch, imports fixed (automatic)
@@ -182,7 +200,7 @@ import org.w3c.css.util.Util;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssColorCSS2 extends CssColor {
     
@@ -272,16 +290,17 @@ public class CssColorCSS2 extends CssColor {
 	color = null;
 	rgb = new RGB();
 	boolean isPercent = false;
-
+	
 	if (val == null || op != COMMA) {
 	    throw new InvalidParamException("invalid-color", ac);
 	}
 	
 	if (val instanceof CssNumber) {
-	    rgb.r = clippedValue(((Float) val.get()).intValue(), ac);
+	    CssNumber number = (CssNumber) val;	    
+	    rgb.r = clippedIntValue(number.getInt(), ac);    
 	    isPercent = false;
 	} else if (val instanceof CssPercentage) {
-	    rgb.r = clippedValue(((Float) val.get()).floatValue(), ac);
+	    rgb.r = clippedPercentValue(((Float) val.get()).floatValue(), ac);
 	    isPercent = true;
 	} else {
 	    throw new InvalidParamException("rgb", val, ac);
@@ -296,15 +315,16 @@ public class CssColorCSS2 extends CssColor {
 	}
 	
 	if (val instanceof CssNumber) {
+	    CssNumber number = (CssNumber) val;
 	    if (isPercent) {
 		throw new InvalidParamException("percent", val, ac);
 	    }
-	    rgb.g = clippedValue(((Float) val.get()).intValue(), ac);
+	    rgb.g = clippedIntValue(number.getInt(), ac);
 	} else if (val instanceof CssPercentage) {
 	    if (!isPercent) {
 		throw new InvalidParamException("integer", val, ac);
 	    }
-	    rgb.g = clippedValue(((Float) val.get()).floatValue(), ac);
+	    rgb.g = clippedPercentValue(((Float) val.get()).floatValue(), ac);
 	} else {
 	    throw new InvalidParamException("rgb", val, ac);
 	}
@@ -318,15 +338,16 @@ public class CssColorCSS2 extends CssColor {
 	}
 	
 	if (val instanceof CssNumber) {
+	    CssNumber number = (CssNumber) val;
 	    if (isPercent) {
 		throw new InvalidParamException("percent", val, ac);
 	    }
-	    rgb.b = clippedValue(((Float) val.get()).intValue(), ac);
+	    rgb.b = clippedIntValue(number.getInt(), ac);	    
 	} else if (val instanceof CssPercentage) {
 	    if (!isPercent) {
 		throw new InvalidParamException("integer", val, ac);
 	    }
-	    rgb.b = clippedValue(((Float) val.get()).floatValue(), ac);
+	    rgb.b = clippedPercentValue(((Float) val.get()).floatValue(), ac);
 	} else {
 	    throw new InvalidParamException("rgb", val, ac);
 	}
@@ -335,7 +356,6 @@ public class CssColorCSS2 extends CssColor {
 	if (exp.getValue() != null) {
 	    throw new InvalidParamException("rgb", exp.getValue(), ac);
 	}
-
     }
     
     /**
@@ -395,33 +415,22 @@ public class CssColorCSS2 extends CssColor {
 	}
 	
 	throw new InvalidParamException("value", s, "color", ac);
+    }    
+    
+    private static Integer clippedIntValue(int rgb, ApplContext ac) {
+	if (rgb < 0 || rgb > 255) {
+	    ac.getFrame().addWarning("out-of-range", Util.displayFloat(rgb));
+	    return new Integer((rgb<0)?0:255);
+	}
+	else return(new Integer(rgb));
     }
     
-    /**
-     * Clipped an integer.
-     */  
-    private static Integer clippedValue(int val, ApplContext ac) {
-	if (val < 0 || val > 255) {
-	    ac.getFrame().addWarning("out-of-range", Integer.toString(val));
-	    return new Integer((val<0)?0:255);
-	} else {
-	    return new Integer(val);
+    private static Float clippedPercentValue(float p, ApplContext ac) {
+	if (p < 0. || p > 100.) {
+	    ac.getFrame().addWarning("out-of-range", Util.displayFloat(p));
+	    return new Float((p<0.)?0.:100.);
 	}
-    }
-    
-    /**
-     * clipped a float.
-     */  
-    private static Object clippedValue(float v, ApplContext ac) {
-	if (v < 0 || v > 100) {
-	    ac.getFrame().addWarning("out-of-range", Util.displayFloat(v));
-	    return new Integer((v<0)?0:255);
-	} else {
-	    if (v == 0 | v == 100) {
-		return new Integer((v==0)?0:255);
-	    }
-	    return new CssPercentage(v);
-	}
+	else return(new Float(p));
     }
     
     /**

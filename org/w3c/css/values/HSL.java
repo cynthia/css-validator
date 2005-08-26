@@ -9,39 +9,39 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HSL.java,v 1.1 2002-07-21 13:12:20 sijtsche Exp $
+ * $Id: HSL.java,v 1.2 2005-08-26 14:09:50 ylafon Exp $
  */
 package org.w3c.css.values;
 
 public class HSL {
-	String output = null;
-	Object h;
-	Object s;
-	Object l;
-
+    String output = null;
+    Object h;
+    Object s;
+    Object l;
+    
     /**
      * Create a new HSL
      */
     public HSL() {
     }
-
+    
     /**
      * Create a new HSL with default values
      */
     public HSL(Object h, Object s, Object l) {
-		this.h = h;
-		this.s = s;
-		this.l = l;
-	}
-
+	this.h = h;
+	this.s = s;
+	this.l = l;
+    }
+    
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
-		if (output == null) {
-		    return "hsl("+h+","+s+","+l+")";
-		} else {
-		    return output;
-		}
+	if (output == null) {
+	    return "hsl(" + h + ", " + s + ", " + l + ")";
+	} else {
+	    return output;
+	}
     }
 }

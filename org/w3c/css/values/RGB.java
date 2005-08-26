@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RGB.java,v 1.2 2002-04-08 21:19:46 plehegar Exp $
+ * $Id: RGB.java,v 1.3 2005-08-26 14:09:50 ylafon Exp $
  */
 package org.w3c.css.values;
 
@@ -40,7 +40,7 @@ public class RGB {
      */
     public String toString() {
 	if (output == null) {
-	    return "rgb("+r+","+g+","+b+")";
+	    return "rgb(" + r + ", " + g + ", " + b + ")";
 	} else {
 	    return output;
 	}

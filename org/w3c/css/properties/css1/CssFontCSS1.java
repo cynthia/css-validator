@@ -1,12 +1,30 @@
 //
-// $Id: CssFontCSS1.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssFontCSS1.java,v 1.2 2005-08-26 14:09:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssFontCSS1.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-08-26 14:09:49  ylafon
+ * All changes made by Jean-Guilhem Rouel:
+ *
+ * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
+ *
+ * Errors in font, the handling of 'transparent', CSS Parser reinits...
+ *
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -43,6 +61,7 @@ import org.w3c.css.parser.CssStyle;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssPercentage;
@@ -102,7 +121,7 @@ import org.w3c.css.values.CssValue;
  * @see CssFontFamily
  * @see CssPercentage
  * @see CssLength
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.2 $ 
  */
 public class CssFontCSS1 extends CssProperty 
     implements CssOperator, CssFontConstantCSS1 {
@@ -119,6 +138,8 @@ public class CssFontCSS1 extends CssProperty
     
     // internal hack for strings comparaison
     //private static int[] hash_values;
+    
+    static CssIdent normal = new CssIdent("normal");
     
     /**
      * Create a new CssFontCSS1
@@ -139,24 +160,32 @@ public class CssFontCSS1 extends CssProperty
 	char op = SPACE;
 	boolean find = true;
 	int max_values = 3;
-	//int normal = "normal".hashCode();
-
+	
+	int normalNb = 0;
+	
 	while (find && max_values-- > 0) {
 	    find = false;
 	    val = expression.getValue();
-	    op = expression.getOperator();
-	    
+	    op = expression.getOperator();	    	    	    
+
 	    if (val == null) {
 		throw new InvalidParamException("few-value", getPropertyName(), ac);
-	    }
+	    }	   
 	    
-	    if (fontStyle == null) {
+	    if(val.equals(normal)) {
+		normalNb++;
+		expression.next();
+		find = true;
+	    }
+
+	    if (!find && fontStyle == null) {
 		try {
-		    fontStyle = new CssFontStyleCSS1(ac, expression);
+		    fontStyle = new CssFontStyleCSS1(ac, expression);		    
 		    find = true;
 		} catch (InvalidParamException e) {
 		}
 	    }	
+
 	    if (!find && fontVariant == null) {
 		try {
 		    fontVariant = new CssFontVariantCSS1(ac, expression);
@@ -164,55 +193,63 @@ public class CssFontCSS1 extends CssProperty
 		} catch (InvalidParamException e) {
 		}
 	    }
+
 	    if (!find && fontWeight == null) {
 		try {
 		    fontWeight = new CssFontWeightCSS1(ac, expression);
 		    find = true;
 		} catch (InvalidParamException e) {
+		    // we have now (or not)
+		    // [ 'font-style' || 'font-variant' || 'font-weight' ]?
+		    //break;
 		}
 	    }
+
 	    if (find && op != SPACE) {
 		throw new InvalidParamException("operator", 
 						((new Character(op)).toString()), ac);
 	    }
-	    
 	}
-	/*
-	if (fontStyle == null) {
-	    fontStyle = new CssFontStyleCSS1();
-	}
-	if (fontVariant == null) {
-	    fontVariant = new CssFontVariantCSS1();
-	}
-	if (fontWeight == null) {
-	    fontWeight = new CssFontWeightCSS1();
-	}
-	*/
-	val = expression.getValue();
-	op = expression.getOperator();
 	
+	// "normal" values
+	CssExpression normalExpr = new CssExpression();
+	normalExpr.addValue(normal);
+	
+	for(int i = 0; i < normalNb; i++) {
+	    if (fontStyle == null) {
+		fontStyle = new CssFontStyleCSS1(ac, normalExpr);
+		normalExpr.starts();
+	    }
+	    else if (fontVariant == null) {
+		fontVariant = new CssFontVariantCSS1(ac, normalExpr);
+		normalExpr.starts();
+	    }
+	    else if (fontWeight == null) {
+		fontWeight = new CssFontWeightCSS1(ac, normalExpr);
+		normalExpr.starts();
+	    }
+	}
+
+	val = expression.getValue();
+	op = expression.getOperator();	
 	    
 	if (val == null) {
 	    throw new InvalidParamException("few-value", getPropertyName(), ac);
 	}
-	    
+	
 	fontSize = new CssFontSizeCSS1(ac, expression);
 	
 	if (op == SLASH) {
 	    op = expression.getOperator();
 	    lineHeight = new CssLineHeightCSS1(ac, expression);
 	}
-//	else {
-//	    lineHeight = new CssLineHeightCSS1();
-//	}
-	
-	if (op == SPACE && expression.getValue() != null) {
+
+	if (op == SPACE && expression.getValue() != null) {	    
 	    fontFamily = new CssFontFamilyCSS1(ac, expression, true);
 	} else {
 	    expression.starts();
 	    throw new InvalidParamException("few-value", expression.toString(), ac);
-	}
-
+	}	
 	setByUser();
     }
     

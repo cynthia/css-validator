@@ -1,12 +1,30 @@
 //
-// $Id: CssBackgroundPosition.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.2 2005-08-26 14:09:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundPosition.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-08-26 14:09:49  ylafon
+ * All changes made by Jean-Guilhem Rouel:
+ *
+ * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
+ *
+ * Errors in font, the handling of 'transparent', CSS Parser reinits...
+ *
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
+ * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -143,7 +161,7 @@ import org.w3c.css.values.CssValue;
  *   <P>
  *   In the example above, the image is placed in the lower right corner of the
  *   canvas.
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @see CssBackgroundAttachment 
  */
 public class CssBackgroundPosition extends CssProperty 
@@ -196,9 +214,15 @@ implements CssBackgroundConstants, CssOperator {
 	
 	if(val instanceof CssIdent) {
 	    int index1 = IndexOfIdent((String) val.get());
+	    if(index1 == -1) {
+		throw new InvalidParamException("value", val, "background-position", ac);
+	    }
 	    // two keywords
 	    if(next instanceof CssIdent) {
 		int index2 = IndexOfIdent((String) next.get());
+		if(index2 == -1) {
+		    throw new InvalidParamException("value", next, "background-position", ac);
+		}
 		// one is vertical, the other is vertical
 		// or the two are 'center'
 		if((isHorizontal(index1) && isVertical(index2)) ||
@@ -253,6 +277,9 @@ implements CssBackgroundConstants, CssOperator {
 	    // a percentage/length and an keyword
 	    if(next instanceof CssIdent) {
 		int index = IndexOfIdent((String) next.get());
+		if(index == -1) {
+		    throw new InvalidParamException("value", val, "background-position", ac);
+		}
 		// the keyword must be a vertical one
 		if(isVertical(index)) {
 		    first = val;
