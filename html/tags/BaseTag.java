@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * BaseTag.java
- * $Id: BaseTag.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
+ * $Id: BaseTag.java,v 1.3 2005-08-26 12:34:56 ylafon Exp $
  */
 
 package html.tags;
@@ -80,7 +80,7 @@ public class BaseTag extends Flow {
 	    
 	    try { 
 		url = new URL(href); 
-		parserFrame.baseURL = url;
+		parserFrame.setBaseURI(url);
 	    } catch (MalformedURLException e) {
 		return; // Ignore errors
 	    }

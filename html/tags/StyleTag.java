@@ -3,9 +3,9 @@
  *
  * @author Vincent Mallet  (vmallet@sophia.inria.fr)
  *
- * $Id: StyleTag.java,v 1.3 2003-02-28 00:16:09 plehegar Exp $
+ * $Id: StyleTag.java,v 1.4 2005-08-26 12:34:56 ylafon Exp $
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 
 
@@ -23,7 +23,7 @@ import html.parser.*;
  *
  * @author Vincent Mallet (Vincent.Mallet@sophia.inria.fr)
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 
 public class StyleTag extends Block {
@@ -84,9 +84,9 @@ public class StyleTag extends Block {
 		}
 		parserFrame.styleSheetParser
 		    .parseStyleElement(parserFrame.ac,
-				       new ByteArrayInputStream(text.getBytes()), 
+				     new ByteArrayInputStream(text.getBytes()),
 				       title, media, 
-				       parserFrame.url, line);
+				       parserFrame.getURI(), line);
 	    }
 	}
     }

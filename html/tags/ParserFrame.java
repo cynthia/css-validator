@@ -2,9 +2,9 @@
  * ParserFrame
  * @author Vincent Mallet  (vmallet@sophia.inria.fr)
  * 
- * $Id: ParserFrame.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
+ * $Id: ParserFrame.java,v 1.3 2005-08-26 12:34:56 ylafon Exp $
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 
@@ -28,38 +28,48 @@ import org.w3c.css.util.ApplContext;
 
 public class ParserFrame {
 
-  /**
+    /**
    * The StyleSheet generator: it is used to parse all CSS informations, 
    * and then produce the specific stylesheets (CssStyles) for given 
    * contexts.
    */
 
   //  StyleSheet styleSheet = new StyleSheet(); 
-  StyleSheetParser styleSheetParser = new StyleSheetParser(); 
+    StyleSheetParser styleSheetParser = new StyleSheetParser(); 
 
-  // needed by the CSS parser
-  ApplContext ac;
+    // needed by the CSS parser
+    ApplContext ac;
 
-  /**
+    /**
    * The URL of the HTML page currently read/parsed.
    */
-  URL url;
+    URL url = null;
 
-  /**
+    /**
    * The base URL of the HTML page to resolve all relative links.
    */
-  URL baseURL;
+    URL baseURL = null;
 
-  /**
+    /**
    * The current line number in the source file
    */
-  int line;
+    int line;
 
-  /**
+    protected void setBaseURI(URL base) {
+	this.baseURL = base;
+    }
+
+    protected URL getURI() {
+	if (baseURL != null) {
+	    return baseURL;
+	}
+	return url;
+    }
+
+    /**
    * Create a new ParserFrame
    */
 
-  public ParserFrame() { 
-  }
-
+    public ParserFrame() { 
+    }
 }
