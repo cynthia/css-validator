@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.14 2005-08-26 14:33:14 ylafon Exp $
+// $Id: CssSelectors.java,v 1.15 2005-08-26 15:51:36 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import org.w3c.css.util.Warnings;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public final class CssSelectors implements CssSelectorsConstant {
 
@@ -284,7 +284,6 @@ public final class CssSelectors implements CssSelectorsConstant {
 	} else {	    
 	    Util.verbose("ADD : " + attr);
 	    attributes.put(attr.getName(), attr);
-	    System.out.println(attributes);
 	}
 	
     }
