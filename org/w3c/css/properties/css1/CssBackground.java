@@ -1,12 +1,15 @@
 //
-// $Id: CssBackground.java,v 1.2 2005-08-26 14:09:49 ylafon Exp $
+// $Id: CssBackground.java,v 1.3 2005-08-29 09:52:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackground.java,v $
- * Revision 1.2  2005-08-26 14:09:49  ylafon
+ * Revision 1.3  2005-08-29 09:52:21  ylafon
+ * Jean-Guilhem Rouel: Fixes issues with the background property
+ *
+ * Revision 1.2  2005/08/26 14:09:49  ylafon
  * All changes made by Jean-Guilhem Rouel:
  *
  * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
@@ -113,7 +116,7 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @see CssBackgroundColor
  * @see CssBackgroundImage
  * @see CssBackgroundRepeat
@@ -220,8 +223,12 @@ public class CssBackground extends CssProperty
 		}
 	    }
 	    if (!find && position == null) {
-		position = new CssBackgroundPosition(ac, expression);
-		find = true;
+		try {
+		    position = new CssBackgroundPosition(ac, expression);
+		    find = true;
+		} catch (InvalidParamException e) {
+		    // nothing to do
+		}
 	    }
 	    if (op != SPACE) {
 		if (op != SLASH) {

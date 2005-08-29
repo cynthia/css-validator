@@ -1,12 +1,15 @@
 //
-// $Id: CssBackgroundPosition.java,v 1.2 2005-08-26 14:09:49 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.3 2005-08-29 09:52:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundPosition.java,v $
- * Revision 1.2  2005-08-26 14:09:49  ylafon
+ * Revision 1.3  2005-08-29 09:52:21  ylafon
+ * Jean-Guilhem Rouel: Fixes issues with the background property
+ *
+ * Revision 1.2  2005/08/26 14:09:49  ylafon
  * All changes made by Jean-Guilhem Rouel:
  *
  * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
@@ -161,7 +164,7 @@ import org.w3c.css.values.CssValue;
  *   <P>
  *   In the example above, the image is placed in the lower right corner of the
  *   canvas.
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @see CssBackgroundAttachment 
  */
 public class CssBackgroundPosition extends CssProperty 
@@ -220,7 +223,7 @@ implements CssBackgroundConstants, CssOperator {
 	    // two keywords
 	    if(next instanceof CssIdent) {
 		int index2 = IndexOfIdent((String) next.get());
-		if(index2 == -1) {
+		if(index2 == -1 && check) {
 		    throw new InvalidParamException("value", next, "background-position", ac);
 		}
 		// one is vertical, the other is vertical
@@ -277,7 +280,7 @@ implements CssBackgroundConstants, CssOperator {
 	    // a percentage/length and an keyword
 	    if(next instanceof CssIdent) {
 		int index = IndexOfIdent((String) next.get());
-		if(index == -1) {
+		if(check && index == -1) {
 		    throw new InvalidParamException("value", val, "background-position", ac);
 		}
 		// the keyword must be a vertical one
