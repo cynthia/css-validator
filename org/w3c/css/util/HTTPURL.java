@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.15 2005-08-08 13:19:46 ylafon Exp $
+ * $Id: HTTPURL.java,v 1.16 2005-08-29 12:00:42 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -18,7 +18,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -184,14 +184,18 @@ public class HTTPURL {
 	urlC.setRequestProperty("Cache-Control", "no-cache, no-store");
 	// for the fun
 	urlC.setRequestProperty("User-Agent",
-				"Jigsaw/2.2.3 W3C_CSS_Validator_JFouffa/2.0");
+				"Jigsaw/2.2.5 W3C_CSS_Validator_JFouffa/2.0");
 	// relay authorization information
 	if (ac.getCredential() != null) {
 	    urlC.setRequestProperty("Authorization",ac.getCredential());
 	}
 	// relay languages
 	if (ac.getLang() != null) {
-	    urlC.setRequestProperty("Accept-Language",ac.getLang());
+	    if (ac.getLang().indexOf('*') == -1) {
+		urlC.setRequestProperty("Accept-Language", ac.getLang() + ",*");
+	    } else {
+		urlC.setRequestProperty("Accept-Language",ac.getLang());
+	    }
 	}
 	// should I put an Accept header?
 	urlC.setRequestProperty("Accept",

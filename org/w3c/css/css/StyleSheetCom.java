@@ -1,12 +1,15 @@
 //
-// $Id: StyleSheetCom.java,v 1.9 2005-08-23 16:22:54 ylafon Exp $
+// $Id: StyleSheetCom.java,v 1.10 2005-08-29 12:00:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: StyleSheetCom.java,v $
- * Revision 1.9  2005-08-23 16:22:54  ylafon
+ * Revision 1.10  2005-08-29 12:00:42  ylafon
+ * Use the MimeType class to avoid issues with case and parameters
+ *
+ * Revision 1.9  2005/08/23 16:22:54  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -68,7 +71,7 @@ import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.Util;
 
 /**
- * @version $Revision: 1.9 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.10 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 
@@ -292,11 +295,16 @@ public class StyleSheetCom implements HtmlParserListener {
 		    URLConnection urlC = HTTPURL.getConnection(style.htmlURL, null);
 
 		    if (urlC.getContentType() != null) {
-			if (urlC.getContentType().indexOf("text/html") != -1) {
+			MimeType mt = null;
+			try {
+			    mt = new MimeType(urlC.getContentType());
+			} catch (Exception ex);
+			if (MimeType.TEXT_HTML.match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE) {
 			    style.htmlRequest();
-			} else if (urlC.getContentType().indexOf("text/xml") != -1) {
+			} else if ((MimeType.TEXT_XML.match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE) ||
+				   (MimeType.APPLICATION_XHTML_XML..match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE)) {
 			    style.xmlRequest();
-			} else if (urlC.getContentType().indexOf("text/css") != -1) {
+			} else if (MimeType.TEXT_CSS.match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE) {
 			    style.cssRequest(selector, style.defaultmedium);
 			}
 		    } else {
