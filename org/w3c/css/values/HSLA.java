@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HSLA.java,v 1.2 2005-08-26 14:09:50 ylafon Exp $
+ * $Id: HSLA.java,v 1.3 2005-08-29 12:36:47 ylafon Exp $
  */
 package org.w3c.css.values;
 
@@ -19,7 +19,7 @@ public class HSLA {
     Object s;
     Object l;
     Object a;
-    
+
     /**
      * Create a new HSLA
      */

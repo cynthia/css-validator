@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RGB.java,v 1.3 2005-08-26 14:09:50 ylafon Exp $
+ * $Id: RGB.java,v 1.4 2005-08-29 12:36:47 ylafon Exp $
  */
 package org.w3c.css.values;
 
@@ -20,6 +20,22 @@ public class RGB {
     Object g;
     Object b;
     
+    boolean percent = false;
+    
+    /**
+     * @return Returns the percent.
+     */
+    public boolean isPercent() {
+        return percent;
+    }
+
+    /**
+     * @param percent The percent to set.
+     */
+    public void setPercent(boolean percent) {
+        this.percent = percent;
+    }
+
     /**
      * Create a new RGB
      */
@@ -40,7 +56,8 @@ public class RGB {
      */
     public String toString() {
 	if (output == null) {
-	    return "rgb(" + r + ", " + g + ", " + b + ")";
+	    String unit = (isPercent()) ? "%" : "";	    
+	    return "rgb(" + r + unit + ", " + g + unit + ", " + b + unit + ")";
 	} else {
 	    return output;
 	}
