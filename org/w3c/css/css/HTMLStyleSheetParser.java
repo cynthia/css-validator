@@ -1,5 +1,5 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.15 2005-08-29 12:00:42 ylafon Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.16 2005-08-29 12:06:38 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.www.mime.MimeType;
 import org.w3c.www.mime.MimeTypeFormatException;
 
 /**
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
     
@@ -85,7 +85,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 	    
 	    try {
 		boolean isXML = false;
-		String contentType;
+		String cType;
 
 		// @@ hum, maybe? (plh, yes probably :-) )
 		String credential = ac.getCredential();
@@ -104,7 +104,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		}
 		MimeType contentType = null;
 		try {
-		    contentType = new MimeTYpe(cType());
+		    contentType = new MimeType(cType);
 		} catch (MimeTypeFormatException ex) {
 		}
 		
@@ -113,7 +113,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 					contentType + ']');
 		}
 
-		if (cType.match(MimeType.TEXT_HTML) == 
+		if (contentType.match(MimeType.TEXT_HTML) == 
 		                           MimeType.MATCH_SPECIFIC_SUBTYPE) {
 		    HtmlParser htmlParser;
 		    htmlParser = new HtmlParser(ac, "html4", urlString,
