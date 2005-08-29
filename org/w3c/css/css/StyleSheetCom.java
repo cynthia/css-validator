@@ -1,52 +1,10 @@
 //
-// $Id: StyleSheetCom.java,v 1.10 2005-08-29 12:00:42 ylafon Exp $
+// $Id: StyleSheetCom.java,v 1.11 2005-08-29 12:03:00 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: StyleSheetCom.java,v $
- * Revision 1.10  2005-08-29 12:00:42  ylafon
- * Use the MimeType class to avoid issues with case and parameters
- *
- * Revision 1.9  2005/08/23 16:22:54  ylafon
- * Patch by Jean-Guilhem Rouel
- *
- * Better handling of media and properties files
- * Major reorganization of those properties files
- *
- * Revision 1.8  2005/08/08 13:18:04  ylafon
- * All those changed made by Jean-Guilhem Rouel:
- *
- * Huge patch, imports fixed (automatic)
- * Bug fixed: 372, 920, 778, 287, 696, 764, 233
- * Partial bug fix for 289
- *
- * Issue with "inherit" in CSS2.
- * The validator now checks the number of values (extraneous values were previously ignored)
- *
- * Revision 1.7  2004/01/10 06:22:24  bjoern
- * Fix for http://www.w3.org/Bugs/Public/show_bug.cgi?id=292
- *
- * Revision 1.6  2003/07/11 13:48:59  sijtsche
- * compile error in useless use of HttpServletResponse fixed
- *
- * Revision 1.5  2003/07/02 14:39:03  plehegar
- * Removed HttpServletResponse import
- *
- * Revision 1.4  2002/08/19 07:33:36  sijtsche
- * TV profile added
- *
- * Revision 1.3  2002/07/22 13:20:38  sijtsche
- * versions CSS3, SVG, SVG basic and SVG tiny added for validation
- *
- * Revision 1.2  2002/04/08 21:16:38  plehegar
- * New
- *
- * Revision 1.1  1998/01/07 13:32:20  plehegar
- * Initial revision
- *
- */
+
 package org.w3c.css.css;
 
 import html.tags.HtmlParser;
@@ -70,8 +28,10 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.Util;
 
+import org.w3c.www.mime.MimeType;
+
 /**
- * @version $Revision: 1.10 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.11 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 
@@ -298,11 +258,11 @@ public class StyleSheetCom implements HtmlParserListener {
 			MimeType mt = null;
 			try {
 			    mt = new MimeType(urlC.getContentType());
-			} catch (Exception ex);
+			} catch (Exception ex) {};
 			if (MimeType.TEXT_HTML.match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE) {
 			    style.htmlRequest();
 			} else if ((MimeType.TEXT_XML.match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE) ||
-				   (MimeType.APPLICATION_XHTML_XML..match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE)) {
+				   (MimeType.APPLICATION_XHTML_XML.match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE)) {
 			    style.xmlRequest();
 			} else if (MimeType.TEXT_CSS.match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE) {
 			    style.cssRequest(selector, style.defaultmedium);
