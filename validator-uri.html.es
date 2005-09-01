@@ -7,7 +7,7 @@
     <link rev="made" href="mailto:www-validator@w3.org" />
     <link rev="start" href="./" title="Página de Inicio" />
     <style type="text/css" media="all">@import "./base.css";</style>
-    <meta name="revision" content="$Id: validator-uri.html.es,v 1.2 2005-01-17 02:31:24 ot Exp $" />
+    <meta name="revision" content="$Id: validator-uri.html.es,v 1.3 2005-09-01 11:51:21 ylafon Exp $" />
   </head>
 
   <body>
@@ -76,6 +76,7 @@
 	<option value="none">Ninguno en especial</option>
 	<option value="css1">CSS versión 1</option>
 	<option selected="selected" value="css2">CSS versión 2</option>
+	<option value="css21">CSS versión 2.1</option>
  	<option value="css3">CSS versión 3</option>
 	<option value="svg">SVG</option>
 	<option value="svgbasic">SVG Básico</option>
@@ -121,7 +122,7 @@
 	alt="¡CSS Válido!" /></a>
 	<a title="Haga sus sugerencias sobre el Servicio de Validación CSS del W3C" href="Email">El Equipo del Validador de CSS del W3C</a><br/>
       $Fecha: 27/12/2004 02:07:12 $
-      <!-- SSI Template Version: $Id: validator-uri.html.es,v 1.2 2005-01-17 02:31:24 ot Exp $ -->
+      <!-- SSI Template Version: $Id: validator-uri.html.es,v 1.3 2005-09-01 11:51:21 ylafon Exp $ -->
     </address>
     <p class="copyright">
 			<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright" hreflang="en-us" xml:lang="en-us">Copyright</a> &#xa9; 1994-2004

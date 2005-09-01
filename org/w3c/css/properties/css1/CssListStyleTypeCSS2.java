@@ -1,12 +1,16 @@
 //
-// $Id: CssListStyleTypeCSS2.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssListStyleTypeCSS2.java,v 1.2 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssListStyleTypeCSS2.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -72,7 +76,7 @@ import org.w3c.css.values.CssValue;
 					    *   OL { list-style-type: lower-alpha }   /* a b c d e etc. * /
 										       *   OL { list-style-type: lower-roman }   /* i ii iii iv v etc. * /
 																  *   </PRE>
-																  * @version $Revision: 1.1 $ */
+																  * @version $Revision: 1.2 $ */
 public class CssListStyleTypeCSS2 extends CssProperty 
     implements CssListStyleConstants {
     
@@ -105,7 +109,7 @@ public class CssListStyleTypeCSS2 extends CssProperty
 	
 	if ( val instanceof CssIdent) {
 	    int hash = val.hashCode();
-	    for (int i = 0; i < LISTSTYLETYPE.length; i++)
+	    for (int i = 0; i < LISTSTYLETYPECSS2.length; i++)
 		if (hash_values[i] == hash) {
 		    value = i;
 		    expression.next();
@@ -122,10 +126,24 @@ public class CssListStyleTypeCSS2 extends CssProperty
     }
     
     /**
+     * @return Returns the value.
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * @param value The value to set.
+     */
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    /**
      * Returns the value of this property
      */
     public Object get() {
-	return LISTSTYLETYPE[value];
+	return LISTSTYLETYPECSS2[value];
     }
     
     /**
@@ -140,14 +158,14 @@ public class CssListStyleTypeCSS2 extends CssProperty
      * e.g. his value equals inherit
      */
     public boolean isSoftlyInherited() {
-	return value == (LISTSTYLETYPE.length - 1);
+	return value == (LISTSTYLETYPECSS2.length - 1);
     }
     
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
-	return LISTSTYLETYPE[value];
+	return LISTSTYLETYPECSS2[value];
     }
     
     /**
@@ -195,8 +213,8 @@ public class CssListStyleTypeCSS2 extends CssProperty
     }
     
     static {
-	hash_values = new int[LISTSTYLETYPE.length];
-	for (int i = 0; i < LISTSTYLETYPE.length; i++)
-	    hash_values[i] = LISTSTYLETYPE[i].hashCode();
+	hash_values = new int[LISTSTYLETYPECSS2.length];
+	for (int i = 0; i < LISTSTYLETYPECSS2.length; i++)
+	    hash_values[i] = LISTSTYLETYPECSS2[i].hashCode();
     }
 }

@@ -51,6 +51,7 @@
 	<option value="none">Geen speciaal profiel</option>
 	<option value="css1">CSS versie 1</option>
 	<option selected="selected" value="css2">CSS versie 2</option>
+	<option value="css21">CSS versie 2.1</option>
  	<option value="css3">CSS versie 3</option>
 	<option value="svg">SVG</option>
 	<option value="svgbasic">SVG basic</option>
@@ -93,6 +94,6 @@
     <hr />
     <address><a
 		href="mailto:Email.html">www-validator-css</a></address><br />
-    $Date: 2002-08-19 07:43:47 $
+    $Date: 2005-09-01 11:51:21 $
   </body>
 </html>

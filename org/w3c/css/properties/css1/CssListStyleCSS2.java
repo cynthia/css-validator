@@ -1,12 +1,16 @@
 //
-// $Id: CssListStyleCSS2.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssListStyleCSS2.java,v 1.2 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssListStyleCSS2.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -113,7 +117,7 @@ import org.w3c.css.values.CssValue;
  *   <P> In the example above, the 'disc' will be used when the image is
  *   unavailable.
  *
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.2 $ 
  */
 public class CssListStyleCSS2 extends CssProperty implements CssOperator {
     
@@ -216,6 +220,62 @@ public class CssListStyleCSS2 extends CssProperty implements CssOperator {
 	this(ac, expression, false);
     }
     
+    /**
+     * @return Returns the inheritedValue.
+     */
+    public boolean isInheritedValue() {
+        return inheritedValue;
+    }
+
+    /**
+     * @param inheritedValue The inheritedValue to set.
+     */
+    public void setInheritedValue(boolean inheritedValue) {
+        this.inheritedValue = inheritedValue;
+    }
+
+    /**
+     * @return Returns the listStyleImage.
+     */
+    public CssListStyleImageCSS2 getListStyleImage() {
+        return listStyleImage;
+    }
+
+    /**
+     * @param listStyleImage The listStyleImage to set.
+     */
+    public void setListStyleImage(CssListStyleImageCSS2 listStyleImage) {
+        this.listStyleImage = listStyleImage;
+    }
+
+    /**
+     * @return Returns the listStylePosition.
+     */
+    public CssListStylePositionCSS2 getListStylePosition() {
+        return listStylePosition;
+    }
+
+    /**
+     * @param listStylePosition The listStylePosition to set.
+     */
+    public void setListStylePosition(CssListStylePositionCSS2 listStylePosition) {
+        this.listStylePosition = listStylePosition;
+    }
+
+    /**
+     * @return Returns the listStyleType.
+     */
+    public CssListStyleTypeCSS2 getListStyleType() {
+        return listStyleType;
+    }
+
+    /**
+     * @param listStyleType The listStyleType to set.
+     */
+    public void setListStyleType(CssListStyleTypeCSS2 listStyleType) {
+        this.listStyleType = listStyleType;
+    }
+
     /**
      * Returns the value of this property
      */

@@ -1,12 +1,16 @@
 //
-// $Id: CssColorCSS2.java,v 1.2 2005-08-26 14:09:49 ylafon Exp $
+// $Id: CssColorCSS2.java,v 1.3 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssColorCSS2.java,v $
- * Revision 1.2  2005-08-26 14:09:49  ylafon
+ * Revision 1.3  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.2  2005/08/26 14:09:49  ylafon
  * All changes made by Jean-Guilhem Rouel:
  *
  * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
@@ -109,7 +113,7 @@ import org.w3c.css.values.CssValue;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssColorCSS2 extends CssProperty {
 
@@ -120,6 +124,13 @@ public class CssColorCSS2 extends CssProperty {
      */
     public CssColorCSS2() {
 	color = inherit;
+    }
+
+    /**
+     * @param color The color to set.
+     */
+    public void setColor(CssValue color) {
+        this.color = color;
     }
 
     /**

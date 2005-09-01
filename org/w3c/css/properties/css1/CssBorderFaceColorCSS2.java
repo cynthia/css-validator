@@ -1,12 +1,16 @@
 //
-// $Id: CssBorderFaceColorCSS2.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssBorderFaceColorCSS2.java,v 1.2 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBorderFaceColorCSS2.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -44,7 +48,7 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBorderFaceColorCSS2 {
 
@@ -94,8 +98,6 @@ public class CssBorderFaceColorCSS2 {
 	    face = val;
 	} else if (val.equals(CssProperty.inherit)) {
 	    face = CssProperty.inherit;
-	} else if(val.equals(CssProperty.transparent)) {	    
-	  face = CssProperty.transparent;  
 	} else if (val instanceof CssIdent) {
 	    face = new org.w3c.css.values.CssColorCSS2(ac, (String) val.get());
 	} else {
@@ -110,6 +112,20 @@ public class CssBorderFaceColorCSS2 {
 	this(ac, expression, false);
     }
     
+    /**
+     * @return Returns the face.
+     */
+    public CssValue getFace() {
+        return face;
+    }
+
+    /**
+     * @param face The face to set.
+     */
+    public void setFace(CssValue face) {
+        this.face = face;
+    }
+
     /**
      * Returns the internal color
      */

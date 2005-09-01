@@ -1,12 +1,16 @@
 //
-// $Id: CssBackgroundCSS2.java,v 1.3 2005-08-29 09:52:21 ylafon Exp $
+// $Id: CssBackgroundCSS2.java,v 1.4 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundCSS2.java,v $
- * Revision 1.3  2005-08-29 09:52:21  ylafon
+ * Revision 1.4  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.3  2005/08/29 09:52:21  ylafon
  * Jean-Guilhem Rouel: Fixes issues with the background property
  *
  * Revision 1.2  2005/08/26 14:09:49  ylafon
@@ -112,7 +116,7 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @see CssBackgroundColor
  * @see CssBackgroundImage
  * @see CssBackgroundRepeat
@@ -241,8 +245,92 @@ public class CssBackgroundCSS2 extends CssProperty
     public CssBackgroundCSS2(ApplContext ac, CssExpression expression) 
 	throws InvalidParamException {
 	this(ac, expression, false);
+    }        
+    
+    /**
+     * @return Returns the attachment.
+     */
+    public CssBackgroundAttachmentCSS2 getAttachment() {
+        return attachment;
+    }
+
+    /**
+     * @param attachment The attachment to set.
+     */
+    public void setAttachment(CssBackgroundAttachmentCSS2 attachment) {
+        this.attachment = attachment;
+    }
+
+    /**
+     * @return Returns the image.
+     */
+    public CssBackgroundImageCSS2 getImage() {
+        return image;
+    }
+
+    /**
+     * @param image The image to set.
+     */
+    public void setImage(CssBackgroundImageCSS2 image) {
+        this.image = image;
+    }
+
+    /**
+     * @return Returns the repeat.
+     */
+    public CssBackgroundRepeatCSS2 getRepeat() {
+        return repeat;
+    }
+
+    /**
+     * @param repeat The repeat to set.
+     */
+    public void setRepeat(CssBackgroundRepeatCSS2 repeat) {
+        this.repeat = repeat;
+    }
+
+    /**
+     * @return Returns the same.
+     */
+    public boolean isSame() {
+        return same;
+    }
+
+    /**
+     * @param same The same to set.
+     */
+    public void setSame(boolean same) {
+        this.same = same;
+    }
+
+    /**
+     * Returns the color
+     */
+    public final CssBackgroundColorCSS2 getColor2() {
+	return color;
     }
     
+    /**
+     * @param color The color to set.
+     */
+    public void setColor(CssBackgroundColorCSS2 color) {
+        this.color = color;
+    }
+
+    /**
+     * @return Returns the position.
+     */
+    public CssBackgroundPositionCSS2 getPosition() {
+        return position;
+    }
+
+    /**
+     * @param position The position to set.
+     */
+    public void setPosition(CssBackgroundPositionCSS2 position) {
+        this.position = position;
+    }
+
     /**
      * Returns the value of this property
      */

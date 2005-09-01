@@ -7,7 +7,7 @@
     <link rev="made" href="mailto:www-validator@w3.org" />
     <link rev="start" href="./" title="Home Page" />
     <style type="text/css" media="all">@import "./base.css";</style>
-    <meta name="revision" content="$Id: validator-text.html.en,v 1.7 2004-04-26 02:07:12 ot Exp $" />
+    <meta name="revision" content="$Id: validator-text.html.en,v 1.8 2005-09-01 11:51:21 ylafon Exp $" />
   </head>
 
   <body>
@@ -62,6 +62,7 @@
 	<option value="none">No special profile</option>
 	<option value="css1">CSS version 1</option>
 	<option selected="selected" value="css2">CSS version 2</option>
+	<option value="css21">CSS version 2.1</option>
  	<option value="css3">CSS version 3</option>
 	<option value="svg">SVG</option>
 	<option value="svgbasic">SVG Basic</option>
@@ -104,8 +105,8 @@
 	alt="Valid CSS!" /></a>
       <a title="Send Feedback for the W3C Markup Validation Service"
         href="Email">The W3C CSS Validator Team</a><br />
-      $Date: 2004-04-26 02:07:12 $
-      <!-- SSI Template Version: $Id: validator-text.html.en,v 1.7 2004-04-26 02:07:12 ot Exp $ -->
+      $Date: 2005-09-01 11:51:21 $
+      <!-- SSI Template Version: $Id: validator-text.html.en,v 1.8 2005-09-01 11:51:21 ylafon Exp $ -->
     </address>
     <p class="copyright">
       <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2003

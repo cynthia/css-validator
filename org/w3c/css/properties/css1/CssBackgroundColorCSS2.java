@@ -1,12 +1,16 @@
 //
-// $Id: CssBackgroundColorCSS2.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssBackgroundColorCSS2.java,v 1.2 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundColorCSS2.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -78,13 +82,13 @@ import org.w3c.css.values.CssValue;
  *   <PRE>
  *   H1 { background-color: #F00 }
  *   </PRE>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBackgroundColorCSS2 extends CssProperty {
 
     CssValue color;
 
-    static CssIdent transparent = new CssIdent("transparent");
+    protected static CssIdent transparent = new CssIdent("transparent");
 
     /**
      * Create a new CssBackgroundColorCSS2
@@ -132,8 +136,15 @@ public class CssBackgroundColorCSS2 extends CssProperty {
     public CssBackgroundColorCSS2(ApplContext ac, CssExpression expression) 
 	throws InvalidParamException {
 	this(ac, expression, false);
-    }
+    }        
     
+    /**
+     * @param color The color to set.
+     */
+    public void setColor(CssValue color) {
+        this.color = color;
+    }
+
     /**
      * Returns the value of this property
      */

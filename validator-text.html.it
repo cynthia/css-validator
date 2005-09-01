@@ -9,7 +9,7 @@
     <style type="text/css" media="all">@import "./base.css";</style>
     <meta name="keywords" content="CSS, Fogli di stile a cascata, Validazione, Servizio di Validazione del W3C per i fogli di stile" />
     <meta name="description" content="Sistema di validazione per i fogli di stile" />
-    <meta name="revision" content="$Id: validator-text.html.it,v 1.1 2004-04-26 02:46:56 ot Exp $" />
+    <meta name="revision" content="$Id: validator-text.html.it,v 1.2 2005-09-01 11:51:21 ylafon Exp $" />
     <meta name="translator" content="Roberto Scano - International Webmasters Association / The HTML Writers Guild" />
   </head>
 
@@ -63,6 +63,7 @@
 	<option value="none">Nessun profilo particolare</option>
 	<option value="css1">CSS versione 1</option>
 	<option selected="selected" value="css2">CSS versione 2</option>
+	<option value="css21">CSS versione 2.1</option>
  	<option value="css3">CSS versione 3</option>
 	<option value="svg">SVG</option>
 	<option value="svgbasic">SVG Basic</option>
@@ -104,8 +105,8 @@
 	alt="CSS Validato!" /></a>
 	<a title="Invia dei commenti al gruppo del W3C che si occupa della validazione"
         href="Email">Il Gruppo W3C CSS Validator</a><br />
-      $Date: 2004-04-26 02:46:56 $
-      <!-- SSI Template Version: $Id: validator-text.html.it,v 1.1 2004-04-26 02:46:56 ot Exp $ -->
+      $Date: 2005-09-01 11:51:21 $
+      <!-- SSI Template Version: $Id: validator-text.html.it,v 1.2 2005-09-01 11:51:21 ylafon Exp $ -->
     </address>
     <p class="copyright">
       <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2003

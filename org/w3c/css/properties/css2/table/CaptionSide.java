@@ -1,5 +1,5 @@
 //
-// $Id: CaptionSide.java,v 1.1 2005-08-23 16:33:50 ylafon Exp $
+// $Id: CaptionSide.java,v 1.2 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -24,10 +24,10 @@ public class CaptionSide extends TableProperty {
     
     CssValue value;
     
-    private static CssIdent top = new CssIdent("top");
-    private static CssIdent bottom = new CssIdent("bottom");
-    private static CssIdent right = new CssIdent("right");
-    private static CssIdent left = new CssIdent("left");
+    protected static CssIdent top = new CssIdent("top");
+    protected static CssIdent bottom = new CssIdent("bottom");
+    protected static CssIdent right = new CssIdent("right");
+    protected static CssIdent left = new CssIdent("left");
 
     /**
      * Create a new CaptionSide
@@ -76,6 +76,20 @@ public class CaptionSide extends TableProperty {
 	this(ac, expression, false);
     }
     
+    /**
+     * @return Returns the value.
+     */
+    public CssValue getValue() {
+        return value;
+    }
+
+    /**
+     * @param value The value to set.
+     */
+    public void setValue(CssValue value) {
+        this.value = value;
+    }
+
     /**
      * Returns the current value
      */  

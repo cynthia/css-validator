@@ -1,12 +1,16 @@
 //
-// $Id: CssColorCSS2.java,v 1.6 2005-08-29 12:36:47 ylafon Exp $
+// $Id: CssColorCSS2.java,v 1.7 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssColorCSS2.java,v $
- * Revision 1.6  2005-08-29 12:36:47  ylafon
+ * Revision 1.7  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.6  2005/08/29 12:36:47  ylafon
  * refined error message for RGB value checks
  *
  * Revision 1.5  2005/08/26 14:09:50  ylafon
@@ -203,7 +207,7 @@ import org.w3c.css.util.Util;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssColorCSS2 extends CssColor {
     
@@ -417,7 +421,7 @@ public class CssColorCSS2 extends CssColor {
 	}
 	
 	throw new InvalidParamException("value", s, "color", ac);
-    }    
+    }
     
     private static Integer clippedIntValue(int rgb, ApplContext ac) {
 	if (rgb < 0 || rgb > 255) {

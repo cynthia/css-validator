@@ -1,12 +1,16 @@
 //
-// $Id: CssBorderTopCSS2.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssBorderTopCSS2.java,v 1.2 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBorderTopCSS2.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -89,7 +93,7 @@ import org.w3c.css.values.CssValue;
  *   Note that while the 'border-style' property accepts up to four values, this
  *   property only accepts one style value.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBorderTopCSS2 extends CssProperty implements CssOperator {
     
@@ -181,6 +185,48 @@ public class CssBorderTopCSS2 extends CssProperty implements CssOperator {
 	this(ac, expression,false);
     }
     
+    /**
+     * @return Returns the color.
+     */
+    public CssBorderTopColorCSS2 getColor2() {
+        return color;
+    }
+
+    /**
+     * @return Returns the style.
+     */
+    public CssBorderTopStyleCSS2 getStyle2() {
+        return style;
+    }
+
+    /**
+     * @return Returns the width.
+     */
+    public CssBorderTopWidthCSS2 getWidth2() {
+        return width;
+    }
+
+    /**
+     * @param color The color to set.
+     */
+    public void setColor(CssBorderTopColorCSS2 color) {
+        this.color = color;
+    }
+
+    /**
+     * @param style The style to set.
+     */
+    public void setStyle(CssBorderTopStyleCSS2 style) {
+        this.style = style;
+    }
+
+    /**
+     * @param width The width to set.
+     */
+    public void setWidth(CssBorderTopWidthCSS2 width) {
+        this.width = width;
+    }
+
     /**
      * Returns the value of this property
      */

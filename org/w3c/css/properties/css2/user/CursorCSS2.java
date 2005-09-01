@@ -1,5 +1,5 @@
 //
-// $Id: CursorCSS2.java,v 1.1 2005-08-23 16:33:51 ylafon Exp $
+// $Id: CursorCSS2.java,v 1.2 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -20,7 +20,7 @@ import org.w3c.css.values.CssURL;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CursorCSS2 extends CssProperty 
     implements CssOperator {
@@ -103,8 +103,50 @@ public class CursorCSS2 extends CssProperty
     public CursorCSS2(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
-    }
+    }    
     
+    /**
+     * @return Returns the uris.
+     */
+    public Vector getUris() {
+        return uris;
+    }
+
+    /**
+     * @param uris The uris to set.
+     */
+    public void setUris(Vector uris) {
+        this.uris = uris;
+    }
+
+    /**
+     * @return Returns the value.
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * @param value The value to set.
+     */
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    /**
+     * @return Returns the inheritedValue.
+     */
+    public boolean isInheritedValue() {
+        return inheritedValue;
+    }
+
+    /**
+     * @param inheritedValue The inheritedValue to set.
+     */
+    public void setInheritedValue(boolean inheritedValue) {
+        this.inheritedValue = inheritedValue;
+    }
+
     /**
      * Returns the value of this property
      */

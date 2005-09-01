@@ -1,12 +1,16 @@
 //
-// $Id: CssListStyleConstants.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssListStyleConstants.java,v 1.2 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssListStyleConstants.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
+ * Revision 1.2  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.1  2005/08/23 16:23:12  ylafon
  * Patch by Jean-Guilhem Rouel
  *
  * Better handling of media and properties files
@@ -47,7 +51,7 @@
 package org.w3c.css.properties.css1;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public interface CssListStyleConstants {
     
@@ -88,6 +92,14 @@ public interface CssListStyleConstants {
 	"none"
     };
 
+    public static String[] LISTSTYLETYPECSS2 = {
+	"disc", "circle", "square", "decimal", "decimal-leading-zero",
+	"lower-roman", "upper-roman", "lower-greek", "lower-alpha",
+	"lower-latin", "upper-alpha", "upper-latin", "hebrew", "armenian",
+	"georgian", "cjk-ideographic", "hiragana", "katakana", "hiragana-iroha",
+	"katakana-iroha", "none", "inherit"
+    };    
+    
     public static String[] LISTSTYLETYPETV = {
 	"disc", "circle", "square", "decimal",
 	"lower-roman", "upper-roman",

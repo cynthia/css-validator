@@ -9,7 +9,7 @@
 <style type="text/css" media="all">@import "./base.css";</style>
 <meta name="keywords" content="CSS, Cascading Style Sheets, Validation, W3C Markup Validation Service" />
 <meta name="description" content="Le service de validation HTML facile du W3C fondé sur un analyseur SGML." />
-<meta name="revision" content="$Id: validator-upload.html.fr,v 1.10 2004-10-04 01:18:59 ot Exp $" />
+<meta name="revision" content="$Id: validator-upload.html.fr,v 1.11 2005-09-01 11:51:21 ylafon Exp $" />
 </head>
 
 <body>
@@ -66,6 +66,7 @@ Profil :
 	<option value="none">Aucun profil particulier</option>
 	<option value="css1">CSS niveau 1</option>
 	<option selected="selected" value="css2">CSS niveau 2</option>
+	<option value="css21">CSS niveau 2.1</option>
 	<option value="css3">CSS niveau 3</option>
 	<option value="svg">SVG</option>
 	<option value="svgbasic">SVG Basic</option>
@@ -110,8 +111,8 @@ Medium :
 	<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
 <a title="Faire part de vos remarques à l'équipe du service de validation du W3C" href="Email">L'équipe du validateur CSS du W3C</a><br />
 
-$Date: 2004-10-04 01:18:59 $
-<!-- SSI Template Version: $Id: validator-upload.html.fr,v 1.10 2004-10-04 01:18:59 ot Exp $ -->
+$Date: 2005-09-01 11:51:21 $
+<!-- SSI Template Version: $Id: validator-upload.html.fr,v 1.11 2005-09-01 11:51:21 ylafon Exp $ -->
 </address>
 <p class="copyright">
 <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2003

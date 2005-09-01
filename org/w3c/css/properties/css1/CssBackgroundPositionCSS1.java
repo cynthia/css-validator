@@ -1,12 +1,16 @@
 //
-// $Id: CssBackgroundPositionCSS1.java,v 1.3 2005-08-29 09:52:21 ylafon Exp $
+// $Id: CssBackgroundPositionCSS1.java,v 1.4 2005-09-01 11:51:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * $Log: CssBackgroundPositionCSS1.java,v $
- * Revision 1.3  2005-08-29 09:52:21  ylafon
+ * Revision 1.4  2005-09-01 11:51:21  ylafon
+ * From Jean-Guilhem Rouel:
+ * CSS 2.1 first implementation
+ *
+ * Revision 1.3  2005/08/29 09:52:21  ylafon
  * Jean-Guilhem Rouel: Fixes issues with the background property
  *
  * Revision 1.2  2005/08/26 14:09:49  ylafon
@@ -164,7 +168,7 @@ import org.w3c.css.values.CssValue;
  *   <P>
  *   In the example above, the image is placed in the lower right corner of the
  *   canvas.
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @see CssBackgroundAttachment 
  */
 public class CssBackgroundPositionCSS1 extends CssProperty 
@@ -202,17 +206,7 @@ implements CssBackgroundConstants, CssOperator {
 	    throw new  InvalidParamException("operator", 
 		    ((new Character(op)).toString()),
 		    ac);
-	
-	if (val.equals(inherit)) {
-	    if(expression.getCount() > 1) {
-		throw new InvalidParamException("unrecognize", ac);
-	    }
-	    first = inherit;
-	    second = inherit;
-	    expression.next();
-	    return;
-	}
-	
+
 	CssValue next = expression.getNextValue();	
 	
 	if(val instanceof CssIdent) {
