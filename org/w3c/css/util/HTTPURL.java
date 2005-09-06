@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.16 2005-08-29 12:00:42 ylafon Exp $
+ * $Id: HTTPURL.java,v 1.17 2005-09-06 15:03:06 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -18,7 +18,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @version $Revision: 1.16 $
+ * @version $Revision: 1.17 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -201,7 +201,7 @@ public class HTTPURL {
 	urlC.setRequestProperty("Accept",
 				"text/css,text/html,text/xml,"
 				+"application/xhtml+xml,application/xml,"
-				+"image/svg+xml,*/*;q=0");
+				+"image/svg+xml,*/*;q=0.1");
 	
 	urlC.connect();
 	
