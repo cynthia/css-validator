@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.7 2005-09-08 12:23:33 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.8 2005-09-08 16:37:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,6 +14,8 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.StringTokenizer;
 import java.util.Vector;
+
+import java.lang.reflect.Constructor;
 
 import org.w3c.css.parser.AtRule;
 import org.w3c.css.parser.AtRuleMedia;
@@ -34,10 +36,22 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public final class StyleSheetParser 
     implements CssValidatorListener, CssParser {
+
+    private static Constructor co = null;
+
+    static {
+	try {
+	    Class c = java.lang.Exception.class;
+	    Class cp[] = { java.lang.Exception.class };
+	    co = c.getDeclaredConstructor(cp);
+	} catch (NoSuchMethodException ex) {
+	    co = null;
+	}
+    }
 
     CssFouffa  cssFouffa;
     StyleSheet style = new StyleSheet();
@@ -64,7 +78,9 @@ public final class StyleSheetParser
      * @param selector     the selector
      * @param declarations Properties to associate with contexts
      */  
-    public void handleRule(ApplContext ac, CssSelectors selector, Vector properties) {
+    public void handleRule(ApplContext ac, CssSelectors selector, 
+			   Vector properties) 
+    {
 	if (selector.getAtRule() instanceof AtRulePage) {
 	    style.remove(selector);
 	}
@@ -261,12 +277,30 @@ public final class StyleSheetParser
 							-1, e));
 	    notifyErrors(er);
 	} catch(TokenMgrError e) {
-	    Errors er = new Errors();	    
-	    er.addError(new org.w3c.css.parser.CssError(url.toString(), e.getErrorLine(), new CssParseException(new Exception(e))));
+	    Errors er = new Errors(); 
+	    CssParseException cpe = null;
+	    if (co != null) {
+		try {
+		    Object o[] = new Object[1];
+		    o[0] = e;
+		    Exception new_e = (Exception) co.newInstance(o);
+		    cpe = new CssParseException(new_e);
+		} catch (Exception ex) {
+		    cpe = null;
+		}
+	    }
+	    if (cpe == null) {
+		cpe = new CssParseException(new Exception(e.getMessage()));
+	    }
+	    er.addError(new org.w3c.css.parser.CssError(url.toString(), 
+							e.getErrorLine(),
+							cpe));
 	    notifyErrors(er);
 	} catch(RuntimeException e) {
 	    Errors er = new Errors();	    
-	    er.addError(new org.w3c.css.parser.CssError(url.toString(), cssFouffa.getLine(), new CssParseException(e)));
+	    er.addError(new org.w3c.css.parser.CssError(url.toString(), 
+							cssFouffa.getLine(),
+						    new CssParseException(e)));
 	    notifyErrors(er);
 	}
     }
