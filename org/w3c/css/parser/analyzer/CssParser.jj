@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.15 2005-09-08 12:23:33 ylafon Exp $
+ * $Id: CssParser.jj,v 1.16 2005-09-08 12:51:36 ylafon Exp $
  *
  */
 
@@ -78,7 +78,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le H�garet and Sijtsche Smeman
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public abstract class CssParser {
 
@@ -467,7 +467,7 @@ TOKEN :
 <DEFAULT>
 TOKEN :
 {
-  < HASH : "#" <IDENT> >
+  < HASH : "#" <NAME> >
 }
 
 <DEFAULT>
