@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.5 2005-08-08 13:19:46 ylafon Exp $
+ * $Id: ApplContext.java,v 1.6 2005-09-08 14:24:29 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -16,7 +16,7 @@ import org.w3c.www.http.HttpAcceptCharsetList;
 import org.w3c.www.http.HttpFactory;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @author  Philippe Le Hegaret
  */
 public class ApplContext {
@@ -178,6 +178,8 @@ public class ApplContext {
 	    String encoding = null;
 	    double quality = 0.0;
 	    
+	    String biasedcharset = getMsg().getString("output-encoding-name");
+	    
 	    for(int i = 0; i < charsets.length && quality < 1.0 ; i++) {
 		HttpAcceptCharset charset = charsets[i];
 		
@@ -189,6 +191,12 @@ public class ApplContext {
 		if(isCharsetSupported(currentCharset)) {
 		    double currentQuality = charset.getQuality();
 		    
+		    // we prefer utf-8 
+		    // FIXME (the bias value and the biased charset
+		    //        should be dependant on the language)
+		    if ((biasedcharset != null) && !biasedcharset.equalsIgnoreCase(currentCharset)) {
+			currentQuality = currentQuality * 0.5;
+		    }
 		    if(currentQuality > quality) {
 			quality = currentQuality;
 			encoding = charset.getCharset();
