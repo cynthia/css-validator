@@ -1,18 +1,20 @@
 /* Copyright (c) 1997 by Groupe Bull.  All Rights Reserved */
-/* $Id: HtmlTree.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $ */
+/* $Id: HtmlTree.java,v 1.3 2005-09-08 12:23:32 ylafon Exp $ */
 /* Author: Jean-Michel.Leon@sophia.inria.fr */
 /* Modified: Vincent Mallet (Vincent.Mallet@sophia.inria.fr) */
 
 package html.tags;
 
-import html.parser.*;
-import html.tree.*;
+import html.parser.Attributes;
+import html.parser.Element;
+import html.tree.ActiveTree;
+
+import java.io.ByteArrayInputStream;
 
 import org.w3c.css.css.StyleSheet;
 import org.w3c.css.parser.CssSelectors;
-
-import java.io.ByteArrayInputStream;
-import java.util.*;
+import org.w3c.css.selectors.TypeSelector;
+import org.w3c.css.util.InvalidParamException;
 
 
 /**
@@ -72,9 +74,10 @@ public abstract class HtmlTree extends ActiveTree implements HtmlTag {
      * Get the stylesheet context for this level in the Html tree. It will be used to
      * retrieve the actual stylesheet properties for the element.
      * @@ [CONTINUE ME]
+     * @throws InvalidParamException 
      */
     
-    public CssSelectors getContext() {
+    public CssSelectors getContext() throws InvalidParamException {
 	//    ContextStack context;
 
 	if (context != null) {
@@ -94,8 +97,8 @@ public abstract class HtmlTree extends ActiveTree implements HtmlTag {
 	
 	// add own context
 	//    CssContextList thisContext = new CssContextList(getElement().getName());
-	context.setElement(getElement().getName().toUpperCase());
-	
+//	context.setElement(getElement().getName().toUpperCase());
+	context.addType(new TypeSelector(getElement().getName().toUpperCase()));
 	//    Attributes atts = htmlNode.getAttributes();
 	if (atts != null) {
 	    for (int i = 0; i < atts.length(); i++) {

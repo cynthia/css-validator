@@ -1,34 +1,15 @@
 //
-// $Id: CssColorConstants.java,v 1.3 2005-09-01 11:51:21 ylafon Exp $
+// $Id: CssColorConstants.java,v 1.4 2005-09-08 12:24:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssColorConstants.java,v $
- * Revision 1.3  2005-09-01 11:51:21  ylafon
- * From Jean-Guilhem Rouel:
- * CSS 2.1 first implementation
- *
- * Revision 1.2  2002/04/08 21:19:46  plehegar
- * New
- *
- * Revision 1.3  1997/07/30 13:19:32  plehegar
- * Updated package
- *
- * Revision 1.2  1997/07/22 17:48:26  plehegar
- * Bug fix marron
- *
- * Revision 1.1  1997/07/21 22:07:31  plehegar
- * Initial revision
- *
- */
 package org.w3c.css.values;
 
 /**
  * This class is ued by CssColor
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @see org.w3c.css.values.CssColor
  */
 public interface CssColorConstants {

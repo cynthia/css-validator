@@ -1,33 +1,15 @@
 //
-// $Id: CssOperator.java,v 1.2 2002-04-08 21:19:46 plehegar Exp $
+// $Id: CssOperator.java,v 1.3 2005-09-08 12:24:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssOperator.java,v $
- * Revision 1.2  2002-04-08 21:19:46  plehegar
- * New
- *
- * Revision 1.4  1997/07/30 13:19:35  plehegar
- * Updated package
- *
- * Revision 1.3  1997/07/23 14:16:48  plehegar
- * Updated
- *
- * Revision 1.2  1997/07/17 16:41:46  plehegar
- * Updated CSSOPERATOR
- *
- * Revision 1.1  1997/07/17 16:29:16  plehegar
- * Initial revision
- *
- */
 package org.w3c.css.values;
 
 /**
  * Used by properties to verify the semantics
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface CssOperator {
   public static final char COMMA = ',';

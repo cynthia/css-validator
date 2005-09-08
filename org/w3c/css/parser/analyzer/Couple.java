@@ -1,15 +1,10 @@
 //
-// $Id: Couple.java,v 1.2 2002-04-08 21:24:03 plehegar Exp $
+// $Id: Couple.java,v 1.3 2005-09-08 12:23:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: Couple.java,v $
- * Revision 1.2  2002-04-08 21:24:03  plehegar
- * New
- *
- */
+
 package org.w3c.css.parser.analyzer;
 
 import org.w3c.css.values.CssExpression;
@@ -18,7 +13,7 @@ import org.w3c.css.values.CssExpression;
  * This class represents a couple : an at-rule property and an at-rule
  * expression.
  *
- * @version $Revision: 1.2 $ 
+ * @version $Revision: 1.3 $ 
  */
 public class Couple {
 

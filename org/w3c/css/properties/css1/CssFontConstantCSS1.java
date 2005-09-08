@@ -1,34 +1,13 @@
 //
-// $Id: CssFontConstantCSS1.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssFontConstantCSS1.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssFontConstantCSS1.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
- * Patch by Jean-Guilhem Rouel
- *
- * Better handling of media and properties files
- * Major reorganization of those properties files
- *
- * Revision 1.2  2002/04/08 21:17:43  plehegar
- * New
- *
- * Revision 1.3  1997/07/30 13:19:59  plehegar
- * Updated package
- *
- * Revision 1.2  1997/07/17 12:42:03  plehegar
- * Added font-weight
- *
- * Revision 1.1  1997/07/17 12:28:44  plehegar
- * Initial revision
- *
- */
 package org.w3c.css.properties.css1;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public interface CssFontConstantCSS1 {
 

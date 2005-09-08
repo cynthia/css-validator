@@ -1,21 +1,15 @@
 //
-// $Id: QuickSortAlgorithm.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+// $Id: QuickSortAlgorithm.java,v 1.3 2005-09-08 12:24:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: QuickSortAlgorithm.java,v $
- * Revision 1.2  2002-04-08 21:19:15  plehegar
- * New
- *
- */
 package org.w3c.css.util;
 
 /**
  * The quicksort algorithm.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hégaret
  */
 public class QuickSortAlgorithm extends SortAlgorithm {

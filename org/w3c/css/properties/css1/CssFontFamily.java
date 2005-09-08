@@ -1,5 +1,5 @@
 //
-// $Id: CssFontFamily.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssFontFamily.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -77,7 +77,7 @@ import org.w3c.css.values.CssValue;
  *   name is converted to a single space.
  *
  * @see CssFont
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssFontFamily extends CssProperty implements CssOperator {
 
@@ -184,11 +184,7 @@ public class CssFontFamily extends CssProperty implements CssOperator {
 		} else {
 		    CssValue next = expression.getNextValue();
 
-		    if(manyValues && next != null && next.equals(inherit)) {
-			throw new InvalidParamException("unrecognize", ac);
-		    }
-		    
-		    if (next instanceof CssIdent) {
+		    if (next != null) {
 			CssIdent New = new CssIdent(val.get() + " "
 						    + next.get());
 			withSpace = true;

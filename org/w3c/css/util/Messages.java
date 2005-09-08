@@ -1,21 +1,9 @@
 //
-// $Id: Messages.java,v 1.4 2005-07-12 13:13:10 ylafon Exp $
+// $Id: Messages.java,v 1.5 2005-09-08 12:24:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: Messages.java,v $
- * Revision 1.4  2005-07-12 13:13:10  ylafon
- * New UTF8 Properties (added by Jean-Guilhem Rouel)
- *
- * Revision 1.3  2005/01/17 02:50:12  ot
- * adding spanish as a potential message lang - thanks Carlos Iglesias
- *
- * Revision 1.2  2002/04/08 21:19:15  plehegar
- * New
- *
- */
 
 package org.w3c.css.util;
 
@@ -24,7 +12,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class Messages {
     

@@ -1,28 +1,9 @@
 //
-// $Id: ACssSpeakTime.java,v 1.1 2005-08-23 16:51:43 ylafon Exp $
+// $Id: ACssSpeakTime.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: ACssSpeakTime.java,v $
- * Revision 1.1  2005-08-23 16:51:43  ylafon
- * reorg (cvs funkyness...)
- *
- * Revision 1.3  2005/08/08 13:18:03  ylafon
- * All those changed made by Jean-Guilhem Rouel:
- *
- * Huge patch, imports fixed (automatic)
- * Bug fixed: 372, 920, 778, 287, 696, 764, 233
- * Partial bug fix for 289
- *
- * Issue with "inherit" in CSS2.
- * The validator now checks the number of values (extraneous values were previously ignored)
- *
- * Revision 1.2  2002/04/08 21:16:56  plehegar
- * New
- *
- */
 
 package org.w3c.css.properties.aural;
 
@@ -44,7 +25,7 @@ import org.w3c.css.values.CssValue;
  * <EM>Inherited:</EM> yes<BR>
  * <EM>Percentage values:</EM> NA
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class ACssSpeakTime extends ACssProperty {
     

@@ -1,25 +1,9 @@
 //
-// $Id: FakeFile.java,v 1.3 2005-08-08 13:19:46 ylafon Exp $
+// $Id: FakeFile.java,v 1.4 2005-09-08 12:24:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: FakeFile.java,v $
- * Revision 1.3  2005-08-08 13:19:46  ylafon
- * All those changed made by Jean-Guilhem Rouel:
- *
- * Huge patch, imports fixed (automatic)
- * Bug fixed: 372, 920, 778, 287, 696, 764, 233
- * Partial bug fix for 289
- *
- * Issue with "inherit" in CSS2.
- * The validator now checks the number of values (extraneous values were previously ignored)
- *
- * Revision 1.2  2002/04/08 21:19:15  plehegar
- * New
- *
- */
 package org.w3c.css.util;
 
 import java.io.ByteArrayInputStream;
@@ -27,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class FakeFile {
   

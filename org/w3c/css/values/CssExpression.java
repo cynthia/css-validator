@@ -1,30 +1,9 @@
 //
-// $Id: CssExpression.java,v 1.2 2002-04-08 21:19:46 plehegar Exp $
+// $Id: CssExpression.java,v 1.3 2005-09-08 12:24:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssExpression.java,v $
- * Revision 1.2  2002-04-08 21:19:46  plehegar
- * New
- *
- * Revision 2.2  1997/08/20 11:38:22  plehegar
- * Freeze
- *
- * Revision 2.1  1997/08/08 15:53:03  plehegar
- * Nothing
- *
- * Revision 1.8  1997/07/30 13:19:33  plehegar
- * Updated package
- *
- * Revision 1.7  1997/07/18 20:25:36  plehegar
- * Suppress a bug in getNMextValue and setOperator()
- *
- * Revision 1.6  1997/07/17 21:28:49  plehegar
- * new CssExpression, old was very bad
- *
- */
 package org.w3c.css.values;
 
 import java.util.Vector;
@@ -32,7 +11,7 @@ import java.util.Vector;
 /**
  * This class is used by the CSS1 parser to generate all expressions.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssExpression implements CssOperator {
 

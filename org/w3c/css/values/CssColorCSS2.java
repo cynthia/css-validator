@@ -1,59 +1,9 @@
 //
-// $Id: CssColorCSS2.java,v 1.7 2005-09-01 11:51:21 ylafon Exp $
+// $Id: CssColorCSS2.java,v 1.8 2005-09-08 12:24:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssColorCSS2.java,v $
- * Revision 1.7  2005-09-01 11:51:21  ylafon
- * From Jean-Guilhem Rouel:
- * CSS 2.1 first implementation
- *
- * Revision 1.6  2005/08/29 12:36:47  ylafon
- * refined error message for RGB value checks
- *
- * Revision 1.5  2005/08/26 14:09:50  ylafon
- * All changes made by Jean-Guilhem Rouel:
- *
- * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
- *
- * Errors in font, the handling of 'transparent', CSS Parser reinits...
- *
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
- *
- * Revision 1.4  2005/08/08 13:19:47  ylafon
- * All those changed made by Jean-Guilhem Rouel:
- *
- * Huge patch, imports fixed (automatic)
- * Bug fixed: 372, 920, 778, 287, 696, 764, 233
- * Partial bug fix for 289
- *
- * Issue with "inherit" in CSS2.
- * The validator now checks the number of values (extraneous values were previously ignored)
- *
- * Revision 1.3  2004/03/30 13:04:30  ylafon
- * Fixed integer and percentage mixed values
- *
- * Revision 1.2  2002/04/08 21:19:46  plehegar
- * New
- *
- * Revision 2.2  1997/08/20 11:38:07  plehegar
- * Freeze
- *
- * Revision 1.1  1997/07/10 23:42:32  plehegar
- * Initial revision
- *
- */
 package org.w3c.css.values;
 
 import java.util.Hashtable;
@@ -207,7 +157,7 @@ import org.w3c.css.util.Util;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class CssColorCSS2 extends CssColor {
     

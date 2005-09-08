@@ -1,43 +1,9 @@
 //
-// $Id: CssLineHeightPolicy.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssLineHeightPolicy.java,v 1.2 2005-09-08 12:24:01 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssLineHeightPolicy.java,v $
- * Revision 1.1  2005-08-23 16:24:20  ylafon
- * Patch by Jean-Guilhem Rouel
- *
- * Better handling of media and properties files
- * Major reorganization of those properties files
- *
- * Revision 1.2  2005/08/08 13:18:54  ylafon
- * All those changed made by Jean-Guilhem Rouel:
- *
- * Huge patch, imports fixed (automatic)
- * Bug fixed: 372, 920, 778, 287, 696, 764, 233
- * Partial bug fix for 289
- *
- * Issue with "inherit" in CSS2.
- * The validator now checks the number of values (extraneous values were previously ignored)
- *
- * Revision 1.1  2002/07/19 20:30:12  sijtsche
- * files representing CSS3 properties
- *
- * Revision 1.1  2002/05/08 09:30:52  dejong
- * CSS version 3 specific properties as in March 2002, all modules
- *
- * Revision 3.1  1997/08/29 13:13:43  plehegar
- * Freeze
- *
- * Revision 2.2  1997/08/20 11:41:20  plehegar
- * Freeze
- *
- * Revision 2.1  1997/08/08 15:52:13  plehegar
- * Nothing
- *
- */
 package org.w3c.css.properties.css3;
 
 import org.w3c.css.parser.CssStyle;
@@ -67,7 +33,7 @@ import org.w3c.css.values.CssValue;
  *   H1 { clear: left }
  *  </PRE>
  *
- * @version $Revision: 1.1 $ */
+ * @version $Revision: 1.2 $ */
 public class CssLineHeightPolicy extends CssProperty {
     
     CssValue value;

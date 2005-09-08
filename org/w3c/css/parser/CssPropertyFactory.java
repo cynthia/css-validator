@@ -1,5 +1,5 @@
 //
-// $Id: CssPropertyFactory.java,v 1.12 2005-08-23 16:22:54 ylafon Exp $
+// $Id: CssPropertyFactory.java,v 1.13 2005-09-08 12:23:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,6 @@ package org.w3c.css.parser;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -23,7 +22,7 @@ import org.w3c.css.values.CssIdent;
 
 
 /**
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  * @author Philippe Le H�garet
  */
 public class CssPropertyFactory implements Cloneable {

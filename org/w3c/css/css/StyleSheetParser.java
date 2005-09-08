@@ -1,58 +1,9 @@
 //
-// $Id: StyleSheetParser.java,v 1.6 2005-08-26 14:09:49 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.7 2005-09-08 12:23:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: StyleSheetParser.java,v $
- * Revision 1.6  2005-08-26 14:09:49  ylafon
- * All changes made by Jean-Guilhem Rouel:
- *
- * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
- *
- * Errors in font, the handling of 'transparent', CSS Parser reinits...
- *
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
- *
- * Revision 1.5  2005/08/23 16:22:54  ylafon
- * Patch by Jean-Guilhem Rouel
- *
- * Better handling of media and properties files
- * Major reorganization of those properties files
- *
- * Revision 1.4  2005/08/08 13:18:04  ylafon
- * All those changed made by Jean-Guilhem Rouel:
- *
- * Huge patch, imports fixed (automatic)
- * Bug fixed: 372, 920, 778, 287, 696, 764, 233
- * Partial bug fix for 289
- *
- * Issue with "inherit" in CSS2.
- * The validator now checks the number of values (extraneous values were previously ignored)
- *
- * Revision 1.3  2005/07/22 09:45:18  ylafon
- * Added code for error Handling (Jean-Guilhem Rouel)
- *
- * Revision 1.2  2002/04/08 21:16:38  plehegar
- * New
- *
- * Revision 3.1  1997/08/29 13:23:27  plehegar
- * Freeze
- *
- * Revision 1.1  1997/08/21 07:26:37  plehegar
- * Initial revision
- *
- */
 
 package org.w3c.css.css;
 
@@ -75,6 +26,7 @@ import org.w3c.css.parser.CssValidatorListener;
 import org.w3c.css.parser.Errors;
 import org.w3c.css.parser.analyzer.TokenMgrError;
 import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.selectors.IdSelector;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Util;
@@ -82,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public final class StyleSheetParser 
     implements CssValidatorListener, CssParser {
@@ -362,7 +314,7 @@ public final class StyleSheetParser
 	    } catch (InvalidParamException e) {} //ignore
 
 	    try {
-		selector.addAttribute("id", id.substring(1)); 
+		selector.addId(new IdSelector(id.substring(1)));; 
 	    } catch  (InvalidParamException e) {
 		style.removeThisRule();
 		ac.getFrame().addError(new CssError(e));

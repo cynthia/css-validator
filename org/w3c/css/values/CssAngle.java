@@ -1,49 +1,9 @@
 //
-// $Id: CssAngle.java,v 1.4 2005-08-26 14:09:50 ylafon Exp $
+// $Id: CssAngle.java,v 1.5 2005-09-08 12:24:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssAngle.java,v $
- * Revision 1.4  2005-08-26 14:09:50  ylafon
- * All changes made by Jean-Guilhem Rouel:
- *
- * Fix for bugs: 1269, 979, 791, 777, 776, 767, 765, 763, 576, 363
- *
- * Errors in font, the handling of 'transparent', CSS Parser reinits...
- *
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=1269
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=979
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=791
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=777
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=776
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=767
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=765
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=763
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=576
- * http://www.w3.org/Bugs/Public/show_bug.cgi?id=363
- *
- * Revision 1.3  2005/08/08 13:19:46  ylafon
- * All those changed made by Jean-Guilhem Rouel:
- *
- * Huge patch, imports fixed (automatic)
- * Bug fixed: 372, 920, 778, 287, 696, 764, 233
- * Partial bug fix for 289
- *
- * Issue with "inherit" in CSS2.
- * The validator now checks the number of values (extraneous values were previously ignored)
- *
- * Revision 1.2  2002/04/08 21:19:46  plehegar
- * New
- *
- * Revision 1.1  1997/08/29 13:10:38  plehegar
- * Initial revision
- *
- * Revision 1.1  1997/08/21 08:29:35  plehegar
- * Initial revision
- *
- */
 package org.w3c.css.values;
 
 import org.w3c.css.util.ApplContext;
@@ -66,7 +26,7 @@ import org.w3c.css.util.Util;
  * <p>Values in these units may be negative. They should be normalized to the
  * range 0-360deg by the UA. For example, -10deg and 350deg are equivalent.
  *
- * @version $Revision: 1.4 $ */
+ * @version $Revision: 1.5 $ */
 public class CssAngle extends CssValue implements CssValueFloat {
     
     Float value;

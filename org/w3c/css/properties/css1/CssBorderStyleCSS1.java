@@ -1,40 +1,9 @@
 //
-// $Id: CssBorderStyleCSS1.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssBorderStyleCSS1.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-/*
- * $Log: CssBorderStyleCSS1.java,v $
- * Revision 1.1  2005-08-23 16:23:12  ylafon
- * Patch by Jean-Guilhem Rouel
- *
- * Better handling of media and properties files
- * Major reorganization of those properties files
- *
- * Revision 1.3  2005/08/08 13:18:12  ylafon
- * All those changed made by Jean-Guilhem Rouel:
- *
- * Huge patch, imports fixed (automatic)
- * Bug fixed: 372, 920, 778, 287, 696, 764, 233
- * Partial bug fix for 289
- *
- * Issue with "inherit" in CSS2.
- * The validator now checks the number of values (extraneous values were previously ignored)
- *
- * Revision 1.2  2002/04/08 21:17:43  plehegar
- * New
- *
- * Revision 3.1  1997/08/29 13:13:40  plehegar
- * Freeze
- *
- * Revision 2.3  1997/08/26 13:59:15  plehegar
- * Added setSelectors()
- *
- * Revision 2.2  1997/08/20 11:41:19  plehegar
- * Freeze
- *
- */
 
 package org.w3c.css.properties.css1;
 
@@ -115,7 +84,7 @@ import org.w3c.css.values.CssOperator;
  *   <EM>CSS1 core:</EM> UAs may interpret all of 'dotted', 'dashed', 'double',
  *   'groove', 'ridge', 'inset' and 'outset' as 'solid'.
  *
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.2 $ 
  */
 public class CssBorderStyleCSS1 extends CssProperty implements CssOperator {
     
