@@ -1,4 +1,4 @@
-// $Id: StyleReportSOAP12.java,v 1.10 2005-09-14 15:14:17 ylafon Exp $
+// $Id: StyleReportSOAP12.java,v 1.11 2005-09-14 16:29:15 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public final class StyleReportSOAP12 extends StyleReport
     implements CssPrinterStyle {
@@ -499,7 +499,16 @@ public final class StyleReportSOAP12 extends StyleReport
 		    } else {
 			out.println(ac.getMsg().getGeneratorString("doc"));
 		    }
-		} else {
+		} else if(entity.equals("lang")) {		    
+		    out.print(str.substring(0, i));
+		    str = str.substring(lastIndexOfEntity + 3);
+		    i = 0;
+		    String lang = ac.getContentLanguage();
+		    if(lang == null || lang.equals("")) {
+			lang = "en";
+		    }
+		    out.print(lang);
+		} else {		    
 		    String value = prop.getProperty(entity);
 		    if (value != null) {
 			str = str.substring(0, i) + value
