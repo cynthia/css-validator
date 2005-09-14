@@ -3,9 +3,9 @@
  *
  * @author Vincent Mallet (Vincent.Mallet@sophia.inria.fr)
  *
- * $Id: HtmlEngineListener.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
+ * $Id: HtmlEngineListener.java,v 1.3 2005-09-14 15:14:17 ylafon Exp $
  *
- * @Revision $Revision: 1.2 $
+ * @Revision $Revision: 1.3 $
  */
 
 
@@ -22,17 +22,17 @@ import html.tags.*;
  * @see HtmlEngine
  *
  * @author Vincent Mallet  (Vincent.Mallet@sophia.inria.fr)
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public interface HtmlEngineListener {
-  
+
   /**
    * Initialize this engine listener. Invoked when the Html engine is
    * booting up.
    * @param engine the engine that will be listened to.
    */
-  
+
   public void initialize(HtmlEngine engine);
 
 
@@ -41,14 +41,14 @@ public interface HtmlEngineListener {
    */
 
   public void terminate();
-  
-  
+
+
   /**
-   * Invoked when the engine wants to open a new document. 
+   * Invoked when the engine wants to open a new document.
    * @param url the url that is being opened
    * @param parser the parser used to open the document.
    */
 
   public void openDocument(URL url, HtmlParser parser);
-  
+
 }

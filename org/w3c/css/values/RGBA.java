@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RGBA.java,v 1.3 2005-08-29 12:36:47 ylafon Exp $
+ * $Id: RGBA.java,v 1.4 2005-09-14 15:15:33 ylafon Exp $
  */
 package org.w3c.css.values;
 
@@ -19,9 +19,9 @@ public class RGBA {
     Object g;
     Object b;
     Object a;
-    
+
     boolean percent = false;
-    
+
     /**
      * @return Returns the percent.
      */
@@ -41,7 +41,7 @@ public class RGBA {
      */
     public RGBA() {
     }
-    
+
     /**
      * Create a new RGBA with default values
      */
@@ -51,14 +51,14 @@ public class RGBA {
 	this.b = b;
 	this.a = a;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
 	if (output == null) {
 	    String unit = (isPercent()) ? "%" : "";
-	    return "rgba(" + r + unit + ", " + g + unit + ", " + b + unit + 
+	    return "rgba(" + r + unit + ", " + g + unit + ", " + b + unit +
 	    ", " + a + unit + ")";
 	} else {
 	    return output;

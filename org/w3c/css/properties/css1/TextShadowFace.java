@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: TextShadowFace.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+ * $Id: TextShadowFace.java,v 1.2 2005-09-14 15:14:31 ylafon Exp $
  */
 package org.w3c.css.properties.css1;
 
@@ -33,11 +33,11 @@ public class TextShadowFace implements CssOperator {
 
     TextShadowFace(ApplContext ac, CssExpression expression, boolean check)
     	throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 4) {
 	    throw new InvalidParamException("unrecognize", ac);
-	}	
-	
+	}
+
 	val = expression.getValue();
 	op = expression.getOperator();
 
@@ -54,7 +54,7 @@ public class TextShadowFace implements CssOperator {
 		getLengths(ac, expression);
 	    }
 	} else if (val instanceof CssLength || val instanceof CssNumber) {
-	    getLengths(ac, expression);	    
+	    getLengths(ac, expression);
 	    val = expression.getValue();
 	    if (val instanceof CssColor) {
 		color = (CssColor) val;
@@ -66,16 +66,16 @@ public class TextShadowFace implements CssOperator {
 		expression.next();
 	    }
 	} else {
-	    throw new InvalidParamException("value", expression.getValue(), 
+	    throw new InvalidParamException("value", expression.getValue(),
 					    "text-shadow", ac);
 	}
     }
 
     TextShadowFace(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
-	this(ac, expression, false);	
+	this(ac, expression, false);
     }
-    
+
     void getLengths(ApplContext ac, CssExpression expression) throws InvalidParamException {
 	CssLength le = getLength(expression.getValue());
 	op = expression.getOperator();
@@ -88,7 +88,7 @@ public class TextShadowFace implements CssOperator {
 	    if ((op == SPACE) && (le != null)) {
 		lengths[1] = le;
 		op = expression.getOperator();
-		expression.next();		
+		expression.next();
 		le = getLength(expression.getValue());
 		if ((op == SPACE) && (le != null)) {
 		    lengths[2] = le;
@@ -96,7 +96,7 @@ public class TextShadowFace implements CssOperator {
 		    expression.next();
 		}
 	    } else {
-		throw new InvalidParamException("two-lengths", 
+		throw new InvalidParamException("two-lengths",
 						expression.getValue(),
 						"text-shadow", ac);
 	    }

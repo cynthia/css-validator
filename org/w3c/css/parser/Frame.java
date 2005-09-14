@@ -1,5 +1,5 @@
 //
-// $Id: Frame.java,v 1.7 2005-09-08 12:23:33 ylafon Exp $
+// $Id: Frame.java,v 1.8 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,7 +12,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class Frame {
 
@@ -108,7 +108,7 @@ public class Frame {
     warnings.addWarning(new Warning(getSourceFile(), getLine(),
                     warningMessage, 0, message1, message2, ac));
     }
-    
+
     /**
      * Get all warnings.
      */

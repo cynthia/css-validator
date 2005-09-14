@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundColorCSS1.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBackgroundColorCSS1.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -29,7 +29,7 @@ import org.w3c.css.values.CssValue;
  *   <PRE>
  *   H1 { background-color: #F00 }
  *   </PRE>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBackgroundColorCSS1 extends CssProperty {
 
@@ -52,7 +52,7 @@ public class CssBackgroundColorCSS1 extends CssProperty {
      */
     public CssBackgroundColorCSS1(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
@@ -80,11 +80,11 @@ public class CssBackgroundColorCSS1 extends CssProperty {
 	}
     }
 
-    public CssBackgroundColorCSS1(ApplContext ac, CssExpression expression) 
+    public CssBackgroundColorCSS1(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

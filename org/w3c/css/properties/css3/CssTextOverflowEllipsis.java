@@ -1,5 +1,5 @@
 //
-// $Id: CssTextOverflowEllipsis.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssTextOverflowEllipsis.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -31,7 +31,7 @@ import org.w3c.css.values.CssValue;
 	public CssTextOverflowEllipsis() {
 	    overflowellipsis = "...";
 	}
-	
+
 	/**
 	 * Create a new CssTextOverflowEllipsis
 	 *
@@ -42,7 +42,7 @@ import org.w3c.css.values.CssValue;
 	    setByUser();
 	    CssValue val = expression.getValue();
 	    CssValue val2 = null;
-	    
+
 	    if (val instanceof CssIdent) {
 		overflowellipsis = val.toString();
 		expression.next();
@@ -55,11 +55,11 @@ import org.w3c.css.values.CssValue;
 		throw new InvalidParamException("value", val.toString(),
 			getPropertyName(), ac);
 	    }
-	    
+
 	    val2 = expression.getValue();
-	    
+
 	    if (val2 != null) {
-		
+
 		if (val2 instanceof CssIdent) {
 		    overflowellipsis += " " + val2.toString();
 		    expression.next();
@@ -79,7 +79,7 @@ import org.w3c.css.values.CssValue;
 		throws InvalidParamException {
 	    this(ac, expression, false);
 	}
-	
+
 	/**
 	 * Add this property to the CssStyle.
 	 *

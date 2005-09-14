@@ -1,5 +1,5 @@
 /* Copyright (c) 1997 by Groupe Bull.  All Rights Reserved */
-/* $Id: URLHistory.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $ */
+/* $Id: URLHistory.java,v 1.3 2005-09-14 15:14:17 ylafon Exp $ */
 /* Author: Jean-Michel.Leon@sophia.inria.fr */
 
 package html.util;
@@ -10,7 +10,7 @@ import java.net.*;
 public class URLHistory {
     private Vector urls = new Vector(1, 1);
     private int index = -1;
-    
+
     public void append(URL url) {
 	urls.addElement(url);
 	index = urls.size()-1;

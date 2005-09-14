@@ -1,5 +1,5 @@
 //
-// $Id: InvalidParamException.java,v 1.4 2005-09-08 12:24:10 ylafon Exp $
+// $Id: InvalidParamException.java,v 1.5 2005-09-14 15:15:32 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,17 +10,17 @@ package org.w3c.css.util;
 import org.w3c.css.parser.analyzer.ParseException;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class InvalidParamException extends ParseException {
-    
+
     /**
      * Create a new InvalidParamException.
      */
     public InvalidParamException() {
 	super();
     }
-    
+
     /**
      * Create a new InvalidParamException with an error message.
      *
@@ -29,7 +29,7 @@ public class InvalidParamException extends ParseException {
     public InvalidParamException(String message, ApplContext ac) {
 	super(ac.getMsg().getErrorString((message != null)? message : ""));
     }
-    
+
     /**
      * Create a new InvalidParamException with an error message class.
      *
@@ -37,10 +37,10 @@ public class InvalidParamException extends ParseException {
      * @param message a message to add
      */
     public InvalidParamException(String error, Object message, ApplContext ac) {
-	super(processError(error, 
+	super(processError(error,
 			   (message != null)?message.toString():null, "", ac));
     }
-    
+
     /**
      * Create a new InvalidParamException.
      *
@@ -48,15 +48,15 @@ public class InvalidParamException extends ParseException {
      * @param message1 the first message to add
      * @param message1 the second message to add
      */
-    public InvalidParamException(String error, Object message1, 
+    public InvalidParamException(String error, Object message1,
 				 Object message2, ApplContext ac) {
-	super(processError(error, 
+	super(processError(error,
 			   (message1 != null)?message1.toString():null,
 			   (message2 != null)?message2.toString():null,
 			   ac));
     }
-    
-    private static String processError(String error, String arg1, 
+
+    private static String processError(String error, String arg1,
 				       String arg2, ApplContext ac) {
 	String str = null;
 

@@ -1,5 +1,5 @@
 //
-// $Id: CssLeft.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssLeft.java,v 1.2 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -23,7 +23,7 @@ public class CssLeft extends CssBoxOffsetFace {
   public CssLeft() {
     super();
   }
-  
+
   /**
    * Create a new CssLeft
    *
@@ -33,15 +33,15 @@ public class CssLeft extends CssBoxOffsetFace {
   public CssLeft(ApplContext ac, CssExpression expression) throws InvalidParamException {
     super(ac, expression);
   }
-  
+
   public CssLeft(ApplContext ac, CssExpression expression, boolean check)
   	throws InvalidParamException {
       super(ac, expression, check);
   }
-  
+
   /**
    * Returns the name of this property
-   */  
+   */
   public String getPropertyName() {
     return "left";
   }
@@ -63,7 +63,7 @@ public class CssLeft extends CssBoxOffsetFace {
    *
    * @param style The style where the property is
    * @param resolve if true, resolve the style to find this property
-   */  
+   */
   public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
     if (resolve) {
       return ((Css1Style) style).getLeft();
@@ -76,9 +76,9 @@ public class CssLeft extends CssBoxOffsetFace {
    * Compares two properties for equality.
    *
    * @param value The other property.
-   */  
+   */
   public boolean equals(CssProperty property) {
-    return (property instanceof CssLeft && 
+    return (property instanceof CssLeft &&
 	    value.equals(((CssLeft) property).value));
   }
 

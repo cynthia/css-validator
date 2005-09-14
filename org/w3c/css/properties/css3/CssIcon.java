@@ -1,5 +1,5 @@
 //
-// $Id: CssIcon.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssIcon.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated september 14th 2000 by Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -21,7 +21,7 @@ import org.w3c.css.values.CssURL;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssIcon extends CssProperty
     implements CssOperator {
@@ -47,14 +47,14 @@ public class CssIcon extends CssProperty
      */
     public CssIcon(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	CssValue val = expression.getValue();
 	char op = expression.getOperator();
-	
+
 	setByUser();
 	boolean correct = false;
-	
-	
+
+
 	if (val.equals(inherit)) {
 	    inheritedValue = true;
 	    icon = inherit;
@@ -65,7 +65,7 @@ public class CssIcon extends CssProperty
 	    expression.next();
 	    return;
 	}
-	
+
 	while (val != null) {
 	    if (val instanceof CssURL) {
 		uris.addElement(val);
@@ -78,18 +78,18 @@ public class CssIcon extends CssProperty
 			val.toString(), getPropertyName(), ac);
 	    }
 	}
-	
+
 	if (!correct) {
 	    throw new InvalidParamException("value",
 		    val.toString(), getPropertyName(), ac);
 	}
     }
-    
+
     public CssIcon(ApplContext ac, CssExpression expression)
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

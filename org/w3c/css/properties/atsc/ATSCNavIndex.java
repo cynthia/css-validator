@@ -1,5 +1,5 @@
 //
-// $Id: ATSCNavIndex.java,v 1.1 2005-08-23 16:23:11 ylafon Exp $
+// $Id: ATSCNavIndex.java,v 1.2 2005-09-14 15:14:18 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -49,11 +49,11 @@ public class ATSCNavIndex extends CssProperty {
      */
     public ATSCNavIndex (ApplContext ac, CssExpression expression, boolean check)
 	throws InvalidParamException {
-	
+
 	if(check && expression.getCount() >1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	this.ac = ac;
 	setByUser(); // tell this property is set by the user
 	CssValue val = expression.getValue();
@@ -61,7 +61,7 @@ public class ATSCNavIndex extends CssProperty {
 	    if (((CssNumber) val).getValue() > 0 &&
 		    ((CssNumber) val).getValue() < 32767 &&
 		    ((CssNumber) val).isInteger()) {
-		
+
 		navindex = val;
 		expression.next();
 	    } else {
@@ -76,12 +76,12 @@ public class ATSCNavIndex extends CssProperty {
 		    getPropertyName(), ac);
 	}
     }
-    
+
     public ATSCNavIndex(ApplContext ac, CssExpression expression)
     throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *

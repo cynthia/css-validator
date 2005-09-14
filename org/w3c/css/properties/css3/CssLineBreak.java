@@ -1,5 +1,5 @@
 //
-// $Id: CssLineBreak.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssLineBreak.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -30,7 +30,7 @@ authors as well.
  */
 
 public class CssLineBreak extends CssProperty {
-    
+
     CssValue linebreak;
 
     CssIdent normal = new CssIdent("normal");
@@ -42,8 +42,8 @@ public class CssLineBreak extends CssProperty {
     public CssLineBreak() {
 	linebreak = normal;
     }
-    
-    /** 
+
+    /**
      * Create a new CssLineBreak
      *
      * @param expression The expression for this property
@@ -54,7 +54,7 @@ public class CssLineBreak extends CssProperty {
 
 	setByUser();
 	CssValue val = expression.getValue();
-	
+
 	if (val.equals(normal)) {
 	    linebreak = normal;
 	    expression.next();
@@ -77,7 +77,7 @@ public class CssLineBreak extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -113,7 +113,7 @@ public class CssLineBreak extends CssProperty {
 	return (property instanceof CssLineBreak &&
 		linebreak.equals(((CssLineBreak) property).linebreak));
     }
-    
+
     /**
      * Returns the name of this property
      */

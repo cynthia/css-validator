@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RootTag.java,v 1.3 2002-05-19 02:16:29 plehegar Exp $
+ * $Id: RootTag.java,v 1.4 2005-09-14 15:14:17 ylafon Exp $
  */
 
 package html.tags;
@@ -24,20 +24,20 @@ import html.parser.*;
  */
 
 public class RootTag extends Block {
-    
+
     public static final boolean debug =  false;
-    
+
     /**
      * Create a new StyleTag.
      */
-    
+
     public RootTag() {
 	if (debug) {
 	    System.out.println( "creating RootTag   this=" +(Object)this);
 	}
-    }    
-    
-    public void initialize(Element elem, Attributes atts, 
+    }
+
+    public void initialize(Element elem, Attributes atts,
 			   ParserFrame parserFrame) {
 	super.initialize(elem, atts, parserFrame);
 
@@ -50,5 +50,5 @@ public class RootTag extends Block {
 		throw new XMLInputException(xml);
 	    }
 	}
-    }    
+    }
 }

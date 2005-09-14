@@ -1,5 +1,5 @@
 //
-// $Id: CssBackground.java,v 1.4 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBackground.java,v 1.5 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -46,7 +46,7 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  * @see CssBackgroundColor
  * @see CssBackgroundImage
  * @see CssBackgroundRepeat
@@ -93,19 +93,19 @@ public class CssBackground extends CssProperty
      */
     public CssBackground(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	CssValue val = expression.getValue();
 	char op = SPACE;
 	boolean find = true;
 	setByUser();
-		
+
 	// if there are too many values -> error
-	if(check && expression.getCount() > 6) {	    
+	if(check && expression.getCount() > 6) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	boolean manyValues = (expression.getCount() > 1);
-	
+
 	while (find) {
 	    find = false;
 	    val = expression.getValue();
@@ -114,12 +114,12 @@ public class CssBackground extends CssProperty
 	    if (val == null) {
 		break;
 	    }
-	    
+
 	    // if there are many values, we can't have inherit as one of them
 	    if(manyValues && val != null && val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", null, null, ac);
 	    }
-	    
+
 	    if (color == null) {
 		try {
 		    color = new CssBackgroundColor(ac, expression);
@@ -139,8 +139,8 @@ public class CssBackground extends CssProperty
 	    if (!find && repeat == null) {
 		try {
 		    repeat = new CssBackgroundRepeat(ac, expression);
-		    find = true;		    
-		} catch (InvalidParamException e) {		    
+		    find = true;
+		} catch (InvalidParamException e) {
 		    // nothing to do, attachment will test this value
 		}
 	    }
@@ -180,8 +180,8 @@ public class CssBackground extends CssProperty
 	    }
 	}
     }
-    
-    
+
+
     /**
      * Returns the value of this property
      */
@@ -239,7 +239,7 @@ public class CssBackground extends CssProperty
 	    }
 	    ret += position;
 	}
-	if(sizedefined) {	    
+	if(sizedefined) {
 	    ret += "/";
 	    ret += size;
 	}
@@ -258,7 +258,7 @@ public class CssBackground extends CssProperty
 		ret += " " + attachment.toString();
 	    if (position.byUser)
 			ret += " " + position.toString();
-		
+
 	    if (sizedefined)
 			ret += "/" + size.toString();
 		return ret.trim();

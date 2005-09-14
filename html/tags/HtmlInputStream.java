@@ -1,5 +1,5 @@
 /* Copyright (c) 1997 by Groupe Bull.  All Rights Reserved */
-/* $Id: HtmlInputStream.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $ */
+/* $Id: HtmlInputStream.java,v 1.3 2005-09-14 15:14:17 ylafon Exp $ */
 /* Author: Jean-Michel.Leon@sophia.inria.fr */
 
 package html.tags;
@@ -11,7 +11,7 @@ class HtmlInputStream extends FilterInputStream {
     Vector listeners = new Vector();
     int lines = 0;
     int bytes = 0;
-    
+
     public HtmlInputStream(InputStream  in) {
 	super(in);
     }
@@ -27,7 +27,7 @@ class HtmlInputStream extends FilterInputStream {
 	}
 	return c;
     }
-    
+
     public int read(byte  b[]) throws IOException {
 	int c = super.read(b);
 	for(int i = 0; i < c; i++) {
@@ -41,10 +41,10 @@ class HtmlInputStream extends FilterInputStream {
 	}
 	return c;
     }
-    
+
     public int read(byte  b[], int  off, int  len) throws IOException {
 	int c = super.read(b, off, len);
-	
+
 	for(int i = 0; i < c; i++) {
 	    if(b[i+off] == '\n') {
 		lines++;
@@ -71,5 +71,5 @@ class HtmlInputStream extends FilterInputStream {
  	    l.notifyActivity(lines, bytes);
   	}
     }
-    
+
 }

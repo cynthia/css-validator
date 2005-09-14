@@ -1,5 +1,5 @@
 //
-// $Id: CssTextCombine.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssTextCombine.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -25,8 +25,8 @@ import org.w3c.css.values.CssValue;
  *  <EM>Percentages:</EM>no<BR>
  *  <EM>Media:</EM>:visual
  *  <P>
- *  This property controls the creation of composite characters 
- *  (a.k.a. "kumimoji") or lines (a.k.a. "warichu"). 
+ *  This property controls the creation of composite characters
+ *  (a.k.a. "kumimoji") or lines (a.k.a. "warichu").
  */
 
 public class CssTextCombine extends CssProperty {
@@ -82,7 +82,7 @@ public class CssTextCombine extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -118,7 +118,7 @@ public class CssTextCombine extends CssProperty {
 	return (property instanceof CssTextCombine &&
 		combine.equals(((CssTextCombine) property).combine));
     }
-    
+
     /**
      * Returns the name of this property
      */

@@ -1,5 +1,5 @@
 //
-// $Id: CssValidatorListener.java,v 1.5 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssValidatorListener.java,v 1.6 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -15,17 +15,17 @@ import org.w3c.css.util.Warnings;
 /**
  * Implements this interface if you want to use the CSS1 parser.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
-public interface CssValidatorListener {  
+public interface CssValidatorListener {
 
   /**
    * Adds a vector of properties to a selector.
    *
    * @param selector     the selector
    * @param declarations Properties to associate with contexts
-   */  
-  public void handleRule(ApplContext ac, CssSelectors selector, 
+   */
+  public void handleRule(ApplContext ac, CssSelectors selector,
 			 Vector declarations);
 
   /**
@@ -44,7 +44,7 @@ public interface CssValidatorListener {
    * @param ident The ident for this at-rule (for example: 'font-face')
    * @param value The string representation of this at-rule
    * @see         org.w3c.css.parser.analyzer.Couple
-   */  
+   */
   public void handleAtRule(ApplContext ac, String ident, String string);
 
   /**
@@ -54,7 +54,7 @@ public interface CssValidatorListener {
    * @see CssError
    * @see CssErrorDeclaration
    * @see CssErrorToken
-   */  
+   */
   public void notifyErrors(Errors errors);
 
   /**
@@ -62,7 +62,7 @@ public interface CssValidatorListener {
    *
    * @param warnings All warnings in the style sheet
    * @see org.w3c.css.util.Warning
-   */  
+   */
   public void notifyWarnings(Warnings warnings);
 
     public void addCharSet(String charset);
@@ -74,9 +74,9 @@ public interface CssValidatorListener {
     public void setImportant(boolean important);
 
     public void setSelectorList(Vector selectors);
-       
+
     public void setProperty(Vector properties);
-	
+
     public void endOfRule();
 
     public void removeThisRule();

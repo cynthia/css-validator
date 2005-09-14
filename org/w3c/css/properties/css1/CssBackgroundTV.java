@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundTV.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBackgroundTV.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -45,7 +45,7 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @see CssBackgroundColor
  * @see CssBackgroundImage
  * @see CssBackgroundRepeat
@@ -78,12 +78,12 @@ public class CssBackgroundTV extends CssProperty
 	CssValue val = expression.getValue();
 	char op = SPACE;
 	boolean find = true;
-	
+
 	// too many values
 	if(check && expression.getCount() > 5) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	setByUser();
 
 	if (val.equals(inherit)) {
@@ -156,11 +156,11 @@ public class CssBackgroundTV extends CssProperty
 	*/
     }
 
-    public CssBackgroundTV(ApplContext ac, CssExpression expression) 
+    public CssBackgroundTV(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */
@@ -190,20 +190,29 @@ public class CssBackgroundTV extends CssProperty
      * Returns a string representation of the object.
      */
     public String toString() {
-	if (same) {
-	    return inherit.toString();
-	} else {
-	    String ret = "";
-	    if (color.byUser)
-		ret += " " + color.toString();
-	    if (image.byUser)
-		ret += " " + image.toString();
-	    if (image.byUser)
-		ret += " " + repeat.toString();
-	    if (position.byUser)
-		ret += " " + position.toString();
-	    return ret.trim();
+	String ret = "";
+	if(color != null) {
+	    ret += color;
 	}
+	if(image != null) {
+	    if(ret != null) {
+		ret += " ";
+	    }
+	    ret += image;
+	}
+	if(repeat != null) {
+	    if(ret != null) {
+		ret += " ";
+	    }
+	    ret += repeat;
+	}
+	if(position != null) {
+	    if(ret != null) {
+		ret += " ";
+	    }
+	    ret += position;
+	}
+	return ret;
     }
 
     /**

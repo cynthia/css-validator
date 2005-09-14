@@ -1,5 +1,5 @@
 //
-// $Id: CssError.java,v 1.3 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssError.java,v 1.4 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,30 +10,30 @@ package org.w3c.css.parser;
 /**
  * This class represents an unknown error during the parse.
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssError {
 
   /**
    * The source file
-   */  
+   */
   String sourceFile;
 
   /**
    * The line number in the file
-   */  
+   */
   int line;
 
   /**
    * The unknown error
-   */  
+   */
   Exception error;
 
   /**
    * Create a new CssError
    */
   public CssError() {
-  }  
+  }
 
   /**
    * Create a new CssError
@@ -46,7 +46,7 @@ public class CssError {
     this.sourceFile = sourceFile;
     this.line = line;
     this.error = error;
-  }  
+  }
 
   /**
    * Create a new CssError
@@ -55,25 +55,25 @@ public class CssError {
    */
   public CssError(Exception error) {
     this.error = error;
-  }  
+  }
 
   /**
    * Get the source file
-   */  
+   */
   public String getSourceFile() {
     return sourceFile;
   }
 
   /**
    * get the line number
-   */  
+   */
   public int getLine() {
     return line;
   }
 
   /**
    * get the unknown error
-   */  
+   */
   public Exception getException() {
     return error;
   }

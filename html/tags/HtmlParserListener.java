@@ -1,5 +1,5 @@
 /* Copyright (c) 1996 by Groupe Bull.  All Rights Reserved */
-/* $Id: HtmlParserListener.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $ */
+/* $Id: HtmlParserListener.java,v 1.3 2005-09-14 15:14:17 ylafon Exp $ */
 /* Author: Jean-Michel.Leon@sophia.inria.fr */
 /* modified: Vincent.Mallet@sophia.inria.fr */
 package html.tags;
@@ -22,7 +22,7 @@ public interface HtmlParserListener extends HtmlStreamListener {
     *
     * @param url the URL being parsed.
     * @param root the new root Tag for this parser.
-    */    
+    */
     public void notifyCreateRoot(URL url, HtmlTag root);
 
     public void notifyConnection(URLConnection cnx);
@@ -31,7 +31,7 @@ public interface HtmlParserListener extends HtmlStreamListener {
     * Notifies successful termination.
     *
     * @param root the root of the current Tree.
-    */    
+    */
     public void notifyEnd(HtmlTag root, String contenttype);
 
 

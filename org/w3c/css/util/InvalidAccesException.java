@@ -9,14 +9,14 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: InvalidAccesException.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+ * $Id: InvalidAccesException.java,v 1.3 2005-09-14 15:15:32 ylafon Exp $
  */
 
 /**
  * InvalidAccesException is a runtime exception throwed when an acces is
  * impossible to a ressource.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 
@@ -30,7 +30,7 @@ public class InvalidAccesException extends RuntimeException {
     public InvalidAccesException() {
         super();
     }
-    
+
     /**
      * Creates a new InvalidAccesException with a specified string
      */

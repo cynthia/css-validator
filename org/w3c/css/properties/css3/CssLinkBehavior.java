@@ -1,5 +1,5 @@
 //
-// $Id: CssLinkBehavior.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssLinkBehavior.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -25,7 +25,7 @@ import org.w3c.css.values.CssValue;
  *  <EM>Percentages:</EM>no<BR>
  *  <EM>Media:</EM>:all
  *  <P>
- *  This property determines what the UA will do with a link element or a collapsed 
+ *  This property determines what the UA will do with a link element or a collapsed
  *  element (see 'collapse').
  */
 
@@ -76,7 +76,7 @@ public class CssLinkBehavior extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -112,7 +112,7 @@ public class CssLinkBehavior extends CssProperty {
 	return (property instanceof CssLinkBehavior &&
 		behavior.equals(((CssLinkBehavior) property).behavior));
     }
-    
+
     /**
      * Returns the name of this property
      */

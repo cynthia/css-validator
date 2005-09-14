@@ -1,5 +1,5 @@
 //
-// $Id: ACssProperties.java,v 1.1 2005-08-23 16:51:43 ylafon Exp $
+// $Id: ACssProperties.java,v 1.2 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,13 +12,13 @@ import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.Utf8Properties;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class ACssProperties {
     public static Utf8Properties properties;
-    
+
     public static Utf8Properties UAproperties;
-    
+
     public static Float getValue(CssProperty property, String prop) {
 	String value = UAproperties.getProperty(property.getPropertyName()
 		+ "." + prop);
@@ -36,15 +36,15 @@ public class ACssProperties {
 	    }
 	}
     }
-    
+
     public static String getString(CssProperty property, String prop) {
 	return properties.getProperty(property.getPropertyName() + "." + prop);
     }
-    
+
     public static boolean getInheritance(CssProperty property) {
 	return getString(property, "inherited").equals("true");
     }
-    
+
     static {
 	UAproperties = new Utf8Properties();
 	try {
@@ -58,7 +58,7 @@ public class ACssProperties {
 	    .println("CSS.ACSSProperties.ACssProperties: couldn't load UA properties ");
 	    System.err.println("  " + e.toString());
 	}
-	
+
 	properties = new Utf8Properties();
 	try {
 	    URL url = ACssProperties.class

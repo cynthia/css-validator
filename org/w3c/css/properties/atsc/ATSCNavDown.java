@@ -1,5 +1,5 @@
 //
-// $Id: ATSCNavDown.java,v 1.1 2005-08-23 16:23:11 ylafon Exp $
+// $Id: ATSCNavDown.java,v 1.2 2005-09-14 15:14:18 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -43,11 +43,11 @@ public class ATSCNavDown extends CssProperty {
 	if(check && expression.getCount() >1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	this.ac = ac;
 	setByUser(); // tell this property is set by the user
 	CssValue val = expression.getValue();
-	
+
 	if (val instanceof CssNumber) {
 	    navdown = val;
 	    expression.next();
@@ -61,14 +61,14 @@ public class ATSCNavDown extends CssProperty {
 	    throw new InvalidParamException("value", val.toString(),
 		    getPropertyName(), ac);
 	}
-	
+
     }
 
     public ATSCNavDown(ApplContext ac, CssExpression expression)
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *

@@ -1,7 +1,7 @@
 /*
  * HtmlEngine
  *
- * $Id: HtmlEngine.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $
+ * $Id: HtmlEngine.java,v 1.3 2005-09-14 15:14:17 ylafon Exp $
  *
  * @author Vincent Mallet (Vincent.Mallet@sophia.inria.fr)
  *
@@ -25,7 +25,7 @@ import html.tags.*;
  *
  * @see HtmlEngineListener
  * @author Vincent Mallet  (Vincent.Mallet@sophia.inria.fr)
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class HtmlEngine {
   static final int PARSER_PRIORITY    = Thread.NORM_PRIORITY-1;
@@ -33,9 +33,9 @@ public class HtmlEngine {
 
   HtmlParser parser;
   private Thread    parseThread = null;
-  
+
   Vector listeners              = new Vector(1, 1);
-      
+
   static String     file        = null;
   static String     globaldtd   = System.getProperty("dtd", "loose");
   static boolean    gui         = true; // do we want a gui ? (see -nogui)
@@ -55,10 +55,10 @@ public class HtmlEngine {
       HtmlEngineListener l = (HtmlEngineListener) listeners.elementAt(i);
       l.initialize(this);
     }
-    
+
     openDocument(file);
   }
-  
+
 
   /**
    * Open the document pointed to by <code>name</code>.
@@ -92,20 +92,20 @@ public class HtmlEngine {
       e.printStackTrace();
       return;
     }
-    
+
     for(int i = 0; i < listeners.size(); i++) {
       HtmlEngineListener l = (HtmlEngineListener) listeners.elementAt(i);
       l.openDocument(url, parser);
     }
-    
+
     parseThread = new Thread(parser);
     parseThread.setPriority(PARSER_PRIORITY);
     parseThread.start();
   }
-  
+
 
   /**
-   * Notifies all listeners that the engine is shutting down, and perform the 
+   * Notifies all listeners that the engine is shutting down, and perform the
    * shut down.
    */
 
@@ -118,8 +118,8 @@ public class HtmlEngine {
     System.exit(0);
   }
 
-  
-  
+
+
   /**
    * Main method. Used to run the engine.
    */
@@ -128,15 +128,15 @@ public class HtmlEngine {
     parseArgs(args);
 
     HtmlEngine engine = new HtmlEngine();
-    
+
     if (gui) {
       HtmlFrame hf = HtmlFrame.openFrame("HtmlFrame", globaldtd);
       engine.addEngineListener(hf);
     }
-      
+
     if (audio)
       engine.addEngineListener(new AuralHtmlParserListener());
-    
+
     engine.launch();
   }
     */
@@ -147,9 +147,9 @@ public class HtmlEngine {
 
   static private void parseArgs(String args[]) {
     for(int i = 0 ; i < args.length; i++) {
-      
+
       if(args[i].startsWith("-tree")) {
-	
+
       }
       else if (args[i].startsWith("-nogui")) {
 	gui = false;
@@ -180,7 +180,7 @@ public class HtmlEngine {
 	sysProps.put("html.tree.debug", "true");
 	sysProps.put("html.tags.debug", "true");
 	sysProps.put("speech.debug", "true");
-	sysProps.put("CSS.StyleSheet.debug", "true");	
+	sysProps.put("CSS.StyleSheet.debug", "true");
       }
       else if(args[i].startsWith("-dtd")) {
 	i++;
@@ -195,19 +195,19 @@ public class HtmlEngine {
       }
     }
   }
-  
+
 
   /**
-   * Add a listener for this engine. The listener will be notified 
+   * Add a listener for this engine. The listener will be notified
    * of various tasks performed by the engine.
    * @param listener the listener to be added.
-   */ 
+   */
 
   public void addEngineListener(HtmlEngineListener listener) {
     listeners.addElement(listener);
   }
 
-  
+
   /**
    * Remove a HtmlEngineListener from the list of listeners.
    * @param listener the HtmlEngineListener to remove from the list.
@@ -216,5 +216,5 @@ public class HtmlEngine {
   public void removeEngineListener(HtmlEngineListener listener) {
     listeners.removeElement(listener);
     listeners.trimToSize();
-  }  
+  }
 }

@@ -1,5 +1,5 @@
 //
-// $Id: SortAlgorithm.java,v 1.3 2005-09-08 12:24:10 ylafon Exp $
+// $Id: SortAlgorithm.java,v 1.4 2005-09-14 15:15:32 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@ package org.w3c.css.util;
 /**
  * This class is only to sort an array with an abstract algorithm.
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @author  Philippe Le Hégaret
  */
 public abstract class SortAlgorithm {
@@ -21,8 +21,8 @@ public abstract class SortAlgorithm {
      * @param start the start offset in the array
      * @param end the end offset in the array
      * @param comp The comparaison function between objects
-     */    
+     */
     public abstract void sort(Object[] objs,
-			      int start, int end, 
+			      int start, int end,
 			      CompareFunction comp);
 }

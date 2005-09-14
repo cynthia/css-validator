@@ -1,5 +1,5 @@
 //
-// $Id: WritingModeSVG.java,v 1.1 2005-08-23 16:25:02 ylafon Exp $
+// $Id: WritingModeSVG.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -31,14 +31,14 @@ import org.w3c.css.values.CssValue;
 public class WritingModeSVG extends CssProperty {
 
     CssValue mode;
-    
+
     static CssIdent lrtb = new CssIdent("lr-tb");
     static CssIdent rltb = new CssIdent("rl-tb");
     static CssIdent tbrl = new CssIdent("tb-rl");
     static CssIdent lr = new CssIdent("lr");
     static CssIdent rl = new CssIdent("rl");
     static CssIdent tb = new CssIdent("tb");
-    
+
     /**
      * Create a new WritingModeSVG
      */
@@ -93,7 +93,7 @@ public class WritingModeSVG extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -129,7 +129,7 @@ public class WritingModeSVG extends CssProperty {
 	return (property instanceof WritingModeSVG &&
 		mode.equals(((WritingModeSVG) property).mode));
     }
-    
+
     /**
      * Returns the name of this property
      */

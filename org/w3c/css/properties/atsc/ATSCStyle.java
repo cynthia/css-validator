@@ -1,5 +1,5 @@
 //
-// $Id: ATSCStyle.java,v 1.1 2005-08-23 16:23:11 ylafon Exp $
+// $Id: ATSCStyle.java,v 1.2 2005-09-14 15:14:18 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -11,7 +11,7 @@ package org.w3c.css.properties.atsc;
 import org.w3c.css.parser.CssPrinterStyle;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class ATSCStyle extends org.w3c.css.properties.css2.font.Css2Style {
 
@@ -45,7 +45,7 @@ public class ATSCStyle extends org.w3c.css.properties.css2.font.Css2Style {
     CssBackgroundRepeatATSC cssBackgroundRepeatATSC;
     CssBackgroundAttachmentATSC cssBackgroundAttachmentATSC;
     CssBackgroundPositionATSC cssBackgroundPositionATSC;
-    CssBackgroundATSC cssBackgroundATSC;
+    CssBackgroundATSC cssBackgroundATSC = new CssBackgroundATSC(); //shortcut
     protected CssBorderATSC cssBorderATSC = new CssBorderATSC();
 
 

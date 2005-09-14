@@ -1,5 +1,5 @@
 //
-// $Id: MediaMaxDeviceHeight.java,v 1.2 2005-09-08 12:24:01 ylafon Exp $
+// $Id: MediaMaxDeviceHeight.java,v 1.3 2005-09-14 15:15:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -17,7 +17,7 @@ import org.w3c.css.values.CssPercentage;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class MediaMaxDeviceHeight extends CssProperty {
 
@@ -39,13 +39,13 @@ public class MediaMaxDeviceHeight extends CssProperty {
     public MediaMaxDeviceHeight(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
 	CssValue val = null;
-	
+
 	if (expression != null) {
 	    val = expression.getValue();
 	}
-	
+
 	setByUser();
-	
+
 	if (val != null) {
 	    if (val instanceof CssLength || val instanceof CssPercentage) {
 		float f = ((Float) val.get()).floatValue();
@@ -60,7 +60,7 @@ public class MediaMaxDeviceHeight extends CssProperty {
 		throw new InvalidParamException("value", expression.getValue(),
 			getPropertyName(), ac);
 	    }
-	    
+
 	    expression.next();
 	}
     }
@@ -69,7 +69,7 @@ public class MediaMaxDeviceHeight extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property.
      */

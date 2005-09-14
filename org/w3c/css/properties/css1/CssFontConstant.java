@@ -1,5 +1,5 @@
 //
-// $Id: CssFontConstant.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssFontConstant.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,7 @@
 package org.w3c.css.properties.css1;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface CssFontConstant {
 
@@ -47,10 +47,10 @@ public interface CssFontConstant {
   /**
    * Array of font values
    */
-  static String[] FONT = { "icon", "window", "status-bar", "document", 
-      "workspace", "desktop", "tooltip", "message-box", "dialog", 
+  static String[] FONT = { "icon", "window", "status-bar", "document",
+      "workspace", "desktop", "tooltip", "message-box", "dialog",
       "small-caption", "caption", "button", "default-button", "hyperlink",
       "menu", "pull-down-menu", "pop-up-menu", "list-menu", "field", "inherit"
   };
-  
+
 }

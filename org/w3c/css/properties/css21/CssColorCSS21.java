@@ -1,4 +1,4 @@
-// $Id: CssColorCSS21.java,v 1.1 2005-09-01 11:51:21 ylafon Exp $
+// $Id: CssColorCSS21.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -24,20 +24,20 @@ public class CssColorCSS21 extends CssColorCSS2 {
      */
     public CssColorCSS21(ApplContext ac, CssExpression expression, boolean check)
 	throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
 	setByUser();
 	if (val.equals(inherit)) {
 	    setColor(inherit);
 	    expression.next();
-	} else if (val instanceof org.w3c.css.values.CssColor) {	    
+	} else if (val instanceof org.w3c.css.values.CssColor) {
 	    setColor(val);
 	    expression.next();
-	} else if (val instanceof CssIdent) {	    
+	} else if (val instanceof CssIdent) {
 	    setColor(new org.w3c.css.values.CssColorCSS21(ac,
 							(String) val.get()));
 	    expression.next();

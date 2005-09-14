@@ -1,4 +1,4 @@
-// $Id: PseudoFunctionSelector.java,v 1.1 2005-09-08 12:24:01 ylafon Exp $
+// $Id: PseudoFunctionSelector.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -14,12 +14,12 @@ public class PseudoFunctionSelector implements Selector {
     private Object param;
 
     /**
-     * Creates a new empty function selector     
+     * Creates a new empty function selector
      */
     public PseudoFunctionSelector() {
-	
+
     }
-    
+
     /**
      * @see Selector#getName()
      */
@@ -58,18 +58,18 @@ public class PseudoFunctionSelector implements Selector {
     public int getSpecificity() {
 	return 0;
     }
-    
+
     /**
      * @see Selector#canApply(Selector)
      */
     public boolean canApply(Selector other) {
 	return false;
     }
-    
+
     /**
      * @see Selector#toString()
      */
     public String toString() {
 	return ":" + name + "(" + param + ")";
-    }    
+    }
 }

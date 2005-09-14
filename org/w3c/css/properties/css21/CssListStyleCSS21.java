@@ -1,4 +1,4 @@
-// $Id: CssListStyleCSS21.java,v 1.1 2005-09-01 11:51:21 ylafon Exp $
+// $Id: CssListStyleCSS21.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -22,27 +22,27 @@ public class CssListStyleCSS21 extends CssListStyleCSS2 {
      */
     public CssListStyleCSS21() {
 	// nothing to do
-    }  
-    
+    }
+
     /**
      * Create a new CssListStyleCSS2
      *
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
-     */  
+     */
     public CssListStyleCSS21(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	int exprLength = expression.getCount();
-	
+
 	if(check && exprLength > 3) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
 	char op = SPACE;
 	boolean find = true;
-	
+
 	setByUser();
 
 	if (val.equals(inherit)) {
@@ -53,16 +53,16 @@ public class CssListStyleCSS21 extends CssListStyleCSS2 {
 	    expression.next();
 	    return;
 	}
-	
+
 	while (find) {
 	    find = false;
 	    val = expression.getValue();
 	    op = expression.getOperator();
-	    
+
 	    if(val != null && val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
-	    
+
 	    if ((getListStyleType() == null)	&& (val != null)) {
 		try {
 		    setListStyleType(new CssListStyleTypeCSS21(ac, expression));
@@ -75,24 +75,24 @@ public class CssListStyleCSS21 extends CssListStyleCSS2 {
 		    setListStyleImage(new CssListStyleImageCSS2(ac, expression));
 		    find = true;
 		} catch (InvalidParamException e) {
-		} 
+		}
 	    }
 	    if (!find && (val != null) && (getListStylePosition() == null)) {
 		setListStylePosition(new CssListStylePositionCSS2(ac, expression));
 		find = true;
 	    }
-	    if(val != null && !find) {		
+	    if(val != null && !find) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    if (op != SPACE) {
-		throw new InvalidParamException("operator", 
+		throw new InvalidParamException("operator",
 						((new Character(op)).toString()),
 						ac);
 	    }
 	}
 
     }
-    
+
     public CssListStyleCSS21(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);

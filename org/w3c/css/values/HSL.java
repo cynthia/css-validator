@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HSL.java,v 1.3 2005-08-29 12:36:47 ylafon Exp $
+ * $Id: HSL.java,v 1.4 2005-09-14 15:15:33 ylafon Exp $
  */
 package org.w3c.css.values;
 
@@ -18,13 +18,13 @@ public class HSL {
     Object h;
     Object s;
     Object l;
- 
+
     /**
      * Create a new HSL
      */
     public HSL() {
     }
-    
+
     /**
      * Create a new HSL with default values
      */
@@ -33,7 +33,7 @@ public class HSL {
 	this.s = s;
 	this.l = l;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */

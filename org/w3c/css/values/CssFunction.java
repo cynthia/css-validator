@@ -1,5 +1,5 @@
 //
-// $Id: CssFunction.java,v 1.4 2005-09-08 12:24:10 ylafon Exp $
+// $Id: CssFunction.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,32 +11,32 @@ import org.w3c.css.util.ApplContext;
 /**
  * A CSS float number.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssFunction extends CssValue {
 
     String name;
     CssExpression parameters;
-    
+
     /**
      * Set the value of this function
      *
      * @param s     the string representation of the frequency.
      * @param frame For errors and warnings reports.
-     */  
+     */
     public void set(String s, ApplContext ac) {
 	// @@TODO
     }
-    
+
     public void set(String name, CssExpression parameters) {
 	this.name = name;
 	this.parameters = parameters;
-	
+
     }
-    
+
     /**
      * Returns the value
-     */  
+     */
     public Object get() {
 	// @@TODO
 	return null;
@@ -48,29 +48,29 @@ public class CssFunction extends CssValue {
     public String getName() {
 	return name;
     }
-    
+
     /**
      * Returns the parameters expression
      */
     public CssExpression getParameters() {
 	return parameters;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
-    public String toString() {  
+    public String toString() {
 	return name + "(" + parameters + ")";
     }
-    
+
     /**
      * Compares two values for equality.
      *
      * @param value The other value.
-     */  
+     */
     public boolean equals(Object value) {
 	// @@FIXME
-	return (value instanceof CssFunction && 
+	return (value instanceof CssFunction &&
 		this.name.equals(((CssFunction) value).name));
     }
 }

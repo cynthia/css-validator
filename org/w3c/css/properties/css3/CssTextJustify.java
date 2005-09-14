@@ -1,5 +1,5 @@
 //
-// $Id: CssTextJustify.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssTextJustify.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -18,7 +18,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  *  <P>
- *  <EM>Value:</EM> auto || inter-word || inter-ideograph || distribute || 
+ *  <EM>Value:</EM> auto || inter-word || inter-ideograph || distribute ||
  *  newspaper || inter-cluster || kashida || inherit<BR>
  *  <EM>Initial:</EM>auto<BR>
  *  <EM>Applies to:</EM>block-level elements<BR>
@@ -26,11 +26,11 @@ import org.w3c.css.values.CssValue;
  *  <EM>Percentages:</EM>no<BR>
  *  <EM>Media:</EM>:visual
  *  <P>
- *  This property selects the type of justify alignment. It affects the text 
- *  layout only if 'text-align' is set to 'justify'. That way, UA's that do 
+ *  This property selects the type of justify alignment. It affects the text
+ *  layout only if 'text-align' is set to 'justify'. That way, UA's that do
  *  not support this property will still render the text as fully
  *  justified, which most of the time is at least partially correct. Typically
- *  the text-justify property does not affect the last line, unless the last 
+ *  the text-justify property does not affect the last line, unless the last
  *  line itself is justified. Most of the text-justify values affects
  *  writing systems in very specific ways.
  */
@@ -41,8 +41,8 @@ public class CssTextJustify extends CssProperty {
     private CssIdent auto = new CssIdent("auto");
 
     private static String[] values = {
-	"auto", "inter-word", "inter-ideograph", "distribute", 
-	"newspaper", "inter-cluster", "kashida", "inherit" 
+	"auto", "inter-word", "inter-ideograph", "distribute",
+	"newspaper", "inter-cluster", "kashida", "inherit"
     };
 
     /**
@@ -63,7 +63,7 @@ public class CssTextJustify extends CssProperty {
 
 	setByUser();
 	CssValue val = expression.getValue();
-	
+
 	int i = 0;
 	for (; i < values.length; i++) {
 	    if (val.toString().equals(values[i])) {
@@ -82,7 +82,7 @@ public class CssTextJustify extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -118,7 +118,7 @@ public class CssTextJustify extends CssProperty {
 	return (property instanceof CssTextJustify &&
 		textjustify.equals(((CssTextJustify) property).textjustify));
     }
-    
+
     /**
      * Returns the name of this property
      */

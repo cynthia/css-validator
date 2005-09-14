@@ -1,5 +1,5 @@
 //
-// $Id: ACssPauseAfter.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: ACssPauseAfter.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -30,15 +30,15 @@ import org.w3c.css.values.CssValue;
  * <P>This property specifies the pause after an element is spoken. Values are
  * specified the same way as 'pause-before'.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ACssPauseAfter extends ACssProperty {
-    
+
     CssValue value;
-    
+
     /**
      * Create a new ACssPauseAfter
-     */  
+     */
     public ACssPauseAfter() {
 	// Initial is User Agent Specific
 	if (defaultValue == null) {
@@ -46,29 +46,29 @@ public class ACssPauseAfter extends ACssProperty {
 	}
 	value = defaultValue;
     }
-    
+
     /**
      * Create a new ACssPauseAfter
-     */  
+     */
     public ACssPauseAfter(ACssPauseBefore pauseBefore) {
 	value = pauseBefore.value;
     }
-    
+
     /**
      * Creates a new ACssPauseAfter
      *
      * @param expression the expression of the size
      * @exception InvalidParamException The expression is incorrect
-     */  
+     */
     public ACssPauseAfter(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
-	
+
 	setByUser();
 	if (val.equals(inherit)) {
 	    value = inherit;
@@ -95,30 +95,30 @@ public class ACssPauseAfter extends ACssProperty {
 	    value = ((CssNumber) val).getTime();
 	    expression.next();
 	}
-	
+
 	throw new InvalidParamException("value", val.toString(), getPropertyName(),
 					ac);
     }
-    
+
     public ACssPauseAfter(ApplContext ac, CssExpression expression)
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the current value
-     */  
+     */
     public Object get() {
 	return value;
     }
-    
+
     /**
      * Returns some usable value of this property...
      */
     public int getValue() { // vm
 	return ((Float) value.get()).intValue();
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value is equals to inherit
@@ -126,7 +126,7 @@ public class ACssPauseAfter extends ACssProperty {
     public boolean isSoftlyInherited() {
 	return value == inherit;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
@@ -136,15 +136,15 @@ public class ACssPauseAfter extends ACssProperty {
 	else
 	    return null;
     }
-    
-    
+
+
     /**
      * Returns the name of this property
-     */  
+     */
     public String getPropertyName() {
 	return "pause-after";
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -156,26 +156,26 @@ public class ACssPauseAfter extends ACssProperty {
 	    style.addRedefinitionWarning(ac, this);
 	acssPause.pauseAfter = this;
     }
-    
+
     /**
      * Compares two properties for equality.
      *
      * @param value The other property.
-     */  
+     */
     public boolean equals(CssProperty property) {
 	if (value != null)
-	    return (property instanceof ACssPauseAfter && 
+	    return (property instanceof ACssPauseAfter &&
 		    value.equals(((ACssPauseAfter) property).value));
 	else
 	    return false;
     }
-    
+
     /**
      * Get this property in the style.
      *
      * @param style The style where the property is
      * @param resolve if true, resolve the style to find this property
-     */  
+     */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
 	    return ((ACssStyle) style).getPauseAfter();
@@ -183,6 +183,6 @@ public class ACssPauseAfter extends ACssProperty {
 	    return ((ACssStyle) style).acssPause.pauseAfter;
 	}
     }
-    
+
     private static CssTime defaultValue;
 }

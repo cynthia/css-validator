@@ -1,5 +1,5 @@
 //
-// $Id: FontConstant.java,v 1.2 2005-09-08 12:24:01 ylafon Exp $
+// $Id: FontConstant.java,v 1.3 2005-09-14 15:14:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,32 +7,32 @@
 package org.w3c.css.properties.css2.font;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface FontConstant {
 
   /**
    * Array of font-style values
-   */  
+   */
   static String[] FONTSTYLE = { "normal", "italic", "oblique" };
 
   /**
    * Array of font-variant values
-   */  
+   */
   static String[] FONTVARIANT = { "normal", "small-caps" };
 
   /**
    * Array of font-weight values
-   */  
+   */
     static String[] FONTWEIGHT = { "normal", "bold" };
-  
+
   /**
    * Array of font-stretch values
-   */  
-  static String[] FONTSTRETCH = { "normal", "wider", "narrower", 
-				  "ultra-condensed", "extra-condensed", 
-				  "condensed", "semi-condensed", 
+   */
+  static String[] FONTSTRETCH = { "normal", "wider", "narrower",
+				  "ultra-condensed", "extra-condensed",
+				  "condensed", "semi-condensed",
 				  "semi-expanded", "expanded", "extra-expanded",
 				  "ultra-expanded", "inherit" };
-  
+
 }

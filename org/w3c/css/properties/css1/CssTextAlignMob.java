@@ -1,5 +1,5 @@
 //
-// $Id: CssTextAlignMob.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssTextAlignMob.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -37,40 +37,40 @@ import org.w3c.css.values.CssValue;
  *   the width of the element, not the canvas. If 'justify' is not supported,
  *   the UA will supply a replacement. Typically, this will be 'left' for western
  *   languages.
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
-public class CssTextAlignMob extends CssProperty 
+public class CssTextAlignMob extends CssProperty
         implements CssTextPropertiesConstants {
-    
+
     int value;
     CssValue valueString;
-    
+
     private static int[] hash_values;
-    
+
     /**
      * Create a new CssTextAlignMob
      */
     public CssTextAlignMob() {
 	// depends on user agent and writing direction
-    }  
-    
+    }
+
     /**
      * Create a new CssTextAlignMob
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
-     */  
+     */
     public CssTextAlignMob(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
 	int hash = val.hashCode();
-	
+
 	setByUser();
-	
+
 	if (val.equals(inherit)) {
 	    valueString = inherit;
 	    expression.next();
@@ -87,12 +87,12 @@ public class CssTextAlignMob extends CssProperty
 
 	throw new InvalidParamException("value", val.toString(), getPropertyName(), ac);
     }
-    
-    public CssTextAlignMob(ApplContext ac, CssExpression expression) 
+
+    public CssTextAlignMob(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */
@@ -103,14 +103,14 @@ public class CssTextAlignMob extends CssProperty
 	    return TEXTALIGN[value];
 	}
     }
-    
+
     /**
      * Returns the name of this property
-     */  
+     */
     public String getPropertyName() {
 	return "text-align";
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -118,7 +118,7 @@ public class CssTextAlignMob extends CssProperty
     public boolean isSoftlyInherited() {
 	return valueString == inherit;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
@@ -129,7 +129,7 @@ public class CssTextAlignMob extends CssProperty
 	    return TEXTALIGN[value];
 	}
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -141,13 +141,13 @@ public class CssTextAlignMob extends CssProperty
 	    style0.addRedefinitionWarning(ac, this);
 	style0.cssTextAlignMob = this;
     }
-    
+
     /**
      * Get this property in the style.
      *
      * @param style The style where the property is
      * @param resolve if true, resolve the style to find this property
-     */  
+     */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
 	    return ((Css1Style) style).getTextAlignMob();
@@ -155,22 +155,22 @@ public class CssTextAlignMob extends CssProperty
 	    return ((Css1Style) style).cssTextAlignMob;
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
      * @param value The other property.
-     */  
+     */
     public boolean equals(CssProperty property) {
 	if (valueString != null) {
-	    return (property instanceof CssTextAlignMob 
+	    return (property instanceof CssTextAlignMob
   	    && valueString.equals(((CssTextAlignMob) property).valueString));
 	} else {
-	    return (property instanceof CssTextAlignMob 
+	    return (property instanceof CssTextAlignMob
 		    && value == ((CssTextAlignMob) property).value);
 	}
     }
-    
+
     static {
 	hash_values = new int[TEXTALIGN.length];
 	for (int i=0; i<TEXTALIGN.length; i++)

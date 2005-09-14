@@ -1,5 +1,5 @@
 //
-// $Id: CssTime.java,v 1.4 2005-09-08 12:24:10 ylafon Exp $
+// $Id: CssTime.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -24,7 +24,7 @@ import org.w3c.css.util.Util;
  *
  * <p>Time values may not be negative.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssTime extends CssValue {
 
@@ -33,7 +33,7 @@ public class CssTime extends CssValue {
    */
   public CssTime() {
     value = defaultValue;
-  }  
+  }
 
   /**
    * Create a new CssTime with a Float object.
@@ -42,7 +42,7 @@ public class CssTime extends CssValue {
    */
   public CssTime(Float value) {
     this.value = value;
-  }  
+  }
 
   /**
    * Set the value of this time.
@@ -50,7 +50,7 @@ public class CssTime extends CssValue {
    * @param s     the string representation of the time.
    * @param frame For errors and warnings reports.
    * @exception InvalidParamException The unit is incorrect
-   */  
+   */
   public void set(String s, ApplContext ac) throws InvalidParamException {
     s = s.toLowerCase();
     int length = s.length();
@@ -65,7 +65,7 @@ public class CssTime extends CssValue {
     }
 
     if (this.value.floatValue() < 0) {
-      throw new InvalidParamException("negative-value", 
+      throw new InvalidParamException("negative-value",
 				      this.value.toString(), ac);
     }
 
@@ -91,17 +91,17 @@ public class CssTime extends CssValue {
   /**
    * Returns the current value
    *  Float
-   */  
+   */
   public Object get() {
     if (unit == 1) {
       return new Float(value.floatValue() * 1000);
     }
     return value;
   }
-  
+
   /**
    * Returns the current value
-   */  
+   */
   public String getUnit() {
     return units[unit];
   }
@@ -121,7 +121,7 @@ public class CssTime extends CssValue {
    * Compares two values for equality.
    *
    * @param value The other value.
-   */  
+   */
   public boolean equals(Object value) {
     return (value instanceof CssTime && this.value.equals(((CssTime) value).value) &&
 	     unit == ((CssTime) value).unit);

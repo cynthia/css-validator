@@ -1,4 +1,4 @@
-// $Id: PseudoFunctionLang.java,v 1.1 2005-09-08 12:24:09 ylafon Exp $
+// $Id: PseudoFunctionLang.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -11,10 +11,10 @@ import org.w3c.css.selectors.PseudoFunctionSelector;
  * Created: Sep 2, 2005 4:24:48 PM<br />
  */
 public class PseudoFunctionLang extends PseudoFunctionSelector {
-    
+
     public PseudoFunctionLang(String name, String lang) {
 	setName(name);
 	setParam(lang);
     }
-   
+
 }

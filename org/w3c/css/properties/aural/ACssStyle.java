@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: ACssStyle.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ACssStyle extends Css1Style {
 
@@ -428,15 +428,14 @@ public class ACssStyle extends Css1Style {
    */
   public void findConflicts(ApplContext ac, Warnings warnings, Enumeration allSelectors) {
     super.findConflicts(ac, warnings, allSelectors);
-
     if (acssVoiceFamily != null) {
 	if (!acssVoiceFamily.containsGenericFamily()) {
-	warnings.addWarning(new Warning(acssVoiceFamily,
-					"no-generic-family", 2, ac));
+	    warnings.addWarning(new Warning(acssVoiceFamily,
+		    "no-generic-family", 2, ac));
 	}
 	if (acssVoiceFamily.withSpace) {
 	    warnings.addWarning(new Warning(acssVoiceFamily,
-					    "with-space", 1, ac));
+		    "with-space", 1, ac));
 	}
     }
 
@@ -444,15 +443,15 @@ public class ACssStyle extends Css1Style {
 	!acssPause.getBefore().isSoftlyInherited() &&
 	!(acssPause.getBefore().get() instanceof CssPercentage)) {
       // Using relative units gives more robust stylesheets
-      warnings.addWarning(new Warning(acssPause.getBefore(),
-				      "relative", 2, ac));
+	warnings.addWarning(new Warning(acssPause.getBefore(),
+		"relative", 2, ac));
     }
     if ((acssPause.getAfter() != null) &&
 	!acssPause.getAfter().isSoftlyInherited() &&
 	!(acssPause.getAfter().get() instanceof CssPercentage)) {
-      // Using relative units gives more robust stylesheets
-      warnings.addWarning(new Warning(acssPause.getAfter(),
-				      "relative", 2, ac));
+	// Using relative units gives more robust stylesheets
+	warnings.addWarning(new Warning(acssPause.getAfter(),
+		"relative", 2, ac));
     }
 
 

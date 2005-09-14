@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderLeftColorCSS1.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBorderLeftColorCSS1.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -17,30 +17,30 @@ import org.w3c.css.values.CssValue;
 /**
  * Be careful, this is not a CSS1 property !
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBorderLeftColorCSS1 extends CssProperty {
-    
+
     CssBorderFaceColorCSS1 face;
-    
+
     /**
      * Create a new CssBorderLeftColorCSS1
      */
     public CssBorderLeftColorCSS1() {
 	face = new CssBorderFaceColorCSS1();
     }
-    
+
     /**
      * Create a new CssBorderLeftColorCSS1 with an another CssBorderFaceColorCSS1
      * @param another The another side.
      */
     public CssBorderLeftColorCSS1(CssBorderFaceColorCSS1 another) {
-	
+
 	setByUser();
-	
+
 	face = another;
     }
-    
+
     /**
      * Create a new CssBorderLeftColorCSS1
      *
@@ -49,27 +49,27 @@ public class CssBorderLeftColorCSS1 extends CssProperty {
      */
     public CssBorderLeftColorCSS1(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	setByUser();
 	face = new CssBorderFaceColorCSS1(ac, expression);
     }
-    
-    public CssBorderLeftColorCSS1(ApplContext ac, CssExpression expression) 
+
+    public CssBorderLeftColorCSS1(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */
     public Object get() {
 	return face;
     }
-    
+
     /**
      * Returns the color of this property
      */
@@ -79,7 +79,7 @@ public class CssBorderLeftColorCSS1 extends CssProperty {
 	}
 	return null;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
@@ -89,14 +89,14 @@ public class CssBorderLeftColorCSS1 extends CssProperty {
 	}
 	return "";
     }
-    
+
     /**
      * Returns the name of this property
-     */  
+     */
     public String getPropertyName() {
 	return "border-left-color";
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -108,13 +108,13 @@ public class CssBorderLeftColorCSS1 extends CssProperty {
 	    style.addRedefinitionWarning(ac, this);
 	left.color = this;
     }
-    
+
     /**
      * Get this property in the style.
      *
      * @param style The style where the property is
      * @param resolve if true, resolve the style to find this property
-     */  
+     */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
 	    return ((Css1Style) style).getBorderLeftColorCSS1();
@@ -122,21 +122,21 @@ public class CssBorderLeftColorCSS1 extends CssProperty {
 	    return ((Css1Style) style).cssBorderCSS1.getLeft().color;
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
      * @param value The other property.
-     */  
+     */
     public boolean equals(CssProperty property) {
 	return (property instanceof CssBorderLeftColorCSS1 && face.equals(((CssBorderLeftColorCSS1) property).face));
     }
-    
+
     /**
      * Print this property
      *
      * @param printer The printer.
-     */  
+     */
     public void print(CssPrinterStyle printer) {
 	if (face != null && !face.isDefault())
 	    printer.print(this);

@@ -1,5 +1,5 @@
 /* Copyright (c) 1997 by Groupe Bull.  All Rights Reserved */
-/* $Id: SimpleTree.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $ */
+/* $Id: SimpleTree.java,v 1.3 2005-09-14 15:14:17 ylafon Exp $ */
 /* Author: Jean-Michel.Leon@sophia.inria.fr */
 
 package html.tree;
@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class SimpleTree implements Tree {
     private static Enumeration NO_CHILD = new EmptyEnumeration();
-    
+
     Vector children = null;
     Tree parent;
 
@@ -23,11 +23,11 @@ public class SimpleTree implements Tree {
     public Tree getParent() {
 	return parent;
     }
-    
+
     public void setParent(Tree child) {
 	parent = child;
     }
-    
+
     public int getRank() {
 	return parent.indexOf(this);
     }
@@ -63,7 +63,7 @@ public class SimpleTree implements Tree {
 	}
 	child.setParent(this);
     }
-    
+
     public void detach(Tree child) {
 	children.removeElement(child);
 	child.setParent(null);
@@ -87,7 +87,7 @@ public class SimpleTree implements Tree {
     public Enumeration children() {
 	return (children != null ) ? children.elements() : NO_CHILD;
     }
-    
+
     private final void checkChildren() {
 	if(children == null) {
 	    children = new Vector(1, 1);

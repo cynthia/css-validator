@@ -1,5 +1,5 @@
 //
-// $Id: CssWordSpacingCSS3.java,v 1.2 2005-09-08 12:24:01 ylafon Exp $
+// $Id: CssWordSpacingCSS3.java,v 1.3 2005-09-14 15:15:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -38,7 +38,7 @@ import org.w3c.css.values.CssValue;
  *   Here, the word-spacing between each word in 'H1' elements would be increased
  *   by '1em'.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssWordSpacingCSS3 extends CssProperty {
 
@@ -90,7 +90,7 @@ public class CssWordSpacingCSS3 extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: CommentSkipperInputStream.java,v 1.3 2005-08-08 13:18:11 ylafon Exp $
+ * $Id: CommentSkipperInputStream.java,v 1.4 2005-09-14 15:14:18 ylafon Exp $
  */
 package org.w3c.css.parser.analyzer;
 
@@ -18,10 +18,10 @@ import java.io.InputStream;
 
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @author  Philippe Le Hegaret
  */
-public class CommentSkipperInputStream extends InputStream { 
+public class CommentSkipperInputStream extends InputStream {
 
     int previous;
     InputStream in;
@@ -31,7 +31,7 @@ public class CommentSkipperInputStream extends InputStream {
     public CommentSkipperInputStream(InputStream input) {
 	in = input;
     }
-    
+
 
     public int read() throws IOException {
 	int c;
@@ -47,14 +47,14 @@ public class CommentSkipperInputStream extends InputStream {
 	    return c;
 	}
 	previous = in.read();
-	
+
 	if (previous != '*') {
 	    return c;
 	}
 	previous = 0;
 	do {
 	    do {
-		c = in.read();	    
+		c = in.read();
 	    } while ((c != -1) && (c != '*'));
 	    c = in.read();
 	} while ((c != -1) && (c != '/'));

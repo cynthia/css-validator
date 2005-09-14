@@ -9,11 +9,11 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HTTPReplyMessage.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+ * $Id: HTTPReplyMessage.java,v 1.3 2005-09-14 15:15:32 ylafon Exp $
  */
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 
@@ -32,7 +32,7 @@ public class HTTPReplyMessage extends HTTPEntityMessage {
     public static int H_WARNING             = 58;
     public static int H_WWW_AUTHENTICATE    = 59;
     public static int H_AUTHENTICATION_INFO = 60;
-    
+
     static {
 	registerHeader(H_ACCEPT_RANGES,
 		       "Accept-Ranges");

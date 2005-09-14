@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderColor.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBorderColor.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.values.CssOperator;
  *   <P>
  *   In the above example, the border will be a solid black line.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBorderColor extends CssProperty implements CssOperator {
 
@@ -90,7 +90,7 @@ public class CssBorderColor extends CssProperty implements CssOperator {
 		top.face.face = inherit;
 		expression.next();
 	    } else*/
-	    top = new CssBorderTopColor(ac, expression);	    
+	    top = new CssBorderTopColor(ac, expression);
 	    bottom = new CssBorderBottomColor((CssBorderFaceColor) top.get());
 	    right = new CssBorderRightColor((CssBorderFaceColor) top.get());
 	    left = new CssBorderLeftColor((CssBorderFaceColor) top.get());
@@ -171,11 +171,11 @@ public class CssBorderColor extends CssProperty implements CssOperator {
 	}
     }
 
-    public CssBorderColor(ApplContext ac, CssExpression expression) 
+    public CssBorderColor(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */
@@ -207,7 +207,7 @@ public class CssBorderColor extends CssProperty implements CssOperator {
 	} else {
 	    return top + " " + right + " " + bottom + " " + left;
 	}
-	
+
     }
 
     /**

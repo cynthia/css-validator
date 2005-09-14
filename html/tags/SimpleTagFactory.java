@@ -1,5 +1,5 @@
 /* Copyright (c) 1996 by Groupe Bull.  All Rights Reserved */
-/* $Id: SimpleTagFactory.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $ */
+/* $Id: SimpleTagFactory.java,v 1.3 2005-09-14 15:14:17 ylafon Exp $ */
 /* Author: Jean-Michel.Leon@sophia.inria.fr */
 
 package html.tags;
@@ -20,15 +20,15 @@ import java.net.URL;
  * subclass of HtmlTree.
  */
 public class SimpleTagFactory implements TagFactory {
-    
+
     Hashtable tagTable = new Hashtable();
     Properties props;
-    
+
     public SimpleTagFactory() {
 	java.io.InputStream f = null;
 	props = new Properties();
 	try {
-	    URL url = 
+	    URL url =
 		SimpleTagFactory.class.getResource("SimpleTagFactory.properties");
 	    f = url.openStream();
 	    props.load(f);
@@ -42,8 +42,8 @@ public class SimpleTagFactory implements TagFactory {
 	    } catch (Exception e) {}
 	}
     }
-    
-    
+
+
     public Tag create(String name) {
 	Class tagClass;
 	try {
@@ -62,11 +62,11 @@ public class SimpleTagFactory implements TagFactory {
 	catch(IllegalAccessException iax) {}
 	catch(ClassNotFoundException x){}
 	//	new Exception().printStackTrace();
-	
+
 	if (!Boolean.getBoolean("html.runningServlet")) {//vm970813
 	    // System.out.println("warning: unknown tag: " + name);
 	}
-	
+
 	HtmlTree tag = new Block();
 	//Tag tag = new UnknownTag(elem, atts);
 	return tag;

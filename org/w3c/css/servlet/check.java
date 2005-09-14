@@ -1,5 +1,5 @@
 //
-// $Id: check.java,v 1.7 2005-08-22 11:37:20 ylafon Exp $
+// $Id: check.java,v 1.8 2005-09-14 15:15:32 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,24 +34,24 @@ import org.xml.sax.SAXParseException;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public final class check extends HttpServlet {
-    
-    private static String validatorURI = null;
-    
 
-    /** 
-     * Performs the HTTP GET operation. 
+    private static String validatorURI = null;
+
+
+    /**
+     * Performs the HTTP GET operation.
      * It redirects to the value contained in "Referer"
      *
      * @param req encapsulates the request to the servlet.
      * @param resp encapsulates the response from the servlet.
      * @exception ServletException if the request could not be handled.
-     * @exception IOException if detected when handling the request.  
+     * @exception IOException if detected when handling the request.
      */
     public void doGet(HttpServletRequest req, HttpServletResponse res)
-	throws ServletException, IOException 
+	throws ServletException, IOException
     {
 
 	String uri = req.getHeader("Referer");
@@ -63,7 +63,7 @@ public final class check extends HttpServlet {
 	}
 	res.setHeader("Cache-Control", "max-age=86400");
 	res.setHeader("Vary", "Referer");
-    
+
 	Enumeration e = req.getParameterNames();
 	StringBuffer sb = new StringBuffer(validatorURI);
 	boolean first = true;
@@ -93,7 +93,7 @@ public final class check extends HttpServlet {
 	if (!uridone) {
 	    if (first) {
 		sb.append("?uri=");
-	    } else { 
+	    } else {
 		sb.append("&uri=");
 	    }
 	    sb.append(uri);

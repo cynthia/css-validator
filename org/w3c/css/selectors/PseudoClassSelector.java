@@ -1,4 +1,4 @@
-// $Id: PseudoClassSelector.java,v 1.1 2005-09-08 12:24:01 ylafon Exp $
+// $Id: PseudoClassSelector.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -11,7 +11,7 @@ package org.w3c.css.selectors;
 public class PseudoClassSelector implements Selector {
 
     String name;
-    
+
     /**
      * Creates a new pseudo-class given its name
      * @param name the name of this pseudo-class
@@ -19,7 +19,7 @@ public class PseudoClassSelector implements Selector {
     public PseudoClassSelector(String name) {
 	this.name = name;
     }
-    
+
     /**
      * @see Selector#getName()
      */
@@ -41,12 +41,12 @@ public class PseudoClassSelector implements Selector {
     public String toString() {
 	return ":" + name;
     }
-    
+
     /**
      * @see Selector#canApply(Selector)
      */
     public boolean canApply(Selector other) {
 	return false;
     }
-    
+
 }

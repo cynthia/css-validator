@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundConstants.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBackgroundConstants.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,7 @@
 package org.w3c.css.properties.css1;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface CssBackgroundConstants {
   static String[] REPEAT = { "repeat", "repeat-x", "repeat-y", "no-repeat", "inherit" };
@@ -19,31 +19,31 @@ public interface CssBackgroundConstants {
 
   /**
    * The top position
-   */  
+   */
   static int POSITION_TOP = 0;
 
   /**
    * The center position
-   */  
+   */
   static int POSITION_CENTER = 1;
 
   /**
    * The bottom position
-   */  
+   */
   static int POSITION_BOTTOM = 2;
 
   /**
    * The left position
-   */  
+   */
   static int POSITION_LEFT = 3;
 
   /**
    * The right position
-   */  
+   */
   static int POSITION_RIGHT = 4;
-  
+
   /**
    * Inherit
-   */  
+   */
   static int POSITION_INHERIT = 5;
 }

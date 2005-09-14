@@ -1,5 +1,5 @@
 //
-// $Id: CssTextIndentCSS3.java,v 1.2 2005-09-08 12:24:01 ylafon Exp $
+// $Id: CssTextIndentCSS3.java,v 1.3 2005-09-14 15:15:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -37,7 +37,7 @@ import org.w3c.css.values.CssValue;
  *   <PRE>
  *   P { text-indent: 3em }
  * </PRE>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssTextIndentCSS3 extends CssProperty  {
 
@@ -59,9 +59,9 @@ public class CssTextIndentCSS3 extends CssProperty  {
     public CssTextIndentCSS3(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
 	CssValue val = expression.getValue();
-	
+
 	setByUser();
-	
+
 	if (val.equals(inherit)) {
 	    value = inherit;
 	} else if (val instanceof CssLength || val instanceof CssPercentage) {
@@ -74,15 +74,15 @@ public class CssTextIndentCSS3 extends CssProperty  {
 	    throw new InvalidParamException("value", val.toString(),
 		    getPropertyName(), ac);
 	}
-	
+
 	expression.next();
     }
-    
+
     public CssTextIndentCSS3(ApplContext ac, CssExpression expression)
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

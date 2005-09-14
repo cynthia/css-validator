@@ -1,5 +1,5 @@
 //
-// $Id: MediaMinColor.java,v 1.2 2005-09-08 12:24:01 ylafon Exp $
+// $Id: MediaMinColor.java,v 1.3 2005-09-14 15:15:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -15,7 +15,7 @@ import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class MediaMinColor extends CssProperty {
 
@@ -37,13 +37,13 @@ public class MediaMinColor extends CssProperty {
     public MediaMinColor(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
 	CssValue val = null;
-	
+
 	if (expression != null) {
 	    val = expression.getValue();
 	}
-	
+
 	setByUser();
-	
+
 	if (val != null) {
 	    if (val instanceof CssNumber) {
 		if (((CssNumber) val).isInteger()) {
@@ -56,16 +56,16 @@ public class MediaMinColor extends CssProperty {
 		throw new InvalidParamException("value", expression.getValue(),
 			getPropertyName(), ac);
 	    }
-	    
+
 	    expression.next();
 	}
     }
-    
+
     public MediaMinColor(ApplContext ac, CssExpression expression)
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property.
      */

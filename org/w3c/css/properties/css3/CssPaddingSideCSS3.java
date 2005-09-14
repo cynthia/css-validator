@@ -1,5 +1,5 @@
 //
-// $Id: CssPaddingSideCSS3.java,v 1.2 2005-09-08 12:24:01 ylafon Exp $
+// $Id: CssPaddingSideCSS3.java,v 1.3 2005-09-14 15:15:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -17,7 +17,7 @@ import org.w3c.css.values.CssPercentage;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public abstract class CssPaddingSideCSS3 extends CssProperty {
 
@@ -78,7 +78,7 @@ public abstract class CssPaddingSideCSS3 extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

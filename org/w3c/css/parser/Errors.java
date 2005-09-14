@@ -1,5 +1,5 @@
 //
-// $Id: Errors.java,v 1.4 2005-09-08 12:23:33 ylafon Exp $
+// $Id: Errors.java,v 1.5 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.util.Vector;
 
 /**
  * Controls all errors in the validator
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  * @see Vector.java
  */
 public final class Errors {
@@ -25,7 +25,7 @@ public final class Errors {
    * Add an error.
    *
    * @param error The new error.
-   */  
+   */
   public final void addError(CssError error) {
     int oldCapacity = errorData.length;
     if (errorCount + 1 > oldCapacity) {
@@ -40,30 +40,30 @@ public final class Errors {
    * Add errors.
    *
    * @param errors All errors
-   */  
+   */
   public final void addErrors(Errors errors) {
     int oldCapacity = errorData.length;
     if (errorCount + errors.errorCount + 1 > oldCapacity) {
       CssError oldData[] = errorData;
-      errorData = 
+      errorData =
 	new CssError[oldCapacity + errors.errorCount + capacityIncrement];
       System.arraycopy(oldData, 0, errorData, 0, errorCount);
     }
-    System.arraycopy(errors.errorData, 0, errorData, 
+    System.arraycopy(errors.errorData, 0, errorData,
 		     errorCount, errors.errorCount);
     errorCount += errors.errorCount;
   }
 
   /**
    * Get the number of errors.
-   */  
+   */
   public final int getErrorCount() {
     return errorCount;
   }
 
   /**
    * Get an array with all errors.
-   */  
+   */
   public final CssError[] getErrors() {
     int oldCapacity = errorData.length;
     if (errorCount < oldCapacity) {
@@ -78,9 +78,9 @@ public final class Errors {
    * Get an error with an index.
    *
    * @param index the error index.
-   */  
+   */
   public final CssError getErrorAt(int index) {
     return errorData[index];
   }
-  
+
 }

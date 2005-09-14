@@ -1,5 +1,5 @@
 /* Copyright (c) 1997 by Groupe Bull.  All Rights Reserved */
-/* $Id: ActiveTree.java,v 1.2 2002-04-08 21:22:41 plehegar Exp $ */
+/* $Id: ActiveTree.java,v 1.3 2005-09-14 15:14:17 ylafon Exp $ */
 /* Author: Jean-Michel.Leon@sophia.inria.fr */
 /* Modified: Vincent Mallet (Vincent.Mallet@sophia.inria.fr) */
 
@@ -37,10 +37,10 @@ public class ActiveTree extends SimpleTree {
 	    listeners.trimToSize();
 	}
     }
-    
+
     public void setParent(Tree parent) {
 	super.setParent(parent);
-	if (listeners == null) 
+	if (listeners == null)
 	  return;
 	for(int i = 0; i < listeners.size(); i++) {
 	    TreeListener l = (TreeListener)listeners.elementAt(i);
@@ -48,9 +48,9 @@ public class ActiveTree extends SimpleTree {
 	}
     }
 
-  
+
     public void enter() {
-	if (listeners == null) 
+	if (listeners == null)
 	  return;
 	for(int i = 0; i < listeners.size(); i++) {
 	    TreeListener l = (TreeListener)listeners.elementAt(i);
@@ -59,7 +59,7 @@ public class ActiveTree extends SimpleTree {
     }
 
     public void exit() {
-	if (listeners == null) 
+	if (listeners == null)
 	  return;
 	for(int i = 0; i < listeners.size(); i++) {
 	    TreeListener l = (TreeListener)listeners.elementAt(i);
@@ -70,7 +70,7 @@ public class ActiveTree extends SimpleTree {
 
     public void replace(Tree child, int rank) {
 	super.replace(child, rank);
-	if (listeners == null) 
+	if (listeners == null)
 	  return;
 	for(int i = 0; i < listeners.size(); i++) {
 	    TreeListener l = (TreeListener)listeners.elementAt(i);
@@ -80,7 +80,7 @@ public class ActiveTree extends SimpleTree {
 
     public void attach(Tree child, int rank) {
 	super.attach(child, rank);
-	if (listeners == null) 
+	if (listeners == null)
 	  return;
 	for(int i = 0; i < listeners.size(); i++) {
 	    TreeListener l = (TreeListener)listeners.elementAt(i);
@@ -90,7 +90,7 @@ public class ActiveTree extends SimpleTree {
 
     public void attach(Tree child, Tree after) {
 	super.attach(child, after);
-	if (listeners == null) 
+	if (listeners == null)
 	  return;
 	int rank = indexOf(child);
 	for(int i = 0; i < listeners.size(); i++) {
@@ -98,7 +98,7 @@ public class ActiveTree extends SimpleTree {
 	    l.notifyAttach(child, rank);
 	}
     }
-    
+
     public void detach(Tree child) {
 	int rank = indexOf(child);
 	super.detach(child);
@@ -113,7 +113,7 @@ public class ActiveTree extends SimpleTree {
     public void move(Tree child, int rank) {
 	int oldRank = indexOf(child);
 	super.move(child, rank);
-	if (listeners == null) 
+	if (listeners == null)
 	  return;
 	for(int i = 0; i < listeners.size(); i++) {
 	    TreeListener l = (TreeListener)listeners.elementAt(i);

@@ -1,5 +1,5 @@
 //
-// $Id: CssContent.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssContent.java,v 1.2 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 14th Sijtsche de Jong (sy.de.jong@.let.rug.nl)
 //
@@ -210,7 +210,7 @@ public class CssContent extends CssProperty {
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

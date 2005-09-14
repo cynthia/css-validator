@@ -1,5 +1,5 @@
 //
-// $Id: CssMaxWidthCSS3.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssMaxWidthCSS3.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -74,7 +74,7 @@ public class CssMaxWidthCSS3 extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property.
      */

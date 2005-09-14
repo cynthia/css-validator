@@ -1,5 +1,5 @@
 //
-// $Id: CssPercentage.java,v 1.4 2005-09-08 12:24:10 ylafon Exp $
+// $Id: CssPercentage.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -30,20 +30,20 @@ import org.w3c.css.util.Util;
  *   <P>
  *   In all inherited CSS1 properties, if the value is specified as a percentage,
  *   child elements inherit the resultant value, not the percentage value.
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssPercentage extends CssValue {
-    
+
     static Float defaultValue = new Float(0);
     Float value;
-    
+
     /**
      * Create a new CssPercentage
      */
     public CssPercentage() {
 	this(defaultValue);
     }
-    
+
     /**
      * Create a new CssPercentage with a number
      *
@@ -51,8 +51,8 @@ public class CssPercentage extends CssValue {
      */
     public CssPercentage(int value) {
 	this(new Float(value));
-    }  
-    
+    }
+
     /**
      * Create a new CssPercentage with a float
      *
@@ -60,8 +60,8 @@ public class CssPercentage extends CssValue {
      */
     public CssPercentage(float value) {
 	this(new Float(value));
-    }  
-    
+    }
+
     /**
      * Create a new CssPercentage with a Float value.
      *
@@ -69,44 +69,44 @@ public class CssPercentage extends CssValue {
      */
     public CssPercentage(Float value) {
 	this.value = value;
-    }  
-    
+    }
+
     /**
      * Set the value of this percentage.
      *
      * @param s     the string representation of the percentage.
      * @param frame For errors and warnings reports.
      * @exception InvalidParamException The unit is incorrect
-     */  
+     */
     public void set(String s, ApplContext ac) throws InvalidParamException {
 	if (s.charAt(s.length()-1) != '%') {
 	    throw new InvalidParamException("percentage", s, ac);
 	}
 	this.value = new Float(s.substring(0, s.length()-1));
     }
-    
+
     /**
      * Returns the current value
-     */  
+     */
     public Object get() {
 	return value;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
-    public String toString() {  
+    public String toString() {
 	return Util.displayFloat(value) + "%";
     }
-    
+
     /**
      * Compares two values for equality.
      *
      * @param value The other value.
-     */  
+     */
     public boolean equals(Object val) {
 	return ((val instanceof CssPercentage)
 		&& value.equals(((CssPercentage) val).value));
     }
-    
+
 }

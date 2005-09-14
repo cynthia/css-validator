@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundImageMob.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBackgroundImageMob.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -33,11 +33,11 @@ import org.w3c.css.values.CssValue;
  *   BODY { background-image: url(marble.gif) }
  *   P { background-image: none }
  *   </PRE>
- * @version $Revision: 1.2 $ */
+ * @version $Revision: 1.3 $ */
 public class CssBackgroundImageMob extends CssProperty {
-    
+
     CssValue url;
-    
+
     private static CssIdent none = new CssIdent("none");
 
     /**
@@ -45,17 +45,17 @@ public class CssBackgroundImageMob extends CssProperty {
      */
     public CssBackgroundImageMob() {
 	url = none;
-    }  
-    
+    }
+
     /**
      * Creates a new CssBackgroundImageMob
      *
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
-     */  
+     */
     public CssBackgroundImageMob(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
@@ -73,23 +73,23 @@ public class CssBackgroundImageMob extends CssProperty {
 	    url = none;
 	    expression.next();
 	} else {
-	    throw new InvalidParamException("value", expression.getValue(), 
+	    throw new InvalidParamException("value", expression.getValue(),
 					    getPropertyName(), ac);
 	}
     }
-    
-    public CssBackgroundImageMob(ApplContext ac, CssExpression expression) 
+
+    public CssBackgroundImageMob(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */
     public Object get() {
 	return url;
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -100,7 +100,7 @@ public class CssBackgroundImageMob extends CssProperty {
 	}
 	return false;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
@@ -110,14 +110,14 @@ public class CssBackgroundImageMob extends CssProperty {
 	}
 	return "";
     }
-    
+
     /**
      * Returns the name of this property
-     */  
+     */
     public String getPropertyName() {
 	return "background-image";
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -129,13 +129,13 @@ public class CssBackgroundImageMob extends CssProperty {
 	    style.addRedefinitionWarning(ac, this);
 	cssBackground.image = this;
     }
-    
+
     /**
      * Get this property in the style.
      *
      * @param style The style where the property is
      * @param resolve if true, resolve the style to find this property
-     */  
+     */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
 	    return ((Css1Style) style).getBackgroundImageMob();
@@ -143,25 +143,25 @@ public class CssBackgroundImageMob extends CssProperty {
 	    return ((Css1Style) style).cssBackgroundMob.image;
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
      * @param value The other property.
-     */  
+     */
     public boolean equals(CssProperty property) {
 	return ((url == null && property == null) ||
-		(property instanceof CssBackgroundImageMob && 
+		(property instanceof CssBackgroundImageMob &&
 		url != null &&
 		url.equals(((CssBackgroundImageMob) property).url)));
     }
-    
+
     /**
      * Is the value of this property is a default value.
      * It is used by all macro for the function <code>print</code>
-     */  
+     */
     public boolean isDefault() {
 	return url == none;
     }
-    
+
 }

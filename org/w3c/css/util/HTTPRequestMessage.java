@@ -9,18 +9,18 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HTTPRequestMessage.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+ * $Id: HTTPRequestMessage.java,v 1.3 2005-09-14 15:15:32 ylafon Exp $
  */
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 
 package org.w3c.css.util;
 
 public class HTTPRequestMessage extends HTTPEntityMessage {
-    
+
     // HTTP Request message well-known headers
     public static int H_ACCEPT              = 31;
     public static int H_ACCEPT_CHARSET      = 32;
@@ -41,7 +41,7 @@ public class HTTPRequestMessage extends HTTPEntityMessage {
     public static int H_REFERER             = 47;
     public static int H_TE                  = 48;
     public static int H_USER_AGENT          = 49;
-    
+
     static {
 	registerHeader(H_ACCEPT,
 		       "Accept");
@@ -82,5 +82,5 @@ public class HTTPRequestMessage extends HTTPEntityMessage {
 	registerHeader(H_TE,
 		       "TE");
     }
-    
+
 }

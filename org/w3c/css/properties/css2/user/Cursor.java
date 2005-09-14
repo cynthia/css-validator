@@ -1,5 +1,5 @@
 //
-// $Id: Cursor.java,v 1.1 2005-08-23 16:33:51 ylafon Exp $
+// $Id: Cursor.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated september 14th 2000 by Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -21,7 +21,7 @@ import org.w3c.css.values.CssURL;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class Cursor extends CssProperty
     implements CssOperator {
@@ -55,8 +55,8 @@ public class Cursor extends CssProperty
      * @exception InvalidParamException Values are incorrect
      */
     public Cursor(ApplContext ac, CssExpression expression, boolean check)
-	throws InvalidParamException {		
-	
+	throws InvalidParamException {
+
 	CssValue val = expression.getValue();
 	char op = expression.getOperator();
 
@@ -109,7 +109,7 @@ public class Cursor extends CssProperty
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

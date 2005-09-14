@@ -1,4 +1,4 @@
-// $Id: Css21Style.java,v 1.1 2005-09-01 11:51:21 ylafon Exp $
+// $Id: Css21Style.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -13,9 +13,9 @@ import org.w3c.css.parser.CssPrinterStyle;
  * Created: Aug 30, 2005 2:25:17 PM<br />
  */
 public class Css21Style extends Css2Style {
-    
+
     public void print(CssPrinterStyle printer) {
 	super.print(printer);
     }
-    
+
 }

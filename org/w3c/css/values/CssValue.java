@@ -1,5 +1,5 @@
 //
-// $Id: CssValue.java,v 1.4 2005-09-08 12:24:10 ylafon Exp $
+// $Id: CssValue.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,7 +10,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public abstract class CssValue {
 
@@ -22,20 +22,20 @@ public abstract class CssValue {
    * @param s     the string representation of the value.
    * @param frame For errors and warnings reports.
    * @exception InvalidParamException The unit is incorrect
-   */  
-  public abstract void set(String s, ApplContext ac) 
+   */
+  public abstract void set(String s, ApplContext ac)
       throws InvalidParamException;
 
   /**
    * Returns the internal value
-   */  
+   */
   public abstract Object get();
 
   /**
    * Compares two values for equality.
    *
    * @param value The other value.
-   */  
+   */
   public boolean equals(Object value) {
     return super.equals(value);
   }
@@ -43,7 +43,7 @@ public abstract class CssValue {
     public void setCssVersion(String cssversion) {
 	this.cssversion = cssversion;
     }
-    
+
     public boolean isDefault() {
 	return false;
     }

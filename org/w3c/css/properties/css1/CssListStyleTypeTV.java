@@ -1,5 +1,5 @@
 //
-// $Id: CssListStyleTypeTV.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssListStyleTypeTV.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -32,7 +32,7 @@ import org.w3c.css.values.CssValue;
 					    *   OL { list-style-type: lower-alpha }   /* a b c d e etc. * /
 										       *   OL { list-style-type: lower-roman }   /* i ii iii iv v etc. * /
 																  *   </PRE>
-																  * @version $Revision: 1.2 $ */
+																  * @version $Revision: 1.3 $ */
 public class CssListStyleTypeTV extends CssProperty
     implements CssListStyleConstants {
 
@@ -54,11 +54,11 @@ public class CssListStyleTypeTV extends CssProperty
      */
     public CssListStyleTypeTV(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
 
 	setByUser();
@@ -79,7 +79,7 @@ public class CssListStyleTypeTV extends CssProperty
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

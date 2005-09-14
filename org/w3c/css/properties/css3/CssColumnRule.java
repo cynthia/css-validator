@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnRule.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssColumnRule.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -40,8 +40,8 @@ public class CssColumnRule extends CssProperty
 implements CssOperator {
 
     CssValue value;
-    /* I should use border-width and border-style here, but I don't 
-     * see how to implement a 
+    /* I should use border-width and border-style here, but I don't
+     * see how to implement a
      * shorthand property for shorthand properties ... So I splitted it up
      */
     CssBorderTopWidth btw;

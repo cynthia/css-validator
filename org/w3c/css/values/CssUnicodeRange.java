@@ -1,5 +1,5 @@
 //
-// $Id: CssUnicodeRange.java,v 1.3 2005-08-08 13:19:47 ylafon Exp $
+// $Id: CssUnicodeRange.java,v 1.4 2005-09-14 15:15:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,7 +13,7 @@ import org.w3c.css.util.ApplContext;
 /**
  */
 public class CssUnicodeRange extends CssValue {
-    
+
     String value;
 
     /**
@@ -21,27 +21,27 @@ public class CssUnicodeRange extends CssValue {
      */
     public CssUnicodeRange() {
     }
-    
+
     /**
      * Create a new CssUnicodeRange
      */
     public CssUnicodeRange(String value) {
 	this.value = value;
-    }    
-    
+    }
+
     /**
      * Set the value of this frequency.
      *
      * @param s     the string representation of the frequency.
      * @param frame For errors and warnings reports.
-     */  
+     */
     public void set(String s, ApplContext ac) {
 	value = s;
     }
-    
+
     /**
      * Returns the value
-     */  
+     */
     public Object get() {
 	return value;
     }
@@ -49,19 +49,19 @@ public class CssUnicodeRange extends CssValue {
     /**
      * Returns a string representation of the object.
      */
-    public String toString() {  
+    public String toString() {
 	return value;
     }
-    
+
     /**
      * Compares two values for equality.
      *
      * @param value The other value.
-     */  
+     */
     public boolean equals(Object value) {
 	return ((value instanceof CssUnicodeRange)
 		&& (value != null)
 		&& this.value.equals(((CssUnicodeRange) value).value));
     }
-    
+
 }

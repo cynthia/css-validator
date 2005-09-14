@@ -9,18 +9,18 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HTTPEntityMessage.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+ * $Id: HTTPEntityMessage.java,v 1.3 2005-09-14 15:15:32 ylafon Exp $
  */
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 
 package org.w3c.css.util;
 
 public class HTTPEntityMessage extends HTTPMessage {
-    
+
     // HTTP Entity message well-known headers
     public static int H_ALLOW               = 19;
     public static int H_CONTENT_LENGTH      = 20;
@@ -34,7 +34,7 @@ public class HTTPEntityMessage extends HTTPMessage {
     public static int H_ETAG                = 28;
     public static int H_EXPIRES             = 29;
     public static int H_LAST_MODIFIED       = 30;
-    
+
     static {
 	registerHeader(H_ALLOW,
 		       "Allow");

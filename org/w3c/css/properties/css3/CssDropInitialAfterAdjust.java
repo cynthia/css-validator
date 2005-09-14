@@ -1,5 +1,5 @@
 //
-// $Id: CssDropInitialAfterAdjust.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssDropInitialAfterAdjust.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -91,7 +91,7 @@ public class CssDropInitialAfterAdjust extends CssProperty {
 					    getPropertyName(), ac);
 	}
     }
-    
+
     public CssDropInitialAfterAdjust(ApplContext ac, CssExpression expression)
 	    throws InvalidParamException {
 	this(ac, expression, false);

@@ -1,5 +1,5 @@
 //
-// $Id: Couple.java,v 1.3 2005-09-08 12:23:33 ylafon Exp $
+// $Id: Couple.java,v 1.4 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,18 +13,18 @@ import org.w3c.css.values.CssExpression;
  * This class represents a couple : an at-rule property and an at-rule
  * expression.
  *
- * @version $Revision: 1.3 $ 
+ * @version $Revision: 1.4 $
  */
 public class Couple {
 
   /**
    * The at-rule property.
-   */  
+   */
   protected String property;
-  
+
   /**
    * The at-rule expression.
-   */  
+   */
   protected CssExpression expression;
 
   /**
@@ -43,25 +43,25 @@ public class Couple {
     this.property = property;
     this.expression = expression;
     this.important = important;
-  }  
+  }
 
   /**
    * Get the at-rule property
-   */  
+   */
   public final String getProperty() {
     return property;
   }
 
   /**
    * get the at-rule expression
-   */  
+   */
   public final CssExpression getExpression() {
     return expression;
   }
 
   /**
    * Is this at-rule is important
-   */  
+   */
   public final boolean getImportant() {
     return important;
   }

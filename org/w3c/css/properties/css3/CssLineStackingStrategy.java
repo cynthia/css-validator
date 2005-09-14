@@ -1,5 +1,5 @@
 //
-// $Id: CssLineStackingStrategy.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssLineStackingStrategy.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -27,7 +27,7 @@ public class CssLineStackingStrategy extends CssProperty {
     static CssIdent inlinelineheight = new CssIdent("inline-line-height");
 
     private static String[] values = {
-	"inline-line-height", "block-line-height", "max-height", "grid-height", 
+	"inline-line-height", "block-line-height", "max-height", "grid-height",
 	"inherit", "initial"
     };
 
@@ -68,7 +68,7 @@ public class CssLineStackingStrategy extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *

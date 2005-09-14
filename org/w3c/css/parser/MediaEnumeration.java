@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: MediaEnumeration.java,v 1.2 2002-04-08 21:24:12 plehegar Exp $
+ * $Id: MediaEnumeration.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
  */
 package org.w3c.css.parser;
 
@@ -21,8 +21,8 @@ public class MediaEnumeration implements Enumeration {
     int current = 0;
 
     MediaEnumeration(AtRuleMedia media) {
-	this.media = media.media;	
-	while ((current < this.media.length) 
+	this.media = media.media;
+	while ((current < this.media.length)
 	       && (this.media[current] != null)) {
 	    current++;
 	}

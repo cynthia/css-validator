@@ -1,12 +1,12 @@
 //
-// $Id: AtRulePage.java,v 1.3 2005-08-08 13:18:11 ylafon Exp $
+// $Id: AtRulePage.java,v 1.4 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRulePage.java
- * $Id: AtRulePage.java,v 1.3 2005-08-08 13:18:11 ylafon Exp $
+ * $Id: AtRulePage.java,v 1.4 2005-09-14 15:14:18 ylafon Exp $
  */
 package org.w3c.css.parser;
 
@@ -16,8 +16,8 @@ import org.w3c.css.util.InvalidParamException;
 
 /**
  * This class manages all media defines by CSS2
- * 
- * @version $Revision: 1.3 $
+ *
+ * @version $Revision: 1.4 $
  * @author  Philippe Le H�garet
  */
 public class AtRulePage extends AtRule {
@@ -32,7 +32,7 @@ public class AtRulePage extends AtRule {
 
     /**
      * Returns the at rule keyword
-     */    
+     */
     public String keyword() {
 	return "page";
     }
@@ -41,7 +41,7 @@ public class AtRulePage extends AtRule {
      * Sets the name of the page
      * name will be a pseudo name :first, :left, :right
      * or a random name without semi-colon at the beginning
-     */    
+     */
     public AtRulePage setName(String name, ApplContext ac)
 	     throws InvalidParamException {
 	if (name.charAt(0) == ':') {
@@ -97,7 +97,7 @@ public class AtRulePage extends AtRule {
 
     /**
      * The second must be exactly the same of this one
-     */    
+     */
     public boolean canApply(AtRule atRule) {
 	if (atRule instanceof AtRulePage) {
 	    AtRulePage other = (AtRulePage) atRule;
@@ -124,7 +124,7 @@ public class AtRulePage extends AtRule {
 
     /**
      * The second must only match this one
-     */    
+     */
     public boolean canMatched(AtRule atRule) {
 	if (atRule instanceof AtRulePage) {
 	    boolean res = true;
@@ -160,5 +160,5 @@ public class AtRulePage extends AtRule {
 	}
 	return ret;
     }
-    
+
 }

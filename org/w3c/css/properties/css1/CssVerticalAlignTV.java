@@ -1,5 +1,5 @@
 //
-// $Id: CssVerticalAlignTV.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssVerticalAlignTV.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -86,7 +86,7 @@ import org.w3c.css.values.CssValue;
  *   It is expected that a future version of CSS will allow &lt;length&amp;t;
  *   as a value on this property.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssVerticalAlignTV extends CssProperty
     implements CssTextPropertiesConstants {
@@ -110,11 +110,11 @@ public class CssVerticalAlignTV extends CssProperty
      */
     public CssVerticalAlignTV(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
 	int hash = val.hashCode();
 
@@ -142,7 +142,7 @@ public class CssVerticalAlignTV extends CssProperty
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

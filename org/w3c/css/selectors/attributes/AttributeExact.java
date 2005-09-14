@@ -1,4 +1,4 @@
-// $Id: AttributeExact.java,v 1.1 2005-09-08 12:24:09 ylafon Exp $
+// $Id: AttributeExact.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -15,12 +15,12 @@ import org.w3c.css.util.ApplContext;
 public class AttributeExact extends AttributeSelector {
 
     private String value;
-    
+
     public AttributeExact(String name, String value) {
 	setName(name);
 	this.value = value;
     }
-    
+
     /**
      * @return Returns the value.
      */
@@ -70,7 +70,7 @@ public class AttributeExact extends AttributeSelector {
 	    }
 	}
     }
-    
+
     public String toString() {
 	return "[" + getName() + "=\"" + value + "\"]";
     }

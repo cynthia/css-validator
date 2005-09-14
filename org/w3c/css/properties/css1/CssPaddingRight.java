@@ -1,5 +1,5 @@
 //
-// $Id: CssPaddingRight.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssPaddingRight.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -29,7 +29,7 @@ import org.w3c.css.values.CssExpression;
  *   <P>
  *   Padding values cannot be negative.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssPaddingRight extends CssPaddingSide {
 
@@ -39,7 +39,7 @@ public class CssPaddingRight extends CssPaddingSide {
   public CssPaddingRight() {
     super();
   }
-  
+
   /**
    * Create a new CssPaddingRight with an another CssPaddingSide
    *
@@ -48,7 +48,7 @@ public class CssPaddingRight extends CssPaddingSide {
   public CssPaddingRight(CssPaddingSide another) {
     super(another);
   }
-  
+
   /**
    * Create a new CssPaddingRight
    *
@@ -59,15 +59,15 @@ public class CssPaddingRight extends CssPaddingSide {
     throws InvalidParamException {
     super(ac, expression, check);
   }
-  
+
   public CssPaddingRight(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
   }
-  
+
   /**
    * Returns the name of this property
-   */  
+   */
   public String getPropertyName() {
     return "padding-right";
   }
@@ -89,7 +89,7 @@ public class CssPaddingRight extends CssPaddingSide {
    *
    * @param style The style where the property is
    * @param resolve if true, resolve the style to find this property
-   */  
+   */
   public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
     if (resolve) {
       return ((Css1Style) style).getPaddingRight();
@@ -102,9 +102,9 @@ public class CssPaddingRight extends CssPaddingSide {
    * Compares two properties for equality.
    *
    * @param value The other property.
-   */  
+   */
   public boolean equals(CssProperty property) {
-    return (property instanceof CssPaddingRight && 
+    return (property instanceof CssPaddingRight &&
 	    value.equals(((CssPaddingRight) property).value));
   }
 

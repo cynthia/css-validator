@@ -1,5 +1,5 @@
 //
-// $Id: PagedProperties.java,v 1.1 2005-08-23 16:25:02 ylafon Exp $
+// $Id: PagedProperties.java,v 1.2 2005-09-14 15:15:26 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,7 +12,7 @@ import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.util.Utf8Properties;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class PagedProperties {
 	public static Utf8Properties properties;
@@ -24,7 +24,7 @@ public class PagedProperties {
   public static boolean getInheritance(CssProperty property) {
     return getString(property, "inherited").equals("true");
   }
-  
+
   static {
 		Utf8Properties properties = new Utf8Properties();
     try {

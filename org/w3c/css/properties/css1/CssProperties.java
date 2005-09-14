@@ -1,5 +1,5 @@
 //
-// $Id: CssProperties.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssProperties.java,v 1.2 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,20 +11,20 @@ import java.net.URL;
 import org.w3c.css.util.Utf8Properties;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssProperties {
     public static Utf8Properties properties;
-    
+
     public static String getString(CssProperty property, String prop) {
 	StringBuffer st = new StringBuffer(property.getPropertyName());
 	return properties.getProperty(st.append('.').append(prop).toString());
     }
-    
+
     public static boolean getInheritance(CssProperty property) {
 	return getString(property, "inherited").equals("true");
     }
-    
+
     static {
 	properties = new Utf8Properties();
 	try {

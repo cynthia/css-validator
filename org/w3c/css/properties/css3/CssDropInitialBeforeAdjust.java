@@ -1,5 +1,5 @@
 //
-// $Id: CssDropInitialBeforeAdjust.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssDropInitialBeforeAdjust.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -60,10 +60,10 @@ public class CssDropInitialBeforeAdjust extends CssProperty {
      */
     public CssDropInitialBeforeAdjust(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	setByUser();
 	CssValue val = expression.getValue();
-	
+
 	if (val instanceof CssIdent) {
 	    int i = 0;
 	    for (; i < values.length; i++) {
@@ -96,7 +96,7 @@ public class CssDropInitialBeforeAdjust extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *

@@ -1,5 +1,5 @@
 //
-// $Id: MediaMinDeviceAspectRatio.java,v 1.2 2005-09-08 12:24:01 ylafon Exp $
+// $Id: MediaMinDeviceAspectRatio.java,v 1.3 2005-09-14 15:15:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class MediaMinDeviceAspectRatio extends CssProperty implements CssOperator {
 
@@ -37,20 +37,20 @@ public class MediaMinDeviceAspectRatio extends CssProperty implements CssOperato
      */
     public MediaMinDeviceAspectRatio(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 2) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = null;
-	
+
 	if (expression != null) {
 	    val = expression.getValue();
 	}
-	
+
 	setByUser();
 	char op = SPACE;
-	
+
 	if (val != null) {
 	    if (val instanceof CssNumber) {
 		if (((CssNumber) val).isInteger()) {
@@ -63,13 +63,13 @@ public class MediaMinDeviceAspectRatio extends CssProperty implements CssOperato
 		throw new InvalidParamException("value", expression.getValue(),
 			getPropertyName(), ac);
 	    }
-	    
+
 	    op = expression.getOperator();
 	    expression.next();
 	    val = expression.getValue();
-	    
+
 	    if (op == SLASH && val != null) {
-		
+
 		if (val instanceof CssNumber) {
 		    if (((CssNumber) val).isInteger()) {
 			value += "/" + val.toString();
@@ -81,23 +81,23 @@ public class MediaMinDeviceAspectRatio extends CssProperty implements CssOperato
 		    throw new InvalidParamException("value", expression.getValue(),
 			    getPropertyName(), ac);
 		}
-		
-		
+
+
 	    } else {
 		throw new InvalidParamException("value", expression.getValue(),
 			getPropertyName(), ac);
 	    }
-	    
+
 	    expression.next();
-	    
+
 	}
     }
-    
+
     public MediaMinDeviceAspectRatio(ApplContext ac, CssExpression expression)
     throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property.
      */

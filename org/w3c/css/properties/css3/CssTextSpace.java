@@ -1,5 +1,5 @@
 //
-// $Id: CssTextSpace.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssTextSpace.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -25,12 +25,12 @@ import org.w3c.css.values.CssValue;
  *  <EM>Percentages:</EM>no<BR>
  *  <EM>Media:</EM>:visual
  *  <P>
- *  This property controls whether or not white space in text stream is 
+ *  This property controls whether or not white space in text stream is
  *  collapsed, or kept as is.
  */
 
 public class CssTextSpace extends CssProperty {
- 
+
     CssValue textspace;
     ApplContext ac;
 
@@ -46,7 +46,7 @@ public class CssTextSpace extends CssProperty {
 
     /**
      * Create a new CssTextSpace
-     * 
+     *
      * @param expression The expression for this property
      * @exception InvalidParamException Incorrect values
      */
@@ -76,7 +76,7 @@ public class CssTextSpace extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -112,7 +112,7 @@ public class CssTextSpace extends CssProperty {
 	return (property instanceof CssTextSpace &&
 		textspace.equals(((CssTextSpace) property).textspace));
     }
-    
+
     /**
      * Returns the name of this property
      */

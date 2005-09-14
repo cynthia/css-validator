@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderBottomLeftRadius.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssBorderBottomLeftRadius.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -21,7 +21,7 @@ public class CssBorderBottomLeftRadius extends CssProperty {
 
     String value;
     ApplContext ac;
-    
+
     /**
      * Create new CssBorderBottomLeftRadius
      */
@@ -29,7 +29,7 @@ public class CssBorderBottomLeftRadius extends CssProperty {
 	CssNumber cssnum =  new CssNumber((float) 1.0);
 	value = cssnum.toString();
     }
-    
+
     /**
      * Create new CssBorderBottomLeftRadius
      *
@@ -40,14 +40,14 @@ public class CssBorderBottomLeftRadius extends CssProperty {
 	    boolean check) throws InvalidParamException {
 	setByUser();
 	CssValue val = expression.getValue();
-	
+
 	if (val instanceof CssLength) {
 	    value = val.toString();
 	    expression.next();
-	    
+
 	    val = expression.getValue();
 	    if (val != null) {
-		
+
 		if (val instanceof CssLength) {
 		    value += " " + val.toString();
 		    expression.next();
@@ -62,12 +62,12 @@ public class CssBorderBottomLeftRadius extends CssProperty {
 		    getPropertyName(), ac);
 	}
     }
-    
+
     public CssBorderBottomLeftRadius(ApplContext ac, CssExpression expression)
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -78,7 +78,7 @@ public class CssBorderBottomLeftRadius extends CssProperty {
 	    style.addRedefinitionWarning(ac, this);
 	((Css3Style) style).cssBorderBottomLeftRadius = this;
     }
-    
+
     /**
      * Get this property in the style.
      *
@@ -92,7 +92,7 @@ public class CssBorderBottomLeftRadius extends CssProperty {
 	    return ((Css3Style) style).cssBorderBottomLeftRadius;
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
@@ -102,35 +102,35 @@ public class CssBorderBottomLeftRadius extends CssProperty {
 	return (property instanceof CssBorderBottomLeftRadius &&
 		value.equals( ((CssBorderBottomLeftRadius) property).value));
     }
-    
+
     /**
      * Returns the name of this property
      */
     public String getPropertyName() {
 	return "border-bottom-left-radius";
     }
-    
+
     /**
      * Returns the value of this property
      */
     public Object get() {
 	return value;
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      */
     public boolean isSoftlyInherited() {
 	return value.equals(inherit);
     }
-    
+
     /**
      * Returns a string representation of the object
      */
     public String toString() {
 	return value.toString();
     }
-    
+
     /**
      * Is the value of this property a default value
      * It is used by all macro for the function <code>print</code>
@@ -139,5 +139,5 @@ public class CssBorderBottomLeftRadius extends CssProperty {
 	CssNumber cssnum = new CssNumber(ac, (float) 1.0);
 	return value == cssnum.toString();
     }
-    
+
 }

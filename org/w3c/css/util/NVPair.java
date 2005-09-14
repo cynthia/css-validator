@@ -1,5 +1,5 @@
 //
-// $Id: NVPair.java,v 1.2 2002-04-08 21:19:15 plehegar Exp $
+// $Id: NVPair.java,v 1.3 2005-09-14 15:15:32 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,7 +10,7 @@
  *
  * @(#)NVPair.java					0.2-2 23/03/1997
  *
- *  This file is part of the HTTPClient package 
+ *  This file is part of the HTTPClient package
  *  Copyright (C) 1996,1997  Ronald Tschalaer
  *
  *  This library is free software; you can redistribute it and/or
@@ -49,19 +49,19 @@ package org.w3c.css.util;
 public class NVPair {
   /** the name */
   String name;
-  
+
   /** the value */
   Object value;
-  
+
   // Constructors
-  
+
   /**
     * Creates an empty name/value pair.
     */
   NVPair() {
     this("", "");
   }
-  
+
   /**
     * Creates a copy of a given name/value pair.
     * @param p the name/value pair to copy
@@ -69,7 +69,7 @@ public class NVPair {
   public NVPair(NVPair p) {
     this(p.name, p.value);
   }
-  
+
   /**
     * Creates a new name/value pair and initializes it to the
     * specified name and value.
@@ -80,9 +80,9 @@ public class NVPair {
     this.name  = name;
     this.value = value;
   }
-  
+
   // Methods
-  
+
   /**
     * get the name
     *
@@ -91,7 +91,7 @@ public class NVPair {
   public final String getName() {
     return name;
   }
-  
+
   /**
     * get the value
     *
@@ -100,7 +100,7 @@ public class NVPair {
   public final Object getValue() {
     return value;
   }
-  
+
   /**
     * produces a string containing the name and value of this instance.
     * @return a string containing the class name and the name and value

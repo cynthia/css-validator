@@ -1,12 +1,12 @@
 //
-// $Id: AtRuleMedia.java,v 1.8 2005-08-23 16:22:54 ylafon Exp $
+// $Id: AtRuleMedia.java,v 1.9 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleMedia.java
- * $Id: AtRuleMedia.java,v 1.8 2005-08-23 16:22:54 ylafon Exp $
+ * $Id: AtRuleMedia.java,v 1.9 2005-09-14 15:14:18 ylafon Exp $
  */
 package org.w3c.css.parser;
 
@@ -20,13 +20,13 @@ import org.w3c.css.util.InvalidParamException;
 /**
  * This class manages all media defines by CSS2
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  * @author  Philippe Le H�garet
  */
 public class AtRuleMedia extends AtRule {
 
     static final String[] mediaCSS3 = {
-	"all", "aural", "braille", "embossed", "handheld", "print", 
+	"all", "aural", "braille", "embossed", "handheld", "print",
 	"projection", "screen", "tty", "tv", "presentation", "atsc-tv"
     };
 
@@ -61,7 +61,7 @@ public class AtRuleMedia extends AtRule {
     }
 
     public void addMediaRestrictor(String restrictor, ApplContext ac) {
-	if (restrictor.toUpperCase().equals("ONLY") || 
+	if (restrictor.toUpperCase().equals("ONLY") ||
 	    restrictor.toUpperCase().equals("NOT")) {
 	    this.restrictor = restrictor;
 	}
@@ -135,7 +135,7 @@ public class AtRuleMedia extends AtRule {
      */
     public String toString() {
 	StringBuffer ret  = new StringBuffer();
-	
+
 	ret.append('@');
 	ret.append(keyword());
 	ret.append(' ');
@@ -155,7 +155,7 @@ public class AtRuleMedia extends AtRule {
 		ret.append(media[i]);
 	    }
 	}
-	
+
 	for (int i = 0; i < mediafeatures.size(); i++) {
 	    ret.append(" and (");
 	    ret.append(((String)mediafeatures.elementAt(i)));

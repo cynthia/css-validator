@@ -1,5 +1,5 @@
 //
-// $Id: CssPaddingLeftCSS3.java,v 1.2 2005-09-08 12:24:01 ylafon Exp $
+// $Id: CssPaddingLeftCSS3.java,v 1.3 2005-09-14 15:15:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -29,17 +29,17 @@ import org.w3c.css.values.CssExpression;
  * </PRE>
  *   <P>
  *   Padding values cannot be negative.
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssPaddingLeftCSS3 extends CssPaddingSideCSS3 {
-    
+
     /**
      * Create a new CssPaddingLeftCSS3
      */
     public CssPaddingLeftCSS3() {
 	super();
     }
-    
+
     /**
      * Create a new CssPaddingLeftCSS3 with an another CssPaddingSideCSS3
      * @param another The another side.
@@ -47,7 +47,7 @@ public class CssPaddingLeftCSS3 extends CssPaddingSideCSS3 {
     public CssPaddingLeftCSS3(CssPaddingSideCSS3 another) {
 	super(another);
     }
-    
+
     /**
      * Create a new CssPaddingLeftCSS3
      *
@@ -58,19 +58,19 @@ public class CssPaddingLeftCSS3 extends CssPaddingSideCSS3 {
 	    boolean check) throws InvalidParamException {
 	super(ac, expression, check);
     }
-    
+
     public CssPaddingLeftCSS3(ApplContext ac, CssExpression expression)
     throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the name of this property
      */
     public String getPropertyName() {
 	return "padding-left";
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -80,9 +80,9 @@ public class CssPaddingLeftCSS3 extends CssPaddingSideCSS3 {
 	if (((Css3Style) style).cssPaddingLeftCSS3 != null)
 	    style.addRedefinitionWarning(ac, this);
 	((Css3Style) style).cssPaddingLeftCSS3 = this;
-	
+
     }
-    
+
     /**
      * Get this property in the style.
      *
@@ -96,7 +96,7 @@ public class CssPaddingLeftCSS3 extends CssPaddingSideCSS3 {
 	    return ((Css3Style) style).cssPaddingCSS3.getLeft();
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
@@ -106,5 +106,5 @@ public class CssPaddingLeftCSS3 extends CssPaddingSideCSS3 {
 	return (property instanceof CssPaddingLeftCSS3 &&
 		value.equals(((CssPaddingLeftCSS3) property).value));
     }
-    
+
 }

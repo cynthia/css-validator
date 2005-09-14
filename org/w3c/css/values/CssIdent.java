@@ -1,5 +1,5 @@
 //
-// $Id: CssIdent.java,v 1.4 2005-09-08 12:24:10 ylafon Exp $
+// $Id: CssIdent.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@ package org.w3c.css.values;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssIdent extends CssValue {
 
@@ -25,22 +25,22 @@ public class CssIdent extends CssValue {
    * @param s The identificator
    */
   public CssIdent(String s) {
-    value = s;   
-  }  
-  
+    value = s;
+  }
+
   /**
    * Set the value of this ident.
    *
    * @param s     the string representation of the identificator.
    * @param frame For errors and warnings reports.
-   */  
-  public void set(String s, ApplContext ac) {      
+   */
+  public void set(String s, ApplContext ac) {
     value = s;
   }
 
   /**
    * Returns the internal value.
-   */  
+   */
   public Object get() {
     return value;
   }
@@ -56,7 +56,7 @@ public class CssIdent extends CssValue {
    * Compares two values for equality.
    *
    * @param value The other value.
-   */  
+   */
   public boolean equals(Object value) {
     return (value instanceof CssIdent && value.hashCode() == hashCode());
   }

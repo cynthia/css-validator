@@ -1,5 +1,5 @@
 //
-// $Id: CssPaddingTop.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssPaddingTop.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -28,7 +28,7 @@ import org.w3c.css.values.CssExpression;
  * </PRE>
  *   <P>
  *   Padding values cannot be negative.
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssPaddingTop extends CssPaddingSide {
 
@@ -38,7 +38,7 @@ public class CssPaddingTop extends CssPaddingSide {
   public CssPaddingTop() {
     super();
   }
-  
+
   /**
    * Create a new CssPaddingTop with an another CssPaddingSide.
    *
@@ -47,7 +47,7 @@ public class CssPaddingTop extends CssPaddingSide {
   public CssPaddingTop(CssPaddingSide another) {
     super(another);
   }
-  
+
   /**
    * Create a new CssPaddingTop
    *
@@ -58,15 +58,15 @@ public class CssPaddingTop extends CssPaddingSide {
   	throws InvalidParamException {
     super(ac, expression, check);
   }
-  
+
   public CssPaddingTop(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
   }
-  
+
   /**
    * Returns the name of this property
-   */  
+   */
   public String getPropertyName() {
     return "padding-top";
   }
@@ -88,7 +88,7 @@ public class CssPaddingTop extends CssPaddingSide {
    *
    * @param style The style where the property is
    * @param resolve if true, resolve the style to find this property
-   */  
+   */
   public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
     if (resolve) {
       return ((Css1Style) style).getPaddingTop();
@@ -101,7 +101,7 @@ public class CssPaddingTop extends CssPaddingSide {
    * Compares two properties for equality.
    *
    * @param value The other property.
-   */  
+   */
   public boolean equals(CssProperty property) {
     return (property instanceof CssPaddingTop && value.equals(((CssPaddingTop) property).value));
   }

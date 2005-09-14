@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderFaceStyleCSS1.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBorderFaceStyleCSS1.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,25 +13,25 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBorderFaceStyleCSS1 {
-    
+
     int value;
-    
+
     private static String[] BORDERSTYLE = {
-	"none", "hidden", "dotted", "dashed", "solid", "double", "groove", 
+	"none", "hidden", "dotted", "dashed", "solid", "double", "groove",
 	"ridge", "inset", "outset", "inherit" };
-    
+
     private static int[] hash_values;
-    
+
     /**
      * Create a new CssBorderFaceStyleCSS1
      */
     public CssBorderFaceStyleCSS1() {
 	// nothing to do
-    }  
-    
+    }
+
     /**
      * Create a new CssBorderFaceStyleCSS1 with an another CssBorderFaceStyle
      *
@@ -40,23 +40,23 @@ public class CssBorderFaceStyleCSS1 {
     public CssBorderFaceStyleCSS1(CssBorderFaceStyleCSS1 another) {
 	value = another.value;
     }
-    
+
     /**
      * Create a new CssBorderFaceStyleCSS1
      *
      * @param expression The expression for this face
      * @param check true will test the number of parameters
      * @exception InvalidParamException The expression is incorrect
-     */  
+     */
     public CssBorderFaceStyleCSS1(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
-	
+
 	if (val instanceof CssIdent) {
 	    int hash = val.hashCode();
 	    for (int i = 0; i < BORDERSTYLE.length; i++)
@@ -66,21 +66,21 @@ public class CssBorderFaceStyleCSS1 {
 		    return;
 		}
 	}
-	
+
 	throw new InvalidParamException("value", val.toString(), "style", ac);
     }
-    
+
     /**
      * Create a new CssBorderFaceStyleCSS1
      *
      * @param check true will test the number of parameters
      * @exception InvalidParamException The expression is incorrect
-     */  
+     */
     public CssBorderFaceStyleCSS1(ApplContext ac, CssExpression expression)
     	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -88,34 +88,34 @@ public class CssBorderFaceStyleCSS1 {
     public boolean isSoftlyInherited() {
 	return value == (BORDERSTYLE.length - 1);
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
 	return BORDERSTYLE[value];
     }
-    
+
     /**
      * Returns the value
      */
     public String getStyle() {
 	return BORDERSTYLE[value];
     }
-    
+
     /**
      * Compares two side for equality.
      *
      * @param value The another side.
-     */  
+     */
     public boolean equals(CssBorderFaceStyleCSS1 style) {
 	return value == style.value;
     }
-    
+
     static {
 	hash_values = new int[BORDERSTYLE.length];
 	for (int i=0; i<BORDERSTYLE.length; i++)
 	    hash_values[i] = BORDERSTYLE[i].hashCode();
     }
-    
+
 }

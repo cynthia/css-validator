@@ -1,5 +1,5 @@
 //
-// $Id: TextAnchor.java,v 1.1 2005-08-23 16:25:02 ylafon Exp $
+// $Id: TextAnchor.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -23,7 +23,7 @@ import org.w3c.css.values.CssValue;
  *  <EM>Applies to:</EM>'text', 'tspan', 'tref', 'altGlyph', 'textPath' elements<BR>
  *  <EM>Inherited:</EM>yes<BR>
  *  <EM>Percentages:</EM>no<BR>
- *  <EM>Media:</EM>:visual 
+ *  <EM>Media:</EM>:visual
  */
 
 public class TextAnchor extends CssProperty {
@@ -73,7 +73,7 @@ public class TextAnchor extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -109,7 +109,7 @@ public class TextAnchor extends CssProperty {
 	return (property instanceof TextAnchor &&
 		value.equals(((TextAnchor) property).value));
     }
-    
+
     /**
      * Returns the name of this property
      */

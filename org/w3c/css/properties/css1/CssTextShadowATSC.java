@@ -1,5 +1,5 @@
 //
-// $Id: CssTextShadowATSC.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssTextShadowATSC.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -17,39 +17,39 @@ import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
-public class CssTextShadowATSC extends CssProperty 
+public class CssTextShadowATSC extends CssProperty
         implements CssTextPropertiesConstants {
-    
+
     CssValue value;
 
     Vector faces = new Vector();
 
     private static CssIdent none = new CssIdent("none");
-    
+
     /**
      * Create a new CssTextShadowATSC
      */
     public CssTextShadowATSC() {
 	value = none;
-    }  
-    
+    }
+
     /**
      * Create a new CssTextShadowATSC
      *
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
-     */  
+     */
     public CssTextShadowATSC(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	CssValue val = expression.getValue();
-	
+
 	setByUser();
 
 	int count = expression.getCount();
-	
+
 	ac.getFrame().addWarning("atsc", val.toString());
 
 	if (val.equals(none)) {
@@ -80,14 +80,14 @@ public class CssTextShadowATSC extends CssProperty
 	    }
 	}
 	val = null;
-	
+
     }
-    
-    public CssTextShadowATSC(ApplContext ac, CssExpression expression) 
+
+    public CssTextShadowATSC(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */
@@ -97,14 +97,14 @@ public class CssTextShadowATSC extends CssProperty
 	}
 	return faces.elementAt(0);
     }
-    
+
     /**
      * Returns the name of this property
-     */  
+     */
     public String getPropertyName() {
 	return "text-shadow";
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -112,7 +112,7 @@ public class CssTextShadowATSC extends CssProperty
     public boolean isSoftlyInherited() {
 	return value == inherit;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
@@ -124,13 +124,13 @@ public class CssTextShadowATSC extends CssProperty
 	    int l = faces.size();
 	    String ret = "";
 	    while (i != l) {
-		ret += new Character(CssOperator.COMMA) 
+		ret += new Character(CssOperator.COMMA)
 		    + " " + faces.elementAt(i++);
 	    }
 	    return ret.substring(2);
 	}
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -143,13 +143,13 @@ public class CssTextShadowATSC extends CssProperty
 	}
 	style0.cssTextShadowATSC = this;
     }
-    
+
     /**
      * Get this property in the style.
      *
      * @param style The style where the property is
      * @param resolve if true, resolve the style to find this property
-     */  
+     */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
 	    return ((Css1Style) style).getTextShadowATSC();
@@ -157,12 +157,12 @@ public class CssTextShadowATSC extends CssProperty
 	    return ((Css1Style) style).cssTextShadowATSC;
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
      * @param value The other property.
-     */  
+     */
     public boolean equals(CssProperty property) {
 	// @@ FIXME
 	return false;

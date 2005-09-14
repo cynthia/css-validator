@@ -1,5 +1,5 @@
 //
-// $Id: CssTextDecorationTV.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssTextDecorationTV.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -46,7 +46,7 @@ import org.w3c.css.values.CssValue;
  *   UAs must recognize the keyword 'blink', but are not required to support the
  *   blink effect.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssTextDecorationTV extends CssProperty
         implements CssTextPropertiesConstants {
@@ -75,7 +75,7 @@ public class CssTextDecorationTV extends CssProperty
      */
     public CssTextDecorationTV(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	CssValue val = expression.getValue();
 	boolean find = true;
 	//int computed = 0;
@@ -103,15 +103,15 @@ public class CssTextDecorationTV extends CssProperty
 	if(check && expression.getCount() > 4) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	while (find) {
 	    find = false;
 	    val = expression.getValue();
-	    
+
 	    if(val != null && val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
-	    
+
 	    if (val instanceof CssIdent) {
 		index = getIndex((CssIdent) val, ac);
 		if (values[index] == true) {
@@ -129,11 +129,11 @@ public class CssTextDecorationTV extends CssProperty
 	}
     }
 
-    public CssTextDecorationTV(ApplContext ac, CssExpression expression) 
+    public CssTextDecorationTV(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

@@ -1,5 +1,5 @@
 //
-// $Id: CssCollapse.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssCollapse.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -27,7 +27,7 @@ import org.w3c.css.values.CssValue;
  *  <EM>Percentages:</EM>no<BR>
  *  <EM>Media:</EM>:visual
  *  <P>
- *  There is one kind of implicit link that CSS can exploit and present as a hyperlink 
+ *  There is one kind of implicit link that CSS can exploit and present as a hyperlink
  *  and that is the relation between an element and its children.
  */
 
@@ -78,7 +78,7 @@ public class CssCollapse extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -114,7 +114,7 @@ public class CssCollapse extends CssProperty {
 	return (property instanceof CssCollapse &&
 		collapse.equals(((CssCollapse) property).collapse));
     }
-    
+
     /**
      * Returns the name of this property
      */

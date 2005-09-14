@@ -1,5 +1,5 @@
 //
-// $Id: CssBoxOffsetFace.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssBoxOffsetFace.java,v 1.2 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -18,12 +18,12 @@ import org.w3c.css.values.CssPercentage;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public abstract class CssBoxOffsetFace extends CssProperty {
-    
+
     CssValue value;
-    
+
     private static CssIdent auto = new CssIdent("auto");
 
     /**
@@ -32,24 +32,24 @@ public abstract class CssBoxOffsetFace extends CssProperty {
     public CssBoxOffsetFace() {
 	value = auto;
     }
-    
+
     /**
      * Create a new CssBoxOffsetFace
      *
      * @param expression The expression for this property
      * @exception InvalidParamException Values are incorrect
-     */  
+     */
     public CssBoxOffsetFace(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
-	
+
 	setByUser();
-	
+
 	if (val.equals(inherit)) {
 	    value = inherit;
 	    expression.next();
@@ -66,30 +66,30 @@ public abstract class CssBoxOffsetFace extends CssProperty {
 	    value = auto;
 	    expression.next();
 	} else {
-	    throw new InvalidParamException("value", val.toString(), 
+	    throw new InvalidParamException("value", val.toString(),
 					    getPropertyName(), ac);
 	}
     }
-    
-    public CssBoxOffsetFace(ApplContext ac, CssExpression expression) 
+
+    public CssBoxOffsetFace(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */
     public Object get() {
 	return value;
     }
-    
+
     /**
      * Returns the internal CssValue value.
      */
     public CssValue getValue() {
 	return value;
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -97,7 +97,7 @@ public abstract class CssBoxOffsetFace extends CssProperty {
     public boolean isSoftlyInherited() {
 	return value == inherit;
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
@@ -107,27 +107,27 @@ public abstract class CssBoxOffsetFace extends CssProperty {
 	}
 	return "";
     }
-    
+
     /**
      * Compares two sides for equality.
      *
      * @param side The other side.
-     */  
+     */
     public boolean equals(CssBoxOffsetFace side) {
 	if(value != null) {
 	    return value.equals(side.value);
 	}
 	return side == null;
     }
-    
+
     /**
      * Is this property contains a default value.
-     */  
+     */
     public boolean isDefault() {
 	if (value != null && value != auto)
 	    return ((Float) value.get()).floatValue() == 0;
 	else
 	    return false;
     }
-    
+
 }

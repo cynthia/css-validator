@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderBottomStyleCSS2.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBorderBottomStyleCSS2.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,19 +13,19 @@ import org.w3c.css.values.CssExpression;
 
 /**
  * Be careful, this is not a CSS1 property !
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBorderBottomStyleCSS2 extends CssProperty {
 
   CssBorderFaceStyleCSS2 face;
-  
+
   /**
    * Create a new CssBorderBottomStyleCSS2
    */
   public CssBorderBottomStyleCSS2() {
     face = new CssBorderFaceStyleCSS2();
   }
-  
+
   /**
    * Create a new CssBorderBottomStyleCSS2 with an another CssBorderFaceStyleCSS2
    * @param another The another side.
@@ -35,7 +35,7 @@ public class CssBorderBottomStyleCSS2 extends CssProperty {
 
     face = another;
   }
-  
+
   /**
    * Create a new CssBorderBottomStyle eith an expression
    *
@@ -44,7 +44,7 @@ public class CssBorderBottomStyleCSS2 extends CssProperty {
    */
   public CssBorderBottomStyleCSS2(ApplContext ac, CssExpression expression,
 	  boolean check) throws InvalidParamException {
-      
+
       if(check && expression.getCount() > 1) {
 	  throw new InvalidParamException("unrecognize", ac);
       }
@@ -52,12 +52,12 @@ public class CssBorderBottomStyleCSS2 extends CssProperty {
       setByUser();
       face = new CssBorderFaceStyleCSS2(ac, expression);
   }
-  
-  public CssBorderBottomStyleCSS2(ApplContext ac, CssExpression expression) 
+
+  public CssBorderBottomStyleCSS2(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
   }
-  
+
   /**
    * Returns the value of this property
    */
@@ -87,7 +87,7 @@ public class CssBorderBottomStyleCSS2 extends CssProperty {
 
   /**
    * Returns the name of this property
-   */  
+   */
   public String getPropertyName() {
     return "border-bottom-style";
   }
@@ -109,7 +109,7 @@ public class CssBorderBottomStyleCSS2 extends CssProperty {
    *
    * @param style The style where the property is
    * @param resolve if true, resolve the style to find this property
-   */  
+   */
   public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
     if (resolve) {
       return ((Css1Style) style).getBorderBottomStyleCSS2();
@@ -122,7 +122,7 @@ public class CssBorderBottomStyleCSS2 extends CssProperty {
    * Compares two properties for equality.
    *
    * @param value The other property.
-   */  
+   */
   public boolean equals(CssProperty property) {
     return (property instanceof CssBorderBottomStyleCSS2 && face.equals(((CssBorderBottomStyleCSS2) property).face));
   }

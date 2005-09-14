@@ -1,5 +1,5 @@
 //
-// $Id: CssLineStacking.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssLineStacking.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -42,16 +42,16 @@ implements CssOperator {
      */
     public CssLineStacking(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	CssValue val = expression.getValue();
 	int maxvalues = 3;
 	boolean correct = true;
 	char op = SPACE;
-	
+
 	while (correct && (val != null) && (maxvalues-- > 0)) {
-	    
+
 	    correct = false;
-	    
+
 	    if (!correct && lsruby == null) {
 		try {
 		    lsruby = new CssLineStackingRuby(ac, expression);
@@ -60,7 +60,7 @@ implements CssOperator {
 		catch (InvalidParamException e) {
 		}
 	    }
-	    
+
 	    if (!correct && lsshift == null) {
 		try {
 		    lsshift = new CssLineStackingShift(ac, expression);
@@ -69,7 +69,7 @@ implements CssOperator {
 		catch (InvalidParamException e) {
 		}
 	    }
-	    
+
 	    if (!correct && lsstrategy == null) {
 		try {
 		    lsstrategy = new CssLineStackingStrategy(ac, expression);
@@ -77,24 +77,24 @@ implements CssOperator {
 		} catch (InvalidParamException e) {
 		}
 	    }
-	    
+
 	    if (!correct) {
 		throw new InvalidParamException("value", expression.getValue(),
 			getPropertyName(), ac);
 	    }
-	    
+
 	    val = expression.getValue();
 	    op = expression.getOperator();
-	    
+
 	}
-	
+
     }
-    
+
     public CssLineStacking(ApplContext ac, CssExpression expression)
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *

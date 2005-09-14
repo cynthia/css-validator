@@ -1,4 +1,4 @@
-// $Id: ErrorReportHTML.java,v 1.2 2005-08-08 13:18:04 ylafon Exp $
+// $Id: ErrorReportHTML.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -20,18 +20,18 @@ import org.xml.sax.SAXParseException;
  * This class is used to create an (x)html page when a URI error is thrown by the servlet
  */
 public class ErrorReportHTML extends ErrorReport {
-    
+
     //ApplContext ac;
     String title;
     Exception e;
-    
+
     ErrorReportHTML(ApplContext ac, String title, String output, Exception e) {
 	// ac is not used for now, but may be useful
 	//this.ac     = ac;
 	this.title  = title;
 	this.e      = e;
     }
-    
+
     /**
      * @see org.w3c.css.error.ErrorReport#print(java.io.PrintWriter)
      */

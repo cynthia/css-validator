@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnCount.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssColumnCount.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -26,8 +26,8 @@ import org.w3c.css.values.CssValue;
  *  <EM>Percentages:</EM>no<BR>
  *  <EM>Media:</EM>:visual
  *  <P>
- *  The 'column-count' property determines the number of columns into which the content 
- *  of the element will be flowed. 
+ *  The 'column-count' property determines the number of columns into which the content
+ *  of the element will be flowed.
  */
 
 public class CssColumnCount extends CssProperty {
@@ -74,7 +74,7 @@ public class CssColumnCount extends CssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -110,7 +110,7 @@ public class CssColumnCount extends CssProperty {
 	return (property instanceof CssColumnCount &&
 		count.equals(((CssColumnCount) property).count));
     }
-    
+
     /**
      * Returns the name of this property
      */

@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectorsConstant.java,v 1.8 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssSelectorsConstant.java,v 1.9 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 20th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -9,10 +9,10 @@
 package org.w3c.css.parser;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public interface CssSelectorsConstant {
-    
+
     /** [lang="fr"] */
     public static final int ATTRIBUTE_EXACT = ' ';
     /** [lang~="fr"] */
@@ -29,10 +29,10 @@ public interface CssSelectorsConstant {
     public static final int ATTRIBUTE_SUFFIX = '$';
     /** [foo*="bar"] */
     public static final int ATTRIBUTE_SUBSTR = '*';
-    
+
     /** Maximun of ATTRIBUTE_ONE_OF */
     public static final int ATTRIBUTE_LENGTH = 10;
-    
+
     /** descendant connector  */
     public static final char DESCENDANT = ' ';
     /** child connector */

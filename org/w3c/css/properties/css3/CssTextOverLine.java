@@ -1,5 +1,5 @@
 //
-// $Id: CssTextOverLine.java,v 1.1 2005-08-23 16:24:20 ylafon Exp $
+// $Id: CssTextOverLine.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -25,13 +25,13 @@ import org.w3c.css.values.CssValue;
  *  <EM>Percentages:</EM>no<BR>
  *  <EM>Media:</EM>:visual
  *  <P>
- *  This property is the shorthand for 'text-overline-style', 
+ *  This property is the shorthand for 'text-overline-style',
  *  'text-overline-color' and 'text-overline-mode'.
  */
 
-public class CssTextOverLine extends CssProperty 
+public class CssTextOverLine extends CssProperty
 implements CssOperator {
- 
+
     CssValue overline;
     CssTextOLStyle tos;
     CssTextOLColor toc;
@@ -45,7 +45,7 @@ implements CssOperator {
 
     /**
      * Create a new CssTextOverLine
-     * 
+     *
      * @param expression The expression for this property
      * @exception InvalidParamException Incorrect values
      */
@@ -86,15 +86,15 @@ implements CssOperator {
 		}
 	    }
 	    if (!correct) {
-		throw new InvalidParamException("value", 
-						expression.getValue(), 
+		throw new InvalidParamException("value",
+						expression.getValue(),
 						getPropertyName(), ac);
 	    }
 
 	    val = expression.getValue();
 	    op = expression.getOperator();
 	}
-	
+
 	if (tos == null) {
 	    tos = new CssTextOLStyle();
 	}
@@ -110,7 +110,7 @@ implements CssOperator {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Add this property to the CssStyle
      *
@@ -145,7 +145,7 @@ implements CssOperator {
     public boolean equals(CssProperty property) {
 	return false;
     }
-    
+
     /**
      * Returns the name of this property
      */
@@ -164,7 +164,7 @@ implements CssOperator {
      * Returns a string representation of the object
      */
     public String toString() {
-	
+
 	String ret = "";
 
 	if (tos.isByUser()) {

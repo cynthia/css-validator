@@ -1,5 +1,5 @@
 //
-// $Id: ACssVoicePitchRange.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: ACssVoicePitchRange.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -28,7 +28,7 @@ import org.w3c.css.values.CssValue;
  *
  * <p>Specifies the average pitch of the speaking voice in hertz (Hz).
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ACssVoicePitchRange extends ACssProperty {
 
@@ -57,11 +57,11 @@ public class ACssVoicePitchRange extends ACssProperty {
     public ACssVoicePitchRange(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
 	this();
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
 
 	setByUser();
@@ -85,7 +85,7 @@ public class ACssVoicePitchRange extends ACssProperty {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */

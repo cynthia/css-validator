@@ -1,4 +1,4 @@
-// $Id: CssWhiteSpaceCSS21.java,v 1.1 2005-09-01 11:51:21 ylafon Exp $
+// $Id: CssWhiteSpaceCSS21.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -19,57 +19,57 @@ public class CssWhiteSpaceCSS21 extends CssWhiteSpace {
     private static String[] WHITESPACE = {
 	"normal", "pre", "nowrap", "pre-wrap", "pre-line", "inherit" };
     private static int[] hash_values;
-    
+
     /**
      * Create a new CssWhiteSpace
      */
     public CssWhiteSpaceCSS21() {
 	// nothing to do
     }
-    
+
     /**
      * Create a new CssWhiteSpace
      *
      * @param expression The expression for this property
      * @exception InvalidParamException values are incorrect
-     */  
+     */
     public CssWhiteSpaceCSS21(ApplContext ac, CssExpression expression, boolean check)
     	throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
-	
+
 	setByUser();
-	
+
 	if ( val instanceof CssIdent) {
 	    int hash = val.hashCode();
 	    for (int i = 0; i < WHITESPACE.length; i++)
 		if (hash_values[i] == hash) {
-		    setValue(i);		    
+		    setValue(i);
 		    expression.next();
 		    return;
 		}
 	}
-	
-	throw new InvalidParamException("value", expression.getValue(), 
+
+	throw new InvalidParamException("value", expression.getValue(),
 					getPropertyName(), ac);
     }
-    
+
     public CssWhiteSpaceCSS21(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */
     public Object get() {
 	return WHITESPACE[getValue()];
     }
-    
+
     /**
      * Returns true if this property is "softly" inherited
      * e.g. his value equals inherit
@@ -77,7 +77,7 @@ public class CssWhiteSpaceCSS21 extends CssWhiteSpace {
     public boolean isSoftlyInherited() {
 	return getValue() == (WHITESPACE.length - 1);
     }
-    
+
     /**
      * Returns a string representation of the object.
      */

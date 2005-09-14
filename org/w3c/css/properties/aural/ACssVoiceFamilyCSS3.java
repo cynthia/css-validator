@@ -1,5 +1,5 @@
 //
-// $Id: ACssVoiceFamilyCSS3.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: ACssVoiceFamilyCSS3.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -51,7 +51,7 @@ import org.w3c.css.values.CssValue;
  * fonts). If so, what are the values that describe these voice families
  * in a way that is independent of speech synthesizer?
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ACssVoiceFamilyCSS3 extends ACssProperty implements CssOperator {
 
@@ -105,7 +105,7 @@ public class ACssVoiceFamilyCSS3 extends ACssProperty implements CssOperator {
 	    if(val != null && val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
-	    
+
 	    if (val instanceof CssString) {								//specific voice
 			String familyName = null;
 			if (op == COMMA) { // "helvetica", "roman"
@@ -224,7 +224,7 @@ public class ACssVoiceFamilyCSS3 extends ACssProperty implements CssOperator {
 	    throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns all voices name
      */

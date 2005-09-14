@@ -1,5 +1,5 @@
 //
-// $Id: CssMarginBottom.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssMarginBottom.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -28,7 +28,7 @@ import org.w3c.css.values.CssExpression;
  * </PRE>
  *   <P>
  *   A negative value is allowed, but there may be implementation-specific limits.
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssMarginBottom extends CssMarginSide {
 
@@ -38,7 +38,7 @@ public class CssMarginBottom extends CssMarginSide {
   public CssMarginBottom() {
     super();
   }
-  
+
   /**
    * Create a new CssMarginBottom with an another CssMarginSide
    *
@@ -47,7 +47,7 @@ public class CssMarginBottom extends CssMarginSide {
   public CssMarginBottom(CssMarginSide another) {
     super(another);
   }
-  
+
   /**
    * Create a new CssMarginBottom
    *
@@ -58,15 +58,15 @@ public class CssMarginBottom extends CssMarginSide {
     throws InvalidParamException {
       super(ac, expression);
   }
-  
+
   public CssMarginBottom(ApplContext ac, CssExpression expression, boolean check)
 	throws InvalidParamException {
       super(ac, expression, check);
   }
-  
+
   /**
    * Returns the name of this property
-   */  
+   */
   public String getPropertyName() {
     return "margin-bottom";
   }
@@ -78,8 +78,9 @@ public class CssMarginBottom extends CssMarginSide {
    */
   public void addToStyle(ApplContext ac, CssStyle style) {
     Css1Style style0 = (Css1Style) style;
-    if (style0.cssMargin.bottom != null)
+    if (style0.cssMargin.bottom != null) {
       style0.addRedefinitionWarning(ac, this);
+    }
     style0.cssMargin.bottom = this;
   }
 
@@ -88,7 +89,7 @@ public class CssMarginBottom extends CssMarginSide {
    *
    * @param style The style where the property is
    * @param resolve if true, resolve the style to find this property
-   */  
+   */
   public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
     if (resolve) {
       return ((Css1Style) style).getMarginBottom();
@@ -101,9 +102,9 @@ public class CssMarginBottom extends CssMarginSide {
    * Compares two properties for equality.
    *
    * @param value The other property.
-   */  
+   */
   public boolean equals(CssProperty property) {
-    return (property instanceof CssMarginBottom && 
+    return (property instanceof CssMarginBottom &&
 	    value.equals(((CssMarginBottom) property).value));
   }
 

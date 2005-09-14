@@ -1,5 +1,5 @@
 //
-// $Id: CssPositionTV.java,v 1.1 2005-08-23 16:23:12 ylafon Exp $
+// $Id: CssPositionTV.java,v 1.2 2005-09-14 15:14:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -41,11 +41,11 @@ public class CssPositionTV extends CssProperty {
      */
     public CssPositionTV(ApplContext ac, CssExpression expression, boolean check)
     	throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	CssValue val = expression.getValue();
 
 	setByUser();
@@ -63,7 +63,7 @@ public class CssPositionTV extends CssProperty {
 	throw new InvalidParamException("value", expression.getValue(),
 					getPropertyName(), ac);
     }
-    
+
     public CssPositionTV(ApplContext ac, CssExpression expression)
 	throws InvalidParamException {
 	this(ac, expression, false);

@@ -1,5 +1,5 @@
 //
-// $Id: AtRulePreference.java,v 1.3 2005-08-08 13:18:11 ylafon Exp $
+// $Id: AtRulePreference.java,v 1.4 2005-09-14 15:14:18 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -41,7 +41,7 @@ public class AtRulePreference extends AtRule {
     public boolean equals(Object other) {
 	return (other instanceof AtRulePreference);
     }
-    
+
     /**
      * The second must only match this one
      */

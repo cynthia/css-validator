@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderLeftWidthATSC.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: CssBorderLeftWidthATSC.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -43,19 +43,19 @@ import org.w3c.css.values.CssValue;
  * </PRE>
  *   <P>
  *   Border widths cannot be negative.
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssBorderLeftWidthATSC extends CssProperty {
-    
+
     CssBorderFaceWidthATSC face;
-    
+
     /**
      * Create a new CssBorderLeftWidthATSC
      */
     public CssBorderLeftWidthATSC() {
 	face = new CssBorderFaceWidthATSC();
     }
-    
+
     /**
      * Create a new CssBorderLeftWidthATSC with an another CssBorderFaceWidthATSC
      *
@@ -63,10 +63,10 @@ public class CssBorderLeftWidthATSC extends CssProperty {
      */
     public CssBorderLeftWidthATSC(CssBorderFaceWidthATSC another) {
 	setByUser();
-	
+
 	face = another;
     }
-    
+
     /**
      * Create a new CssBorderLeftWidthATSC
      *
@@ -75,48 +75,48 @@ public class CssBorderLeftWidthATSC extends CssProperty {
      */
     public CssBorderLeftWidthATSC(ApplContext ac, CssExpression expression,
 	    boolean check) throws InvalidParamException {
-	
+
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	
+
 	setByUser();
 	face = new CssBorderFaceWidthATSC(ac, expression);
     }
-    
+
     public CssBorderLeftWidthATSC(ApplContext ac, CssExpression expression)
     throws InvalidParamException {
 	this(ac, expression, false);
     }
-    
+
     /**
      * Returns the value of this property
      */
     public Object get() {
 	return face;
     }
-    
+
     /**
      * Return the value of this property
      */
     public CssValue getValue() {
 	return face.getValue();
     }
-    
+
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
 	return face.toString();
     }
-    
+
     /**
      * Returns the name of this property
-     */  
+     */
     public String getPropertyName() {
 	return "border-left-width";
     }
-    
+
     /**
      * Add this property to the CssStyle.
      *
@@ -128,13 +128,13 @@ public class CssBorderLeftWidthATSC extends CssProperty {
 	    style.addRedefinitionWarning(ac, this);
 	left.width = this;
     }
-    
+
     /**
      * Get this property in the style.
      *
      * @param style The style where the property is
      * @param resolve if true, resolve the style to find this property
-     */  
+     */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
 	    return ((ATSCStyle) style).getBorderLeftWidthATSC();
@@ -142,15 +142,15 @@ public class CssBorderLeftWidthATSC extends CssProperty {
 	    return ((ATSCStyle) style).cssBorderATSC.getLeft().width;
 	}
     }
-    
+
     /**
      * Compares two properties for equality.
      *
      * @param value The other property.
-     */  
+     */
     public boolean equals(CssProperty property) {
-	return (property instanceof CssBorderLeftWidthATSC && 
+	return (property instanceof CssBorderLeftWidthATSC &&
 		face.equals(((CssBorderLeftWidthATSC) property).face));
     }
-    
+
 }
