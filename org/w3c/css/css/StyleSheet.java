@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheet.java,v 1.10 2005-09-14 15:14:17 ylafon Exp $
+// $Id: StyleSheet.java,v 1.11 2005-09-16 13:33:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class contains a style sheet with all rules, errors and warnings.
  *
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public class StyleSheet {
 
@@ -168,8 +168,8 @@ public class StyleSheet {
      */
     public void findConflicts(ApplContext ac) {
 	for (Enumeration e = getRules().elements(); e.hasMoreElements();) {
-	    CssStyle style = ((CssSelectors) e.nextElement()).getStyle();
-	    style.findConflicts(ac, warnings, getRules().elements());
+	    CssSelectors sel = (CssSelectors) e.nextElement();
+	    sel.findConflicts(ac, warnings, getRules().elements());
 	}
     }
 

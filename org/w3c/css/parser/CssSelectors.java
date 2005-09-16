@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.17 2005-09-14 15:14:18 ylafon Exp $
+// $Id: CssSelectors.java,v 1.18 2005-09-16 13:33:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,6 +8,7 @@
 package org.w3c.css.parser;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import org.w3c.css.properties.css1.CssProperty;
 import org.w3c.css.selectors.AdjacentSelector;
@@ -41,7 +42,7 @@ import org.w3c.css.util.Warnings;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.17 $
+ * @version $Revision: 1.18 $
  */
 public final class CssSelectors extends SelectorsList implements CssSelectorsConstant {
 
@@ -586,5 +587,11 @@ public final class CssSelectors extends SelectorsList implements CssSelectorsCon
 	    // BODY H1 and HTML BODY H1
 	    return next.canMatch(selector.next);
 	}
+    }
+    
+    public void findConflicts(ApplContext ac, Warnings warnings,
+	    Enumeration allSelectors) {
+	CssStyle style = getStyle();
+	style.findConflicts(ac, warnings, this, allSelectors);
     }
 }

@@ -1,4 +1,4 @@
-// $Id: UniversalSelector.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
+// $Id: UniversalSelector.java,v 1.3 2005-09-16 13:33:52 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -21,7 +21,7 @@ public class UniversalSelector implements Selector {
      * @see Selector#canApply(Selector)
      */
     public boolean canApply(Selector other) {
-	return false;
+	return true;
     }
 
     /**
