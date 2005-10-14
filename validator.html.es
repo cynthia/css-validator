@@ -7,7 +7,7 @@
 		<link rev="made" href="mailto:www-validator@w3.org"/>
 		<link rev="start" href="./" title="Página de Inicio"/>
 		<style type="text/css" media="all">@import "./base.css";</style>
-		<meta name="revision" content="$Id: validator.html.es,v 1.2 2005-01-17 02:31:24 ot Exp $"/>
+		<meta name="revision" content="$Id: validator.html.es,v 1.3 2005-10-14 16:10:30 ylafon Exp $"/>
 	</head>
 	<body>
 		<div id="banner">
@@ -89,6 +89,7 @@
 							<label title="Indique un archivo local para enviarlo y validarlo" for="file">Archivo CSS local:</label>
 							<input type="file" id="file" name="file" size="30" />
 							<input name="usermedium" value="all" type="hidden" />
+	<input name="warning" value="no" type="hidden" />
 							<label title="Enviar el archivo para validarlo">
 								<input type="submit" value="Comprobar" />
 							</label>
@@ -105,6 +106,8 @@
 						<p>
 							<textarea name="text" rows="12" cols="75"></textarea>
 							<input name="usermedium" value="all" type="hidden" />
+	<input name="warning" value="no" type="hidden" />
+
 							<br/>
 							<label title="Enviar el texto para su validación">
 								<input type="submit" value="Comprobar" />
@@ -128,7 +131,7 @@
 			<a title="Haga sus sugerencias sobre el Servicio de Validación CSS del W3C" href="Email">El Equipo del Validador de CSS del W3C</a>
 			<br/>
       $Fecha: 27/12/2004 15:26:54 $
-      <!-- SSI Template Version: $Id: validator.html.es,v 1.2 2005-01-17 02:31:24 ot Exp $ -->
+      <!-- SSI Template Version: $Id: validator.html.es,v 1.3 2005-10-14 16:10:30 ylafon Exp $ -->
 		</address>
 		<p class="copyright">
 			<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright" hreflang="en-us" xml:lang="en-us">Copyright</a> &#xa9; 1994-2004
