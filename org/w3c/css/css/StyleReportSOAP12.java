@@ -1,4 +1,4 @@
-// $Id: StyleReportSOAP12.java,v 1.12 2005-09-16 13:22:35 ylafon Exp $
+// $Id: StyleReportSOAP12.java,v 1.13 2005-10-17 08:47:52 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public final class StyleReportSOAP12 extends StyleReport
     implements CssPrinterStyle {
@@ -161,7 +161,7 @@ public final class StyleReportSOAP12 extends StyleReport
 	    general.put("today", new Date().toString());
 	}
 	SimpleDateFormat formatter = new SimpleDateFormat(
-	    "yyyy.MM.dd'T'hh:mm:ss'Z'");
+	    "yyyy-MM-dd'T'hh:mm:ss'Z'");
 	formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 	general.put("currentdate", formatter.format(new Date()));
     }
