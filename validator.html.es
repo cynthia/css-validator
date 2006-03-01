@@ -4,10 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
 	<head>
 		<title>El Servicio de Validación de CSS del W3C</title>
-		<link rev="made" href="mailto:www-validator@w3.org"/>
+		<link rev="made" href="mailto:www-validator-css@w3.org"/>
 		<link rev="start" href="./" title="Página de Inicio"/>
 		<style type="text/css" media="all">@import "./base.css";</style>
-		<meta name="revision" content="$Id: validator.html.es,v 1.3 2005-10-14 16:10:30 ylafon Exp $"/>
+		<meta name="revision" content="$Id: validator.html.es,v 1.4 2006-03-01 21:24:03 bjoern Exp $"/>
 	</head>
 	<body>
 		<div id="banner">
@@ -131,7 +131,7 @@
 			<a title="Haga sus sugerencias sobre el Servicio de Validación CSS del W3C" href="Email">El Equipo del Validador de CSS del W3C</a>
 			<br/>
       $Fecha: 27/12/2004 15:26:54 $
-      <!-- SSI Template Version: $Id: validator.html.es,v 1.3 2005-10-14 16:10:30 ylafon Exp $ -->
+      <!-- SSI Template Version: $Id: validator.html.es,v 1.4 2006-03-01 21:24:03 bjoern Exp $ -->
 		</address>
 		<p class="copyright">
 			<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright" hreflang="en-us" xml:lang="en-us">Copyright</a> &#xa9; 1994-2004
