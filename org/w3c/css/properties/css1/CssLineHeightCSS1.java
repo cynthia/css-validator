@@ -1,5 +1,5 @@
 //
-// $Id: CssLineHeightCSS1.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssLineHeightCSS1.java,v 1.4 2006-03-05 18:27:27 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -45,7 +45,7 @@ import org.w3c.css.values.CssValue;
  *   DIV { line-height: 120%; font-size: 10pt }    /* percentage * /
  * </PRE>
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssLineHeightCSS1 extends CssProperty {
 
@@ -75,7 +75,7 @@ public class CssLineHeightCSS1 extends CssProperty {
 
 	if (val instanceof CssNumber || val instanceof CssLength ||
 	        val instanceof CssPercentage) {
-	    float v = ((Float) val.get()).floatValue();
+	    float v = ((Number) val.get()).floatValue();
 	    if (v >= 0) {
 		value = val;
 		expression.next();
