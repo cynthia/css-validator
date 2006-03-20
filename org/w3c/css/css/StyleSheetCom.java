@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetCom.java,v 1.12 2006-03-20 06:05:29 ot Exp $
+// $Id: StyleSheetCom.java,v 1.13 2006-03-20 06:25:25 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -31,7 +31,7 @@ import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.12 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.13 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 
@@ -174,7 +174,7 @@ public class StyleSheetCom implements HtmlParserListener {
 			printAvailableFormat(new PrintWriter(System.err));
 		} else if (argument.startsWith("@")) {
 		    style.defaultmedium = argument;
-		else if (argument.equals("css1") ||
+		} else if (argument.equals("css1") ||
                           argument.equals("css2") ||
                           argument.equals("css21") ||
                           argument.equals("css3") ||
