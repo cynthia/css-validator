@@ -1,4 +1,4 @@
-// $Id: CssBackgroundPositionCSS21.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
+// $Id: CssBackgroundPositionCSS21.java,v 1.3 2006-04-19 11:28:06 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -72,7 +72,7 @@ public class CssBackgroundPositionCSS21 extends CssBackgroundPositionCSS2 {
 		if(index2 == -1 && check) {
 		    throw new InvalidParamException("value", next, "background-position", ac);
 		}
-		// one is vertical, the other is vertical
+		// one is vertical, the other is horizontal
 		// or the two are 'center'
 		if((isHorizontal(index1) && isVertical(index2)) ||
 			(isHorizontal(index2) && isVertical(index1))) {

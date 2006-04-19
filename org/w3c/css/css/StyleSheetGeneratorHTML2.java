@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.17 2005-09-14 15:14:17 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.18 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.17 $
+ * @version $Revision: 1.18 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -90,8 +90,8 @@ CssPrinterStyle {
 	}
 	this.ac = ac;
 	this.style = style;
-	general = new Utf8Properties(setDocumentBase(getDocumentName(ac, document)));
-	general.put("file-title", title);
+	general = new Utf8Properties(setDocumentBase(getDocumentName(ac, document))); 	 
+	general.put("file-title", title);	
 	warnings = style.getWarnings();
 	errors = style.getErrors();
 	items =  style.newGetRules();
@@ -244,7 +244,7 @@ CssPrinterStyle {
 		ret.append(queryReplace(error.getExp().toString()));
 		ret.append("</span>\n");
 	    }
-	} else {
+	} else {            
 	    ret.append(ac.getMsg().getGeneratorString("unrecognize"));
 	    ret.append(" - <span class='error'>");
 	    ret.append(queryReplace(error.getSkippedString()));
@@ -518,8 +518,7 @@ CssPrinterStyle {
 		printAvailableFormat(new PrintWriter(System.err));
 	    }
 	    formats.put(document, properties);
-	}
-
+	}	
 	return new Utf8Properties(properties);
     }
 
@@ -555,7 +554,7 @@ CssPrinterStyle {
 	    System.err.println("Unable to find " + documentName
 		    + " output format");
 	    return documentName;
-	} else {
+	} else {    
 	    return document;
 	}
     }

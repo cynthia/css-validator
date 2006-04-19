@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderFaceColorCSS2.java,v 1.4 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBorderFaceColorCSS2.java,v 1.5 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,7 +13,7 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderFaceColorCSS2 {
 
@@ -63,6 +63,8 @@ public class CssBorderFaceColorCSS2 {
 	    face = val;
 	} else if (val.equals(CssProperty.inherit)) {
 	    face = CssProperty.inherit;
+	} else if(val.equals(CssProperty.transparent)) {
+	    setFace(CssProperty.transparent);
 	} else if (val instanceof CssIdent) {
 	    face = new org.w3c.css.values.CssColorCSS2(ac, (String) val.get());
 	} else {

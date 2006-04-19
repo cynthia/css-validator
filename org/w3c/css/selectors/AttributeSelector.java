@@ -1,4 +1,4 @@
-// $Id: AttributeSelector.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
+// $Id: AttributeSelector.java,v 1.3 2006-04-19 11:28:06 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -24,7 +24,7 @@ public abstract class AttributeSelector implements Selector {
      * Creates a new attribute selector given its name
      * @param name the name of this attribute
      */
-    public AttributeSelector(String name) {
+    public AttributeSelector(String name) {        
 	this.name = name;
     }
 

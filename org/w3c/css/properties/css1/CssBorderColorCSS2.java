@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderColorCSS2.java,v 1.4 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBorderColorCSS2.java,v 1.5 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -43,7 +43,7 @@ import org.w3c.css.values.CssValue;
  *   <P>
  *   In the above example, the border will be a solid black line.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
 
@@ -84,8 +84,8 @@ public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
 
 	switch (expression.getCount()) {
 	case 1:
-
-	    val = expression.getValue();
+	    setTop(new CssBorderTopColorCSS2(ac, expression));
+	   /* val = expression.getValue();
 	    if (val.equals(transparent)) {
 		top = new CssBorderTopColorCSS2();
 		top.face.face = transparent;
@@ -99,7 +99,7 @@ public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
 //		bottom = new CssBorderBottomColorCSS2((CssBorderFaceColorCSS2) top.get());
 //		right = new CssBorderRightColorCSS2((CssBorderFaceColorCSS2) top.get());
 //		left = new CssBorderLeftColorCSS2((CssBorderFaceColorCSS2) top.get());
-	    }
+	    }*/
 	    break;
 	case 2:
 	    if (expression.getOperator() != SPACE)
@@ -107,12 +107,12 @@ public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
 						((new Character(expression.getOperator())).toString()),
 						ac);
 	    val = expression.getValue();
-	    if(val.equals(inherit) || val.equals(transparent)) {
+	    if(val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    top = new CssBorderTopColorCSS2(ac, expression);
 	    val = expression.getValue();
-	    if(val.equals(inherit) || val.equals(transparent)) {
+	    if(val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    right = new CssBorderRightColorCSS2(ac, expression);
@@ -125,7 +125,7 @@ public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
 						((new Character(expression.getOperator())).toString()),
 						ac);
 	    val = expression.getValue();
-	    if(val.equals(inherit) || val.equals(transparent)) {
+	    if(val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    top = new CssBorderTopColorCSS2(ac, expression);
@@ -133,12 +133,12 @@ public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
 		throw new InvalidParamException("operator",
 						((new Character(expression.getOperator())).toString()), ac);
 	    val = expression.getValue();
-	    if(val.equals(inherit) || val.equals(transparent)) {
+	    if(val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    right = new CssBorderRightColorCSS2(ac, expression);
 	    val = expression.getValue();
-	    if(val.equals(inherit) || val.equals(transparent)) {
+	    if(val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    bottom = new CssBorderBottomColorCSS2(ac, expression);
@@ -150,7 +150,7 @@ public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
 						((new Character(expression.getOperator())).toString()),
 						ac);
 	    val = expression.getValue();
-	    if(val.equals(inherit) || val.equals(transparent)) {
+	    if(val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    top = new CssBorderTopColorCSS2(ac, expression);
@@ -159,7 +159,7 @@ public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
 						((new Character(expression.getOperator())).toString()),
 						ac);
 	    val = expression.getValue();
-	    if(val.equals(inherit) || val.equals(transparent)) {
+	    if(val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    right = new CssBorderRightColorCSS2(ac, expression);
@@ -168,12 +168,12 @@ public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
 						((new Character(expression.getOperator())).toString()),
 						ac);
 	    val = expression.getValue();
-	    if(val.equals(inherit) || val.equals(transparent)) {
+	    if(val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    bottom = new CssBorderBottomColorCSS2(ac, expression);
 	    val = expression.getValue();
-	    if(val.equals(inherit) || val.equals(transparent)) {
+	    if(val.equals(inherit)) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    left = new CssBorderLeftColorCSS2(ac, expression);
@@ -266,18 +266,18 @@ public class CssBorderColorCSS2 extends CssProperty implements CssOperator {
     public String toString() {
 	String ret = "";
 	if(top != null) {
-	    ret += top + " ";
+	    ret += top;
 	}
 	if(right != null) {
-	    ret += right + " ";
+	    ret += " " + right;
 	}
 	if(bottom != null) {
-	    ret += bottom + " ";
+	    ret += " " + bottom;
 	}
 	if(left != null) {
-	    ret += left;
+	    ret += " " + left;
 	}
-	return ret.trim();
+	return ret;
 	/*
 	if (right.face.equals(left.face)) {
 	    if (top.face.equals(bottom.face)) {

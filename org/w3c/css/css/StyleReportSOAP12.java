@@ -1,4 +1,4 @@
-// $Id: StyleReportSOAP12.java,v 1.13 2005-10-17 08:47:52 ylafon Exp $
+// $Id: StyleReportSOAP12.java,v 1.14 2006-04-19 11:28:04 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public final class StyleReportSOAP12 extends StyleReport
     implements CssPrinterStyle {
@@ -394,7 +394,9 @@ public final class StyleReportSOAP12 extends StyleReport
 //			}
 		    }
 		}
-		out.print("          </m:warninglist>");
+		if(open) {
+		    out.print("          </m:warninglist>");
+		}
 	    }
 	} catch (Exception e) {
 	    out.print("<m:processingerror>");

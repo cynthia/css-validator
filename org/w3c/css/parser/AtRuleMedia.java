@@ -1,12 +1,12 @@
 //
-// $Id: AtRuleMedia.java,v 1.9 2005-09-14 15:14:18 ylafon Exp $
+// $Id: AtRuleMedia.java,v 1.10 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleMedia.java
- * $Id: AtRuleMedia.java,v 1.9 2005-09-14 15:14:18 ylafon Exp $
+ * $Id: AtRuleMedia.java,v 1.10 2006-04-19 11:28:05 ylafon Exp $
  */
 package org.w3c.css.parser;
 
@@ -20,7 +20,7 @@ import org.w3c.css.util.InvalidParamException;
 /**
  * This class manages all media defines by CSS2
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  * @author  Philippe Le H�garet
  */
 public class AtRuleMedia extends AtRule {
@@ -32,6 +32,8 @@ public class AtRuleMedia extends AtRule {
 
     String restrictor = new String();
     String[] media = new String[mediaCSS3.length];
+    // media list coming from the stylesheet (ie. with case)
+    String[] originalMedia = new String[mediaCSS3.length];
     Vector mediafeatures = new Vector();
 
     boolean empty = true;
@@ -50,8 +52,9 @@ public class AtRuleMedia extends AtRule {
 	//}
 
 	for (int i = 0; i < mediaCSS3.length; i++) {
-	    if (medium.equals(mediaCSS3[i])) {
+	    if (medium.toLowerCase().equals(mediaCSS3[i])) {
 		media[i] = mediaCSS3[i];
+                originalMedia[i] = medium;
 		empty = false;
 		return this;
 	    }
@@ -145,14 +148,14 @@ public class AtRuleMedia extends AtRule {
 	}
 	boolean f = true;
 	for (int i = 0; i < media.length; i++) {
-	    if (media[i] != null) {
+	    if (originalMedia[i] != null) {
 		if (!f) {
 		    ret.append(',');
 		    ret.append(' ');
 		} else {
 		    f = false;
 		}
-		ret.append(media[i]);
+		ret.append(originalMedia[i]);
 	    }
 	}
 

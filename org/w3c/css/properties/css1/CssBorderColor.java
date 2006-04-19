@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderColor.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBorderColor.java,v 1.4 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.values.CssOperator;
  *   <P>
  *   In the above example, the border will be a solid black line.
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBorderColor extends CssProperty implements CssOperator {
 
@@ -91,9 +91,9 @@ public class CssBorderColor extends CssProperty implements CssOperator {
 		expression.next();
 	    } else*/
 	    top = new CssBorderTopColor(ac, expression);
-	    bottom = new CssBorderBottomColor((CssBorderFaceColor) top.get());
+	    /*bottom = new CssBorderBottomColor((CssBorderFaceColor) top.get());
 	    right = new CssBorderRightColor((CssBorderFaceColor) top.get());
-	    left = new CssBorderLeftColor((CssBorderFaceColor) top.get());
+	    left = new CssBorderLeftColor((CssBorderFaceColor) top.get());*/
 	    break;
 	case 2:
 	    if (expression.getOperator() != SPACE)
@@ -108,8 +108,8 @@ public class CssBorderColor extends CssProperty implements CssOperator {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    right = new CssBorderRightColor(ac, expression);
-	    bottom = new CssBorderBottomColor((CssBorderFaceColor) top.get());
-	    left = new CssBorderLeftColor((CssBorderFaceColor) right.get());
+	    /*bottom = new CssBorderBottomColor((CssBorderFaceColor) top.get());
+	    left = new CssBorderLeftColor((CssBorderFaceColor) right.get());*/
 	    break;
 	case 3:
 	    if (expression.getOperator() != SPACE)
@@ -131,7 +131,7 @@ public class CssBorderColor extends CssProperty implements CssOperator {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    bottom = new CssBorderBottomColor(ac, expression);
-	    left = new CssBorderLeftColor((CssBorderFaceColor) right.get());
+	    //left = new CssBorderLeftColor((CssBorderFaceColor) right.get());
 	    break;
 	case 4:
 	    if (expression.getOperator() != SPACE)
@@ -194,7 +194,14 @@ public class CssBorderColor extends CssProperty implements CssOperator {
      * Returns a string representation of the object.
      */
     public String toString() {
-	if (right.face.equals(left.face)) {
+        String result = "";
+        // top should never be null
+        if(top != null) result += top;
+        if(right != null) result += " " + right;
+        if(bottom != null) result += " " + bottom;
+        if(left != null) result += " " + left;
+        return result;
+	/*if (right.face.equals(left.face)) {
 	    if (top.face.equals(bottom.face)) {
 		if (top.face.equals(right.face)) {
 		    return top.toString();
@@ -206,7 +213,7 @@ public class CssBorderColor extends CssProperty implements CssOperator {
 	    }
 	} else {
 	    return top + " " + right + " " + bottom + " " + left;
-	}
+	}*/
 
     }
 

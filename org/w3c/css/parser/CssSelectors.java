@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.18 2005-09-16 13:33:52 ylafon Exp $
+// $Id: CssSelectors.java,v 1.19 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Warnings;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.18 $
+ * @version $Revision: 1.19 $
  */
 public final class CssSelectors extends SelectorsList implements CssSelectorsConstant {
 
@@ -206,6 +206,9 @@ public final class CssSelectors extends SelectorsList implements CssSelectorsCon
 		}
 	    }
 	}
+        
+        // the ident isn't a valid pseudo-something
+        throw new InvalidParamException("pseudo", ":" + pseudo, ac);
     }
 
     public void setPseudoFun(String pseudo, String param)

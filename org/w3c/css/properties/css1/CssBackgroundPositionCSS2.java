@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundPositionCSS2.java,v 1.6 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackgroundPositionCSS2.java,v 1.7 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -91,7 +91,7 @@ import org.w3c.css.values.CssValue;
  *   <P>
  *   In the example above, the image is placed in the lower right corner of the
  *   canvas.
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  * @see CssBackgroundAttachment
  */
 public class CssBackgroundPositionCSS2 extends CssProperty
@@ -153,7 +153,7 @@ public class CssBackgroundPositionCSS2 extends CssProperty
 		if(index2 == -1 && check) {
 		    throw new InvalidParamException("value", next, "background-position", ac);
 		}
-		// one is vertical, the other is vertical
+		// one is vertical, the other is horizontal
 		// or the two are 'center'
 		if((isHorizontal(index1) && isVertical(index2)) ||
 			(isHorizontal(index2) && isVertical(index1))) {
@@ -167,6 +167,23 @@ public class CssBackgroundPositionCSS2 extends CssProperty
 		}
 		else {
 		    first = val;
+		}
+	    }
+	    // a keyword and a percentage/length
+	    else if(next instanceof CssLength || next instanceof CssPercentage
+		    || next instanceof CssNumber) {
+		if(isHorizontal(index1)) {
+		    if(next instanceof CssNumber) {
+			next = ((CssNumber) next).getLength();
+		    }
+		    setFirst(val);
+		    setSecond(next);
+		}
+		// if the keyword is the first value, it can only be an
+		// horizontal one
+		else {
+		    throw new InvalidParamException("incompatible",
+			    val, next, ac);
 		}
 	    }
 	    // only one value
@@ -184,7 +201,25 @@ public class CssBackgroundPositionCSS2 extends CssProperty
 	    if(val instanceof CssNumber) {
 		val = ((CssNumber) val).getLength();
 	    }
-	    if(next instanceof CssLength || next instanceof CssPercentage
+	    if(next instanceof CssIdent) {
+		int index = IndexOfIdent((String) next.get());
+		if(check && index == -1) {
+		    throw new InvalidParamException("value", next, "background-position", ac);
+		}
+		// the keyword must be a vertical one
+		if(isVertical(index)) {
+		    setFirst(val);
+		    setSecond(next);
+		}
+		else if(check) {
+		    throw new InvalidParamException("incompatible",
+			    val, next, ac);
+		}
+		else {
+		    setFirst(val);
+		}
+	    }
+	    else if(next instanceof CssLength || next instanceof CssPercentage
 		    || next instanceof CssNumber) {
 		if(next instanceof CssNumber) {
 		    next = ((CssNumber) next).getLength();

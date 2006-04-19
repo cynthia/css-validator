@@ -1,5 +1,5 @@
 //
-// $Id: CssPropertyFactory.java,v 1.14 2005-09-14 15:14:18 ylafon Exp $
+// $Id: CssPropertyFactory.java,v 1.15 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -22,7 +22,7 @@ import org.w3c.css.values.CssIdent;
 
 
 /**
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  * @author Philippe Le H�garet
  */
 public class CssPropertyFactory implements Cloneable {
@@ -187,7 +187,7 @@ public class CssPropertyFactory implements Cloneable {
     public synchronized CssProperty createProperty(ApplContext ac,
 	    AtRule atRule, String property, CssExpression expression)
     throws Exception {
-	String classname = null;
+	String classname = null;        
 	String media = atRule.toString();
 	int pos = -1;
 	String upperMedia = media.toUpperCase();
@@ -217,7 +217,7 @@ public class CssPropertyFactory implements Cloneable {
 		String propMedia = PropertiesLoader.mediaProperties.getProperty(property);
 		for(int i = 0; i < list.size(); i++) {
 		    String medium = (String) list.elementAt(i);
-		    if(propMedia.indexOf(medium) == -1 &&
+		    if(propMedia.indexOf(medium.toLowerCase()) == -1 &&
 			    !propMedia.equals("all")) {
 			ac.getFrame().addWarning("noexistence-media",
 				property, medium + " (" + propMedia + ")");

@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderStyleCSS2.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBorderStyleCSS2.java,v 1.4 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -84,7 +84,7 @@ import org.w3c.css.values.CssOperator;
  *   <EM>CSS1 core:</EM> UAs may interpret all of 'dotted', 'dashed', 'double',
  *   'groove', 'ridge', 'inset' and 'outset' as 'solid'.
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBorderStyleCSS2 extends CssProperty implements CssOperator {
 
@@ -120,9 +120,9 @@ public class CssBorderStyleCSS2 extends CssProperty implements CssOperator {
 	switch (expression.getCount()) {
 	case 1:
 	    top = new CssBorderTopStyleCSS2(ac, expression);
-	    bottom = new CssBorderBottomStyleCSS2((CssBorderFaceStyleCSS2) top.get());
+	    /*bottom = new CssBorderBottomStyleCSS2((CssBorderFaceStyleCSS2) top.get());
 	    right = new CssBorderRightStyleCSS2((CssBorderFaceStyleCSS2) top.get());
-	    left = new CssBorderLeftStyleCSS2((CssBorderFaceStyleCSS2) top.get());
+	    left = new CssBorderLeftStyleCSS2((CssBorderFaceStyleCSS2) top.get());*/
 	    break;
 	case 2:
 	    if (expression.getOperator() != SPACE)
@@ -137,8 +137,8 @@ public class CssBorderStyleCSS2 extends CssProperty implements CssOperator {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    right = new CssBorderRightStyleCSS2(ac, expression);
-	    bottom = new CssBorderBottomStyleCSS2((CssBorderFaceStyleCSS2) top.get());
-	    left = new CssBorderLeftStyleCSS2((CssBorderFaceStyleCSS2) right.get());
+	    /*bottom = new CssBorderBottomStyleCSS2((CssBorderFaceStyleCSS2) top.get());
+	    left = new CssBorderLeftStyleCSS2((CssBorderFaceStyleCSS2) right.get());*/
 	    break;
 	case 3:
 	    if (expression.getOperator() != SPACE)
@@ -161,7 +161,7 @@ public class CssBorderStyleCSS2 extends CssProperty implements CssOperator {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
 	    bottom = new CssBorderBottomStyleCSS2(ac, expression);
-	    left = new CssBorderLeftStyleCSS2((CssBorderFaceStyleCSS2) right.get());
+	    //left = new CssBorderLeftStyleCSS2((CssBorderFaceStyleCSS2) right.get());
 	    break;
 	case 4:
 	    if (expression.getOperator() != SPACE)
@@ -223,7 +223,14 @@ public class CssBorderStyleCSS2 extends CssProperty implements CssOperator {
      * Returns a string representation of the object.
      */
     public String toString() {
-	if (right.face.equals(left.face)) {
+        String result = "";
+        // top should never be null
+        if(top != null) result += top;
+        if(right != null) result += " " + right;
+        if(bottom != null) result += " " + bottom;
+        if(left != null) result += " " + left;
+        return result;
+	/*if (right.face.equals(left.face)) {
 	    if (top.face.equals(bottom.face)) {
 		if (top.face.equals(right.face)) {
 		    return top.toString();
@@ -235,7 +242,7 @@ public class CssBorderStyleCSS2 extends CssProperty implements CssOperator {
 	    }
 	} else {
 	    return top + " " + right + " " + bottom + " " + left;
-	}
+	}*/
     }
 
     /**

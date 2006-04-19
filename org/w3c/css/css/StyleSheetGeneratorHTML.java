@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML.java,v 1.6 2005-09-14 15:14:17 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML.java,v 1.7 2006-04-19 11:28:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public final class StyleSheetGeneratorHTML implements CssPrinterStyle {
 
@@ -80,7 +80,7 @@ public final class StyleSheetGeneratorHTML implements CssPrinterStyle {
 			StyleSheet style, String document, int warningLevel) {
 	this.ac = ac;
 	this.style = style;
-		general = new Utf8Properties(setDocumentBase(getDocumentName(ac, document)));
+		general = new Utf8Properties(setDocumentBase(getDocumentName(ac, document)));	 
 	general.put("file-title", title);
 	warnings = style.getWarnings();
 	errors = style.getErrors();
@@ -483,8 +483,8 @@ public final class StyleSheetGeneratorHTML implements CssPrinterStyle {
 	out.flush();
     }
 
-	private Utf8Properties setDocumentBase(String document) {
-		Utf8Properties properties = (Utf8Properties) formats.get(document);
+    private Utf8Properties setDocumentBase(String document) {
+	Utf8Properties properties = (Utf8Properties) formats.get(document);
 	if (properties == null) {
 	    URL url;
 			properties = new Utf8Properties();
