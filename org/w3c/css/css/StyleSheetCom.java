@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetCom.java,v 1.14 2006-03-20 06:51:18 ot Exp $
+// $Id: StyleSheetCom.java,v 1.15 2006-04-26 12:44:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -31,7 +31,7 @@ import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.14 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.15 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 
@@ -233,7 +233,6 @@ public class StyleSheetCom implements HtmlParserListener {
 	while (i < args.length) {
 	    try {
 		String doc = args[i];
-
 		try {
 		    style.htmlURL = new URL(doc);
 		    style.file = style.htmlURL.toString();
@@ -246,10 +245,10 @@ public class StyleSheetCom implements HtmlParserListener {
 
 		String urlLower = style.htmlURL.toString().toLowerCase();
 		if (urlLower.endsWith(".css")) {
-		    style.cssRequest(selector, style.defaultmedium);
+		    style.cssRequest(selector, style.defaultmedium);		    
 		} else if (urlLower.endsWith(".html")
 			   || urlLower.endsWith(".shtml")
-			   || urlLower.endsWith("/")) {
+			   || urlLower.endsWith("/")) {		    
 		    style.htmlRequest();
 		} else if (urlLower.endsWith(".xml")) {
 		    style.xmlRequest();

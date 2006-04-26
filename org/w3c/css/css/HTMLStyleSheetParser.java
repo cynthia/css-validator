@@ -1,5 +1,5 @@
 //
-// $Id: HTMLStyleSheetParser.java,v 1.17 2005-09-14 15:14:17 ylafon Exp $
+// $Id: HTMLStyleSheetParser.java,v 1.18 2006-04-26 12:44:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.www.mime.MimeType;
 import org.w3c.www.mime.MimeTypeFormatException;
 
 /**
- * @version $Revision: 1.17 $
+ * @version $Revision: 1.18 $
  */
 public final class HTMLStyleSheetParser implements HtmlParserListener {
 
@@ -47,7 +47,7 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 	String urlLower = urlString.toLowerCase();
 	String media = ac.getMedium();
 
-	if (!"http".equals(htmlURL.getProtocol())) {
+	if (!"http".equals(htmlURL.getProtocol())) {	    	    
 	    if (urlLower.endsWith(".css")) {
 		StyleSheetParser parser = new StyleSheetParser();
 		parser.parseURL(ac, htmlURL, null, null, media,
@@ -78,8 +78,9 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		} finally {
 		    Util.fromHTMLFile = false;
 		}
-	    }
-	    throw new Exception("Unknown file");
+	    } else {
+		throw new Exception("Unknown file");
+	    }	    
 	} else {
 	    URLConnection connection = null;
 
@@ -171,8 +172,9 @@ public final class HTMLStyleSheetParser implements HtmlParserListener {
 		    XMLStyleSheetHandler handler;
 		    handler = new XMLStyleSheetHandler(htmlURL, ac);
 		    handler.parse(urlString, connection);
-		    style = handler.getStyleSheet();
-		    if (style != null) {
+		    style = handler.getStyleSheet();		    
+		    
+		    if (style != null) {			
 			style.setType("text/xml");
 		    }
 		}

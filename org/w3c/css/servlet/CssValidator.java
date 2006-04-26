@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.22 2006-04-19 11:28:06 ylafon Exp $
+// $Id: CssValidator.java,v 1.23 2006-04-26 12:44:15 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -44,7 +44,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.22 $
+ * @version $Revision: 1.23 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -269,6 +269,7 @@ public final class CssValidator extends HttpServlet {
 	// CSS version
 	if (profile != null && !"none".equals(profile)) {
 	    if ("css1".equals(profile) || "css2".equals(profile)
+		|| "css21".equals(profile)
 		|| "css3".equals(profile) || "svg".equals(profile)
 		|| "svgbasic".equals(profile) || "svgtiny".equals(profile)) {
 		ac.setCssVersion(profile);
@@ -329,7 +330,7 @@ public final class CssValidator extends HttpServlet {
 	    try {
 		uri = HTTPURL.getURL(uri).toString(); // needed to be sure
 		// that it is a valid
-		// url
+		// url		
 		HTMLStyleSheetParser URLparser = new HTMLStyleSheetParser(ac,
 									  uri);
 
@@ -581,6 +582,8 @@ public final class CssValidator extends HttpServlet {
 	    output = "html";
 	} else if (soap12.equals(output)) {
 	    output = "soap12";
+	} else if(textplain.equals(output)) {
+	    output = "text";
 	}
 	styleSheet.findConflicts(ac);
 

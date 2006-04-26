@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.18 2006-04-19 11:28:05 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.19 2006-04-26 12:44:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.18 $
+ * @version $Revision: 1.19 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -173,7 +173,7 @@ CssPrinterStyle {
 
     // prints the stylesheet at the screen
     public void produceStyleSheet() {
-	Vector atRules = style.newGetRules();
+	Vector atRules = style.newGetRules();	
 	for (int idx = 0; idx < atRules.size(); idx++) {
 	    // out.print(((CssRuleList)atRules.elementAt(idx)).toHTML());
 	    ((CssRuleList) atRules.elementAt(idx)).toHTML(out);
@@ -280,7 +280,7 @@ CssPrinterStyle {
 		    if (ex instanceof FileNotFoundException) {
 			ret.append("\n<p>");
 			ret.append(ac.getMsg().getGeneratorString("not-found"));
-			ret.append("<span class='error'>");
+			ret.append("<span class='error'> ");
 			ret.append(ex.getMessage());
 			ret.append("</span>\n");
 		    } else if (ex instanceof CssParseException) {

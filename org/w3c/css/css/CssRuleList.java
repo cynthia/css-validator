@@ -1,4 +1,4 @@
-// $Id: CssRuleList.java,v 1.11 2005-09-14 15:14:17 ylafon Exp $
+// $Id: CssRuleList.java,v 1.12 2006-04-26 12:44:14 ylafon Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -46,8 +46,31 @@ public class CssRuleList {
 
     public String toString() {
 	StringBuffer ret = new StringBuffer();
+	if (null != atRule && atRule.isEmpty()) {
+	    if (!atRuleString.equals("")) {		
+		ret.append(atRuleString);
+		ret.append("\n\n");
+	    }
+	} else {
+	    if (!atRuleString.equals("")) {		
+		ret.append(atRuleString);
+		ret.append(" {\n\n");
+	    }
+	    for (int i = 0; i < rulelist.size() ; i++ ) {
+		ret.append((CssStyleRule)rulelist.elementAt(i));
+	    }
 
-	if (atRule.isEmpty()) {
+	    if (!atRuleString.equals("")) {
+		ret.append("}\n");
+	    }
+	}
+	return ret.toString();
+    }
+    
+/*    public String toString() {
+	StringBuffer ret = new StringBuffer();
+
+	if (atRule == null || atRule.isEmpty()) {
 	    if (null != atRule && !atRuleString.equals("")) {
 		ret.append(atRuleString);
 		ret.append(' ');
@@ -72,7 +95,7 @@ public class CssRuleList {
 	    }
 	}
 	return ret.toString();
-    }
+    }*/
 
     /*    public String toHTML() {
      StringBuffer ret = new StringBuffer();
