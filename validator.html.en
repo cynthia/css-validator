@@ -13,7 +13,7 @@
     <script type="text/javascript" src="tabtastic/addcss.js"></script>
     <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
     <script src="toggle.js" type="text/javascript"></script>
-    <meta name="revision" content="$Id: validator.html.en,v 1.14 2006-06-15 11:14:52 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.en,v 1.15 2006-06-30 04:42:44 ot Exp $" />
   </head>
 
   <body>
@@ -192,12 +192,12 @@
 	that the (X)HTML you use is valid</a>.
 	</p>
    <ul class="navbar"  id="menu">
-        <li><a href="about" title="About this service">About</a> <span class="hideme">|</span></li>
-        <li><a href="documentation" title="Documentation for the W3C CSS Validation Service">Documentation</a> <span class="hideme">|</span></li>
-        <li><a href="DOWNLOAD" title="Download and install the CSS validator">Download</a> <span class="hideme">|</span></li>
-        <li><a href="Email" title="How to provide feedback on this service">Feedback</a> <span class="hideme">|</span></li>
-        <li><a href="thanks" title="Credits and Acknowlegments">Credits</a><span class="hideme">|</span></li>
-        <li><a href="languages" title="How to use the CSS Validator in your language">Other Languages</a><span class="hideme">|</span></li>
+        <li><a href="about.html" title="About this service">About</a> <span class="hideme">|</span></li>
+        <li><a href="documentation.html" title="Documentation for the W3C CSS Validation Service">Documentation</a> <span class="hideme">|</span></li>
+        <li><a href="DOWNLOAD.html" title="Download and install the CSS validator">Download</a> <span class="hideme">|</span></li>
+        <li><a href="Email.html" title="How to provide feedback on this service">Feedback</a> <span class="hideme">|</span></li>
+        <li><a href="thanks.html" title="Credits and Acknowlegments">Credits</a><span class="hideme">|</span></li>
+        <li><a href="languages.html" title="How to use the CSS Validator in your language">Other Languages</a><span class="hideme">|</span></li>
       </ul>
 
    <p id="activity_logos">

@@ -12,7 +12,7 @@
     <script type="text/javascript" src="tabtastic/addcss.js"></script>
     <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
     <script src="toggle.js" type="text/javascript"></script>
-    <meta name="revision" content="$Id: validator.html.es,v 1.5 2006-06-16 06:59:52 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.es,v 1.6 2006-06-30 04:42:44 ot Exp $" />
   </head>
 
   <body>
@@ -191,12 +191,12 @@
 	<p><strong>Nota</strong>: Si se quiere validar una hoja de estilo CSS dentro de un documento (X)HTML, primero se debería <a href="http://validator.w3.org/">comprobar que el (X)HTML utilizado es válido</a>.
 	</p>
    <ul class="navbar"  id="menu">
-        <li><a href="about" title="About this service">A Propósito</a> <span class="hideme">|</span></li>
-        <li><a href="documentation" title="Documentation for the W3C CSS Validation Service">Documentation</a> <span class="hideme">|</span></li>
-        <li><a href="DOWNLOAD" title="Download and install the CSS validator">Descarga e Installación</a> <span class="hideme">|</span></li>
-        <li><a href="Email" title="How to provide feedback on this service">Sugerencias</a> <span class="hideme">|</span></li>
-        <li><a href="thanks" title="Credits and Acknowlegments">Créditos</a><span class="hideme">|</span></li>
-        <li><a href="languages" hreflang="en" lang="en" title="How to use the CSS Validator in your language">Other Languages</a><span class="hideme">|</span></li>
+        <li><a href="about.html" title="About this service">A Propósito</a> <span class="hideme">|</span></li>
+        <li><a href="documentation.html" title="Documentation for the W3C CSS Validation Service">Documentation</a> <span class="hideme">|</span></li>
+        <li><a href="DOWNLOAD.html" title="Download and install the CSS validator">Descarga e Installación</a> <span class="hideme">|</span></li>
+        <li><a href="Email.html" title="How to provide feedback on this service">Sugerencias</a> <span class="hideme">|</span></li>
+        <li><a href="thanks.html" title="Credits and Acknowlegments">Créditos</a><span class="hideme">|</span></li>
+        <li><a href="languages.html" hreflang="en" lang="en" title="How to use the CSS Validator in your language">Other Languages</a><span class="hideme">|</span></li>
       </ul>
 
    <p id="activity_logos">
