@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.23 2006-04-26 12:44:15 ylafon Exp $
+// $Id: CssValidator.java,v 1.24 2006-08-08 15:17:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -44,7 +44,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.23 $
+ * @version $Revision: 1.24 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -637,6 +637,8 @@ public final class CssValidator extends HttpServlet {
 		outputMt = MimeType.TEXT_PLAIN.getClone();
 	    }
 	    //outputMt = MimeType.TEXT_PLAIN.getClone();
+	} else if(output.equals("ucn")) {
+		outputMt = MimeType.APPLICATION_XML.getClone();
 	} else {
 	    // Change this line if you want text/html output when incorrect
 	    // output is passed
