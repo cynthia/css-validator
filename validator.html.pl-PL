@@ -6,14 +6,14 @@
     <title>Usługa Walidacji CSS W3C</title>
     <link rev="made" href="mailto:www-validator-css@w3.org" />
     <link rev="start" href="./" title="Strona domowa" />
-    <style type="text/css" media="all">@import "base.css";
+    <style type="text/css" media="all">@import "style/base.css";
 </style>
     <script type="text/javascript" src="tabtastic/addclasskillclass.js"></script>
     <script type="text/javascript" src="tabtastic/attachevent.js"></script>
     <script type="text/javascript" src="tabtastic/addcss.js"></script>
     <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
     <script src="toggle.js" type="text/javascript"></script>
-    <meta name="revision" content="$Id: validator.html.pl-PL,v 1.1 2006-08-14 08:12:00 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.pl-PL,v 1.2 2006-09-04 07:00:00 ot Exp $" />
   </head>
 
   <body>

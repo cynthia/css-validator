@@ -6,8 +6,8 @@
 <title>Le service de validation CSS du W3C</title>
 <link rev="made" href="mailto:www-validator-css@w3.org" />
 <link rev="start" href="./" title="Page d'accueil" />
-<style type="text/css" media="all">@import "./base.css";</style>
-<meta name="revision" content="$Id: validator-uri.html.fr,v 1.9 2006-03-01 21:24:03 bjoern Exp $" />
+<style type="text/css" media="all">@import "style/base.css";</style>
+<meta name="revision" content="$Id: validator-uri.html.fr,v 1.10 2006-09-04 07:00:00 ot Exp $" />
 </head>
 
 <body>
@@ -101,8 +101,8 @@ Medium :
 	<a class="right" href="http://jigsaw.w3.org/css-validator">
 	<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
 	<a title="Faire part de vos remarques à l'équipe du service de validation du W3C" href="Email">L'équipe du validateur CSS du W3C</a><br />
-$Date: 2006-03-01 21:24:03 $
-<!-- SSI Template Version: $Id: validator-uri.html.fr,v 1.9 2006-03-01 21:24:03 bjoern Exp $ -->
+$Date: 2006-09-04 07:00:00 $
+<!-- SSI Template Version: $Id: validator-uri.html.fr,v 1.10 2006-09-04 07:00:00 ot Exp $ -->
 </address>
 <p class="copyright">
 <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2003

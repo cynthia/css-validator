@@ -5,11 +5,11 @@ Service</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK 
 rev=made href="mailto:www-validator-css@w3.org"><LINK title="Home Page" 
 rev=start href="./">
-<STYLE type=text/css media=all>@import url( base.css );
-@import url( docs.css );
+<STYLE type=text/css media=all>@import url( style/base.css );
+@import url( style/docs.css );
 </STYLE>
 
-<META content="$Id: about.html.it,v 1.1 2006-08-09 02:51:52 ot Exp $" 
+<META content="$Id: about.html.it,v 1.2 2006-09-04 07:00:00 ot Exp $" 
 name=revision>
 <META content="MSHTML 6.00.2900.2912" name=GENERATOR></HEAD>
 <BODY>

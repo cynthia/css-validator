@@ -7,10 +7,10 @@
     <link rev="made" href="mailto:www-validator-css@w3.org" />
     <link rev="start" href="./" title="ホーム" />
     <style type="text/css" media="all">
-	@import "base.css";
-	@import "docs.css";
+	@import "style/base.css";
+	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.ja,v 1.1 2006-08-09 05:02:15 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.ja,v 1.2 2006-09-04 07:00:00 ot Exp $" />
   </head>
 
   <body>

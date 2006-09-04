@@ -6,8 +6,8 @@
     <title>Servicio de Validación de CSS del W3C</title>
     <link rev="made" href="mailto:www-validator-css@w3.org" />
     <link rev="start" href="./" title="Página de Inicio" />
-    <style type="text/css" media="all">@import "./base.css";</style>
-    <meta name="revision" content="$Id: validator-upload.html.es,v 1.4 2006-03-01 21:24:03 bjoern Exp $" />
+    <style type="text/css" media="all">@import "./style/base.css";</style>
+    <meta name="revision" content="$Id: validator-upload.html.es,v 1.5 2006-09-04 07:00:00 ot Exp $" />
   </head>
 
   <body>
@@ -126,7 +126,7 @@
 	alt="¡CSS Válido!" /></a>
 	<a title="Haga sus sugerencias sobre el Servicio de Validación CSS del W3C" href="Email">El Equipo del Validador de CSS del W3C</a><br/>
       $Fecha: 27/12/2004 02:07:12 $
-      <!-- SSI Template Version: $Id: validator-upload.html.es,v 1.4 2006-03-01 21:24:03 bjoern Exp $ -->
+      <!-- SSI Template Version: $Id: validator-upload.html.es,v 1.5 2006-09-04 07:00:00 ot Exp $ -->
     </address>
     <p class="copyright">
 			<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright" hreflang="en-us" xml:lang="en-us">Copyright</a> &#xa9; 1994-2004

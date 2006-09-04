@@ -7,10 +7,10 @@
     <link rev="made" href="mailto:www-validator-css@w3.org" />
     <link rev="start" href="./" title="Home Page" />
     <style type="text/css" media="all">
-	@import "base.css";
-	@import "docs.css";
+	@import "style/base.css";
+	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.en,v 1.1 2006-06-15 06:47:42 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.en,v 1.2 2006-09-04 07:00:00 ot Exp $" />
   </head>
 
   <body>
