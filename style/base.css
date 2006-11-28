@@ -5,7 +5,7 @@
    Copyright 2000 W3C (MIT, INRIA, Keio). All Rights Reserved.
    See http://www.w3.org/Consortium/Legal/ipr-notice.html#Copyright
 
-   $Id: base.css,v 1.4 2006-11-24 02:39:35 ot Exp $
+   $Id: base.css,v 1.5 2006-11-28 04:21:16 ot Exp $
 */
 
 /*                 
@@ -45,7 +45,7 @@ p {
     padding: 4px 0 0 0;
     height: 55px; 
     margin-bottom: 0;
-    margin-top: 12px;
+    margin-top: 22px;
     border: 0;
 
 }
@@ -528,9 +528,10 @@ div#jumpbar li a:hover {
         position: absolute;
         display: block;
         width; 10em; 
-        top: 60px; 
+        top: 0px; 
         text-align: right; 
-        right: 78px; 
+        right: 75px; 
+	margin-top: 6px;
         font-size: x-small;
 	list-style: none;
 }
