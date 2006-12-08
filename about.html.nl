@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.nl,v 1.2 2006-12-06 01:14:54 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.nl,v 1.3 2006-12-08 06:50:03 ot Exp $" />
 
   </head>
 
@@ -124,6 +124,52 @@ of installeer en draai je eigen instantie van de validator.</p>
         <li><a href="DOWNLOAD.html" title="Download de CSS validator">Download</a> <span class="hideme">|</span></li>
         <li><a href="Email.html" title="Hoe reacties te geven over deze service">Reacties</a> <span class="hideme">|</span></li>
         <li><a href="thanks.html" title="Credits en Erkenning">Credits</a><span class="hideme">|</span></li>
+      </ul>
+ 
+       <ul id="lang_choice">
+           <li><a href="about.html.de"
+               lang="de"
+               xml:lang="de"
+               hreflang="de"
+               rel="alternate">Deutsch</a></li>
+           <li><a href="about.html.en"
+               lang="en"
+               xml:lang="en"
+           hreflang="en"
+           rel="alternate">English</a>  </li>
+           <li><a href="about.html.es"
+           lang="es" xml:lang="es" hreflang="es"
+           rel="alternate">Español</a></li>
+           <li><a href="about.html.fr"
+           lang="fr"
+           xml:lang="fr"
+           hreflang="fr"
+           rel="alternate">Français</a> </li>
+           <li><a href="about.html.it"
+               lang="it"
+               xml:lang="it"
+               hreflang="it"
+               rel="alternate">Italiano</a> </li>
+           <li><a href="about.html.nl"
+               lang="nl"
+               xml:lang="nl"
+               hreflang="nl"
+               rel="alternate">Nederlands</a> </li>
+           <li><a href="about.html.ja"
+               lang="ja"
+               xml:lang="ja"
+               hreflang="ja"
+               rel="alternate">日本語</a> </li>
+           <li><a href="about.html.pl-PL"
+               lang="pl"
+               xml:lang="pl"
+               hreflang="pl"
+               rel="alternate">Polski</a> </li>
+           <li><a href="about.html.zh-cn"
+               lang="zh-hans"
+               xml:lang="zh-hans"
+               hreflang="zh-hans"
+               rel="alternate">中文</a></li>
       </ul>
 
    <p id="activity_logos">

@@ -13,7 +13,7 @@
     <script type="text/javascript" src="tabtastic/addcss.js"></script>
     <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
     <script src="toggle.js" type="text/javascript"></script>
-    <meta name="revision" content="$Id: validator.html.nl,v 1.5 2006-11-28 02:16:20 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.nl,v 1.6 2006-12-08 06:50:03 ot Exp $" />
   </head>
 
   <body>
@@ -200,12 +200,20 @@
         <li><a href="thanks.html" title="Credits en Erkenning">Credits</a><span class="hideme">|</span></li>
       </ul>
 
-       <ul id="lang_choice">
+      <ul id="lang_choice">
+           <li><a href="validator.html.de"
+               lang="de"
+               xml:lang="de"
+               hreflang="de"
+               rel="alternate">Deutsch</a></li>
            <li><a href="validator.html.en"
-           lang="en"
-           xml:lang="en"
+               lang="en"
+               xml:lang="en"
            hreflang="en"
            rel="alternate">English</a>  </li>
+           <li><a href="validator.html.es"
+           lang="es" xml:lang="es" hreflang="es"
+           rel="alternate">Español</a></li>
            <li><a href="validator.html.fr"
            lang="fr"
            xml:lang="fr"
@@ -216,6 +224,11 @@
                xml:lang="it"
                hreflang="it"
                rel="alternate">Italiano</a> </li>
+           <li><a href="validator.html.nl"
+               lang="nl"
+               xml:lang="nl"
+               hreflang="nl"
+               rel="alternate">Nederlands</a> </li>
            <li><a href="validator.html.ja"
                lang="ja"
                xml:lang="ja"

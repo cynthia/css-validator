@@ -10,8 +10,8 @@
 @import "style/base.css";    
 @import "style/docs.css";    
 </style>
-<meta name="revision" content="$Id: documentation.html.fr,v 1.6 2006-11-24 02:39:34 ot Exp $" />
-<!-- SSI Template Version: $Id: documentation.html.fr,v 1.6 2006-11-24 02:39:34 ot Exp $ -->
+<meta name="revision" content="$Id: documentation.html.fr,v 1.7 2006-12-08 06:50:03 ot Exp $" />
+<!-- SSI Template Version: $Id: documentation.html.fr,v 1.7 2006-12-08 06:50:03 ot Exp $ -->
 </head>
 
 <body>
@@ -67,11 +67,19 @@ Voir également les <a href="email">instructions pour laisser un commentaire</a>
 </ul>
 
  <ul id="lang_choice">
-     <li><a href="documentation.html.en" 
-     lang="en"
-     xml:lang="en"
+     <li><a href="documentation.html.de"
+         lang="de"
+         xml:lang="de"
+         hreflang="de"
+         rel="alternate">Deutsch</a></li>
+     <li><a href="documentation.html.en"
+         lang="en"
+         xml:lang="en"
      hreflang="en"
      rel="alternate">English</a>  </li>
+     <li><a href="documentation.html.es"
+     lang="es" xml:lang="es" hreflang="es"
+     rel="alternate">Español</a></li>
      <li><a href="documentation.html.fr"
      lang="fr"
      xml:lang="fr"
@@ -82,6 +90,11 @@ Voir également les <a href="email">instructions pour laisser un commentaire</a>
          xml:lang="it"
          hreflang="it"
          rel="alternate">Italiano</a> </li>
+     <li><a href="documentation.html.nl"
+         lang="nl"
+         xml:lang="nl"
+         hreflang="nl"
+         rel="alternate">Nederlands</a> </li>
      <li><a href="documentation.html.ja"
          lang="ja"
          xml:lang="ja"
