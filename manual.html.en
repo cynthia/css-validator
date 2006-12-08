@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.en,v 1.4 2006-12-08 06:50:03 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.en,v 1.4 2006-12-08 06:50:03 ot Exp $ -->
+  content="$Id: manual.html.en,v 1.5 2006-12-08 09:16:32 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.en,v 1.5 2006-12-08 09:16:32 ot Exp $ -->
 </head>
 
 <body>
@@ -38,7 +38,7 @@
       response</a></li>
       <li><a href="#fileupload">Validation by file upload</a></li>
       <li><a href="#directinput">Validation by direct input</a></li>
-      <li><a href="#basicvalidation">What does the basic validation do?</a>
+      <li><a href="#basicvalidation">What does the basic validation do?</a></li>
     </ul>
   </li>
   <li><a href="#advanced">Advanced validation</a>
