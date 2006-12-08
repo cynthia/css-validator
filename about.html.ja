@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.ja,v 1.5 2006-12-08 06:50:03 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.ja,v 1.6 2006-12-08 06:56:16 ot Exp $" />
   </head>
 
   <body>
@@ -95,7 +95,7 @@ Java プログラマなら、CSS Validator プロジェクトの<a href="#code">
 <p>W3C CSS Validator は、Java 言語を使って書かれています。
 ええ、もちろんコードも CVS で公開されています。
 <a href="http://dev.w3.org/cvsweb/2002/css-validator/">コードをオンラインで閲覧</a>することもできますし、リンク先のページの指示に従ってソースツリー全体をダウンロードすることもできます。
-CSS Validator で使われているクラスなどの概要は、<a href="README.html">README</a> ファイルをご覧ください。</a>
+CSS Validator で使われているクラスなどの概要は、<a href="README.html">README</a> ファイルをご覧ください。</p>
 
 <h4 id="install">自分でも CSS Validator をインストール・実行できる?</h4>
 <p>CSS Validator は、ダウンロードしてインストールして、コマンドラインから起動することもウェブサーバー上でサーブレットとして実行することも可能です。
