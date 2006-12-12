@@ -1,4 +1,4 @@
-// $Id: CssRuleList.java,v 1.13 2006-12-12 01:49:01 kdubost Exp $
+// $Id: CssRuleList.java,v 1.14 2006-12-12 04:36:17 kdubost Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -126,13 +126,13 @@ public class CssRuleList {
     public void toHTML(PrintWriter out) {
 	if (null != atRule && atRule.isEmpty()) {
 	    if (!atRuleString.equals("")) {
-		out.print("<div><span class='atSelector'>");
+		out.print("<div class='atRule'><span class='atSelector'>");
 		out.print(Util.escapeHTML(atRuleString));
 		out.print("</span></div> \n\n");
 	    }
 	} else {
 	    if (!atRuleString.equals("")) {
-		out.print("<div><span class='atSelector'>");
+		out.print("<div class='atRule'><span class='atSelector'>");
 		out.print(Util.escapeHTML(atRuleString));
 		out.print("</span> {\n<div>\n");
 	    }
