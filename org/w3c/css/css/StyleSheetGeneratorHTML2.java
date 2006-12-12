@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.20 2006-12-12 07:22:53 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.21 2006-12-12 07:26:54 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.20 $
+ * @version $Revision: 1.21 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -364,7 +364,7 @@ CssPrinterStyle {
 			    if (warn.getLevel() != 0) {
 				ret.append("<span class='level");
 				ret.append(warn.getLevel());
-				ret.append("'");
+				ret.append("'>");
 			    }
 			    ret.append(Util.escapeHTML(oldMessage));
 			    if (warn.getContext() != null) {
