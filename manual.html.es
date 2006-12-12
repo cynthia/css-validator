@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.es,v 1.2 2006-12-12 04:28:15 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.es,v 1.2 2006-12-12 04:28:15 ot Exp $ -->
+  content="$Id: manual.html.es,v 1.3 2006-12-12 04:32:28 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.es,v 1.3 2006-12-12 04:32:28 ot Exp $ -->
 </head>
 
 <body>
@@ -71,7 +71,7 @@ La manera más sencilla de comprobar un documento es utilizar la interfaz básic
     Este documento puede ser HTML o CSS.
 </p>
 <img style="display: block; margin-left:auto; margin-right: auto;" 
-    src="./images/uri_basic.png" alt="Validación mediante el formulario URI" />
+    src="./images/uri_basic_es.png" alt="Validación mediante el formulario URI" />
 
 <h4 id="fileupload">Validación mediante carga de archivo</h4>    
 <p>
@@ -79,7 +79,7 @@ La manera más sencilla de comprobar un documento es utilizar la interfaz básic
     botón "Examinar..." y selecciona el archivo que deseas validar.
 </p>
 <img style="display: block; margin-left:auto; margin-right: auto;" 
-    src="./images/file_upload_basic.png" 
+    src="./images/file_upload_basic_es.png" 
     alt="Validación mediante Carga de Archivo" />
 <p>
     En este caso, sólo se permiten documentos CSS. Esto significa que no puedes
@@ -93,7 +93,7 @@ La manera más sencilla de comprobar un documento es utilizar la interfaz básic
     Este método es perfecto para probar fragmentos de CSS. Sólo tienes que escribir tu CSS en el textarea
 </p>
 <img style="display: block; margin-left:auto; margin-right: auto;" 
-    src="./images/direct_input_basic.png" 
+    src="./images/direct_input_basic_es.png" 
     alt="Validación mediante entrada directa" />
 <p>
     Los mismos comentarios de antes son de aplicación. Advierte que esta solución es 
