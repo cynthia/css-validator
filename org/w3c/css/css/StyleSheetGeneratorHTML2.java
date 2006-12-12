@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.19 2006-04-26 12:44:14 ylafon Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.20 2006-12-12 07:22:53 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.19 $
+ * @version $Revision: 1.20 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -354,21 +354,23 @@ CssPrinterStyle {
 //				|| !warn.getWarningMessage().equals(oldMessage)) {
 			    oldLine = warn.getLine();
 			    oldMessage = warn.getWarningMessage();
-			    ret.append("\n<li><span class='warning'>");
-			    ret.append(ac.getMsg().getGeneratorString("line"));
-			    ret.append(" : ");
+			    ret.append("\n<li='warning'><span class='linenumber'>");
+// to remove the trigger of line label in languages.
+//			    ret.append(ac.getMsg().getGeneratorString("line"));
+//			    ret.append(" : ");
 			    ret.append(oldLine);
+			    ret.append("</span>. ");
+// <span class='level1'> - level of warning
 			    if (warn.getLevel() != 0) {
-				ret.append(" (Level : ");
+				ret.append("<span class='level");
 				ret.append(warn.getLevel());
-				ret.append(")");
+				ret.append("'");
 			    }
-			    ret.append("</span> ");
 			    ret.append(Util.escapeHTML(oldMessage));
-
 			    if (warn.getContext() != null) {
 				ret.append(" : ").append(warn.getContext());
 			    }
+			    ret.append("</span> ");
 			    ret.append("</li>");
 //			}
 		    }
