@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.21 2006-12-12 07:26:54 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.22 2006-12-12 07:31:33 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -354,7 +354,7 @@ CssPrinterStyle {
 //				|| !warn.getWarningMessage().equals(oldMessage)) {
 			    oldLine = warn.getLine();
 			    oldMessage = warn.getWarningMessage();
-			    ret.append("\n<li='warning'><span class='linenumber'>");
+			    ret.append("\n<li class='warning'><span class='linenumber'>");
 // to remove the trigger of line label in languages.
 //			    ret.append(ac.getMsg().getGeneratorString("line"));
 //			    ret.append(" : ");
