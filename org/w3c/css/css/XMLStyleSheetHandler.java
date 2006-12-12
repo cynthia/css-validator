@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.21 2005-09-14 15:14:18 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.22 2006-12-12 05:04:14 ot Exp $
  */
 package org.w3c.css.css;
 
@@ -24,6 +24,8 @@ import java.util.Hashtable;
 
 import org.w3c.css.parser.CssError;
 import org.w3c.css.parser.Errors;
+import org.w3c.css.util.Warning;
+import org.w3c.css.util.Warnings;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.InvalidParamException;
@@ -42,7 +44,7 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.LexicalHandler;
 
 /**
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler,
@@ -112,6 +114,12 @@ public class XMLStyleSheetHandler implements ContentHandler,
     public void comment (char ch[], int start, int length)
         throws SAXException {
 	if (inStyle) {
+            int line = (locator != null ? locator.getLineNumber() : -1);
+            Warning w = new Warning(baseURI.toString(), line,
+                    "style-inside-comment", 0, ac);
+            Warnings warnings = new Warnings();
+            warnings.addWarning(w);
+            styleSheetParser.notifyWarnings(warnings);
 	    text.append(ch, start, length);
 	}
     }
