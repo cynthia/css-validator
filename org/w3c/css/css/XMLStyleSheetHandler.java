@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.22 2006-12-12 05:04:14 ot Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.23 2006-12-12 06:00:25 ot Exp $
  */
 package org.w3c.css.css;
 
@@ -44,7 +44,7 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.LexicalHandler;
 
 /**
- * @version $Revision: 1.22 $
+ * @version $Revision: 1.23 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler,
@@ -120,7 +120,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
             Warnings warnings = new Warnings();
             warnings.addWarning(w);
             styleSheetParser.notifyWarnings(warnings);
-	    text.append(ch, start, length);
+	    //text.append(ch, start, length); // ignoring, per http://www.w3.org/Bugs/Public/show_bug.cgi?id=761
 	}
     }
 
