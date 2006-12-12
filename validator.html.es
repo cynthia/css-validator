@@ -13,7 +13,7 @@
     <script type="text/javascript" src="tabtastic/addcss.js"></script>
     <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
     <script src="toggle.js" type="text/javascript"></script>
-    <meta name="revision" content="$Id: validator.html.es,v 1.12 2006-12-12 04:28:15 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.es,v 1.13 2006-12-12 04:30:43 ot Exp $" />
   </head>
 
   <body>
@@ -193,10 +193,10 @@
 	</p>
    <ul class="navbar"  id="menu">
         <li><a href="about.html" title="Acerca de este servicio">Acerca de este servicio</a> <span class="hideme">|</span></li>
-        <li><a href="documentation" title="Documentaci&oacute;n del Servicio de Validaci&oacute;n CSS del W3C">Documentaci&oacute;n</a> <span class="hideme">|</span></li>
-        <li><a href="DOWNLOAD" title="Descarga el Validador CSS">Descarga</a> <span class="hideme">|</span></li>
-        <li><a href="Email" title="C&oacute;mo realizar comentarios sobre este servicio">Comentarios</a> <span class="hideme">|</span></li>
-        <li><a href="thanks" title="Cr&eacute;ditos y Agradecimientos">Cr&eacute;ditos</a><span class="hideme">|</span></li>
+        <li><a href="documentation.html" title="Documentaci&oacute;n del Servicio de Validaci&oacute;n CSS del W3C">Documentaci&oacute;n</a> <span class="hideme">|</span></li>
+        <li><a href="DOWNLOAD.html" title="Descarga el Validador CSS">Descarga</a> <span class="hideme">|</span></li>
+        <li><a href="Email.html" title="C&oacute;mo realizar comentarios sobre este servicio">Comentarios</a> <span class="hideme">|</span></li>
+        <li><a href="thanks.html" title="Cr&eacute;ditos y Agradecimientos">Cr&eacute;ditos</a><span class="hideme">|</span></li>
       </ul>
       
       <ul id="lang_choice">
