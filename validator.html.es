@@ -13,7 +13,7 @@
     <script type="text/javascript" src="tabtastic/addcss.js"></script>
     <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
     <script src="toggle.js" type="text/javascript"></script>
-    <meta name="revision" content="$Id: validator.html.es,v 1.13 2006-12-12 04:30:43 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.es,v 1.14 2006-12-12 04:55:08 ot Exp $" />
   </head>
 
   <body>
@@ -79,7 +79,7 @@
       </select>
 </div><!-- item_contents -->
 </fieldset><!-- invisible -->
-	<p class="submit_button"><label title="Enviar archivo para su validaci&oacute;n"><input type="submit" value="Check" /></label></p>
+	<p class="submit_button"><label title="Enviar archivo para su validaci&oacute;n"><input type="submit" value="Comprobar" /></label></p>
       </form>
       </fieldset>
 
@@ -131,7 +131,7 @@
       </select>
 </div><!-- item_contents -->
 </fieldset><!-- invisible -->
-	<p class="submit_button"><label title="Enviar archivo para su validaci&oacute;n"><input type="submit" value="Check" /></label></p>
+	<p class="submit_button"><label title="Enviar archivo para su validaci&oacute;n"><input type="submit" value="Comprobar" /></label></p>
       </form>
       </fieldset>
 
@@ -184,7 +184,7 @@
       </select>
 </div><!-- item_contents -->
 </fieldset><!-- invisible -->
-	<p class="submit_button"><label title="Enviar archivo para su validaci&oacute;n"><input type="submit" value="Check" /></label></p>
+	<p class="submit_button"><label title="Enviar archivo para su validaci&oacute;n"><input type="submit" value="Comprobar" /></label></p>
       </form>
       </fieldset>
       </div><!-- fields -->
