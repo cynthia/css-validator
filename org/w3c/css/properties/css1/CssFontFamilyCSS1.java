@@ -1,5 +1,5 @@
 //
-// $Id: CssFontFamilyCSS1.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssFontFamilyCSS1.java,v 1.4 2006-12-13 07:09:09 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -77,7 +77,7 @@ import org.w3c.css.values.CssValue;
  *   name is converted to a single space.
  *
  * @see CssFont
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssFontFamilyCSS1 extends CssProperty implements CssOperator {
 
@@ -181,9 +181,12 @@ public class CssFontFamilyCSS1 extends CssProperty implements CssOperator {
 	if(check && !expression.end()) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-	if (!containsGenericFamily()) {
-	    ac.getFrame().addWarning("no-generic-family", "font-family");
-	}
+	// This looks like obsolete code: (no context, no level, and duplicate 
+	// of a warning handled already in CSS1Style.java
+	// olivier 2006-12-13
+	//if (!containsGenericFamily()) {
+	//    ac.getFrame().addWarning("no-generic-family", "font-family");
+	//}
 
     }
 
