@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.27 2006-12-13 07:47:34 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.28 2006-12-13 09:40:08 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.27 $
+ * @version $Revision: 1.28 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -342,7 +342,7 @@ CssPrinterStyle {
 		    if (warn.getLevel() <= warningLevel) {
 			if (!warn.getSourceFile().equals(oldSourceFile)) {
 			    if (open) {
-				ret.append("\n</ul></div>");
+				ret.append("\n</table></div>");
 			    }
 			    oldSourceFile = warn.getSourceFile();
 			    ret.append("\n<div><h3>URI : <a href=\"");
