@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.39 2006-12-14 05:10:50 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.40 2006-12-14 05:35:10 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.39 $
+ * @version $Revision: 1.40 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -181,44 +181,43 @@ CssPrinterStyle {
 
     public void produceParseException(CssParseException error, StringBuffer ret) {
 	ret.append(' ');
+	ret.append("\n   <td class='codeContext'>");
 	if (error.getContexts() != null && error.getContexts().size() != 0) {
 	    StringBuffer buf = new StringBuffer();
+		// Loop on the list of contexts for errors
 	    for (Enumeration e = error.getContexts().elements(); e.hasMoreElements();) {
 			Object t = e.nextElement();
-			ret.append("\n   <td class='codeContext'>");
+			// if the list is not null, add a comma
 			if (t != null) {
 		    	buf.append(t);
 		    	if (e.hasMoreElements())
 					buf.append(", ");
-				}
-	    	}
-	    	if (buf.length() != 0) {
-//		ret.append(ac.getMsg().getGeneratorString("context"));
-//		ret.append(" : <span class='error'>").append(buf);
-//		ret.append("</span> ");
-				ret.append(buf);
-	    	}
-			ret.append("</td>");
-			ret.append("\n   <td class='message'>");
-		}
+			}
+	    }
+	    if (buf.length() != 0) {
+			ret.append(buf);
+	    }
+		ret.append("</td>");
+		ret.append("\n   <td class='message'>");	
+	}
 	String name = error.getProperty();
 	if ((name != null) && (getURLProperty(name) != null)) {
-	    ret.append(ac.getMsg().getGeneratorString("property"));
-	    ret.append(" : <a href=\"");
-	    ret.append(getURLProperty("@url-base"));
-	    ret.append(getURLProperty(name)).append("\">");
-	    ret.append(name).append("</a> ");
+		ret.append(ac.getMsg().getGeneratorString("property"));
+		ret.append(" : <a href=\"");
+		ret.append(getURLProperty("@url-base"));
+		ret.append(getURLProperty(name)).append("\">");
+		ret.append(name).append("</a> ");
 	}
 	if ((error.getException() != null) && (error.getMessage() != null)) {
 	    if (error.isParseException()) {
-		ret.append(queryReplace(error.getMessage()));
+			ret.append(queryReplace(error.getMessage()));
 	    } else {
-		Exception ex = error.getException();
-		if (ex instanceof NumberFormatException) {
-		    ret.append(ac.getMsg().getGeneratorString("invalid-number"));
-		} else {
-		    ret.append(queryReplace(ex.getMessage()));
-		}
+			Exception ex = error.getException();
+			if (ex instanceof NumberFormatException) {
+		    	ret.append(ac.getMsg().getGeneratorString("invalid-number"));
+			} else {
+		    	ret.append(queryReplace(ex.getMessage()));
+			}
 	    }
 	    if (error.getSkippedString() != null) {
 		ret.append("<span class='skippedString'>");
@@ -253,19 +252,21 @@ CssPrinterStyle {
 		    Exception ex = error[i].getException();
 		    String file = error[i].getSourceFile();
 		    if (!file.equals(oldSourceFile)) {
-			oldSourceFile = file;
-			if (open) {
-			    ret.append("\n</table>\n<!--end of individual error section--></div>");
-			}
-			ret.append("\n<div class='errors-section'><h3>URI : " + "<a href=\"");
-			ret.append(file).append("\">");
-			ret.append(file).append("</a></h3><table>");
-			open = true;
+				oldSourceFile = file;
+				if (open) {
+			    	ret.append("\n</table>\n<!--end of individual error section--></div>");
+				}
+				ret.append("\n<div class='errors-section'>\n<h3>URI : " + "<a href=\"");
+				ret.append(file).append("\">");
+				ret.append(file).append("</a></h3>\n<table>");
+				open = true;
 		    }
 		    ret.append("\n<tr class='error'>\n   <td class='linenumber'>");
 //		    ret.append(ac.getMsg().getGeneratorString("line"));
 		    ret.append(error[i].getLine());
 		    ret.append("</td>");
+
+
 		    if (ex instanceof FileNotFoundException) {
 				ret.append(ac.getMsg().getGeneratorString("not-found"));
 				ret.append("<span class='notfound'> ");
