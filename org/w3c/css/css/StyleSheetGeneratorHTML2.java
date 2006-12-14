@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.29 2006-12-14 02:16:46 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.30 2006-12-14 02:23:27 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.29 $
+ * @version $Revision: 1.30 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -214,7 +214,7 @@ CssPrinterStyle {
 		ret.append("</td>");
 	    }
 	}
-	ret.append("\n<p>");
+	ret.append("\n<td class='error'>");
 	String name = error.getProperty();
 	if ((name != null) && (getURLProperty(name) != null)) {
 	    ret.append(ac.getMsg().getGeneratorString("property"));
@@ -281,6 +281,7 @@ CssPrinterStyle {
 //		    ret.append(ac.getMsg().getGeneratorString("line"));
 //		    ret.append(": ").append(error[i].getLine());
 		    ret.append(error[i].getLine());
+		    ret.append("</td>");
 		    if (ex instanceof FileNotFoundException) {
 			ret.append("\n<td class='error'>");
 			ret.append(ac.getMsg().getGeneratorString("not-found"));
