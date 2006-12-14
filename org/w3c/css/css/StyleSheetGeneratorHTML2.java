@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.36 2006-12-14 04:09:28 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.37 2006-12-14 04:14:40 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.36 $
+ * @version $Revision: 1.37 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -212,9 +212,9 @@ CssPrinterStyle {
 		ret.append("\n   <td class='codeContext'>");
 		ret.append(buf);
 		ret.append("   </td>");
+		ret.append("\n   <td class='message'>");
 	    }
 	}
-	ret.append("\n   <td class='message'>");
 	String name = error.getProperty();
 	if ((name != null) && (getURLProperty(name) != null)) {
 	    ret.append(ac.getMsg().getGeneratorString("property"));
