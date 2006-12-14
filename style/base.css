@@ -5,7 +5,7 @@
    Copyright 2000 W3C (MIT, INRIA, Keio). All Rights Reserved.
    See http://www.w3.org/Consortium/Legal/ipr-notice.html#Copyright
 
-   $Id: base.css,v 1.6 2006-12-08 08:51:51 ot Exp $
+   $Id: base.css,v 1.7 2006-12-14 05:54:40 ot Exp $
 */
 
 /*                 
@@ -26,7 +26,7 @@ body {
     font-size: 1em; /* setting base font to user's prefered size */
     min-width: 50em;
 }
-p {     
+p, pre {     
     line-height: 130%; 
     padding-left: 20px;
 }
