@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.43 2006-12-14 06:15:13 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.44 2006-12-14 06:19:06 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.43 $
+ * @version $Revision: 1.44 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -181,8 +181,8 @@ CssPrinterStyle {
 
     public void produceParseException(CssParseException error, StringBuffer ret) {
 	ret.append(' ');
-	ret.append("\n   <td class='codeContext'>");
 	if (error.getContexts() != null && error.getContexts().size() != 0) {
+		ret.append("\n   <td class='codeContext'>");
 	    StringBuffer buf = new StringBuffer();
 		// Loop on the list of contexts for errors
 	    for (Enumeration e = error.getContexts().elements(); e.hasMoreElements();) {
@@ -194,9 +194,11 @@ CssPrinterStyle {
 			}
 	    }
 	    if (buf.length() != 0) {ret.append(buf);}
+	} else {
+		ret.append("\n   <td class='nocontext'>");
 	}
 	ret.append("</td>");
-	ret.append("\n   <td class='message'>");	
+	ret.append("\n   <td class='message'>");
 	String name = error.getProperty();
 	if ((name != null) && (getURLProperty(name) != null)) {
 		ret.append(ac.getMsg().getGeneratorString("property"));
