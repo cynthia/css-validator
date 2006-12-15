@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.49 2006-12-15 08:26:55 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.50 2006-12-15 08:32:22 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.49 $
+ * @version $Revision: 1.50 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -262,7 +262,7 @@ CssPrinterStyle {
 		    ret.append("\n<tr class='error'>\n   <td class='linenumber' title='");
 			ret.append(ac.getMsg().getGeneratorString("line"));
 		    ret.append(error[i].getLine());
-		    ret.append("'>");
+		    ret.append(" '>");
 		    ret.append(error[i].getLine());
 		    ret.append("</td>");
 
