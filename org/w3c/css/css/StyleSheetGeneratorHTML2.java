@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.46 2006-12-14 06:39:49 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.47 2006-12-15 05:26:34 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.46 $
+ * @version $Revision: 1.47 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -339,32 +339,31 @@ CssPrinterStyle {
 			    ret.append(oldSourceFile).append("</a></h3><table>");
 			    open = true;
 			}
-//			if (warn.getLine() != oldLine
-//				|| !warn.getWarningMessage().equals(oldMessage)) {
 			    oldLine = warn.getLine();
 			    oldMessage = warn.getWarningMessage();
+
+				// Starting a line for each new warning
 			    ret.append("\n<tr class='warning'>\n   <td class='linenumber'>");
-// to remove the trigger of line label in languages.
-//			    ret.append(ac.getMsg().getGeneratorString("line"));
-//			    ret.append(" : ");
 			    ret.append(oldLine);
 			    ret.append("</td> ");
-// <span class='level1'> - level of warning
+
+				// Getting the code context of the CSS
 				ret.append("\n   <td class='codeContext'>");
 				if (warn.getContext() != null) {
 					ret.append(warn.getContext());
 					}
 				ret.append("</td>");
-//			    if (warn.getLevel() != 0) {
-// there are warnings with level 0 which need the table
+
+				// generating the cell for levels of warnings
+				// creating a class and a title with the appropriate level number
 				ret.append("\n   <td class='level");
 				ret.append(warn.getLevel());
+				ret.append("' title='warning level '");
+				ret.append(warn.getLevel());
 				ret.append("'>");
-//			    }
 			    ret.append(Util.escapeHTML(oldMessage));
 			    ret.append("</td> ");
 			    ret.append("\n</tr>");
-//			}
 		    }
 		}
 		if (open) {
