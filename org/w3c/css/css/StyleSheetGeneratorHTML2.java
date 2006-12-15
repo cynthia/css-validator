@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.47 2006-12-15 05:26:34 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.48 2006-12-15 08:14:38 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.47 $
+ * @version $Revision: 1.48 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -343,10 +343,13 @@ CssPrinterStyle {
 			    oldMessage = warn.getWarningMessage();
 
 				// Starting a line for each new warning
-			    ret.append("\n<tr class='warning'>\n   <td class='linenumber'>");
+			    ret.append("\n<tr class='warning'>\n   <td class='linenumber' title='");
+				ret.append(ac.getMsg().getGeneratorString("line"));
+			    ret.append(oldLine);
+			    ret.append(" ").append(oldLine);
+			    ret.append("'>");
 			    ret.append(oldLine);
 			    ret.append("</td> ");
-
 				// Getting the code context of the CSS
 				ret.append("\n   <td class='codeContext'>");
 				if (warn.getContext() != null) {
