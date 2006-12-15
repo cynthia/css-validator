@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.48 2006-12-15 08:14:38 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.49 2006-12-15 08:26:55 kdubost Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.48 $
+ * @version $Revision: 1.49 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -259,11 +259,12 @@ CssPrinterStyle {
 				ret.append(file).append("</a></h3>\n<table>");
 				open = true;
 		    }
-		    ret.append("\n<tr class='error'>\n   <td class='linenumber'>");
-//		    ret.append(ac.getMsg().getGeneratorString("line"));
+		    ret.append("\n<tr class='error'>\n   <td class='linenumber' title='");
+			ret.append(ac.getMsg().getGeneratorString("line"));
+		    ret.append(error[i].getLine());
+		    ret.append("'>");
 		    ret.append(error[i].getLine());
 		    ret.append("</td>");
-
 
 		    if (ex instanceof FileNotFoundException) {
 				ret.append("\n   <td class='nocontext'> </td>\n   <td class='notfound'> ");
@@ -345,7 +346,6 @@ CssPrinterStyle {
 				// Starting a line for each new warning
 			    ret.append("\n<tr class='warning'>\n   <td class='linenumber' title='");
 				ret.append(ac.getMsg().getGeneratorString("line"));
-			    ret.append(oldLine);
 			    ret.append(" ").append(oldLine);
 			    ret.append("'>");
 			    ret.append(oldLine);
@@ -361,7 +361,7 @@ CssPrinterStyle {
 				// creating a class and a title with the appropriate level number
 				ret.append("\n   <td class='level");
 				ret.append(warn.getLevel());
-				ret.append("' title='warning level '");
+				ret.append("' title='warning level ");
 				ret.append(warn.getLevel());
 				ret.append("'>");
 			    ret.append(Util.escapeHTML(oldMessage));
