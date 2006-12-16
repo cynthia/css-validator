@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.50 2006-12-15 08:32:22 kdubost Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.51 2006-12-16 20:22:27 jean-gui Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.50 $
+ * @version $Revision: 1.51 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -87,6 +87,7 @@ CssPrinterStyle {
 
 	general.put("errors-count", Integer.toString(errors.getErrorCount()));
 	general.put("warnings-count", Integer.toString(warnings.getWarningCount()));
+	general.put("ignored-warnings-count", Integer.toString(warnings.getIgnoredWarningCount()));
 	general.put("rules-count", Integer.toString(items.size()));
 
 	if (errors.getErrorCount() == 0) {
@@ -326,6 +327,7 @@ CssPrinterStyle {
 		int i = 0;
 		ret.append("\n<div class='warnings-section-all'>");
 		warnings.sort();
+		
 		for (Warning[] warning = warnings.getWarnings(); i < warning.length; i++) {
 
 		    Warning warn = warning[i];
@@ -381,7 +383,7 @@ CssPrinterStyle {
 	    e.printStackTrace();
 	}
     }
-
+    
     private String queryReplace(String s) {
 	if (s != null) {
 	    int len = s.length();

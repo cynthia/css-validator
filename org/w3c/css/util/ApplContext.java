@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.8 2005-09-14 15:15:32 ylafon Exp $
+ * $Id: ApplContext.java,v 1.9 2006-12-16 20:22:26 jean-gui Exp $
  */
 package org.w3c.css.util;
 
@@ -18,7 +18,7 @@ import org.w3c.www.http.HttpAcceptCharsetList;
 import org.w3c.www.http.HttpFactory;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  * @author  Philippe Le Hegaret
  */
 public class ApplContext {
@@ -45,6 +45,8 @@ public class ApplContext {
 
     String medium;
 
+    int warningLevel = 0;
+    
     static {
 	try {
 	    Class c = Class.forName("java.nio.charset.Charset");
@@ -65,7 +67,15 @@ public class ApplContext {
         msgs = new Messages(lang);
     }
 
-    // as ugly as everything else
+    public int getWarningLevel() {
+		return warningLevel;
+	}
+
+	public void setWarningLevel(int warningLevel) {
+		this.warningLevel = warningLevel;
+	}
+
+	// as ugly as everything else
     public String getCredential() {
 	return credential;
     }

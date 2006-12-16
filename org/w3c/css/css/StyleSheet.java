@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheet.java,v 1.11 2005-09-16 13:33:52 ylafon Exp $
+// $Id: StyleSheet.java,v 1.12 2006-12-16 20:22:27 jean-gui Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class contains a style sheet with all rules, errors and warnings.
  *
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class StyleSheet {
 
@@ -50,6 +50,10 @@ public class StyleSheet {
 	atRuleList = new Vector();
     }
 
+    public void setWarningLevel(int warningLevel) {
+    	warnings.setWarningLevel(warningLevel);
+    }
+    
     /**
      * Get a style in a specific context.
      * No resolution are perfomed when this function is called

@@ -1,5 +1,5 @@
 //
-// $Id: Frame.java,v 1.8 2005-09-14 15:14:18 ylafon Exp $
+// $Id: Frame.java,v 1.9 2006-12-16 20:22:27 jean-gui Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,7 +12,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class Frame {
 
@@ -30,11 +30,11 @@ public class Frame {
      * @param cssFouffa  The current parser.
      * @param sourceFile The name of the source file.
      */
-    public Frame(CssFouffa cssFouffa, String sourceFile) {
-    this.sourceFile = sourceFile;
-    this.cssFouffa = cssFouffa;
-    errors = new Errors();
-    warnings = new Warnings();
+    public Frame(CssFouffa cssFouffa, String sourceFile, int warningLevel) {
+    	this.sourceFile = sourceFile;
+    	this.cssFouffa = cssFouffa;
+    	errors = new Errors();
+    	warnings = new Warnings(warningLevel);
     }
 
     /**
@@ -44,12 +44,9 @@ public class Frame {
      * @param sourceFile The name of the source file.
      * @param beginLine  The begin line
      */
-    public Frame(CssFouffa cssFouffa, String sourceFile, int beginLine) {
-    this.sourceFile = sourceFile;
-    this.cssFouffa = cssFouffa;
-    line = beginLine;
-    errors = new Errors();
-    warnings = new Warnings();
+    public Frame(CssFouffa cssFouffa, String sourceFile, int beginLine, int warningLevel) {
+    	this(cssFouffa, sourceFile, warningLevel);
+    	line = beginLine;
     }
 
     /**

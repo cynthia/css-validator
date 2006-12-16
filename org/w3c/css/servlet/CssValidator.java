@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.24 2006-08-08 15:17:49 ylafon Exp $
+// $Id: CssValidator.java,v 1.25 2006-12-16 20:22:27 jean-gui Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -44,7 +44,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.24 $
+ * @version $Revision: 1.25 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -308,6 +308,7 @@ public final class CssValidator extends HttpServlet {
 		    System.err.println(e);
 		}
 	    }
+	    ac.setWarningLevel(warningLevel);
 	}
 
 	// set the error report
@@ -538,6 +539,7 @@ public final class CssValidator extends HttpServlet {
 		    System.err.println(e);
 		}
 	    }
+	    ac.setWarningLevel(warningLevel);
 	}
 
 	// set the error report

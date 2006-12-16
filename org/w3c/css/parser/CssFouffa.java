@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.36 2006-04-19 11:28:05 ylafon Exp $
+// $Id: CssFouffa.java,v 1.37 2006-12-16 20:22:27 jean-gui Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -47,7 +47,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.36 $
+ * @version $Revision: 1.37 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -107,7 +107,7 @@ public final class CssFouffa extends CssParser {
 	} else {
 	    setOrigin(ac.getOrigin()); // default is user
 	}
-	ac.setFrame(new Frame(this, file.toString(), beginLine));
+	ac.setFrame(new Frame(this, file.toString(), beginLine, ac.getWarningLevel()));
 	setApplContext(ac);
 	// @@this is a default media ...
 	/*
@@ -212,7 +212,7 @@ public final class CssFouffa extends CssParser {
 	this(ac, in, url, 0);
 	this.visited = urlvisited;
 	setURL(url);
-	ac.setFrame(new Frame(this, url.toString()));
+	ac.setFrame(new Frame(this, url.toString(), ac.getWarningLevel()));
 	setApplContext(ac);
 	this.listeners = listeners;
 	this.properties = cssfactory;
@@ -286,7 +286,7 @@ public final class CssFouffa extends CssParser {
      */
     public void ReInit(ApplContext ac, InputStream input, URL file,
 	    int beginLine) throws IOException {
-	Frame f = new Frame(this, file.toString(), beginLine);
+	Frame f = new Frame(this, file.toString(), beginLine, ac.getWarningLevel());
 	ac.setFrame(f);
 	ReInit(ac, input, file, f);
     }
@@ -303,7 +303,7 @@ public final class CssFouffa extends CssParser {
      */
     public void ReInit(ApplContext ac, InputStream input, URL file)
     throws IOException {
-	Frame f = new Frame(this, file.toString());
+	Frame f = new Frame(this, file.toString(), ac.getWarningLevel());
 	ac.setFrame(f);
 	ReInit(ac, input, file, f);
     }
@@ -318,7 +318,7 @@ public final class CssFouffa extends CssParser {
      *                if an I/O error occurs.
      */
     public void ReInit(ApplContext ac, URL file) throws IOException {
-	Frame f = new Frame(this, file.toString());
+	Frame f = new Frame(this, file.toString(), ac.getWarningLevel());
 	ac.setFrame(f);
 	URLConnection urlC = HTTPURL.getConnection(file, ac);
 	ReInit(ac, urlC.getInputStream(), urlC.getURL(), f);

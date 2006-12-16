@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.23 2006-12-12 06:00:25 ot Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.24 2006-12-16 20:22:27 jean-gui Exp $
  */
 package org.w3c.css.css;
 
@@ -44,7 +44,7 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.LexicalHandler;
 
 /**
- * @version $Revision: 1.23 $
+ * @version $Revision: 1.24 $
  * @author  Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler,
@@ -117,7 +117,7 @@ public class XMLStyleSheetHandler implements ContentHandler,
             int line = (locator != null ? locator.getLineNumber() : -1);
             Warning w = new Warning(baseURI.toString(), line,
                     "style-inside-comment", 0, ac);
-            Warnings warnings = new Warnings();
+            Warnings warnings = new Warnings(ac.getWarningLevel());
             warnings.addWarning(w);
             styleSheetParser.notifyWarnings(warnings);
 	    //text.append(ch, start, length); // ignoring, per http://www.w3.org/Bugs/Public/show_bug.cgi?id=761
