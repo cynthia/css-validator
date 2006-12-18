@@ -5,7 +5,7 @@
    Copyright 2000 W3C (MIT, INRIA, Keio). All Rights Reserved.
    See http://www.w3.org/Consortium/Legal/ipr-notice.html#Copyright
 
-   $Id: base.css,v 1.7 2006-12-14 05:54:40 ot Exp $
+   $Id: base.css,v 1.8 2006-12-18 03:13:47 ot Exp $
 */
 
 /*                 
@@ -84,7 +84,6 @@ p#tagline {
 
 h1 { 
     font-family: "Gill Sans", Helvetica, sans-serif;
-    font-size-adjust: .53;
     font-weight: bold;
     font-style: normal;
     text-decoration: none;
