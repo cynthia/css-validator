@@ -10,8 +10,8 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-  <meta name="revision" content="$Id: documentation.html.nl,v 1.2 2006-12-08 06:50:03 ot Exp $" />
-  <!-- SSI Template Version: $Id: documentation.html.nl,v 1.2 2006-12-08 06:50:03 ot Exp $ -->
+  <meta name="revision" content="$Id: documentation.html.nl,v 1.3 2006-12-18 03:34:23 ot Exp $" />
+  <!-- SSI Template Version: $Id: documentation.html.nl,v 1.3 2006-12-18 03:34:23 ot Exp $ -->
 
 </head>
 
@@ -61,7 +61,7 @@
     
     <dt><a href="http://www.w3.org/Bugs/Public/buglist.cgi?bug_status=__open__;product=CSSValidator">Bugs</a></dt>
     <dd>Bekende problemen in de huidige validator versie, en een mogelijkheid om nieuwe problemen in te sturen. 
-    Zie ook <a href="email">de feedback instructies</a>.</dd>
+    Zie ook <a href="Email.html">de feedback instructies</a>.</dd>
 
 </dl>
 
