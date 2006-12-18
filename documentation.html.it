@@ -10,9 +10,9 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-  <meta name="revision" content="$Id: documentation.html.it,v 1.4 2006-12-15 02:48:35 ot Exp $" />
+  <meta name="revision" content="$Id: documentation.html.it,v 1.5 2006-12-18 03:33:30 ot Exp $" />
   <meta name="translator" content="Roberto Scano - International Webmasters Association / The HTML Writers Guild" />
-  <!-- SSI Template Version: $Id: documentation.html.it,v 1.4 2006-12-15 02:48:35 ot Exp $ -->
+  <!-- SSI Template Version: $Id: documentation.html.it,v 1.5 2006-12-18 03:33:30 ot Exp $ -->
 </head>
 
 <body>
@@ -59,7 +59,7 @@
     
     <dt><a href="http://www.w3.org/Bugs/Public/buglist.cgi?bug_status=__open__;product=CSSValidator">Problemi</a></dt>
     <dd>Problematiche conosciute nella versione corrente del validatore, nonché un'interfaccia per segnalare nuovi problemi o argomenti di discussione. 
-    Consultare anche le <a href="email">istruzioni per l'invio di commenti</a>.</dd>
+    Consultare anche le <a href="Email.html">istruzioni per l'invio di commenti</a>.</dd>
 
 </dl>
 
