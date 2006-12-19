@@ -10,9 +10,9 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-  <meta name="revision" content="$Id: documentation.html.it,v 1.5 2006-12-18 03:33:30 ot Exp $" />
+  <meta name="revision" content="$Id: documentation.html.it,v 1.6 2006-12-19 15:02:18 ylafon Exp $" />
   <meta name="translator" content="Roberto Scano - International Webmasters Association / The HTML Writers Guild" />
-  <!-- SSI Template Version: $Id: documentation.html.it,v 1.5 2006-12-18 03:33:30 ot Exp $ -->
+  <!-- SSI Template Version: $Id: documentation.html.it,v 1.6 2006-12-19 15:02:18 ylafon Exp $ -->
 </head>
 
 <body>
@@ -70,7 +70,7 @@
 <!-- End of "main" DIV. -->
 
    <ul class="navbar"  id="menu">
-	<li><strong>a href="./" title="Pagina iniziale del servizio di validazione CSS del W3C">Pagina iniziale</a> <span class="hideme">|</span></li>
+	<li><strong><a href="./" title="Pagina iniziale del servizio di validazione CSS del W3C">Pagina iniziale</a> <span class="hideme">|</span></li>
 	<li><a href="about.html" title="Informazioni sul servizio">Informazioni</a> <span class="hideme">|</span></li>
         <li><a href="DOWNLOAD.html" title="Scarica il Validatore CSS" xml:lang="en" lang="en">Download</a> <span class="hideme">|</span></li>
         <li><a href="Email.html" title="Come fornire commenti al servizio">Commenti</a> <span class="hideme">|</span></li>
