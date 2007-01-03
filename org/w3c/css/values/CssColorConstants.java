@@ -1,5 +1,5 @@
 //
-// $Id: CssColorConstants.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssColorConstants.java,v 1.6 2007-01-03 18:35:23 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@ package org.w3c.css.values;
 /**
  * This class is ued by CssColor
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @see org.w3c.css.values.CssColor
  */
 public interface CssColorConstants {
@@ -18,11 +18,11 @@ public interface CssColorConstants {
    * All named colors.
    */
   public static final String[] COLORNAME = {
-    "aqua", "black", "blue", "fushia", "gray", "green", "lime", "maroon",
+    "aqua", "black", "blue", "fuchsia", "gray", "green", "lime", "maroon",
     "navy", "olive", "purple", "red", "silver", "teal", "white", "yellow" };
 
   public static final String[] COLORNAME_CSS21 = {
-      "aqua", "black", "blue", "fushia", "gray", "green", "lime", "maroon",
+      "aqua", "black", "blue", "fuchsia", "gray", "green", "lime", "maroon",
       "navy", "olive", "orange", "purple", "red", "silver", "teal", "white",
       "yellow" };
 
