@@ -5,7 +5,7 @@
    Copyright 2000 W3C (MIT, INRIA, Keio). All Rights Reserved.
    See http://www.w3.org/Consortium/Legal/ipr-notice.html#Copyright
 
-   $Id: base.css,v 1.10 2007-01-05 18:47:34 ot Exp $
+   $Id: base.css,v 1.11 2007-01-05 18:53:10 ot Exp $
 */
 
 /*                 
@@ -226,10 +226,10 @@ fieldset {
 }
 fieldset legend {
     font-weight: bold;
-    background-color: white;
-    color: #11111A;
-    border: 1px solid #005A9C;
     padding: .5em;
+}
+fieldset.moreoptions legend {
+    font-weight: normal;
 }
 fieldset p { 
     margin: 0 0  0.8em 0; 
