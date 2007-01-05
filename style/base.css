@@ -5,7 +5,7 @@
    Copyright 2000 W3C (MIT, INRIA, Keio). All Rights Reserved.
    See http://www.w3.org/Consortium/Legal/ipr-notice.html#Copyright
 
-   $Id: base.css,v 1.9 2006-12-18 06:29:21 ot Exp $
+   $Id: base.css,v 1.10 2007-01-05 18:47:34 ot Exp $
 */
 
 /*                 
@@ -348,9 +348,8 @@ input.default {
 p.toggle {
     color: #005A9C;
     background-color: transparent;
-}
-p.toggle:hover {
-	text-decoration: underline;
+    margin-bottom: 0;
+
 }
 
 .hidden
@@ -364,6 +363,7 @@ margin-bottom: 0;
 padding-left: .3em;
 }
 fieldset.moreoptions div {
+margin-top: 0;
 margin-left: .5em;
 font-size: smaller;
 }

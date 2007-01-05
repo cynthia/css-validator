@@ -1,5 +1,5 @@
 // toggling event visibility
-// $Id: toggle.js,v 1.2 2007-01-05 18:19:22 ot Exp $
+// $Id: toggle.js,v 1.3 2007-01-05 18:47:34 ot Exp $
 // v1.0 David Dorward for the W3C CSS Validation Service, 18/12/2006
 // Based on v2.01 Kent Brewster, 6/8/2006 http://www.mindsack.com
 
@@ -51,6 +51,7 @@ W3C.QA.Validator.CSS.toggle =
 			link.href="#" + el.id;
 			link.onclick = this.newToggleState(this,paragraph,el);
 			paragraph.appendChild(link);
+			paragraph.className += ' toggle closed';
 			el.parentNode.insertBefore(paragraph, el);
 
 
