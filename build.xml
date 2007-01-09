@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: build.xml,v 1.4 2006-03-20 07:02:48 ot Exp $ -->
+<!-- $Id: build.xml,v 1.5 2007-01-09 19:09:07 ot Exp $ -->
 <project default="jar" name="W3C CSS Validator">
 
   <!-- =================================================================== -->
@@ -72,7 +72,7 @@
 			<include name="org/**"/>
 			<include name="html/**"/>
 			<manifest>
-	      			<attribute name="Main-Class" value="org.w3c.css.css.StyleSheetCom"/>
+	      			<attribute name="Main-Class" value="org.w3c.css.css.CssValidator"/>
 			</manifest>
 		</jar>
 	</target>
