@@ -11,8 +11,8 @@
   	@import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.ja,v 1.6 2006-12-08 06:50:03 ot Exp $" />
-  <!-- SSI Template Version: $Id: DOWNLOAD.html.ja,v 1.6 2006-12-08 06:50:03 ot Exp $ -->
+  content="$Id: DOWNLOAD.html.ja,v 1.7 2007-01-09 18:08:55 ot Exp $" />
+  <!-- SSI Template Version: $Id: DOWNLOAD.html.ja,v 1.7 2007-01-09 18:08:55 ot Exp $ -->
 
 </head>
 
@@ -33,7 +33,9 @@
       <a href='http://dev.w3.org/cvsweb/'>ガイド</a>に従って W3C CVS 公開サーバーにアクセスし、2002/css-validator を取得してください。オンライン版の CSS Validator は一般的に CVS 版のものより古く、結果表示などが若干異なる可能性があります。</p>
 
 	<h4>Java パッケージ (jar/war) としてダウンロード</h4>
-	<p>未定です…。jar/war アーカイブを定期的に置ける、安定した場所を探しています。</p>
+<!--	<p>未定です…。jar/war アーカイブを定期的に置ける、安定した場所を探しています。</p>-->
+	<p><a href="http://www.w3.org/QA/Tools/css-validator/css-validator.jar">css-validator.jar</a></p>
+
 
 <h3>インストールガイド</h3>
 <p>CSS 検査サービスはサーブレットであり、Java で書かれています。

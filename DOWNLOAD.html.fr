@@ -10,8 +10,8 @@
 @import "style/base.css";
 @import "style/docs.css";
 </style>
-<meta name="revision" content="$Id: DOWNLOAD.html.fr,v 1.7 2006-12-08 06:50:03 ot Exp $" />
-<!-- SSI Template Version: $Id: DOWNLOAD.html.fr,v 1.7 2006-12-08 06:50:03 ot Exp $ -->
+<meta name="revision" content="$Id: DOWNLOAD.html.fr,v 1.8 2007-01-09 18:08:55 ot Exp $" />
+<!-- SSI Template Version: $Id: DOWNLOAD.html.fr,v 1.8 2007-01-09 18:08:55 ot Exp $ -->
 
 </head>
 
@@ -32,7 +32,8 @@ Suivez les <a href='http://dev.w3.org/cvsweb/'>instructions</a> pour accéder au
 de sorte que les résultats et l'aspect peuvent varier légèrement.
 </p>	
 <h4>Télécharger un paquetage Java (jar ou war)</h4>
-<p>À faire... nous avons juste besoin d'un emplacement stable pour y placer régulièrement les archives jar/war.</p>
+<!--<p>À faire... nous avons juste besoin d'un emplacement stable pour y placer régulièrement les archives jar/war.</p>-->
+<p><a href="http://www.w3.org/QA/Tools/css-validator/css-validator.jar">css-validator.jar</a></p>
 
 <h3>Guide d'installation</h3>
 <p>Le service de validation CSS est un servlet écrit en Java. On peut l'installer sur n'importe quel moteur de servlets,

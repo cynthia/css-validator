@@ -11,7 +11,7 @@
   	@import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.nl,v 1.5 2006-12-08 06:50:03 ot Exp $" />
+  content="$Id: DOWNLOAD.html.nl,v 1.6 2007-01-09 18:08:55 ot Exp $" />
 
 </head>
 
@@ -37,7 +37,10 @@
     </p>	
 	<h4>Download de CSS Validator als java package (jar of war)</h4>
 
-	<p>Werk in uitvoering - Er moet een locatie gevonden worden waar we de bestanden neer kunnen zetten.</p>
+	<!--<p>Werk in uitvoering - Er moet een locatie gevonden worden waar we de bestanden neer kunnen zetten.</p>-->
+	<p><a href="http://www.w3.org/QA/Tools/css-validator/css-validator.jar">css-validator.jar</a></p>
+
+
 
 <h3>Installatie handleiding</h3>
 <p>De CSS validatie service is een Java servlet. De service kan ge&iuml;nstalleerd worden op elke servlet engine, 
