@@ -5,7 +5,7 @@
    Copyright 2000 W3C (MIT, INRIA, Keio). All Rights Reserved.
    See http://www.w3.org/Consortium/Legal/ipr-notice.html#Copyright
 
-   $Id: base.css,v 1.11 2007-01-05 18:53:10 ot Exp $
+   $Id: base.css,v 1.12 2007-01-15 06:28:21 ot Exp $
 */
 
 /*                 
@@ -333,24 +333,21 @@ input.default {
 
 /* the following from http://www.mindsack.com/toggle/ (c) Kent Brewster */
 
-.toggle
+p.toggle
 {
         background: transparent url('../images/arrow-down.gif')  0 0 no-repeat;
         text-indent: 20px;
         cursor:pointer;
-}
-
-.toggle.closed
-{
-        background: transparent url('../images/arrow-right.gif') 0 0 no-repeat;
-}
-
-p.toggle {
     color: #005A9C;
     background-color: transparent;
     margin-bottom: 0;
-
 }
+
+p.closed
+{
+        background: transparent url('../images/arrow-right.gif') 0 0 no-repeat !important;
+}
+
 
 .hidden
 {
