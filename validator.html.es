@@ -13,7 +13,7 @@
 <script type="text/javascript" src="tabtastic/addcss.js"/>
 <script type="text/javascript" src="tabtastic/tabtastic.js"/>
 <script src="toggle.js" type="text/javascript"/>
-<meta name="revision" content="$Id: validator.html.es,v 1.17 2007-01-15 01:39:55 ot Exp $"/>
+<meta name="revision" content="$Id: validator.html.es,v 1.18 2007-01-15 04:54:26 ot Exp $"/>
 </head>
 <body>
 <div id="banner">
@@ -56,8 +56,8 @@
       <select id="profile_uri" name="profile">
 <option value="none">Ninguno en especial</option>
 <option value="css1">CSS versi&oacute;n 1</option>
-<option selected="selected" value="css2">CSS versi&oacute;n 2</option>
-<option value="css21">CSS versi&oacute;n 2.1</option>
+<option value="css2">CSS versi&oacute;n 2</option>
+<option selected="selected" value="css21">CSS versi&oacute;n 2.1</option>
 <option value="css3">CSS versi&oacute;n 3</option>
 <option value="svg">SVG</option>
 <option value="svgbasic">SVG B&aacute;sico</option>
@@ -116,8 +116,8 @@
       <select id="profile_upload" name="profile">
 <option value="none">Ninguno en especial</option>
 <option value="css1">CSS versi&oacute;n 1</option>
-<option selected="selected" value="css2">CSS versi&oacute;n 2</option>
-<option value="css21">CSS versi&oacute;n 2.1</option>
+<option value="css2">CSS versi&oacute;n 2</option>
+<option selected="selected" value="css21">CSS versi&oacute;n 2.1</option>
 <option value="css3">CSS versi&oacute;n 3</option>
 <option value="svg">SVG</option>
 <option value="svgbasic">SVG B&aacute;sico</option>
@@ -175,8 +175,8 @@
       <select id="profile_direct" name="profile">
 <option value="none">Ninguno en especial</option>
 <option value="css1">CSS versi&oacute;n 1</option>
-<option selected="selected" value="css2">CSS versi&oacute;n 2</option>
-<option value="css21">CSS versi&oacute;n 2.1</option>
+<option value="css2">CSS versi&oacute;n 2</option>
+<option selected="selected" value="css21">CSS versi&oacute;n 2.1</option>
 <option value="css3">CSS versi&oacute;n 3</option>
 <option value="svg">SVG</option>
 <option value="svgbasic">SVG B&aacute;sico</option>
