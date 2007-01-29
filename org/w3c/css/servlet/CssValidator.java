@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.25 2006-12-16 20:22:27 jean-gui Exp $
+// $Id: CssValidator.java,v 1.26 2007-01-29 05:19:07 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -44,7 +44,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.25 $
+ * @version $Revision: 1.26 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -275,10 +275,10 @@ public final class CssValidator extends HttpServlet {
 		ac.setCssVersion(profile);
 	    } else {
 		ac.setProfile(profile);
-		ac.setCssVersion("css2");
+		ac.setCssVersion("css21");
 	    }
 	} else {
-	    ac.setCssVersion("css2");
+	    ac.setCssVersion("css21");
 	}
 	if (Util.onDebug) {
 	    System.err.println("[DEBUG]  profile is : " + ac.getCssVersion()
@@ -547,6 +547,21 @@ public final class CssValidator extends HttpServlet {
 	    errorReport = false;
 	}
 
+	// CSS version
+	if (profile != null && !"none".equals(profile)) {
+	    if ("css1".equals(profile) || "css2".equals(profile)
+		|| "css21".equals(profile)
+		|| "css3".equals(profile) || "svg".equals(profile)
+		|| "svgbasic".equals(profile) || "svgtiny".equals(profile)) {
+		ac.setCssVersion(profile);
+	    } else {
+		ac.setProfile(profile);
+		ac.setCssVersion("css21");
+	    }
+	} else {
+	    ac.setCssVersion("css21");
+	}
+	
 	Util.verbose("File : " + file.getName());
 
 	parser = new StyleSheetParser();
