@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.6 2006-12-14 02:53:49 ot Exp $
+// $Id: Css1Style.java,v 1.7 2007-02-08 16:41:09 jean-gui Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -2958,7 +2958,7 @@ public class Css1Style extends CssStyle {
 	    if ((cssTextIndent != null)
 		    && (selector != null)
 		    && (!selector.isBlockLevelElement())) {
-		warnings.addWarning(new Warning(cssTextAlign,
+		warnings.addWarning(new Warning(cssTextIndent,
 			"block-level", 1, ac));
 	    }
 	    else if ((cssTextIndentMob != null)
