@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetGeneratorHTML2.java,v 1.51 2006-12-16 20:22:27 jean-gui Exp $
+// $Id: StyleSheetGeneratorHTML2.java,v 1.52 2007-02-27 22:55:17 jean-gui Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.51 $
+ * @version $Revision: 1.52 $
  */
 public final class StyleSheetGeneratorHTML2 extends StyleReport implements
 CssPrinterStyle {
@@ -332,17 +332,18 @@ CssPrinterStyle {
 
 		    Warning warn = warning[i];
 		    if (warn.getLevel() <= warningLevel) {
-			if (!warn.getSourceFile().equals(oldSourceFile)) {
-			    if (open) {
-				ret.append("\n</table>\n<!--end of individual warning section--></div>");
-			    }
-			    oldSourceFile = warn.getSourceFile();
-			    ret.append("\n<div class='warnings-section'><h3>URI : <a href=\"");
-			    ret.append(oldSourceFile).append("\">");
-			    ret.append(oldSourceFile).append("</a></h3><table>");
-			    open = true;
-			}
-			    oldLine = warn.getLine();
+		        String currentSourceFile = warn.getSourceFile();
+		        if (currentSourceFile != null && !currentSourceFile.equals(oldSourceFile)) {
+		            if (open) {
+		                ret.append("\n</table>\n<!--end of individual warning section--></div>");
+		            }
+		            oldSourceFile = warn.getSourceFile();
+		            ret.append("\n<div class='warnings-section'><h3>URI : <a href=\"");
+		            ret.append(oldSourceFile).append("\">");
+		            ret.append(oldSourceFile).append("</a></h3><table>");
+		            open = true;
+		        }
+		        oldLine = warn.getLine();
 			    oldMessage = warn.getWarningMessage();
 
 				// Starting a line for each new warning
