@@ -1,5 +1,5 @@
 //
-// $Id: CssListStyleCSS1.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssListStyleCSS1.java,v 1.4 2007-02-27 22:36:23 jean-gui Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -70,7 +70,7 @@ import org.w3c.css.values.CssValue;
  *   <P> In the example above, the 'disc' will be used when the image is
  *   unavailable.
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssListStyleCSS1 extends CssProperty implements CssOperator {
 
@@ -207,7 +207,7 @@ public class CssListStyleCSS1 extends CssProperty implements CssOperator {
 	    if (listStyleImage != null &&!listStyleImage.isDefault()) {
 		ret += " " + listStyleImage;
 	    }
-	    if (listStyleImage != null && !listStylePosition.isDefault()) {
+	    if (listStylePosition != null && !listStylePosition.isDefault()) {
 		ret += " " + listStylePosition;
 	    }
 	    return ret.trim();
