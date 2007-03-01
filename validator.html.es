@@ -13,7 +13,7 @@
 <script type="text/javascript" src="tabtastic/addcss.js"></script>
 <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
 <script src="toggle.js" type="text/javascript"></script>
-<meta name="revision" content="$Id: validator.html.es,v 1.19 2007-03-01 02:09:51 ot Exp $" />
+<meta name="revision" content="$Id: validator.html.es,v 1.20 2007-03-01 02:12:00 ot Exp $" />
 </head>
 <body>
 <div id="banner">
@@ -296,7 +296,7 @@
 </a>
 </p>
 <p id="support_logo">
-Apoya esta herramienta, convi&eacute;rtete en un <br/>
+Apoya esta herramienta, convi&eacute;rtete en un <br />
 <a href="http://www.w3.org/Consortium/supporters">
 <img src="http://www.w3.org/Consortium/supporter-logos/csupporter.png" alt="W3C Supporter" />
 </a>
