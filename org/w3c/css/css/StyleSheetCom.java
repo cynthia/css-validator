@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetCom.java,v 1.15 2006-04-26 12:44:14 ylafon Exp $
+// $Id: StyleSheetCom.java,v 1.16 2007-03-09 04:40:02 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -31,7 +31,7 @@ import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.15 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.16 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom implements HtmlParserListener {
 
@@ -202,10 +202,10 @@ public class StyleSheetCom implements HtmlParserListener {
 		style.ac.setCssVersion(style.cssversion);
 	    if (style.profile != null) {
 		style.ac.setProfile(style.profile);
-		style.ac.setCssVersion("css2");
+		style.ac.setCssVersion("css21");
 	    }
 	    if (style.cssversion == null && style.ac.getCssVersion() == null) {
-		style.ac.setCssVersion("css2");
+		style.ac.setCssVersion("css21");
 	    }
 	} catch (Exception e) {
 	    /* System.out.println( "Usage: validator " +
