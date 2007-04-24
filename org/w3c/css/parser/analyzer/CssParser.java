@@ -60,7 +60,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le H???garet and Sijtsche Smeman
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -3277,18 +3277,19 @@ CssSelectors param = null;
                 case 'a': case 'b': case 'c': case 'd': case 'e': case 'f':
                 case 'A': case 'B': case 'C': case 'D': case 'E': case 'F':
                     int numValue = Character.digit(c, 16);
-                    int count = 0;
+                    int count = 1;
                     int p = 16;
-
-                    while (index + 1 < len && count < 6) {
+                    int maxCount = (ac.getCssVersion().equals("css1") ? 4 : 6);
+                        
+                    while (index + 1 < len) {
                         c = s.charAt(index+1);
 
-                        if (Character.digit(c, 16) != -1) {
+                        if (Character.digit(c, 16) != -1 && count++ < maxCount) {
                             numValue = (numValue * 16) + Character.digit(c, 16);
                             p *= 16;
                             index++;
                         } else {
-                            if (c == ' ') {
+                            if (c == ' ' || c == '\t') {
                                 // skip the latest white space
                                 index++;
                             }
