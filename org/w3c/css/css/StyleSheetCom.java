@@ -1,16 +1,11 @@
 //
-// $Id: StyleSheetCom.java,v 1.16 2007-03-09 04:40:02 ot Exp $
+// $Id: StyleSheetCom.java,v 1.17 2007-04-24 11:14:22 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 
 package org.w3c.css.css;
-
-import html.tags.HtmlParser;
-import html.tags.HtmlParserListener;
-import html.tags.HtmlTag;
-import html.tags.HtmlTree;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,9 +26,9 @@ import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.16 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.17 $import javax.servlet.http.HttpServletResponse;
  */
-public class StyleSheetCom implements HtmlParserListener {
+public class StyleSheetCom {
 
     /*    ApplContext ac = new ApplContext("ja, en, zh"); */
     ApplContext ac;
@@ -54,21 +49,34 @@ public class StyleSheetCom implements HtmlParserListener {
     private Exception exception;
 
     public void htmlRequest() throws Exception {
+	StyleSheet style = null;
 
- 	System.err.println( "html request " + htmlURL);
-	HtmlParser htmlParser = new HtmlParser(ac, "html4", htmlURL.toString());
-	try {
-	    Util.fromHTMLFile = true;
-	    htmlParser.addParserListener(this);
-	    htmlParser.run();
-	    if (exception != null) {
-		throw (Exception) exception.fillInStackTrace();
-	    }
-	} catch (html.parser.XMLInputException e) {
-	    xmlRequest();
-	} finally {
-	    Util.fromHTMLFile = false;
+	TagSoupStyleSheetHandler handler = new TagSoupStyleSheetHandler(htmlURL, ac);
+	handler.parse(htmlURL);
+	style = handler.getStyleSheet();
+	if (style != null) {
+	    style.setType("text/html");
 	}
+	if (style != null) {
+	    style.findConflicts(ac);
+	    if (documentBase.startsWith("html")) {
+		StyleSheetGeneratorHTML2 output =
+		    new StyleSheetGeneratorHTML2(ac, file,
+						 style,
+						 documentBase,
+						 warningLevel);
+		output.print(out);
+	    } else {
+		StyleSheetGenerator2 style2 = new StyleSheetGenerator2(file,
+								       style,
+								       documentBase,
+								       warningLevel);
+		style2.print(out);
+	    }
+	} else {
+	    System.err.println("No style sheet found in your HTML document");
+	}
+	ac.setInput("text/xml");
     }
 
     public void xmlRequest() throws Exception {
@@ -285,72 +293,6 @@ public class StyleSheetCom implements HtmlParserListener {
 		e.printStackTrace();
 	    }
 	}
-    }
-
-    /**
-     * Notifies root creation.
-     *
-     * Sent when the parser builds the root of the HTML tree.
-     *
-     * @param url the URL being parsed.
-     * @param root the new root Tag for this parser.
-     */
-    public void notifyCreateRoot(URL url, HtmlTag root) {
-    }
-
-    public void notifyActivity(int lines, long bytes) {
-    }
-
-    public void notifyConnection(URLConnection cnx) {
-    }
-
-    /**
-     * Notifies successful termination.
-     *
-     * @param root the root of the current Tree.
-     */
-    public void notifyEnd(HtmlTag root, String contentType) {
-
-	StyleSheet style = null;
-
-	if (root != null) {
-	    style = ((HtmlTree) root).getStyleSheet();
-	}
-
-	if (style != null) {
-	    style.findConflicts(ac);
-	    if (documentBase.startsWith("html")) {
-		StyleSheetGeneratorHTML2 output =
-		    new StyleSheetGeneratorHTML2(ac, file,
-						 style,
-						 contenttype,
-						 warningLevel);
-		output.print(out);
-	    } else {
-		StyleSheetGenerator2 style2 = new StyleSheetGenerator2(file,
-								       style,
-								       contenttype,
-								       warningLevel);
-		style2.print(out);
-	    }
-	} else {
-	    System.err.println("No style sheet found in your HTML document");
-	}
-	ac.setInput(contentType);
-    }
-
-    /**
-     * Notifies a fatal error.
-     *
-     * This notification is sent when the parser need to stop during or before
-     * parsing, due to an unexpected exception.
-     *
-     * @param root the root of the current Tree, if any.
-     * @param x the exception that cause the Parser stop
-     * @param msg an error message information
-     */
-    public void notifyFatalError(HtmlTag root, Exception x, String s) {
-	exception = x;
     }
 
     private static CssSelectors createSelectors(String s) {

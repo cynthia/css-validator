@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.26 2007-01-29 05:19:07 ot Exp $
+// $Id: CssValidator.java,v 1.27 2007-04-24 11:14:23 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.w3c.css.css.CssParser;
-import org.w3c.css.css.HTMLStyleSheetParser;
+import org.w3c.css.css.DocumentParser;
 import org.w3c.css.css.StyleReport;
 import org.w3c.css.css.StyleReportFactory;
 import org.w3c.css.css.StyleSheet;
@@ -44,7 +44,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.26 $
+ * @version $Revision: 1.27 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -332,8 +332,7 @@ public final class CssValidator extends HttpServlet {
 		uri = HTTPURL.getURL(uri).toString(); // needed to be sure
 		// that it is a valid
 		// url		
-		HTMLStyleSheetParser URLparser = new HTMLStyleSheetParser(ac,
-									  uri);
+		DocumentParser URLparser = new DocumentParser(ac, uri);
 
 		handleRequest(ac, res, uri, URLparser.getStyleSheet(), output,
 			      warningLevel, errorReport);
