@@ -4,13 +4,11 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.9 2006-12-16 20:22:26 jean-gui Exp $
+ * $Id: ApplContext.java,v 1.10 2007-04-24 11:12:16 ylafon Exp $
  */
 package org.w3c.css.util;
 
-//import java.nio.charset.Charset;
-import java.lang.reflect.Method;
-import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.Charset;
 
 import org.w3c.css.parser.Frame;
 import org.w3c.www.http.HttpAcceptCharset;
@@ -18,12 +16,10 @@ import org.w3c.www.http.HttpAcceptCharsetList;
 import org.w3c.www.http.HttpFactory;
 
 /**
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  * @author  Philippe Le Hegaret
  */
 public class ApplContext {
-
-    private static Method m = null;
 
     String credential = null;
 
@@ -47,18 +43,6 @@ public class ApplContext {
 
     int warningLevel = 0;
     
-    static {
-	try {
-	    Class c = Class.forName("java.nio.charset.Charset");
-	    Class cp[] = { java.lang.String.class };
-	    m = c.getDeclaredMethod("isSupported", cp);
-	} catch (ClassNotFoundException ex) {
-	    m = null;
-	} catch (NoSuchMethodException ex) {
-	    m = null;
-	}
-    }
-
     /**
      * Creates a new ApplContext
      */
@@ -248,15 +232,11 @@ public class ApplContext {
     }
 
     private boolean isCharsetSupported(String charset) {
-	// if we can't check, assume it's ok, and fail later.
-	if (m == null) {
+	if ("*".equals(charset)) {
 	    return true;
 	}
 	try {
-	    String p[] = new String[1];
-	    p[0] = charset;
-	    Boolean b = (Boolean) m.invoke(null, p);
-	    return b.booleanValue();
+	    return Charset.isSupported(charset);
 	}
 	catch(Exception e) {
 	    return false;
