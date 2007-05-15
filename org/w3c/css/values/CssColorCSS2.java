@@ -1,5 +1,5 @@
 //
-// $Id: CssColorCSS2.java,v 1.9 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssColorCSS2.java,v 1.10 2007-05-15 06:06:45 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -157,7 +157,7 @@ import org.w3c.css.util.Util;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class CssColorCSS2 extends CssColor {
 
@@ -362,10 +362,12 @@ public class CssColorCSS2 extends CssColor {
 		rgb = (RGB) obj;
 	    } else if (obj instanceof String) {
 		color = (String) obj;
-		if (!obj.equals(s)) {
-		    ac.getFrame().addWarning("color.mixed-capitalization",
-					     s);
-		}
+// 2007-05 - this warning on color string capitalization is plain silly, 
+// commenting it out-- ot@w3.org
+//		if (!obj.equals(s)) {
+//		    ac.getFrame().addWarning("color.mixed-capitalization",
+//					     s);
+//		}
 	    }
 	    return;
 	}

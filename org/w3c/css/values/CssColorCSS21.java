@@ -1,4 +1,4 @@
-// $Id: CssColorCSS21.java,v 1.2 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssColorCSS21.java,v 1.3 2007-05-15 06:06:45 ot Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -58,11 +58,12 @@ public class CssColorCSS21 extends CssColorCSS2 {
 		throw new InvalidParamException("value", s, "color", ac);
 	    }
 	}
+// 2007-05 - this warning on color string capitalization is plain silly, 
+// commenting it out-- ot@w3.org
+//	if(!s.equals(color)) {
+//	    ac.getFrame().addWarning("color.mixed-capitalization", s);
+//	}
 
-	// warning if the capitalization does not correspond to the standard one
-	if(!s.equals(color)) {
-	    ac.getFrame().addWarning("color.mixed-capitalization", s);
-	}
     }
 
     private int searchColor(int colorHash, int[] tableColorHash) {

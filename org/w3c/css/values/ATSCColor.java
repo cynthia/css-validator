@@ -1,5 +1,5 @@
 //
-// $Id: ATSCColor.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
+// $Id: ATSCColor.java,v 1.6 2007-05-15 06:06:45 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -156,7 +156,7 @@ import org.w3c.css.util.InvalidParamException;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class ATSCColor extends CssValue
         implements CssColorConstants, CssOperator {
@@ -420,10 +420,12 @@ public class ATSCColor extends CssValue
 		rgb = (RGBATSC) obj;
 	    } else if (obj instanceof String) {
 		color = (String) obj;
-		if (!obj.equals(s)) {
-		    ac.getFrame().addWarning("color.mixed-capitalization",
-					     s);
-		}
+// 2007-05 - this warning on color string capitalization is plain silly, 
+// commenting it out-- ot@w3.org
+//		if (!obj.equals(s)) {
+//		    ac.getFrame().addWarning("color.mixed-capitalization",
+//					     s);
+//		}
 	    }
 	    return;
 	}
