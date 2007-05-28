@@ -1,5 +1,5 @@
 //
-// $Id: check.java,v 1.9 2007-04-24 09:33:49 ylafon Exp $
+// $Id: check.java,v 1.10 2007-05-28 04:51:36 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,12 +16,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.net.URLEncoder;
 
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public final class check extends HttpServlet {
 
@@ -83,7 +83,8 @@ public final class check extends HttpServlet {
 	    } else {
 		sb.append("&uri=");
 	    }
-	    sb.append(uri);
+	    sb.append(java.net.URLEncoder.encode(uri));
+	    //sb.append(uri);
 	}
 	res.sendRedirect(sb.toString());
     }
