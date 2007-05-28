@@ -10,8 +10,8 @@
     @import "style/base.css";  
   	@import "style/docs.css";
   </style>
-<meta name="revision" content="$Id: DOWNLOAD.html.es,v 1.4 2007-01-09 18:08:55 ot Exp $"/>
-<!-- SSI Template Version: $Id: DOWNLOAD.html.es,v 1.4 2007-01-09 18:08:55 ot Exp $ -->
+<meta name="revision" content="$Id: DOWNLOAD.html.es,v 1.5 2007-05-28 06:33:20 ot Exp $"/>
+<!-- SSI Template Version: $Id: DOWNLOAD.html.es,v 1.5 2007-05-28 06:33:20 ot Exp $ -->
 </head>
 <body>
 <div id="banner">
@@ -69,6 +69,7 @@ Sin embargo, por simplicidad, en este documento proporcionaremos principalmente 
 </li>
 <li>xercesImpl.jar y xml-apis.jar (que puedes descargar con
 	<a href="http://www.apache.org/dist/xml/xerces-j/">xerces-j-bin</a>).</li>
+	<li><a href="http://ccil.org/~cowan/XML/tagsoup/">tagsoup.jar</a></li>
 </ul>
 <h4>Instalaci&oacute;n del Validador de CSS con Tomcat</h4>
 <ol class="instructions">

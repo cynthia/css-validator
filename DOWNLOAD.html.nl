@@ -11,7 +11,7 @@
   	@import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.nl,v 1.6 2007-01-09 18:08:55 ot Exp $" />
+  content="$Id: DOWNLOAD.html.nl,v 1.7 2007-05-28 06:33:20 ot Exp $" />
 
 </head>
 
@@ -75,7 +75,7 @@ onderaan gegeven.</p>
 	<li><a href="http://jigsaw.w3.org/Devel/classes-2.2/20060329/">jigsaw.jar</a></li>
 	<li>xercesImpl.jar en xml-apis.jar (die gedownload worden met
 	<a href="http://www.apache.org/dist/xml/xerces-j/">xerces-j-bin</a>).</li>
-
+	<li><a href="http://ccil.org/~cowan/XML/tagsoup/">tagsoup.jar</a></li>
 </ul>
 
 <h4>Installatie op Tomcat</h4>
