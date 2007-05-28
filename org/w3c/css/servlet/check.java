@@ -1,5 +1,5 @@
 //
-// $Id: check.java,v 1.10 2007-05-28 04:51:36 ot Exp $
+// $Id: check.java,v 1.11 2007-05-28 05:36:04 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -21,7 +21,7 @@ import java.net.URLEncoder;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public final class check extends HttpServlet {
 
@@ -42,6 +42,8 @@ public final class check extends HttpServlet {
     {
 
 	String uri = req.getHeader("Referer");
+	String encodeEnc = "UTF-8";
+	uri = java.net.URLEncoder.encode(uri, encodeEnc);
 
 	if (uri == null) {
 	    res.setContentType("text/plain");
@@ -83,8 +85,7 @@ public final class check extends HttpServlet {
 	    } else {
 		sb.append("&uri=");
 	    }
-	    sb.append(java.net.URLEncoder.encode(uri));
-	    //sb.append(uri);
+	    sb.append(uri);
 	}
 	res.sendRedirect(sb.toString());
     }
