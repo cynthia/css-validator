@@ -1,4 +1,6 @@
-// $Id: Result.java,v 1.1 2006-04-19 07:55:33 ot Exp $
+package autotest;
+
+// $Id: Result.java,v 1.2 2007-07-11 10:03:15 julien Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
