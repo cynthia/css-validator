@@ -1,4 +1,4 @@
-// $Id: StyleReport.java,v 1.3 2005-09-14 15:14:17 ylafon Exp $
+// $Id: StyleReport.java,v 1.4 2007-07-13 13:32:19 julien Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 public abstract class StyleReport {
 
     abstract public void print(PrintWriter out);
-
+    
     abstract public void desactivateError();
 
 }

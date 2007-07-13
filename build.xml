@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: build.xml,v 1.5 2007-01-09 19:09:07 ot Exp $ -->
+<!-- $Id: build.xml,v 1.6 2007-07-13 13:32:21 julien Exp $ -->
 <project default="jar" name="W3C CSS Validator">
 
   <!-- =================================================================== -->
@@ -7,6 +7,7 @@
   <!-- =================================================================== -->
       
   <property file="build.properties"/>
+	<!--  <property name="servlet.lib" value="C:/Documents and Settings/julien/My Documents/Java/servlet-api.jar"/> -->
   <property name="servlet.lib" value="/usr/share/java/servlet-2.3.jar"/>
   <property name="jigsaw.lib" value="/usr/share/java/jigsaw-2.2.5a.jar"/>
 

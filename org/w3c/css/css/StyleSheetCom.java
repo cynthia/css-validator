@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetCom.java,v 1.17 2007-04-24 11:14:22 ylafon Exp $
+// $Id: StyleSheetCom.java,v 1.18 2007-07-13 13:32:19 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.17 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.18 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom {
 
@@ -60,14 +60,14 @@ public class StyleSheetCom {
 	if (style != null) {
 	    style.findConflicts(ac);
 	    if (documentBase.startsWith("html")) {
-		StyleSheetGeneratorHTML2 output =
-		    new StyleSheetGeneratorHTML2(ac, file,
+		StyleSheetGeneratorHTML output =
+		    new StyleSheetGeneratorHTML(ac, file,
 						 style,
 						 documentBase,
 						 warningLevel);
 		output.print(out);
 	    } else {
-		StyleSheetGenerator2 style2 = new StyleSheetGenerator2(file,
+		StyleSheetGenerator style2 = new StyleSheetGenerator(file,
 								       style,
 								       documentBase,
 								       warningLevel);
@@ -91,14 +91,14 @@ public class StyleSheetCom {
 	if (style != null) {
 	    style.findConflicts(ac);
 	    if (documentBase.startsWith("html")) {
-		StyleSheetGeneratorHTML2 output =
-		    new StyleSheetGeneratorHTML2(ac, file,
+		StyleSheetGeneratorHTML output =
+		    new StyleSheetGeneratorHTML(ac, file,
 						 style,
 						 documentBase,
 						 warningLevel);
 		output.print(out);
 	    } else {
-		StyleSheetGenerator2 style2 = new StyleSheetGenerator2(file,
+		StyleSheetGenerator style2 = new StyleSheetGenerator(file,
 								       style,
 								       documentBase,
 								       warningLevel);
@@ -140,15 +140,15 @@ public class StyleSheetCom {
 		    }
 		});
 	} else if (documentBase.startsWith("html")) {
-	    StyleSheetGeneratorHTML2 output =
-		new StyleSheetGeneratorHTML2(ac, file,
+	    StyleSheetGeneratorHTML output =
+		new StyleSheetGeneratorHTML(ac, file,
 					     parser.getStyleSheet(),
 					     documentBase,
 					     warningLevel);
 	    output.print(out);
 	} else {
-	    StyleSheetGenerator2 output =
-		new StyleSheetGenerator2(file,
+	    StyleSheetGenerator output =
+		new StyleSheetGenerator(file,
 					 parser.getStyleSheet(),
 					 documentBase,
 					 warningLevel);

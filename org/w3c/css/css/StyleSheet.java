@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheet.java,v 1.12 2006-12-16 20:22:27 jean-gui Exp $
+// $Id: StyleSheet.java,v 1.13 2007-07-13 13:32:19 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class contains a style sheet with all rules, errors and warnings.
  *
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class StyleSheet {
 
@@ -178,7 +178,7 @@ public class StyleSheet {
     }
 
     /**
-     * Returns the uniq context for a context
+     * Returns the unique context for a context
      *
      * @param selector the context to find.
      */

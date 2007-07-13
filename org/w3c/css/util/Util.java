@@ -1,5 +1,5 @@
 //
-// $Id: Util.java,v 1.4 2005-09-14 15:15:32 ylafon Exp $
+// $Id: Util.java,v 1.5 2007-07-13 13:32:21 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ package org.w3c.css.util;
 /**
  * This class holds various utility methods.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 
 public final class Util {
@@ -346,6 +346,7 @@ public final class Util {
                     }
                 }
             }
+            
         }
         return sb.toString();
     }

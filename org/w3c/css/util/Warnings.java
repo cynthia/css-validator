@@ -1,5 +1,5 @@
 //
-// $Id: Warnings.java,v 1.5 2006-12-16 20:22:26 jean-gui Exp $
+// $Id: Warnings.java,v 1.6 2007-07-13 13:32:21 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@ package org.w3c.css.util;
 /**
  * Controls all warnings in the validator
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @see java.util.Vector
  */
 public final class Warnings {
