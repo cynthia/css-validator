@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.29 2007-07-20 05:58:29 ot Exp $
+// $Id: CssValidator.java,v 1.30 2007-07-20 06:08:39 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -44,7 +44,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.29 $
+ * @version $Revision: 1.30 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -434,6 +434,7 @@ public final class CssValidator extends HttpServlet {
 	int warningLevel = 2;
 	CssParser parser = null;
 	FakeFile file = null;
+	String text = null;
 	String output = null;
 	//boolean XMLinput = false;
 	String warning = null;
