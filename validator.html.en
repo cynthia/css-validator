@@ -13,7 +13,7 @@
     <script type="text/javascript" src="tabtastic/addcss.js"></script>
     <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
     <script src="toggle.js" type="text/javascript"></script>
-    <meta name="revision" content="$Id: validator.html.en,v 1.22 2007-01-15 01:39:55 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.en,v 1.23 2007-07-20 05:28:37 ot Exp $" />
   </head>
 
   <body>
@@ -137,7 +137,7 @@
       </fieldset>
 
       <fieldset id="validate-by-input"  class="tabset_content front"><legend class="tabset_label">Validate by direct input</legend>
-      <form action="validator" method="get">
+      <form action="validator" method="post">
       <p class="instructions">Enter the CSS you would like validated:</p>
       <p>
 	<textarea name="text" rows="12" cols="70"></textarea>
