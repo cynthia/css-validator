@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.30 2007-07-20 06:08:39 ot Exp $
+// $Id: CssValidator.java,v 1.31 2007-07-20 06:15:13 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -44,7 +44,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.30 $
+ * @version $Revision: 1.31 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -582,7 +582,7 @@ public final class CssValidator extends HttpServlet {
   	    handleError(res, ac, output, file.getName(), e, false);
   	}
   }
-  else {
+  else if (text != null ){
       Util.verbose("- TextArea Data -");
 	    Util.verbose(text);
 	    Util.verbose("- End of TextArea Data");
