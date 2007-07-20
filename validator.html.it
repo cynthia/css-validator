@@ -13,7 +13,7 @@
     <script type="text/javascript" src="tabtastic/addcss.js"></script>
     <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
     <script src="toggle.js" type="text/javascript"></script>
-    <meta name="revision" content="$Id: validator.html.it,v 1.15 2007-07-20 05:28:37 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.it,v 1.16 2007-07-20 05:41:45 ot Exp $" />
     <meta name="translator" content="Roberto Scano - International Webmasters Association / The HTML Writers Guild" />
   </head>
 
@@ -137,7 +137,7 @@
       </fieldset>
 
       <fieldset id="validate-by-input"  class="tabset_content front"><legend class="tabset_label">Validazione tramite immissione diretta</legend>
-      <form action="validator" method="post">
+      <form action="validator" enctype="multipart/form-data" method="post">
       <p class="instructions">Inserisci il testo del CSS che desideri validare:</p>
       <p>
 	<textarea name="text" rows="12" cols="70"></textarea>
