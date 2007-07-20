@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.28 2007-07-13 13:32:20 julien Exp $
+// $Id: CssValidator.java,v 1.29 2007-07-20 05:58:29 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -44,7 +44,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.28 $
+ * @version $Revision: 1.29 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -495,6 +495,8 @@ public final class CssValidator extends HttpServlet {
 	    for (int i = 0; i < tmp.length; i++) {
 		if (tmp[i].getName().equals("file")) {
 		    file = (FakeFile) tmp[i].getValue();
+		} else if (tmp[i].getName().equals("text")) {
+		    text = (String) tmp[i].getValue();
 		} else if (tmp[i].getName().equals("output")) {
 		    output = (String) tmp[i].getValue();
 		} else if (tmp[i].getName().equals("warning")) {
@@ -522,7 +524,7 @@ public final class CssValidator extends HttpServlet {
 	if (output == null) {
 	    output = texthtml;
 	}
-	if (file == null || file.getSize() == 0) {
+	if (file == null || file.getSize() == 0 || text == null || text.length() == 0) {
 	    // res.sendError(res.SC_BAD_REQUEST,
 	    // "You have send an invalid request");
 	    handleError(res, ac, output, "No file",
@@ -564,21 +566,45 @@ public final class CssValidator extends HttpServlet {
 	} else {
 	    ac.setCssVersion("css21");
 	}
-	
-	Util.verbose("File : " + file.getName());
+	if (file != null && file.getSize() != 0) {
+  	Util.verbose("File : " + file.getName());
 
-	parser = new StyleSheetParser();
+  	parser = new StyleSheetParser();
 
-	try {
-	    parser.parseStyleElement(ac, file.getInputStream(), null, null,
-				     new URL("file://localhost/" + file.getName()), 0);
+  	try {
+  	    parser.parseStyleElement(ac, file.getInputStream(), null, null,
+  				     new URL("file://localhost/" + file.getName()), 0);
 
-	    handleRequest(ac, res, "file://localhost/" + file.getName(), parser
-			  .getStyleSheet(), output, warningLevel, errorReport);
-	} catch (Exception e) {
-	    handleError(res, ac, output, file.getName(), e, false);
-	}
+  	    handleRequest(ac, res, "file://localhost/" + file.getName(), parser
+  			  .getStyleSheet(), output, warningLevel, errorReport);
+  	} catch (Exception e) {
+  	    handleError(res, ac, output, file.getName(), e, false);
+  	}
+  }
+  else {
+      Util.verbose("- TextArea Data -");
+	    Util.verbose(text);
+	    Util.verbose("- End of TextArea Data");
 
+	    parser = new StyleSheetParser();
+
+	    try {
+                
+		parser.parseStyleElement(ac,
+			new ByteArrayInputStream(text.getBytes()),
+			null, usermedium,
+			new URL("file://localhost/TextArea"), 0);
+
+		handleRequest(ac, res, "file://localhost/TextArea",
+			parser.getStyleSheet(), output, warningLevel,
+			errorReport);
+	    } catch (Exception e) {
+		handleError(res, ac, output, "TextArea", e, false);
+	    }
+	  
+  }
+  
+  
 	Util.verbose("CssValidator: Request terminated.\n");
     }
 
