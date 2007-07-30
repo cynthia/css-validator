@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetCom.java,v 1.18 2007-07-13 13:32:19 julien Exp $
+// $Id: StyleSheetCom.java,v 1.19 2007-07-30 11:48:00 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.18 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.19 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom {
 
@@ -59,20 +59,12 @@ public class StyleSheetCom {
 	}
 	if (style != null) {
 	    style.findConflicts(ac);
-	    if (documentBase.startsWith("html")) {
-		StyleSheetGeneratorHTML output =
-		    new StyleSheetGeneratorHTML(ac, file,
+	    StyleSheetGenerator output =
+		    new StyleSheetGenerator(ac, file,
 						 style,
 						 documentBase,
 						 warningLevel);
 		output.print(out);
-	    } else {
-		StyleSheetGenerator style2 = new StyleSheetGenerator(file,
-								       style,
-								       documentBase,
-								       warningLevel);
-		style2.print(out);
-	    }
 	} else {
 	    System.err.println("No style sheet found in your HTML document");
 	}
@@ -87,26 +79,16 @@ public class StyleSheetCom {
 	style = handler.getStyleSheet();
 	if (style != null) {
 	    style.setType("text/xml");
-	}
-	if (style != null) {
 	    style.findConflicts(ac);
-	    if (documentBase.startsWith("html")) {
-		StyleSheetGeneratorHTML output =
-		    new StyleSheetGeneratorHTML(ac, file,
-						 style,
-						 documentBase,
-						 warningLevel);
-		output.print(out);
-	    } else {
-		StyleSheetGenerator style2 = new StyleSheetGenerator(file,
-								       style,
-								       documentBase,
-								       warningLevel);
-		style2.print(out);
-	    }
 	} else {
 	    System.err.println("No style sheet found in your HTML document");
 	}
+	StyleSheetGenerator output =
+	    new StyleSheetGenerator(ac, file,
+					 style,
+					 documentBase,
+					 warningLevel);
+	output.print(out);
 	ac.setInput("text/xml");
     }
 
@@ -139,16 +121,9 @@ public class StyleSheetCom {
 			System.out.println(';');
 		    }
 		});
-	} else if (documentBase.startsWith("html")) {
-	    StyleSheetGeneratorHTML output =
-		new StyleSheetGeneratorHTML(ac, file,
-					     parser.getStyleSheet(),
-					     documentBase,
-					     warningLevel);
-	    output.print(out);
 	} else {
 	    StyleSheetGenerator output =
-		new StyleSheetGenerator(file,
+		new StyleSheetGenerator(ac, file,
 					 parser.getStyleSheet(),
 					 documentBase,
 					 warningLevel);
