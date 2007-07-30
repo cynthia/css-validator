@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.32 2007-07-30 12:24:17 julien Exp $
+// $Id: CssValidator.java,v 1.33 2007-07-30 13:47:48 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -45,7 +45,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.32 $
+ * @version $Revision: 1.33 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -430,15 +430,6 @@ public final class CssValidator extends HttpServlet {
 	catch(Exception e) {
 	    lang = null;
 	}
-	
-	if(lang == null || lang.equals("")) {
-	    lang = req.getHeader("Accept-Language");
-	}
-	else {
-	    lang += ',' + req.getHeader("Accept-Language");
-	}
-	ApplContext ac = new ApplContext(lang);
-	ac.setLink(req.getQueryString());
 
 	boolean errorReport = true;
 	int warningLevel = 2;
@@ -508,6 +499,8 @@ public final class CssValidator extends HttpServlet {
 		    file = (FakeFile) tmp[i].getValue();
 		} else if (tmp[i].getName().equals("text")) {
 		    text = (String) tmp[i].getValue();
+		} else if (tmp[i].getName().equals("lang")) {
+		    lang = (String) tmp[i].getValue();
 		} else if (tmp[i].getName().equals("output")) {
 		    output = (String) tmp[i].getValue();
 		} else if (tmp[i].getName().equals("warning")) {
@@ -530,6 +523,16 @@ public final class CssValidator extends HttpServlet {
 	    e.printStackTrace();
 	}
 
+	
+	if(lang == null || lang.equals("")) {
+	    lang = req.getHeader("Accept-Language");
+	}
+	else {
+	    lang += ',' + req.getHeader("Accept-Language");
+	}
+	
+	ApplContext ac = new ApplContext(lang);
+	ac.setLink(req.getQueryString());
 	ac.setMedium(usermedium);
 
 	if (output == null) {
