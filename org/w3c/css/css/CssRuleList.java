@@ -1,4 +1,4 @@
-// $Id: CssRuleList.java,v 1.16 2007-07-30 11:34:38 julien Exp $
+// $Id: CssRuleList.java,v 1.17 2007-07-31 09:59:37 julien Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -39,6 +39,10 @@ public class CssRuleList {
 
 	public String getAtRule() {
 		return atRuleString;
+	}
+	
+	public boolean isEmpty() {
+		return rulelist.isEmpty();
 	}
 
 	public String toString() {
