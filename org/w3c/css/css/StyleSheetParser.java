@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.10 2006-12-16 20:22:27 jean-gui Exp $
+// $Id: StyleSheetParser.java,v 1.11 2007-07-31 12:50:54 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -36,7 +36,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public final class StyleSheetParser
     implements CssValidatorListener, CssParser {
@@ -211,10 +211,7 @@ public final class StyleSheetParser
 	    }
 	    AtRuleMedia m = new AtRuleMedia();
 	    try {
-		StringTokenizer tokens = new StringTokenizer(media, ",");
-		while (tokens.hasMoreTokens()) {
-		    m.addMedia(tokens.nextToken().trim(), ac);
-		}
+	    addMedias(m, media, ac);
 		cssFouffa.setAtRule(m);
 	    } catch (org.w3c.css.util.InvalidParamException e) {
 		Errors er = new Errors();
@@ -230,6 +227,13 @@ public final class StyleSheetParser
 							-1, e));
 	    notifyErrors(er);
 	}
+    }
+    
+    private void addMedias(AtRuleMedia m, String medias, ApplContext ac) throws InvalidParamException {
+    	StringTokenizer tokens = new StringTokenizer(medias, ",");
+		while (tokens.hasMoreTokens()) {
+	        m.addMedia(tokens.nextToken().trim(), ac);
+		}
     }
 
     /**
@@ -267,7 +271,7 @@ public final class StyleSheetParser
 
 	    AtRuleMedia m = new AtRuleMedia();
 	    try {
-		m.addMedia(media, ac);
+	    	addMedias(m, media, ac);
 		cssFouffa.setAtRule(m);
 	    } catch (org.w3c.css.util.InvalidParamException e) {
 		Errors er = new Errors();
