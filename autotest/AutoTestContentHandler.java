@@ -1,6 +1,6 @@
 package autotest;
 
-// $Id: AutoTestContentHandler.java,v 1.2 2007-07-11 10:03:15 julien Exp $
+// $Id: AutoTestContentHandler.java,v 1.3 2007-08-06 13:36:21 julien Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -34,7 +34,7 @@ import org.xml.sax.*;
  */
 public class AutoTestContentHandler implements ContentHandler {
 
-	public static final String VALIDATOR = "http://10.1.2.79:8080/css-validator/validator?";
+	public static final String VALIDATOR = "http://localhost:8080/css-validator/validator?";
 	public static final String PARAMS = "&output=soap12";
 	public static final int TESTSUITE = "testsuite".hashCode();
 	public static final int TEST = "test".hashCode();
@@ -506,6 +506,7 @@ public class AutoTestContentHandler implements ContentHandler {
 		res = res.replaceAll("\\|", "%7C");
 		res = res.replaceAll("~'", "%7E");
 		res = res.replaceAll("\\\n", "");
+		res = res.replaceAll("\\\r", "");
 		return res;
 	}
 
