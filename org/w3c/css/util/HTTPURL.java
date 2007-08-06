@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.18 2005-09-14 15:15:32 ylafon Exp $
+ * $Id: HTTPURL.java,v 1.19 2007-08-06 15:08:29 julien Exp $
  */
 package org.w3c.css.util;
 
@@ -18,7 +18,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @version $Revision: 1.18 $
+ * @version $Revision: 1.19 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -157,7 +157,6 @@ public class HTTPURL {
 	}
 
 	if (Util.servlet) {
-	    int port = url.getPort();
 	    String protocol = url.getProtocol();
 	if (! (
 		("https".equalsIgnoreCase(protocol)) || ("http".equalsIgnoreCase(protocol))
