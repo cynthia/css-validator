@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetCom.java,v 1.19 2007-07-30 11:48:00 julien Exp $
+// $Id: StyleSheetCom.java,v 1.20 2007-08-06 13:39:06 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.19 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.20 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom {
 
@@ -159,7 +159,7 @@ public class StyleSheetCom {
 		    style.defaultmedium = argument;
 		} else if (argument.equals("css1") ||
                           argument.equals("css2") ||
-                          argument.equals("css21") ||
+                          argument.equals("css2.1") ||
                           argument.equals("css3") ||
 			   argument.equals("svg") ||
 			   argument.equals("svgbasic") ||
@@ -185,10 +185,10 @@ public class StyleSheetCom {
 		style.ac.setCssVersion(style.cssversion);
 	    if (style.profile != null) {
 		style.ac.setProfile(style.profile);
-		style.ac.setCssVersion("css21");
+		style.ac.setCssVersion("css2.1");
 	    }
 	    if (style.cssversion == null && style.ac.getCssVersion() == null) {
-		style.ac.setCssVersion("css21");
+		style.ac.setCssVersion("css2.1");
 	    }
 	} catch (Exception e) {
 	    /* System.out.println( "Usage: validator " +
