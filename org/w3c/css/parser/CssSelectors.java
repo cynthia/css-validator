@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.19 2006-04-19 11:28:05 ylafon Exp $
+// $Id: CssSelectors.java,v 1.20 2007-08-06 14:06:24 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Warnings;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.19 $
+ * @version $Revision: 1.20 $
  */
 public final class CssSelectors extends SelectorsList implements CssSelectorsConstant {
 
@@ -243,7 +243,7 @@ public final class CssSelectors extends SelectorsList implements CssSelectorsCon
 				    new PseudoFunctionNthChild(pseudo, param));
 			}
 			catch(NumberFormatException e) {
-			    throw new InvalidParamException("pseudo", ac);
+			    throw new InvalidParamException("pseudo", ":" + pseudo, ac);
 			}
 			return;
 		    }
@@ -254,7 +254,7 @@ public final class CssSelectors extends SelectorsList implements CssSelectorsCon
 					    pseudo, param));
 			}
 			catch(NumberFormatException e) {
-			    throw new InvalidParamException("pseudo", ac);
+			    throw new InvalidParamException("pseudo", ":" + pseudo, ac);
 			}
 			return;
 		    }
@@ -265,7 +265,7 @@ public final class CssSelectors extends SelectorsList implements CssSelectorsCon
 					    pseudo, param));
 			}
 			catch(NumberFormatException e) {
-			    throw new InvalidParamException("pseudo", ac);
+			    throw new InvalidParamException("pseudo", ":" + pseudo, ac);
 			}
 			return;
 		    }
@@ -276,13 +276,13 @@ public final class CssSelectors extends SelectorsList implements CssSelectorsCon
 					    pseudo, param));
 			}
 			catch(NumberFormatException e) {
-			    throw new InvalidParamException("pseudo", ac);
+			    throw new InvalidParamException("pseudo", ":" + pseudo, ac);
 			}
 			return;
 		    }
 		}
 	    }
-	    throw new InvalidParamException("pseudo", ac);
+	    throw new InvalidParamException("pseudo", ":" + pseudo, ac);
 	}
     }
 
