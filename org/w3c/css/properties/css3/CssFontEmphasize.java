@@ -1,5 +1,5 @@
 //
-// $Id: CssFontEmphasize.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
+// $Id: CssFontEmphasize.java,v 1.3 2007-08-06 14:44:35 julien Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -153,13 +153,13 @@ implements CssOperator {
      */
     public String toString() {
 	String ret = "";
-	if (fes.isByUser()) {
+	if (fes != null && fes.isByUser()) {
 	    ret += " " + fes;
 	}
-	if (fep.isByUser()) {
+	if (fep != null && fep.isByUser()) {
 	    ret += " " + fep;
 	}
-	return ret.substring(1);
+	return ret.length() >= 1 ? ret.substring(1) : ret;
     }
 
     /*
