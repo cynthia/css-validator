@@ -1,5 +1,5 @@
 //
-// $Id: CssPropertyFactory.java,v 1.16 2007-07-13 13:32:21 julien Exp $
+// $Id: CssPropertyFactory.java,v 1.17 2007-08-06 14:04:53 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -21,7 +21,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.16 $
+ * @version $Revision: 1.17 $
  * @author Philippe Le H�garet
  */
 public class CssPropertyFactory implements Cloneable {
@@ -200,7 +200,7 @@ public class CssPropertyFactory implements Cloneable {
 		// this is an error... or a warning if it exists in another
 		// profile... FIXME
 		if (classname == null) {
-			throw new InvalidParamException("noexistence", property, ac);
+			throw new InvalidParamException("noexistence", property, ac.getCssVersion(), ac);
 		}
 
 		CssIdent initial = new CssIdent("initial");
