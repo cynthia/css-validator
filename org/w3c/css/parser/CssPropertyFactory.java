@@ -1,5 +1,5 @@
 //
-// $Id: CssPropertyFactory.java,v 1.18 2007-08-07 10:48:57 julien Exp $
+// $Id: CssPropertyFactory.java,v 1.19 2007-08-07 10:53:39 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -21,7 +21,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.18 $
+ * @version $Revision: 1.19 $
  * @author Philippe Le H�garet
  */
 public class CssPropertyFactory implements Cloneable {
@@ -200,7 +200,7 @@ public class CssPropertyFactory implements Cloneable {
 		// this is an error... or a warning if it exists in another
 		// profile... FIXME
 		if (classname == null) {
-			throw new InvalidParamException("noexistence", property, format(ac.getCssVersion()), ac);
+			throw new InvalidParamException("noexistence", property, ac.getFormatedCssVersion(), ac);
 		}
 
 		CssIdent initial = new CssIdent("initial");
@@ -234,18 +234,5 @@ public class CssPropertyFactory implements Cloneable {
 				throw ex;
 			}
 		}
-	}
-
-	private String format(String cssVersion) {
-		if (!cssVersion.toLowerCase().startsWith("css"))
-			return cssVersion;
-		char number[] = cssVersion.substring(3).toCharArray();
-		String num = "CSS ";
-		for (int i = 0; i < number.length; ++i) {
-			num += number[i];
-			if (i != number.length - 1)
-				num += ".";
-		}
-		return num;
 	}
 }

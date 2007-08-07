@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.11 2007-07-13 13:32:21 julien Exp $
+ * $Id: ApplContext.java,v 1.12 2007-08-07 10:53:39 julien Exp $
  */
 package org.w3c.css.util;
 
@@ -16,7 +16,7 @@ import org.w3c.www.http.HttpAcceptCharsetList;
 import org.w3c.www.http.HttpFactory;
 
 /**
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  * @author Philippe Le Hegaret
  */
 public class ApplContext {
@@ -125,6 +125,19 @@ public class ApplContext {
 			cssversion = "css2";
 		}
 		return cssversion;
+	}
+	
+	public String getFormatedCssVersion() {
+		if (!this.cssversion.toLowerCase().startsWith("css"))
+			return this.cssversion;
+		char number[] = this.cssversion.substring(3).toCharArray();
+		String css = "CSS ";
+		for (int i = 0; i < number.length; ++i) {
+			css += number[i];
+			if (i != number.length - 1)
+				css += ".";
+		}
+		return css;
 	}
 
 	public void setProfile(String profile) {
