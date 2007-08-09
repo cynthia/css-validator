@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.33 2007-07-30 13:47:48 julien Exp $
+// $Id: CssValidator.java,v 1.34 2007-08-09 09:31:04 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -45,7 +45,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.33 $
+ * @version $Revision: 1.34 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -62,6 +62,7 @@ public final class CssValidator extends HttpServlet {
     final static String server_name = "Jigsaw/2.2.2 "
 	+ "W3C_CSS_Validator_JFouffa/2.0";
 
+    final static String headers_name = "X-W3C-Validator-";
     /**
      * Create a new CssValidator.
      */
@@ -654,9 +655,13 @@ public final class CssValidator extends HttpServlet {
 	}
 	PrintWriter out = getLocalPrintWriter(res.getOutputStream(), ac
 					      .getContentEncoding());
+	int nb_errors = styleSheet.getErrors().getErrorCount();
+    res.setHeader(headers_name + "Errors", String.valueOf(nb_errors));
+    res.setHeader(headers_name + "Status", nb_errors == 0 ? "Valid" : "Invalid");
 
 	try {
 	    style.print(out);
+	    
 	} finally {
 	    out.close();
 	}
@@ -754,6 +759,7 @@ public final class CssValidator extends HttpServlet {
 
 	ErrorReport error = ErrorReportFactory.getErrorReport(ac, title, output,
 							      e, validURI);
+    res.setHeader(headers_name + "Status", "Abort");
 
 	try {
 	    error.print(out);
