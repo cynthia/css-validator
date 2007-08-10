@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: TagSoupStyleSheetHandler.java,v 1.2 2007-04-24 11:57:39 ylafon Exp $
+ * $Id: TagSoupStyleSheetHandler.java,v 1.3 2007-08-10 14:52:37 julien Exp $
  */
 package org.w3c.css.css;
 
@@ -44,7 +44,7 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.LexicalHandler;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @author  Philippe Le Hegaret
  */
 public class TagSoupStyleSheetHandler implements ContentHandler,
@@ -494,6 +494,28 @@ public class TagSoupStyleSheetHandler implements ContentHandler,
 	} else {
 	    return new InputSource(new URL(baseURI, systemId).toString());
 	}
+    }
+    
+    public void parse(InputStream in, String fileName) throws IOException, SAXException {
+    	InputSource source = new InputSource(in);
+    	org.xml.sax.XMLReader xmlParser = new org.ccil.cowan.tagsoup.Parser();
+    	try {
+    	    xmlParser.setProperty("http://xml.org/sax/properties/lexical-handler",
+    				  this);
+    	    xmlParser.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
+    	    xmlParser.setFeature("http://xml.org/sax/features/validation", false);
+    	} catch (Exception ex) {
+    	    ex.printStackTrace();
+    	}
+    	xmlParser.setContentHandler(this);
+    	baseURI = new URL(fileName);
+    	documentURI = new URL(fileName);
+    	source.setSystemId(fileName);
+    	try {
+			xmlParser.parse(source);
+    	} finally {
+			in.close();
+    	}
     }
 
     void parse(URL url) throws Exception {
