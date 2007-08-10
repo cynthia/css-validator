@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.35 2007-08-10 14:52:36 julien Exp $
+// $Id: CssValidator.java,v 1.36 2007-08-10 15:17:31 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -46,7 +46,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.35 $
+ * @version $Revision: 1.36 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -408,8 +408,15 @@ public final class CssValidator extends HttpServlet {
      * @return <tt>false</tt> if it contains the style tag well formed 
      */
     private boolean isCSS(String text) {
-		String anyChar = "(.|\n|\r)*";
-		return !text.toLowerCase().matches(anyChar + "<style"+anyChar+">"+anyChar+"</style>"+anyChar);
+		try {
+			text = text.toLowerCase();
+			int p = text.indexOf("<style");
+			return p == -1 || p > text.indexOf("</style>");
+		} catch (Exception e) {
+			System.err.println("error: " + e.getMessage());
+			return true;
+		}
+		
 	}
 
 	/**
@@ -635,6 +642,7 @@ public final class CssValidator extends HttpServlet {
 		//if CSS:
 		
 		if (isCSS) {
+			System.err.println("css");
 			parser = new StyleSheetParser();
 	  	    parser.parseStyleElement(ac, is, null, usermedium,
 	  			new URL(fileName), 0);
@@ -642,6 +650,7 @@ public final class CssValidator extends HttpServlet {
 	  	    handleRequest(ac, res, fileName, parser
 	  			  .getStyleSheet(), output, warningLevel, errorReport);
 		} else {
+			System.err.println("html");
 			// try HTML
 			TagSoupStyleSheetHandler handler = new TagSoupStyleSheetHandler(null, ac);
 			handler.parse(is, fileName);
@@ -651,7 +660,7 @@ public final class CssValidator extends HttpServlet {
 		}
 	} catch (ProtocolException pex) {
 		if (Util.onDebug) {
-		    pex.printStackTrace();
+		    //pex.printStackTrace();
 		}
 		res.setHeader("WWW-Authenticate", pex.getMessage());
 		res.sendError(HttpServletResponse.SC_UNAUTHORIZED);
