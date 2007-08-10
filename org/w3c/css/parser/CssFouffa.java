@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.38 2007-07-13 13:32:21 julien Exp $
+// $Id: CssFouffa.java,v 1.39 2007-08-10 10:45:18 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -47,7 +47,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  * 
- * @version $Revision: 1.38 $
+ * @version $Revision: 1.39 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -403,6 +403,12 @@ public final class CssFouffa extends CssParser {
 	 */
 	public void handleImport(URL url, String file, AtRuleMedia media) {
 		// CssError cssError = null;
+
+		//if it's not permitted to import... (direct input)
+		if (url.getProtocol().equals("file")) {
+			ac.getFrame().addWarning("unsupported-import");
+			return;
+		}
 
 		try {
 			URL importedURL = HTTPURL.getURL(url, file);
