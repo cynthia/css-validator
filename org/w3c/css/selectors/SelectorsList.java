@@ -1,4 +1,4 @@
-// $Id: SelectorsList.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
+// $Id: SelectorsList.java,v 1.3 2007-08-13 12:38:22 julien Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -117,7 +117,7 @@ public class SelectorsList {
 	if(selectors.size() > 0) {
 	    Selector last = (Selector) selectors.get(selectors.size() - 1);
 	    if(last instanceof PseudoElementSelector) {
-		throw new InvalidParamException("pseudo-element", selector, ac);
+		throw new InvalidParamException("pseudo-element", selector, ac.getMsg().getString(ac.getCssVersion()), ac);
 	    }
 	}
 	selectors.add(selector);

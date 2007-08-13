@@ -60,7 +60,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser
  * 
  * @author Philippe Le H???garet and Sijtsche Smeman
- * @version $Revision: 1.23 $
+ * @version $Revision: 1.24 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -2617,7 +2617,7 @@ public abstract class CssParser implements CssParserConstants {
 					{
 						if (true)
 							throw new InvalidParamException("pseudo-element",
-									":" + convertIdent(n.image).toLowerCase(), ac.getCssVersion(), ac);
+									convertIdent(n.image).toLowerCase(), ac.getMsg().getString(ac.getCssVersion()), ac);
 					}
 				}
 			} catch (InvalidParamException e) {
