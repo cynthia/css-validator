@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.12 2007-08-23 08:58:14 julien Exp $
+// $Id: Messages.java,v 1.13 2007-08-23 09:10:33 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class Messages {
 
@@ -332,14 +332,12 @@ public class Messages {
 		}
 	}
 
-	private static URL adjustURL(URL resource) throws MalformedURLException {
+	public static URL adjustURL(URL resource) throws MalformedURLException {
 		String urlStr = resource.getFile();
-		System.err.println(urlStr);
 		if (urlStr.startsWith("file://"))
 			urlStr.replaceFirst("file://localhost", "file://");
 		else
 			urlStr = "file:///" + urlStr;
-		System.err.println(urlStr);
 		return new URL(urlStr);
 	}
 }
