@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.13 2007-08-23 09:10:33 julien Exp $
+// $Id: Messages.java,v 1.14 2007-08-23 09:18:45 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public class Messages {
 
@@ -332,6 +332,14 @@ public class Messages {
 		}
 	}
 
+	/**
+	 * This method is called to clean the URL
+	 * /path/to/file will , file://localhost/path/to/file, file://C:\path\to\file, ...
+	 * will become file:///path/to/file 
+	 * @param resource, the URL to "clean"
+	 * @return the clean URL
+	 * @throws MalformedURLException
+	 */
 	public static URL adjustURL(URL resource) throws MalformedURLException {
 		String urlStr = resource.getFile();
 		if (urlStr.startsWith("file://"))
