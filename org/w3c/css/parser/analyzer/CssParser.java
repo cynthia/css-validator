@@ -60,7 +60,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser
  * 
  * @author Philippe Le H???garet and Sijtsche Smeman
- * @version $Revision: 1.24 $
+ * @version $Revision: 1.25 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -2299,7 +2299,7 @@ public abstract class CssParser implements CssParserConstants {
 				cl += n.image.substring(1);
 
 				String profile = ac.getProfile();
-				if (profile == null || profile.equals("")) {
+				if (profile == null || profile.equals("") || profile.equals("none")) {
 					profile = ac.getCssVersion();
 				}
 
@@ -2731,7 +2731,7 @@ public abstract class CssParser implements CssParserConstants {
 		n.image = n.image.substring(1);
 		if (Character.isDigit(n.image.charAt(0))) {
 			String profile = ac.getProfile();
-			if (profile == null || profile.equals("")) {
+			if (profile == null || profile.equals("") || profile.equals("none")) {
 				profile = ac.getCssVersion();
 			}
 
