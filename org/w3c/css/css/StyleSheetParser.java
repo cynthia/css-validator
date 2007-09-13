@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.11 2007-07-31 12:50:54 julien Exp $
+// $Id: StyleSheetParser.java,v 1.12 2007-09-13 09:51:20 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -36,7 +36,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public final class StyleSheetParser
     implements CssValidatorListener, CssParser {
@@ -157,8 +157,8 @@ public final class StyleSheetParser
 						   cssFouffa.getLine(),
 						   "at-rule",
 						   2,
-						   ident,
-						   string, ac));
+						   new String[] { ident, string },
+						   ac));
 	//stylesheet.addAtRule(atRule);
     }
 
