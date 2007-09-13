@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.39 2007-08-10 10:45:18 julien Exp $
+// $Id: CssFouffa.java,v 1.40 2007-09-13 09:59:27 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -47,7 +47,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  * 
- * @version $Revision: 1.39 $
+ * @version $Revision: 1.40 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -125,7 +125,7 @@ public final class CssFouffa extends CssParser {
 		}
 
 		String profile = ac.getProfile();
-		if (profile == null || profile.equals("")) {
+		if (profile == null || profile.equals("") || profile.equals("none")) {
 			profile = ac.getCssVersion();
 		}
 
@@ -240,7 +240,7 @@ public final class CssFouffa extends CssParser {
 		}
 
 		String profile = ac.getProfile();
-		if (profile == null || profile.equals("")) {
+		if (profile == null || profile.equals("") || profile.equals("none")) {
 			profile = ac.getCssVersion();
 		}
 
