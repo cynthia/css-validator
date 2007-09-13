@@ -1,5 +1,5 @@
 //
-// $Id: FakeFile.java,v 1.5 2005-09-14 15:15:32 ylafon Exp $
+// $Id: FakeFile.java,v 1.6 2007-09-13 10:18:49 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,11 +11,11 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class FakeFile {
 
-  protected String fileName;
+  protected String fileName, contentType;
 
   /**
    * The array buffer into which the components of this object are
@@ -35,6 +35,7 @@ public class FakeFile {
    */
   public FakeFile(String fileName) {
     this.fileName = fileName;
+    this.contentType = "none";
     data = new byte[255];
   }
 
@@ -119,5 +120,13 @@ public class FakeFile {
     }
     count += len;
   }
+
+	public void setContentType(String mimeType) {
+		contentType = mimeType;
+	}
+	
+	public String getContentType() {
+		return contentType;
+	}
 
 }
