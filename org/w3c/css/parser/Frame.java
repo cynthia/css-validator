@@ -1,5 +1,5 @@
 //
-// $Id: Frame.java,v 1.9 2006-12-16 20:22:27 jean-gui Exp $
+// $Id: Frame.java,v 1.10 2007-09-13 10:00:28 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,7 +12,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class Frame {
 
@@ -89,7 +89,7 @@ public class Frame {
      */
     public void addWarning(String warningMessage, String message) {
     warnings.addWarning(new Warning(getSourceFile(), getLine(),
-                    warningMessage, 0, message, "", ac));
+                    warningMessage, 0, new String[] { message }, ac));
     }
 
     /**
@@ -97,14 +97,13 @@ public class Frame {
      *
      * @param warningMessage the warning message
      *                       (see org.w3c.css.util.Messages.properties).
-     * @param message        An add-on message.
+     * @param messages       Some add-on messages.
      * @see                  org.w3c.css.util.Warning
      */
-    public void addWarning(String warningMessage, String message1,
-	    String message2) {
-    warnings.addWarning(new Warning(getSourceFile(), getLine(),
-                    warningMessage, 0, message1, message2, ac));
-    }
+	public void addWarning(String warningMessage, String[] messages) {
+		warnings.addWarning(new Warning(getSourceFile(), getLine(),
+                warningMessage, 0, messages, ac));
+	}
 
     /**
      * Get all warnings.
