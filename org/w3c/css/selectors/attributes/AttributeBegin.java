@@ -1,4 +1,4 @@
-// $Id: AttributeBegin.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
+// $Id: AttributeBegin.java,v 1.3 2007-09-13 10:12:07 julien Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -75,12 +75,12 @@ public class AttributeBegin extends AttributeSelector {
 	    }
 	    if (!value.equals(v)) {
 		// [lang|=fr][lang=en-US]
-		ac.getFrame().addWarning("incompatible", toString(), attr.toString());
+		ac.getFrame().addWarning("incompatible", new String[] { toString(), attr.toString() });
 	    }
 	} else if (attr instanceof AttributeBegin) {
 	    if (!value.equals(((AttributeBegin) attr).value)) {
 		// [lang|=fr][lang|=en]
-		ac.getFrame().addWarning("incompatible", toString(), attr.toString());
+		ac.getFrame().addWarning("incompatible", new String[] { toString(), attr.toString() });
 	    }
 	}
 

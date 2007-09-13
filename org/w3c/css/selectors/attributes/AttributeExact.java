@@ -1,4 +1,4 @@
-// $Id: AttributeExact.java,v 1.3 2006-04-19 11:28:06 ylafon Exp $
+// $Id: AttributeExact.java,v 1.4 2007-09-13 10:12:07 julien Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -56,17 +56,17 @@ public class AttributeExact extends AttributeSelector {
     public void applyAttribute(ApplContext ac, AttributeSelector attr) {
 	if (attr instanceof AttributeExact) {
 	    if (!value.equals(((AttributeExact) attr).getValue())) {
-		ac.getFrame().addWarning("incompatible", toString(), attr.toString());
+		ac.getFrame().addWarning("incompatible", new String[] { toString(), attr.toString() });
 	    }
 	}
 	else if(attr instanceof AttributeOneOf) {
 	    if (!value.equals(((AttributeOneOf) attr).getValue())) {
-		ac.getFrame().addWarning("incompatible", toString(), attr.toString());
+		ac.getFrame().addWarning("incompatible", new String[] { toString(), attr.toString() });
 	    }
 	}
 	else if(attr instanceof AttributeBegin) {
 	    if (!value.equals(((AttributeBegin) attr).getValue())) {
-		ac.getFrame().addWarning("incompatible", toString(), attr.toString());
+		ac.getFrame().addWarning("incompatible", new String[] { toString(), attr.toString() });
 	    }
 	}
     }
