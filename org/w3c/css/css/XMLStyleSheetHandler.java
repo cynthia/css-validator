@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.26 2007-09-18 17:58:37 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.27 2007-09-18 17:59:00 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -43,8 +43,10 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.LexicalHandler;
 
+import org.apache.velocity.io.UnicodeInputStream;
+
 /**
- * @version $Revision: 1.26 $
+ * @version $Revision: 1.27 $
  * @author Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
