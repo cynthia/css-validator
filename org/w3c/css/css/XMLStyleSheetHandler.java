@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.27 2007-09-18 17:59:00 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.28 2007-09-18 18:06:36 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -46,7 +46,7 @@ import org.xml.sax.ext.LexicalHandler;
 import org.apache.velocity.io.UnicodeInputStream;
 
 /**
- * @version $Revision: 1.27 $
+ * @version $Revision: 1.28 $
  * @author Philippe Le Hegaret
  */
 public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
@@ -483,7 +483,7 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
     void parse(URL url) throws Exception {
 	InputSource source = new InputSource();
 	URLConnection connection;
-	InputStream in;
+	UnicodeInputStream in;
 	org.xml.sax.XMLReader xmlParser = new org.apache.xerces.parsers.SAXParser();
 	try {
 	    xmlParser.setProperty(
