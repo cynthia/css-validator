@@ -1,5 +1,5 @@
 //
-// $Id: Codecs.java,v 1.5 2007-09-13 10:17:40 julien Exp $
+// $Id: Codecs.java,v 1.6 2007-09-20 12:07:32 julien Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -231,9 +231,10 @@ public class Codecs {
 
 		lchdr = hdr.toLowerCase();
 
-		if (lchdr.startsWith("content-type"))
+		if (lchdr.startsWith("content-type")) {
 			mimeType = lchdr.substring("content-type: ".length());
-		else if (!lchdr.startsWith("content-disposition")) continue;
+			continue;
+		}else if (!lchdr.startsWith("content-disposition")) continue;
 
 		int off = lchdr.indexOf("form-data", 20);
 
