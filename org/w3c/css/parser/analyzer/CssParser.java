@@ -60,7 +60,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le H???garet and Sijtsche Smeman
- * @version $Revision: 1.26 $
+ * @version $Revision: 1.27 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -2381,17 +2381,17 @@ n.image = n.image.substring(1);
       break;
     case ANY:
       jj_consume_token(ANY);
-                if (!ac.getCssVersion().equals("css1") && !"none".equals(ac.getProfile())) {
-            if (ac.getCssVersion().equals("css1") && "none".equals(ac.getProfile())) {
+        if (!ac.getCssVersion().equals("css1")) {
+//          s.setElement(null);
+            s.addUniversal(new UniversalSelector());
+        } else {
+            if ("none".equals(ac.getProfile())) {
                 ac.getFrame().addWarning("notversion");
             } else {
-//              s.setElement(null);
-                s.addUniversal(new UniversalSelector());
+                ac.getFrame().addError(new CssError(new InvalidParamException("notversion",
+                "*", ac.getCssVersion(), ac)));
             }
-                } else {
-                    ac.getFrame().addError(new CssError(new InvalidParamException("notversion",
-                        "*", ac.getCssVersion(), ac)));
-                }
+        }
       break;
     default:
       jj_la1[92] = jj_gen;
