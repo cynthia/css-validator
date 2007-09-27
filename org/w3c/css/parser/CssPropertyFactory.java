@@ -1,5 +1,5 @@
 //
-// $Id: CssPropertyFactory.java,v 1.21 2007-09-13 10:04:16 julien Exp $
+// $Id: CssPropertyFactory.java,v 1.22 2007-09-27 10:08:48 jgrandmo Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -22,7 +22,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  * @author Philippe Le H�garet
  */
 public class CssPropertyFactory implements Cloneable {
@@ -197,6 +197,8 @@ public class CssPropertyFactory implements Cloneable {
 			}
 			
 			if (pfsOk.size() > 0) {
+				/*
+				// This should be uncommented when no-profile in enabled
 				if (ac.getProfile().equals("none")) {
 					// the last one should be the best one to use
 					String	pf = (String) pfsOk.get(pfsOk.size()-1),
@@ -207,9 +209,10 @@ public class CssPropertyFactory implements Cloneable {
 					ac.setCssVersion(old_pf);
 				}
 				else
-					throw new InvalidParamException("noexistence", new String[] { property, ac.getMsg().getString(ac.getCssVersion()), pfsOk.toString() }, ac);
+				 */
+				throw new InvalidParamException("noexistence", new String[] { property, ac.getMsg().getString(ac.getCssVersion()), pfsOk.toString() }, ac);
 			} else {
-					throw new InvalidParamException("noexistence-at-all", property, ac);
+				throw new InvalidParamException("noexistence-at-all", property, ac);
 			}
 		}
 
