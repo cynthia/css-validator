@@ -13,7 +13,7 @@
 <script type="text/javascript" src="tabtastic/addcss.js"></script>
 <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
 <script src="toggle.js" type="text/javascript"></script>
-<meta name="revision" content="$Id: validator.html.es,v 1.22 2007-07-20 05:41:45 ot Exp $" />
+<meta name="revision" content="$Id: validator.html.es,v 1.23 2007-10-31 15:29:14 ot Exp $" />
 </head>
 <body>
 <div id="banner">
@@ -287,7 +287,9 @@
          rel="alternate">中文</a></li>
 </ul>
 
-<p id="activity_logos">
+<div id="footer">
+   <p id="activity_logos">
+
 <a href="http://www.w3.org/QA/" title="Actividad de Garant&iacute;a de Calidad del W3C, ofreci&eacute;ndote herramientas Web de calidad libres y m&aacute;s">
 <img src="http://www.w3.org/QA/2002/12/qa-small.png" alt="QA" />
 </a>
@@ -325,5 +327,6 @@ Apoya esta herramienta, convi&eacute;rtete en un <br />
       <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a> privacy
       statements.
     </p>
+</div>
 </body>
 </html>
