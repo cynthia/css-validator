@@ -8,7 +8,7 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-  <meta name="revision" content="$Id: documentation.html.de,v 1.4 2007-10-31 15:30:59 ot Exp $" /><!-- SSI Template Version: $Id: documentation.html.de,v 1.4 2007-10-31 15:30:59 ot Exp $ --></head>
+  <meta name="revision" content="$Id: documentation.html.de,v 1.5 2007-11-13 06:31:37 ot Exp $" /><!-- SSI Template Version: $Id: documentation.html.de,v 1.5 2007-11-13 06:31:37 ot Exp $ --></head>
 
 
 <body>
@@ -130,7 +130,7 @@ Unterstützten Sie dieses Werkzeug und werden Sie <br />
    </p>
 
     <p class="copyright">
-      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 1994-2006
+      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 1994-2007
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>®
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,

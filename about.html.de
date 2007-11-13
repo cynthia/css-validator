@@ -9,7 +9,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.de,v 1.4 2007-10-31 15:30:59 ot Exp $" /></head>
+    <meta name="revision" content="$Id: about.html.de,v 1.5 2007-11-13 06:31:36 ot Exp $" /></head>
 <body>
   <div id="banner">
    <h1 id="title"><a href="http://www.w3.org/"><img alt="W3C" width="110" height="61" id="logo" src="./images/w3c.png" /></a>
@@ -195,7 +195,7 @@ Unterstützen Sie dieses Werkzeug, werden Sie<br />
    </p>
 
     <p class="copyright">
-      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 1994-2006
+      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 1994-2007
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>®
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,

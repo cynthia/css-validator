@@ -13,7 +13,7 @@
     <script type="text/javascript" src="tabtastic/addcss.js"></script>
     <script type="text/javascript" src="tabtastic/tabtastic.js"></script>
     <script src="toggle.js" type="text/javascript"></script>
-    <meta name="revision" content="$Id: validator.html.nl,v 1.11 2007-10-31 15:29:14 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.nl,v 1.12 2007-11-13 06:31:37 ot Exp $" />
   </head>
 
   <body>
@@ -260,7 +260,7 @@ Steun deze tool, wordt een<br />
 
     <p class="copyright">
 
-      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2006
+      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2007
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>&reg;
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
