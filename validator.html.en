@@ -9,9 +9,9 @@
     <style type="text/css" media="all">
       @import "style/base.css";
     </style>   
-    <script type="text/javascript" src="http://validator.w3.org/scripts/mootools.js"></script>
-    <script type="text/javascript" src="http://validator.w3.org/scripts/w3c-validator.js"></script>
-    <meta name="revision" content="$Id: validator.html.en,v 1.32 2007-11-13 06:31:37 ot Exp $" />
+    <script type="text/javascript" src="scripts/mootools.js"></script>
+    <script type="text/javascript" src="scripts/w3c-validator.js"></script>
+    <meta name="revision" content="$Id: validator.html.en,v 1.33 2007-11-13 06:46:26 ot Exp $" />
   </head>
 
   <body>
