@@ -11,7 +11,7 @@
     </style>   
     <script type="text/javascript" src="scripts/mootools.js"></script>
     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
-    <meta name="revision" content="$Id: validator.html.it,v 1.19 2007-11-13 06:46:26 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.it,v 1.20 2007-11-13 07:08:12 ot Exp $" />
     <meta name="translator" content="Roberto Scano - International Webmasters Association / The HTML Writers Guild" />
   </head>
 
@@ -24,7 +24,7 @@
       </p>
      </div>
 	<div id="frontforms">
-      <ul class="tabset_tabs"><li><a href="#validate-by-uri" class="active">tramite URI (indirizzo)</a></li><li><a href="#validate-by-upload">tramite trasferimento file</a></li><li><a href="#validate-by-input">tramite immissione diretta</a></li></ul>
+      <ul id="tabset_tabs"><li><a href="#validate-by-uri" class="active">tramite URI (indirizzo)</a></li><li><a href="#validate-by-upload">tramite trasferimento file</a></li><li><a href="#validate-by-input">tramite immissione diretta</a></li></ul>
     		    <div id="fields">
 
       <fieldset id="validate-by-uri" class="tabset_content front"><legend class="tabset_label">Validazione tramite URI</legend>

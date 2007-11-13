@@ -11,7 +11,7 @@
     </style>   
     <script type="text/javascript" src="scripts/mootools.js"></script>
     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
-    <meta name="revision" content="$Id: validator.html.zh-cn,v 1.18 2007-11-13 06:46:26 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.zh-cn,v 1.19 2007-11-13 07:08:12 ot Exp $" />
   </head>
 
   <body>
@@ -23,7 +23,7 @@
       </p>
      </div>
 	<div id="frontforms">
-      <ul class="tabset_tabs"><li><a href="#validate-by-uri" class="active">通过指定URI</a></li><li><a href="#validate-by-upload">通过文件上传</a></li><li><a href="#validate-by-input">通过直接输入</a></li></ul>
+      <ul id="tabset_tabs"><li><a href="#validate-by-uri" class="active">通过指定URI</a></li><li><a href="#validate-by-upload">通过文件上传</a></li><li><a href="#validate-by-input">通过直接输入</a></li></ul>
     		    <div id="fields">
 
       <fieldset id="validate-by-uri" class="tabset_content front"><legend class="tabset_label">验证指定URI的CSS内容</legend>
