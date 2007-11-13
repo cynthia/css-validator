@@ -11,7 +11,7 @@
     </style>   
     <script type="text/javascript" src="scripts/mootools.js"></script>
     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
-    <meta name="revision" content="$Id: validator.html.nl,v 1.14 2007-11-13 07:08:12 ot Exp $" />
+    <meta name="revision" content="$Id: validator.html.nl,v 1.15 2007-11-13 07:14:48 ot Exp $" />
   </head>
 
   <body>
@@ -187,9 +187,11 @@
       </fieldset>
       </div><!-- fields -->
 	</div> <!-- frontforms -->
+	<div class="intro">
 	<p><strong>Opmerking</strong>: Als je een CSS style sheet wilt valideren die gebruikt wordt in een (X)HTML document,
 	zou je die eerst moeten <a href="http://validator.w3.org/">laten controleren</a>.
 	</p>
+	</div>
 	<ul class="navbar"  id="menu">
 		<li><a href="about.html" title="Over deze service">Over</a> <span class="hideme">|</span></li>
         <li><a href="documentation.html" title="Documentatie voor de W3C CSS Validatie Service">Documentatie</a> <span class="hideme">|</span></li>

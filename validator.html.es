@@ -11,7 +11,7 @@
 </style>   
 <script type="text/javascript" src="scripts/mootools.js"></script>
 <script type="text/javascript" src="scripts/w3c-validator.js"></script>
-<meta name="revision" content="$Id: validator.html.es,v 1.26 2007-11-13 07:08:12 ot Exp $" />
+<meta name="revision" content="$Id: validator.html.es,v 1.27 2007-11-13 07:14:48 ot Exp $" />
 </head>
 <body>
   <div id="banner">
@@ -210,9 +210,11 @@
 <!-- fields -->
 </div>
 <!-- frontforms -->
+<div class="intro">
 <p>
 <strong>Nota</strong>: Si deseas validar tu hoja de estilo CSS incrustada en un documento (X)HTML, deber&iacute;as antes <a href="http://validator.w3.org/">comprobar que el  (X)HTML utilizado es v&aacute;lido</a>.
 	</p>
+</div>
 <ul class="navbar" id="menu">
 <li>
 <a href="about.html" title="Acerca de este servicio">Acerca de este servicio</a>
