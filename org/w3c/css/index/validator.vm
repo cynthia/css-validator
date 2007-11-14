@@ -68,6 +68,7 @@
       </select>
     </td>
     </tr>
+    </table>
     </div><!-- item_contents -->
   </fieldset><!-- invisible -->
   
@@ -91,7 +92,7 @@
     </style>   
     <script type="text/javascript" src="scripts/mootools.js"></script>
     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
-    <meta name="revision" content="\$Id: validator.vm,v 1.13 2007-11-14 02:52:40 ot Exp $" />
+    <meta name="revision" content="\$Id: validator.vm,v 1.14 2007-11-14 02:53:52 ot Exp $" />
   </head>
 
   <body>
