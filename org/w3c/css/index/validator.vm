@@ -22,8 +22,6 @@
         <option value="tv">$TV_profile</option>
       </select>
     </td>
-    </tr>
-    <tr>
     <th id="header_medium_$tab_id">
       <label for="medium_$tab_id">$medium :</label>
     </th>
@@ -90,7 +88,7 @@
     </style>   
     <script type="text/javascript" src="scripts/mootools.js"></script>
     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
-    <meta name="revision" content="\$Id: validator.vm,v 1.15 2007-11-14 03:00:08 ot Exp $" />
+    <meta name="revision" content="\$Id: validator.vm,v 1.16 2007-11-14 03:00:49 ot Exp $" />
   </head>
 
   <body>
