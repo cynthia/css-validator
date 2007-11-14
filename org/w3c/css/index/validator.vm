@@ -59,7 +59,7 @@
     </th>
     <td
     #if ($tab_id != "input")
-    rowspan="3"
+    colspan="3"
     #end
      headers="header_warning_$tab_id">
       <select id="warning_$tab_id" name="warning"> 
@@ -94,7 +94,7 @@
     </style>   
     <script type="text/javascript" src="scripts/mootools.js"></script>
     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
-    <meta name="revision" content="\$Id: validator.vm,v 1.17 2007-11-14 03:05:30 ot Exp $" />
+    <meta name="revision" content="\$Id: validator.vm,v 1.18 2007-11-14 03:06:51 ot Exp $" />
   </head>
 
   <body>
