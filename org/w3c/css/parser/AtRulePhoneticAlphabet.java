@@ -1,12 +1,12 @@
 //
-// $Id: AtRulePhoneticAlphabet.java,v 1.1 2003-07-30 06:56:42 sijtsche Exp $
+// $Id: AtRulePhoneticAlphabet.java,v 1.2 2007-11-26 05:07:17 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRulePhoneticAlphabet.java
- * $Id: AtRulePhoneticAlphabet.java,v 1.1 2003-07-30 06:56:42 sijtsche Exp $
+ * $Id: AtRulePhoneticAlphabet.java,v 1.2 2007-11-26 05:07:17 ot Exp $
  */
 package org.w3c.css.parser;
 
@@ -14,8 +14,8 @@ import org.w3c.css.util.ApplContext;
 
 /**
  *
- * @version $Revision: 1.1 $
- * @author  Philippe Le Hégaret
+ * @version $Revision: 1.2 $
+ * @author  Philippe Le Hegaret
  */
 public class AtRulePhoneticAlphabet extends AtRule {
     static int internal = 0;

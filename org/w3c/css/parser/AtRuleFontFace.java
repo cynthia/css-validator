@@ -1,20 +1,20 @@
 //
-// $Id: AtRuleFontFace.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
+// $Id: AtRuleFontFace.java,v 1.4 2007-11-26 05:07:17 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleFontFace.java
- * $Id: AtRuleFontFace.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
+ * $Id: AtRuleFontFace.java,v 1.4 2007-11-26 05:07:17 ot Exp $
  */
 package org.w3c.css.parser;
 
 /**
  * This class manages all media defines by CSS2
  *
- * @version $Revision: 1.3 $
- * @author  Philippe Le Hégaret
+ * @version $Revision: 1.4 $
+ * @author  Philippe Le Hegaret
  */
 public class AtRuleFontFace extends AtRule {
     static int internal = 0;

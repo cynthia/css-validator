@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetOrigin.java,v 1.4 2005-09-14 15:14:18 ylafon Exp $
+// $Id: StyleSheetOrigin.java,v 1.5 2007-11-26 05:07:17 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,8 +8,8 @@
 package org.w3c.css.css;
 
 /**
- * @version $Revision: 1.4 $
- * @author  Philippe Le Hégaret
+ * @version $Revision: 1.5 $
+ * @author  Philippe Le Hegaret
  */
 public interface StyleSheetOrigin {
 

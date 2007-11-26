@@ -1,5 +1,5 @@
 //
-// $Id: SortAlgorithm.java,v 1.4 2005-09-14 15:15:32 ylafon Exp $
+// $Id: SortAlgorithm.java,v 1.5 2007-11-26 05:07:17 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,8 +9,8 @@ package org.w3c.css.util;
 /**
  * This class is only to sort an array with an abstract algorithm.
  *
- * @version $Revision: 1.4 $
- * @author  Philippe Le Hégaret
+ * @version $Revision: 1.5 $
+ * @author  Philippe Le Hegaret
  */
 public abstract class SortAlgorithm {
 
