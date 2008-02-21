@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.12 2007-09-13 09:51:20 julien Exp $
+// $Id: StyleSheetParser.java,v 1.13 2008-02-21 01:41:17 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -36,7 +36,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public final class StyleSheetParser
     implements CssValidatorListener, CssParser {
@@ -182,7 +182,7 @@ public final class StyleSheetParser
 	}
 	if (kind != null) {
 	    kind = kind.trim().toLowerCase();
-	    if (!kind.equals("stylesheet")) {
+	    if (!kind.equals("stylesheet") && !kind.equals("alternate stylesheet")) {
 		return;
 	    }
 	}
