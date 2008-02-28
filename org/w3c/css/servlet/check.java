@@ -1,5 +1,5 @@
 //
-// $Id: check.java,v 1.12 2007-07-13 13:32:20 julien Exp $
+// $Id: check.java,v 1.13 2008-02-28 16:47:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,6 +8,8 @@
 package org.w3c.css.servlet;
 
 import java.io.IOException;
+
+import java.net.URLEncoder;
 
 import java.util.Enumeration;
 
@@ -20,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public final class check extends HttpServlet {
 
@@ -41,8 +43,11 @@ public final class check extends HttpServlet {
     {
 
 	String uri = req.getHeader("Referer");
-	String encodeEnc = "UTF-8";
-	uri = java.net.URLEncoder.encode(uri, encodeEnc);
+	String encodeEnc = req.getCharacterEncoding();
+	if (encodeEnc == null) {
+	    encodeEnc = "8859_1";
+	}
+	uri = URLEncoder.encode(uri, encodeEnc);
 
 	if (uri == null) {
 	    res.setContentType("text/plain");
