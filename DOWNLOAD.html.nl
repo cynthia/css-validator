@@ -11,7 +11,7 @@
   	@import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.nl,v 1.9 2007-11-13 06:31:36 ot Exp $" />
+  content="$Id: DOWNLOAD.html.nl,v 1.10 2008-02-29 13:26:12 ot Exp $" />
 
 </head>
 
@@ -202,7 +202,7 @@ Java ge&iuml;nstalleerd heeft. Build de css-validator.jar zoals hierboven beschr
                lang="zh-hans"
                xml:lang="zh-hans"
                hreflang="zh-hans"
-               rel="alternate">中文</a></li>
+               rel="alternate">简体中文</a></li>
       </ul>
 
 

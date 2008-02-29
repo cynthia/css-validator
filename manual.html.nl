@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.nl,v 1.5 2007-11-13 06:31:37 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.nl,v 1.5 2007-11-13 06:31:37 ot Exp $ -->
+  content="$Id: manual.html.nl,v 1.6 2008-02-29 13:26:13 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.nl,v 1.6 2008-02-29 13:26:13 ot Exp $ -->
 
 </head>
 
@@ -327,7 +327,7 @@ service voor iedereen, je respect wordt gewaardeerd. Bedankt.</p>
                lang="zh-hans"
                xml:lang="zh-hans"
                hreflang="zh-hans"
-               rel="alternate">中文</a></li>
+               rel="alternate">简体中文</a></li>
       </ul>
 
 

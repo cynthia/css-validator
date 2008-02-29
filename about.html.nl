@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.nl,v 1.5 2007-11-13 06:31:36 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.nl,v 1.6 2008-02-29 13:26:13 ot Exp $" />
 
   </head>
 
@@ -174,7 +174,7 @@ of installeer en draai je eigen instantie van de validator.</p>
                lang="zh-hans"
                xml:lang="zh-hans"
                hreflang="zh-hans"
-               rel="alternate">中文</a></li>
+               rel="alternate">简体中文</a></li>
       </ul>
 
    <div id="footer">
