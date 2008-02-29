@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: build.xml,v 1.7 2007-07-31 09:36:11 julien Exp $ -->
+<!-- $Id: build.xml,v 1.8 2008-02-29 10:40:22 ylafon Exp $ -->
 <project default="jar" name="W3C CSS Validator">
 
   <!-- =================================================================== -->
@@ -36,7 +36,6 @@
 			encoding="ISO-8859-15"
 			debug="yes">
 			<src path="./org/w3c"/>
-			<src path="./html"/>
 		</javac>
 		<copy todir="./build">
 		    <fileset dir="./">
@@ -70,7 +69,6 @@
 		<jar jarfile="${jar.file}"
 			basedir="build">
 			<include name="org/**"/>
-			<include name="html/**"/>
 			<manifest>
 	      			<attribute name="Main-Class" value="org.w3c.css.css.CssValidator"/>
 			</manifest>
