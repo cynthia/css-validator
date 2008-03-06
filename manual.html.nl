@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.nl,v 1.6 2008-02-29 13:26:13 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.nl,v 1.6 2008-02-29 13:26:13 ot Exp $ -->
+  content="$Id: manual.html.nl,v 1.7 2008-03-06 21:54:40 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.nl,v 1.7 2008-03-06 21:54:40 ot Exp $ -->
 
 </head>
 
@@ -116,7 +116,7 @@ De makkelijkste manier om een document te checken is door de basis interface te 
 
 <p>    
     Als de basis interface gebruikt wordt, controleert de validator de geldigheid van de CSS
-	met <a href="http://www.w3.org/TR/CSS2">CSS 2</a>, de huidige CSS standaard.<br />
+	met <a href="http://www.w3.org/TR/CSS21">CSS 2.1</a>, de huidige CSS standaard.<br />
     De validator produceert een XHTML output zonder waarschuwingen. (standaard krijg je alleen errors te zien)<br />
     Het medium is ingesteld op "all", want dit is het medium dat geschikt is voor alle apparaten.
     (zie ook <a href="http://www.w3.org/TR/CSS2/media.html">

@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.es,v 1.7 2008-02-29 13:26:13 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.es,v 1.7 2008-02-29 13:26:13 ot Exp $ -->
+  content="$Id: manual.html.es,v 1.8 2008-03-06 21:54:40 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.es,v 1.8 2008-03-06 21:54:40 ot Exp $ -->
 </head>
 
 <body>
@@ -108,7 +108,7 @@ La manera más sencilla de comprobar un documento es utilizar la interfaz básic
 
 <p>    
     Cuando se utiliza la interfaz básica, el validador comprobará el cumplimiento 
-    de <a href="http://www.w3.org/TR/CSS2">CSS 2</a>, que es la recomendación técnica
+    de <a href="http://www.w3.org/TR/CSS21">CSS 2.1</a>, que es la recomendación técnica
     actual de CSS.<br />
     Esto producirá una salida XHTML sin ninguna advertencia (únicamente verás los errores).<br />
     El parámetro medium está fijado en "all", que es el medio adecuado para todos los dispositivos 
