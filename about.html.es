@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-<meta name="revision" content="$Id: about.html.es,v 1.7 2008-02-29 13:26:13 ot Exp $"/>
+<meta name="revision" content="$Id: about.html.es,v 1.8 2008-03-06 22:40:52 ot Exp $"/>
 </head>
 <body>
   <div id="banner">
@@ -173,9 +173,6 @@ o seguir las instrucciones para descargar el &aacute;rbol completo del código f
          xml:lang="zh-hans"
          hreflang="zh-hans"
          rel="alternate">简体中文</a></li>
-</ul>
-
-
 </ul>
 <div id="footer">
    <p id="activity_logos">
