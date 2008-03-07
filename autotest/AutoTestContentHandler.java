@@ -1,6 +1,6 @@
 package autotest;
 
-// $Id: AutoTestContentHandler.java,v 1.3 2007-08-06 13:36:21 julien Exp $
+// $Id: AutoTestContentHandler.java,v 1.4 2008-03-07 15:56:31 ot Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -66,7 +66,7 @@ public class AutoTestContentHandler implements ContentHandler {
 	Result awaitedResult = new Result();
 	Result result = new Result();
 	String profile;
-	String warnings;
+	String warning;
 	String medium;
 	
 	/**
@@ -185,13 +185,13 @@ public class AutoTestContentHandler implements ContentHandler {
 			desc = "";
 			result = new Result();
 
-			warnings = null;
+			warning = null;
 			profile = null;
 			medium = null;
 			for (int i = 0; i < attributs.getLength(); i++) {
 				String currentAttr = attributs.getLocalName(i);
-				if (currentAttr.equals("warnings")) {
-					warnings = attributs.getValue(i);
+				if (currentAttr.equals("warning")) {
+					warning = attributs.getValue(i);
 				} else if (currentAttr.equals("profile")) {
 					profile = attributs.getValue(i);
 				} else if (currentAttr.equals("medium")) {
@@ -277,8 +277,8 @@ public class AutoTestContentHandler implements ContentHandler {
 				val = VALIDATOR + "uri=" + validURL;
 			}
 
-			if (warnings != null) {
-				val += "&warning=" + warnings;
+			if (warning != null) {
+				val += "&warning=" + warning;
 			}
 			if (profile != null) {
 				val += "&profile=" + profile;
@@ -381,7 +381,7 @@ public class AutoTestContentHandler implements ContentHandler {
 		} else if (inWarnings) {
 			int warnings;
 			try {
-				warnings = Integer.parseInt(new String(ch, start, end));
+				warnings= Integer.parseInt(new String(ch, start, end));
 			} catch (NumberFormatException e) {
 				warnings = 0;
 			}
