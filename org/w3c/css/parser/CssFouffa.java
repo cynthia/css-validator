@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.41 2007-09-20 15:12:50 ylafon Exp $
+// $Id: CssFouffa.java,v 1.42 2008-03-11 10:15:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -49,7 +49,7 @@ import org.apache.velocity.io.UnicodeInputStream;
  * parser.parseStyle();<BR>
  * </code>
  * 
- * @version $Revision: 1.41 $
+ * @version $Revision: 1.42 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -218,7 +218,7 @@ public final class CssFouffa extends CssParser {
     private void ReInit(ApplContext ac, InputStream input, URL file, Frame frame) {
 	// reinitialize the parser with a new data input
 	// and a new frame for errors and warnings
-	super.ReInit(input, ac);
+	super.ReInitWithAc(input, ac);
 	// @@this is a default media ...
 	// AtRuleMedia media;
 	// if ("css1".equals(ac.getCssVersion())) {
