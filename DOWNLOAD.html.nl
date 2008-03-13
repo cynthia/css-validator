@@ -11,7 +11,7 @@
   	@import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.nl,v 1.10 2008-02-29 13:26:12 ot Exp $" />
+  content="$Id: DOWNLOAD.html.nl,v 1.11 2008-03-13 15:30:22 ot Exp $" />
 
 </head>
 
@@ -219,7 +219,7 @@ Steun deze tool, wordt een<br />
 
     <p class="copyright">
 
-      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2007
+      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2008
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>&reg;
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,

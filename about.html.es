@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-<meta name="revision" content="$Id: about.html.es,v 1.8 2008-03-06 22:40:52 ot Exp $"/>
+<meta name="revision" content="$Id: about.html.es,v 1.9 2008-03-13 15:30:22 ot Exp $"/>
 </head>
 <body>
   <div id="banner">
@@ -191,7 +191,7 @@ Apoya esta herramienta, convi&eacute;rtete en un <br/>
 </a>
 </p>
 <p class="copyright">
-<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2007
+<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2008
       <a href="http://www.w3.org/">
 <acronym title="World Wide Web Consortium">W3C</acronym>
 </a>&reg;

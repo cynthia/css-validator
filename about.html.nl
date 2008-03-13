@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.nl,v 1.6 2008-02-29 13:26:13 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.nl,v 1.7 2008-03-13 15:30:22 ot Exp $" />
 
   </head>
 
@@ -190,7 +190,7 @@ Steun deze tool, wordt een<br />
 
     <p class="copyright">
 
-      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2007
+      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2008
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>&reg;
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
