@@ -1,5 +1,5 @@
 //
-// $Id: Util.java,v 1.5 2007-07-13 13:32:21 julien Exp $
+// $Id: Util.java,v 1.6 2008-03-17 17:52:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ package org.w3c.css.util;
 /**
  * This class holds various utility methods.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 
 public final class Util {
@@ -308,7 +308,7 @@ public final class Util {
             // nothing to escape in the string
             return s;
         }
-        StringBuffer sb = new StringBuffer(newLength);
+        StringBuilder sb = new StringBuilder(newLength);
         for (int i=0; i<length; i++){
             char c = s.charAt(i);
             int cint = 0xffff & c;
