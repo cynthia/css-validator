@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundCSS2.java,v 1.7 2008-03-17 18:24:16 ylafon Exp $
+// $Id: CssBackgroundCSS2.java,v 1.8 2008-03-17 18:29:51 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,6 +13,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssString;
 import org.w3c.css.values.CssValue;
 
 /**
@@ -45,7 +46,7 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  * @see CssBackgroundColor
  * @see CssBackgroundImage
  * @see CssBackgroundRepeat
