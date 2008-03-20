@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.22 2008-03-20 12:15:05 ylafon Exp $
+// $Id: CssSelectors.java,v 1.23 2008-03-20 14:51:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Warnings;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.22 $
+ * @version $Revision: 1.23 $
  */
 public final class CssSelectors extends SelectorsList implements CssSelectorsConstant {
 
@@ -82,6 +82,7 @@ public final class CssSelectors extends SelectorsList implements CssSelectorsCon
     private boolean Init;
 
     private String cachedRepresentation = null;
+    private boolean isFinal = false;
 
     /**
      * Create a new CssSelectors with no previous selector.
@@ -369,10 +370,38 @@ public final class CssSelectors extends SelectorsList implements CssSelectorsCon
 	if (cachedRepresentation == null) {
 	    return false;
 	}
+	if (isFinal) {
+	    return true;
+	}
 	if (next != null) {
 	    return super.isToStringCached() && next.isToStringCached();
 	}
 	return super.isToStringCached();
+    }
+
+    /*
+      we are doing this in two steps, as it is possible to have some
+       calls to toString() and do modifications, then at some point
+       everything is frozen (like when StyleSheet.findConflict is called)
+       marking as final (ie: no more modifications) triggers more 
+       optimizations. Things could be better optimized if we were sure
+       that no calls to toString were done before everything is frozen
+    */
+      
+    /*
+     * Mark as final, ie: no more modification to the structure.
+     */
+    public void markAsFinal() {
+	// if something has been changed, reset to force recomputing
+	if (!isFinal) {
+	    if (!isToStringCached()) {
+		cachedRepresentation = null;
+		if (next != null) {
+		    next.markAsFinal();
+		}
+	    }
+	    isFinal = true;
+	}
     }
 
     /**
