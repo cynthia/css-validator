@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundPositionCSS2.java,v 1.7 2006-04-19 11:28:05 ylafon Exp $
+// $Id: CssBackgroundPositionCSS2.java,v 1.8 2008-03-25 18:43:30 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -91,7 +91,7 @@ import org.w3c.css.values.CssValue;
  *   <P>
  *   In the example above, the image is placed in the lower right corner of the
  *   canvas.
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  * @see CssBackgroundAttachment
  */
 public class CssBackgroundPositionCSS2 extends CssProperty
@@ -491,6 +491,15 @@ public class CssBackgroundPositionCSS2 extends CssProperty
 	    if (hash_values[i] == hash)
 		return i;
 	return -1;
+    }
+
+    static public boolean checkMatchingIdent(CssIdent idval) {
+	for (int i=0 ; i < hash_values.length; i++) {
+	    if (hash_values[i] == idval.hashCode()) {
+		return true;
+	    }
+	}
+	return false;
     }
 
     private static int[] hash_values;

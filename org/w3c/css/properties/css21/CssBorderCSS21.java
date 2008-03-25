@@ -1,4 +1,4 @@
-// $Id: CssBorderCSS21.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
+// $Id: CssBorderCSS21.java,v 1.3 2008-03-25 18:43:30 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -62,33 +62,32 @@ public class CssBorderCSS21 extends CssBorderCSS2 {
 	setBottom(new CssBorderBottomCSS21());
 	setLeft(new CssBorderLeftCSS21());
 
-	CssBorderTopWidthCSS2 w = getTop().getWidth2();
-	CssBorderTopStyleCSS2 s = getTop().getStyle2();
-	CssBorderTopColorCSS2 c = getTop().getColor2();
+	CssBorderTopCSS21 top = (CssBorderTopCSS21) getTop();
+	CssBorderRightCSS21 right = (CssBorderRightCSS21) getRight();
+	CssBorderLeftCSS21 left = (CssBorderLeftCSS21) getLeft();
+	CssBorderBottomCSS21 bottom = (CssBorderBottomCSS21) getBottom();
+	
+	CssBorderTopWidthCSS2 w = top.getWidth2();
+	CssBorderTopStyleCSS2 s = top.getStyle2();
+	CssBorderTopColorCSS2 c = top.getColor2();
 
 	if(w != null) {
-	    getRight().setWidth(
-		new CssBorderRightWidthCSS2((CssBorderFaceWidthCSS2) w.get()));
-	    getLeft().setWidth(
-		new CssBorderLeftWidthCSS2((CssBorderFaceWidthCSS2) w.get()));
-	    getBottom().setWidth(
-		new CssBorderBottomWidthCSS2((CssBorderFaceWidthCSS2) w.get()));
+	    CssBorderFaceWidthCSS2 bfw = (CssBorderFaceWidthCSS2) w.get();
+	    right.setWidth(new CssBorderRightWidthCSS2(bfw));
+	    left.setWidth(new CssBorderLeftWidthCSS2(bfw));
+	    bottom.setWidth(new CssBorderBottomWidthCSS2(bfw));
 	}
 	if(s != null) {
-	    getRight().setStyle(
-		new CssBorderRightStyleCSS2((CssBorderFaceStyleCSS2) s.get()));
-	    getLeft().setStyle(
-		new CssBorderLeftStyleCSS2((CssBorderFaceStyleCSS2) s.get()));
-	    getBottom().setStyle(
-		new CssBorderBottomStyleCSS2((CssBorderFaceStyleCSS2) s.get()));
+	    CssBorderFaceStyleCSS2 bfs = (CssBorderFaceStyleCSS2) s.get();
+	    right.setStyle(new CssBorderRightStyleCSS2(bfs));
+	    left.setStyle(new CssBorderLeftStyleCSS2(bfs));
+	    bottom.setStyle(new CssBorderBottomStyleCSS2(bfs));
 	}
 	if(c != null) {
-	    getRight().setColor(
-		new CssBorderRightColorCSS21((CssBorderFaceColorCSS21) c.get()));
-	    getLeft().setColor(
-		new CssBorderLeftColorCSS21((CssBorderFaceColorCSS21) c.get()));
-	    getBottom().setColor(
-		new CssBorderBottomColorCSS21((CssBorderFaceColorCSS21) c.get()));
+	    CssBorderFaceColorCSS21 bfc = (CssBorderFaceColorCSS21) c.get();
+	    right.setColor(new CssBorderRightColorCSS21(bfc));
+	    left.setColor(new CssBorderLeftColorCSS21(bfc));
+	    bottom.setColor(new CssBorderBottomColorCSS21(bfc));
 	}
     }
 

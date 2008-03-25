@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundAttachmentCSS2.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackgroundAttachmentCSS2.java,v 1.4 2008-03-25 18:43:30 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.values.CssValue;
  *     background-attachment: fixed;
  *   }
  * </PRE>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBackgroundAttachmentCSS2 extends CssProperty
     implements CssBackgroundConstants {
@@ -159,9 +159,20 @@ public class CssBackgroundAttachmentCSS2 extends CssProperty
 	return attachment == 0;
     }
 
+    static public boolean checkMatchingIdent(CssIdent idval) {
+	for (int i=0 ; i < hash_values.length; i++) {
+	    if (hash_values[i] == idval.hashCode()) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
     static {
 	hash_values = new int[ATTACHMENT.length];
 	for (int i = 0; i < ATTACHMENT.length; i++)
 	    hash_values[i] = ATTACHMENT[i].hashCode();
     }
+
+    
 }

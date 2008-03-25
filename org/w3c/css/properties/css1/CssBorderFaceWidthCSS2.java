@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderFaceWidthCSS2.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBorderFaceWidthCSS2.java,v 1.4 2008-03-25 18:43:30 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,15 +12,25 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssNumber;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBorderFaceWidthCSS2 {
 
     CssValue value;
-
+    private static CssIdent thin;
+    private static CssIdent medium;
+    private static CssIdent thick;
+    
+    static {
+	thin = new CssIdent("thin");
+	medium = new CssIdent("medium");
+	thick = new CssIdent("thick");
+    }
+    
     /**
      * Create a new CssBorderFaceWidthCSS2
      */
@@ -52,26 +62,40 @@ public class CssBorderFaceWidthCSS2 {
 
 	CssValue val = expression.getValue();
 
-	if (val instanceof CssLength) {
+	switch (val.getType()) {
+	case CssTypes.CSS_LENGTH:
 	    float f = ((Float) val.get()).floatValue();
-	    if (f >= 0)
+	    if (f >= 0) {
 		this.value = val;
-	    else
+	    } else {
 		throw new InvalidParamException("negative-value", val.toString(), ac);
-	} else if (val instanceof CssNumber) {
+	    }
+	    break;
+	case CssTypes.CSS_NUMBER:
 	    value = ((CssNumber) val).getLength();
-	} else if (val.equals(thin)) {
-	    value = thin;
-	} else if (val.equals(medium)) {
-	    value = medium;
-	} else if (val.equals(thick)) {
-	    value = thick;
-	} else if (val.equals(CssProperty.inherit)) {
-	    value = CssProperty.inherit;
-	} else {
+	    break;
+	case CssTypes.CSS_IDENT:
+	    CssIdent ci = (CssIdent) val;
+	    if (CssProperty.inherit.equals(ci)) {
+		value = CssProperty.inherit;
+		break;
+	    } 
+	    if (thin.equals(ci)) {
+		value = thin;
+		break;
+	    }
+	    if (medium.equals(ci)) {
+		value = medium;
+		break;
+	    }
+	    if (thick.equals(ci)) {
+		value = thick;
+		break;
+	    }
+	default:
 	    throw new InvalidParamException("value", val.toString(), "width", ac);
 	}
-
+	
 	expression.next();
     }
 
@@ -106,9 +130,7 @@ public class CssBorderFaceWidthCSS2 {
 	return value.equals(another.value); // FIXME
     }
 
-    private static CssIdent thin = new CssIdent("thin");
-    private static CssIdent medium = new CssIdent("medium");
-    private static CssIdent thick = new CssIdent("thick");
+
 
 }
 
