@@ -1,4 +1,4 @@
-// $Id: CssBackgroundPositionCSS21.java,v 1.3 2006-04-19 11:28:06 ylafon Exp $
+// $Id: CssBackgroundPositionCSS21.java,v 1.4 2008-03-25 18:43:11 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -43,13 +43,12 @@ public class CssBackgroundPositionCSS21 extends CssBackgroundPositionCSS2 {
 	setByUser();
 	CssValue val = expression.getValue();
 	char op  = expression.getOperator();
-
 	if (op != SPACE)
 	    throw new  InvalidParamException("operator",
 					     ((new Character(op)).toString()),
 					     ac);
 
-	if (val.equals(inherit)) {
+	if (inherit.equals(val)) {
 	    if(expression.getCount() > 1) {
 		throw new InvalidParamException("unrecognize", ac);
 	    }
