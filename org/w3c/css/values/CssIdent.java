@@ -1,5 +1,5 @@
 //
-// $Id: CssIdent.java,v 1.6 2008-03-20 16:51:17 ylafon Exp $
+// $Id: CssIdent.java,v 1.7 2008-03-25 18:30:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,12 +9,18 @@ package org.w3c.css.values;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssIdent extends CssValue {
 
+    public static final int type = CssTypes.CSS_IDENT;
+    
     private int hashcode = 0;
 
+    public final int getType() {
+	return type;
+    }
+    
     /**
      * Create a new CssIdent
      */
@@ -65,9 +71,19 @@ public class CssIdent extends CssValue {
     }
 
     /**
+     * Compares two values for equality.
+     *
+     * @param value The other value.
+     */
+    public boolean equals(CssIdent value) {
+	return (value.hashCode() == hashCode());
+    }
+
+    /**
      * Returns a hashcode for this ident.
      */
     public int hashCode() {
+	// we cache, as we use toLowerCase and don't store the resulting string
 	if (hashcode == 0) {
 	    hashcode = value.toLowerCase().hashCode();
 	}

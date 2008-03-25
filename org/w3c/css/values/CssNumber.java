@@ -1,5 +1,5 @@
 //
-// $Id: CssNumber.java,v 1.6 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssNumber.java,v 1.7 2008-03-25 18:30:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,9 +12,15 @@ import org.w3c.css.util.InvalidParamException;
 /**
  * A CSS float number.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssNumber extends CssValue implements CssValueFloat {
+
+    public static final int type = CssTypes.CSS_NUMBER;
+    
+    public final int getType() {
+	return type;
+    }
 
     ApplContext ac;
     Float value;

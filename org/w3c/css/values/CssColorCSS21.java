@@ -1,4 +1,4 @@
-// $Id: CssColorCSS21.java,v 1.3 2007-05-15 06:06:45 ot Exp $
+// $Id: CssColorCSS21.java,v 1.4 2008-03-25 18:30:11 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -29,7 +29,9 @@ public class CssColorCSS21 extends CssColorCSS2 {
 	}
     }
 
-    public CssColorCSS21(ApplContext ac, String s) throws InvalidParamException {
+    public CssColorCSS21(ApplContext ac, String s)
+	throws InvalidParamException 
+    {
 	setIdentColor(s, ac);
     }
 
@@ -39,7 +41,6 @@ public class CssColorCSS21 extends CssColorCSS2 {
     private void setIdentColor(String s, ApplContext ac)
 	    throws InvalidParamException {
 	String lower_s = s.toLowerCase();
-
 	int hash = lower_s.hashCode();
 
 	int indexOfColor = searchColor(hash, tableColorHash);

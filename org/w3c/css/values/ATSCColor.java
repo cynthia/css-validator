@@ -1,12 +1,12 @@
 //
-// $Id: ATSCColor.java,v 1.6 2007-05-15 06:06:45 ot Exp $
+// $Id: ATSCColor.java,v 1.7 2008-03-25 18:30:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.values;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
@@ -156,14 +156,14 @@ import org.w3c.css.util.InvalidParamException;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class ATSCColor extends CssValue
         implements CssColorConstants, CssOperator {
 
     Object color;
     RGBATSC rgb;
-    static Hashtable definedColors;
+    static HashMap<String,Object> definedColors;
     static CssIdent inherit = new CssIdent("inherit");
 
     /**
@@ -471,7 +471,7 @@ public class ATSCColor extends CssValue
     }
 
     static {
-	definedColors = new Hashtable();
+	definedColors = new HashMap<String,Object>();
 	definedColors.put("black",
 			  new RGBATSC(new Integer(0),
 				      new Integer(0),

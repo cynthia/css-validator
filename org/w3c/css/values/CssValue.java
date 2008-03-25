@@ -1,5 +1,5 @@
 //
-// $Id: CssValue.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssValue.java,v 1.6 2008-03-25 18:30:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,12 +10,18 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public abstract class CssValue {
 
+    public static int type = CssTypes.CSS_UNKNOWN;
+
     String cssversion;
 
+    public int getType() {
+	return type;
+    }
+    
   /**
    * Set the value of this value.
    *

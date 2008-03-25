@@ -1,5 +1,5 @@
 //
-// $Id: CssTime.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssTime.java,v 1.6 2008-03-25 18:30:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -24,9 +24,15 @@ import org.w3c.css.util.Util;
  *
  * <p>Time values may not be negative.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssTime extends CssValue {
+
+    public static final int type = CssTypes.CSS_TIME;
+    
+    public final int getType() {
+	return type;
+    }
 
   /**
    * Create a new CssTime.

@@ -1,5 +1,5 @@
 //
-// $Id: CssUnicodeRange.java,v 1.4 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssUnicodeRange.java,v 1.5 2008-03-25 18:30:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,6 +13,12 @@ import org.w3c.css.util.ApplContext;
 /**
  */
 public class CssUnicodeRange extends CssValue {
+
+    public static final int type = CssTypes.CSS_UNICODE_RANGE;
+    
+    public final int getType() {
+	return type;
+    }
 
     String value;
 

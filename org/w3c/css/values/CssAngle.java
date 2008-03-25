@@ -1,5 +1,5 @@
 //
-// $Id: CssAngle.java,v 1.6 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssAngle.java,v 1.7 2008-03-25 18:30:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,8 +26,14 @@ import org.w3c.css.util.Util;
  * <p>Values in these units may be negative. They should be normalized to the
  * range 0-360deg by the UA. For example, -10deg and 350deg are equivalent.
  *
- * @version $Revision: 1.6 $ */
+ * @version $Revision: 1.7 $ */
 public class CssAngle extends CssValue implements CssValueFloat {
+
+    public static final int type = CssTypes.CSS_ANGLE;
+    
+    public final int getType() {
+	return type;
+    }
 
     Float value;
     int unit;

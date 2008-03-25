@@ -1,5 +1,5 @@
 //
-// $Id: CssURL.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssURL.java,v 1.6 2008-03-25 18:30:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -44,11 +44,18 @@ import org.w3c.css.util.InvalidParamException;
  *  <A NAME="ref11">[11]</A> T Berners-Lee, L Masinter, M McCahill: "Uniform
  *  Resource Locators (URL)", <A href="ftp://ds.internic.net/rfc/rfc1738.txt">RFC
  *  1738</A>, CERN, Xerox Corporation, University of Minnesota, December 1994
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssURL extends CssValue {
 
+    public static final int type = CssTypes.CSS_URL;
+
+    public final int getType() {
+	return type;
+    }
+
     String value;
+    String full = null;
 
     URL base;
 
@@ -79,14 +86,14 @@ public class CssURL extends CssValue {
 	String urlname = s.substring(4, s.length()-1).trim();
 	this.base = base;
 
-	try {
-	    CssString convert = new CssString();
-	    convert.set(urlname, ac);
-	    value = (String) convert.get();
-	} catch (InvalidParamException e) {
+//	try {
+//	    CssString convert = new CssString();
+//	    convert.set(urlname, ac);
+//	    value = (String) convert.get();
+//	} catch (InvalidParamException e) {
 	    value = urlname;
-	}
-
+	    full = null;
+//	}
 	if (!urlHeading.startsWith("url"))
 	    throw new InvalidParamException("url", s, ac);
     }
@@ -109,7 +116,12 @@ public class CssURL extends CssValue {
      * Returns a string representation of the object.
      */
     public String toString() {
-	return "url(" + value + ")";
+	if (full != null) {
+	    return full;
+	}
+	StringBuilder sb = new StringBuilder("url(");
+	sb.append(value).append(')');
+	return full = sb.toString();
     }
 
     /**

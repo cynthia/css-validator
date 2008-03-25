@@ -1,5 +1,5 @@
 //
-// $Id: CssString.java,v 1.5 2005-09-14 15:15:33 ylafon Exp $
+// $Id: CssString.java,v 1.6 2008-03-25 18:30:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,11 +13,17 @@ import org.w3c.css.util.InvalidParamException;
 /**
  * A CSS string.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssString extends CssValue {
 
+    public static final int type = CssTypes.CSS_STRING;
+    
     String value;
+
+    public final int getType() {
+	return type;
+    }
 
     /**
      * Create a new CssString
@@ -40,10 +46,11 @@ public class CssString extends CssValue {
      * @exception InvalidParamException The unit is incorrect
      */
     public void set(String s, ApplContext ac) throws InvalidParamException {
-	if (s.indexOf('\'') == -1 &&
-	    s.indexOf('"') == -1) {
-	    throw new InvalidParamException("string", s, ac);
-	}
+//	if (s.indexOf('\'') == -1 &&
+//	    s.indexOf('"') == -1) {
+//	    throw new InvalidParamException("string", s, ac);
+//      }
+// tokenizer is taking care of the validity of the value
 	value = s;
     }
 

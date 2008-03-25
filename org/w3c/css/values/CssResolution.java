@@ -1,5 +1,5 @@
 //
-// $Id: CssResolution.java,v 1.3 2005-09-08 12:24:10 ylafon Exp $
+// $Id: CssResolution.java,v 1.4 2008-03-25 18:30:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -20,9 +20,15 @@ import org.w3c.css.util.Util;
  *   the pixels. In dots per inch and dots per centimeter, respectively. These units are only used in the
  *   resolution media feature.
  *   </P>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssResolution extends CssValue {
+
+    public static final int type = CssTypes.CSS_RESOLUTION;
+    
+    public final int getType() {
+	return type;
+    }
 
   /**
    * Create a new CssResolution

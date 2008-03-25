@@ -1,5 +1,5 @@
 //
-// $Id: CssDate.java,v 1.3 2005-09-08 12:24:10 ylafon Exp $
+// $Id: CssDate.java,v 1.4 2008-03-25 18:30:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,13 +14,19 @@ import org.w3c.css.util.InvalidParamException;
  *
  * Legal format is dd/mm/yyyy as in SSML
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssDate extends CssValue {
+    
+    public static final int type = CssTypes.CSS_DATE;
+    
+    public final int getType() {
+	return type;
+    }
 
-	String day = new String();
-	String month = new String();
-	String year = new String();
+    String day = new String();
+    String month = new String();
+    String year = new String();
 
   /**
    * Create a new CssDate.
