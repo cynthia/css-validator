@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.13 2008-03-25 18:30:11 ylafon Exp $
+// $Id: CssColor.java,v 1.14 2008-03-26 09:18:26 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -159,7 +159,7 @@ import org.w3c.css.util.Util;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public class CssColor extends CssValue
     implements CssColorConstants, CssOperator {
@@ -422,7 +422,6 @@ public class CssColor extends CssValue
 	    if (obj instanceof RGB) {
 		color = lower_s;
 		rgb = (RGB) obj;
-		System.err.println("*** CssColor: setting RGB to: "+rgb);
 	    } else if (obj instanceof RGBA) {
 		color = lower_s;
 		rgba = (RGBA) obj;
