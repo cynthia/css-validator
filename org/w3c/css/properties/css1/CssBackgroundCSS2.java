@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundCSS2.java,v 1.8 2008-03-17 18:29:51 ylafon Exp $
+// $Id: CssBackgroundCSS2.java,v 1.9 2008-03-27 14:07:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -46,7 +46,7 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  * @see CssBackgroundColor
  * @see CssBackgroundImage
  * @see CssBackgroundRepeat
@@ -63,6 +63,33 @@ public class CssBackgroundCSS2 extends CssProperty
     CssBackgroundPositionCSS2 position;
 
     boolean same;
+
+    /**
+     * Duplicate this property.
+     *
+     * @see org.w3c.css.css.CssCascadingOrder#order
+     */
+    public CssProperty duplicate() {
+	CssBackgroundCSS2 cloned = (CssBackgroundCSS2) super.duplicate();
+	if (cloned != null) {
+	    if (color != null) {
+		cloned.color = (CssBackgroundColorCSS2) color.duplicate();
+	    }
+	    if (image != null) {
+		cloned.image = (CssBackgroundImageCSS2) image.duplicate();
+	    }
+	    if (repeat != null) {
+		cloned.repeat = (CssBackgroundRepeatCSS2) repeat.duplicate();
+	    }
+	    if (attachment != null) {
+		cloned.attachment = (CssBackgroundAttachmentCSS2) attachment.duplicate();
+	    }
+	    if (position != null) {
+		cloned.position = (CssBackgroundPositionCSS2) position.duplicate();
+	    }
+	}
+	return cloned;
+    }
 
     /**
      * Create a new CssBackgroundCSS2
