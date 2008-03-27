@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnWidth.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
+// $Id: CssColumnWidth.java,v 1.3 2008-03-27 15:50:31 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -15,6 +15,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssNumber;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
@@ -35,7 +36,10 @@ public class CssColumnWidth extends CssProperty {
 
     CssValue width;
 
-    static CssIdent auto = new CssIdent("auto");
+    static CssIdent auto;
+    static {
+	auto = new CssIdent("auto");
+    }
 
     /**
      * Create a new CssColumnWidth
@@ -56,19 +60,22 @@ public class CssColumnWidth extends CssProperty {
 	setByUser();
 	CssValue val = expression.getValue();
 
-	if (val.equals(inherit)) {
+	switch (val.getType()) {
+	case CssTypes.CSS_NUMBER:
+	    val = ((CssNumber)val).getLength();
+	case CssTypes.CSS_LENGTH:
 	    width = val;
-	    expression.next();
-	} else if (val.equals(auto)) {
-	    width = val;
-	    expression.next();
-	} else if (val instanceof CssNumber) {
-	    width = val;
-	    expression.next();
-	} else {
+	    break;
+	case CssTypes.CSS_IDENT:
+	    if (inherit.equals(val) || auto.equals(val)) {
+		width = val;
+		break;
+	    } 
+	default:
 	    throw new InvalidParamException("value", expression.getValue(),
 					    getPropertyName(), ac);
 	}
+	expression.next();
     }
 
     public CssColumnWidth(ApplContext ac, CssExpression expression)
