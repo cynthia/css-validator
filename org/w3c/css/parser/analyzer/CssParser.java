@@ -60,7 +60,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.43 $
+ * @version $Revision: 1.44 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -3079,10 +3079,13 @@ CssSelectors param = null;
   }
 
   String convertStringIndex(String s, int start, int len, boolean escapeFirst) throws ParseException {
-    StringBuilder buf = new StringBuilder(len);
     int index = start;
     int t;
     int maxCount = 0;
+    if ((start == 0) && (len == s.length()) && (s.indexOf('\\') == -1)) {
+        return s;
+    }
+    StringBuilder buf = new StringBuilder(len);
 
     while (index < len) {
         char c = s.charAt(index);
