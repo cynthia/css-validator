@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.41 2008-03-28 15:39:12 ylafon Exp $
+ * $Id: CssParser.jj,v 1.42 2008-03-28 15:44:27 ylafon Exp $
  *
  */
 
@@ -77,7 +77,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.41 $
+ * @version $Revision: 1.42 $
  */
 public abstract class CssParser {
 
@@ -2062,10 +2062,13 @@ void skipAfterExpression(Exception e) {
 
 JAVACODE
 String convertStringIndex(String s, int start, int len, boolean escapeFirst) {
-    StringBuilder buf = new StringBuilder(len);
     int index = start;
     int t;
     int maxCount = 0;
+    if ((start == 0) && (len == s.length()) && (s.indexOf('\\') == -1)) {
+	return s;
+    }
+    StringBuilder buf = new StringBuilder(len);
 
     while (index < len) {
 	char c = s.charAt(index);
