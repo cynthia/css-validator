@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.39 2008-03-28 15:05:10 ylafon Exp $
+ * $Id: CssParser.jj,v 1.40 2008-03-28 15:11:55 ylafon Exp $
  *
  */
 
@@ -77,7 +77,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.39 $
+ * @version $Revision: 1.40 $
  */
 public abstract class CssParser {
 
@@ -624,6 +624,7 @@ void charset() :
 			 (!" ".equals(space1Token.image)) || 
 			 (space2Token != null && !"".equals(space2Token.image)) ||
 			 (space1Token.specialToken != null) ||
+			 (n.specialToken != null) ||
 			 (semicolonToken.specialToken != null) ||
 			 (n.image.charAt(0) != '\"')
 			) {
