@@ -1,5 +1,5 @@
 //
-// $Id: CssStyle.java,v 1.8 2005-09-16 13:33:52 ylafon Exp $
+// $Id: CssStyle.java,v 1.9 2008-03-28 16:36:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -18,7 +18,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class represents a class for one context
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class CssStyle {
 
@@ -97,8 +97,8 @@ public class CssStyle {
    * @param warnings For warnings reports.
    * @param allSelectors All contexts is the entire style sheet.
    */
-  public void findConflicts(ApplContext ac, Warnings warnings,
-	  CssSelectors selector, Enumeration allSelectors) {
+    public void findConflicts(ApplContext ac, Warnings warnings,
+			      CssSelectors selector, CssSelectors[] allSelectors) {
     // nothing to do
   }
 }

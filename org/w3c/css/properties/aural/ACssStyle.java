@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.4 2005-09-16 13:33:52 ylafon Exp $
+// $Id: ACssStyle.java,v 1.5 2008-03-28 16:36:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -17,7 +17,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class ACssStyle extends Css1Style {
 
@@ -428,7 +428,7 @@ public class ACssStyle extends Css1Style {
    * @param allSelectors All contexts is the entire style sheet.
    */
   public void findConflicts(ApplContext ac, Warnings warnings,
-	  CssSelectors selector, Enumeration allSelectors) {
+	  CssSelectors selector, CssSelectors[] allSelectors) {
     super.findConflicts(ac, warnings, selector, allSelectors);
     if (acssVoiceFamily != null) {
 	if (!acssVoiceFamily.containsGenericFamily()) {

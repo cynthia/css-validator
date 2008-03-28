@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.23 2008-03-20 14:51:46 ylafon Exp $
+// $Id: CssSelectors.java,v 1.24 2008-03-28 16:36:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.util.Warnings;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.23 $
+ * @version $Revision: 1.24 $
  */
 public final class CssSelectors extends SelectorsList implements CssSelectorsConstant {
 
@@ -639,7 +639,7 @@ public final class CssSelectors extends SelectorsList implements CssSelectorsCon
     }
     
     public void findConflicts(ApplContext ac, Warnings warnings,
-	    Enumeration allSelectors) {
+			      CssSelectors[] allSelectors) {
 	CssStyle style = getStyle();
 	style.findConflicts(ac, warnings, this, allSelectors);
     }
