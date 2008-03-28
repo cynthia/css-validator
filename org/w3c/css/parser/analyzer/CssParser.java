@@ -60,7 +60,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.41 $
+ * @version $Revision: 1.42 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -474,6 +474,7 @@ public abstract class CssParser implements CssParserConstants {
                          (!" ".equals(space1Token.image)) ||
                          (space2Token != null && !"".equals(space2Token.image)) ||
                          (space1Token.specialToken != null) ||
+                         (n.specialToken != null) ||
                          (semicolonToken.specialToken != null) ||
                          (n.image.charAt(0) != '\"')
                         ) {
