@@ -1,5 +1,5 @@
 //
-// $Id: FillOpacity.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
+// $Id: FillOpacity.java,v 1.3 2008-04-07 14:16:23 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -82,9 +82,9 @@ public class FillOpacity extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-	if (((SVGStyle) style).fillOpacity != null)
+	if (((SVGBasicStyle) style).fillOpacity != null)
 	    style.addRedefinitionWarning(ac, this);
-	((SVGStyle) style).fillOpacity = this;
+	((SVGBasicStyle) style).fillOpacity = this;
     }
 
     /**
@@ -95,9 +95,9 @@ public class FillOpacity extends CssProperty {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
-	    return ((SVGStyle) style).getFillOpacity();
+	    return ((SVGBasicStyle) style).getFillOpacity();
 	} else {
-	    return ((SVGStyle) style).fillOpacity;
+	    return ((SVGBasicStyle) style).fillOpacity;
 	}
     }
 

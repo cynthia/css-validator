@@ -1,5 +1,5 @@
 //
-// $Id: SolidColor.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
+// $Id: SolidColor.java,v 1.3 2008-04-07 14:16:24 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -157,9 +157,9 @@ public class SolidColor extends CssProperty implements CssOperator {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-	if (((SVGStyle) style).solidColor != null)
+	if (((SVGBasicStyle) style).solidColor != null)
 	    style.addRedefinitionWarning(ac, this);
-	((SVGStyle) style).solidColor = this;
+	((SVGBasicStyle) style).solidColor = this;
     }
 
     /**
@@ -170,9 +170,9 @@ public class SolidColor extends CssProperty implements CssOperator {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
-	    return ((SVGStyle) style).getSolidColor();
+	    return ((SVGBasicStyle) style).getSolidColor();
 	} else {
-	    return ((SVGStyle) style).solidColor;
+	    return ((SVGBasicStyle) style).solidColor;
 	}
     }
 

@@ -1,5 +1,5 @@
 //
-// $Id: ColorProfile.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
+// $Id: ColorProfile.java,v 1.3 2008-04-07 14:16:23 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -119,9 +119,9 @@ public class ColorProfile extends CssProperty implements CssOperator {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-	if (((SVGStyle) style).colorProfile != null)
+	if (((SVGBasicStyle) style).colorProfile != null)
 	    style.addRedefinitionWarning(ac, this);
-	((SVGStyle) style).colorProfile = this;
+	((SVGBasicStyle) style).colorProfile = this;
 
     }
 
@@ -133,9 +133,9 @@ public class ColorProfile extends CssProperty implements CssOperator {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
-	    return ((SVGStyle) style).getColorProfileSVG();
+	    return ((SVGBasicStyle) style).getColorProfileSVG();
 	} else {
-	    return ((SVGStyle) style).colorProfile;
+	    return ((SVGBasicStyle) style).colorProfile;
 	}
     }
 

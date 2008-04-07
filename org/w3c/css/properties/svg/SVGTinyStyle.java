@@ -1,5 +1,5 @@
 //
-// $Id: SVGTinyStyle.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
+// $Id: SVGTinyStyle.java,v 1.3 2008-04-07 14:16:24 ylafon Exp $
 // From Sijtsche de Jong
 //
 // COPYRIGHT (c) 1995-2002 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -8,9 +8,11 @@
 
 package org.w3c.css.properties.svg;
 
+import org.w3c.css.properties.css3.Css3Style;
+
 import org.w3c.css.parser.CssPrinterStyle;
 
-public class SVGTinyStyle extends org.w3c.css.properties.css3.Css3Style {
+public class SVGTinyStyle extends Css3Style {
 
     FillRule fillRule;
     StrokeLinejoin strokeLinejoin;
@@ -26,16 +28,16 @@ public class SVGTinyStyle extends org.w3c.css.properties.css3.Css3Style {
 	if (fillRule == null) {
 	    fillRule =
 		(FillRule) style.CascadingOrder (
-			new FillRule(), style, selector);
+		    new FillRule(), style, selector);
 	}
 	return fillRule;
     }
-
+    
     public StrokeLinejoin getStrokeLinejoin() {
 	if (strokeLinejoin == null) {
 	    strokeLinejoin =
 		(StrokeLinejoin) style.CascadingOrder (
-			new StrokeLinejoin(), style, selector);
+		    new StrokeLinejoin(), style, selector);
 	}
 	return strokeLinejoin;
     }
@@ -44,7 +46,7 @@ public class SVGTinyStyle extends org.w3c.css.properties.css3.Css3Style {
 	if (strokeLineCap == null) {
 	    strokeLineCap =
 		(StrokeLineCap) style.CascadingOrder (
-			new StrokeLineCap(), style, selector);
+		    new StrokeLineCap(), style, selector);
 	}
 	return strokeLineCap;
     }
@@ -53,7 +55,7 @@ public class SVGTinyStyle extends org.w3c.css.properties.css3.Css3Style {
 	if (strokeMiterLimit == null) {
 	    strokeMiterLimit =
 		(StrokeMiterLimit) style.CascadingOrder (
-			new StrokeMiterLimit(), style, selector);
+		    new StrokeMiterLimit(), style, selector);
 	}
 	return strokeMiterLimit;
     }
@@ -62,7 +64,7 @@ public class SVGTinyStyle extends org.w3c.css.properties.css3.Css3Style {
 	if (strokeWidth == null) {
 	    strokeWidth =
 		(StrokeWidth) style.CascadingOrder (
-			new StrokeWidth(), style, selector);
+		    new StrokeWidth(), style, selector);
 	}
 	return strokeWidth;
     }
@@ -71,7 +73,7 @@ public class SVGTinyStyle extends org.w3c.css.properties.css3.Css3Style {
 	if (strokeDashOffset == null) {
 	    strokeDashOffset =
 		(StrokeDashOffset) style.CascadingOrder (
-			new StrokeDashOffset(), style, selector);
+		    new StrokeDashOffset(), style, selector);
 	}
 	return strokeDashOffset;
     }
@@ -80,7 +82,7 @@ public class SVGTinyStyle extends org.w3c.css.properties.css3.Css3Style {
 	if (strokeDashArray == null) {
 	    strokeDashArray =
 		(StrokeDashArray) style.CascadingOrder (
-			new StrokeDashArray(), style, selector);
+		    new StrokeDashArray(), style, selector);
 	}
 	return strokeDashArray;
     }
@@ -89,7 +91,7 @@ public class SVGTinyStyle extends org.w3c.css.properties.css3.Css3Style {
 	if (stroke == null) {
 	    stroke =
 		(Stroke) style.CascadingOrder (
-			new Stroke(), style, selector);
+		    new Stroke(), style, selector);
 	}
 	return stroke;
     }
@@ -98,7 +100,7 @@ public class SVGTinyStyle extends org.w3c.css.properties.css3.Css3Style {
 	if (fill == null) {
 	    fill =
 		(Fill) style.CascadingOrder (
-			new Fill(), style, selector);
+		    new Fill(), style, selector);
 	}
 	return fill;
     }

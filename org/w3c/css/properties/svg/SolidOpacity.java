@@ -1,5 +1,5 @@
 //
-// $Id: SolidOpacity.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
+// $Id: SolidOpacity.java,v 1.3 2008-04-07 14:16:24 ylafon Exp $
 // From Sijtsche de Jong
 //
 // (c) COPYRIGHT 1995-2002  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -100,9 +100,9 @@ public class SolidOpacity extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-	if (((SVGStyle) style).solidOpacity != null)
+	if (((SVGBasicStyle) style).solidOpacity != null)
 	    style.addRedefinitionWarning(ac, this);
-	((SVGStyle) style).solidOpacity = this;
+	((SVGBasicStyle) style).solidOpacity = this;
     }
 
     /**
@@ -113,9 +113,9 @@ public class SolidOpacity extends CssProperty {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
-	    return ((SVGStyle) style).getSolidOpacity();
+	    return ((SVGBasicStyle) style).getSolidOpacity();
 	} else {
-	    return ((SVGStyle) style).solidOpacity;
+	    return ((SVGBasicStyle) style).solidOpacity;
 	}
     }
 

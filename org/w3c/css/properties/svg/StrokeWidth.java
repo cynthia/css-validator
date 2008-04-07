@@ -1,5 +1,5 @@
 //
-// $Id: StrokeWidth.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
+// $Id: StrokeWidth.java,v 1.3 2008-04-07 14:16:24 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -81,9 +81,9 @@ public class StrokeWidth extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-	if (((SVGStyle) style).strokeWidth != null)
+	if (((SVGTinyStyle) style).strokeWidth != null)
 	    style.addRedefinitionWarning(ac, this);
-	((SVGStyle) style).strokeWidth = this;
+	((SVGTinyStyle) style).strokeWidth = this;
     }
 
     /**
@@ -94,9 +94,9 @@ public class StrokeWidth extends CssProperty {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
-	    return ((SVGStyle) style).getStrokeWidth();
+	    return ((SVGTinyStyle) style).getStrokeWidth();
 	} else {
-	    return ((SVGStyle) style).strokeWidth;
+	    return ((SVGTinyStyle) style).strokeWidth;
 	}
     }
 

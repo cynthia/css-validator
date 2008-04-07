@@ -1,5 +1,5 @@
 //
-// $Id: StrokeMiterLimit.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
+// $Id: StrokeMiterLimit.java,v 1.3 2008-04-07 14:16:24 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -109,7 +109,7 @@ public class StrokeMiterLimit extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-	SVGStyle style0 = (SVGStyle) style;
+	SVGTinyStyle style0 = (SVGTinyStyle) style;
 	if (style0.strokeMiterLimit != null)
 	    style0.addRedefinitionWarning(ac, this);
 	style0.strokeMiterLimit = this;
@@ -123,9 +123,9 @@ public class StrokeMiterLimit extends CssProperty {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
-	    return ((SVGStyle) style).getStrokeMiterLimit();
+	    return ((SVGTinyStyle) style).getStrokeMiterLimit();
 	} else {
-	    return ((SVGStyle) style).strokeMiterLimit;
+	    return ((SVGTinyStyle) style).strokeMiterLimit;
 	}
     }
 

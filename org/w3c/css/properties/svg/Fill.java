@@ -1,5 +1,5 @@
 //
-// $Id: Fill.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
+// $Id: Fill.java,v 1.3 2008-04-07 14:16:23 ylafon Exp $
 // From Sijtsche de Jong
 //
 // (c) COPYRIGHT 1995-2002  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -240,9 +240,9 @@ public class Fill extends CssProperty implements CssOperator {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-	if (((SVGStyle) style).fill != null)
+	if (((SVGTinyStyle) style).fill != null)
 	    style.addRedefinitionWarning(ac, this);
-	((SVGStyle) style).fill = this;
+	((SVGTinyStyle) style).fill = this;
     }
 
     /**
@@ -253,9 +253,9 @@ public class Fill extends CssProperty implements CssOperator {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 	if (resolve) {
-	    return ((SVGStyle) style).getFill();
+	    return ((SVGTinyStyle) style).getFill();
 	} else {
-	    return ((SVGStyle) style).fill;
+	    return ((SVGTinyStyle) style).fill;
 	}
     }
 
