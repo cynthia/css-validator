@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.15 2008-04-24 06:41:04 ot Exp $
+// $Id: Messages.java,v 1.16 2008-04-24 07:25:57 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public class Messages {
 
@@ -238,6 +238,24 @@ public class Messages {
 		}
 
 		// -----------------------
+
+		try {
+			URL url = adjustURL(Messages.class.getResource("Messages.properties.ko"));
+			java.io.InputStream f = url.openStream();
+			try {
+				tmp = new Utf8Properties();
+				tmp.load(f);
+				languages_name.add("ko");
+				languages.put("ko", tmp);
+			} finally {
+				f.close();
+			}
+		} catch (Exception e) {
+			System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties ko");
+			System.err.println("  " + e.toString());
+		}
+
+		// -----------------------
 		
 		try {
 			URL url = adjustURL(Messages.class.getResource("Messages.properties.it"));
@@ -331,23 +349,6 @@ public class Messages {
 			System.err.println("  " + e.toString());
 		}
 
-		// -----------------------
-
-		try {
-			URL url = adjustURL(Messages.class.getResource("Messages.properties.ko"));
-			java.io.InputStream f = url.openStream();
-			try {
-				tmp = new Utf8Properties();
-				tmp.load(f);
-				languages_name.add("ko");
-				languages.put("ko", tmp);
-			} finally {
-				f.close();
-			}
-		} catch (Exception e) {
-			System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties ko");
-			System.err.println("  " + e.toString());
-		}
 	}
 
 	/**
