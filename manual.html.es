@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.es,v 1.9 2008-03-13 15:30:23 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.es,v 1.9 2008-03-13 15:30:23 ot Exp $ -->
+  content="$Id: manual.html.es,v 1.10 2008-04-24 07:07:23 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.es,v 1.10 2008-04-24 07:07:23 ot Exp $ -->
 </head>
 
 <body>
@@ -223,7 +223,7 @@ El servicio de validación de CSS es un servicio gratuito y público para todos,
     <tr>
       <th>lang</th>
       <td>El lenguaje utilizado para la respuesta, actualmente <code>en</code>,
-        <code>fr</code>, <code>ja</code>, <code>es</code>,
+        <code>fr</code>, <code>it</code>, <code>ko</code>, <code>ja</code>, <code>es</code>,
         <code>zh-cn</code>, <code>nl</code>, <code>de</code>.</td>
       <td>Inglés (<code>en</code>).</td>
     </tr>
@@ -275,6 +275,11 @@ El servicio de validación de CSS es un servicio gratuito y público para todos,
            xml:lang="fr"
            hreflang="fr"
            rel="alternate">Français</a> </li>
+           <li><a href="manual.html.ko"
+               lang="ko"
+               xml:lang="ko"
+               hreflang="ko"
+               rel="alternate">한국어</a> </li>
            <li><a href="manual.html.it"
                lang="it"
                xml:lang="it"

@@ -8,7 +8,7 @@
     @import "style/base.css";    
     @import "style/docs.css";
   </style>
-  <meta name="revision" content="$Id: manual.html.de,v 1.8 2008-03-13 15:30:22 ot Exp $" /><!-- SSI Template Version: $Id: manual.html.de,v 1.8 2008-03-13 15:30:22 ot Exp $ --></head>
+  <meta name="revision" content="$Id: manual.html.de,v 1.9 2008-04-24 07:07:22 ot Exp $" /><!-- SSI Template Version: $Id: manual.html.de,v 1.9 2008-04-24 07:07:22 ot Exp $ --></head>
 <body>
   <div id="banner">
    <h1 id="title"><a href="http://www.w3.org/"><img alt="W3C" width="110" height="61" id="logo" src="./images/w3c.png" /></a>
@@ -141,7 +141,7 @@ Sie die zu überprüfende Datei.<img style="display: block; margin-left: auto; m
     </tr>
     <tr>
       <th>lang</th>
-      <td>Die Ausgabesprache; zur Zeit werden unterstützt: <code>en</code>, <code>fr</code>, <code>ja</code>, <code>es</code>, <code>zh-cn</code>, <code>nl</code>, <code>de</code>.</td>
+      <td>Die Ausgabesprache; zur Zeit werden unterstützt: <code>en</code>, <code>fr</code>, <code>it</code>, <code>ko</code>, <code>ja</code>, <code>es</code>, <code>zh-cn</code>, <code>nl</code>, <code>de</code>.</td>
       <td>Englisch (<code>en</code>).</td>
     </tr>
     <tr>
@@ -191,6 +191,11 @@ Sie die zu überprüfende Datei.<img style="display: block; margin-left: auto; m
            xml:lang="fr"
            hreflang="fr"
            rel="alternate">Français</a> </li>
+           <li><a href="manual.html.ko"
+               lang="ko"
+               xml:lang="ko"
+               hreflang="ko"
+               rel="alternate">한국어</a> </li>
            <li><a href="manual.html.it"
                lang="it"
                xml:lang="it"
