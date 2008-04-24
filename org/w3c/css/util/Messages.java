@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.14 2007-08-23 09:18:45 julien Exp $
+// $Id: Messages.java,v 1.15 2008-04-24 06:41:04 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public class Messages {
 
@@ -328,6 +328,24 @@ public class Messages {
 			}
 		} catch (Exception e) {
 			System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties cn");
+			System.err.println("  " + e.toString());
+		}
+
+		// -----------------------
+
+		try {
+			URL url = adjustURL(Messages.class.getResource("Messages.properties.ko"));
+			java.io.InputStream f = url.openStream();
+			try {
+				tmp = new Utf8Properties();
+				tmp.load(f);
+				languages_name.add("ko");
+				languages.put("ko", tmp);
+			} finally {
+				f.close();
+			}
+		} catch (Exception e) {
+			System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties ko");
 			System.err.println("  " + e.toString());
 		}
 	}
