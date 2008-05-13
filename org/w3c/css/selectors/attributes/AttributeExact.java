@@ -1,4 +1,4 @@
-// $Id: AttributeExact.java,v 1.8 2008-05-13 15:20:52 ylafon Exp $
+// $Id: AttributeExact.java,v 1.9 2008-05-13 16:11:43 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -101,7 +101,7 @@ public class AttributeExact extends AttributeSelector {
 				  new String[] { toString(), attr.toString() });
 		}
 	    } else if (attr instanceof AttributeSuffix) {
-		String othervalue = ((AttributeStart) attr).getValue();
+		String othervalue = ((AttributeSuffix) attr).getValue();
 		if (!value.endsWith(othervalue)) {
 		     ac.getFrame().addWarning("incompatible", 
 				  new String[] { toString(), attr.toString() });
