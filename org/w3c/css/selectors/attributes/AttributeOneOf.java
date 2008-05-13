@@ -1,4 +1,4 @@
-// $Id: AttributeOneOf.java,v 1.3 2007-09-13 10:12:07 julien Exp $
+// $Id: AttributeOneOf.java,v 1.4 2008-05-13 09:37:27 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -63,9 +63,11 @@ public class AttributeOneOf extends AttributeSelector {
     }
 
     public void applyAttribute(ApplContext ac, AttributeSelector attr) {
-	if((attr instanceof AttributeExact) &&
-		!value.equals(((AttributeExact) attr).getValue())) {
-	    ac.getFrame().addWarning("incompatible", new String[] { toString(), attr.toString() });
+	if (getName().equals(attr.getName())) {
+	    if((attr instanceof AttributeExact) &&
+	       !value.equals(((AttributeExact) attr).getValue())) {
+		ac.getFrame().addWarning("incompatible", new String[] { toString(), attr.toString() });
+	    }
 	}
     }
 
