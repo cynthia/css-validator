@@ -1,4 +1,4 @@
-// $Id: AttributeStart.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
+// $Id: AttributeStart.java,v 1.3 2008-05-14 10:13:09 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -44,7 +44,17 @@ private String value;
     }
 
     public void applyAttribute(ApplContext ac, AttributeSelector attr) {
-
+	String name = getName();
+	if (name.equals(attr.getName())) {
+	    // attribute exact knows how to match, delegate...
+	    if (attr instanceof AttributeExact) {
+		((AttributeExact) attr).applyAttribute(ac, this);
+	    } else if (attr instanceof AttributeBegin) {
+		((AttributeBegin) attr).applyAttribute(ac, this);
+	    } else if (attr instanceof AttributeOneOf) {
+		((AttributeOneOf) attr).applyAttribute(ac, this);
+	    }
+	}
     }
 
 }

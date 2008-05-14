@@ -1,4 +1,4 @@
-// $Id: AttributeExact.java,v 1.9 2008-05-13 16:11:43 ylafon Exp $
+// $Id: AttributeExact.java,v 1.10 2008-05-14 10:13:09 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -70,13 +70,8 @@ public class AttributeExact extends AttributeSelector {
 				  new String[] { toString(), attr.toString() });
 		}
 	    } else if(attr instanceof AttributeOneOf) {
-		// FIXME check that the parsed one of value are matching 
-		// before doing the conclict check requires breaking down 
-		// the OneOf
-		if (!value.equals(((AttributeOneOf) attr).getValue())) {
-		    ac.getFrame().addWarning("incompatible", 
-			          new String[] { toString(), attr.toString() });
-		}
+		// delegate the match to OneOf
+		((AttributeOneOf)attr).applyAttribute(ac, this);
 	    } else if(attr instanceof AttributeBegin) {
 		String othervalue = ((AttributeBegin) attr).getValue();
 		// check if [lang|=en][lang=fr-FR] are incompatible 
