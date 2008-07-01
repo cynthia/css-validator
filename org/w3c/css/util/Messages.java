@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.18 2008-07-01 13:24:55 ot Exp $
+// $Id: Messages.java,v 1.19 2008-07-01 13:43:04 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.18 $
+ * @version $Revision: 1.19 $
  */
 public class Messages {
 
@@ -332,13 +332,15 @@ public class Messages {
 		// -----------------------
 		
 		try {
-			URL url = adjustURL(Messages.class.getResource("Messages.properties.pt-br"));
+			URL url = adjustURL(Messages.class.getResource("Messages.properties.pt-BR"));
 			java.io.InputStream f = url.openStream();
 			try {
 				tmp = new Utf8Properties();
 				tmp.load(f);
-				languages_name.add("pt-br");
-				languages_name.add("pt_BR");
+				languages_name.add("pt-BR");
+				languages.put("pt-br", tmp);
+				languages.put("pt-BR", tmp);
+				languages.put("pt_BR", tmp);
 				languages.put("pt", tmp);
 			} finally {
 				f.close();
