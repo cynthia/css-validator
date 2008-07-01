@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.17 2008-06-30 20:41:57 ot Exp $
+// $Id: Messages.java,v 1.18 2008-07-01 13:24:55 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.17 $
+ * @version $Revision: 1.18 $
  */
 public class Messages {
 
@@ -337,7 +337,8 @@ public class Messages {
 			try {
 				tmp = new Utf8Properties();
 				tmp.load(f);
-				languages_name.add("pt-bt");
+				languages_name.add("pt-br");
+				languages_name.add("pt_BR");
 				languages.put("pt", tmp);
 			} finally {
 				f.close();
