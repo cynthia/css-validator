@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.20 2008-07-02 18:49:11 ot Exp $
+// $Id: Messages.java,v 1.21 2008-07-07 19:05:28 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.20 $
+ * @version $Revision: 1.21 $
  */
 public class Messages {
 
@@ -347,6 +347,22 @@ public class Messages {
 			}
 		} catch (Exception e) {
 			System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties pt-br");
+			System.err.println("  " + e.toString());
+		}
+		// -----------------------
+		try {
+			URL url = adjustURL(Messages.class.getResource("Messages.properties.ru"));
+			java.io.InputStream f = url.openStream();
+			try {
+				tmp = new Utf8Properties();
+				tmp.load(f);
+				languages_name.add("ru");
+				languages.put("ru", tmp);
+			} finally {
+				f.close();
+			}
+		} catch (Exception e) {
+			System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties ru");
 			System.err.println("  " + e.toString());
 		}
 
