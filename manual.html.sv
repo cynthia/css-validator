@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.sv,v 1.2 2008-07-08 15:40:13 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.sv,v 1.2 2008-07-08 15:40:13 ot Exp $ -->
+  content="$Id: manual.html.sv,v 1.3 2008-07-08 15:59:57 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.sv,v 1.3 2008-07-08 15:59:57 ot Exp $ -->
 </head>
 
 <body>
@@ -461,6 +461,8 @@ möjligheter:
          rel="alternate">简体中文</a>
      </li>
 </ul>
+
+
 
 
 

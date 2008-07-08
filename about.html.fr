@@ -10,7 +10,7 @@
 @import "style/base.css";
 @import "style/docs.css";
 </style>
-<meta name="revision" content="$Id: about.html.fr,v 1.10 2008-07-08 15:40:13 ot Exp $" />
+<meta name="revision" content="$Id: about.html.fr,v 1.11 2008-07-08 15:59:56 ot Exp $" />
 </head>
 
 <body>
@@ -214,6 +214,8 @@ entre deux appels au validateur, ou alors installez et exécutez votre propre in
          rel="alternate">简体中文</a>
      </li>
 </ul>
+
+
 
 
 

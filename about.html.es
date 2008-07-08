@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-<meta name="revision" content="$Id: about.html.es,v 1.10 2008-07-08 15:40:13 ot Exp $"/>
+<meta name="revision" content="$Id: about.html.es,v 1.11 2008-07-08 15:59:56 ot Exp $"/>
 </head>
 <body>
   <div id="banner">
@@ -222,6 +222,8 @@ o seguir las instrucciones para descargar el &aacute;rbol completo del código f
          rel="alternate">简体中文</a>
      </li>
 </ul>
+
+
 
 
 
