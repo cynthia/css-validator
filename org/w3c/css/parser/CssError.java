@@ -1,5 +1,5 @@
 //
-// $Id: CssError.java,v 1.4 2005-09-14 15:14:18 ylafon Exp $
+// $Id: CssError.java,v 1.5 2008-12-10 15:10:15 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,7 +10,7 @@ package org.w3c.css.parser;
 /**
  * This class represents an unknown error during the parse.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssError {
 
@@ -27,7 +27,7 @@ public class CssError {
   /**
    * The unknown error
    */
-  Exception error;
+  Throwable error;
 
   /**
    * Create a new CssError
@@ -42,7 +42,7 @@ public class CssError {
    * @param line       The error line number
    * @param error      The exception
    */
-  public CssError(String sourceFile, int line, Exception error) {
+  public CssError(String sourceFile, int line, Throwable error) {
     this.sourceFile = sourceFile;
     this.line = line;
     this.error = error;
@@ -53,7 +53,7 @@ public class CssError {
    *
    * @param error      The exception
    */
-  public CssError(Exception error) {
+  public CssError(Throwable error) {
     this.error = error;
   }
 
@@ -74,7 +74,7 @@ public class CssError {
   /**
    * get the unknown error
    */
-  public Exception getException() {
+  public Throwable getException() {
     return error;
   }
 }
