@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.21 2008-07-07 19:05:28 ot Exp $
+// $Id: Messages.java,v 1.22 2008-12-10 15:25:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,15 +14,15 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  */
 public class Messages {
 
-	/**
-	 * Message properties
-	 */
-	public Utf8Properties properties;
-
+    /**
+     * Message properties
+     */
+    public Utf8Properties properties;
+    
 	public static Hashtable languages = new Hashtable();
 	public static ArrayList languages_name = new ArrayList();
 	

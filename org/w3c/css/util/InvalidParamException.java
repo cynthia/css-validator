@@ -1,5 +1,5 @@
 //
-// $Id: InvalidParamException.java,v 1.6 2007-09-13 10:21:00 julien Exp $
+// $Id: InvalidParamException.java,v 1.7 2008-12-10 15:25:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,7 +10,7 @@ package org.w3c.css.util;
 import org.w3c.css.parser.analyzer.ParseException;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class InvalidParamException extends ParseException {
 
@@ -57,23 +57,23 @@ public class InvalidParamException extends ParseException {
     
     private static String processError(String error, Object args, ApplContext ac) {
     	if (args instanceof String[]) {
-			String str = null;
-			
-			if (error != null) {
-			str = ac.getMsg().getErrorString(error);
-			}
-			if (str == null)
-				return "can't find the error message for " + error;
-			else {
-			// replace all parameters
-				int j = 0;
-				for (int i = 0; (i = str.indexOf("%s")) >= 0 && j < ((String[]) args).length; ) {
-					str = str.substring(0, i) + ((String[]) args)[j++] + str.substring(i+2);
-				}
-				return str;
-			}
+	    String str = null;
+	    
+	    if (error != null) {
+		str = ac.getMsg().getErrorString(error);
+	    }
+	    if (str == null)
+		return "can't find the error message for " + error;
+	    else {
+		// replace all parameters
+		int j = 0;
+		for (int i = 0; (i = str.indexOf("%s")) >= 0 && j < ((String[]) args).length; ) {
+		    str = str.substring(0, i) + ((String[]) args)[j++] + str.substring(i+2);
+		}
+		return str;
+	    }
     	} else {
-    		return processError(error, args.toString(), "", ac);
+	    return processError(error, args.toString(), "", ac);
     	}
     }
     
