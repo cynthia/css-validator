@@ -1,12 +1,12 @@
 //
-// $Id: AtRuleMedia.java,v 1.11 2007-11-26 05:07:17 ot Exp $
+// $Id: AtRuleMedia.java,v 1.12 2008-12-10 15:22:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleMedia.java
- * $Id: AtRuleMedia.java,v 1.11 2007-11-26 05:07:17 ot Exp $
+ * $Id: AtRuleMedia.java,v 1.12 2008-12-10 15:22:58 ylafon Exp $
  */
 package org.w3c.css.parser;
 
@@ -20,7 +20,7 @@ import org.w3c.css.util.InvalidParamException;
 /**
  * This class manages all media defines by CSS2
  *
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  * @author  Philippe Le Hegaret
  */
 public class AtRuleMedia extends AtRule {
@@ -34,7 +34,7 @@ public class AtRuleMedia extends AtRule {
     String[] media = new String[mediaCSS3.length];
     // media list coming from the stylesheet (ie. with case)
     String[] originalMedia = new String[mediaCSS3.length];
-    Vector mediafeatures = new Vector();
+    Vector<String> mediafeatures = new Vector<String>();
 
     boolean empty = true;
 
@@ -72,11 +72,12 @@ public class AtRuleMedia extends AtRule {
 
     public void addMediaFeature(CssProperty prop) {
 	if (prop != null) {
-	    String expression = prop.getPropertyName();
-	    if (prop.toString() != null) {
-		expression += " : " + prop.toString();
+	    StringBuilder expression = new StringBuilder(prop.getPropertyName());
+	    String propval = prop.toString();
+	    if (propval != null) {
+		expression.append(" : ").append(propval);
 	    }
-	    mediafeatures.addElement(expression);
+	    mediafeatures.addElement(expression.toString());
 	}
     }
 
@@ -137,7 +138,7 @@ public class AtRuleMedia extends AtRule {
      * Returns a string representation of the object.
      */
     public String toString() {
-	StringBuffer ret  = new StringBuffer();
+	StringBuilder ret  = new StringBuilder();
 
 	ret.append('@');
 	ret.append(keyword());
@@ -161,7 +162,7 @@ public class AtRuleMedia extends AtRule {
 
 	for (int i = 0; i < mediafeatures.size(); i++) {
 	    ret.append(" and (");
-	    ret.append(((String)mediafeatures.elementAt(i)));
+	    ret.append(mediafeatures.elementAt(i));
 	    ret.append(')');
 	}
 	return ret.toString();

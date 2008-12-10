@@ -60,7 +60,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.44 $
+ * @version $Revision: 1.45 $
  */
 public abstract class CssParser implements CssParserConstants {
 
