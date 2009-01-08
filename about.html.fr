@@ -10,7 +10,7 @@
 @import "style/base.css";
 @import "style/docs.css";
 </style>
-<meta name="revision" content="$Id: about.html.fr,v 1.13 2009-01-08 22:16:55 ot Exp $" />
+<meta name="revision" content="$Id: about.html.fr,v 1.14 2009-01-08 22:40:33 ot Exp $" />
 </head>
 
 <body>
@@ -228,8 +228,9 @@ entre deux appels au validateur, ou alors installez et exécutez votre propre in
 </p>
 
 <p id="support_logo">
-Soutenez cet outil !<br />
-<a href="http://www.w3.org/Consortium/supporters"><img src="http://www.w3.org/Consortium/supporter-logos/csupporter.png" alt="Soutien du W3C" /></a>
+<a href="http://www.w3.org/QA/Tools/Donate">
+<img src="http://www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+</a>
 </p>
 
 <p class="copyright">

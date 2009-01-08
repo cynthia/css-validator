@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.sv,v 1.3 2008-07-08 16:16:41 ot Exp $" />
-  <!-- SSI Template Version: $Id: DOWNLOAD.html.sv,v 1.3 2008-07-08 16:16:41 ot Exp $ -->
+  content="$Id: DOWNLOAD.html.sv,v 1.4 2009-01-08 22:40:32 ot Exp $" />
+  <!-- SSI Template Version: $Id: DOWNLOAD.html.sv,v 1.4 2009-01-08 22:40:32 ot Exp $ -->
 
 </head>
 
@@ -324,8 +324,9 @@
 </p>
 
 <p id="support_logo">
-  Stöd detta verktyg, bli<br />
-  <a href="http://www.w3.org/Consortium/supporters"><img src="http://www.w3.org/Consortium/supporter-logos/csupporter.png" alt="W3C-supporter" /></a>
+<a href="http://www.w3.org/QA/Tools/Donate">
+<img src="http://www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+</a>
 </p>
 
 <p class="copyright">

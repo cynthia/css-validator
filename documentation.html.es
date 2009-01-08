@@ -10,8 +10,8 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-<meta name="revision" content="$Id: documentation.html.es,v 1.12 2009-01-08 22:16:55 ot Exp $"/>
-<!-- SSI Template Version: $Id: documentation.html.es,v 1.12 2009-01-08 22:16:55 ot Exp $ -->
+<meta name="revision" content="$Id: documentation.html.es,v 1.13 2009-01-08 22:40:33 ot Exp $"/>
+<!-- SSI Template Version: $Id: documentation.html.es,v 1.13 2009-01-08 22:40:33 ot Exp $ -->
 </head>
 <body>
   <div id="banner">
@@ -197,9 +197,8 @@
 </a>
 </p>
 <p id="support_logo">
-Apoya esta herramienta, convi&eacute;rtete en un <br/>
-<a href="http://www.w3.org/Consortium/supporters">
-<img src="http://www.w3.org/Consortium/supporter-logos/csupporter.png" alt="W3C Supporter"/>
+<a href="http://www.w3.org/QA/Tools/Donate">
+<img src="http://www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
 </a>
 </p>
 <p class="copyright">

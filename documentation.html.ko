@@ -10,8 +10,8 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-  <meta name="revision" content="$Id: documentation.html.ko,v 1.5 2008-11-11 15:53:35 smoon Exp $" />
-  <!-- SSI Template Version: $Id: documentation.html.ko,v 1.5 2008-11-11 15:53:35 smoon Exp $ -->
+  <meta name="revision" content="$Id: documentation.html.ko,v 1.6 2009-01-08 22:40:33 ot Exp $" />
+  <!-- SSI Template Version: $Id: documentation.html.ko,v 1.6 2009-01-08 22:40:33 ot Exp $ -->
 </head>
 
 <body>
@@ -178,8 +178,9 @@
    </p>
 
    <p id="support_logo">
-여러분도 W3C 후원자가 되어 이 툴을 지원할 수 있습니다:<br />
-<a href="http://www.w3.org/Consortium/supporters"><img src="http://www.w3.org/Consortium/supporter-logos/csupporter.png" alt="W3C 후원자" /></a>
+   <a href="http://www.w3.org/QA/Tools/Donate">
+   <img src="http://www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+   </a>
    </p>
 
     <p class="copyright">

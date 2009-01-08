@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.nl,v 1.10 2009-01-08 22:16:55 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.nl,v 1.11 2009-01-08 22:40:33 ot Exp $" />
 
   </head>
 
@@ -233,8 +233,9 @@ of installeer en draai je eigen instantie van de validator.</p>
    </p>
 
    <p id="support_logo">
-Steun deze tool, wordt een<br />
-<a href="http://www.w3.org/Consortium/supporters"><img src="http://www.w3.org/Consortium/supporter-logos/csupporter.png" alt="W3C Supporter" /></a>
+   <a href="http://www.w3.org/QA/Tools/Donate">
+   <img src="http://www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+   </a>
    </p>
 
     <p class="copyright">
