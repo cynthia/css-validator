@@ -8,7 +8,7 @@
     @import "style/base.css";  
     @import "style/docs.css";
   </style>
-  <meta name="revision" content="$Id: DOWNLOAD.html.de,v 1.10 2008-07-08 16:16:41 ot Exp $" /><!-- SSI Template Version: $Id: DOWNLOAD.html.de,v 1.10 2008-07-08 16:16:41 ot Exp $ --></head>
+  <meta name="revision" content="$Id: DOWNLOAD.html.de,v 1.11 2009-01-08 22:16:54 ot Exp $" /><!-- SSI Template Version: $Id: DOWNLOAD.html.de,v 1.11 2009-01-08 22:16:54 ot Exp $ --></head>
 <body>
   <div id="banner">
    <h1 id="title"><a href="http://www.w3.org/"><img alt="W3C" width="110" height="61" id="logo" src="./images/w3c.png" /></a>
@@ -219,7 +219,7 @@ Unterstützten Sie dieses Werkzeug, werden Sie <br />
    </p>
 
     <p class="copyright">
-      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 1994-2008
+      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 1994-2009
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>®
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,

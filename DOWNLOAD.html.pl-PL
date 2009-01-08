@@ -11,8 +11,8 @@
   	@import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.pl-PL,v 1.15 2008-07-08 16:16:41 ot Exp $" />
-  <!-- SSI Template Version: $Id: DOWNLOAD.html.pl-PL,v 1.15 2008-07-08 16:16:41 ot Exp $ -->
+  content="$Id: DOWNLOAD.html.pl-PL,v 1.16 2009-01-08 22:16:55 ot Exp $" />
+  <!-- SSI Template Version: $Id: DOWNLOAD.html.pl-PL,v 1.16 2009-01-08 22:16:55 ot Exp $ -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 </head>
 
@@ -258,7 +258,7 @@ Wspierając to narzędzie zastaniesz<br />
    </p>
 
     <p class="copyright">
-      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2008
+      <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2009
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>&reg;
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
