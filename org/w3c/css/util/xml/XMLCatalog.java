@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLCatalog.java,v 1.5 2007-07-13 13:32:21 julien Exp $
+ * $Id: XMLCatalog.java,v 1.6 2009-01-19 16:59:37 jean-gui Exp $
  */
 package org.w3c.css.util.xml;
 
@@ -23,7 +23,7 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @author Philippe Le Hegaret
  */
 public class XMLCatalog extends Utf8Properties implements ContentHandler {
@@ -36,7 +36,7 @@ public class XMLCatalog extends Utf8Properties implements ContentHandler {
 	public XMLCatalog() {
 		try {
 			baseURI = XMLCatalog.class.getResource("catalog.xml");
-			parse("\"" + baseURI.toString() + "\"");
+			parse(baseURI.toString());
 		} catch (Exception e) {
 			System.err.println("org.w3c.css.css.XMLStyleSheetHandler: "
 					+ "couldn't load catalog.xml");
