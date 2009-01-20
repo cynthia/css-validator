@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: build.xml,v 1.11 2009-01-20 13:58:52 jean-gui Exp $ -->
+<!-- $Id: build.xml,v 1.12 2009-01-20 14:36:23 jean-gui Exp $ -->
 <project default="jar" name="W3C CSS Validator">
 
   <!-- =================================================================== -->
@@ -77,7 +77,7 @@
 	<target name="build" description="Builds the validator" depends="prepare">
 		<mkdir dir="./build"/>
 		<javac classpathref="build.class.path" destdir="./build" encoding="UTF-8"
-           debug="yes" includes="org/w3c/**" srcdir="."/>
+           debug="yes" includes="org/w3c/**" srcdir="." source="1.5" target="1.5"/>
 		<copy todir="./build">
       <fileset dir="./">
         <include name="org/**"/>
@@ -89,11 +89,8 @@
 
 	<target name="jigsaw" description="Builds the validator for Jigsaw">
 		<mkdir dir="./build"/>
-		<javac 
-			classpathref="build.class.path"
-			destdir="." 
-			encoding="UTF-8"
-			debug="yes">
+		<javac classpathref="build.class.path" destdir="." encoding="UTF-8"
+           debug="yes" source="1.5" target="1.5">
 			<src path="./org/w3c"/>
 		</javac>
 	</target>
