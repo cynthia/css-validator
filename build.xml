@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: build.xml,v 1.12 2009-01-20 14:36:23 jean-gui Exp $ -->
+<!-- $Id: build.xml,v 1.13 2009-01-21 17:46:37 jean-gui Exp $ -->
 <project default="jar" name="W3C CSS Validator">
 
   <!-- =================================================================== -->
@@ -112,7 +112,7 @@
 			<include name="org/**"/>
 			<manifest>
         <attribute name="Main-Class" value="org.w3c.css.css.CssValidator"/>
-        <attribute name="Class-path" value="lib/commons-collections-3.2.1.jar lib/commons-lang-2.4.jar lib/jigsaw.jar lib/tagsoup-1.2.jar lib/velocity-1.6.1.jar lib/xercesImpl.jar lib/xml-apis.jar"/>
+        <attribute name="Class-path" value=". lib/commons-collections-3.2.1.jar lib/commons-lang-2.4.jar lib/jigsaw.jar lib/tagsoup-1.2.jar lib/velocity-1.6.1.jar lib/xercesImpl.jar lib/xml-apis.jar"/>
 			</manifest>
 		</jar>
 	</target>
