@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: build.xml,v 1.13 2009-01-21 17:46:37 jean-gui Exp $ -->
+<!-- $Id: build.xml,v 1.14 2009-01-22 10:35:56 jean-gui Exp $ -->
 <project default="jar" name="W3C CSS Validator">
 
   <!-- =================================================================== -->
@@ -87,7 +87,7 @@
 		</copy>
 	</target>
 
-	<target name="jigsaw" description="Builds the validator for Jigsaw">
+	<target name="jigsaw" description="Builds the validator for Jigsaw" depends="prepare">
 		<mkdir dir="./build"/>
 		<javac classpathref="build.class.path" destdir="." encoding="UTF-8"
            debug="yes" source="1.5" target="1.5">
