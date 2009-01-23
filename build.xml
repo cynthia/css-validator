@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: build.xml,v 1.15 2009-01-23 15:32:02 jean-gui Exp $ -->
+<!-- $Id: build.xml,v 1.16 2009-01-23 15:32:34 jean-gui Exp $ -->
 <project default="jar" name="W3C CSS Validator">
 
   <!-- =================================================================== -->
   <!-- User-overrideable properties                                      -->
   <!-- =================================================================== -->
       
-  <property file="build.properties"/>
   <property name="servlet.lib" value="/usr/share/java/servlet-2.3.jar"/>
 
   <!-- =================================================================== -->
