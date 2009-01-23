@@ -10,8 +10,8 @@
 @import "style/base.css";
 @import "style/docs.css";
 </style>
-<meta name="revision" content="$Id: DOWNLOAD.html.fr,v 1.19 2009-01-23 16:25:46 jean-gui Exp $" />
-<!-- SSI Template Version: $Id: DOWNLOAD.html.fr,v 1.19 2009-01-23 16:25:46 jean-gui Exp $ -->
+<meta name="revision" content="$Id: DOWNLOAD.html.fr,v 1.20 2009-01-23 16:41:13 jean-gui Exp $" />
+<!-- SSI Template Version: $Id: DOWNLOAD.html.fr,v 1.20 2009-01-23 16:41:13 jean-gui Exp $ -->
 
 </head>
 
@@ -106,7 +106,7 @@ http://localhost:8001/css-validator/validator.html</li>
 Construisez le fichier css-validator.jar avec la commande <kbd>ant jar</kbd>, et exécutez de cette façon :<br />
 <kbd>java -jar css-validator.jar http://www.w3.org/</kbd>.
 </p>
-<p> Nota Bene : le répertoire lib/ doit être au même niveau que css-validator.jar </p>
+<p>Nota Bene : le répertoire lib/ doit être au même niveau que css-validator.jar.</p>
 </div>
 <ul class="navbar"  id="menu">
 <li><strong><a href="./" title="Accueil du service de validation CSS du W3C">Accueil</a></strong> <span class="hideme">|</span></li>
