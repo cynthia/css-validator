@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: build.xml,v 1.14 2009-01-22 10:35:56 jean-gui Exp $ -->
+<!-- $Id: build.xml,v 1.15 2009-01-23 15:32:02 jean-gui Exp $ -->
 <project default="jar" name="W3C CSS Validator">
 
   <!-- =================================================================== -->
@@ -8,11 +8,6 @@
       
   <property file="build.properties"/>
   <property name="servlet.lib" value="/usr/share/java/servlet-2.3.jar"/>
-
-	<!-- Configure these properties to access the Manager application -->
-	<property name="url"      value="http://localhost:8080/manager"/>
-	<property name="username" value="tomcat"/>
-	<property name="password" value="tomcat"/>
 
   <!-- =================================================================== -->
   <!-- Project-wide properties                                           -->
