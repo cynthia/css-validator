@@ -11,7 +11,7 @@
   	@import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.nl,v 1.15 2009-01-08 22:40:32 ot Exp $" />
+  content="$Id: DOWNLOAD.html.nl,v 1.16 2009-01-26 22:24:34 ot Exp $" />
 
 </head>
 
@@ -27,6 +27,9 @@
 
    <div class="doc">
 <h2>Download en Installeer de CSS Validator</h2>
+
+<p>This translation of the installation guide for the CSS validator may be out of date. For a reliable, up-to-date guide, refer to the <a href="DOWNLOAD.html.en">English</a> or <a href="DOWNLOAD.html.fr">French</a> versions.</p>
+
 
 <h3 id="download">Download de CSS Validator</h3>	
 

@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.sv,v 1.4 2009-01-08 22:40:32 ot Exp $" />
-  <!-- SSI Template Version: $Id: DOWNLOAD.html.sv,v 1.4 2009-01-08 22:40:32 ot Exp $ -->
+  content="$Id: DOWNLOAD.html.sv,v 1.5 2009-01-26 22:24:34 ot Exp $" />
+  <!-- SSI Template Version: $Id: DOWNLOAD.html.sv,v 1.5 2009-01-26 22:24:34 ot Exp $ -->
 
 </head>
 
@@ -27,6 +27,13 @@
 
 <div class="doc">
 <h2>Ladda ned och installera CSS-valideraren</h2>
+
+
+<p>This translation of the installation guide for the CSS validator may be out of date. For a reliable, up-to-date guide, refer to the <a href="DOWNLOAD.html.en">English</a> or <a href="DOWNLOAD.html.fr">French</a> versions.</p>
+
+
+
+
 <h3 id="download">Ladda ned CSS-valideraren</h3>	
 
 <h4 id="source">Ladda ned källkod</h4>
