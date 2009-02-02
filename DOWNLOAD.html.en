@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.en,v 1.26 2009-01-26 22:24:08 ot Exp $" />
-  <!-- SSI Template Version: $Id: DOWNLOAD.html.en,v 1.26 2009-01-26 22:24:08 ot Exp $ -->
+  content="$Id: DOWNLOAD.html.en,v 1.27 2009-02-02 16:12:23 ot Exp $" />
+  <!-- SSI Template Version: $Id: DOWNLOAD.html.en,v 1.27 2009-02-02 16:12:23 ot Exp $ -->
 
 </head>
 
@@ -42,9 +42,6 @@ generally a little older than the version under CVS, and their results and behav
 
 <h4>Download the Java archive (jar)</h4>
 <p><a href="http://www.w3.org/QA/Tools/css-validator/css-validator.jar">css-validator.jar</a></p>
-
-<h4>Download the Web archive (war)</h4>
-<p><a href="http://www.w3.org/QA/Tools/css-validator/css-validator.war">css-validator.war</a></p>
 
 <h3>Installation Guide</h3>
 <p>The CSS Validation service is based on a servlet written in the cross-platform Java language, and can
