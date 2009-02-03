@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.10 2009-02-03 19:39:01 ot Exp $
+// $Id: Css1Style.java,v 1.11 2009-02-03 19:50:47 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -2563,8 +2563,8 @@ public class Css1Style extends CssStyle {
 	    }
 	}
 
-    if (CssFloat.get() != null) {
-        if(CssWidth.get() == null ) {
+    if (cssFloat != null) {
+        if(cssWidth == null ) {
             // TODO do NOT send warning if element in context
             // is html, img, input, textarea, select, or object
 		    warnings.addWarning(new Warning(cssFloat, "float-no-width", 2, ac));
