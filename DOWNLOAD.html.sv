@@ -3,6 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Ladda ned och installera CSS-valideraren</title>
   <link rev="made" href="mailto:www-validator-css@w3.org" />
   <link rev="start" href="./" title="Hemsida" />
@@ -11,8 +12,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.sv,v 1.5 2009-01-26 22:24:34 ot Exp $" />
-  <!-- SSI Template Version: $Id: DOWNLOAD.html.sv,v 1.5 2009-01-26 22:24:34 ot Exp $ -->
+  content="$Id: DOWNLOAD.html.sv,v 1.6 2009-02-04 18:41:56 ot Exp $" />
+  <!-- SSI Template Version: $Id: DOWNLOAD.html.sv,v 1.6 2009-02-04 18:41:56 ot Exp $ -->
 
 </head>
 

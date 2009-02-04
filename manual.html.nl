@@ -3,6 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>CSS Validator User Manual</title>
   <link rev="made" href="mailto:www-validator-css@w3.org" />
   <link rev="start" href="./" title="Home Pagina" />
@@ -11,8 +12,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.nl,v 1.14 2009-01-08 22:40:34 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.nl,v 1.14 2009-01-08 22:40:34 ot Exp $ -->
+  content="$Id: manual.html.nl,v 1.15 2009-02-04 18:41:57 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.nl,v 1.15 2009-02-04 18:41:57 ot Exp $ -->
 
 </head>
 

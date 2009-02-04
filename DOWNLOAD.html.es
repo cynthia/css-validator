@@ -3,6 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Descarga e Instalaci&oacute;n del Validador de CSS</title>
 <link rev="made" href="mailto:www-validator-css@w3.org"/>
 <link rev="start" href="./" title="Home Page"/>
@@ -10,8 +11,8 @@
     @import "style/base.css";  
   	@import "style/docs.css";
   </style>
-<meta name="revision" content="$Id: DOWNLOAD.html.es,v 1.14 2009-01-26 22:24:34 ot Exp $"/>
-<!-- SSI Template Version: $Id: DOWNLOAD.html.es,v 1.14 2009-01-26 22:24:34 ot Exp $ -->
+<meta name="revision" content="$Id: DOWNLOAD.html.es,v 1.15 2009-02-04 18:41:56 ot Exp $"/>
+<!-- SSI Template Version: $Id: DOWNLOAD.html.es,v 1.15 2009-02-04 18:41:56 ot Exp $ -->
 </head>
 <body>
   <div id="banner">
