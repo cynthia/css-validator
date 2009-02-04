@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.12 2009-02-04 15:04:20 ot Exp $
+// $Id: Css1Style.java,v 1.13 2009-02-04 15:16:39 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -2571,7 +2571,7 @@ public class Css1Style extends CssStyle {
             }
             else {
                 // for elements without intrinsic width, float needs a declared width
-    		    warnings.addWarning(new Warning(cssFloat, "float-no-width", 2, ac));                
+    		    warnings.addWarning(new Warning(cssFloat, "float-no-width", 1, ac));                
             }
         }
     }
