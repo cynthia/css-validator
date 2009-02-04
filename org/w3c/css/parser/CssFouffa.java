@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.43 2008-12-10 15:22:58 ylafon Exp $
+// $Id: CssFouffa.java,v 1.44 2009-02-04 15:19:20 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -49,7 +49,7 @@ import org.apache.velocity.io.UnicodeInputStream;
  * parser.parseStyle();<BR>
  * </code>
  * 
- * @version $Revision: 1.43 $
+ * @version $Revision: 1.44 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -185,7 +185,7 @@ public final class CssFouffa extends CssParser {
      */
 
     private CssFouffa(ApplContext ac, URLConnection uco) throws IOException {
-	this(ac, uco.getInputStream(), uco.getURL(), 0);
+	this(ac, HTTPURL.getInputStream(uco), uco.getURL(), 0);
 	String httpCL = uco.getHeaderField("Content-Location");
 	if (httpCL != null) {
 	    setURL(HTTPURL.getURL(getURL(), httpCL));

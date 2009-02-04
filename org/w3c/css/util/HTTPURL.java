@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.19 2007-08-06 15:08:29 julien Exp $
+ * $Id: HTTPURL.java,v 1.20 2009-02-04 15:19:20 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -17,8 +17,10 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 
+import java.util.zip.GZIPInputStream;
+
 /**
- * @version $Revision: 1.19 $
+ * @version $Revision: 1.20 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -260,6 +262,24 @@ public class HTTPURL {
 	throws IOException
     {
 	return getConnection(url, 0, ac);
+    }
+
+    /* more madness */
+    public static InputStream getInputStream(URLConnection uco) throws IOException {
+	InputStream orig_stream = uco.getInputStream();
+	String encoding;
+	if (orig_stream == null) {
+	    return orig_stream; // let it fail elsewhere
+	}
+	encoding = uco.getContentEncoding();
+	// not set -> return
+	if (encoding == null) {
+	    return orig_stream;
+	}
+	if (encoding.equalsIgnoreCase("gzip")) {
+	    return new GZIPInputStream(orig_stream);
+	}
+	return orig_stream;
     }
     /**
      *
