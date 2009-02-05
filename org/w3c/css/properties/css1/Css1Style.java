@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.13 2009-02-04 15:16:39 ot Exp $
+// $Id: Css1Style.java,v 1.14 2009-02-05 14:56:08 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -2566,8 +2566,14 @@ public class Css1Style extends CssStyle {
     if (cssFloat != null) {
         if(cssWidth == null ) {
             String selectorElement =  selector.getElement();
-            if ((selectorElement.equals("html")) || (selectorElement.equals("img")) || (selectorElement.equals("input")) 
-            || (selectorElement.equals("object")) || (selectorElement.equals("textarea")) || (selectorElement.equals("select"))) {
+            if (selectorElement != null){
+                if ((selectorElement.equals("html")) || (selectorElement.equals("img")) || (selectorElement.equals("input")) 
+                || (selectorElement.equals("object")) || (selectorElement.equals("textarea")) || (selectorElement.equals("select"))) {
+                }
+                else {
+                    // for elements without intrinsic width, float needs a declared width
+        		    warnings.addWarning(new Warning(cssFloat, "float-no-width", 1, ac));                
+                }
             }
             else {
                 // for elements without intrinsic width, float needs a declared width
