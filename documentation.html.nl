@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
@@ -11,8 +10,8 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-  <meta name="revision" content="$Id: documentation.html.nl,v 1.13 2009-02-04 18:41:57 ot Exp $" />
-  <!-- SSI Template Version: $Id: documentation.html.nl,v 1.13 2009-02-04 18:41:57 ot Exp $ -->
+  <meta name="revision" content="$Id: documentation.html.nl,v 1.14 2009-02-05 14:31:32 ot Exp $" />
+  <!-- SSI Template Version: $Id: documentation.html.nl,v 1.14 2009-02-05 14:31:32 ot Exp $ -->
 
 </head>
 

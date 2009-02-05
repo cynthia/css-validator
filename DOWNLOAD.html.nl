@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
@@ -12,7 +11,7 @@
   	@import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: DOWNLOAD.html.nl,v 1.17 2009-02-04 18:41:56 ot Exp $" />
+  content="$Id: DOWNLOAD.html.nl,v 1.18 2009-02-05 14:31:31 ot Exp $" />
 
 </head>
 

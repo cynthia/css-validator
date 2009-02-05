@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
@@ -12,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.sv,v 1.6 2009-02-04 18:41:58 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.sv,v 1.6 2009-02-04 18:41:58 ot Exp $ -->
+  content="$Id: manual.html.sv,v 1.7 2009-02-05 14:31:32 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.sv,v 1.7 2009-02-05 14:31:32 ot Exp $ -->
 </head>
 
 <body>
