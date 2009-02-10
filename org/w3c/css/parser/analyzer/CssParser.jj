@@ -3,14 +3,14 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.45 2009-02-10 14:00:49 ylafon Exp $
+ * $Id: CssParser.jj,v 1.46 2009-02-10 14:09:26 ylafon Exp $
  *
  */
 
 options {
     IGNORE_CASE  = true;
     STATIC = false;
-    /*    
+    /*
           DEBUG_TOKEN_MANAGER = true; 
 	  DEBUG_PARSER = true;      
     */
@@ -79,7 +79,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.45 $
+ * @version $Revision: 1.46 $
  */
 public abstract class CssParser {
 
@@ -420,8 +420,8 @@ TOKEN :
     <STRING    : <_STRING> >
   | <INVALID   : <_INVALID> >
   | <IDENT     : <_IDENT> >
-  | <HASH      : "#" <NAME> >
   | <HASHIDENT : "#" <_IDENT> >
+  | <HASH      : "#" <NAME> >
 }
 
 <DEFAULT>
@@ -1688,6 +1688,9 @@ void hash(CssSelectors s) :
 	      removeThisRule();
 	  }
       }
+  }
+  | n=<HASH> {
+      throw new ParseException("Unrecognized ");	 
   }
 }
 
