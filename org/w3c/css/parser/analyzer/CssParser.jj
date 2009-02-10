@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.46 2009-02-10 14:09:26 ylafon Exp $
+ * $Id: CssParser.jj,v 1.47 2009-02-10 14:14:58 ylafon Exp $
  *
  */
 
@@ -79,7 +79,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.46 $
+ * @version $Revision: 1.47 $
  */
 public abstract class CssParser {
 
@@ -1926,7 +1926,7 @@ void hexcolor(CssExpression exp) :
 {Token n; 
 }
 {
- n=<HASH> { n.image = Util.strip(n.image);
+ n=<HASHIDENT>|n=<HASH> { n.image = Util.strip(n.image);
  setValue(new org.w3c.css.values.CssColor(), exp, ' ', n, HASH); }
 }
 
