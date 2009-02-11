@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundConstants.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackgroundConstants.java,v 1.4 2009-02-11 21:41:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,14 +7,14 @@
 package org.w3c.css.properties.css1;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public interface CssBackgroundConstants {
   static String[] REPEAT = { "repeat", "repeat-x", "repeat-y", "no-repeat", "inherit" };
-
+    
   static String[] ATTACHMENT = { "scroll", "fixed", "inherit" };
-    static String[] ATTACHMENTMOB = { "scroll", "inherit" };
-
+  static String[] ATTACHMENTMOB = { "scroll", "inherit" };
+    
   static String[] POSITION = { "top", "center", "bottom", "left", "right", "inherit" };
 
   /**

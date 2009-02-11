@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundRepeatCSS1.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackgroundRepeatCSS1.java,v 1.4 2009-02-11 21:41:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,6 +11,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
@@ -39,12 +40,14 @@ import org.w3c.css.values.CssValue;
  *  </PRE>
  *   <P>
  *   In the example above, the image will only be repeated vertically.
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBackgroundRepeatCSS1 extends CssProperty
 	implements CssBackgroundConstants {
 
-    int repeat;
+    private static final String property_name = "background-repeat";
+
+   int repeat;
 
     private static int[] hash_values;
 
@@ -70,7 +73,7 @@ public class CssBackgroundRepeatCSS1 extends CssProperty
 	CssValue val = expression.getValue();
 	setByUser();
 
-	if (val instanceof CssIdent) {
+	if (val.getType() == CssTypes.CSS_IDENT) {
 	    int hash = val.hashCode();
 	    for (int i =0; i < REPEAT.length; i++) {
 		if (hash_values[i] == hash) {
@@ -116,7 +119,7 @@ public class CssBackgroundRepeatCSS1 extends CssProperty
      * Returns the name of this property
      */
     public String getPropertyName() {
-	return "background-repeat";
+	return property_name;
     }
 
     /**

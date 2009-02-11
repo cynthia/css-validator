@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundImageCSS2.java,v 1.4 2008-03-25 18:43:30 ylafon Exp $
+// $Id: CssBackgroundImageCSS2.java,v 1.5 2009-02-11 21:41:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,10 +34,11 @@ import org.w3c.css.values.CssValue;
  *   BODY { background-image: url(marble.gif) }
  *   P { background-image: none }
  *   </PRE>
- * @version $Revision: 1.4 $ */
+ * @version $Revision: 1.5 $ */
 public class CssBackgroundImageCSS2 extends CssProperty {
 
-    CssValue url;
+    CssValue url = null;
+    boolean inherited = false;
 
     public static CssIdent none;
     private static final String property_name = "background-image";
@@ -83,7 +84,7 @@ public class CssBackgroundImageCSS2 extends CssProperty {
 		break;
 	    }
 	    if (none.equals(val)) {
-		url = none;
+		inherited = true;
 		break;
 	    }
 	default:
@@ -110,16 +111,16 @@ public class CssBackgroundImageCSS2 extends CssProperty {
      * e.g. his value equals inherit
      */
     public boolean isSoftlyInherited() {
-	if (url != null) {
-	    return inherit.equals(url);
-	}
-	return false;
+	return inherited;
     }
 
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
+	if (inherited) {
+	    return inherit.toString();
+	}
 	if (url != null) {
 	    return url.toString();
 	}

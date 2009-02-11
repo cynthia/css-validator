@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundImage.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackgroundImage.java,v 1.4 2009-02-11 21:41:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,6 +12,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssURL;
 import org.w3c.css.values.CssValue;
 
@@ -33,10 +34,11 @@ import org.w3c.css.values.CssValue;
  *   BODY { background-image: url(marble.gif) }
  *   P { background-image: none }
  *   </PRE>
- * @version $Revision: 1.3 $ */
+ * @version $Revision: 1.4 $ */
 public class CssBackgroundImage extends CssProperty {
 
-    CssValue url;
+    CssValue url      = null ;
+    boolean inherited = false;
 
     private static CssIdent none = new CssIdent("none");
 
@@ -63,19 +65,24 @@ public class CssBackgroundImage extends CssProperty {
 	setByUser();
 
 	CssValue val = expression.getValue();
-	if (val instanceof CssURL) {
+
+	switch(val.getType()) {
+	case CssTypes.CSS_URL:
 	    url = val;
-	    expression.next();
-	} else if (val.equals(inherit)) {
-	    url = inherit;
-	    expression.next();
-	} else if (val.equals(none)) {
-	    url = none;
-	    expression.next();
-	} else {
-	    throw new InvalidParamException("value", expression.getValue(),
+	    break;
+	case CssTypes.CSS_IDENT:
+	    if (inherit.equals(val)) {
+		inherited = true;
+		break;
+	    } else if (none.equals(val)) {
+		url = none;
+		break;
+	    }
+	default:
+	    throw new InvalidParamException("value", val,
 					    getPropertyName(), ac);
 	}
+	expression.next();
     }
 
     public CssBackgroundImage(ApplContext ac, CssExpression expression)
@@ -95,16 +102,16 @@ public class CssBackgroundImage extends CssProperty {
      * e.g. his value equals inherit
      */
     public boolean isSoftlyInherited() {
-	if (url != null) {
-	    return url.equals(inherit);
-	}
-	return false;
+	return inherited;
     }
 
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
+	if (inherited) {
+	    return inherit.toString();
+	}
 	if (url != null) {
 	    return url.toString();
 	}
