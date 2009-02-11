@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundAttachment.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackgroundAttachment.java,v 1.4 2009-02-11 22:43:15 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,6 +11,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
@@ -34,7 +35,7 @@ import org.w3c.css.values.CssValue;
  *     background-attachment: fixed;
  *   }
  * </PRE>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBackgroundAttachment extends CssProperty
     implements CssBackgroundConstants {
@@ -67,7 +68,7 @@ public class CssBackgroundAttachment extends CssProperty
 
 	CssValue val = expression.getValue();
 
-	if (val instanceof CssIdent) {
+	if (val.getType() == CssTypes.CSS_IDENT) {
 	    int hash = val.hashCode();
 	    for (int i =0; i < ATTACHMENT.length; i++)
 		if (hash_values[i] == hash) {

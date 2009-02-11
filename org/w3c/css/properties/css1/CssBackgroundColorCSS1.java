@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundColorCSS1.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackgroundColorCSS1.java,v 1.4 2009-02-11 22:43:15 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,6 +12,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
@@ -29,7 +30,7 @@ import org.w3c.css.values.CssValue;
  *   <PRE>
  *   H1 { background-color: #F00 }
  *   </PRE>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBackgroundColorCSS1 extends CssProperty {
 
@@ -60,24 +61,27 @@ public class CssBackgroundColorCSS1 extends CssProperty {
 	setByUser();
 	CssValue val = expression.getValue();
 
-	if (val instanceof org.w3c.css.values.CssColor) {
-	    color = val;
-	    expression.next();
-	} else if (val instanceof CssIdent) {
-	    if (val.equals(transparent)) {
-		color = transparent;
-		expression.next();
-	    } else if (val.equals(inherit)) {
-		color = inherit;
-		expression.next();
-	    } else {
-		color = new org.w3c.css.values.CssColorCSS1(ac, (String) val.get());
-		expression.next();
-	    }
-	} else {
+	switch (val.getType()) {
+	case CssTypes.CSS_COLOR:
+	    setColor(val);
+	    break;
+	case CssTypes.CSS_IDENT:
+	    if (transparent.equals(val)) {
+		setColor(transparent);
+		break;
+	    }  
+	    if (inherit.equals(val)) {
+		setColor(inherit);
+		break;
+	    } 
+	    setColor(new org.w3c.css.values.CssColorCSS1(ac,
+							 (String) val.get()));
+	    break;
+	default:
 	    throw new InvalidParamException("value", val.toString(),
 					    getPropertyName(), ac);
 	}
+	expression.next();
     }
 
     public CssBackgroundColorCSS1(ApplContext ac, CssExpression expression)
@@ -86,6 +90,13 @@ public class CssBackgroundColorCSS1 extends CssProperty {
     }
 
     /**
+     * @param color The color to set.
+     */
+    public void setColor(CssValue color) {
+        this.color = color;
+    }
+
+   /**
      * Returns the value of this property
      */
     public Object get() {
