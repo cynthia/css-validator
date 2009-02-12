@@ -1,12 +1,12 @@
 //
-// $Id: AtRuleMedia.java,v 1.12 2008-12-10 15:22:58 ylafon Exp $
+// $Id: AtRuleMedia.java,v 1.13 2009-02-12 21:26:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleMedia.java
- * $Id: AtRuleMedia.java,v 1.12 2008-12-10 15:22:58 ylafon Exp $
+ * $Id: AtRuleMedia.java,v 1.13 2009-02-12 21:26:34 ylafon Exp $
  */
 package org.w3c.css.parser;
 
@@ -20,7 +20,7 @@ import org.w3c.css.util.InvalidParamException;
 /**
  * This class manages all media defines by CSS2
  *
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  * @author  Philippe Le Hegaret
  */
 public class AtRuleMedia extends AtRule {
@@ -143,6 +143,33 @@ public class AtRuleMedia extends AtRule {
 	ret.append('@');
 	ret.append(keyword());
 	ret.append(' ');
+	if (!restrictor.equals("")) {
+	    ret.append(restrictor);
+	    ret.append(' ');
+	}
+	boolean f = true;
+	for (int i = 0; i < media.length; i++) {
+	    if (originalMedia[i] != null) {
+		if (!f) {
+		    ret.append(',');
+		    ret.append(' ');
+		} else {
+		    f = false;
+		}
+		ret.append(originalMedia[i]);
+	    }
+	}
+
+	for (int i = 0; i < mediafeatures.size(); i++) {
+	    ret.append(" and (");
+	    ret.append(mediafeatures.elementAt(i));
+	    ret.append(')');
+	}
+	return ret.toString();
+    }
+
+    public String getValueString() {
+	StringBuilder ret  = new StringBuilder();
 	if (!restrictor.equals("")) {
 	    ret.append(restrictor);
 	    ret.append(' ');

@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.44 2009-02-04 15:19:20 ylafon Exp $
+// $Id: CssFouffa.java,v 1.45 2009-02-12 21:26:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -49,7 +49,7 @@ import org.apache.velocity.io.UnicodeInputStream;
  * parser.parseStyle();<BR>
  * </code>
  * 
- * @version $Revision: 1.44 $
+ * @version $Revision: 1.45 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -610,7 +610,8 @@ public final class CssFouffa extends CssParser {
      *       added to the storage for the output
      */
     public void newAtRule(AtRule atRule) {
-	for (Enumeration<CssValidatorListener> e = listeners.elements(); e.hasMoreElements();) {
+	for (Enumeration<CssValidatorListener> e = listeners.elements(); 
+	     e.hasMoreElements();) {
 	    e.nextElement().newAtRule(atRule);
 	}
     }
@@ -623,7 +624,8 @@ public final class CssFouffa extends CssParser {
      * @charset rule that has been found by the parser
      */
     public void addCharSet(String charset) {
-	for (Enumeration<CssValidatorListener> e = listeners.elements(); e.hasMoreElements();) {
+	for (Enumeration<CssValidatorListener> e = listeners.elements(); 
+	     e.hasMoreElements();) {
 	    e.nextElement().addCharSet(charset);
 	}
     }
@@ -635,7 +637,8 @@ public final class CssFouffa extends CssParser {
      *       in it.
      */
     public void endOfAtRule() {
-	for (Enumeration<CssValidatorListener> e = listeners.elements(); e.hasMoreElements();) {
+	for (Enumeration<CssValidatorListener> e = listeners.elements(); 
+	     e.hasMoreElements();) {
 	    e.nextElement().endOfAtRule();
 	}
     }
@@ -647,7 +650,8 @@ public final class CssFouffa extends CssParser {
      *            true if the rule was declared important in the stylesheet
      */
     public void setImportant(boolean important) {
-	for (Enumeration<CssValidatorListener> e = listeners.elements(); e.hasMoreElements();) {
+	for (Enumeration<CssValidatorListener> e = listeners.elements(); 
+	     e.hasMoreElements();) {
 	    e.nextElement().setImportant(important);
 	}
     }

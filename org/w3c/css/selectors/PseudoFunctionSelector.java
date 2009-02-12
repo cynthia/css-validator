@@ -1,4 +1,4 @@
-// $Id: PseudoFunctionSelector.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
+// $Id: PseudoFunctionSelector.java,v 1.3 2009-02-12 21:26:35 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -12,7 +12,7 @@ public class PseudoFunctionSelector implements Selector {
 
     private String name;
     private Object param;
-
+    private String representation = null;
     /**
      * Creates a new empty function selector
      */
@@ -70,6 +70,15 @@ public class PseudoFunctionSelector implements Selector {
      * @see Selector#toString()
      */
     public String toString() {
-	return ":" + name + "(" + param + ")";
+	if (representation == null) {
+	    StringBuffer sb = new StringBuffer();
+	    sb.append(':');
+	    sb.append(name);
+	    sb.append('(');
+	    sb.append(param);
+	    sb.append(')');
+	    representation = sb.toString();
+	}
+	return representation;
     }
 }

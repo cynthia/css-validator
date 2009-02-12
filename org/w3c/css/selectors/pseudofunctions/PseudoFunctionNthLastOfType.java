@@ -1,4 +1,4 @@
-// $Id: PseudoFunctionNthLastOfType.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
+// $Id: PseudoFunctionNthLastOfType.java,v 1.3 2009-02-12 21:26:36 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -12,13 +12,9 @@ import org.w3c.css.selectors.PseudoFunctionSelector;
  */
 public class PseudoFunctionNthLastOfType extends PseudoFunctionSelector {
 
-    public PseudoFunctionNthLastOfType(String name, Integer n) {
-	setName(name);
-	setParam(n);
-    }
-
     public PseudoFunctionNthLastOfType(String name, String value) {
-	this(name, new Integer(value));
+	setName(name);
+	setParam(value);
     }
 
 }
