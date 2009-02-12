@@ -1,4 +1,4 @@
-// $Id: PseudoFactory.java,v 1.5 2007-08-07 09:48:45 julien Exp $
+// $Id: PseudoFactory.java,v 1.6 2009-02-12 10:55:34 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -128,4 +128,19 @@ public class PseudoFactory {
 	return null;
     }
 
+    /**
+     * Returns the possible pseudo-elements written as pseudo-classes
+     * for a specific profile
+     * @param profile the profile to get associated exceptions to the rule
+     * @return the possible pseudo-elements/classes for the profile
+     */  
+    public static String[] getPseudoElementExceptions(String profile) {
+	if(profile == null || profile.equals("css2") ||
+	   profile.equals("css21") || profile.equals("css3") ||
+	   profile.equals("mobile") || profile.equals("tv")) {
+	    return PSEUDOELEMENT_CONSTANTSCSS2;
+	}
+	return null;
+    }
+    
 }
