@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectorsConstant.java,v 1.9 2005-09-14 15:14:18 ylafon Exp $
+// $Id: CssSelectorsConstant.java,v 1.10 2009-02-12 10:32:51 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 20th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -9,7 +9,7 @@
 package org.w3c.css.parser;
 
 /**
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public interface CssSelectorsConstant {
 
@@ -37,6 +37,8 @@ public interface CssSelectorsConstant {
     public static final char DESCENDANT = ' ';
     /** child connector */
     public static final char CHILD = '>';
-    /** adjacent connector */
-    public static final char ADJACENT = '+';
+    /** adjacent sibling connector */
+    public static final char ADJACENT_SIBLING = '+';
+    /** general sibling connector */
+    public static final char GENERAL_SIBLING = '~';
 }

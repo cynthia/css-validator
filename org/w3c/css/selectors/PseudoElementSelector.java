@@ -1,4 +1,4 @@
-// $Id: PseudoElementSelector.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
+// $Id: PseudoElementSelector.java,v 1.3 2009-02-12 10:32:53 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -39,7 +39,7 @@ public class PseudoElementSelector implements Selector {
      * @see Selector#toString()
      */
     public String toString() {
-	return ":" + name;
+	return "::" + name;
     }
 
     /**
