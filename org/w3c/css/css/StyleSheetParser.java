@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.13 2008-02-21 01:41:17 ot Exp $
+// $Id: StyleSheetParser.java,v 1.14 2009-02-13 21:50:15 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -36,7 +36,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public final class StyleSheetParser
     implements CssValidatorListener, CssParser {
@@ -255,7 +255,8 @@ public final class StyleSheetParser
 	try {
 
 //	    if (cssFouffa == null) {
-		cssFouffa = new CssFouffa(ac, input, url, lineno);
+	    String charset = ac.getCharsetForURL(url);
+	    cssFouffa = new CssFouffa(ac, input, charset, url, lineno);
 		cssFouffa.addListener(this);
 //	    } else {
 //		cssFouffa.ReInit(ac, input, url, lineno);
@@ -345,10 +346,11 @@ public final class StyleSheetParser
 	}
 
 	try {
-//	    if (cssFouffa == null) {
-		cssFouffa = new CssFouffa(ac, input, url, lineno);
-		cssFouffa.addListener(this);
-//	    } else
+	    //	    if (cssFouffa == null) {
+	    String charset = ac.getCharsetForURL(url);
+	    cssFouffa = new CssFouffa(ac, input, charset, url, lineno);
+	    cssFouffa.addListener(this);
+	    //	    } else
 //		cssFouffa.ReInit(ac, input, url, lineno);
 	    CssSelectors selector = new CssSelectors(ac);
 
