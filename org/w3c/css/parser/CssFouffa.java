@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.45 2009-02-12 21:26:34 ylafon Exp $
+// $Id: CssFouffa.java,v 1.46 2009-02-13 14:03:36 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -49,7 +49,7 @@ import org.apache.velocity.io.UnicodeInputStream;
  * parser.parseStyle();<BR>
  * </code>
  * 
- * @version $Revision: 1.45 $
+ * @version $Revision: 1.46 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -396,6 +396,21 @@ public final class CssFouffa extends CssParser {
     }
 
     /**
+     * Call the namespace declaration statement
+     * @param url, the style sheet where this declaration statement appears.
+     * @param prefix, the namespace prefix
+     * @param nsname, the file/url name in the declaration statement
+     * @param is_url, if the nsname is a file or an url
+     */
+    public void handleNamespaceDeclaration(URL url, String prefix,
+					   String nsname, 
+					   boolean is_url) {
+	AtRuleNamespace nsrule = new AtRuleNamespace(prefix, nsname, is_url);
+	newAtRule(nsrule);
+	endOfAtRule(); 
+	// FIXME add in the NS declaration for the document
+    }
+    /**
      * Call by the import statement.
      * 
      * @param url
@@ -403,8 +418,12 @@ public final class CssFouffa extends CssParser {
      * @param file
      *            the file name in the import statement
      */
-    public void handleImport(URL url, String file, AtRuleMedia media) {
+    public void handleImport(URL url, String file, boolean is_url,
+			     AtRuleMedia media) {
 	// CssError cssError = null;
+	AtRuleImport importrule = new AtRuleImport(file, is_url, media);
+	newAtRule(importrule);
+	endOfAtRule();
 
 	//if it's not permitted to import... (direct input)
 	if (url.getProtocol().equals("file")) {

@@ -1,17 +1,17 @@
 //
-// $Id: AtRule.java,v 1.4 2007-11-26 05:07:17 ot Exp $
+// $Id: AtRule.java,v 1.5 2009-02-13 14:03:36 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRule.java
- * $Id: AtRule.java,v 1.4 2007-11-26 05:07:17 ot Exp $
+ * $Id: AtRule.java,v 1.5 2009-02-13 14:03:36 ylafon Exp $
  */
 package org.w3c.css.parser;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  * @author  Philippe Le Hegaret
  */
 public abstract class AtRule {
@@ -32,6 +32,6 @@ public abstract class AtRule {
     public abstract boolean canMatched(AtRule atRule);
 
     public boolean isEmpty() {
-		return false;
-	}
+	return false;
+    }
 }
