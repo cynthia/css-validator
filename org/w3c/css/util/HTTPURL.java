@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.21 2009-02-13 21:50:16 ylafon Exp $
+ * $Id: HTTPURL.java,v 1.22 2009-02-15 18:23:48 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -25,7 +25,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 import org.apache.velocity.io.UnicodeInputStream;
 
 /**
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  * @author  Philippe Le Hegaret
  */
 public class HTTPURL {
@@ -298,7 +298,9 @@ public class HTTPURL {
 	return orig_stream;
     }
 
-    public static String getCharacterEncoding(ApplContext ac, URLConnection uco) {
+    public static String getCharacterEncoding(ApplContext ac, 
+					      URLConnection uco) 
+    {
 	String charset = ac.getCharsetForURL(uco.getURL());
 	if (charset != null) {
 	    return charset;

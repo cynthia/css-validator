@@ -1,5 +1,5 @@
 //
-// $Id: FakeFile.java,v 1.6 2007-09-13 10:18:49 julien Exp $
+// $Id: FakeFile.java,v 1.7 2009-02-15 18:23:48 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class FakeFile {
 
@@ -121,12 +121,12 @@ public class FakeFile {
     count += len;
   }
 
-	public void setContentType(String mimeType) {
-		contentType = mimeType;
-	}
-	
-	public String getContentType() {
-		return contentType;
-	}
+    public void setContentType(String mimeType) {
+	contentType = mimeType;
+    }
+    
+    public String getContentType() {
+	return contentType;
+    }
 
 }
