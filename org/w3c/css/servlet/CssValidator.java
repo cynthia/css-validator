@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.40 2009-02-15 18:23:37 ylafon Exp $
+// $Id: CssValidator.java,v 1.41 2009-02-16 16:42:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -47,7 +47,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.40 $
+ * @version $Revision: 1.41 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -641,7 +641,6 @@ public final class CssValidator extends HttpServlet {
 	    ac.setFakeFile(file);
 	    fileName = file.getName();
 	    Util.verbose("File : " + fileName);
-	    is = file.getInputStream();
 	    // another way to get file type...
 	    isCSS = file.getContentType().equals(textcss);
 	} else if (text != null ) {
@@ -650,13 +649,15 @@ public final class CssValidator extends HttpServlet {
 	    Util.verbose("- " + fileName + " Data -");
 	    Util.verbose(text);
 	    Util.verbose("- End of " + fileName + " Data");
-	    is = new ByteArrayInputStream(text.getBytes());
 	    //quick test that works in most cases to determine wether it's 
 	    //HTML or CSS
 	    isCSS = isCSS(text);
 	}
 	fileName = "file://localhost/" + fileName;
   	try {
+	    URL u = new URL(fileName);
+	    is = ac.getFakeInputStream(u);
+
 	    ac.setFakeURL(fileName);
 	    if (isCSS) {
 		//if CSS:
@@ -664,15 +665,16 @@ public final class CssValidator extends HttpServlet {
 		parser.parseStyleElement(ac, is, null, usermedium,
 					 new URL(fileName), 0);
 	  	  
-		handleRequest(ac, res, fileName, parser
-			      .getStyleSheet(), output, warningLevel, errorReport);
+		handleRequest(ac, res, fileName, parser.getStyleSheet(),
+			      output, warningLevel, errorReport);
 	    } else {
 		// else, trying HTML
-		TagSoupStyleSheetHandler handler = new TagSoupStyleSheetHandler(null, ac);
+		TagSoupStyleSheetHandler handler;
+		handler = new TagSoupStyleSheetHandler(null, ac);
 		handler.parse(is, fileName);
 
-		handleRequest(ac, res, fileName, handler.getStyleSheet(), output,
-			      warningLevel, errorReport);
+		handleRequest(ac, res, fileName, handler.getStyleSheet(),
+			      output, warningLevel, errorReport);
 	    }
 	} catch (ProtocolException pex) {
 	    if (Util.onDebug) {

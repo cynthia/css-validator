@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.50 2009-02-16 12:16:34 ylafon Exp $
+// $Id: CssFouffa.java,v 1.51 2009-02-16 16:42:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -50,7 +50,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  * 
- * @version $Revision: 1.50 $
+ * @version $Revision: 1.51 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -339,7 +339,7 @@ public final class CssFouffa extends CssParser {
 	f = new Frame(this, file.toString(), ac.getWarningLevel());
 	ac.setFrame(f);
 	if (ac.isInputFake()) {
-	    is = ac.getFakeInputStream();
+	    is = ac.getFakeInputStream(file);
 	    url = file;
 	} else {
 	    URLConnection urlC = HTTPURL.getConnection(file, ac);
