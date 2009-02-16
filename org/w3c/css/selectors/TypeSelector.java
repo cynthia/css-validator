@@ -1,4 +1,4 @@
-// $Id: TypeSelector.java,v 1.2 2005-09-14 15:15:32 ylafon Exp $
+// $Id: TypeSelector.java,v 1.3 2009-02-16 17:53:39 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -10,14 +10,19 @@ package org.w3c.css.selectors;
  */
 public class TypeSelector implements Selector {
 
+    String prefix;
     String name;
 
+    public TypeSelector(String prefix, String type) {
+	this.prefix = prefix;
+	this.name = type;
+    }
     /**
      * Creates a new TypeSelector which name name is type
      * @param type the name of this type selector
      */
     public TypeSelector(String type) {
-	this.name = type;
+	this(null, type);
     }
 
     /**
@@ -46,6 +51,12 @@ public class TypeSelector implements Selector {
      * @see Selector#toString()
      */
     public String toString() {
+	if (prefix != null) {
+	    StringBuffer sb = new StringBuffer(prefix);
+	    sb.append('|');
+	    sb.append(name);
+	    return sb.toString();
+	}
 	return name;
     }
 

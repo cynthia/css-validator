@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.51 2009-02-16 16:42:13 ylafon Exp $
+// $Id: CssFouffa.java,v 1.52 2009-02-16 17:53:39 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -50,7 +50,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  * 
- * @version $Revision: 1.51 $
+ * @version $Revision: 1.52 $
  */
 public final class CssFouffa extends CssParser {
 

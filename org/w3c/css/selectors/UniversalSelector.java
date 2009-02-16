@@ -1,4 +1,4 @@
-// $Id: UniversalSelector.java,v 1.3 2005-09-16 13:33:52 ylafon Exp $
+// $Id: UniversalSelector.java,v 1.4 2009-02-16 17:53:40 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -10,10 +10,19 @@ package org.w3c.css.selectors;
  */
 public class UniversalSelector implements Selector {
 
+    String prefix = null;
+
+    public UniversalSelector(String prefix) {
+	this.prefix = prefix;
+    }
+
     /**
      * @see Selector#toString()
      */
     public String toString() {
+	if (prefix != null) {
+	    return prefix+"|*";
+	}
 	return "*";
     }
 
