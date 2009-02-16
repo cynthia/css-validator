@@ -63,7 +63,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.58 $
+ * @version $Revision: 1.59 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -2390,8 +2390,7 @@ new ParseException(ac.getMsg().getString("generator.dontmixhtml")), n.image);
                                                                 "namespace",
                                                             ac.getCssVersion(),
                                                                 ac)));
-            //	    addError(new ParseException("namespace"), sb.toString());
-                //		ignoreStatement();
+                removeThisRule();
             } else if (n!=null) {
                 prefix = convertIdent(n.image);
                 if (!ac.isNamespaceDefined(getURL(), prefix)) {
