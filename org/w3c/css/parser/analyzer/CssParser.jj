@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.58 2009-02-16 17:53:39 ylafon Exp $
+ * $Id: CssParser.jj,v 1.59 2009-02-16 17:59:13 ylafon Exp $
  *
  */
 
@@ -83,7 +83,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.58 $
+ * @version $Revision: 1.59 $
  */
 public abstract class CssParser {
 
@@ -1588,8 +1588,7 @@ void element_name(CssSelectors s) :
 								"namespace",
 							    ac.getCssVersion(),
 								ac)));
-	    //	    addError(new ParseException("namespace"), sb.toString());
-		//		ignoreStatement();
+		removeThisRule();
 	    } else if (n!=null) {
 		prefix = convertIdent(n.image);
 		if (!ac.isNamespaceDefined(getURL(), prefix)) {
