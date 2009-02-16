@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.49 2009-02-15 18:23:24 ylafon Exp $
+// $Id: CssFouffa.java,v 1.50 2009-02-16 12:16:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -50,7 +50,7 @@ import org.w3c.css.values.CssExpression;
  * parser.parseStyle();<BR>
  * </code>
  * 
- * @version $Revision: 1.49 $
+ * @version $Revision: 1.50 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -421,7 +421,8 @@ public final class CssFouffa extends CssParser {
 	}
 
 	// That's all folks, notify all errors and warnings
-	for (Enumeration<CssValidatorListener> e = listeners.elements(); e.hasMoreElements();) {
+	for (Enumeration<CssValidatorListener> e = listeners.elements(); 
+	     e.hasMoreElements();) {
 	    CssValidatorListener listener;
 	    listener = e.nextElement();
 	    listener.notifyErrors(ac.getFrame().getErrors());
@@ -442,7 +443,8 @@ public final class CssFouffa extends CssParser {
 	AtRuleNamespace nsrule = new AtRuleNamespace(prefix, nsname, is_url);
 	newAtRule(nsrule);
 	endOfAtRule(); 
-	// FIXME add in the NS declaration for the document
+	// add the NS in the global context definition
+	ac.setNamespace(url, prefix, nsname);
     }
     /**
      * Call by the import statement.
