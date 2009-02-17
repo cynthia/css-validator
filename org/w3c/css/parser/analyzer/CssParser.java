@@ -63,7 +63,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.59 $
+ * @version $Revision: 1.60 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -508,6 +508,11 @@ new ParseException(ac.getMsg().getString("generator.dontmixhtml")), n.image);
                    charsetToken.beginColumn != 1) {
                     {if (true) throw new ParseException(
                                   ac.getMsg().getString("parser.charset"));}
+                }
+                if ("css1".equals(ac.getCssVersion())) {
+                    {if (true) throw new ParseException("No @charset rule is allowed "+
+                                             "in CSS1");}
+                    /* ac.getMsg().getString("parser.charsetcss1") */
                 }
                 // stricter rule for CSS21 and soon for CSS3
                 if ("css21".equals(ac.getCssVersion())) {
