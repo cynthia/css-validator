@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.62 2009-02-17 16:54:38 ylafon Exp $
+ * $Id: CssParser.jj,v 1.63 2009-02-17 22:06:47 ylafon Exp $
  *
  */
 
@@ -83,7 +83,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.62 $
+ * @version $Revision: 1.63 $
  */
 public abstract class CssParser {
 
@@ -638,11 +638,11 @@ new ParseException(ac.getMsg().getString("generator.dontmixhtml")), n.image);
 	    ( importDeclaration() ( ignoreStatement() ) )*
 	    ( namespaceDeclaration() ( ignoreStatement() ) )*
 	    afterImportDeclaration()
+	    <EOF>
 	 } catch (TokenMgrError err) {
    addError (new ParseException(ac.getMsg().getString("generator.unrecognize")),
 	     err.getMessage());
     }
-    <EOF>
 }
 
 void charset() :
