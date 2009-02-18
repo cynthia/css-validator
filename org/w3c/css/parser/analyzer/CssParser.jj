@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.63 2009-02-17 22:06:47 ylafon Exp $
+ * $Id: CssParser.jj,v 1.64 2009-02-18 07:02:20 ylafon Exp $
  *
  */
 
@@ -11,7 +11,7 @@ options {
     IGNORE_CASE  = true;
     STATIC = false;
     UNICODE_INPUT = true;
-    /*        
+    /*
           DEBUG_TOKEN_MANAGER = true; 
 	  DEBUG_PARSER = true;      
     */
@@ -83,7 +83,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.63 $
+ * @version $Revision: 1.64 $
  */
 public abstract class CssParser {
 
@@ -1643,10 +1643,10 @@ void attrib(CssSelectors s) :
 	 ) ( <S> )* 
 	 ( val=<IDENT> 
 	     { val.image = convertIdent(val.image); }
-	   | ( val=<STRING> 
+	   | val=<STRING> 
 	       { val.image = convertStringIndex(val.image, 1, val.image.length() -1, false);} 
-			   ) 
-	   ( <S> )* ) )?
+	   ) 
+	   ( <S> )* )?
   <RBRACKET>
       {
 	  if ("css1".equals(ac.getCssVersion())) {
@@ -1714,7 +1714,7 @@ void attrib(CssSelectors s) :
 	      } catch (InvalidParamException e) {
 	     	  removeThisRule();
 	          ac.getFrame().addError(new CssError(e));
-      	      }
+      	      } 
 	  }
       }
 }
