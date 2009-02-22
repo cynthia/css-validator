@@ -1,11 +1,11 @@
 //
-// $Id: Date.java,v 1.4 2005-09-14 15:15:32 ylafon Exp $
+// $Id: Date.java,v 1.5 2009-02-22 15:16:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 // DateThread.java
-// $Id: Date.java,v 1.4 2005-09-14 15:15:32 ylafon Exp $
+// $Id: Date.java,v 1.5 2009-02-22 15:16:18 ylafon Exp $
 // From Yves Lafon (ylafon@w3.org)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -65,11 +65,11 @@ public class Date {
   private void computeDate () {
     int day;
     int hr,mn,sec;
-    StringBuffer sbdate, ldate;
+    StringBuilder sbdate, ldate;
     Calendar cal;
 
-    sbdate = new StringBuffer(30);
-    ldate = new StringBuffer(30);
+    sbdate = new StringBuilder(30);
+    ldate = new StringBuilder(30);
 
     cal = new GregorianCalendar(tz, Locale.getDefault());
     day = cal.get(Calendar.DAY_OF_MONTH);

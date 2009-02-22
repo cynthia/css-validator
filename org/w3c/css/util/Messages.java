@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.25 2009-02-12 10:30:28 ylafon Exp $
+// $Id: Messages.java,v 1.26 2009-02-22 15:16:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.25 $
+ * @version $Revision: 1.26 $
  */
 public class Messages {
 
@@ -100,7 +100,7 @@ public class Messages {
      *            the warning property.
      */
     public String getWarningString(String message) {
-	return getString(new StringBuffer("warning.").append(message).toString());
+	return getString("warning."+message);
     }
 
     /**
@@ -110,7 +110,7 @@ public class Messages {
      *            the warning property.
      */
     public String getWarningLevelString(String message) {
-	return getString(new StringBuffer("warning.").append(message).append(".level").toString());
+	return getString(new StringBuilder("warning.").append(message).append(".level").toString());
     }
 
     /**
@@ -120,7 +120,7 @@ public class Messages {
      *            the error property.
      */
     public String getErrorString(String message) {
-	return getString(new StringBuffer("error.").append(message).toString());
+	return getString("error."+message);
     }
 
     /**
@@ -130,7 +130,7 @@ public class Messages {
      *            the generator property.
      */
     public String getGeneratorString(String message) {
-	return getString(new StringBuffer("generator.").append(message).toString());
+	return getString("generator."+message);
     }
 
     /**
@@ -140,7 +140,7 @@ public class Messages {
      *            the generator property.
      */
     public String getGeneratorString(String message, String param) {
-	String str = getString(new StringBuffer("generator.").append(message).toString());
+	String str = getString("generator."+message);
 
 	// replace all parameters
 	int i = str.indexOf("%s");
@@ -157,7 +157,7 @@ public class Messages {
      *            the generator property.
      */
     public String getServletString(String message) {
-	return getString(new StringBuffer("servlet.").append(message).toString());
+	return getString("servlet."+message);
     }
 
     static {
@@ -389,7 +389,5 @@ public class Messages {
 	    System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties cn");
 	    System.err.println("  " + e.toString());
 	}
-
     }
-
 }
