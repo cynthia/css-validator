@@ -1,4 +1,4 @@
-// $Id: PseudoFunctionSelector.java,v 1.3 2009-02-12 21:26:35 ylafon Exp $
+// $Id: PseudoFunctionSelector.java,v 1.4 2009-02-24 21:45:14 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -71,7 +71,7 @@ public class PseudoFunctionSelector implements Selector {
      */
     public String toString() {
 	if (representation == null) {
-	    StringBuffer sb = new StringBuffer();
+	    StringBuilder sb = new StringBuilder();
 	    sb.append(':');
 	    sb.append(name);
 	    sb.append('(');

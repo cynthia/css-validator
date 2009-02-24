@@ -1,4 +1,4 @@
-// $Id: TypeSelector.java,v 1.3 2009-02-16 17:53:39 ylafon Exp $
+// $Id: TypeSelector.java,v 1.4 2009-02-24 21:45:12 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -52,7 +52,7 @@ public class TypeSelector implements Selector {
      */
     public String toString() {
 	if (prefix != null) {
-	    StringBuffer sb = new StringBuffer(prefix);
+	    StringBuilder sb = new StringBuilder(prefix);
 	    sb.append('|');
 	    sb.append(name);
 	    return sb.toString();

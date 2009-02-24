@@ -1,5 +1,5 @@
 //
-// $Id: check.java,v 1.13 2008-02-28 16:47:42 ylafon Exp $
+// $Id: check.java,v 1.14 2009-02-24 21:45:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public final class check extends HttpServlet {
 
@@ -58,7 +58,7 @@ public final class check extends HttpServlet {
 	res.setHeader("Vary", "Referer");
 
 	Enumeration e = req.getParameterNames();
-	StringBuffer sb = new StringBuffer(validatorURI);
+	StringBuilder sb = new StringBuilder(validatorURI);
 	boolean first = true;
 	boolean uridone = false;
 
