@@ -1,5 +1,5 @@
 //
-// $Id: InvalidParamException.java,v 1.8 2009-02-24 22:57:37 ylafon Exp $
+// $Id: InvalidParamException.java,v 1.9 2009-02-24 23:25:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,7 +10,7 @@ package org.w3c.css.util;
 import org.w3c.css.parser.analyzer.ParseException;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class InvalidParamException extends ParseException {
 
@@ -70,11 +70,12 @@ public class InvalidParamException extends ParseException {
 		// replace all parameters
 		String[] msg_parts = str.split("%s");
 		int j = 0;
-		for (int i = 0; i< msg_parts.length; i++) {
-		    sb.append(msg_parts[i]);
+		sb.append(msg_parts[0]);
+		for (int i = 1; i< msg_parts.length; i++) {
 		    if (j < s_args.length) {
 			sb.append(s_args[j++]);
 		    }
+		    sb.append(msg_parts[i]);
 		}
 		return sb.toString();
 	    }
