@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.28 2009-02-24 22:22:07 ylafon Exp $
+// $Id: Messages.java,v 1.29 2009-02-24 23:27:08 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 /**
- * @version $Revision: 1.28 $
+ * @version $Revision: 1.29 $
  */
 public class Messages {
 
@@ -168,12 +168,12 @@ public class Messages {
 	}
 	String[] msg_parts = getString(message).split("%s");
 	Iterator<String> param_it = params.iterator();
-	StringBuilder sb = new StringBuilder(message.length());
-	for (int i=0; i<msg_parts.length; i++) {
-	    sb.append(msg_parts[i]);
+	StringBuilder sb = new StringBuilder(msg_parts[0]);
+	for (int i=1; i<msg_parts.length; i++) {
 	    if (param_it.hasNext()) {
 		sb.append(param_it.next());
 	    }
+	    sb.append(msg_parts[i]);
 	}
 	return sb.toString();
     }
