@@ -1,4 +1,4 @@
-// $Id: Utf8Properties.java,v 1.3 2009-02-22 15:16:18 ylafon Exp $
+// $Id: Utf8Properties.java,v 1.4 2009-02-24 22:22:07 ylafon Exp $
 // From Jean-Guilhem Rouel
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
@@ -24,7 +24,7 @@ import java.util.Properties;
  *
  * @see java.util.Properties
  */
-public class Utf8Properties extends Properties {
+public class Utf8Properties<K,V> extends Properties {
 
     /**
      * use serialVersionUID from JDK 1.1.X for interoperability
