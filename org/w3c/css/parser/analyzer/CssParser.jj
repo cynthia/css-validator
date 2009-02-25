@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.65 2009-02-24 23:29:13 ylafon Exp $
+ * $Id: CssParser.jj,v 1.66 2009-02-25 00:11:31 ylafon Exp $
  *
  */
 
@@ -83,7 +83,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.65 $
+ * @version $Revision: 1.66 $
  */
 public abstract class CssParser {
 
@@ -715,6 +715,10 @@ void afterImportDeclaration() :
 	    else if (!reinited && ret.startsWith("@charset")) {
 		ParseException e = 
 		new ParseException(ac.getMsg().getString("parser.charset"));
+		addError(e, ret);
+	    } else if (!reinited && ret.startsWith("@import")) {
+		ParseException e = 
+		new ParseException(ac.getMsg().getString("parser.import_not_allowed"));
 		addError(e, ret);
 	    } else if (!reinited) {
 		ParseException e = 
