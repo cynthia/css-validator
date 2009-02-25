@@ -1,5 +1,5 @@
 //
-// $Id: SortedHashtable.java,v 1.4 2005-09-14 15:15:32 ylafon Exp $
+// $Id: SortedHashtable.java,v 1.5 2009-02-25 20:45:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class SortedHashtable extends Hashtable {
 
@@ -54,10 +54,7 @@ public class SortedHashtable extends Hashtable {
 	Object[] sortedArray = new Object[size()];
 	int i = 0;
 
-	for (Enumeration e = elements(); e.hasMoreElements(); i++) {
-	    sortedArray[i] = e.nextElement();
-	}
-
+	values().toArray(sortedArray);
 	sort.sort(sortedArray, 0, size()-1, new CompareString());
 
 	return sortedArray;
