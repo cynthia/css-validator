@@ -1,5 +1,5 @@
 //
-// $Id: Warning.java,v 1.9 2009-02-22 15:16:18 ylafon Exp $
+// $Id: Warning.java,v 1.10 2009-02-25 20:44:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import org.w3c.css.properties.css1.CssProperty;
 
 /**
  * This class is use to manage all warning every where
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class Warning {
     String sourceFile;
@@ -144,6 +144,13 @@ public class Warning {
     }
 
     /**
+     * Get the source file
+     */
+    public String getSourceFileEscaped() {
+	return Messages.escapeString(sourceFile);
+    }
+
+    /**
      * Get the line number.
      */
     public int getLine() {
@@ -155,6 +162,13 @@ public class Warning {
      */
     public String getWarningMessage() {
 	return warningMessage;
+    }
+
+    /**
+     * Get the message.
+     */
+    public String getWarningMessageEscaped() {
+	return Messages.escapeString(warningMessage);
     }
 
     /**

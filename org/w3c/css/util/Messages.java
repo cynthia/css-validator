@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.29 2009-02-24 23:27:08 ylafon Exp $
+// $Id: Messages.java,v 1.30 2009-02-25 20:44:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 /**
- * @version $Revision: 1.29 $
+ * @version $Revision: 1.30 $
  */
 public class Messages {
 
@@ -160,6 +160,30 @@ public class Messages {
      */
     public String getServletString(String message) {
 	return getString("servlet."+message);
+    }
+
+    /**
+     * escape string
+     */
+    static public String escapeString(String orig) {
+	if (orig != null) {
+            int len = orig.length();
+            StringBuilder ret = new StringBuilder(len+16);
+            char c;
+	    
+            for (int i = 0; i < len; i++) {
+                switch (c = orig.charAt(i)) {
+                case '&'  : ret.append("&amp;"); break;
+                case '\'' : ret.append("&#39;"); break;
+                case '"'  : ret.append("&quot;"); break;
+                case '<'  : ret.append("&lt;"); break;
+                case '>'  : ret.append("&gt;"); break;
+                default   : ret.append(c);
+                }
+            }
+            return ret.toString();
+        }
+        return "[empty string]";
     }
 
     public String getString(String message, Vector<String> params) {

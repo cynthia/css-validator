@@ -1,4 +1,4 @@
-// $Id: CssRuleList.java,v 1.18 2009-02-24 21:45:14 ylafon Exp $
+// $Id: CssRuleList.java,v 1.19 2009-02-25 20:44:49 ylafon Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -8,6 +8,7 @@ package org.w3c.css.css;
 import java.util.Vector;
 
 import org.w3c.css.parser.AtRule;
+import org.w3c.css.util.Messages;
 
 public class CssRuleList {
 
@@ -39,6 +40,10 @@ public class CssRuleList {
 
     public String getAtRule() {
 	return atRuleString;
+    }
+    
+    public String getAtRuleEscaped() {
+	return Messages.escapeString(atRuleString);
     }
 	
     public boolean isEmpty() {

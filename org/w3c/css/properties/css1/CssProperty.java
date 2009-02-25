@@ -1,5 +1,5 @@
 //
-// $Id: CssProperty.java,v 1.4 2008-03-25 18:43:30 ylafon Exp $
+// $Id: CssProperty.java,v 1.5 2009-02-25 20:44:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,6 +11,7 @@ import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.Messages;
 import org.w3c.css.values.CssIdent;
 
 /**
@@ -25,7 +26,7 @@ import org.w3c.css.values.CssIdent;
  * If you want to add some properties to the parser, you should subclass this
  * class.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public abstract class CssProperty
         implements Cloneable, StyleSheetOrigin {
@@ -129,6 +130,12 @@ public abstract class CssProperty
     public abstract String getPropertyName();
 
     /**
+     * Returns the name of this property IN LOWER CASE. escaped
+     */
+    public  String getPropertyNameEscaped() {
+	return Messages.escapeString(getPropertyName());
+    }
+    /**
      * Compares two properties for equality.
      *
      * @param value The other property.
@@ -159,6 +166,10 @@ public abstract class CssProperty
      *  <code>property.getPropertyName() + " : " + property.toString()</code>
      */
     public abstract String toString();
+
+    public String getEscaped() {
+	return Messages.escapeString(toString());
+    }
 
     /**
      * Set this property to be important.

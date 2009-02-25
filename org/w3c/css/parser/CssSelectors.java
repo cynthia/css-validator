@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.27 2009-02-12 21:26:34 ylafon Exp $
+// $Id: CssSelectors.java,v 1.28 2009-02-25 20:44:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -32,6 +32,7 @@ import org.w3c.css.selectors.pseudofunctions.PseudoFunctionNthLastOfType;
 import org.w3c.css.selectors.pseudofunctions.PseudoFunctionNthOfType;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.util.Messages;
 import org.w3c.css.util.Util;
 import org.w3c.css.util.Warnings;
 
@@ -43,7 +44,7 @@ import org.w3c.css.util.Warnings;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.27 $
+ * @version $Revision: 1.28 $
  */
 public final class CssSelectors extends SelectorsList 
     implements CssSelectorsConstant {
@@ -339,6 +340,12 @@ public final class CssSelectors extends SelectorsList
 	sbrep.append(super.toString());
 	cachedRepresentation = sbrep.toString();
 	return cachedRepresentation;
+    }
+    /**
+     * return XML escaped string
+     */
+    public String getEscaped() {
+	return Messages.escapeString(toString());
     }
 
     public boolean isToStringCached() {

@@ -1,4 +1,4 @@
-// $Id: SelectorsList.java,v 1.5 2009-02-12 10:32:53 ylafon Exp $
+// $Id: SelectorsList.java,v 1.6 2009-02-25 20:44:50 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -11,6 +11,7 @@ import org.w3c.css.selectors.attributes.AttributeBegin;
 import org.w3c.css.selectors.attributes.AttributeExact;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.util.Messages;
 
 /**
  * SelectorsList<br />
@@ -264,6 +265,10 @@ public class SelectorsList {
     
     public boolean isToStringCached() {
 	return (stringrep != null);
+    }
+
+    public String toStringEscaped() {
+	return Messages.escapeString(toString());
     }
 
     /**
