@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.en,v 1.37 2009-02-24 22:11:31 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.en,v 1.38 2009-02-25 00:10:38 ylafon Exp $
 language_name: English
 more_options: More Options
 title_more_options: Show/Hide extra validation options
@@ -369,3 +369,6 @@ parser.charsetcss1: @charset rules can not be used in CSS1
 parser.attrcss1: Attribute selectors are invalid in CSS1
 
 parser.invalid_id_selector: Invalid ID selector
+parser.import_not_allowed: @import are not allowed after any valid statement other than @charset and @import.
+
+
