@@ -4,7 +4,7 @@
    Copyright 2003 W3C (MIT, INRIA, Keio). All Rights Reserved.
    See <http://www.w3.org/Consortium/Legal/ipr-notice.html#Copyright>
  
-   $Id: docs.css,v 1.2 2007-12-05 08:00:59 ot Exp $
+   $Id: docs.css,v 1.3 2009-02-26 13:21:37 ylafon Exp $
 */
 
 /*
@@ -99,7 +99,11 @@ span.balise > span.name {color:blue;}
 span.balise > span.attr {color:#009000;}
 span.balise > span.string {color:purple;}
 
-ul.instructions, ol.instructions { margin-left: 18px; }
+ul.instructions, ol.instructions {
+    margin-left: 18px;
+    list-style-type: decimal;
+    list-style-position: inside;
+}
 
 /***** translation status page *******/
 
