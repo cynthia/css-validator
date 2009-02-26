@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.41 2009-02-16 16:42:14 ylafon Exp $
+// $Id: CssValidator.java,v 1.42 2009-02-26 10:41:25 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -47,7 +47,7 @@ import org.w3c.www.mime.MimeTypeFormatException;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.41 $
+ * @version $Revision: 1.42 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -743,8 +743,9 @@ public final class CssValidator extends HttpServlet {
      * @param output
      * @throws MimeTypeFormatException
      */
-    private void buildHeader(ApplContext ac, HttpServletResponse res, String output) {
-
+    private void buildHeader(ApplContext ac, HttpServletResponse res, 
+			     String output)
+    {
 	// I don't want cache for the response (inhibits proxy)
 	res.setHeader("Pragma", "no-cache"); // @@deprecated
 	res.setHeader("Cache-Control", "no-cache");
@@ -807,6 +808,7 @@ public final class CssValidator extends HttpServlet {
 	    res.setHeader("Content-Language", "en");
 	    res.setHeader("charset", Utf8Properties.ENCODING);
 	}
+	res.setHeader("Vary", "Accept-Language");
     }
 
     private void handleError(HttpServletResponse res, ApplContext ac,
