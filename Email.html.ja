@@ -11,7 +11,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: Email.html.ja,v 1.1 2009-02-18 16:18:23 ot Exp $" />
+    <meta name="revision" content="$Id: Email.html.ja,v 1.2 2009-02-26 13:52:27 ylafon Exp $" />
   </head>
 
   <body>
@@ -90,21 +90,21 @@
        <ul id="lang_choice">
 
 
-     <li><a href="about.html.en"
+     <li><a href="Email.html.en"
          lang="en"
          xml:lang="en"
          hreflang="en"
          rel="alternate">English</a>
      </li>
 
-     <li><a href="about.html.fr"
+     <li><a href="Email.html.fr"
          lang="fr"
          xml:lang="fr"
          hreflang="fr"
          rel="alternate">Français</a>
      </li>
 
-     <li><a href="about.html.ja"
+     <li><a href="Email.html.ja"
          lang="ja"
          xml:lang="ja"
          hreflang="ja"

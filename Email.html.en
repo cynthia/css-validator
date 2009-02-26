@@ -9,7 +9,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: Email.html.en,v 1.12 2009-02-05 14:31:31 ot Exp $" />
+    <meta name="revision" content="$Id: Email.html.en,v 1.13 2009-02-26 13:52:27 ylafon Exp $" />
   </head>
 
   <body>
@@ -96,7 +96,31 @@
 
           </ul>
 
+       <ul id="lang_choice">
 
+
+     <li><a href="Email.html.en"
+         lang="en"
+         xml:lang="en"
+         hreflang="en"
+         rel="alternate">English</a>
+     </li>
+
+     <li><a href="Email.html.fr"
+         lang="fr"
+         xml:lang="fr"
+         hreflang="fr"
+         rel="alternate">Français</a>
+     </li>
+
+     <li><a href="Email.html.ja"
+         lang="ja"
+         xml:lang="ja"
+         hreflang="ja"
+         rel="alternate">日本語</a>
+     </li>
+
+</ul>
 
        <div id="footer">
    <p id="activity_logos">
