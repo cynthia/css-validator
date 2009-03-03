@@ -1,4 +1,6 @@
-# Master localization string file: $Id: Messages.properties.en,v 1.38 2009-02-25 00:10:38 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.en,v 1.39 2009-03-03 15:37:05 ot Exp $
+
+direction: ltr
 language_name: English
 more_options: More Options
 title_more_options: Show/Hide extra validation options
