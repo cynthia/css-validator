@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.5 2009-03-05 22:46:18 ylafon Exp $
+// $Id: CssColor.java,v 1.6 2009-03-05 22:59:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -35,7 +35,7 @@ import org.w3c.css.values.CssValue;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssColor extends CssProperty implements CssOperator {
 
@@ -108,47 +108,9 @@ public class CssColor extends CssProperty implements CssOperator {
 		color = tempcolor;
 		expression.next();
 	    } else if (attr.getName().equals("hsla")) {
-
-		Vector hslaValues = new Vector();
-
-		char op;
-
-		CssValue v1 = params.getValue();
-		op = params.getOperator();
-		if (v1 == null || op != COMMA) {
-		    throw new InvalidParamException("invalid-color", ac);
-		}
-		hslaValues.addElement(v1);
-		params.next();
-
-		CssValue v2 = params.getValue();
-		op = params.getOperator();
-		if (v2 == null || op != COMMA) {
-		    throw new InvalidParamException("invalid-color", ac);
-		}
-		hslaValues.addElement(v2);
-		params.next();
-
-		CssValue v3 = params.getValue();
-		op = params.getOperator();
-		if (v3 == null || op != COMMA) {
-		    throw new InvalidParamException("invalid-color", ac);
-		}
-		hslaValues.addElement(v3);
-		params.next();
-
-		CssValue v4 = params.getValue();
-		if (v4 == null) {
-		    throw new InvalidParamException("invalid-color", ac);
-		}
-		hslaValues.addElement(v4);
-
-		params.starts();
-		tempcolor.setHSLAColor(hslaValues, ac);
-		params.ends();
+		tempcolor.setHSLAColor(params, ac);
 		color = tempcolor;
 		expression.next();
-
 	    } else {
 		throw new InvalidParamException("value",
 						params.getValue(),
