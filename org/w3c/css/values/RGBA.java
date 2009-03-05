@@ -9,9 +9,11 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RGBA.java,v 1.5 2009-03-05 18:00:21 ylafon Exp $
+ * $Id: RGBA.java,v 1.6 2009-03-05 22:44:59 ylafon Exp $
  */
 package org.w3c.css.values;
+
+import org.w3c.css.util.Util;
 
 public class RGBA {
     String output = null;
@@ -36,6 +38,7 @@ public class RGBA {
 
     public final void setRed(int r) {
 	this.r = r;
+	this.fr = r;
     }
     public final void setRed(float fr) {
 	this.fr = fr;
@@ -43,13 +46,15 @@ public class RGBA {
 
     public final void setGreen(int g) {
 	this.g = g;
+	this.fg = g;
     }
-    public final void setGreen(float gr) {
+    public final void setGreen(float fg) {
 	this.fg = fg;
     }
 
     public final void setBlue(int b) {
 	this.b = b;
+	this.fb = b;
     }
     public final void setBlue(float fb) {
 	this.fb = fb;
@@ -116,15 +121,15 @@ public class RGBA {
 	if (output == null) {
 	    StringBuilder sb = new StringBuilder("rgba(");
 	    if (isPercent()) {
-		sb.append(fr).append("%, ");
-		sb.append(fg).append("%, ");
-		sb.append(fb).append("%, ");
+		sb.append(Util.displayFloat(fr)).append("%, ");
+		sb.append(Util.displayFloat(fg)).append("%, ");
+		sb.append(Util.displayFloat(fb)).append("%, ");
 	    } else {
 		sb.append(r).append(", ");
 		sb.append(g).append(", ");
 		sb.append(b).append(", ");
 	    }
-	    sb.append(a).append(')');
+	    sb.append(Util.displayFloat(a)).append(')');
 	    output = sb.toString();
 	} 
 	return output;
