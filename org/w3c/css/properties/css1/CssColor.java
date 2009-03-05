@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssColor.java,v 1.4 2009-03-05 18:01:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -35,7 +35,7 @@ import org.w3c.css.values.CssValue;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssColor extends CssProperty implements CssOperator {
 
@@ -100,42 +100,7 @@ public class CssColor extends CssProperty implements CssOperator {
 		    expression.next();
 		}
 	    } else if (attr.getName().equals("rgba")) {
-
-		Vector rgbaValues = new Vector();
-
-		char op;
-
-		CssValue v1 = params.getValue();
-		op = params.getOperator();
-		if (v1 == null || op != COMMA) {
-		    throw new InvalidParamException("invalid-color", ac);
-		}
-		rgbaValues.addElement(v1);
-		params.next();
-
-		CssValue v2 = params.getValue();
-		op = params.getOperator();
-		if (v2 == null || op != COMMA) {
-		    throw new InvalidParamException("invalid-color", ac);
-		}
-		rgbaValues.addElement(v2);
-		params.next();
-
-		CssValue v3 = params.getValue();
-		op = params.getOperator();
-		if (v3 == null || op != COMMA) {
-		    throw new InvalidParamException("invalid-color", ac);
-		}
-		rgbaValues.addElement(v3);
-		params.next();
-
-		CssValue v4 = params.getValue();
-		if (v4 == null) {
-		    throw new InvalidParamException("invalid-color", ac);
-		}
-		rgbaValues.addElement(v4);
-
-		tempcolor.setRGBAColor(rgbaValues, ac);
+		tempcolor.setRGBAColor(params, ac);
 		color = tempcolor;
 		expression.next();
 	    } else if (attr.getName().equals("hsl")) {
