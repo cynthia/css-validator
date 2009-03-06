@@ -1,5 +1,5 @@
 //
-// $Id: CssProperty.java,v 1.5 2009-02-25 20:44:49 ylafon Exp $
+// $Id: CssProperty.java,v 1.6 2009-03-06 11:15:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import org.w3c.css.values.CssIdent;
  * If you want to add some properties to the parser, you should subclass this
  * class.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public abstract class CssProperty
         implements Cloneable, StyleSheetOrigin {
@@ -106,7 +106,7 @@ public abstract class CssProperty
     /**
      * Returns true if the property is inherited.
      */
-    public boolean Inherited() {
+    public boolean inherited() {
 	return CssProperties.getInheritance(this);
     }
 
@@ -150,7 +150,7 @@ public abstract class CssProperty
      * @see #getPropertyName()
      */
     public void print(CssPrinterStyle printer) {
-	if (byUser || Inherited() || important) {
+	if (byUser || inherited() || important) {
 	    // if (Inherited() || important) {
 	    printer.print(this);
 	}

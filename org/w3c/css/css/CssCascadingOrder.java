@@ -1,5 +1,5 @@
 //
-// $Id: CssCascadingOrder.java,v 1.6 2005-09-14 15:14:17 ylafon Exp $
+// $Id: CssCascadingOrder.java,v 1.7 2009-03-06 11:15:38 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -96,7 +96,7 @@ import org.w3c.css.util.Util;
  * rules. In a transition phase, this policy will make it easier for stylistic
  * attributes to coexist with style sheets.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public final class CssCascadingOrder {
 
@@ -141,7 +141,7 @@ public final class CssCascadingOrder {
 
 	if (propertyCount == 0) {
 	    // if I found nothing
-	    if (selector.getNext() != null && property.Inherited()) {
+	    if (selector.getNext() != null && property.inherited()) {
 		// here, I can try to resolve
 		Util.verbose("Found nothing ... try the next "
 			     + selector.getNext());
