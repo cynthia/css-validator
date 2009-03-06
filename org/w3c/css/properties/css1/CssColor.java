@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.7 2009-03-06 09:29:05 ylafon Exp $
+// $Id: CssColor.java,v 1.8 2009-03-06 11:17:16 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -36,7 +36,7 @@ import org.w3c.css.values.CssValue;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class CssColor extends CssProperty implements CssOperator {
 
@@ -82,7 +82,7 @@ public class CssColor extends CssProperty implements CssOperator {
 		color = new org.w3c.css.values.CssColor(ac, (String) val.get());
 	    } else {
 		color = new org.w3c.css.values.CssColorCSS2(ac, 
-					    (String) val.get()); // SVG profiles
+							    (String) val.get()); // SVG profiles
 	    }
 	    //	    color = new org.w3c.css.values.CssColor();
 	    break;
@@ -129,8 +129,8 @@ public class CssColor extends CssProperty implements CssOperator {
 	    }
 	    break;
 	default:
-	     throw new InvalidParamException("value", expression.getValue(),
-					     getPropertyName(), ac);
+	    throw new InvalidParamException("value", expression.getValue(),
+					    getPropertyName(), ac);
 	}
 	expression.next();
     }
@@ -216,13 +216,13 @@ public class CssColor extends CssProperty implements CssOperator {
     public boolean equals(CssProperty property) {
 	return (property instanceof CssColor &&
 		color.equals(((CssColor) property).color));
-}
-
+    }
+    
     /**
      * Returns the name of this property
      */
-public String getPropertyName() {
-    return "color";
-}
+    public String getPropertyName() {
+	return "color";
+    }
 
 }
