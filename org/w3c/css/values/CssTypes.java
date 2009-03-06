@@ -1,5 +1,5 @@
 //
-// $Id: CssTypes.java,v 1.1 2008-03-25 18:30:11 ylafon Exp $
+// $Id: CssTypes.java,v 1.2 2009-03-06 11:02:46 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2008.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -22,6 +22,7 @@ public class CssTypes {
     public static final int CSS_FREQUENCY     =  9;
     public static final int CSS_RESOLUTION    = 10;
     public static final int CSS_DATE          = 11;
-    public static final int CSS_UNICODE_RANGE = 12;
+    public static final int CSS_FUNCTION      = 12;
+    public static final int CSS_UNICODE_RANGE = 13;
 
 }
