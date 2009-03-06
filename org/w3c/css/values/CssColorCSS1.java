@@ -1,5 +1,5 @@
 //
-// $Id: CssColorCSS1.java,v 1.11 2009-03-06 14:06:40 ylafon Exp $
+// $Id: CssColorCSS1.java,v 1.12 2009-03-06 14:07:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -157,7 +157,7 @@ import org.w3c.css.util.Util;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class CssColorCSS1 extends CssColor {
 
@@ -188,7 +188,7 @@ public class CssColorCSS1 extends CssColor {
 	    throws InvalidParamException {
 	String lower_s = s.toLowerCase();
 	if (definedColors.get(lower_s) != null) {
-	    Object obj = definedColors.get(lower_s);
+	    Object obj = definedColorsCSS1.get(lower_s);
 	    if (obj instanceof RGB) {
 		color = lower_s;
 		rgb = (RGB) obj;
