@@ -1,5 +1,5 @@
 //
-// $Id: CssColorCSS1.java,v 1.4 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssColorCSS1.java,v 1.5 2009-03-09 21:12:00 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,6 +11,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
@@ -30,7 +31,7 @@ import org.w3c.css.values.CssValue;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssColorCSS1 extends CssProperty {
 
@@ -56,16 +57,18 @@ public class CssColorCSS1 extends CssProperty {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
 
-	if (val instanceof org.w3c.css.values.CssColor) {
+	switch (val.getType()) {
+	case CssTypes.CSS_COLOR:
 	    color = val;
-	    expression.next();
-	} else if (val instanceof CssIdent) {
+	    break;
+	case CssTypes.CSS_IDENT:
 	    color = new org.w3c.css.values.CssColorCSS1(ac, (String) val.get());
-	    expression.next();
-	} else {
+	    break;
+	default:
 	    throw new InvalidParamException("value", expression.getValue(),
 					    getPropertyName(), ac);
 	}
+	expression.next();
     }
 
     public CssColorCSS1(ApplContext ac, CssExpression expression)
