@@ -1,5 +1,5 @@
 //
-// $Id: CssColorCSS2.java,v 1.12 2009-03-05 23:23:28 ylafon Exp $
+// $Id: CssColorCSS2.java,v 1.13 2009-03-09 17:17:48 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -157,7 +157,7 @@ import org.w3c.css.util.Util;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class CssColorCSS2 extends CssColor {
 
@@ -187,24 +187,9 @@ public class CssColorCSS2 extends CssColor {
     private void setIdentColor(String s, ApplContext ac)
 	    throws InvalidParamException {
 	String lower_s = s.toLowerCase();
-	Object obj = definedColorsCSS2.get(lower_s);
-	if (obj != null) {
-	    if (obj instanceof RGB) {
-		color = lower_s;
-		rgb = (RGB) obj;
-	    } else if (obj instanceof String) {
-		color = (String) obj;
-// 2007-05 - this warning on color string capitalization is plain silly, 
-// commenting it out-- ot@w3.org
-//		if (!obj.equals(s)) {
-//		    ac.getFrame().addWarning("color.mixed-capitalization",
-//					     s);
-//		}
-	    }
-	    return;
+	if (!computeIdentColor(definedColorsCSS2, lower_s)) {
+	    throw new InvalidParamException("value", s, "color", ac);
 	}
-
-	throw new InvalidParamException("value", s, "color", ac);
     }
 
     static {
