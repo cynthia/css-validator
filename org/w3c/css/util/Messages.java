@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.31 2009-03-03 15:37:04 ot Exp $
+// $Id: Messages.java,v 1.32 2009-03-24 20:10:21 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 /**
- * @version $Revision: 1.31 $
+ * @version $Revision: 1.32 $
  */
 public class Messages {
 
@@ -426,6 +426,22 @@ public class Messages {
 	    }
 	} catch (Exception e) {
 	    System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties sv");
+	    System.err.println("  " + e.toString());
+	}
+
+	// -----------------------
+	try {
+	    java.io.InputStream f = Messages.class.getResourceAsStream("Messages.properties.bg");
+	    try {
+		tmp = new Utf8Properties<String,String>();
+		tmp.load(f);
+		languages_name.add("bg");
+		languages.put("bg", tmp);
+	    } finally {
+		f.close();
+	    }
+	} catch (Exception e) {
+	    System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties bg");
 	    System.err.println("  " + e.toString());
 	}
 
