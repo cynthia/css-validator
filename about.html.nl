@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.nl,v 1.13 2009-02-05 14:31:31 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.nl,v 1.14 2009-03-25 20:13:52 ot Exp $" />
 
   </head>
 
@@ -133,7 +133,12 @@ of installeer en draai je eigen instantie van de validator.</p>
  
        <ul id="lang_choice">
      
-     <li><a href="about.html.de"
+     <li><a href="about.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="about.html.de"
          lang="de"
          xml:lang="de"
          hreflang="de"

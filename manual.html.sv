@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.sv,v 1.7 2009-02-05 14:31:32 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.sv,v 1.7 2009-02-05 14:31:32 ot Exp $ -->
+  content="$Id: manual.html.sv,v 1.8 2009-03-25 20:13:53 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.sv,v 1.8 2009-03-25 20:13:53 ot Exp $ -->
 </head>
 
 <body>
@@ -370,7 +370,12 @@ möjligheter:
 
 <ul id="lang_choice">
      
-     <li><a href="manual.html.de"
+     <li><a href="manual.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="manual.html.de"
          lang="de"
          xml:lang="de"
          hreflang="de"

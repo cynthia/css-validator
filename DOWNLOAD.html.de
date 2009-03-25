@@ -8,7 +8,7 @@
     @import "style/base.css";  
     @import "style/docs.css";
   </style>
-  <meta name="revision" content="$Id: DOWNLOAD.html.de,v 1.14 2009-02-04 18:41:56 ot Exp $" /><!-- SSI Template Version: $Id: DOWNLOAD.html.de,v 1.14 2009-02-04 18:41:56 ot Exp $ --></head>
+  <meta name="revision" content="$Id: DOWNLOAD.html.de,v 1.15 2009-03-25 20:13:52 ot Exp $" /><!-- SSI Template Version: $Id: DOWNLOAD.html.de,v 1.15 2009-03-25 20:13:52 ot Exp $ --></head>
 <body>
   <div id="banner">
    <h1 id="title"><a href="http://www.w3.org/"><img alt="W3C" width="110" height="61" id="logo" src="./images/w3c.png" /></a>
@@ -116,7 +116,12 @@ das css-validator.jar wie oben beschrieben, und starten Sie es wie folgt:<br />
 
        <ul id="lang_choice">
      
-     <li><a href="DOWNLOAD.html.de"
+     <li><a href="DOWNLOAD.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="DOWNLOAD.html.de"
          lang="de"
          xml:lang="de"
          hreflang="de"

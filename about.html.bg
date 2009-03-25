@@ -11,7 +11,7 @@
 	@import "style/docs.css";
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="revision" content="$Id: about.html.bg,v 1.1 2009-03-24 20:07:09 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.bg,v 1.2 2009-03-25 20:13:52 ot Exp $" />
   </head>
 
   <body>
@@ -135,7 +135,12 @@ sleep() между заявките към валидатора или инст�
       </ul>
 
        <ul id="lang_choice">
-           <li><a href="about.html.de"
+           <li><a href="about.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="about.html.de"
                lang="de"
                xml:lang="de"
                hreflang="de"

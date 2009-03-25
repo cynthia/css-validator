@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.ko,v 1.12 2009-02-09 21:32:35 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.ko,v 1.12 2009-02-09 21:32:35 ot Exp $ -->
+  content="$Id: manual.html.ko,v 1.13 2009-03-25 20:13:53 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.ko,v 1.13 2009-03-25 20:13:53 ot Exp $ -->
 </head>
 
 <body>
@@ -249,7 +249,12 @@
 
 <ul id="lang_choice">
      
-     <li><a href="manual.html.de"
+     <li><a href="manual.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="manual.html.de"
          lang="de"
          xml:lang="de"
          hreflang="de"

@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.es,v 1.17 2009-02-05 14:31:32 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.es,v 1.17 2009-02-05 14:31:32 ot Exp $ -->
+  content="$Id: manual.html.es,v 1.18 2009-03-25 20:13:53 ot Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.es,v 1.18 2009-03-25 20:13:53 ot Exp $ -->
 </head>
 
 <body>
@@ -258,7 +258,12 @@ El servicio de validación de CSS es un servicio gratuito y público para todos,
 
       <ul id="lang_choice">
      
-     <li><a href="manual.html.de"
+     <li><a href="manual.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="manual.html.de"
          lang="de"
          xml:lang="de"
          hreflang="de"

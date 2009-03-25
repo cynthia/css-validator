@@ -10,8 +10,8 @@
 @import "style/base.css";    
 @import "style/docs.css";
 </style>
-<meta name="revision" content="$Id: manual.html.fr,v 1.16 2009-02-05 14:31:32 ot Exp $" />
-<!-- SSI Template Version: $Id: manual.html.fr,v 1.16 2009-02-05 14:31:32 ot Exp $ -->
+<meta name="revision" content="$Id: manual.html.fr,v 1.17 2009-03-25 20:13:53 ot Exp $" />
+<!-- SSI Template Version: $Id: manual.html.fr,v 1.17 2009-03-25 20:13:53 ot Exp $ -->
 </head>
 
 <body>
@@ -211,7 +211,12 @@ le validateur, voir l'<a href="./api.html">API de service Web du validateur CSS<
 
 <ul id="lang_choice">
      
-     <li><a href="manual.html.de"
+     <li><a href="manual.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="manual.html.de"
          lang="de"
          xml:lang="de"
          hreflang="de"

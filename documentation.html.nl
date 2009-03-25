@@ -10,8 +10,8 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-  <meta name="revision" content="$Id: documentation.html.nl,v 1.14 2009-02-05 14:31:32 ot Exp $" />
-  <!-- SSI Template Version: $Id: documentation.html.nl,v 1.14 2009-02-05 14:31:32 ot Exp $ -->
+  <meta name="revision" content="$Id: documentation.html.nl,v 1.15 2009-03-25 20:13:53 ot Exp $" />
+  <!-- SSI Template Version: $Id: documentation.html.nl,v 1.15 2009-03-25 20:13:53 ot Exp $ -->
 
 </head>
 
@@ -86,7 +86,12 @@
 
        <ul id="lang_choice">
      
-     <li><a href="documentation.html.de"
+     <li><a href="documentation.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="documentation.html.de"
          lang="de"
          xml:lang="de"
          hreflang="de"

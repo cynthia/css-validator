@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-<meta name="revision" content="$Id: about.html.es,v 1.16 2009-02-05 14:31:31 ot Exp $"/>
+<meta name="revision" content="$Id: about.html.es,v 1.17 2009-03-25 20:13:52 ot Exp $"/>
 </head>
 <body>
   <div id="banner">
@@ -131,7 +131,12 @@ o seguir las instrucciones para descargar el &aacute;rbol completo del código f
 </ul>
  <ul id="lang_choice">
      
-     <li><a href="about.html.de"
+     <li><a href="about.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="about.html.de"
          lang="de"
          xml:lang="de"
          hreflang="de"

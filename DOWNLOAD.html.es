@@ -10,8 +10,8 @@
     @import "style/base.css";  
   	@import "style/docs.css";
   </style>
-<meta name="revision" content="$Id: DOWNLOAD.html.es,v 1.16 2009-02-05 14:31:31 ot Exp $"/>
-<!-- SSI Template Version: $Id: DOWNLOAD.html.es,v 1.16 2009-02-05 14:31:31 ot Exp $ -->
+<meta name="revision" content="$Id: DOWNLOAD.html.es,v 1.17 2009-03-25 20:13:52 ot Exp $"/>
+<!-- SSI Template Version: $Id: DOWNLOAD.html.es,v 1.17 2009-03-25 20:13:52 ot Exp $ -->
 </head>
 <body>
   <div id="banner">
@@ -150,7 +150,12 @@ http://localhost:8001/css-validator/validator.html</li>
 
 <ul id="lang_choice">
      
-     <li><a href="DOWNLOAD.html.de"
+     <li><a href="DOWNLOAD.html.bg"
+    lang="bg"
+    xml:lang="bg"
+    hreflang="bg"
+    rel="alternate">Български</a></li>
+  <li><a href="DOWNLOAD.html.de"
          lang="de"
          xml:lang="de"
          hreflang="de"
