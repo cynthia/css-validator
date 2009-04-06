@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.16 2009-03-09 21:14:51 ylafon Exp $
+// $Id: Css1Style.java,v 1.17 2009-04-06 13:41:42 ot Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -2612,7 +2612,9 @@ public class Css1Style extends CssStyle {
 
 	// warning for floats
 	if (cssFloat != null) {
-	    findConflictsFloatElements(ac, warnings, selector, allSelectors);
+	    //findConflictsFloatElements(ac, warnings, selector, allSelectors);
+	    // disabled per thread on www-validator-css 
+	    // and changes in CSS2.1 removing this constraint
 	}
 
 	if (cssBackground.getColor() != null) {
