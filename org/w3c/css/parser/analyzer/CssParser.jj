@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.67 2009-03-01 09:05:48 ylafon Exp $
+ * $Id: CssParser.jj,v 1.68 2009-07-06 16:54:56 ylafon Exp $
  *
  */
 
@@ -83,7 +83,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.67 $
+ * @version $Revision: 1.68 $
  */
 public abstract class CssParser {
 
@@ -2104,8 +2104,8 @@ CssValue function() :
 {
     n=<FUNCTION> ( <S> )* exp=expr() 
     ")" { 
-
-	if (n.image.toLowerCase().equals("rgb(")) {
+	String funcname = n.image.toLowerCase();
+	if (funcname.equals("rgb(")) {
 	    if (!getAtRule().toString().equals("@media atsc-tv")) {
 	       color.setRGBColor(exp, ac);
 	       return color;
