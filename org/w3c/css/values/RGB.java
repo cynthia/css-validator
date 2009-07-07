@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RGB.java,v 1.6 2008-03-25 18:30:12 ylafon Exp $
+ * $Id: RGB.java,v 1.7 2009-07-07 13:32:57 ylafon Exp $
  */
 package org.w3c.css.values;
 
@@ -45,7 +45,7 @@ public class RGB {
     public final void setGreen(int g) {
 	this.g = g;
     }
-    public final void setGreen(float gr) {
+    public final void setGreen(float fg) {
 	this.fg = fg;
     }
 
