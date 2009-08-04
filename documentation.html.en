@@ -10,8 +10,8 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-  <meta name="revision" content="$Id: documentation.html.en,v 1.25 2009-07-07 16:42:54 ylafon Exp $" />
-  <!-- SSI Template Version: $Id: documentation.html.en,v 1.25 2009-07-07 16:42:54 ylafon Exp $ -->
+  <meta name="revision" content="$Id: documentation.html.en,v 1.26 2009-08-04 09:33:00 jean-gui Exp $" />
+  <!-- SSI Template Version: $Id: documentation.html.en,v 1.26 2009-08-04 09:33:00 jean-gui Exp $ -->
 </head>
 
 <body>
@@ -48,7 +48,7 @@
 
 <h3 id="translat">Translator's Corner</h3>
 <dl>
-    <dt><a href="http://qa-dev.w3.org:8001/css-validator/translations.html" title="CSS Validation Service Translation">Translation of the CSS Validator</a></dt>
+    <dt><a href="./translations.html" title="CSS Validation Service Translation">Translation of the CSS Validator</a></dt>
     <dd>Table of the state of all current translations, translations needing help, and instructions on making the validator available in an additional language.</dd>
 </dl>
 
