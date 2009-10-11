@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.68 2009-07-06 16:54:56 ylafon Exp $
+ * $Id: CssParser.jj,v 1.69 2009-10-11 09:19:37 ylafon Exp $
  *
  */
 
@@ -83,7 +83,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.68 $
+ * @version $Revision: 1.69 $
  */
 public abstract class CssParser {
 
@@ -406,7 +406,7 @@ SPECIAL_TOKEN :
   | < #NUM        : ( ["0"-"9"] )+ | ( ["0"-"9"] )* "." ( ["0"-"9"] )+ >
   | < #_STRING    : <STRING1> | <STRING2> >
   | < #_INVALID   : <INVALID1> | <INVALID2> >
-  | < #_URL       : ( [ "!", "#", "$", "%", "&", "*", "+", "-"-"[", "]"-"~" ] | <NONASCII> | <ESCAPE> )* >
+  | < #_URL       : ( [ "!", "#", "$", "%", "&", "*"-"[", "]"-"~" ] | <NONASCII> | <ESCAPE> )* >
   | < #_S         : ( [ " ", "\t" , "\n" , "\r", "\f" ] ) ( <COMMENT> | [ " ", "\t" , "\n" , "\r", "\f" ] )*  >
   | < #_W         : ( <_S> )? >
   | < #NL         : ( "\n" | "\r\n" | "\r" | "\f" ) >
