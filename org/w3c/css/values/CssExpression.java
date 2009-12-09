@@ -1,5 +1,5 @@
 //
-// $Id: CssExpression.java,v 1.6 2008-03-25 18:30:11 ylafon Exp $
+// $Id: CssExpression.java,v 1.7 2009-12-09 17:21:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.util.Vector;
 /**
  * This class is used by the CSS1 parser to generate all expressions.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssExpression implements CssOperator {
 
@@ -91,6 +91,13 @@ public class CssExpression implements CssOperator {
      */
     public int getCount() {
 	return count;
+    }
+
+    /**
+     * Returns the number of remaining elements
+     */
+    public int getRemainingCount() {
+	return count-index;
     }
 
     /**
