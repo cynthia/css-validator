@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundPositionCSS2.java,v 1.9 2009-02-11 21:41:10 ylafon Exp $
+// $Id: CssBackgroundPositionCSS2.java,v 1.10 2009-12-09 17:11:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -92,7 +92,7 @@ import org.w3c.css.values.CssValue;
  *   <P>
  *   In the example above, the image is placed in the lower right corner of the
  *   canvas.
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  * @see CssBackgroundAttachment
  */
 public class CssBackgroundPositionCSS2 extends CssProperty
@@ -186,58 +186,60 @@ public class CssBackgroundPositionCSS2 extends CssProperty
 	/* now check the second value */
 	nextval = expression.getNextValue();
 	second = null;
-	switch(nextval.getType()) {
-	case CssTypes.CSS_IDENT:
-	    if (inherit.equals(nextval)) {
-		throw new InvalidParamException("unrecognize", ac);
-	    }
-	    index_second = IndexOfIdent((String) nextval.get());
-	    if(index_second == -1 && check) {
-		throw new InvalidParamException("value", nextval, 
+	if (check || nextval != null) {
+	    switch(nextval.getType()) {
+	    case CssTypes.CSS_IDENT:
+		if (inherit.equals(nextval)) {
+		    throw new InvalidParamException("unrecognize", ac);
+		}
+		index_second = IndexOfIdent((String) nextval.get());
+		if(index_second == -1 && check) {
+		    throw new InvalidParamException("value", nextval, 
+						    "background-position", ac);
+		}
+		if (first_is_keyword) {
+		    // two keywords, check that they are compatible
+		    if((isHorizontal(index_first) && isVertical(index_second)) ||
+		       (isHorizontal(index_second) && isVertical(index_first))) {
+			second = nextval;
+		    } else {
+			if (check) {
+			    throw new InvalidParamException("incompatible",
+							    val, nextval, ac);
+			}
+		    }
+		} else {
+		    // first was not a keyword, so second should be vertical
+		    // http://www.w3.org/TR/CSS21/colors.html#propdef-background-position
+		    if (isVertical(index_second)) {
+			second = nextval;
+		    } else {
+			// FIXME, should we create a better error msg, like "wrong order" ?
+			if (check) {
+			    throw new InvalidParamException("incompatible",
+							    val, nextval, ac);
+			}
+		    } 
+		}
+		break;
+	    case CssTypes.CSS_NUMBER:
+		nextval = ((CssNumber) nextval).getLength();
+	    case CssTypes.CSS_PERCENTAGE:
+	    case CssTypes.CSS_LENGTH:
+		if (first_is_keyword) {
+		    // check that the first is indeed horizontal
+		    // http://www.w3.org/TR/CSS21/colors.html#propdef-background-position
+		    if (!isHorizontal(index_first) && check) {
+			throw new InvalidParamException("incompatible",
+							val, nextval, ac);
+		    } 
+		}
+		second = nextval;
+		break;
+	    default:
+		throw new InvalidParamException("value", nextval,
 						"background-position", ac);
 	    }
-	    if (first_is_keyword) {
-		// two keywords, check that they are compatible
-		if((isHorizontal(index_first) && isVertical(index_second)) ||
-		   (isHorizontal(index_second) && isVertical(index_first))) {
-		    second = nextval;
-		} else {
-		    if (check) {
-			throw new InvalidParamException("incompatible",
-							val, nextval, ac);
-		    }
-		}
-	    } else {
-	// first was not a keyword, so second should be vertical
-	// http://www.w3.org/TR/CSS21/colors.html#propdef-background-position
-		if (isVertical(index_second)) {
-		    second = nextval;
-		} else {
-        // FIXME, should we create a better error msg, like "wrong order" ?
-		    if (check) {
-			throw new InvalidParamException("incompatible",
-							val, nextval, ac);
-		    }
-		} 
-	    }
-	    break;
-	case CssTypes.CSS_NUMBER:
-	    nextval = ((CssNumber) nextval).getLength();
-	case CssTypes.CSS_PERCENTAGE:
-	case CssTypes.CSS_LENGTH:
-	    if (first_is_keyword) {
-       	// check that the first is indeed horizontal
-       	// http://www.w3.org/TR/CSS21/colors.html#propdef-background-position
-		if (!isHorizontal(index_first) && check) {
-		    throw new InvalidParamException("incompatible",
-						    val, nextval, ac);
-		} 
-	    }
-	    second = nextval;
-	    break;
-	default:
-	    throw new InvalidParamException("value", nextval,
-					    "background-position", ac);
 	}
 	if (first != null) {
 	    expression.next();
