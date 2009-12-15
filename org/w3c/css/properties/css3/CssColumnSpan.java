@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnSpan.java,v 1.3 2009-12-15 18:45:38 ylafon Exp $
+// $Id: CssColumnSpan.java,v 1.4 2009-12-15 18:57:20 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -15,6 +15,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssNumber;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
@@ -154,7 +155,7 @@ public class CssColumnSpan extends CssProperty {
      */
     public boolean isDefault() {
 	// we only have 3 values
-	return ((value != all) && (value != inherit))
+	return ((value != all) && (value != inherit));
     }
 
 }
