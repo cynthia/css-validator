@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.en,v 1.39 2009-03-03 15:37:05 ot Exp $
+# Master localization string file: $Id: Messages.properties.en,v 1.40 2009-12-15 17:00:03 ylafon Exp $
 
 direction: ltr
 language_name: English
@@ -257,6 +257,9 @@ error.angle: %s is not a valid angle. Value should be between 0 and 360
 
 # used by org.w3c.css.values.CssNumber
 error.zero: only 0 can be a %s. You must put a unit after your number
+
+#used by org.w3c.css.properties.CssColumnCount
+error.strictly-positive: %s is not valid, only values greater than 0 allowed.
 
 # used by org.w3c.css.parser.CssPropertyFactory
 error.noexistence-at-all: Property %s doesn't exist
