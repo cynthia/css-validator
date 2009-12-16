@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.3 2009-12-16 10:13:38 ylafon Exp $
+// $Id: Css3Style.java,v 1.4 2009-12-16 10:44:33 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -97,7 +97,6 @@ public class Css3Style extends org.w3c.css.properties.atsc.ATSCStyle {
     CssColumnWidthPol cssColumnWidthPol;
     CssColumnCount cssColumnCount;
     CssColumnWidth cssColumnWidth;
-    CssColumnPadding cssColumnPadding;
     CssColumnSpan cssColumnSpan;
     CssBackgroundClip cssBackgroundClip;
     CssBackgroundSize cssBackgroundSize;
@@ -954,15 +953,6 @@ public class Css3Style extends org.w3c.css.properties.atsc.ATSCStyle {
 						      new CssColumnWidth(), style, selector);
 	}
 	return cssColumnWidth;
-    }
-
-    public CssColumnPadding getColumnPadding() {
-	if (cssColumnPadding == null) {
-	    cssColumnPadding =
-		(CssColumnPadding) style.CascadingOrder(
-							new CssColumnPadding(), style, selector);
-	}
-	return cssColumnPadding;
     }
 
     public CssBackgroundClip getCssBackgroundClip() {
@@ -2484,9 +2474,6 @@ public class Css3Style extends org.w3c.css.properties.atsc.ATSCStyle {
 	}
 	if (cssColumnWidth != null) {
 	    cssColumnWidth.print(printer);
-	}
-	if (cssColumnPadding != null) {
-	    cssColumnPadding.print(printer);
 	}
 	if (cssColumnSpan != null) {
 	    cssColumnSpan.print(printer);
