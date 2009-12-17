@@ -1,10 +1,12 @@
 //
-// $Id: CssBorderFaceWidthCSS2.java,v 1.4 2008-03-25 18:43:30 ylafon Exp $
+// $Id: CssBorderFaceWidthCSS2.java,v 1.5 2009-12-17 17:12:43 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css1;
+
+import java.util.HashSet;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
@@ -16,26 +18,25 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderFaceWidthCSS2 {
 
-    CssValue value;
-    private static CssIdent thin;
-    private static CssIdent medium;
-    private static CssIdent thick;
-    
+    public static HashSet<CssIdent> acceptable_values;
     static {
-	thin = new CssIdent("thin");
-	medium = new CssIdent("medium");
-	thick = new CssIdent("thick");
+	acceptable_values = new HashSet<CssIdent>();
+	acceptable_values.add(CssIdent.getIdent("thin"));
+	acceptable_values.add(CssIdent.getIdent("medium"));
+	acceptable_values.add(CssIdent.getIdent("thick"));
     }
+
+    CssValue value;
     
     /**
      * Create a new CssBorderFaceWidthCSS2
      */
     public CssBorderFaceWidthCSS2() {
-	value = medium;
+	value = CssIdent.getIdent("medium");
     }
 
     /**
@@ -63,6 +64,8 @@ public class CssBorderFaceWidthCSS2 {
 	CssValue val = expression.getValue();
 
 	switch (val.getType()) {
+	case CssTypes.CSS_NUMBER:
+	    val = ((CssNumber) val).getLength();
 	case CssTypes.CSS_LENGTH:
 	    float f = ((Float) val.get()).floatValue();
 	    if (f >= 0) {
@@ -71,31 +74,20 @@ public class CssBorderFaceWidthCSS2 {
 		throw new InvalidParamException("negative-value", val.toString(), ac);
 	    }
 	    break;
-	case CssTypes.CSS_NUMBER:
-	    value = ((CssNumber) val).getLength();
-	    break;
 	case CssTypes.CSS_IDENT:
 	    CssIdent ci = (CssIdent) val;
 	    if (CssProperty.inherit.equals(ci)) {
 		value = CssProperty.inherit;
 		break;
 	    } 
-	    if (thin.equals(ci)) {
-		value = thin;
-		break;
-	    }
-	    if (medium.equals(ci)) {
-		value = medium;
-		break;
-	    }
-	    if (thick.equals(ci)) {
-		value = thick;
+	    if (acceptable_values.contains(ci)) {
+		// use the cached version
+		value = CssIdent.getIdent(ci.toString());
 		break;
 	    }
 	default:
 	    throw new InvalidParamException("value", val.toString(), "width", ac);
 	}
-	
 	expression.next();
     }
 
