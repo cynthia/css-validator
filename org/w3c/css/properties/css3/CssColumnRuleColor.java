@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnRuleColor.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
+// $Id: CssColumnRuleColor.java,v 1.3 2009-12-17 17:35:01 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -54,11 +54,13 @@ public class CssColumnRuleColor extends CssProperty {
 	setByUser();
 	CssValue val = expression.getValue();
 
+	if(check && expression.getCount() > 1) {
+	    throw new InvalidParamException("unrecognize", ac);
+	}
+
 	try {
 	    color = new CssColor(ac, expression);
-	    expression.next();
-	}
-	catch (InvalidParamException e) {
+	} catch (InvalidParamException e) {
 	    throw new InvalidParamException("value",
 					    expression.getValue(),
 					    getPropertyName(), ac);
@@ -110,7 +112,7 @@ public class CssColumnRuleColor extends CssProperty {
      * Returns the name of this property
      */
     public String getPropertyName() {
-	return "column-border-color";
+	return "column-rule-color";
     }
 
     /**
@@ -141,5 +143,4 @@ public class CssColumnRuleColor extends CssProperty {
     public boolean isDefault() {
 	return false;
     }
-
 }
