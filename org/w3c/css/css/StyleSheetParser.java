@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.15 2009-12-17 16:08:11 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.16 2009-12-17 16:14:02 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -36,7 +36,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public final class StyleSheetParser
     implements CssValidatorListener, CssParser {
@@ -304,8 +304,7 @@ public final class StyleSheetParser
 		cpe = new CssParseException(new Exception(e.getMessage()));
 	    }
 	    er.addError(new org.w3c.css.parser.CssError(url.toString(),
-							//e.getErrorLine(),
-							-1,
+							e.getErrorLine(),
 							cpe));
 	    notifyErrors(er);
 	} catch(RuntimeException e) {
