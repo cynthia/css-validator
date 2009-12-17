@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnWidth.java,v 1.4 2009-12-15 17:23:49 ylafon Exp $
+// $Id: CssColumnWidth.java,v 1.5 2009-12-17 22:51:23 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -40,14 +40,14 @@ public class CssColumnWidth extends CssProperty {
     static CssIdent auto;
 
     static {
-	auto = new CssIdent("auto");
+	auto = CssIdent.getIdent("auto");
     }
 
     /**
      * Create a new CssColumnWidth
      */
     public CssColumnWidth() {
-	// nothing to do
+	width = auto;
     }
 
     /**
@@ -83,7 +83,7 @@ public class CssColumnWidth extends CssProperty {
 	    if (inherit.equals(val)) {
 		width = inherit;
 		break;
-	    } else if ( auto.equals(val)) {
+	    } else if (auto.equals(val)) {
 		width = auto;
 		break;
 	    } 

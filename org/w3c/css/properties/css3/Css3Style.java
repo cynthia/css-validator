@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.7 2009-12-17 21:02:42 ylafon Exp $
+// $Id: Css3Style.java,v 1.8 2009-12-17 22:51:22 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -115,18 +115,19 @@ public class Css3Style extends org.w3c.css.properties.atsc.ATSCStyle {
     CssWhiteSpaceTreatment cssWhiteSpaceTreatment;
     CssWrapOption cssWrapOption;
 
-    CssColumnCount cssColumnCount;
-    CssColumnFill cssColumnFill;
-    CssColumnGap cssColumnGap;
-    CssColumnRule cssColumnRule;
+    CssColumns         cssColumns;
+    CssColumnCount     cssColumnCount;
+    CssColumnFill      cssColumnFill;
+    CssColumnGap       cssColumnGap;
+    CssColumnRule      cssColumnRule;
     CssColumnRuleColor cssColumnRuleColor;
     CssColumnRuleStyle cssColumnRuleStyle;
     CssColumnRuleWidth cssColumnRuleWidth;
-    CssColumnSpan cssColumnSpan;
-    CssColumnWidth cssColumnWidth;
-    CssBreakAfter cssBreakAfter;
-    CssBreakBefore cssBreakBefore;
-    CssBreakInside cssBreakInside;
+    CssColumnSpan      cssColumnSpan;
+    CssColumnWidth     cssColumnWidth;
+    CssBreakAfter      cssBreakAfter;
+    CssBreakBefore     cssBreakBefore;
+    CssBreakInside     cssBreakInside;
 
     CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
     CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -931,6 +932,15 @@ public class Css3Style extends org.w3c.css.properties.atsc.ATSCStyle {
 							  new CssLineBoxContain(), style, selector);
 	}
 	return cssLineBoxContain;
+    }
+
+    public CssColumns getColumns() {
+	if (cssColumns == null) {
+	    cssColumns =
+		(CssColumns) style.CascadingOrder(
+						  new CssColumns(), style, selector);
+	}
+	return cssColumns;
     }
 
     public CssColumnCount getColumnCount() {

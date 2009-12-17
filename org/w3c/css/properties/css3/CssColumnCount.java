@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnCount.java,v 1.3 2009-12-15 16:59:43 ylafon Exp $
+// $Id: CssColumnCount.java,v 1.4 2009-12-17 22:51:22 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -41,7 +41,7 @@ public class CssColumnCount extends CssProperty {
      * Create a new CssColumnCount
      */
     public CssColumnCount() {
-	// nothing to do
+	count = auto;
     }
 
     /**
