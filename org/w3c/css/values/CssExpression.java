@@ -1,5 +1,5 @@
 //
-// $Id: CssExpression.java,v 1.7 2009-12-09 17:21:50 ylafon Exp $
+// $Id: CssExpression.java,v 1.8 2009-12-17 16:09:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.util.Vector;
 /**
  * This class is used by the CSS1 parser to generate all expressions.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class CssExpression implements CssOperator {
 
@@ -57,10 +57,11 @@ public class CssExpression implements CssOperator {
      * don't change the position in the expression
      */
     public CssValue getValue() {
-	if (index == count)
+	if (index == count) {
 	    return null;
-	else
+	} else {
 	    return (items.elementAt(index)).value;
+	}
     }
 
     /**
@@ -68,10 +69,11 @@ public class CssExpression implements CssOperator {
      * don't change the position in the expression
      */
     public CssValue getNextValue() {
-	if (index+1 >= count)
+	if (index+1 >= count) {
 	    return null;
-	else
+	} else {
 	    return (items.elementAt(index+1)).value;
+	}
     }
 
     /* Modified by Sijtsche de Jong */
@@ -80,10 +82,11 @@ public class CssExpression implements CssOperator {
      * don't change the position in the expression
      */
     public char getOperator() {
-	if (index == count)
+	if (index == count) {
 	    return SPACE;
-	else
+	} else {
 	    return (items.elementAt(index)).operator;
+	}
     }
 
     /**
@@ -114,8 +117,9 @@ public class CssExpression implements CssOperator {
      * Removes the current value and his operator
      */
     public void remove() {
-	if (index != count)
+	if (index != count) {
 	    items.removeElementAt(index);
+	}
 	count--;
     }
 
@@ -144,8 +148,9 @@ public class CssExpression implements CssOperator {
      * Change the position to the next
      */
     public void next() {
-	if (index < count)
+	if (index < count) {
 	    index++;
+	}
     }
 
     /**
@@ -174,7 +179,8 @@ public class CssExpression implements CssOperator {
     }
 
     /**
-     * Returns a string representation of the object before the current position.
+     * Returns a string representation of the object before the current 
+     * position.
      */
     public String toStringFromStart() {
 	StringBuilder sb = new StringBuilder();
