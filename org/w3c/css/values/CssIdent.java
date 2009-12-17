@@ -1,5 +1,5 @@
 //
-// $Id: CssIdent.java,v 1.8 2009-12-17 16:09:44 ylafon Exp $
+// $Id: CssIdent.java,v 1.9 2009-12-17 21:57:30 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import org.w3c.css.util.ApplContext;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class CssIdent extends CssValue {
 
@@ -19,7 +19,7 @@ public class CssIdent extends CssValue {
     static {
 	allowedvalues = new HashMap<String,CssIdent>();
 	allowedvalues.put("inherit", new CssIdent("inherit"));
-	allowedvalues.put("none", new CssIdent("inherit"));
+	allowedvalues.put("none", new CssIdent("none"));
     }
     /**
      * Get a cached CssIdent, useful for common values like "inherit"
