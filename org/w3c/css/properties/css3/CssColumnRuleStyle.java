@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnRuleStyle.java,v 1.4 2009-12-17 16:39:45 ylafon Exp $
+// $Id: CssColumnRuleStyle.java,v 1.5 2009-12-17 22:08:30 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2009  World Wide Web Consortium 
@@ -57,7 +57,6 @@ public class CssColumnRuleStyle extends CssProperty {
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);
 	}
-
 	// we only use Css Ident part of the CssBorderStyle acceptable values
 	if ((val.getType() != CssTypes.CSS_IDENT) ||
 	    !(((CssIdent)val).equals(inherit) || 
