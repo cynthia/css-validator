@@ -1,11 +1,13 @@
 //
-// $Id: CssBorderStyleCSS2.java,v 1.4 2006-04-19 11:28:05 ylafon Exp $
+// $Id: CssBorderStyleCSS2.java,v 1.5 2009-12-17 16:39:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 
 package org.w3c.css.properties.css1;
+
+import java.util.HashSet;
 
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
@@ -14,6 +16,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssIdent;
 
 /**
  *   <H4>
@@ -84,9 +87,24 @@ import org.w3c.css.values.CssOperator;
  *   <EM>CSS1 core:</EM> UAs may interpret all of 'dotted', 'dashed', 'double',
  *   'groove', 'ridge', 'inset' and 'outset' as 'solid'.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderStyleCSS2 extends CssProperty implements CssOperator {
+
+    public static HashSet<CssIdent> acceptable_values;
+    static {
+	acceptable_values = new HashSet<CssIdent>();
+	acceptable_values.add(CssIdent.getIdent("none"));
+	acceptable_values.add(CssIdent.getIdent("hidden"));
+	acceptable_values.add(CssIdent.getIdent("dotted"));
+	acceptable_values.add(CssIdent.getIdent("dashed"));
+	acceptable_values.add(CssIdent.getIdent("solid"));
+	acceptable_values.add(CssIdent.getIdent("double"));
+	acceptable_values.add(CssIdent.getIdent("groove"));
+	acceptable_values.add(CssIdent.getIdent("ridge"));
+	acceptable_values.add(CssIdent.getIdent("inset"));
+	acceptable_values.add(CssIdent.getIdent("outset"));
+    }
 
     CssBorderTopStyleCSS2 top;
     CssBorderBottomStyleCSS2 bottom;

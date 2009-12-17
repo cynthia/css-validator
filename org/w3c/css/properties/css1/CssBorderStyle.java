@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderStyle.java,v 1.5 2009-12-17 16:08:12 ylafon Exp $
+// $Id: CssBorderStyle.java,v 1.6 2009-12-17 16:39:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -87,7 +87,7 @@ import org.w3c.css.values.CssOperator;
  *   <EM>CSS1 core:</EM> UAs may interpret all of 'dotted', 'dashed', 'double',
  *   'groove', 'ridge', 'inset' and 'outset' as 'solid'.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBorderStyle extends CssProperty implements CssOperator {
 
@@ -100,6 +100,9 @@ public class CssBorderStyle extends CssProperty implements CssOperator {
 	acceptable_values.add(CssIdent.getIdent("dashed"));
 	acceptable_values.add(CssIdent.getIdent("solid"));
 	acceptable_values.add(CssIdent.getIdent("double"));
+	acceptable_values.add(CssIdent.getIdent("dot-dash"));
+	acceptable_values.add(CssIdent.getIdent("dot-dot-dash"));
+	acceptable_values.add(CssIdent.getIdent("wave"));
 	acceptable_values.add(CssIdent.getIdent("groove"));
 	acceptable_values.add(CssIdent.getIdent("ridge"));
 	acceptable_values.add(CssIdent.getIdent("inset"));
