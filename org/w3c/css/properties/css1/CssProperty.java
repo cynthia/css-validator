@@ -1,5 +1,5 @@
 //
-// $Id: CssProperty.java,v 1.6 2009-03-06 11:15:12 ylafon Exp $
+// $Id: CssProperty.java,v 1.7 2009-12-17 16:08:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import org.w3c.css.values.CssIdent;
  * If you want to add some properties to the parser, you should subclass this
  * class.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public abstract class CssProperty
         implements Cloneable, StyleSheetOrigin {
@@ -92,9 +92,9 @@ public abstract class CssProperty
     public static final CssIdent initial;
 
     static {
-	inherit     = new CssIdent("inherit");
-	transparent = new CssIdent("transparent");
-	initial     = new CssIdent("initial");
+	inherit     = CssIdent.getIdent("inherit");
+	transparent = CssIdent.getIdent("transparent");
+	initial     = CssIdent.getIdent("initial");
     }
     /**
      * Create a new CssProperty.

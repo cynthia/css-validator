@@ -1,8 +1,10 @@
 //
-// $Id: CssColumnSpan.java,v 1.4 2009-12-15 18:57:20 ylafon Exp $
+// $Id: CssColumnSpan.java,v 1.5 2009-12-17 16:08:12 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
-// (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
+// (c) COPYRIGHT 1995-2009 
+// World Wide Web Consortium (MIT, ERCIM, Keio University)
+//
 // Please first read the full copyright statement at
 // http://www.w3.org/Consortium/Legal/copyright-software-19980720
 
@@ -19,6 +21,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
+ * From http://www.w3.org/TR/css3-multicol
  *  <P>
  *  <EM>Value:</EM> 1 ||  all <BR>
  *  <EM>Initial:</EM>1<BR>

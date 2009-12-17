@@ -1,4 +1,4 @@
-// $Id: CssBackgroundCSS3.java,v 1.2 2009-03-09 21:12:20 ylafon Exp $
+// $Id: CssBackgroundCSS3.java,v 1.3 2009-12-17 16:08:12 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // Revised by: Yves Lafon
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005-2008.
@@ -6,7 +6,7 @@
 package org.w3c.css.properties.css3;
 
 import org.w3c.css.properties.css1.CssBackgroundAttachmentCSS2;
-import org.w3c.css.properties.css21.CssBackgroundCSS21;
+import org.w3c.css.properties.css1.CssBackground;
 import org.w3c.css.properties.css1.CssBackgroundImageCSS2;
 import org.w3c.css.properties.css1.CssBackgroundRepeatCSS2;
 import org.w3c.css.properties.css1.CssBackgroundColor;
@@ -24,15 +24,7 @@ import org.w3c.css.values.CssURL;
  * CssBackgroundCSS21<br />
  * Created: Aug 31, 2005 2:03:41 PM<br />
  */
-public class CssBackgroundCSS3 extends CssBackgroundCSS21 {
-    CssBackgroundColor color;
-
-    /**
-     * @param color The color to set.
-     */
-    public void setColor(CssBackgroundColor color) {
-        this.color = color;
-    }
+public class CssBackgroundCSS3 extends CssBackground {
 
     /**
      * Create a new CssBackgroundCSS2
@@ -68,6 +60,7 @@ public class CssBackgroundCSS3 extends CssBackgroundCSS21 {
 	    if (val == null) {
 		break;
 	    }
+ System.err.println("*** Css background CSS3: "+val);
 	    op = expression.getOperator();
 	    
 	    // if there are many values, we can't have inherit as one of them
@@ -91,7 +84,7 @@ public class CssBackgroundCSS3 extends CssBackgroundCSS21 {
 		break;
 	    case CssTypes.CSS_COLOR:
 	    case CssTypes.CSS_FUNCTION:
-		if (getColor2() == null) {
+		if (getColor() == null) {
 		    setColor(new CssBackgroundColor(ac, expression));
 		    continue;
 		}

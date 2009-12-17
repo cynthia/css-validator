@@ -1,5 +1,5 @@
 //
-// $Id: CssBackground.java,v 1.5 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackground.java,v 1.6 2009-12-17 16:08:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -46,7 +46,7 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @see CssBackgroundColor
  * @see CssBackgroundImage
  * @see CssBackgroundRepeat
@@ -181,6 +181,12 @@ public class CssBackground extends CssProperty
 	}
     }
 
+    /**
+     * @return Returns the image.
+     */
+    public CssBackgroundImage getImage() {
+        return image;
+    }
 
     /**
      * Returns the value of this property
@@ -211,39 +217,43 @@ public class CssBackground extends CssProperty
      * Returns a string representation of the object.
      */
     public String toString() {
-	String ret = "";
-	if(color != null) {
-	    ret += color;
+	StringBuilder sb = new StringBuilder();
+	boolean addspace = false;
+	if (color != null) {
+	    sb.append(color);
+	    addspace = true;
 	}
-	if(image != null) {
-	    if(ret != null) {
-		ret += " ";
+	if (image != null) {
+	    if(addspace) {
+		sb.append(' ');
 	    }
-	    ret += image;
+	    sb.append(image);
+	    addspace = true;
 	}
-	if(repeat != null) {
-	    if(ret != null) {
-		ret += " ";
+	if (repeat != null) {
+	    if (addspace) {
+		sb.append(' ');
 	    }
-	    ret += repeat;
+	    sb.append(repeat);
+	    addspace = true;
 	}
-	if(attachment != null) {
-	    if(ret != null) {
-		ret += " ";
+	if (attachment != null) {
+	    if (addspace) {
+		sb.append(' ');
 	    }
-	    ret += attachment;
+	    sb.append(attachment);
+	    addspace = true;
 	}
-	if(position != null) {
-	    if(ret != null) {
-		ret += " ";
+	if (position != null) {
+	    if (addspace) {
+		sb.append(' ');
 	    }
-	    ret += position;
+	    sb.append(position);
 	}
 	if(sizedefined) {
-	    ret += "/";
-	    ret += size;
+	    sb.append('/').append(size);
 	}
-	return ret;
+	return sb.toString();
 	/*if (same) {
 	    return inherit.toString();
 	} else {
