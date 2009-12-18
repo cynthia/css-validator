@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.36 2009-12-18 15:35:37 ylafon Exp $
+// $Id: Messages.java,v 1.37 2009-12-18 16:37:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 /**
- * @version $Revision: 1.36 $
+ * @version $Revision: 1.37 $
  */
 public class Messages {
 
@@ -478,6 +478,23 @@ public class Messages {
 	    }
 	} catch (Exception e) {
 	    System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties cs");
+	    System.err.println("  " + e.toString());
+	}
+
+	// -----------------------
+	// Romanian
+	try {
+	    java.io.InputStream f = Messages.class.getResourceAsStream("Messages.properties.ro");
+	    try {
+		tmp = new Utf8Properties<String,String>();
+		tmp.load(f);
+		languages_name.add("ro");
+		languages.put("ro", tmp);
+	    } finally {
+		f.close();
+	    }
+	} catch (Exception e) {
+	    System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties ro");
 	    System.err.println("  " + e.toString());
 	}
 
