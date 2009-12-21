@@ -1,4 +1,5 @@
-# Master localization string file: $Id: Messages.properties.cs,v 1.1 2009-12-18 15:35:37 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.cs,v 1.2 2009-12-21 18:17:56 ylafon Exp $
+direction: ltr
 language_name: Čeština
 more_options: Další možnosti
 title_more_options: Zobrazit/Skrýt další možnosti ověření
