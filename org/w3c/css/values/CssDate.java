@@ -1,5 +1,5 @@
 //
-// $Id: CssDate.java,v 1.4 2008-03-25 18:30:11 ylafon Exp $
+// $Id: CssDate.java,v 1.5 2010-01-05 13:50:00 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import org.w3c.css.util.InvalidParamException;
  *
  * Legal format is dd/mm/yyyy as in SSML
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssDate extends CssValue {
     
@@ -38,7 +38,7 @@ public class CssDate extends CssValue {
    * Set the value of this date.
    *
    * @param s     the string representation of the time.
-   * @param frame For errors and warnings reports.
+   * @param ac For errors and warnings reports.
    * @exception InvalidParamException The date format is incorrect
    */
   public void set(String s, ApplContext ac) throws InvalidParamException {
@@ -69,7 +69,8 @@ public class CssDate extends CssValue {
 	      throw new InvalidParamException("value", s, ac);
 		}
 
-		if (d.intValue() > 31 || d.intValue() < 0 || m.intValue() > 12 || m.intValue() < 0 || y.intValue() < 0) {
+		if (d.intValue() > 31 || d.intValue() < 0 || m.intValue() > 12 ||
+           m.intValue() < 0 || y.intValue() < 0) {
 			throw new InvalidParamException("value", s, ac);
 		}
 	}

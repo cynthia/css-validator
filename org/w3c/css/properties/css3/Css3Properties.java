@@ -1,5 +1,5 @@
 //
-// $Id: Css3Properties.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
+// $Id: Css3Properties.java,v 1.3 2010-01-05 13:49:49 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // Copyright(c) 1995-2000, World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -8,7 +8,7 @@ package org.w3c.css.properties.css3;
 
 import java.net.URL;
 
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.Utf8Properties;
 
 public class Css3Properties {

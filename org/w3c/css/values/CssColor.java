@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.18 2009-03-09 17:17:48 ylafon Exp $
+// $Id: CssColor.java,v 1.19 2010-01-05 13:50:00 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -159,7 +159,7 @@ import org.w3c.css.util.Util;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.18 $
+ * @version $Revision: 1.19 $
  */
 public class CssColor extends CssValue
     implements CssColorConstants, CssOperator {

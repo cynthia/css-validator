@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundAttachmentATSC.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
+// $Id: CssBackgroundAttachmentATSC.java,v 1.4 2010-01-05 13:49:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,8 +8,8 @@
 package org.w3c.css.properties.atsc;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssBackgroundConstants;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
+import org.w3c.css.properties.css.CssBackgroundConstants;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -37,7 +37,7 @@ import org.w3c.css.values.CssValue;
  *     background-attachment: fixed;
  *   }
  * </PRE>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBackgroundAttachmentATSC extends CssProperty
     implements CssBackgroundConstants {

@@ -1,5 +1,5 @@
 //
-// $Id: ClipRule.java,v 1.3 2008-04-07 14:16:23 ylafon Exp $
+// $Id: ClipRule.java,v 1.4 2010-01-05 13:49:58 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -9,7 +9,7 @@
 package org.w3c.css.properties.svg;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;

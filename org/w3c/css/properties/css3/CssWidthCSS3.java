@@ -1,5 +1,5 @@
 //
-// $Id: CssWidthCSS3.java,v 1.3 2005-09-14 15:15:04 ylafon Exp $
+// $Id: CssWidthCSS3.java,v 1.4 2010-01-05 13:49:56 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,7 @@
 package org.w3c.css.properties.css3;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -42,7 +42,7 @@ import org.w3c.css.values.CssValue;
  *   properties will be set to the intrinsic dimensions of the element.
  *   <P>
  *   Negative values are not allowed.
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssWidthCSS3 extends CssProperty {
 

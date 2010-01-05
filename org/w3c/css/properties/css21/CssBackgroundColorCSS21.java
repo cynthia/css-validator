@@ -1,14 +1,13 @@
-// $Id: CssBackgroundColorCSS21.java,v 1.3 2009-02-11 22:43:15 ylafon Exp $
+// $Id: CssBackgroundColorCSS21.java,v 1.4 2010-01-05 13:49:48 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css21;
 
-import org.w3c.css.properties.css1.CssBackgroundColorCSS2;
+import org.w3c.css.properties.css2.CssBackgroundColorCSS2;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 

@@ -1,5 +1,5 @@
 //
-// $Id: CssFontVariantCSS2.java,v 1.4 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssFontVariantCSS2.java,v 1.5 2010-01-05 13:49:43 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,6 +7,7 @@
 package org.w3c.css.properties.css1;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -47,7 +48,7 @@ import org.w3c.css.values.CssIdent;
  *
  * @see CssFont
  * @see TextTransform
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssFontVariantCSS2 extends CssProperty implements CssFontConstantCSS2 {
 

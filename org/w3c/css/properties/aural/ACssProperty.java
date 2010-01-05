@@ -1,5 +1,5 @@
 //
-// $Id: ACssProperty.java,v 1.2 2005-09-08 12:23:33 ylafon Exp $
+// $Id: ACssProperty.java,v 1.3 2010-01-05 13:49:36 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,10 +7,10 @@
 
 package org.w3c.css.properties.aural;
 
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public abstract class ACssProperty extends CssProperty {
 

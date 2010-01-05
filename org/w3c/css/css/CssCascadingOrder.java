@@ -1,5 +1,5 @@
 //
-// $Id: CssCascadingOrder.java,v 1.7 2009-03-06 11:15:38 ylafon Exp $
+// $Id: CssCascadingOrder.java,v 1.8 2010-01-05 13:49:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.util.Enumeration;
 
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.CompareFunction;
 import org.w3c.css.util.QuickSortAlgorithm;
 import org.w3c.css.util.SortAlgorithm;
@@ -96,7 +96,7 @@ import org.w3c.css.util.Util;
  * rules. In a transition phase, this policy will make it easier for stylistic
  * attributes to coexist with style sheets.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public final class CssCascadingOrder {
 

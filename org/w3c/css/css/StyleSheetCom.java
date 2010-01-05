@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetCom.java,v 1.22 2007-09-13 09:35:46 julien Exp $
+// $Id: StyleSheetCom.java,v 1.23 2010-01-05 13:49:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -19,15 +19,14 @@ import org.w3c.css.parser.CssFouffa;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.PropertiesLoader;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.HTTPURL;
-import org.w3c.css.util.Util;
 
 import org.w3c.www.mime.MimeType;
 
 /**
- * @version $Revision: 1.22 $import javax.servlet.http.HttpServletResponse;
+ * @version $Revision: 1.23 $import javax.servlet.http.HttpServletResponse;
  */
 public class StyleSheetCom {
 

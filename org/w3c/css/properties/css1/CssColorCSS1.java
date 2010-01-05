@@ -1,5 +1,5 @@
 //
-// $Id: CssColorCSS1.java,v 1.5 2009-03-09 21:12:00 ylafon Exp $
+// $Id: CssColorCSS1.java,v 1.6 2010-01-05 13:49:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,10 +7,10 @@
 package org.w3c.css.properties.css1;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
@@ -31,7 +31,7 @@ import org.w3c.css.values.CssValue;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssColorCSS1 extends CssProperty {
 

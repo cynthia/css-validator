@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RGBA.java,v 1.6 2009-03-05 22:44:59 ylafon Exp $
+ * $Id: RGBA.java,v 1.7 2010-01-05 13:50:01 ylafon Exp $
  */
 package org.w3c.css.values;
 

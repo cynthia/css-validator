@@ -1,5 +1,5 @@
 //
-// $Id: CssListStyleCSS1.java,v 1.4 2007-02-27 22:36:23 jean-gui Exp $
+// $Id: CssListStyleCSS1.java,v 1.5 2010-01-05 13:49:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,6 +9,7 @@ package org.w3c.css.properties.css1;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -70,7 +71,7 @@ import org.w3c.css.values.CssValue;
  *   <P> In the example above, the 'disc' will be used when the image is
  *   unavailable.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssListStyleCSS1 extends CssProperty implements CssOperator {
 

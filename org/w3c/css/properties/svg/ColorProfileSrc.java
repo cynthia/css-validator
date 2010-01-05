@@ -1,5 +1,5 @@
 //
-// $Id: ColorProfileSrc.java,v 1.2 2005-09-14 15:15:27 ylafon Exp $
+// $Id: ColorProfileSrc.java,v 1.3 2010-01-05 13:49:58 ylafon Exp $
 // From Sijtsche Smeman (sijtsche@wisdom.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -11,7 +11,7 @@ package org.w3c.css.properties.svg;
 import java.util.Vector;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;

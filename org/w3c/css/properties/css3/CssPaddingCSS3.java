@@ -1,5 +1,5 @@
 //
-// $Id: CssPaddingCSS3.java,v 1.4 2006-04-19 11:28:06 ylafon Exp $
+// $Id: CssPaddingCSS3.java,v 1.5 2010-01-05 13:49:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,7 +8,7 @@ package org.w3c.css.properties.css3;
 
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -48,7 +48,7 @@ import org.w3c.css.values.CssValue;
  *   is equal to the size of the font in use.
  *   <P>
  *   Padding values cannot be negative.
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssPaddingCSS3 extends CssProperty implements CssOperator {
 

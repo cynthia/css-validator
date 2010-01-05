@@ -1,5 +1,5 @@
 //
-// $Id: CssListStyleType.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssListStyleType.java,v 1.4 2010-01-05 13:49:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 14th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -8,6 +8,7 @@
 package org.w3c.css.properties.css1;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -44,7 +45,7 @@ import org.w3c.css.values.CssValue;
 					    *   OL { list-style-type: lower-alpha }   /* a b c d e etc. * /
 										       *   OL { list-style-type: lower-roman }   /* i ii iii iv v etc. * /
 																  *   </PRE>
-																  * @version $Revision: 1.3 $ */
+																  * @version $Revision: 1.4 $ */
 public class CssListStyleType extends CssProperty
     implements CssListStyleConstants {
 

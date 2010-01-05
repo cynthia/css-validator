@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderTopCSS2.java,v 1.5 2008-03-25 18:43:30 ylafon Exp $
+// $Id: CssBorderTopCSS2.java,v 1.6 2010-01-05 13:49:41 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,6 +9,7 @@ package org.w3c.css.properties.css1;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -46,7 +47,7 @@ import org.w3c.css.values.CssValue;
  *   Note that while the 'border-style' property accepts up to four values, this
  *   property only accepts one style value.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBorderTopCSS2 extends CssProperty implements CssOperator {
 

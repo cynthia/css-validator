@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundMob.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackgroundMob.java,v 1.4 2010-01-05 13:49:39 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,6 +9,8 @@ package org.w3c.css.properties.css1;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssBackgroundConstants;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -45,12 +47,12 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.3 $
- * @see CssBackgroundColor
- * @see CssBackgroundImage
- * @see CssBackgroundRepeat
- * @see CssBackgroundAttachment
- * @see CssBackgroundPosition
+ * @version $Revision: 1.4 $
+ * @see org.w3c.css.properties.css.CssBackgroundColor
+ * @see org.w3c.css.properties.css.CssBackgroundImage
+ * @see org.w3c.css.properties.css.CssBackgroundRepeat
+ * @see org.w3c.css.properties.css.CssBackgroundAttachment
+ * @see org.w3c.css.properties.css.CssBackgroundPosition
  */
 public class CssBackgroundMob extends CssProperty
         implements CssOperator, CssBackgroundConstants {

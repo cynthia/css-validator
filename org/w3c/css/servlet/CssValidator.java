@@ -1,27 +1,11 @@
 //
-// $Id: CssValidator.java,v 1.42 2009-02-26 10:41:25 ylafon Exp $
+// $Id: CssValidator.java,v 1.43 2010-01-05 13:49:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 
 package org.w3c.css.servlet;
-
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.ProtocolException;
-import java.net.URL;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.w3c.css.css.CssParser;
 import org.w3c.css.css.DocumentParser;
@@ -44,10 +28,25 @@ import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
 import org.w3c.www.mime.MimeTypeFormatException;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.ProtocolException;
+import java.net.URL;
+
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.42 $
+ * @version $Revision: 1.43 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -195,7 +194,7 @@ public final class CssValidator extends HttpServlet {
      *
      * @param req
      *            encapsulates the request to the servlet.
-     * @param resp
+     * @param res
      *            encapsulates the response from the servlet.
      * @exception ServletException
      *                if the request could not be handled.
@@ -459,7 +458,7 @@ public final class CssValidator extends HttpServlet {
      *
      * @param req
      *            encapsulates the request to the servlet
-     * @param resp
+     * @param res
      *            encapsulates the response from the servlet
      * @exception ServletException
      *                if the request could not be handled

@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundATSC.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
+// $Id: CssBackgroundATSC.java,v 1.4 2010-01-05 13:49:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,13 +10,10 @@ package org.w3c.css.properties.atsc;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssBackgroundAttachment;
-import org.w3c.css.properties.css1.CssBackgroundColor;
-import org.w3c.css.properties.css1.CssBackgroundConstants;
-import org.w3c.css.properties.css1.CssBackgroundImage;
-import org.w3c.css.properties.css1.CssBackgroundPosition;
-import org.w3c.css.properties.css1.CssBackgroundRepeat;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssBackgroundConstants;
+import org.w3c.css.properties.css.CssProperty;
+import org.w3c.css.properties.css.CssBackgroundImage;
+import org.w3c.css.properties.css.CssBackgroundPosition;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -53,11 +50,11 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.3 $
- * @see CssBackgroundColor
+ * @version $Revision: 1.4 $
+ * @see org.w3c.css.properties.css.CssBackgroundColor
  * @see CssBackgroundImage
- * @see CssBackgroundRepeat
- * @see CssBackgroundAttachment
+ * @see org.w3c.css.properties.css.CssBackgroundRepeat
+ * @see org.w3c.css.properties.css.CssBackgroundAttachment
  * @see CssBackgroundPosition
  */
 public class CssBackgroundATSC extends CssProperty

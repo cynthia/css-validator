@@ -1,5 +1,5 @@
 //
-// $Id: ACssCueBefore.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
+// $Id: ACssCueBefore.java,v 1.4 2010-01-05 13:49:36 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.InvalidParamException;
@@ -47,7 +47,7 @@ import org.w3c.css.values.CssValue;
  * this content, rather than using two special-purpose properties. This
  * would be more general.</p>
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class ACssCueBefore extends ACssProperty {
 

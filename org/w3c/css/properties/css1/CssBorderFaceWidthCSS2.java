@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderFaceWidthCSS2.java,v 1.5 2009-12-17 17:12:43 ylafon Exp $
+// $Id: CssBorderFaceWidthCSS2.java,v 1.6 2010-01-05 13:49:41 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,17 +8,17 @@ package org.w3c.css.properties.css1;
 
 import java.util.HashSet;
 
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBorderFaceWidthCSS2 {
 

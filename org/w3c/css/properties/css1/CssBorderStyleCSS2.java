@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderStyleCSS2.java,v 1.5 2009-12-17 16:39:45 ylafon Exp $
+// $Id: CssBorderStyleCSS2.java,v 1.6 2010-01-05 13:49:41 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,6 +12,7 @@ import java.util.HashSet;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -87,7 +88,7 @@ import org.w3c.css.values.CssIdent;
  *   <EM>CSS1 core:</EM> UAs may interpret all of 'dotted', 'dashed', 'double',
  *   'groove', 'ridge', 'inset' and 'outset' as 'solid'.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBorderStyleCSS2 extends CssProperty implements CssOperator {
 

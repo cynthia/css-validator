@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RGB.java,v 1.7 2009-07-07 13:32:57 ylafon Exp $
+ * $Id: RGB.java,v 1.8 2010-01-05 13:50:01 ylafon Exp $
  */
 package org.w3c.css.values;
 
@@ -64,6 +64,9 @@ public class RGB {
 
     /**
      * Create a new RGB with default values
+     * @param r the red channel, an <EM>int</EM>
+     * @param g the green channel, an <EM>int</EM>
+     * @param b the blue channel, an <EM>int</EM>
      */
     public RGB(int r, int g, int b) {
 	this.r = r;

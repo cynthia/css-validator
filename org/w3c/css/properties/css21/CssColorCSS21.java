@@ -1,4 +1,4 @@
-// $Id: CssColorCSS21.java,v 1.4 2009-03-05 23:15:05 ylafon Exp $
+// $Id: CssColorCSS21.java,v 1.5 2010-01-05 13:49:48 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html

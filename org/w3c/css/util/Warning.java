@@ -1,5 +1,5 @@
 //
-// $Id: Warning.java,v 1.10 2009-02-25 20:44:50 ylafon Exp $
+// $Id: Warning.java,v 1.11 2010-01-05 13:50:00 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,11 +7,11 @@
 package org.w3c.css.util;
 
 import org.w3c.css.parser.CssSelectors;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 
 /**
  * This class is use to manage all warning every where
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public class Warning {
     String sourceFile;
@@ -109,7 +109,7 @@ public class Warning {
      * @param level the warning level
      *
      * @see org.w3c.css.util.Messages
-     * @see org.w3c.css.properties.css1.CssProperty#setInfo
+     * @see org.w3c.css.properties.css.CssProperty#setInfo
      */
     public Warning(CssProperty property, String warningMessage, int level,
 		   ApplContext ac) {	

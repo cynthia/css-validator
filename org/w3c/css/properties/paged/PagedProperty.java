@@ -1,5 +1,5 @@
 //
-// $Id: PagedProperty.java,v 1.1 2005-08-23 16:25:02 ylafon Exp $
+// $Id: PagedProperty.java,v 1.2 2010-01-05 13:49:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,10 +9,10 @@
 
 package org.w3c.css.properties.paged;
 
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public abstract class PagedProperty extends CssProperty {
 

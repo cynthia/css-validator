@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundPositionMob.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBackgroundPositionMob.java,v 1.4 2010-01-05 13:49:40 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,6 +7,8 @@
 package org.w3c.css.properties.css1;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssBackgroundConstants;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -90,8 +92,8 @@ import org.w3c.css.values.CssValue;
  *   <P>
  *   In the example above, the image is placed in the lower right corner of the
  *   canvas.
- * @version $Revision: 1.3 $
- * @see CssBackgroundAttachment
+ * @version $Revision: 1.4 $
+ * @see org.w3c.css.properties.css.CssBackgroundAttachment
  */
 public class CssBackgroundPositionMob extends CssProperty
         implements CssBackgroundConstants, CssOperator {

@@ -1,16 +1,15 @@
 //
-// $Id: CssColorCSS1.java,v 1.13 2009-03-06 14:26:59 ylafon Exp $
+// $Id: CssColorCSS1.java,v 1.14 2010-01-05 13:50:00 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.values;
 
-import java.util.HashMap;
-
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.Util;
+
+import java.util.HashMap;
 
 /**
  *   <H3>
@@ -157,7 +156,7 @@ import org.w3c.css.util.Util;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public class CssColorCSS1 extends CssColor {
 

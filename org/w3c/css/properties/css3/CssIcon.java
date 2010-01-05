@@ -1,5 +1,5 @@
 //
-// $Id: CssIcon.java,v 1.2 2005-09-14 15:15:04 ylafon Exp $
+// $Id: CssIcon.java,v 1.3 2010-01-05 13:49:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated september 14th 2000 by Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -11,7 +11,7 @@ package org.w3c.css.properties.css3;
 import java.util.Vector;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -21,7 +21,7 @@ import org.w3c.css.values.CssURL;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssIcon extends CssProperty
     implements CssOperator {

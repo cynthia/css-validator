@@ -1,5 +1,5 @@
 //
-// $Id: CssTextPropertiesConstants.java,v 1.2 2005-09-08 12:23:34 ylafon Exp $
+// $Id: CssTextPropertiesConstants.java,v 1.3 2010-01-05 13:49:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,7 @@
 package org.w3c.css.properties.css1;
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface CssTextPropertiesConstants {
   public static String[] TEXTDECORATION = {

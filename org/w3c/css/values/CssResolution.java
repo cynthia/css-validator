@@ -1,5 +1,5 @@
 //
-// $Id: CssResolution.java,v 1.4 2008-03-25 18:30:11 ylafon Exp $
+// $Id: CssResolution.java,v 1.5 2010-01-05 13:50:00 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -20,7 +20,7 @@ import org.w3c.css.util.Util;
  *   the pixels. In dots per inch and dots per centimeter, respectively. These units are only used in the
  *   resolution media feature.
  *   </P>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssResolution extends CssValue {
 
@@ -41,7 +41,7 @@ public class CssResolution extends CssValue {
    * Set the value of this Resolution.
    *
    * @param s     the string representation of the Resolution.
-   * @param frame For errors and warnings reports.
+   * @param ac For errors and warnings reports.
    * @exception InvalidParamException The unit is incorrect
    */
   public void set(String s, ApplContext ac) throws InvalidParamException {
@@ -79,7 +79,7 @@ public class CssResolution extends CssValue {
   }
 
   /**
-   * Returns the current value
+   * @return the current value
    */
   public String getUnit() {
     return unit;
@@ -89,7 +89,7 @@ public class CssResolution extends CssValue {
    * Returns a string representation of the object.
    */
   public String toString() {
-      if (value.floatValue() != 0) {
+      if (value.floatValue() != 0.0) {
 	  return Util.displayFloat(value) + getUnit();
       } else {
 	  return Util.displayFloat(value);
@@ -104,7 +104,7 @@ public class CssResolution extends CssValue {
   public boolean equals(Object value) {
     return (value instanceof CssResolution &&
 	    this.value.equals(((CssResolution) value).value) &&
-	     unit == ((CssResolution) value).unit);
+            unit.equals(((CssResolution) value).unit));
   }
 
   private Float value;

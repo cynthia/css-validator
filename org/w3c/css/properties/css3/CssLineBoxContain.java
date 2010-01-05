@@ -1,5 +1,5 @@
 //
-// $Id: CssLineBoxContain.java,v 1.3 2005-09-14 15:15:04 ylafon Exp $
+// $Id: CssLineBoxContain.java,v 1.4 2010-01-05 13:49:53 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,7 @@
 package org.w3c.css.properties.css3;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -27,7 +27,7 @@ import org.w3c.css.values.CssValue;
  *   <P>This property enumerates the aspects of an element that contribute to the
  *   height of a line line box.</P>
  *
- * @version $Revision: 1.3 $ */
+ * @version $Revision: 1.4 $ */
 public class CssLineBoxContain extends CssProperty {
 
     CssValue value;

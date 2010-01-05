@@ -1,5 +1,5 @@
 //
-// $Id: CssTextIndentMob.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssTextIndentMob.java,v 1.4 2010-01-05 13:49:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,6 +7,7 @@
 package org.w3c.css.properties.css1;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -34,7 +35,7 @@ import org.w3c.css.values.CssValue;
  *   <PRE>
  *   P { text-indent: 3em }
  * </PRE>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssTextIndentMob extends CssProperty  {
 

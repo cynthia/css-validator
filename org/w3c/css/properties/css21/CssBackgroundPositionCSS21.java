@@ -1,18 +1,13 @@
-// $Id: CssBackgroundPositionCSS21.java,v 1.5 2009-02-06 15:17:48 ylafon Exp $
+// $Id: CssBackgroundPositionCSS21.java,v 1.6 2010-01-05 13:49:48 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css21;
 
-import org.w3c.css.properties.css1.CssBackgroundPositionCSS2;
+import org.w3c.css.properties.css2.CssBackgroundPositionCSS2;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssLength;
-import org.w3c.css.values.CssNumber;
-import org.w3c.css.values.CssPercentage;
-import org.w3c.css.values.CssValue;
 
 /**
  * CssBackgroundPositionCSS21<br />

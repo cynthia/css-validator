@@ -1,5 +1,5 @@
 //
-// $Id: CssStyle.java,v 1.9 2008-03-28 16:36:46 ylafon Exp $
+// $Id: CssStyle.java,v 1.10 2010-01-05 13:49:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,10 +7,8 @@
 
 package org.w3c.css.parser;
 
-import java.util.Enumeration;
-
 import org.w3c.css.css.StyleSheet;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
@@ -18,7 +16,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class represents a class for one context
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class CssStyle {
 

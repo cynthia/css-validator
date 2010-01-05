@@ -1,5 +1,5 @@
 //
-// $Id: ACssCue.java,v 1.3 2005-09-14 15:14:18 ylafon Exp $
+// $Id: ACssCue.java,v 1.4 2010-01-05 13:49:36 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@ package org.w3c.css.properties.aural;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -43,7 +43,7 @@ import org.w3c.css.values.CssOperator;
  * this content, rather than using two special-purpose properties. This
  * would be more general.</p>
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class ACssCue extends ACssProperty implements CssOperator {
 
@@ -74,7 +74,7 @@ public class ACssCue extends ACssProperty implements CssOperator {
 	case 2:
 	    if (expression.getOperator() != SPACE) {
 		throw new InvalidParamException("operator",
-			(new Character(expression.getOperator()).toString()),
+			(Character.toString(expression.getOperator())),
 			ac);
 	    }
 	    if(check && expression.getValue().equals(inherit)) {

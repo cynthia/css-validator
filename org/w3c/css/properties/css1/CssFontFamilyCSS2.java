@@ -1,5 +1,5 @@
 //
-// $Id: CssFontFamilyCSS2.java,v 1.4 2006-12-13 07:09:09 ot Exp $
+// $Id: CssFontFamilyCSS2.java,v 1.5 2010-01-05 13:49:43 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,6 +11,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Util;
@@ -77,7 +78,7 @@ import org.w3c.css.values.CssValue;
  *   name is converted to a single space.
  *
  * @see CssFont
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssFontFamilyCSS2 extends CssProperty implements CssOperator {
 

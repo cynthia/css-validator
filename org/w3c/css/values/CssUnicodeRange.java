@@ -1,5 +1,5 @@
 //
-// $Id: CssUnicodeRange.java,v 1.5 2008-03-25 18:30:12 ylafon Exp $
+// $Id: CssUnicodeRange.java,v 1.6 2010-01-05 13:50:01 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -39,7 +39,7 @@ public class CssUnicodeRange extends CssValue {
      * Set the value of this frequency.
      *
      * @param s     the string representation of the frequency.
-     * @param frame For errors and warnings reports.
+     * @param ac For errors and warnings reports.
      */
     public void set(String s, ApplContext ac) {
 	value = s;
@@ -65,8 +65,7 @@ public class CssUnicodeRange extends CssValue {
      * @param value The other value.
      */
     public boolean equals(Object value) {
-	return ((value instanceof CssUnicodeRange)
-		&& (value != null)
+	return ((value != null) && (value instanceof CssUnicodeRange)
 		&& this.value.equals(((CssUnicodeRange) value).value));
     }
 

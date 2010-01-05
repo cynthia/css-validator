@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderWidthCSS2.java,v 1.4 2006-04-19 11:28:05 ylafon Exp $
+// $Id: CssBorderWidthCSS2.java,v 1.5 2010-01-05 13:49:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,6 +9,7 @@ package org.w3c.css.properties.css1;
 import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -53,7 +54,7 @@ import org.w3c.css.values.CssOperator;
  * </PRE>
  *   <P>
  *   Border widths cannot be negative.
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderWidthCSS2 extends CssProperty implements CssOperator {
 

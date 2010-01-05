@@ -1,5 +1,5 @@
 //
-// $Id: Widths.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
+// $Id: Widths.java,v 1.3 2010-01-05 13:49:47 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ package org.w3c.css.properties.css2.font;
 import java.util.Vector;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.CssProperty;
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;

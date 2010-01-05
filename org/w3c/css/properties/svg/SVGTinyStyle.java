@@ -1,5 +1,5 @@
 //
-// $Id: SVGTinyStyle.java,v 1.3 2008-04-07 14:16:24 ylafon Exp $
+// $Id: SVGTinyStyle.java,v 1.4 2010-01-05 13:49:59 ylafon Exp $
 // From Sijtsche de Jong
 //
 // COPYRIGHT (c) 1995-2002 World Wide Web Consortium, (MIT, INRIA, Keio University)

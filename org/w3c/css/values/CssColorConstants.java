@@ -1,5 +1,5 @@
 //
-// $Id: CssColorConstants.java,v 1.6 2007-01-03 18:35:23 ot Exp $
+// $Id: CssColorConstants.java,v 1.7 2010-01-05 13:50:00 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@ package org.w3c.css.values;
 /**
  * This class is ued by CssColor
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  * @see org.w3c.css.values.CssColor
  */
 public interface CssColorConstants {
