@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundRepeatCSS2.java,v 1.1 2010-01-05 13:49:46 ylafon Exp $
+// $Id: CssBackgroundRepeatCSS2.java,v 1.2 2010-01-05 19:49:51 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -46,7 +46,7 @@ import java.util.HashMap;
  * <p/>
  * In the example above, the image will only be repeated vertically.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBackgroundRepeatCSS2 extends CssBackgroundRepeat {
     // FIXME TODO is that the best way ?
@@ -55,7 +55,7 @@ public class CssBackgroundRepeatCSS2 extends CssBackgroundRepeat {
         return allowed_values.containsValue(ident);
     }
     
-    public static HashMap<String, CssIdent> allowed_values;
+    private static HashMap<String, CssIdent> allowed_values;
 
     static {
         allowed_values = new HashMap<String, CssIdent>();

@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.9 2010-01-05 13:49:42 ylafon Exp $
+// $Id: CssColor.java,v 1.10 2010-01-05 19:49:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,7 +34,7 @@ import org.w3c.css.values.CssValue;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class CssColor extends CssProperty implements CssOperator {
 
@@ -209,7 +209,7 @@ public class CssColor extends CssProperty implements CssOperator {
     /**
      * Compares two properties for equality.
      *
-     * @param value The other property.
+     * @param property The other property.
      */
     public boolean equals(CssProperty property) {
 	return (property instanceof CssColor &&

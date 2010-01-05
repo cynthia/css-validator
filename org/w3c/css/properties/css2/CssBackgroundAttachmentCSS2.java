@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundAttachmentCSS2.java,v 1.1 2010-01-05 13:49:46 ylafon Exp $
+// $Id: CssBackgroundAttachmentCSS2.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -41,14 +41,17 @@ import java.util.HashMap;
  * }
  * </PRE>
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBackgroundAttachmentCSS2 extends CssBackgroundAttachment {
 
     public static boolean checkMatchingIdent(CssIdent ident) {
         return allowed_values.containsValue(ident);
     }
-    
+
+    private static HashMap<String,CssIdent> allowed_values;
+    private static CssIdent scroll;
+
     static {
         allowed_values = new HashMap<String, CssIdent>();
         scroll = CssIdent.getIdent("scroll");

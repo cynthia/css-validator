@@ -1,4 +1,4 @@
-// $Id: CssColumnFill.java,v 1.1 2010-01-05 13:49:38 ylafon Exp $
+// $Id: CssColumnFill.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -26,7 +26,7 @@ import java.util.HashMap;
  * balanced, or not. If columns are balanced, UAs should minimize the variation
  * in column length. Otherwise, columns are filled sequentially and will
  * therefore end up having different lengths. In any case, the user agent
- * should try to honor the ÔwidowsÕ and ÔorphansÕ properties.
+ * should try to honor the ï¿½widowsï¿½ and ï¿½orphansï¿½ properties.
  * <p/>
  * Name: 	column-fill
  * Value: 	auto | balance
@@ -45,7 +45,7 @@ public class CssColumnFill extends CssProperty {
     CssIdent value;
 
     static CssIdent balance;
-    public static HashMap<String, CssIdent> allowed_values;
+    private static HashMap<String, CssIdent> allowed_values;
 
     static {
         balance = CssIdent.getIdent("balance");

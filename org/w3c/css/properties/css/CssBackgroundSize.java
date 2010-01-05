@@ -1,4 +1,4 @@
-// $Id: CssBackgroundSize.java,v 1.1 2010-01-05 13:49:37 ylafon Exp $
+// $Id: CssBackgroundSize.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -46,8 +46,8 @@ public class CssBackgroundSize extends CssProperty {
 
     private static final String propertyName = "background-size";
 
-    public static CssIdent auto;
-    public static HashMap<String, CssIdent> allowed_values;
+    private static CssIdent auto;
+    private static HashMap<String, CssIdent> allowed_values;
 
     static {
         auto = CssIdent.getIdent("auto");

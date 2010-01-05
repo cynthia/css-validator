@@ -1,4 +1,4 @@
-// $Id: CssBreakBefore.java,v 1.1 2010-01-05 13:49:37 ylafon Exp $
+// $Id: CssBreakBefore.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 
@@ -48,7 +48,7 @@ public class CssBreakBefore extends CssProperty {
     private static final String propertyName = "break-before";
 
     static CssIdent auto;
-    static HashMap<String, CssIdent> allowed_values;
+    private static HashMap<String, CssIdent> allowed_values;
 
     CssIdent value;
 

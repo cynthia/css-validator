@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundOrigin.java,v 1.1 2010-01-05 13:49:37 ylafon Exp $
+// $Id: CssBackgroundOrigin.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT 2010  World Wide Web Consortium (MIT, ERCIM, Keio University)
@@ -35,7 +35,7 @@ import static org.w3c.css.values.CssOperator.COMMA;
  *
  * For elements rendered as a single box, specifies the background positioning
  * area. For elements rendered as multiple boxes (e.g., inline boxes on several
- * lines, boxes on several pages) specifies which boxes Ôbox-decoration-breakÕ
+ * lines, boxes on several pages) specifies which boxes ï¿½box-decoration-breakï¿½
  *  operates on to determine the background positioning area(s).
  *
  * &lt;bg-origin&gt; = border-box | padding-box | content-box
@@ -44,9 +44,9 @@ import static org.w3c.css.values.CssOperator.COMMA;
 public class CssBackgroundOrigin extends CssProperty {
 
     private static final String propertyName = "background-origin";
-    public static CssIdent border_box;
-    public static CssIdent padding_box;
-    public static CssIdent content_box;
+    private static CssIdent border_box;
+    private static CssIdent padding_box;
+    private static CssIdent content_box;
 
     Object value;
 

@@ -1,5 +1,5 @@
 //
-// $Id: CssColorCSS1.java,v 1.14 2010-01-05 13:50:00 ylafon Exp $
+// $Id: CssColorCSS1.java,v 1.15 2010-01-05 19:49:51 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -156,11 +156,11 @@ import java.util.HashMap;
  * "<A HREF="ftp://sgigate.sgi.com/pub/icc/ICC32.pdf">ICC Profile Format
  *  Specification, version 3.2</A>", 1995 (ftp://sgigate.sgi.com/pub/icc/ICC32.pdf)
  *
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public class CssColorCSS1 extends CssColor {
 
-    static HashMap<String,Object> definedColorsCSS1;
+    private static HashMap<String,Object> definedColorsCSS1;
 
     /**
      * Create a new CssColorCSS1

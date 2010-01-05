@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundPositionCSS2.java,v 1.1 2010-01-05 13:49:46 ylafon Exp $
+// $Id: CssBackgroundPositionCSS2.java,v 1.2 2010-01-05 19:49:51 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -19,10 +19,8 @@ import org.w3c.css.values.CssPercentage;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.w3c.css.values.CssOperator.COMMA;
 import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
@@ -100,7 +98,7 @@ import static org.w3c.css.values.CssOperator.SPACE;
  * In the example above, the image is placed in the lower right corner of the
  * canvas.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @see org.w3c.css.properties.css.CssBackgroundAttachment
  */
 public class CssBackgroundPositionCSS2 extends CssBackgroundPosition {
@@ -238,7 +236,7 @@ public class CssBackgroundPositionCSS2 extends CssBackgroundPosition {
                 switch (nb_values) {
                     case 1:
                         // If only one value is specified, the second value
-                        // is assumed to be ‘center’.
+                        // is assumed to be 'center'.
                         v.horizontal = v.value.get(0);
                         if (v.horizontal.getType() == CssTypes.CSS_NUMBER) {
                             v.horizontal = defaultPercent0;
@@ -395,4 +393,5 @@ public class CssBackgroundPositionCSS2 extends CssBackgroundPosition {
             return ((Css1Style) style).cssBackgroundCSS2.position;
         }
     }
+    
 }

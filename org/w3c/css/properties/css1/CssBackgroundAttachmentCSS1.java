@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundAttachmentCSS1.java,v 1.5 2010-01-05 13:49:39 ylafon Exp $
+// $Id: CssBackgroundAttachmentCSS1.java,v 1.6 2010-01-05 19:49:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -40,9 +40,12 @@ import java.util.HashMap;
  * }
  * </PRE>
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
+
+    private static HashMap<String, CssIdent> allowed_values;
+    private static CssIdent scroll;
 
     static {
         allowed_values = new HashMap<String, CssIdent>();

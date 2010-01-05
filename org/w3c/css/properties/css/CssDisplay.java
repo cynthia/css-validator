@@ -1,4 +1,4 @@
-// $Id: CssDisplay.java,v 1.1 2010-01-05 13:49:38 ylafon Exp $
+// $Id: CssDisplay.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 14th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -27,7 +27,7 @@ public class CssDisplay extends CssProperty {
 
     public CssIdent value;
     public static CssIdent inline;
-    public static HashMap<String, CssIdent> allowed_values;
+    private static HashMap<String, CssIdent> allowed_values;
 
     static {
         allowed_values = new HashMap<String, CssIdent>();

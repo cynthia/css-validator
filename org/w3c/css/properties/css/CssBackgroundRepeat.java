@@ -1,4 +1,4 @@
-// $Id: CssBackgroundRepeat.java,v 1.1 2010-01-05 13:49:37 ylafon Exp $
+// $Id: CssBackgroundRepeat.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2010.
@@ -44,8 +44,8 @@ public class CssBackgroundRepeat extends CssProperty {
 
     private static final String propertyName = "background-repeat";
     public static CssIdent repeat;
-    public static HashMap<String, CssIdent> allowed_simple_values;
-    public static HashMap<String, CssIdent> allowed_double_values;
+    private static HashMap<String, CssIdent> allowed_simple_values;
+    private static HashMap<String, CssIdent> allowed_double_values;
 
     static {
         allowed_simple_values = new HashMap<String, CssIdent>();
