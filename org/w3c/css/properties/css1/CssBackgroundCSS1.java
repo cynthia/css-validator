@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundCSS1.java,v 1.6 2010-01-05 13:49:39 ylafon Exp $
+// $Id: CssBackgroundCSS1.java,v 1.7 2010-01-06 09:27:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -48,7 +48,7 @@ import org.w3c.css.values.CssValue;
  * set to their initial value. In the second rule, all individual properties
  * have been specified.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  * @see org.w3c.css.properties.css.CssBackgroundColor
  * @see org.w3c.css.properties.css.CssBackgroundImage
  * @see org.w3c.css.properties.css.CssBackgroundRepeat
@@ -184,13 +184,6 @@ public class CssBackgroundCSS1 extends CssBackground
         } else {
             return color.getColor();
         }
-    }
-
-    /**
-     * Returns the name of this property
-     */
-    public String getPropertyName() {
-        return "background";
     }
 
     /**

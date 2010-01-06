@@ -1,4 +1,4 @@
-// $Id: CssBackgroundPosition.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.3 2010-01-06 09:27:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten by Yves Lafon <ylafon@w3.org>
 
@@ -290,7 +290,7 @@ public class CssBackgroundPosition extends CssProperty {
                 switch (nb_values) {
                     case 1:
                         // If only one value is specified, the second value
-                        // is assumed to be �center�.
+                        // is assumed to be 'center'.
                         v.horizontal = v.value.get(0);
                         if (v.horizontal.getType() == CssTypes.CSS_NUMBER) {
                             v.horizontal = defaultPercent0;
@@ -535,7 +535,5 @@ public class CssBackgroundPosition extends CssProperty {
         }
 
     }
-
-
 
 }

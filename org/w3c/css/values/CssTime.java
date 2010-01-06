@@ -1,5 +1,5 @@
 //
-// $Id: CssTime.java,v 1.6 2008-03-25 18:30:11 ylafon Exp $
+// $Id: CssTime.java,v 1.7 2010-01-06 09:27:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -24,7 +24,7 @@ import org.w3c.css.util.Util;
  *
  * <p>Time values may not be negative.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssTime extends CssValue {
 
@@ -54,7 +54,7 @@ public class CssTime extends CssValue {
    * Set the value of this time.
    *
    * @param s     the string representation of the time.
-   * @param frame For errors and warnings reports.
+   * @param ac For errors and warnings reports.
    * @exception InvalidParamException The unit is incorrect
    */
   public void set(String s, ApplContext ac) throws InvalidParamException {
