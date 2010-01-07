@@ -1,4 +1,4 @@
-// $Id: CssBackgroundPosition.java,v 1.3 2010-01-06 09:27:44 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.4 2010-01-07 20:21:37 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten by Yves Lafon <ylafon@w3.org>
 
@@ -440,7 +440,16 @@ public class CssBackgroundPosition extends CssProperty {
                             // should never happen
                     }
                 }
+                // TODO add a check for 3 or 4 values that offset relative
+                // to a direction is preceded by an explicit directionnal
+                // //keyword
                 if (isVertical(id1) || isHorizontal(id2)) {
+                    // if an offset is present and value is 'center'
+                    if ( ((off1 != null) && !isVertical(id1)) ||
+                         ((off2 != null) && !isHorizontal(id2) )) {
+                        throw  new InvalidParamException("incompatible",
+                                            id1, id2, ac);
+                    }
                     v.horizontal = id2;
                     v.val_horizontal = identToPercent(id2);
                     v.horizontal_offset = off2;
@@ -448,6 +457,11 @@ public class CssBackgroundPosition extends CssProperty {
                     v.val_vertical = identToPercent(id1);
                     v.vertical_offset = off1;
                 } else {
+                    if ( ((off2 != null) && !isVertical(id2)) ||
+                         ((off1 != null) && !isHorizontal(id1) )) {
+                        throw  new InvalidParamException("incompatible",
+                                            id1, id2, ac);
+                    }
                     v.horizontal = id1;
                     v.val_horizontal = identToPercent(id1);
                     v.horizontal_offset = off1;
