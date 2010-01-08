@@ -1,4 +1,4 @@
-// $Id: CssBackgroundSize.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
+// $Id: CssBackgroundSize.java,v 1.3 2010-01-08 21:38:01 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -25,7 +25,7 @@ import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
  * http://www.w3.org/TR/2009/CR-css3-background-20091217/#the-background-size
- *
+ * <p/>
  * <p/>
  * Name: 	background-size
  * Value: 	&lt;bg-size&gt; [ , &lt;bg-size&gt; ]*
@@ -55,6 +55,10 @@ public class CssBackgroundSize extends CssProperty {
         allowed_values.put("auto", auto);
         allowed_values.put("cover", CssIdent.getIdent("cover"));
         allowed_values.put("contain", CssIdent.getIdent("contain"));
+    }
+
+    public static boolean isMatchingIdent(CssIdent ident) {
+        return allowed_values.containsKey(ident.toString());
     }
 
     Object value;

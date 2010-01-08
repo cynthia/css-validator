@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.en,v 1.40 2009-12-15 17:00:03 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.en,v 1.41 2010-01-08 21:38:01 ylafon Exp $
 
 direction: ltr
 language_name: English
@@ -376,4 +376,5 @@ parser.attrcss1: Attribute selectors are invalid in CSS1
 parser.invalid_id_selector: Invalid ID selector
 parser.import_not_allowed: @import are not allowed after any valid statement other than @charset and @import.
 
+error.bg_order: In the CSS3 background definition, 'bg_position' must occur before / 'bg_size' if both are present
 

@@ -1,4 +1,4 @@
-// $Id: CssBackgroundRepeat.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
+// $Id: CssBackgroundRepeat.java,v 1.3 2010-01-08 21:38:01 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2010.
@@ -23,7 +23,7 @@ import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
  * http://www.w3.org/TR/2009/CR-css3-background-20091217/#the-background-repeat
- *
+ * <p/>
  * Name: 	background-repeat
  * Value: 	&lt;repeat-style&gt; [ , &lt;repeat-style&gt; ]*
  * Initial: 	repeat
@@ -32,18 +32,17 @@ import static org.w3c.css.values.CssOperator.SPACE;
  * Percentages: 	N/A
  * Media: 	visual
  * Computed value: 	as specified
- *
+ * <p/>
  * Specifies how background images are tiled after they have been sized and
  * positioned. Where
- *
+ * <p/>
  * &lt;repeat-style&gt; = repeat-x | repeat-y | [repeat | space |
- *                        round | no-repeat]{1,2}
- *
+ * round | no-repeat]{1,2}
  */
 public class CssBackgroundRepeat extends CssProperty {
 
     private static final String propertyName = "background-repeat";
-    public static CssIdent repeat;
+    public final static CssIdent repeat;
     private static HashMap<String, CssIdent> allowed_simple_values;
     private static HashMap<String, CssIdent> allowed_double_values;
 
@@ -61,6 +60,13 @@ public class CssBackgroundRepeat extends CssProperty {
         repeat = CssIdent.getIdent("repeat");
     }
 
+    public static boolean isMatchingIdent(CssIdent ident) {
+        String id = ident.toString();
+
+        return (allowed_simple_values.containsKey(id) ||
+                allowed_double_values.containsKey(id));
+    }
+
     public Object value;
 
     /**
@@ -73,9 +79,9 @@ public class CssBackgroundRepeat extends CssProperty {
     /**
      * Set the value of the property
      *
-     * @param ac the context
+     * @param ac         the context
      * @param expression The expression for this property
-     * @param check is length checking needed
+     * @param check      is length checking needed
      * @throws InvalidParamException The expression is incorrect
      */
     public CssBackgroundRepeat(ApplContext ac, CssExpression expression,

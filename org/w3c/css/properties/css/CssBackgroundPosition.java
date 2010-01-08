@@ -1,4 +1,4 @@
-// $Id: CssBackgroundPosition.java,v 1.5 2010-01-07 20:31:02 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.6 2010-01-08 21:38:01 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten by Yves Lafon <ylafon@w3.org>
 
@@ -61,9 +61,9 @@ public class CssBackgroundPosition extends CssProperty {
     private static final String propertyName = "background-position";
 
     private static HashMap<String, CssIdent> allowed_values;
-    private static CssIdent center, top, bottom, left, right;
-    private static CssPercentage defaultPercent0, defaultPercent50;
-    private static CssPercentage defaultPercent100;
+    private static final CssIdent center, top, bottom, left, right;
+    private static final CssPercentage defaultPercent0, defaultPercent50;
+    private static final CssPercentage defaultPercent100;
 
     static {
         top = CssIdent.getIdent("top");
@@ -81,6 +81,10 @@ public class CssBackgroundPosition extends CssProperty {
         defaultPercent0 = new CssPercentage(0);
         defaultPercent50 = new CssPercentage(50);
         defaultPercent100 = new CssPercentage(100);
+    }
+
+    public static boolean isMatchingIdent(CssIdent ident) {
+        return allowed_values.containsKey(ident.toString());
     }
 
     Object value;
@@ -439,9 +443,7 @@ public class CssBackgroundPosition extends CssProperty {
                             // should never happen
                     }
                 }
-                // TODO add a check for 3 or 4 values that offset relative
-                // to a direction is preceded by an explicit directionnal
-                // //keyword
+
                 if (isVertical(id1) || isHorizontal(id2)) {
                     // if an offset is present and value is 'center'
                     if (((off1 != null) && !isVertical(id1)) ||
