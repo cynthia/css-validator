@@ -1,5 +1,5 @@
 //
-// $Id: CssExpression.java,v 1.9 2010-01-05 13:50:00 ylafon Exp $
+// $Id: CssExpression.java,v 1.10 2010-01-09 10:36:47 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,13 +11,35 @@ import java.util.ArrayList;
 /**
  * This class is used by the CSS1 parser to generate all expressions.
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class CssExpression implements CssOperator {
 
     private ArrayList<ValueOperator> items = new ArrayList<ValueOperator>();
     private int count = 0;
     private int index = 0;
+    private int mark = -1;
+
+
+    /**
+     * mark the current position, it can be set to this
+     * position later by using reset
+     */
+    public void mark() {
+        mark = index;
+    }
+
+    /**
+     * reset to the marked location
+     * of the start if nothing has been marked.
+     */
+    public void reset() {
+        if (mark >= 0) {
+            index = mark;
+        } else {
+            index = 0;
+        }
+    }
 
     /**
      * Add a value to the end of the expression
@@ -185,7 +207,7 @@ public class CssExpression implements CssOperator {
      */
     public String toStringFromStart() {
         StringBuilder sb = new StringBuilder();
-        for ( ValueOperator anItem : items) {
+        for (ValueOperator anItem : items) {
             sb.append(anItem.value.toString()).append(anItem.operator);
         }
         return sb.toString();
