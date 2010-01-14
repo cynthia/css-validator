@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.sv,v 1.8 2009-03-25 20:13:53 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.sv,v 1.8 2009-03-25 20:13:53 ot Exp $ -->
+  content="$Id: manual.html.sv,v 1.9 2010-01-14 14:10:30 ylafon Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.sv,v 1.9 2010-01-14 14:10:30 ylafon Exp $ -->
 </head>
 
 <body>
@@ -490,7 +490,7 @@ möjligheter:
   <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>&reg;
   
   (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
-  <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+  <a href="http://www.ercim.eu/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
   <a href="http://www.keio.ac.jp/">Keio</a>),
   Rättigheter förbehållna.
   W3C:s regler för

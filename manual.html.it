@@ -11,8 +11,8 @@
     @import "style/docs.css";
   </style>
   <meta name="revision"
-  content="$Id: manual.html.it,v 1.20 2009-03-25 20:13:53 ot Exp $" />
-  <!-- SSI Template Version: $Id: manual.html.it,v 1.20 2009-03-25 20:13:53 ot Exp $ -->
+  content="$Id: manual.html.it,v 1.21 2010-01-14 14:10:30 ylafon Exp $" />
+  <!-- SSI Template Version: $Id: manual.html.it,v 1.21 2010-01-14 14:10:30 ylafon Exp $ -->
   <meta name="translator" content="Roberto Scano - International Webmasters Association / The HTML Writers Guild" />
 </head>
 
@@ -352,7 +352,7 @@ Il servizio di validazione CSS è un servizio gratuito, pubblico e per tutti e p
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>&reg;
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
-      <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+      <a href="http://www.ercim.eu/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
       <a href="http://www.keio.ac.jp/">Keio</a>),
       Tutti i diritti riservati.
       Si applicano le regole del W3C riguardanti la <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">responsabilità</a>,

@@ -9,7 +9,7 @@
 @import "style/base.css";
 @import "style/docs.css";
 </style>
-<meta name="revision" content="$Id: Email.html.fr,v 1.13 2009-02-26 13:52:27 ylafon Exp $" />
+<meta name="revision" content="$Id: Email.html.fr,v 1.14 2010-01-14 14:10:28 ylafon Exp $" />
 </head>
 
 <body>
@@ -143,7 +143,7 @@
     <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2009
     <a href="http://www.w3.org/"><abbr lang="en" title="World Wide Web Consortium">W3C</abbr></a>&reg;
     (<a href="http://www.csail.mit.edu/"><abbr lang="en" title="Massachusetts Institute of Technology">MIT</abbr></a>,
-    <a href="http://www.ercim.org/"><abbr lang="en" title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+    <a href="http://www.ercim.eu/"><abbr lang="en" title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
     <a href="http://www.keio.ac.jp/">Keio</a>), tous droits réservés.
     Les règles de <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">responsabilité</a>,
     de <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">nom de marque</a>,

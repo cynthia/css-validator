@@ -10,7 +10,7 @@
 	@import "style/base.css";
 	@import "style/docs.css";
     </style>
-    <meta name="revision" content="$Id: about.html.nl,v 1.14 2009-03-25 20:13:52 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.nl,v 1.15 2010-01-14 14:10:28 ylafon Exp $" />
 
   </head>
 
@@ -249,7 +249,7 @@ of installeer en draai je eigen instantie van de validator.</p>
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>&reg;
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
-      <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+      <a href="http://www.ercim.eu/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
       <a href="http://www.keio.ac.jp/">Keio</a>),
       Alle Rechten Voorbehouden.
       W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">aansprakelijkheid</a>,

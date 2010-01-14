@@ -8,7 +8,7 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-  <meta name="revision" content="$Id: documentation.html.de,v 1.14 2009-03-25 20:13:52 ot Exp $" /><!-- SSI Template Version: $Id: documentation.html.de,v 1.14 2009-03-25 20:13:52 ot Exp $ --></head>
+  <meta name="revision" content="$Id: documentation.html.de,v 1.15 2010-01-14 14:10:29 ylafon Exp $" /><!-- SSI Template Version: $Id: documentation.html.de,v 1.15 2010-01-14 14:10:29 ylafon Exp $ --></head>
 
 
 <body>
@@ -189,7 +189,7 @@
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>®
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
-      <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+      <a href="http://www.ercim.eu/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
       <a href="http://www.keio.ac.jp/">Keio</a>),
       All Rights Reserved.
       W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,

@@ -11,7 +11,7 @@
 	@import "style/docs.css";
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="revision" content="$Id: about.html.bg,v 1.2 2009-03-25 20:13:52 ot Exp $" />
+    <meta name="revision" content="$Id: about.html.bg,v 1.3 2010-01-14 14:10:28 ylafon Exp $" />
   </head>
 
   <body>
@@ -203,7 +203,7 @@ sleep() между заявките към валидатора или инст�
       <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>&reg;
 
       (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
-      <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+      <a href="http://www.ercim.eu/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
       <a href="http://www.keio.ac.jp/">Keio</a>),
       All Rights Reserved.
       W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,

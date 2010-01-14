@@ -10,8 +10,8 @@
     @import "style/base.css";    
     @import "style/docs.css";    
   </style>
-<meta name="revision" content="$Id: documentation.html.es,v 1.16 2009-03-25 20:13:53 ot Exp $"/>
-<!-- SSI Template Version: $Id: documentation.html.es,v 1.16 2009-03-25 20:13:53 ot Exp $ -->
+<meta name="revision" content="$Id: documentation.html.es,v 1.17 2010-01-14 14:10:29 ylafon Exp $"/>
+<!-- SSI Template Version: $Id: documentation.html.es,v 1.17 2010-01-14 14:10:29 ylafon Exp $ -->
 </head>
 <body>
   <div id="banner">
@@ -215,7 +215,7 @@
       (<a href="http://www.csail.mit.edu/">
 <acronym title="Massachusetts Institute of Technology">MIT</acronym>
 </a>,
-      <a href="http://www.ercim.org/">
+      <a href="http://www.ercim.eu/">
 <acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym>
 </a>,
       <a href="http://www.keio.ac.jp/">Keio</a>),

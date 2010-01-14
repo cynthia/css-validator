@@ -10,8 +10,8 @@
     @import "style/base.css";  
   	@import "style/docs.css";
   </style>
-<meta name="revision" content="$Id: DOWNLOAD.html.es,v 1.17 2009-03-25 20:13:52 ot Exp $"/>
-<!-- SSI Template Version: $Id: DOWNLOAD.html.es,v 1.17 2009-03-25 20:13:52 ot Exp $ -->
+<meta name="revision" content="$Id: DOWNLOAD.html.es,v 1.18 2010-01-14 14:10:27 ylafon Exp $"/>
+<!-- SSI Template Version: $Id: DOWNLOAD.html.es,v 1.18 2010-01-14 14:10:27 ylafon Exp $ -->
 </head>
 <body>
   <div id="banner">
@@ -273,7 +273,7 @@ http://localhost:8001/css-validator/validator.html</li>
       (<a href="http://www.csail.mit.edu/">
 <acronym title="Massachusetts Institute of Technology">MIT</acronym>
 </a>,
-      <a href="http://www.ercim.org/">
+      <a href="http://www.ercim.eu/">
 <acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym>
 </a>,
       <a href="http://www.keio.ac.jp/">Keio</a>),
