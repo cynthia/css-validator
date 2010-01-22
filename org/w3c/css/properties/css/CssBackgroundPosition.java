@@ -1,4 +1,4 @@
-// $Id: CssBackgroundPosition.java,v 1.6 2010-01-08 21:38:01 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.7 2010-01-22 10:51:17 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten by Yves Lafon <ylafon@w3.org>
 
@@ -169,6 +169,10 @@ public class CssBackgroundPosition extends CssProperty {
         return value;
     }
 
+    public void set(Object val) {
+        value = val;
+    }
+    
     /**
      * Returns the name of this property
      */

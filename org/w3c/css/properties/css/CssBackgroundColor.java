@@ -1,4 +1,4 @@
-// $Id: CssBackgroundColor.java,v 1.2 2010-01-05 19:49:50 ylafon Exp $
+// $Id: CssBackgroundColor.java,v 1.3 2010-01-22 10:51:16 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -88,6 +88,10 @@ public class CssBackgroundColor extends CssProperty {
         return color;
     }
 
+
+    public void set(CssValue col) {
+        color = col;
+    }
     /**
      * Returns the color
      */

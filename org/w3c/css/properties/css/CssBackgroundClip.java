@@ -1,4 +1,4 @@
-// $Id: CssBackgroundClip.java,v 1.2 2010-01-08 21:38:01 ylafon Exp $
+// $Id: CssBackgroundClip.java,v 1.3 2010-01-22 10:51:16 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT 2010  World Wide Web Consortium (MIT, ERCIM, Keio University)
@@ -116,6 +116,10 @@ public class CssBackgroundClip extends CssProperty {
         this(ac, expression, false);
     }
 
+    public void set(Object val) {
+        value = val;
+    }
+    
     /**
      * Add this property to the CssStyle
      *

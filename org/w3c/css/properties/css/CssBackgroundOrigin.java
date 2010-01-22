@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundOrigin.java,v 1.4 2010-01-08 21:38:01 ylafon Exp $
+// $Id: CssBackgroundOrigin.java,v 1.5 2010-01-22 10:51:16 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT 2010  World Wide Web Consortium (MIT, ERCIM, Keio University)
@@ -178,6 +178,10 @@ public class CssBackgroundOrigin extends CssProperty {
      */
     public Object get() {
         return value;
+    }
+
+    public void set(Object val) {
+        value = val;
     }
 
     /**

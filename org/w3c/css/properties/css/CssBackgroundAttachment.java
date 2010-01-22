@@ -1,4 +1,4 @@
-// $Id: CssBackgroundAttachment.java,v 1.3 2010-01-08 21:38:01 ylafon Exp $
+// $Id: CssBackgroundAttachment.java,v 1.4 2010-01-22 10:51:16 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2010.
@@ -64,6 +64,10 @@ public class CssBackgroundAttachment extends CssProperty {
      */
     public CssBackgroundAttachment() {
         value = scroll;
+    }
+
+    public void set(Object val) {
+        value = val;
     }
 
     /**

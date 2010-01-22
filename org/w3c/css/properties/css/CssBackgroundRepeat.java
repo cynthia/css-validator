@@ -1,4 +1,4 @@
-// $Id: CssBackgroundRepeat.java,v 1.3 2010-01-08 21:38:01 ylafon Exp $
+// $Id: CssBackgroundRepeat.java,v 1.4 2010-01-22 10:51:17 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2010.
@@ -184,6 +184,10 @@ public class CssBackgroundRepeat extends CssProperty {
 
     public Object get() {
         return value;
+    }
+
+    public void set(Object val) {
+        value = val;
     }
 
     /**
