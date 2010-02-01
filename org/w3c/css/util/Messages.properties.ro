@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.ro,v 1.5 2010-01-20 14:35:33 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.ro,v 1.6 2010-02-01 14:06:22 ylafon Exp $
 direction: ltr
 language_name: Romanian
 more_options: Mai multe optiuni de validare
@@ -361,3 +361,5 @@ parser.attrcss1: Atributul selectorilor sunt invalide in CSS
 
 parser.invalid_id_selector: Selectorul ID este invalid
 parser.import_not_allowed: @import nu sunt permise dupa nici o comanda valida decat @charset si @import
+
+error.bg_order: In definirea fundalui din CSS3, 'bg_position' trebuie sa se afle inainte de  / 'bg_size' daca ambele sunt prezente
