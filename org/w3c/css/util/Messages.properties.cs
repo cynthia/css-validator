@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.cs,v 1.2 2009-12-21 18:17:56 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.cs,v 1.3 2010-08-17 16:48:27 jean-gui Exp $
 direction: ltr
 language_name: Čeština
 more_options: Další možnosti
@@ -114,7 +114,7 @@ supporter: podporovatelem W3C
 
 # Definuje vaši vlastní chybu a varovné hlášení
 content-type: text/html; charset=utf-8
-content-language: česky
+content-language: cs
 output-encoding-name: utf-8
 
 # Můžete změnit úroveň varování takto (příklad) :
