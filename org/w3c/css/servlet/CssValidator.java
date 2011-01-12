@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.43 2010-01-05 13:49:59 ylafon Exp $
+// $Id: CssValidator.java,v 1.44 2011-01-12 15:01:56 tgambet Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -46,7 +46,7 @@ import java.net.URL;
 /**
  * This class is a servlet to use the validator.
  * 
- * @version $Revision: 1.43 $
+ * @version $Revision: 1.44 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -151,6 +151,18 @@ public final class CssValidator extends HttpServlet {
 	    return new PrintWriter(new OutputStreamWriter(os,
 							  Utf8Properties.ENCODING));
 	}
+    }
+
+    private void processVendorExtensionParameter(HttpServletRequest request,
+                                                 ApplContext context) {
+        String vendorExtensionParameter = request.getParameter("vextwarning");
+        if (vendorExtensionParameter == null ||
+            vendorExtensionParameter.length() == 0) {
+          vendorExtensionParameter =
+              getServletConfig().getInitParameter("vendorExtensionsAsWarnings");
+        }
+        context.setTreatVendorExtensionsAsWarnings(
+            Boolean.valueOf(vendorExtensionParameter));
     }
 
     /**
@@ -337,6 +349,9 @@ public final class CssValidator extends HttpServlet {
 	if (error != null && error.equals("no")) {
 	    errorReport = false;
 	}
+
+        // Allow vendor extensions to just show up as warnings.
+        processVendorExtensionParameter(req, ac);
 
 	// debug mode
 	Util.verbose("\nServlet request ");
@@ -614,6 +629,9 @@ public final class CssValidator extends HttpServlet {
 	if (error != null && error.equals("no")) {
 	    errorReport = false;
 	}
+
+        // Allow vendor extensions to just show up as warnings.
+        processVendorExtensionParameter(req, ac);
 
 	// CSS version
 	if (profile != null && (!"none".equals(profile) ||"".equals(profile))) {

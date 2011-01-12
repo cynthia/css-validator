@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.71 2010-01-05 13:55:48 ylafon Exp $
+ * $Id: CssParser.jj,v 1.72 2011-01-12 15:01:56 tgambet Exp $
  *
  */
 
@@ -58,6 +58,7 @@ import org.w3c.css.parser.AtRulePreference;
 import org.w3c.css.parser.AtRulePhoneticAlphabet;
 import org.w3c.css.properties.svg.AtRuleColorProfile;
 import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.util.WarningParamException;
 import org.w3c.css.util.Util;
 import org.w3c.css.util.Messages;
 import org.w3c.css.css.StyleSheetCom;
@@ -83,7 +84,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.71 $
+ * @version $Revision: 1.72 $
  */
 public abstract class CssParser {
 
@@ -1991,11 +1992,18 @@ try {
 		}
 	    }
 	} catch (InvalidParamException e) {
-		incompatible_error = false;
-		values.starts();
-		addError(e, (CssExpression) values);
-	}
-	return null;
+            incompatible_error = false;
+            if (e instanceof WarningParamException) {
+                WarningParamException warningException =
+                    (WarningParamException) e;
+                ac.getFrame().addWarning(warningException.getMessage(),
+                                         warningException.getMessageArgs());
+            } else {
+                values.starts();
+                addError(e, (CssExpression) values);
+            }
+        }
+        return null;
     }
  } catch (NumberFormatException e) {
      skipAfterExpression(e);

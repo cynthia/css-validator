@@ -1,5 +1,5 @@
 //
-// $Id: CssPropertyFactory.java,v 1.24 2010-01-05 13:49:33 ylafon Exp $
+// $Id: CssPropertyFactory.java,v 1.25 2011-01-12 15:01:56 tgambet Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,6 +11,7 @@ import org.w3c.css.properties.PropertiesLoader;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
+import org.w3c.css.util.WarningParamException;
 import org.w3c.css.util.Utf8Properties;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
@@ -22,7 +23,7 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 /**
- * @version $Revision: 1.24 $
+ * @version $Revision: 1.25 $
  * @author Philippe Le Hegaret
  */
 public class CssPropertyFactory implements Cloneable {
@@ -187,6 +188,10 @@ public class CssPropertyFactory implements Cloneable {
 	// the property does not exist in this profile
 	// this is an error... or a warning if it exists in another profile
 	if (classname == null) {
+            if (ac.getTreatVendorExtensionsAsWarnings() &&
+                isVendorExtension(property)) {
+                throw new WarningParamException("vendor-extension", property);
+            }
 	    ArrayList<String> pfsOk = new ArrayList<String>();
 			
 	    for (int i=0; i<SORTEDPROFILES.length; ++i) {
@@ -262,5 +267,10 @@ public class CssPropertyFactory implements Cloneable {
 	    className = PropertiesLoader.getProfile(ac.getCssVersion()).getProperty("@" + atRule.keyword() + "." + property);
 	}
 	return className;
+    }
+
+    private boolean isVendorExtension(String property) {
+      return property.length() > 0 &&
+          (property.charAt(0) == '-' || property.charAt(0) == '_');
     }
 }

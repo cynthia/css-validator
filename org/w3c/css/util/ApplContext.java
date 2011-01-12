@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.17 2009-02-16 16:42:14 ylafon Exp $
+ * $Id: ApplContext.java,v 1.18 2011-01-12 15:01:56 tgambet Exp $
  */
 package org.w3c.css.util;
 
@@ -27,7 +27,7 @@ import org.w3c.www.http.HttpFactory;
 import org.apache.velocity.io.UnicodeInputStream;
 
 /**
- * @version $Revision: 1.17 $
+ * @version $Revision: 1.18 $
  * @author Philippe Le Hegaret
  */
 public class ApplContext {
@@ -69,6 +69,7 @@ public class ApplContext {
     String medium;
     private String link;
     int warningLevel = 0;
+    boolean treatVendorExtensionsAsWarnings = false;
 
     FakeFile fakefile = null;
     String   faketext = null;
@@ -208,6 +209,15 @@ public class ApplContext {
 
     public void setLink(String queryString) {
 	this.link = queryString;
+    }
+
+    public boolean getTreatVendorExtensionsAsWarnings() {
+        return treatVendorExtensionsAsWarnings;
+    }
+
+    public void setTreatVendorExtensionsAsWarnings(
+        boolean treatVendorExtensionsAsWarnings) {
+        this.treatVendorExtensionsAsWarnings = treatVendorExtensionsAsWarnings;
     }
 
     /**
