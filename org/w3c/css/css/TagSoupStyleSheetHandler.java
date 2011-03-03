@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: TagSoupStyleSheetHandler.java,v 1.7 2011-01-19 18:37:49 ylafon Exp $
+ * $Id: TagSoupStyleSheetHandler.java,v 1.8 2011-03-03 15:08:10 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -46,7 +46,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -253,37 +253,11 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
                 String href = atts.getValue("href");
 
                 if (Util.onDebug) {
-                    System.err.println("link rel=\"" + rel
+                    System.err.println("TAGSOUP: link rel=\"" + rel
                             + "\" type=\"" + type
                             + "\"" + "   href=\"" + href + "\"");
                 }
-                if (type == null) {
-                    return;
-                }
-                MimeType mt = null;
-                try {
-                    mt = new MimeType(type);
-                } catch (MimeTypeFormatException mtfe) {
-                    return;
-                }
-                if (MimeType.TEXT_CSS.match(mt) !=
-                        MimeType.MATCH_SPECIFIC_SUBTYPE) {
-                    return;
-                }
-                if (href == null) {
-                    int line = -1;
 
-                    if (locator != null) {
-                        line = locator.getLineNumber();
-                    }
-                    CssError er =
-                            new CssError(baseURI.toString(), line,
-                                    new InvalidParamException("unrecognized.link", ac));
-                    Errors ers = new Errors();
-                    ers.addError(er);
-                    styleSheetParser.notifyErrors(ers);
-                    return;
-                }
 
                 if ((rel != null) &&
                         rel.toLowerCase().indexOf("stylesheet") != -1) {
@@ -291,6 +265,42 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
                     // @@TODO alternate stylesheet
                     URL url;
 
+                    // first we check if there is an href
+                    if (href == null) {
+                        int line = -1;
+
+                        if (locator != null) {
+                            line = locator.getLineNumber();
+                        }
+                        CssError er =
+                                new CssError(baseURI.toString(), line,
+                                        new InvalidParamException("unrecognized.link", ac));
+                        Errors ers = new Errors();
+                        ers.addError(er);
+                        styleSheetParser.notifyErrors(ers);
+                        return;
+                    }
+                    // If so, check the type
+                    if (type == null) {
+                        int line = (locator != null ? locator.getLineNumber() : -1);
+                        Warning w = new Warning(baseURI.toString(), line,
+                                "link-type", 0, ac);
+                        Warnings warnings = new Warnings(ac.getWarningLevel());
+                        warnings.addWarning(w);
+                        styleSheetParser.notifyWarnings(warnings);
+                    } else {
+                        MimeType mt = null;
+                        try {
+                            mt = new MimeType(type);
+                        } catch (MimeTypeFormatException mtfe) {
+                            return;
+                        }
+                        if (MimeType.TEXT_CSS.match(mt) !=
+                                MimeType.MATCH_SPECIFIC_SUBTYPE) {
+                            return;
+                        }
+                    }
+                    // then prepare for parsing
                     try {
                         if (baseURI != null) {
                             url = new URL(baseURI, href);
