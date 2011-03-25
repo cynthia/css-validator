@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.ro,v 1.6 2010-02-01 14:06:22 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.ro,v 1.7 2011-03-25 08:45:26 ylafon Exp $
 direction: ltr
 language_name: Romanian
 more_options: Mai multe optiuni de validare
@@ -124,6 +124,8 @@ warning.redefinition: Redefinition of %s
 
 # used by xml parser 
 warning.style-inside-comment: Do not put style rules inside HTML comments as they may be removed by user agent
+warning.link-type: Ar trebui sa adaugi elementului 'link' un atribut 'type' cu valoarea 'text/css'
+warning.style-type: Ar trebui sa adaugi elementului 'style' atributul 'type' cu valoarea 'text/css'
 
 # used by org.w3c.css.properties.Css1Style
 warning.same-colors: Aceeasi culoare pentru %s si %s
