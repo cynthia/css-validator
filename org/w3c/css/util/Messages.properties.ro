@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.ro,v 1.7 2011-03-25 08:45:26 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.ro,v 1.8 2011-04-07 15:26:38 ylafon Exp $
 direction: ltr
 language_name: Romanian
 more_options: Mai multe optiuni de validare
@@ -365,3 +365,5 @@ parser.invalid_id_selector: Selectorul ID este invalid
 parser.import_not_allowed: @import nu sunt permise dupa nici o comanda valida decat @charset si @import
 
 error.bg_order: In definirea fundalui din CSS3, 'bg_position' trebuie sa se afle inainte de  / 'bg_size' daca ambele sunt prezente
+
+warning.vendor-extension: Proprietatea %s reprezinta o extensie vendor necunoscuta
