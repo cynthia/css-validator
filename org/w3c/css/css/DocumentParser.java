@@ -1,5 +1,5 @@
 //
-// $Id: DocumentParser.java,v 1.5 2010-06-18 16:18:10 ylafon Exp $
+// $Id: DocumentParser.java,v 1.6 2011-05-14 18:13:25 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public final class DocumentParser {
 
@@ -83,40 +83,6 @@ public final class DocumentParser {
 	    }
 	} else {
 	    URLConnection connection = null;
-
-	    if ("https".equals(urlProtocol)) {
-		    // Step 1: trust manager
-		    // Create a trust manager that does not validate certificate chains
-		    TrustManager[] trustAllCerts = new TrustManager[] {
-			    new X509TrustManager() {
-				    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-					    return null;
-				    }
-				    public void checkClientTrusted(
-					    java.security.cert.X509Certificate[] certs, String authType) {
-				    }
-				    public void checkServerTrusted(
-						    java.security.cert.X509Certificate[] certs, String authType) {
-					    }
-			    }
-		    };
-
-		    // Install the all-trusting trust manager
-		    try {
-			    SSLContext sc = SSLContext.getInstance("SSL");
-			    sc.init(null, trustAllCerts, new java.security.SecureRandom());
-			    HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-		    } catch (Exception e) {
-		    }
-
-		    // Step 2: hostname verifier
-		    HostnameVerifier hv = new HostnameVerifier() {
-			    public boolean verify(String urlHostName, SSLSession session) {
-				    return true;
-			    }
-		    };
-		    HttpsURLConnection.setDefaultHostnameVerifier(hv);
-	    }
 
 	    try {
 		boolean isXML = false;
