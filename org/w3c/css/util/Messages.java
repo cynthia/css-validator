@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.40 2011-04-07 14:37:41 ylafon Exp $
+// $Id: Messages.java,v 1.41 2011-08-29 07:21:01 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,20 +11,19 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.StringTokenizer;
-import java.util.Vector;
 
 /**
- * @version $Revision: 1.40 $
+ * @version $Revision: 1.41 $
  */
 public class Messages {
 
     /**
      * Message properties
      */
-    public Utf8Properties<String, String> properties;
+    public Utf8Properties<String, String> properties = null;
 
-    public static Hashtable<String, Utf8Properties<String, String>> languages;
-    public static ArrayList<String> languages_name;
+    public static final Hashtable<String, Utf8Properties<String, String>> languages;
+    public static final ArrayList<String> languages_name;
 
     /**
      * Creates a new Messages
@@ -189,7 +188,7 @@ public class Messages {
         return "[empty string]";
     }
 
-    public String getString(String message, Vector<String> params) {
+    public String getString(String message, ArrayList<String> params) {
         if ((params == null) || params.size() == 0) {
             return getString(message);
         }

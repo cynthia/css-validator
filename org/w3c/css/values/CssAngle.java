@@ -1,5 +1,5 @@
 //
-// $Id: CssAngle.java,v 1.9 2010-01-06 09:27:44 ylafon Exp $
+// $Id: CssAngle.java,v 1.10 2011-08-29 07:21:02 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997-2010.
@@ -28,7 +28,7 @@ import java.util.HashMap;
  * <p>Values in these units may be negative. They should be normalized to the
  * range 0-360deg by the UA. For example, -10deg and 350deg are equivalent.
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class CssAngle extends CssValue implements CssValueFloat {
 
@@ -89,7 +89,7 @@ public class CssAngle extends CssValue implements CssValueFloat {
         int length = s.length();
         String unit;
         //float v;
-        if (s.indexOf("grad") == -1) {
+        if (!s.contains("grad")) {
             unit = s.substring(length - 3, length);
             unit = allowed_values.get(unit);
             if (unit == null) {

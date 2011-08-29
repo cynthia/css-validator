@@ -1,5 +1,5 @@
 //
-// $Id: Util.java,v 1.6 2008-03-17 17:52:54 ylafon Exp $
+// $Id: Util.java,v 1.7 2011-08-29 07:21:02 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ package org.w3c.css.util;
 /**
  * This class holds various utility methods.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 
 public final class Util {
@@ -380,5 +380,8 @@ public final class Util {
      */
     public static boolean onDebug = Boolean.getBoolean("CSS.debug");
     //    public static boolean onDebug = false;
+
+    // default maximum size for checked entities
+    public static long maxEntitySize = 1048576L ;
 }
 

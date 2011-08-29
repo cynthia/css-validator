@@ -1,14 +1,12 @@
 // MimeType.java
-// $Id: MimeType.java,v 1.4 2005-09-14 15:15:39 ylafon Exp $
+// $Id: MimeType.java,v 1.5 2011-08-29 07:21:02 ylafon Exp $
 // (c) COPYRIGHT MIT and INRIA, 1996.
 // Please first read the full copyright statement in file COPYRIGHT.html
 
 package org.w3c.www.mime ;
 
-import java.util.Vector;
-
-import java.io.PrintStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * This class is used to represent parsed MIME types.
@@ -345,7 +343,7 @@ public class MimeType implements Serializable, Cloneable {
 	while ((strl > start) && (spec.charAt (strl-1) <= ' '))
 	    strl-- ;
 	// get the type:
-	StringBuffer sb = new StringBuffer () ;
+	StringBuilder sb = new StringBuilder() ;
 	while ((start < strl) && ((look = spec.charAt(start)) != '/')) {
 	    sb.append (Character.toLowerCase((char) look)) ;
 	    start++ ;
@@ -369,8 +367,8 @@ public class MimeType implements Serializable, Cloneable {
 	    if (spec.charAt(start) != ';')
 		throw new MimeTypeFormatException (spec) ;
 	    start++ ;
-	    Vector vp = new Vector(4) ;
-	    Vector vv = new Vector(4) ;
+	    ArrayList vp = new ArrayList(4) ;
+	    ArrayList vv = new ArrayList(4) ;
 	    while ( start < strl ) {
 		while ((start < strl) && (spec.charAt(start) <= ' ')) start++ ;
 		// get parameter name:
@@ -400,13 +398,13 @@ public class MimeType implements Serializable, Cloneable {
 		while ((start < strl) && (spec.charAt(start) != ';')) start++ ;
 		start++ ;
 		String value = sb.toString() ;
-		vp.addElement(name);
-		vv.addElement(value);
+		vp.add(name);
+		vv.add(value);
 	    }
 	    this.pnames = new String[vp.size()];
-	    vp.copyInto(pnames);
+	    vp.toArray(pnames);
 	    this.pvalues = new String[vv.size()];
-	    vv.copyInto(pvalues);
+	    vv.toArray(pvalues);
 	}
     }
 

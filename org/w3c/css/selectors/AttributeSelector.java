@@ -1,4 +1,4 @@
-// $Id: AttributeSelector.java,v 1.3 2006-04-19 11:28:06 ylafon Exp $
+// $Id: AttributeSelector.java,v 1.4 2011-08-29 07:21:01 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -22,25 +22,27 @@ public abstract class AttributeSelector implements Selector {
 
     /**
      * Creates a new attribute selector given its name
+     *
      * @param name the name of this attribute
      */
-    public AttributeSelector(String name) {        
-	this.name = name;
+    public AttributeSelector(String name) {
+        this.name = name;
     }
 
     /**
      * Sets the name of this attribute selector
+     *
      * @param name the name of this attribute
      */
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
 
     /**
      * @see Selector#getName()
      */
     public String getName() {
-	return name;
+        return name;
     }
 
     public abstract void applyAttribute(ApplContext ac, AttributeSelector attr);
@@ -49,7 +51,8 @@ public abstract class AttributeSelector implements Selector {
      * @see Selector#toString()
      */
     public String toString() {
-	return "[" + name + "]";
+        StringBuilder sb = new StringBuilder();
+        return sb.append('[').append(name).append(']').toString();
     }
 
 }
