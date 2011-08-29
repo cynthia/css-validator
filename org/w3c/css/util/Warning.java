@@ -1,5 +1,5 @@
 //
-// $Id: Warning.java,v 1.13 2011-08-12 13:04:25 ylafon Exp $
+// $Id: Warning.java,v 1.14 2011-08-29 12:36:55 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,7 +12,7 @@ import org.w3c.css.properties.css.CssProperty;
 /**
  * This class is use to manage all warning every where
  *
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public class Warning implements Comparable<Warning> {
     String sourceFile;
@@ -222,9 +222,26 @@ public class Warning implements Comparable<Warning> {
         } else {
             // replace all parameters.
             if (args != null) {
-                for (j = 0; j < args.length; j++) {
-                    str = str.replaceFirst("%s", args[j]);
+                StringBuilder sb = new StringBuilder();
+                int idx = 0;
+                int start = 0;
+                for (String subst : args) {
+                    idx = str.indexOf("%s", idx);
+                    if (idx < 0) {
+                        // TODO report error
+                        System.err.println("*** WARNING ISSUE: "+warning);
+                        System.err.println("*** WARNING ISSUE: "+ac.getMsg().getWarningString(warning));
+                        System.err.println("*** WARNING ISSUE: got "+args.length+" args entries");
+                        break;
+                    }
+                    sb.append(str.substring(start, idx));
+                    sb.append(subst);
+                    idx+=2;
+                    start=idx;
                 }
+                // and add the last part
+                sb.append(str.substring(start));
+                return sb.toString();
             }
             return str;
         }
