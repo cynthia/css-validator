@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.9 2010-01-05 13:49:49 ylafon Exp $
+// $Id: Css3Style.java,v 1.10 2011-08-31 18:34:51 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -9,6 +9,7 @@
 package org.w3c.css.properties.css3;
 
 import org.w3c.css.parser.CssSelectors;
+import org.w3c.css.properties.atsc.ATSCStyle;
 import org.w3c.css.properties.css.CssBackgroundClip;
 import org.w3c.css.properties.css.CssBackgroundOrigin;
 import org.w3c.css.properties.css.CssBackgroundSize;
@@ -32,7 +33,7 @@ import org.w3c.css.util.Warnings;
 
 import org.w3c.css.parser.CssPrinterStyle;
 
-public class Css3Style extends org.w3c.css.properties.atsc.ATSCStyle {
+public class Css3Style extends ATSCStyle {
 
     CssOpacity cssOpacity;
     CssColorProfile cssColorProfile;
