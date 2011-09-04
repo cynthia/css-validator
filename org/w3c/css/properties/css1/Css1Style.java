@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.19 2011-09-04 17:56:30 ylafon Exp $
+// $Id: Css1Style.java,v 1.20 2011-09-04 21:01:57 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,6 +25,7 @@ import org.w3c.css.properties.css2.CssBackgroundColorCSS2;
 import org.w3c.css.properties.css2.CssBackgroundImageCSS2;
 import org.w3c.css.properties.css2.CssBackgroundPositionCSS2;
 import org.w3c.css.properties.css2.CssBackgroundRepeatCSS2;
+import org.w3c.css.properties.css.CssDirection;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Util;
 import org.w3c.css.util.Warning;

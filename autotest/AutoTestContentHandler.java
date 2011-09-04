@@ -1,9 +1,19 @@
 package autotest;
 
-// $Id: AutoTestContentHandler.java,v 1.5 2009-02-09 21:00:23 ot Exp $
+// $Id: AutoTestContentHandler.java,v 1.6 2011-09-04 21:01:47 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
+
+import org.w3c.www.http.HTTP;
+import org.w3c.www.protocol.http.HttpException;
+import org.w3c.www.protocol.http.HttpManager;
+import org.w3c.www.protocol.http.Reply;
+import org.w3c.www.protocol.http.Request;
+import org.xml.sax.Attributes;
+import org.xml.sax.ContentHandler;
+import org.xml.sax.Locator;
+import org.xml.sax.SAXException;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,13 +23,6 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.w3c.www.http.HTTP;
-import org.w3c.www.protocol.http.HttpException;
-import org.w3c.www.protocol.http.HttpManager;
-import org.w3c.www.protocol.http.Reply;
-import org.w3c.www.protocol.http.Request;
-
-import org.xml.sax.*;
 
 //import org.xml.sax.helpers.LocatorImpl;
 /*
