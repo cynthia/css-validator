@@ -1,5 +1,6 @@
-﻿# Master localization string file: $Id: Messages.properties.hi,v 1.1 2011-09-06 09:32:48 ylafon Exp $
+﻿# Master localization string file: $Id: Messages.properties.hi,v 1.2 2011-09-06 16:37:29 ylafon Exp $
 language_name: अंग्रेजी
+direction: ltr
 more_options: अतिरिक्त विकल्प
 title_more_options: दिखाएँ / छुपाएँ अतिरिक्त विकल्पों का मान्यता
 all: सब

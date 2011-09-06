@@ -1,5 +1,6 @@
-# Master localization string file: $Id: Messages.properties.el,v 1.1 2011-04-07 14:37:52 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.el,v 1.2 2011-09-06 16:37:29 ylafon Exp $
 language_name: Ελληνικά
+direction: ltr
 more_options: Περισσότερες επιλογές
 title_more_options: Show/Hide extra validation options
 all: Όλα
