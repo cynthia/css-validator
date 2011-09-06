@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.41 2011-08-29 07:21:01 ylafon Exp $
+// $Id: Messages.java,v 1.42 2011-09-06 09:32:48 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.41 $
+ * @version $Revision: 1.42 $
  */
 public class Messages {
 
@@ -534,6 +534,23 @@ public class Messages {
             }
         } catch (Exception e) {
             System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties el");
+            System.err.println("  " + e.toString());
+        }
+
+        // -----------------------
+        // Hindi
+        try {
+            java.io.InputStream f = Messages.class.getResourceAsStream("Messages.properties.hi");
+            try {
+                tmp = new Utf8Properties<String, String>();
+                tmp.load(f);
+                languages_name.add("hi");
+                languages.put("hi", tmp);
+            } finally {
+                f.close();
+            }
+        } catch (Exception e) {
+            System.err.println("org.w3c.css.util.Messages: " + "couldn't load properties hi");
             System.err.println("  " + e.toString());
         }
 
