@@ -1,4 +1,4 @@
-// $Id: CssColumnRule.java,v 1.1 2010-01-05 13:49:38 ylafon Exp $
+// $Id: CssColumnRule.java,v 1.2 2011-09-09 15:02:39 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -32,8 +32,8 @@ import static org.w3c.css.values.CssOperator.SPACE;
  * Media: 	visual
  * Computed value: 	see individual properties
  * <p/>
- * This property is a shorthand for setting ‘column-rule-width’,
- * ‘column-rule-style’, and ‘column-rule-color’ at the same place in the
+ * This property is a shorthand for setting 'column-rule-width',
+ * 'column-rule-style', and 'column-rule-color' at the same place in the
  * style sheet. Omitted values are set to their initial values.
  */
 
