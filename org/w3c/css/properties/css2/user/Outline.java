@@ -1,5 +1,5 @@
 //
-// $Id: Outline.java,v 1.3 2010-01-05 13:49:48 ylafon Exp $
+// $Id: Outline.java,v 1.4 2011-09-09 12:16:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,7 +8,6 @@
  */
 package org.w3c.css.properties.css2.user;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -19,9 +18,9 @@ import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
-public class Outline extends UserProperty implements CssOperator {
+public class Outline extends UserProperty {
 
     OutlineColor color;
     OutlineWidth width;
@@ -49,7 +48,7 @@ public class Outline extends UserProperty implements CssOperator {
 	}
 
 	CssValue val = expression.getValue();
-        char op = SPACE;
+        char op = CssOperator.SPACE;
         boolean find = true;
         int max_values = 3;
 
@@ -79,7 +78,7 @@ public class Outline extends UserProperty implements CssOperator {
                 break;
 	    }
 
-            if (op != SPACE) {
+            if (op != CssOperator.SPACE) {
                 throw new InvalidParamException("operator",
                                                 ((new Character(op)).toString()), ac);
 	    }
@@ -189,36 +188,9 @@ public class Outline extends UserProperty implements CssOperator {
     }
 
     /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if ((color != null && width != null && style != null) &&
-	    (getImportant() ||
-	     (!color.getImportant()
-	      && !style.getImportant()
-	      && !width.getImportant()))) {
-	    printer.print(this);
-	} else {
-	    if (color != null) {
-		color.print(printer);
-	    }
-	    if (width != null) {
-		width.print(printer);
-	    }
-	    if (style != null) {
-		style.print(printer);
-	    }
-	}
-    }
-
-    /**
      * Add this property to the CssStyle
      *
-     * @param style The CssStyle
+     * @param style0 The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style0) {
 	// outlineColor and outlineWidth can't be null ...
@@ -251,7 +223,7 @@ public class Outline extends UserProperty implements CssOperator {
     /**
      * Compares two properties for equality.
      *
-     * @param value The other property.
+     * @param property The other property.
      */
     public boolean equals(CssProperty property) {
 	return false; // @FIXME

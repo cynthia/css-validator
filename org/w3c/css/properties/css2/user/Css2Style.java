@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
+// $Id: Css2Style.java,v 1.3 2011-09-09 12:16:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,10 +8,8 @@
  */
 package org.w3c.css.properties.css2.user;
 
-import org.w3c.css.parser.CssPrinterStyle;
-
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class Css2Style extends org.w3c.css.properties.css2.table.Css2Style {
 
@@ -141,27 +139,4 @@ public class Css2Style extends org.w3c.css.properties.css2.table.Css2Style {
         return outlineATSC;
     }
 
-    /**
-     * Print this style.
-     *
-     * @param printer The printer interface.
-     */
-    public void print(CssPrinterStyle printer) {
-	super.print(printer);
-	if (cursor != null) {
-	    cursor.print(printer);
-	}
-	if (cursorATSC != null) {
-	    cursorATSC.print(printer);
-	}
-	if (cursorCSS2 != null) {
-	    cursorCSS2.print(printer);
-	}
-	if (outline != null) {
-	    outline.print(printer);
-	}
-	if (outlineATSC != null) {
-	    outlineATSC.print(printer);
-	}
-    }
 }

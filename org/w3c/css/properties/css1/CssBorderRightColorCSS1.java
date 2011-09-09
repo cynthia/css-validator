@@ -1,12 +1,11 @@
 //
-// $Id: CssBorderRightColorCSS1.java,v 1.4 2010-01-05 13:49:41 ylafon Exp $
+// $Id: CssBorderRightColorCSS1.java,v 1.5 2011-09-09 12:16:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css1;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
@@ -16,7 +15,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * Be careful, this is not a CSS1 property !
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderRightColorCSS1 extends CssProperty {
 
@@ -134,13 +133,4 @@ public class CssBorderRightColorCSS1 extends CssProperty {
 		face.equals(((CssBorderRightColorCSS1) property).face));
     }
 
-    /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     */
-    public void print(CssPrinterStyle printer) {
-	if (face != null && !face.isDefault())
-	    printer.print(this);
-    }
 }

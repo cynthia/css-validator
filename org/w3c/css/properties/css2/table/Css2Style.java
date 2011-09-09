@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.1 2005-08-23 16:33:50 ylafon Exp $
+// $Id: Css2Style.java,v 1.2 2011-09-09 12:16:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,11 +8,10 @@
  */
 package org.w3c.css.properties.css2.table;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.properties.aural.ACssStyle;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -178,58 +177,4 @@ public class Css2Style extends ACssStyle {
     }
 
 
-    /**
-     * Print this style.
-     *
-     * @param printer The printer interface.
-     */
-    public void print(CssPrinterStyle printer) {
-	super.print(printer);
-
-	if (rowSpan != null) {
-	    rowSpan.print(printer);
-	}
-	if (rowSpanATSC != null) {
-	    rowSpanATSC.print(printer);
-	}
-	if (columnSpan != null) {
-	    columnSpan.print(printer);
-	}
-	if (columnSpanATSC != null) {
-	    columnSpanATSC.print(printer);
-	}
-	if (tableLayout != null) {
-	    tableLayout.print(printer);
-	}
-	if (tableLayoutATSC != null) {
-	    tableLayoutATSC.print(printer);
-	}
-	if (captionSide != null) {
-	    captionSide.print(printer);
-	}
-	if (borderCollapse != null) {
-	    borderCollapse.print(printer);
-	}
-	if (borderCollapseATSC != null) {
-	    borderCollapseATSC.print(printer);
-	}
-	if (borderSpacing != null) {
-	    borderSpacing.print(printer);
-	}
-	if (borderSpacingATSC != null) {
-	    borderSpacingATSC.print(printer);
-	}
-	if (emptyCells != null) {
-	    emptyCells.print(printer);
-	}
-	if (emptyCellsATSC != null) {
-	    emptyCellsATSC.print(printer);
-	}
-	if (speakHeader != null) {
-	    speakHeader.print(printer);
-	}
-	if (speakHeaderATSC != null) {
-	    speakHeaderATSC.print(printer);
-	}
-    }
 }

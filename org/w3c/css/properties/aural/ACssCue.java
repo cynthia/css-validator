@@ -1,12 +1,11 @@
 //
-// $Id: ACssCue.java,v 1.4 2010-01-05 13:49:36 ylafon Exp $
+// $Id: ACssCue.java,v 1.5 2011-09-09 12:16:43 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.aural;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -43,7 +42,7 @@ import org.w3c.css.values.CssOperator;
  * this content, rather than using two special-purpose properties. This
  * would be more general.</p>
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class ACssCue extends ACssProperty implements CssOperator {
 
@@ -141,27 +140,6 @@ public class ACssCue extends ACssProperty implements CssOperator {
     public boolean getImportant() {
 	return ((cueAfter == null || cueAfter.getImportant()) &&
 		(cueBefore == null || cueBefore.getImportant()));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if ((cueBefore != null && cueAfter != null) &&
-	    (getImportant() ||
-	     (!cueBefore.getImportant() &&
-	      !cueAfter.getImportant()))) {
-	    printer.print(this);
-	} else {
-	    if (cueBefore != null)
-		cueBefore.print(printer);
-	    if (cueAfter != null && !same)
-		cueAfter.print(printer);
-	}
     }
 
     /**

@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderRightColorATSC.java,v 1.4 2010-01-05 13:49:35 ylafon Exp $
+// $Id: CssBorderRightColorATSC.java,v 1.5 2011-09-09 12:16:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,6 @@
 
 package org.w3c.css.properties.atsc;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
@@ -17,7 +16,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * Be careful, this is not a CSS1 property !
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderRightColorATSC extends CssProperty {
 
@@ -128,13 +127,4 @@ public class CssBorderRightColorATSC extends CssProperty {
 		face.equals(((CssBorderRightColorATSC) property).face));
     }
 
-    /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     */
-    public void print(CssPrinterStyle printer) {
-	if (!face.isDefault())
-	    printer.print(this);
-    }
 }

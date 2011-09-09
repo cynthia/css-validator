@@ -1,4 +1,4 @@
-// $Id: CssProperties.java,v 1.1 2010-01-05 13:49:38 ylafon Exp $
+// $Id: CssProperties.java,v 1.2 2011-09-09 12:16:43 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM andd Keio, 1997-2010.
@@ -10,32 +10,32 @@ import org.w3c.css.util.Utf8Properties;
 import java.net.URL;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssProperties {
     public static Utf8Properties properties;
 
     public static String getString(CssProperty property, String prop) {
-	StringBuilder st = new StringBuilder(property.getPropertyName());
-	st.append('.').append(prop);
-	return properties.getProperty(st.toString());
+        StringBuilder st = new StringBuilder(property.getPropertyName());
+        st.append('.').append(prop);
+        return properties.getProperty(st.toString());
     }
 
     public static boolean getInheritance(CssProperty property) {
-	return "true".equals(getString(property, "inherited"));
+        return "true".equals(getString(property, "inherited"));
     }
 
     static {
-	properties = new Utf8Properties();
-	try {
-	    URL url = CssProperties.class.getResource("CSS1Default.properties");
-	    java.io.InputStream f = url.openStream();
-	    properties.load(f);
-	    f.close();
-	} catch (Exception e) {
-	    System.err.println("org.w3c.css.properties.CssProperties: "+
-			       "couldn't load properties ");
-	    System.err.println("  " + e.toString());
-	}
+        properties = new Utf8Properties();
+        try {
+            URL url = CssProperties.class.getResource("CSS1Default.properties");
+            java.io.InputStream f = url.openStream();
+            properties.load(f);
+            f.close();
+        } catch (Exception e) {
+            System.err.println("org.w3c.css.properties.CssProperties: " +
+                    "couldn't load properties ");
+            System.err.println("  " + e.toString());
+        }
     }
 }

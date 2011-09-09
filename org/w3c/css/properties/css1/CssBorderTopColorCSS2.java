@@ -1,12 +1,11 @@
 //
-// $Id: CssBorderTopColorCSS2.java,v 1.5 2010-01-05 13:49:42 ylafon Exp $
+// $Id: CssBorderTopColorCSS2.java,v 1.6 2011-09-09 12:16:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css1;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
@@ -16,7 +15,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * Be careful, this is not a CSS1 property !
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBorderTopColorCSS2 extends CssProperty {
 
@@ -144,17 +143,6 @@ public class CssBorderTopColorCSS2 extends CssProperty {
     public boolean equals(CssProperty property) {
 	return (property instanceof CssBorderTopColorCSS2 &&
 		face.equals(((CssBorderTopColorCSS2) property).face));
-    }
-
-    /**
-     * Is the value of this property is a default value.
-     * It is used by all macro for the function <code>print</code>
-     *
-     * @see #print(CssPrinterStyle)
-     */
-    public void print(CssPrinterStyle printer) {
-	if (face != null && !face.isDefault())
-	    printer.print(this);
     }
 
 }

@@ -1,12 +1,11 @@
 //
-// $Id: CssFont.java,v 1.5 2010-01-05 13:49:43 ylafon Exp $
+// $Id: CssFont.java,v 1.6 2011-09-09 12:16:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css1;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -73,7 +72,7 @@ import org.w3c.css.values.CssValue;
  * @see CssFontFamily
  * @see CssPercentage
  * @see CssLength
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssFont extends CssProperty
     implements CssOperator, CssFontConstant {
@@ -310,50 +309,6 @@ public class CssFont extends CssProperty
 		    (fontSize == null || fontSize.important) &&
 		    (lineHeight == null || lineHeight.important) &&
 		    (fontFamily == null || fontFamily.important));
-	}
-    }
-
-    /**
-     * Print this property.
-     *
-     * @param printer The printer
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if (value != null) {
-	    printer.print(this);
-	} else if ((fontStyle != null && fontVariant != null &&
-	     fontWeight != null && fontSize !=null &&
-	     lineHeight != null && fontFamily != null) &&
-	    (getImportant() ||
-	     (!fontStyle.important &&
-	      !fontVariant.important &&
-	      !fontWeight.important &&
-	      !fontSize.important &&
-	      !lineHeight.important &&
-	      !fontFamily.important))) {
-	    printer.print(this);
-	} else {
-	    if (fontStyle != null) {
-		fontStyle.print(printer);
-	    }
-	    if (fontVariant != null) {
-		fontVariant.print(printer);
-	    }
-	    if (fontWeight != null) {
-		fontWeight.print(printer);
-	    }
-	    if (fontSize != null) {
-		fontSize.print(printer);
-	    }
-	    if (lineHeight != null) {
-		lineHeight.print(printer);
-	    }
-	    if ((fontFamily != null) &&
-		((fontFamily.isSoftlyInherited()) || (fontFamily.size() != 0))) {
-		fontFamily.print(printer);
-	    }
 	}
     }
 

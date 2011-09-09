@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.2 2005-09-14 15:15:26 ylafon Exp $
+// $Id: Css2Style.java,v 1.3 2011-09-09 12:16:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,11 +8,9 @@
  */
 package org.w3c.css.properties.paged;
 
-import org.w3c.css.parser.CssPrinterStyle;
-
 
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class Css2Style extends org.w3c.css.properties.css2.user.Css2Style {
 
@@ -180,59 +178,6 @@ public class Css2Style extends org.w3c.css.properties.css2.user.Css2Style {
 						       style, selector);
 	}
 	return widowsATSC;
-    }
-
-    /**
-     * Print this style.
-     *
-     * @param printer The printer interface.
-     */
-    public void print(CssPrinterStyle printer) {
-	super.print(printer);
-
-	if (size != null) {
-	    size.print(printer);
-	}
-	if (marks != null) {
-	    marks.print(printer);
-	}
- 	if (pageBreakBefore != null) {
-	    pageBreakBefore.print(printer);
-	}
-	if (pageBreakBeforeATSC != null) {
-	    pageBreakBeforeATSC.print(printer);
-	}
-
- 	if (pageBreakAfter != null) {
-	    pageBreakAfter.print(printer);
-	}
-	if (pageBreakAfterATSC != null) {
-	    pageBreakAfterATSC.print(printer);
-	}
- 	if (pageBreakInside != null) {
-	    pageBreakInside.print(printer);
-	}
-	if (pageBreakInsideATSC != null) {
-	    pageBreakInsideATSC.print(printer);
-	}
-  	if (page != null) {
-	    page.print(printer);
-	}
-	if (pageATSC != null) {
-	    pageATSC.print(printer);
-	}
-  	if (orphans != null) {
-	    orphans.print(printer);
-	}
-	if (orphansATSC != null) {
-	    orphansATSC.print(printer);
-	}
-  	if (widows != null) {
-	    widows.print(printer);
-	}
-	if (widowsATSC != null) {
-	    widowsATSC.print(printer);
-	}
     }
 
 }

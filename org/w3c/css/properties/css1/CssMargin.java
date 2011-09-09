@@ -1,12 +1,11 @@
 //
-// $Id: CssMargin.java,v 1.5 2010-01-05 13:49:44 ylafon Exp $
+// $Id: CssMargin.java,v 1.6 2011-09-09 12:16:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css1;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -51,7 +50,7 @@ import org.w3c.css.values.CssOperator;
  *   <P>
  *   Negative margin values are allowed, but there may be implementation-specific
  *   limits.
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssMargin extends CssProperty implements CssOperator {
 
@@ -277,36 +276,6 @@ public class CssMargin extends CssProperty implements CssOperator {
 		(right == null || right.important) &&
 		(bottom == null || bottom.important) &&
 		(left == null || left.important));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if (inheritedValue) {
-	    printer.print(this);
-	} else if ((top != null && right != null &&
-		    bottom != null && left != null) &&
-		    (getImportant() ||
-		    (!top.important &&
-		     !right.important &&
-		     !bottom.important &&
-		     !left.important))) {
-	    printer.print(this);
-	} else {
-	    if (top != null)
-		top.print(printer);
-	    if (right != null)
-		right.print(printer);
-	    if (bottom != null)
-		bottom.print(printer);
-	    if (left != null)
-		left.print(printer);
-	}
-
     }
 
     /**

@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
+// $Id: Css2Style.java,v 1.3 2011-09-09 12:16:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,10 +8,8 @@
  */
 package org.w3c.css.properties.css2.font;
 
-import org.w3c.css.parser.CssPrinterStyle;
-
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class Css2Style extends org.w3c.css.properties.paged.Css2Style {
 
@@ -210,84 +208,4 @@ public class Css2Style extends org.w3c.css.properties.paged.Css2Style {
     }
 
 
-    /**
-     * Print this style.
-     *
-     * @param printer The printer interface.
-     */
-    public void print(CssPrinterStyle printer) {
-	super.print(printer);
-	if (fontFamily != null) {
-	    fontFamily.print(printer);
-	}
-	if (fontStyle != null) {
-	    fontStyle.print(printer);
-	}
-	if (fontVariant != null) {
-	    fontVariant.print(printer);
-	}
-	if (fontWeight != null) {
-	    fontWeight.print(printer);
-	}
-	if (fontStretch != null) {
-	    fontStretch.print(printer);
-	}
-	if (fontSize != null) {
-	    fontSize.print(printer);
-	}
-	if (unitsPerEm != null) {
-	    unitsPerEm.print(printer);
-	}
-	if (src != null) {
-	    src.print(printer);
-	}
-	if (panose1 != null) {
-	    panose1.print(printer);
-	}
-	if (widths != null) {
-	    widths.print(printer);
-	}
-	if (bbox != null) {
-	    bbox.print(printer);
-	}
-	if (stemv != null) {
-	    stemv.print(printer);
-	}
-	if (stemv != null) {
-	    stemv.print(printer);
-	}
-	if (stemh != null) {
-	    stemh.print(printer);
-	}
-	if (slope != null) {
-	    slope.print(printer);
-	}
-	if (ascent != null) {
-	    ascent.print(printer);
-	}
-	if (descent != null) {
-	    descent.print(printer);
-	}
-	if (capHeight != null) {
-	    capHeight.print(printer);
-	}
-	if (xHeight != null) {
-	    xHeight.print(printer);
-	}
-	if (baseline != null) {
-	    baseline.print(printer);
-	}
-	if (centerline != null) {
-	    centerline.print(printer);
-	}
-	if (mathline != null) {
-	    mathline.print(printer);
-	}
-	if (topline != null) {
-	    topline.print(printer);
-	}
-	if (definitionSrc != null) {
-	    definitionSrc.print(printer);
-	}
-    }
 }

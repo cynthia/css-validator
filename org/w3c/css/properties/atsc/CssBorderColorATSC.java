@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderColorATSC.java,v 1.5 2010-01-05 13:49:35 ylafon Exp $
+// $Id: CssBorderColorATSC.java,v 1.6 2011-09-09 12:16:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,6 @@
 
 package org.w3c.css.properties.atsc;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -44,7 +43,7 @@ import org.w3c.css.values.CssOperator;
  *   <P>
  *   In the above example, the border will be a solid black line.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBorderColorATSC extends CssProperty implements CssOperator {
 
@@ -245,37 +244,6 @@ public class CssBorderColorATSC extends CssProperty implements CssOperator {
 		(right == null || right.getImportant()) &&
 		(left == null || left.getImportant()) &&
 		(bottom == null || bottom.getImportant()));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if ((top != null && right != null &&
-	     left != null && bottom != null) &&
-	    (!top.face.isDefault() && !right.face.isDefault() &&
-	     !left.face.isDefault() && !bottom.face.isDefault()) &&
-	    (getImportant() ||
-	     (!top.getImportant() &&
-	      !right.getImportant() &&
-	      !left.getImportant() &&
-	      !bottom.getImportant()))) {
-	    printer.print(this);
-	} else {
-	    if (top != null)
-		top.print(printer);
-	    if (right != null)
-		right.print(printer);
-	    if (left != null)
-		left.print(printer);
-	    if (bottom != null)
-		bottom.print(printer);
-	}
-
     }
 
     /**

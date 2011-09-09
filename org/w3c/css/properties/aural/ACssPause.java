@@ -1,12 +1,11 @@
 //
-// $Id: ACssPause.java,v 1.4 2010-01-05 13:49:36 ylafon Exp $
+// $Id: ACssPause.java,v 1.5 2011-09-09 12:16:43 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.aural;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -42,7 +41,7 @@ import org.w3c.css.values.CssValue;
  * </PRE>
  *
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class ACssPause extends ACssProperty implements CssOperator {
 
@@ -161,29 +160,6 @@ public class ACssPause extends ACssProperty implements CssOperator {
     public boolean getImportant() {
 	return ((pauseAfter == null || pauseAfter.getImportant()) &&
 		(pauseBefore == null || pauseBefore.getImportant()));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if ((pauseBefore != null && pauseAfter != null) &&
-	    (getImportant() ||
-	     (!pauseBefore.getImportant() &&
-	      !pauseAfter.getImportant()))) {
-	    printer.print(this);
-	} else {
-	if (pauseBefore != null) {
-		pauseBefore.print(printer);
-	    }
-	    if (pauseAfter != null && !same) {
-		pauseAfter.print(printer);
-	    }
-	}
     }
 
     /**

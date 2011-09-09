@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderBottomATSC.java,v 1.4 2010-01-05 13:49:35 ylafon Exp $
+// $Id: CssBorderBottomATSC.java,v 1.5 2011-09-09 12:16:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,6 @@
 
 package org.w3c.css.properties.atsc;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -48,7 +47,7 @@ import org.w3c.css.values.CssValue;
  *   Note that while the 'border-style' property accepts up to four values, this
  *   property only accepts one style value.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderBottomATSC extends CssProperty implements CssOperator {
 
@@ -221,32 +220,6 @@ public class CssBorderBottomATSC extends CssProperty implements CssOperator {
 	return ((width == null || width.getImportant()) &&
 		(style == null || style.getImportant()) &&
 		(color == null || color.getImportant()));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if ((width != null && style != null &&
-	     color != null) &&
-	    (getImportant() ||
-	     (!width.getImportant() &&
-	      !style.getImportant() &&
-	      !color.getImportant()))) {
-	    printer.print(this);
-	} else {
-	    if (width != null)
-		width.print(printer);
-	    if (style != null)
-		style.print(printer);
-	    if (color != null)
-		color.print(printer);
-	}
-
     }
 
     /**

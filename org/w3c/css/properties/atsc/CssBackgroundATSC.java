@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundATSC.java,v 1.4 2010-01-05 13:49:34 ylafon Exp $
+// $Id: CssBackgroundATSC.java,v 1.5 2011-09-09 12:16:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,6 @@
 
 package org.w3c.css.properties.atsc;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssBackgroundConstants;
@@ -50,7 +49,7 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  * @see org.w3c.css.properties.css.CssBackgroundColor
  * @see CssBackgroundImage
  * @see org.w3c.css.properties.css.CssBackgroundRepeat
@@ -254,41 +253,6 @@ public class CssBackgroundATSC extends CssProperty
 		(repeat == null || repeat.getImportant()) &&
 		(attachment == null || attachment.getImportant()) &&
 		(position == null || position.getImportant()));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if ((color != null && image != null &&
-	     repeat != null && attachment !=null &&
-	     position != null) &&
-	    (getImportant() ||
-	     (!image.getImportant() &&
-	      !color.getImportant() &&
-	      !repeat.getImportant() &&
-	      !attachment.getImportant() &&
-	      !position.getImportant()))) {
-	    if (color.isByUser() || image.isByUser() || repeat.isByUser()
-		|| attachment.isByUser() || position.isByUser()) {
-		printer.print(this);
-	    }
-	} else {
-	    if (color != null)
-		color.print(printer);
-	    if (image != null)
-		image.print(printer);
-	    if (repeat != null)
-		repeat.print(printer);
-	    if (attachment != null)
-		attachment.print(printer);
-	    if (position != null)
-		position.print(printer);
-	}
     }
 
     /**

@@ -1,5 +1,5 @@
 //
-// $Id: CssPadding.java,v 1.4 2010-01-05 13:49:44 ylafon Exp $
+// $Id: CssPadding.java,v 1.5 2011-09-09 12:16:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,6 @@
 
 package org.w3c.css.properties.css1;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -49,7 +48,7 @@ import org.w3c.css.values.CssOperator;
  *   is equal to the size of the font in use.
  *   <P>
  *   Padding values cannot be negative.
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssPadding extends CssProperty implements CssOperator {
 
@@ -269,36 +268,6 @@ public class CssPadding extends CssProperty implements CssOperator {
 		(right == null || right.important) &&
 		(bottom == null || bottom.important) &&
 		(left == null || left.important));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if (inheritedValue) {
-	    printer.print(this);
-	} else if ((top != null && right != null &&
-		    bottom != null && left != null) &&
-		   (getImportant() ||
-		    (!top.important &&
-		     !right.important &&
-		     !bottom.important &&
-		     !left.important))) {
-	    printer.print(this);
-	} else {
-	    if (top != null)
-		top.print(printer);
-	    if (right != null)
-		right.print(printer);
-	    if (bottom != null)
-		bottom.print(printer);
-	    if (left != null)
-		left.print(printer);
-	}
-
     }
 
     /**

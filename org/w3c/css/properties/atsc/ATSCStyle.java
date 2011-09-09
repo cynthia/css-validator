@@ -1,5 +1,5 @@
 //
-// $Id: ATSCStyle.java,v 1.2 2005-09-14 15:14:18 ylafon Exp $
+// $Id: ATSCStyle.java,v 1.3 2011-09-09 12:16:42 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -8,10 +8,8 @@
 
 package org.w3c.css.properties.atsc;
 
-import org.w3c.css.parser.CssPrinterStyle;
-
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ATSCStyle extends org.w3c.css.properties.css2.font.Css2Style {
 
@@ -419,91 +417,6 @@ public class ATSCStyle extends org.w3c.css.properties.css2.font.Css2Style {
 				  getBorderBottomColorATSC(),
 				  getBorderRightColorATSC(),
 				  getBorderLeftColorATSC());
-    }
-
-
-
-    /**
-     * Print this style.
-     *
-     * @param printer The printer interface.
-     */
-    public void print(CssPrinterStyle printer) {
-	super.print(printer);
-	if (navindex != null) {
-	    navindex.print(printer);
-	}
-	if (navleft != null) {
-	    navleft.print(printer);
-	}
-	if (navup != null) {
-	    navup.print(printer);
-	}
-	if (navdown != null) {
-	    navdown.print(printer);
-	}
-	if (navright != null) {
-	    navright.print(printer);
-	}
-	if (unitsPerEmATSC != null) {
-	    unitsPerEmATSC.print(printer);
-	}
-	if (srcATSC != null) {
-	    srcATSC.print(printer);
-	}
-	if (panose1ATSC != null) {
-	    panose1ATSC.print(printer);
-	}
-	if (widthsATSC != null) {
-	    widthsATSC.print(printer);
-	}
-	if (bboxATSC != null) {
-	    bboxATSC.print(printer);
-	}
-	if (stemvATSC != null) {
-	    stemvATSC.print(printer);
-	}
-	if (stemhATSC != null) {
-	    stemhATSC.print(printer);
-	}
-	if (slopeATSC != null) {
-	    slopeATSC.print(printer);
-	}
-	if (ascentATSC != null) {
-	    ascentATSC.print(printer);
-	}
-	if (descentATSC != null) {
-	    descentATSC.print(printer);
-	}
-	if (capHeightATSC != null) {
-	    capHeightATSC.print(printer);
-	}
-	if (xHeightATSC != null) {
-	    xHeightATSC.print(printer);
-	}
-	if (baselineATSC != null) {
-	    baselineATSC.print(printer);
-	}
-	if (centerlineATSC != null) {
-	    centerlineATSC.print(printer);
-	}
-	if (mathlineATSC != null) {
-	    mathlineATSC.print(printer);
-	}
-	if (toplineATSC != null) {
-	    toplineATSC.print(printer);
-	}
-	if (definitionSrcATSC != null) {
-	    definitionSrcATSC.print(printer);
-	}
-	if (ATSCcolor != null) {
-	    ATSCcolor.print(printer);
-	}
-	if (dynamicRefresh != null) {
-		dynamicRefresh.print(printer);
-	}
-	cssBackgroundATSC.print(printer);
-	cssBorderATSC.print(printer);
     }
 
 

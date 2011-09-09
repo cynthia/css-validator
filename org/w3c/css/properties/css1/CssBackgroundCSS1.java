@@ -1,12 +1,11 @@
 //
-// $Id: CssBackgroundCSS1.java,v 1.7 2010-01-06 09:27:44 ylafon Exp $
+// $Id: CssBackgroundCSS1.java,v 1.8 2011-09-09 12:16:43 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css1;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssBackground;
@@ -48,7 +47,7 @@ import org.w3c.css.values.CssValue;
  * set to their initial value. In the second rule, all individual properties
  * have been specified.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  * @see org.w3c.css.properties.css.CssBackgroundColor
  * @see org.w3c.css.properties.css.CssBackgroundImage
  * @see org.w3c.css.properties.css.CssBackgroundRepeat
@@ -259,41 +258,6 @@ public class CssBackgroundCSS1 extends CssBackground
                 (repeat == null || repeat.important) &&
                 (attachment == null || attachment.important) &&
                 (position == null || position.important));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-        if ((color != null && image != null &&
-                repeat != null && attachment != null &&
-                position != null) &&
-                (getImportant() ||
-                        (!image.important &&
-                                !color.important &&
-                                !repeat.important &&
-                                !attachment.important &&
-                                !position.important))) {
-            if (color.byUser || image.byUser || repeat.byUser
-                    || attachment.byUser || position.byUser) {
-                printer.print(this);
-            }
-        } else {
-            if (color != null)
-                color.print(printer);
-            if (image != null)
-                image.print(printer);
-            if (repeat != null)
-                repeat.print(printer);
-            if (attachment != null)
-                attachment.print(printer);
-            if (position != null)
-                position.print(printer);
-        }
     }
 
     /**

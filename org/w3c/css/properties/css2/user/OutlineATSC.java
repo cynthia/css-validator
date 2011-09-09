@@ -1,5 +1,5 @@
 //
-// $Id: OutlineATSC.java,v 1.3 2010-01-05 13:49:48 ylafon Exp $
+// $Id: OutlineATSC.java,v 1.4 2011-09-09 12:16:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,7 +8,6 @@
  */
 package org.w3c.css.properties.css2.user;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -19,7 +18,7 @@ import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class OutlineATSC extends UserProperty implements CssOperator {
 
@@ -189,33 +188,6 @@ public class OutlineATSC extends UserProperty implements CssOperator {
 	return ((width == null || width.getImportant())
 		&& (color == null || color.getImportant())
 		&& (style == null || style.getImportant()));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @param printer The printer.
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if ((color != null && width != null && style != null) &&
-	    (getImportant() ||
-	     (!color.getImportant()
-	      && !style.getImportant()
-	      && !width.getImportant()))) {
-	    printer.print(this);
-	} else {
-	    if (color != null) {
-		color.print(printer);
-	    }
-	    if (width != null) {
-		width.print(printer);
-	    }
-	    if (style != null) {
-		style.print(printer);
-	    }
-	}
     }
 
     /**

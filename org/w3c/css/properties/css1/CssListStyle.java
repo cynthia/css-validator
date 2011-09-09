@@ -1,12 +1,11 @@
 //
-// $Id: CssListStyle.java,v 1.5 2010-01-05 13:49:44 ylafon Exp $
+// $Id: CssListStyle.java,v 1.6 2011-09-09 12:16:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css1;
 
-import org.w3c.css.parser.CssPrinterStyle;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -71,7 +70,7 @@ import org.w3c.css.values.CssValue;
  *   <P> In the example above, the 'disc' will be used when the image is
  *   unavailable.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssListStyle extends CssProperty implements CssOperator {
 
@@ -244,36 +243,6 @@ public class CssListStyle extends CssProperty implements CssOperator {
 	return ((listStyleType == null || listStyleType.important) &&
 		(listStyleImage == null || listStyleImage.important) &&
 		(listStylePosition == null || listStylePosition.important));
-    }
-
-    /**
-     * Print this property.
-     *
-     * @see #toString()
-     * @see #getPropertyName()
-     */
-    public void print(CssPrinterStyle printer) {
-	if (inheritedValue) {
-	    printer.print(this);
-	} else if ((listStyleType != null && listStyleImage != null &&
-		    listStylePosition != null) &&
-		   (getImportant() ||
-		    (!listStyleType.important &&
-		     !listStyleImage.important &&
-		     !listStylePosition.important))) {
-	    printer.print(this);
-	} else {
-	    if (listStyleType != null) {
-		listStyleType.print(printer);
-	    }
-	    if (listStyleImage != null) {
-		listStyleImage.print(printer);
-	    }
-	    if (listStylePosition != null) {
-		listStylePosition.print(printer);
-	    }
-	}
-
     }
 
     /**
