@@ -1,5 +1,5 @@
 //
-// $Id: CssAzimuth.java,v 1.1 2011-09-09 12:16:43 ylafon Exp $
+// $Id: CssAzimuth.java,v 1.2 2011-09-10 14:20:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssAzimuth extends CssProperty {
 
@@ -35,8 +35,6 @@ public class CssAzimuth extends CssProperty {
      */
     public CssAzimuth(ApplContext ac, CssExpression expression, boolean check)
             throws InvalidParamException {
-
-
         throw new InvalidParamException("value",
                 expression.getValue().toString(),
                 getPropertyName(), ac);
@@ -74,7 +72,7 @@ public class CssAzimuth extends CssProperty {
      * Returns a string representation of the object.
      */
     public String toString() {
-            return value.toString();
+        return value.toString();
     }
 
     /**
@@ -97,7 +95,6 @@ public class CssAzimuth extends CssProperty {
         return (property instanceof CssAzimuth &&
                 value.equals(((CssAzimuth) property).value));
     }
-
 
 
     /**

@@ -1,5 +1,5 @@
 //
-// $Id: CssStyle.java,v 1.11 2011-09-09 12:16:41 ylafon Exp $
+// $Id: CssStyle.java,v 1.12 2011-09-10 14:20:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class represents a class for one context
  *
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class CssStyle {
 
@@ -43,12 +43,6 @@ public class CssStyle {
     public final void setSelector(CssSelectors selectors) {
         this.selector = selectors;
     }
-//public String toString() {
-//    String res = "";
-//    res += selector;
-//    res+=style;
-//    return res;
-//}
 
     /**
      * Set the style sheet of this style.
