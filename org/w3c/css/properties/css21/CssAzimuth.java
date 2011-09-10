@@ -1,5 +1,5 @@
 //
-// $Id: CssAzimuth.java,v 1.2 2011-09-10 14:20:13 ylafon Exp $
+// $Id: CssAzimuth.java,v 1.3 2011-09-10 20:24:47 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -11,7 +11,6 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssAngle;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
@@ -19,7 +18,7 @@ import org.w3c.css.values.CssValue;
 /**
  * http://www.w3.org/TR/2011/REC-CSS2-20110607/aural.html#propdef-azimuth
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssAzimuth extends org.w3c.css.properties.css.CssAzimuth {
 
@@ -93,17 +92,16 @@ public class CssAzimuth extends org.w3c.css.properties.css.CssAzimuth {
         setByUser();
 
         switch (val.getType()) {
-            case CssTypes.CSS_NUMBER:
-                // if the number is a valid number, let it flow
-                val = ((CssNumber) val).getAngle();
             case CssTypes.CSS_ANGLE:
                 if (check && expression.getCount() > 1) {
                     throw new InvalidParamException("unrecognize", ac);
                 }
                 angleValue = (CssAngle) val;
-                if (!angleValue.isDegree()) {
-                    throw new InvalidParamException("degree", null, ac);
-                }
+                // FIXME is the following really true? not per spec...
+//                if (!angleValue.isDegree()) {
+//                    throw new InvalidParamException("degree", ac);
+//                }
+                // TODO check unit according to css level
                 expression.next();
                 break;
             case CssTypes.CSS_IDENT:
@@ -135,7 +133,7 @@ public class CssAzimuth extends org.w3c.css.properties.css.CssAzimuth {
                 if (expression.getCount() > 1) {
                     val = expression.getValue();
                     if (val.getType() != CssTypes.CSS_IDENT) {
-                        throw new InvalidParamException("unrecognize", ac);
+                        throw new InvalidParamException("value", val, ac);
                     }
                     ident = (CssIdent) val;
 
@@ -164,7 +162,7 @@ public class CssAzimuth extends org.w3c.css.properties.css.CssAzimuth {
                 }
                 break;
             default:
-                throw new InvalidParamException("value", ac);
+                throw new InvalidParamException("value", val, ac);
         }
     }
 
