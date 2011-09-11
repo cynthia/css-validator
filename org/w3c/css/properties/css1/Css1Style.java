@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.21 2011-09-09 12:16:43 ylafon Exp $
+// $Id: Css1Style.java,v 1.22 2011-09-11 20:30:22 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -18,6 +18,7 @@ import org.w3c.css.properties.css.CssBackgroundPosition;
 import org.w3c.css.properties.css.CssBackgroundRepeat;
 import org.w3c.css.properties.css.CssDirection;
 import org.w3c.css.properties.css.CssDisplay;
+import org.w3c.css.properties.css.CssElevation;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.properties.css.CssZIndex;
 import org.w3c.css.properties.css2.CssBackgroundAttachmentCSS2;
@@ -40,11 +41,6 @@ import org.w3c.css.values.CssValue;
  * The Css1Style main class.
  */
 public class Css1Style extends CssStyle {
-
-    /**
-     * aural properties
-     */
-    public CssAzimuth cssAzimuth;
 
     /**
      * Font properties
@@ -293,21 +289,6 @@ public class Css1Style extends CssStyle {
 
     public String[] emptyArray = {};
 
-    /**
-     * aural properties
-     *
-     */
-
-    /**
-     * Get the azimuth
-     */
-    public CssAzimuth getAzimuth() {
-        if (cssAzimuth == null) {
-            cssAzimuth = (CssAzimuth) style.CascadingOrder(new CssAzimuth(),
-                    style, selector);
-        }
-        return cssAzimuth;
-    }
     /*
      * Font Properties
      */

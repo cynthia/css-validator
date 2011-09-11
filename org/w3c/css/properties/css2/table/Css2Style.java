@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.2 2011-09-09 12:16:45 ylafon Exp $
+// $Id: Css2Style.java,v 1.3 2011-09-11 20:30:23 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,12 +8,10 @@
  */
 package org.w3c.css.properties.css2.table;
 
-import org.w3c.css.properties.aural.ACssStyle;
-
 /**
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
-public class Css2Style extends ACssStyle {
+public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
 
     RowSpan rowSpan;
     RowSpanATSC rowSpanATSC;

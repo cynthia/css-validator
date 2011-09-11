@@ -1,5 +1,5 @@
 //
-// $Id: CssAzimuth.java,v 1.3 2011-09-10 20:24:46 ylafon Exp $
+// $Id: CssAzimuth.java,v 1.4 2011-09-11 20:30:23 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -16,9 +16,9 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * http://www.w3.org/TR/2008/REC-CSS2-20080411/aural.html#propdef-azimuth
+ * @spec http://www.w3.org/TR/2008/REC-CSS2-20080411/aural.html#propdef-azimuth
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssAzimuth extends org.w3c.css.properties.css.CssAzimuth {
 
