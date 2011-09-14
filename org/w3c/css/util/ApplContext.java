@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.19 2011-08-29 07:21:01 ylafon Exp $
+ * $Id: ApplContext.java,v 1.20 2011-09-14 16:31:50 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.19 $
+ * @version $Revision: 1.20 $
  */
 public class ApplContext {
 
@@ -59,8 +59,8 @@ public class ApplContext {
     String lang;
     Messages msgs;
     Frame frame;
-    String cssversion;
-    String profile;
+    CssVersion version = CssVersion.getDefault();
+    CssProfile profile = CssProfile.NONE;
     String input;
     Class cssselectorstyle;
     int origin = -1;
@@ -156,25 +156,40 @@ public class ApplContext {
     }
 
     public void setCssVersion(String cssversion) {
-        this.cssversion = cssversion;
+        version = CssVersion.resolve(this, cssversion);
     }
 
-    public String getCssVersion() {
-        if (cssversion == null) {
-            cssversion = "css2";
-        }
-        return cssversion;
+    public String getCssVersionString() {
+        return version.toString();
+    }
+
+    public CssVersion getCssVersion() {
+        return version;
     }
 
     public void setProfile(String profile) {
-        this.profile = profile;
+        this.profile = CssProfile.resolve(this, profile);
     }
 
-    public String getProfile() {
-        if (profile == null) {
-            return "";
-        }
+    public CssProfile getCssProfile() {
         return profile;
+    }
+
+    public String getProfileString() {
+        return profile.toString();
+    }
+
+    public void setCssVersionAndProfile(String spec) {
+        // for things like SVG, version will be set to the default one
+        // CSS21 in that case, as defined in CssVersion
+        // and profile will be resolved to svg.
+        //
+        // if the version resolve then profile will default to NONE
+
+        // TODO should we check profile first and if SVG or MOBILE
+        // set specific version of CSS (like CSS2 and not CSS21 for MOBILE) ?
+        version = CssVersion.resolve(this, spec);
+        profile = CssProfile.resolve(this, spec);
     }
 
     public void setOrigin(int origin) {

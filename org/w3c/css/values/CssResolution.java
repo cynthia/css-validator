@@ -1,5 +1,5 @@
 //
-// $Id: CssResolution.java,v 1.6 2011-08-29 07:21:02 ylafon Exp $
+// $Id: CssResolution.java,v 1.7 2011-09-14 16:31:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -8,6 +8,7 @@
 package org.w3c.css.values;
 
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.CssVersion;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Util;
 
@@ -21,7 +22,7 @@ import org.w3c.css.util.Util;
  * resolution media feature.
  * </P>
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssResolution extends CssValue {
 
@@ -65,7 +66,7 @@ public class CssResolution extends CssValue {
             return;
         }
 
-        if (!ac.getCssVersion().equals("css3")) {
+        if (ac.getCssVersion().compareTo(CssVersion.CSS3) < 0) {
             throw new InvalidParamException("unit", unit, ac);
         }
 
