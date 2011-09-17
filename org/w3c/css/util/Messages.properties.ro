@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.ro,v 1.8 2011-04-07 15:26:38 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.ro,v 1.9 2011-09-17 06:02:28 ylafon Exp $
 direction: ltr
 language_name: Romanian
 more_options: Mai multe optiuni de validare
@@ -13,7 +13,7 @@ css1: CSS nivel 1
 css2: CSS nivel 2
 css21: CSS nivel 2.1
 css3: CSS nivel 3
-SVG: SVG
+svg: SVG
 svgbasic: SVG Basic
 svgtiny: SVG mic
 mobile: Mobile

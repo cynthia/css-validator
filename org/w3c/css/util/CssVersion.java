@@ -1,4 +1,4 @@
-// $Id: CssVersion.java,v 1.1 2011-09-14 16:31:50 ylafon Exp $
+// $Id: CssVersion.java,v 1.2 2011-09-17 06:02:27 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -17,7 +17,7 @@ public enum CssVersion {
         return version;
     }
 
-    static CssVersion resolve(ApplContext ac, String s)
+    public static CssVersion resolve(ApplContext ac, String s)
   //          throws InvalidParamException {
     {
         for (CssVersion v : CssVersion.values()) {
@@ -31,7 +31,7 @@ public enum CssVersion {
     }
 
     // get the default version of CSS
-    static public CssVersion getDefault() {
+    public static CssVersion getDefault() {
         return CSS21;
     }
 }

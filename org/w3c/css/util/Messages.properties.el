@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.el,v 1.2 2011-09-06 16:37:29 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.el,v 1.3 2011-09-17 06:02:27 ylafon Exp $
 language_name: Ελληνικά
 direction: ltr
 more_options: Περισσότερες επιλογές
@@ -13,7 +13,7 @@ css1: Επίπεδο 1 CSS
 css2: Επίπεδο 2 CSS
 css21: Επίπεδο 2.1 CSS
 css3: Επίπεδο 3 CSS
-SVG: SVG
+svg: SVG
 svgbasic: Βασικό SVG
 svgtiny: μικρό SVG
 mobile: Κινητό

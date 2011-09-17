@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.cs,v 1.3 2010-08-17 16:48:27 jean-gui Exp $
+# Master localization string file: $Id: Messages.properties.cs,v 1.4 2011-09-17 06:02:27 ylafon Exp $
 direction: ltr
 language_name: Čeština
 more_options: Další možnosti
@@ -13,7 +13,7 @@ css1: CSS level 1
 css2: CSS level 2
 css21: CSS level 2.1
 css3: CSS level 3
-SVG: SVG
+svg: SVG
 svgbasic: SVG základní
 svgtiny: SVG malý
 mobile: Mobil

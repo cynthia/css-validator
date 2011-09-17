@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.55 2011-09-14 16:31:49 ylafon Exp $
+// $Id: CssFouffa.java,v 1.56 2011-09-17 06:02:26 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -50,7 +50,7 @@ import java.util.ArrayList;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.55 $
+ * @version $Revision: 1.56 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -107,15 +107,8 @@ public final class CssFouffa extends CssParser {
         }
 
         // load the CssStyle
-        CssProfile profile = ac.getCssProfile();
+        String spec = ac.getPropertyKey();
         String classStyle;
-        String spec;
-        if (profile != CssProfile.NONE) {
-            spec = profile.toString();
-        } else {
-            CssVersion version = ac.getCssVersion();
-            spec = version.toString();
-        }
 
         classStyle = PropertiesLoader.config.getProperty(spec);
         if (classStyle == null) {
@@ -226,14 +219,7 @@ public final class CssFouffa extends CssParser {
                     + ac.getProfileString());
         }
 
-        CssProfile profile = ac.getCssProfile();
-        String spec;
-        if (profile != CssProfile.NONE) {
-            spec = profile.toString();
-        } else {
-            CssVersion version = ac.getCssVersion();
-            spec = version.toString();
-        }
+        String spec = ac.getPropertyKey();
 
         // load the CssStyle
         String classStyle = PropertiesLoader.config.getProperty(spec);

@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.hu,v 1.1 2010-03-03 18:38:27 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.hu,v 1.2 2011-09-17 06:02:27 ylafon Exp $
 
 direction: ltr
 language_name: Magyar
@@ -14,7 +14,7 @@ css1: CSS level 1
 css2: CSS level 2
 css21: CSS level 2.1
 css3: CSS level 3
-SVG: SVG
+svg: SVG
 svgbasic: SVG Basic
 svgtiny: SVG tiny
 mobile: Mobil

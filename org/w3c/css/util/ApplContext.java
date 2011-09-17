@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.20 2011-09-14 16:31:50 ylafon Exp $
+ * $Id: ApplContext.java,v 1.21 2011-09-17 06:02:27 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.20 $
+ * @version $Revision: 1.21 $
  */
 public class ApplContext {
 
@@ -159,6 +159,10 @@ public class ApplContext {
         version = CssVersion.resolve(this, cssversion);
     }
 
+    public void setCssVersion(CssVersion version) {
+        this.version = version;
+    }
+
     public String getCssVersionString() {
         return version.toString();
     }
@@ -169,6 +173,16 @@ public class ApplContext {
 
     public void setProfile(String profile) {
         this.profile = CssProfile.resolve(this, profile);
+    }
+
+    /**
+     * get the String used to fetch the relevant property file
+     */
+    public String getPropertyKey() {
+        if (profile != CssProfile.EMPTY && profile != CssProfile.NONE) {
+            return profile.toString();
+        }
+        return version.toString();
     }
 
     public CssProfile getCssProfile() {
