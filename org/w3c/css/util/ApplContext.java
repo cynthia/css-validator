@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.21 2011-09-17 06:02:27 ylafon Exp $
+ * $Id: ApplContext.java,v 1.22 2011-09-26 14:32:16 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  */
 public class ApplContext {
 
@@ -202,8 +202,14 @@ public class ApplContext {
 
         // TODO should we check profile first and if SVG or MOBILE
         // set specific version of CSS (like CSS2 and not CSS21 for MOBILE) ?
-        version = CssVersion.resolve(this, spec);
-        profile = CssProfile.resolve(this, spec);
+        if ((spec == null) || spec.isEmpty()) {
+            version = CssVersion.getDefault();
+            profile = CssProfile.EMPTY;
+        } else {
+            String low = spec.toLowerCase();
+            version = CssVersion.resolve(this, low);
+            profile = CssProfile.resolve(this, low);
+        }
     }
 
     public void setOrigin(int origin) {
@@ -445,7 +451,7 @@ public class ApplContext {
             namespaces = new HashMap<URL, HashMap<String, String>>();
         }
         // reformat the prefix if null.
-        if ((prefix == null) || prefix.length() == 0) {
+        if ((prefix == null) || prefix.isEmpty()) {
             prefix = defaultPrefix;
         }
 
@@ -469,7 +475,7 @@ public class ApplContext {
         if (prefix.equals("*")) { // any ns, always true
             return true;
         }
-        if (prefix.length() == 0) {
+        if (prefix.isEmpty()) {
             prefix = "*defaultprefix*";
         }
         HashMap<String, String> nsdefs = namespaces.get(url);
