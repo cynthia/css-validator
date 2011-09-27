@@ -1,5 +1,5 @@
 //
-// $Id: CssMargin.java,v 1.6 2011-09-09 12:16:45 ylafon Exp $
+// $Id: CssMargin.java,v 1.7 2011-09-27 08:15:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -50,7 +50,7 @@ import org.w3c.css.values.CssOperator;
  *   <P>
  *   Negative margin values are allowed, but there may be implementation-specific
  *   limits.
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssMargin extends CssProperty implements CssOperator {
 
@@ -76,7 +76,7 @@ public class CssMargin extends CssProperty implements CssOperator {
     public CssMargin(ApplContext ac, CssExpression expression, boolean check)
 	throws InvalidParamException {
 
-	//CssValue val = expression.getValue();
+	//CssValue val = expression.floatValue();
 	setByUser();
 
 	/*if (val.equals(inherit)) {

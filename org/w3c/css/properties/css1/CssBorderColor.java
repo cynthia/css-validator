@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderColor.java,v 1.6 2011-09-09 12:16:44 ylafon Exp $
+// $Id: CssBorderColor.java,v 1.7 2011-09-27 08:15:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,7 +42,7 @@ import org.w3c.css.values.CssOperator;
  *   <P>
  *   In the above example, the border will be a solid black line.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssBorderColor extends CssProperty implements CssOperator {
 
@@ -79,7 +79,7 @@ public class CssBorderColor extends CssProperty implements CssOperator {
 
 	switch (expression.getCount()) {
 	case 1:
-	    //CssValue val = expression.getValue();
+	    //CssValue val = expression.floatValue();
 	    //if (val.equals(transparent)) { // obsolete, transparent is a color value now
 		//top = new CssBorderTopColor();
 		//top.face.face = transparent;

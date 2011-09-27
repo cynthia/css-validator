@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.48 2011-09-26 14:32:16 ylafon Exp $
+// $Id: CssValidator.java,v 1.49 2011-09-27 08:15:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -45,7 +45,7 @@ import java.net.URL;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.48 $
+ * @version $Revision: 1.49 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -558,7 +558,7 @@ public final class CssValidator extends HttpServlet {
                 } else if (tmp[i].getName().equals("error")) {
                     warning = (String) tmp[i].getValue();
                     //} else if (tmp[i].getName().equals("input")) {
-                    //    XMLinput = ((String) tmp[i].getValue()).equals("XML");
+                    //    XMLinput = ((String) tmp[i].floatValue()).equals("XML");
                 } else if (tmp[i].getName().equals("profile")) {
                     profile = (String) tmp[i].getValue();
                 } else if (tmp[i].getName().equals("usermedium")) {

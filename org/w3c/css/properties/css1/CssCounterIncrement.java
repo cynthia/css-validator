@@ -1,5 +1,5 @@
 //
-// $Id: CssCounterIncrement.java,v 1.3 2010-01-05 13:49:42 ylafon Exp $
+// $Id: CssCounterIncrement.java,v 1.4 2011-09-27 08:15:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -103,7 +103,7 @@ public class CssCounterIncrement extends CssProperty {
 		counter++;
 		if (counter < expression.getCount()) {
 		    values.addElement(val);
-		    val = expression.getValue();
+		    val = expression.floatValue();
 		    op = expression.getOperator();
 		    if ((op == CssOperator.SPACE)
 			&& (val instanceof CssNumber)
@@ -111,19 +111,19 @@ public class CssCounterIncrement extends CssProperty {
 			// nothing
 		    } else {
 			throw new InvalidParamException("value",
-							expression.getValue(),
+							expression.floatValue(),
 							getPropertyName(), ac);
 		    }
 		}
 	    } else {
 		throw new InvalidParamException("value",
-						expression.getValue(),
+						expression.floatValue(),
 						getPropertyName(), ac);
 	    }
 	    values.addElement(val);
 	    expression.next();
 	    counter++;
-	    val = expression.getValue();
+	    val = expression.floatValue();
 	    op = expression.getOperator();
 	}*/
 

@@ -1,5 +1,5 @@
 //
-// $Id: CssPercentage.java,v 1.8 2010-01-05 13:50:00 ylafon Exp $
+// $Id: CssPercentage.java,v 1.9 2011-09-27 08:15:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -31,7 +31,7 @@ import org.w3c.css.util.Util;
  * In all inherited CSS1 properties, if the value is specified as a percentage,
  * child elements inherit the resultant value, not the percentage value.
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class CssPercentage extends CssValue {
 
@@ -103,7 +103,7 @@ public class CssPercentage extends CssValue {
     /**
      * Returns the value as a float
      */
-    public float getValue() {
+    public float floatValue() {
         return value.floatValue();
     }
 

@@ -1,5 +1,5 @@
 //
-// $Id: CssPadding.java,v 1.5 2011-09-09 12:16:45 ylafon Exp $
+// $Id: CssPadding.java,v 1.6 2011-09-27 08:15:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -48,7 +48,7 @@ import org.w3c.css.values.CssOperator;
  *   is equal to the size of the font in use.
  *   <P>
  *   Padding values cannot be negative.
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssPadding extends CssProperty implements CssOperator {
 
@@ -72,7 +72,7 @@ public class CssPadding extends CssProperty implements CssOperator {
      */
     public CssPadding(ApplContext ac, CssExpression expression, boolean check)
 	throws InvalidParamException {
-	//CssValue val = expression.getValue();
+	//CssValue val = expression.floatValue();
 	setByUser();
 
 	/*if (val.equals(inherit)) {

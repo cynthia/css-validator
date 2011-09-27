@@ -1,5 +1,5 @@
 //
-// $Id: CssBorder.java,v 1.5 2011-09-09 12:16:43 ylafon Exp $
+// $Id: CssBorder.java,v 1.6 2011-09-27 08:15:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBorder extends CssProperty implements CssOperator {
 
@@ -98,7 +98,7 @@ public class CssBorder extends CssProperty implements CssOperator {
 		new CssBorderBottomColor((CssBorderFaceColor) c.get());
 	}
 	/*
-	CssValue val = expression.getValue();
+	CssValue val = expression.floatValue();
 	char op = SPACE;
 	boolean find = true;
 
@@ -108,7 +108,7 @@ public class CssBorder extends CssProperty implements CssOperator {
 
 	while (find) {
 	    find = false;
-	    val = expression.getValue();
+	    val = expression.floatValue();
 	    op = expression.getOperator();
 
 	    if (val == null)

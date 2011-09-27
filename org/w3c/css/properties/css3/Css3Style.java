@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.11 2011-09-09 12:16:45 ylafon Exp $
+// $Id: Css3Style.java,v 1.12 2011-09-27 08:15:46 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -185,8 +185,6 @@ public class Css3Style extends ATSCStyle {
     CssPaddingTopCSS3 cssPaddingTopCSS3;
     CssPaddingLeftCSS3 cssPaddingLeftCSS3;
     CssPaddingRightCSS3 cssPaddingRightCSS3;
-    CssHeightCSS3 cssHeightCSS3;
-    CssWidthCSS3 cssWidthCSS3;
     CssMarquee cssMarquee;
     CssMarqueeDirection cssMarqueeDirection;
     CssMarqueeRepetition cssMarqueeRepetition;
@@ -1602,24 +1600,6 @@ public class Css3Style extends ATSCStyle {
 							   new CssPaddingRightCSS3(), style, selector);
 	}
 	return cssPaddingRightCSS3;
-    }
-
-    public CssHeightCSS3 getHeightCSS3() {
-	if (cssHeightCSS3 == null) {
-	    cssHeightCSS3 =
-		(CssHeightCSS3) style.CascadingOrder(
-						     new CssHeightCSS3(), style, selector);
-	}
-	return cssHeightCSS3;
-    }
-
-    public CssWidthCSS3 getWidthCSS3() {
-	if (cssWidthCSS3 == null) {
-	    cssWidthCSS3 =
-		(CssWidthCSS3) style.CascadingOrder(
-						    new CssWidthCSS3(), style, selector);
-	}
-	return cssWidthCSS3;
     }
 
     public CssMarquee getMarquee() {

@@ -1,12 +1,9 @@
+// $Id: CssWidth.java,v 1.5 2011-09-27 08:15:45 ylafon Exp $
 //
-// $Id: CssWidth.java,v 1.4 2010-01-05 13:49:46 ylafon Exp $
-// From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
-//
-// (c) COPYRIGHT MIT and INRIA, 1997.
+// (c) COPYRIGHT MIT, ERCIM and Keio University
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css1;
 
-import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
@@ -15,103 +12,89 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssPercentage;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- *   <H4>
- *      &nbsp;&nbsp; 'width'
- *   </H4>
- *   <P>
- *   <EM>Value:</EM> &lt;length&gt; | &lt;percentage&gt; | auto <BR>
- *   <EM>Initial:</EM> auto<BR>
- *   <EM>Applies to:</EM> block-level and replaced elements<BR>
- *   <EM>Inherited:</EM> no<BR>
- *   <EM>Percentage values:</EM> refer to parent element's width<BR>
- *   <P>
- *   This property can be applied to text elements, but it is most useful with
- *   replaced elements such as images. The width is to be enforced by scaling
- *   the image if necessary. When scaling, the aspect ratio of the image is preserved
- *   if the 'height' property is 'auto'.
- *   <P>
- *   Example:
- *   <PRE>
- *   IMG.icon { width: 100px }
- * </PRE>
- *   <P>
- *   If the 'width' and 'height' of a replaced element are both 'auto', these
- *   properties will be set to the intrinsic dimensions of the element.
- *   <P>
- *   Negative values are not allowed.
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
+ * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#width
  */
-public class CssWidth extends CssProperty {
+public class CssWidth extends org.w3c.css.properties.css.CssWidth {
 
-    CssValue value;
-
-    private static CssIdent auto = new CssIdent("auto");
+    CssLength lenVal;
+    CssPercentage perVal;
+    CssIdent identVal;
 
     /**
      * Create a new CssWidth
      */
     public CssWidth() {
-	value = auto;
     }
 
     /**
      * Create a new CssWidth.
      *
      * @param expression The expression for this property
-     * @exception InvalidParamException Values are incorrect
+     * @throws InvalidParamException Values are incorrect
      */
     public CssWidth(ApplContext ac, CssExpression expression, boolean check)
-    	throws InvalidParamException {
+            throws InvalidParamException {
 
-	if(check && expression.getCount() > 1) {
-	    throw new InvalidParamException("unrecognize", ac);
-	}
+        if (check && expression.getCount() > 1) {
+            throw new InvalidParamException("unrecognize", ac);
+        }
 
-	CssValue val = expression.getValue();
+        CssValue val = expression.getValue();
 
-	setByUser();
+        setByUser();
 
-	if (val.equals(inherit)) {
-	    value = inherit;
-	} else if (val instanceof CssLength || val instanceof CssPercentage) {
-	    float f = ((Float) val.get()).floatValue();
-	    if (f < 0) {
-		throw new InvalidParamException("negative-value",
-						val.toString(), ac);
-	    }
-	    value = val;
-	} else if (val.equals(auto)) {
-	    value = auto;
-	} else if (val instanceof CssNumber) {
-	    value = ((CssNumber) val).getLength();
-	} else {
-	    throw new InvalidParamException("value", val,
-					    getPropertyName(), ac);
-	}
-
-	expression.next();
+        switch (val.getType()) {
+            case CssTypes.CSS_IDENT:
+                CssIdent ident = (CssIdent) val;
+                if (auto.equals(val)) {
+                    identVal = auto;
+                } else {
+                    throw new InvalidParamException("unrecognize", ac);
+                }
+                break;
+            case CssTypes.CSS_NUMBER:
+                val = ((CssNumber) val).getLength();
+            case CssTypes.CSS_LENGTH:
+                lenVal = (CssLength) val;
+                if (lenVal.floatValue() < 0.) {
+                    throw new InvalidParamException("negative-value",
+                            val.toString(), ac);
+                }
+                break;
+            case CssTypes.CSS_PERCENTAGE:
+                perVal = (CssPercentage) val;
+                if (perVal.floatValue() < 0.) {
+                    throw new InvalidParamException("negative-value",
+                            val.toString(), ac);
+                }
+                break;
+            default:
+                throw new InvalidParamException("value", val, getPropertyName(), ac);
+        }
+        expression.next();
     }
 
     public CssWidth(ApplContext ac, CssExpression expression)
-	throws InvalidParamException {
-	this(ac, expression, false);
+            throws InvalidParamException {
+        this(ac, expression, false);
     }
 
     /**
      * Returns the value of this property.
      */
     public Object get() {
-	return value;
-    }
-
-    /**
-     * Returns the name of this property.
-     */
-    public String getPropertyName() {
-	return "width";
+        if (identVal != null) {
+            return identVal;
+        }
+        if (perVal != null) {
+            return perVal;
+        }
+        return lenVal;
     }
 
     /**
@@ -119,50 +102,43 @@ public class CssWidth extends CssProperty {
      * e.g. his value equals inherit
      */
     public boolean isSoftlyInherited() {
-	return value == inherit;
+        return identVal == inherit;
     }
 
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
-	return value.toString();
-    }
-
-
-    /**
-     * Add this property to the CssStyle.
-     *
-     * @param style The CssStyle
-     */
-    public void addToStyle(ApplContext ac, CssStyle style) {
-	Css1Style style0 = (Css1Style) style;
-	if (style0.cssWidth != null)
-	    style0.addRedefinitionWarning(ac, this);
-	style0.cssWidth = this;
-    }
-
-    /**
-     * Get this property in the style.
-     *
-     * @param style The style where the property is
-     * @param resolve if true, resolve the style to find this property
-     */
-    public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
-	if (resolve) {
-	    return ((Css1Style) style).getWidth();
-	} else {
-	    return ((Css1Style) style).cssWidth;
-	}
+        if (identVal != null) {
+            return identVal.toString();
+        }
+        if (perVal != null) {
+            return perVal.toString();
+        }
+        if (lenVal != null) {
+            return lenVal.toString();
+        }
+        // the default
+        return auto.toString();
     }
 
     /**
      * Compares two properties for equality.
      *
-     * @param value The other property.
+     * @param property The other property.
      */
     public boolean equals(CssProperty property) {
-	return (property instanceof CssWidth && value.equals(((CssWidth) property).value));
+        try {
+            CssWidth w = (CssWidth) property;
+            return (identVal == w.identVal) &&
+                    ((perVal == null && w.perVal == null) ||
+                            (perVal != null && perVal.equals(w.perVal))) &&
+                    ((lenVal == null && w.lenVal == null) ||
+                            (lenVal != null && lenVal.equals(w.lenVal)));
+
+        } catch (ClassCastException ex) {
+            return false;
+        }
     }
 
     /**
@@ -170,7 +146,7 @@ public class CssWidth extends CssProperty {
      * It is used by all macro for the function <code>print</code>
      */
     public boolean isDefault() {
-	return value == auto;
+        return identVal == auto;
     }
 
 }

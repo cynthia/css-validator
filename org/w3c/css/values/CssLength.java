@@ -1,5 +1,5 @@
 //
-// $Id: CssLength.java,v 1.7 2010-01-05 13:50:00 ylafon Exp $
+// $Id: CssLength.java,v 1.8 2011-09-27 08:15:46 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -85,7 +85,7 @@ import org.w3c.css.util.Util;
  * approximate. For all CSS1 properties, further computations and inheritance
  * should be based on the approximated value.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  * @see CssPercentage
  */
 public class CssLength extends CssValue {
@@ -143,6 +143,13 @@ public class CssLength extends CssValue {
      */
     public Object get() {
         return value;
+    }
+
+    /**
+     * return the float value
+     */
+    public float floatValue() {
+        return value.floatValue();
     }
 
     /**

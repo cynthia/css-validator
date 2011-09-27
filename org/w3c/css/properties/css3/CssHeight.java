@@ -1,8 +1,8 @@
-// $Id: CssHeight.java,v 1.5 2011-09-27 08:15:45 ylafon Exp $
+// $Id: CssHeight.java,v 1.1 2011-09-27 08:15:46 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css1;
+package org.w3c.css.properties.css3;
 
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
@@ -16,8 +16,8 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.5 $
- * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#height
+ * @version $Revision: 1.1 $
+ * @spec http://www.w3.org/TR/2007/WD-css3-box-20070809/#height
  */
 public class CssHeight extends org.w3c.css.properties.css.CssHeight {
 
@@ -35,7 +35,7 @@ public class CssHeight extends org.w3c.css.properties.css.CssHeight {
      * Create a new CssHeight.
      *
      * @param expression The expression for this property
-     * @throws InvalidParamException Values are incorrect
+     * @throws org.w3c.css.util.InvalidParamException Values are incorrect
      */
     public CssHeight(ApplContext ac, CssExpression expression, boolean check)
             throws InvalidParamException {
@@ -51,7 +51,11 @@ public class CssHeight extends org.w3c.css.properties.css.CssHeight {
         switch (val.getType()) {
             case CssTypes.CSS_IDENT:
                 CssIdent ident = (CssIdent) val;
-                if (auto.equals(val)) {
+                if (inherit.equals(val)) {
+                    identVal = inherit;
+                } else if (initial.equals(val)) {
+                    identVal = initial;
+                } else if (auto.equals(val)) {
                     identVal = auto;
                 } else {
                     throw new InvalidParamException("unrecognize", ac);
@@ -146,7 +150,7 @@ public class CssHeight extends org.w3c.css.properties.css.CssHeight {
      * It is used by all macro for the function <code>print</code>
      */
     public boolean isDefault() {
-        return identVal == auto;
+        return ((identVal == auto) || (identVal == initial));
     }
 
 }
