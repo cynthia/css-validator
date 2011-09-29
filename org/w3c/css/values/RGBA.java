@@ -9,13 +9,16 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: RGBA.java,v 1.8 2010-01-06 09:27:45 ylafon Exp $
+ * $Id: RGBA.java,v 1.9 2011-09-29 09:09:00 ylafon Exp $
  */
 package org.w3c.css.values;
 
 import org.w3c.css.util.Util;
 
 public class RGBA {
+    static final String functionname = "rgba";
+
+    String fname;
     String output = null;
     int r, g, b;
     float fr, fg, fb, a;
@@ -92,6 +95,15 @@ public class RGBA {
      * Create a new RGBA
      */
     public RGBA() {
+        fname = functionname;
+    }
+
+    /**
+     * Create a RGBA and with a specific function name
+     * (like astc-rgba http://www.atsc.org/cms/standards/a100/a_100_2.pdf #5.2.1.8.4.1
+     */
+    public RGBA(String fname) {
+        this.fname = fname;
     }
 
     /**
@@ -130,7 +142,8 @@ public class RGBA {
      */
     public String toString() {
         if (output == null) {
-            StringBuilder sb = new StringBuilder("rgba(");
+            StringBuilder sb = new StringBuilder();
+            sb.append(fname).append('(');
             if (isPercent()) {
                 sb.append(Util.displayFloat(fr)).append("%, ");
                 sb.append(Util.displayFloat(fg)).append("%, ");

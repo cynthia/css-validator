@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.22 2011-09-26 14:32:16 ylafon Exp $
+ * $Id: ApplContext.java,v 1.23 2011-09-29 09:08:59 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.22 $
+ * @version $Revision: 1.23 $
  */
 public class ApplContext {
 
@@ -209,6 +209,11 @@ public class ApplContext {
             String low = spec.toLowerCase();
             version = CssVersion.resolve(this, low);
             profile = CssProfile.resolve(this, low);
+            // some special cases...
+            // http://www.atsc.org/cms/index.php/standards/published-standards/71-atsc-a100-standard
+            if (profile.equals(CssProfile.ATSCTV)) {
+                version = CssVersion.CSS2;
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderFaceColorCSS1.java,v 1.3 2005-09-14 15:14:31 ylafon Exp $
+// $Id: CssBorderFaceColorCSS1.java,v 1.4 2011-09-29 09:08:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,7 +13,7 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class CssBorderFaceColorCSS1 {
 
@@ -23,7 +23,7 @@ public class CssBorderFaceColorCSS1 {
      * Create a new CssBorderFaceColor
      */
     public CssBorderFaceColorCSS1() {
-	face = new org.w3c.css.values.CssColorCSS1();
+	face = new org.w3c.css.values.CssColor();
     }
 
     /**
@@ -62,7 +62,7 @@ public class CssBorderFaceColorCSS1 {
 	if (val instanceof org.w3c.css.values.CssColor) {
 	    face = val;
 	} else if (val instanceof CssIdent) {
-	    face = new org.w3c.css.values.CssColorCSS1(ac, (String) val.get());
+	    face = new org.w3c.css.values.CssColor(ac, (String) val.get());
 	} else {
 	    throw new InvalidParamException("value", val.toString(),
 					    "border-color", ac);

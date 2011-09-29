@@ -1,5 +1,5 @@
 //
-// $Id: ATSCColor.java,v 1.4 2010-01-05 13:49:34 ylafon Exp $
+// $Id: ATSCColor.java,v 1.5 2011-09-29 09:08:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -32,7 +32,7 @@ import org.w3c.css.values.CssValue;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class ATSCColor extends CssProperty {
 
@@ -63,12 +63,11 @@ public class ATSCColor extends CssProperty {
 	if (val.equals(inherit)) {
 	    color = inherit;
 	    expression.next();
-	} else if (val instanceof org.w3c.css.values.ATSCColor ||
-		val instanceof org.w3c.css.values.CssColor) {
+	} else if (val instanceof org.w3c.css.values.CssColor) {
 	    color = val;
 	    expression.next();
 	} else if (val instanceof CssIdent) {
-	    color = new org.w3c.css.values.ATSCColor(ac, (String) val.get());
+	    color = new org.w3c.css.values.CssColor(ac, (String) val.get());
 	    expression.next();
 	} else {
 	    throw new InvalidParamException("value", expression.getValue(),
@@ -91,7 +90,7 @@ public class ATSCColor extends CssProperty {
     /**
      * Returns the color
      */
-    public org.w3c.css.values.ATSCColor getColor() {
+    public org.w3c.css.values.CssColor getColor() {
 	if (color.equals(inherit)) {
 	    /*
 	    System.err.println("[ERROR] org.w3c.css.properties.CssColor");
@@ -99,7 +98,7 @@ public class ATSCColor extends CssProperty {
 	    */
 	    return null;
 	} else {
-	    return (org.w3c.css.values.ATSCColor) color;
+	    return (org.w3c.css.values.CssColor) color;
 	}
     }
 

@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HSLA.java,v 1.7 2010-01-06 09:27:44 ylafon Exp $
+ * $Id: HSLA.java,v 1.8 2011-09-29 09:09:00 ylafon Exp $
  */
 package org.w3c.css.values;
 
@@ -65,7 +65,7 @@ public class HSLA {
      */
     public String toString() {
         if (output == null) {
-            StringBuilder sb = new StringBuilder("hsl(");
+            StringBuilder sb = new StringBuilder("hsla(");
             sb.append(Util.displayFloat(fh)).append(", ");
             sb.append(Util.displayFloat(fs)).append("%, ");
             sb.append(Util.displayFloat(fl)).append("%, ");

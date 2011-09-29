@@ -1,4 +1,4 @@
-// $Id: CssBackgroundColorCSS21.java,v 1.4 2010-01-05 13:49:48 ylafon Exp $
+// $Id: CssBackgroundColorCSS21.java,v 1.5 2011-09-29 09:08:59 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -53,7 +53,7 @@ public class CssBackgroundColorCSS21 extends CssBackgroundColorCSS2 {
 		setColor(inherit);
 		break;
 	    } 
-	    setColor(new org.w3c.css.values.CssColorCSS21(ac,
+	    setColor(new org.w3c.css.values.CssColor(ac,
 							  (String) val.get()));
 	    break;
 	default:

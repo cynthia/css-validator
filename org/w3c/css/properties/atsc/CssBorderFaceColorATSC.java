@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderFaceColorATSC.java,v 1.4 2010-01-05 13:49:35 ylafon Exp $
+// $Id: CssBorderFaceColorATSC.java,v 1.5 2011-09-29 09:08:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderFaceColorATSC {
 
@@ -26,7 +26,7 @@ public class CssBorderFaceColorATSC {
      * Create a new CssBorderFaceColor
      */
     public CssBorderFaceColorATSC() {
-	face = new org.w3c.css.values.ATSCColor();
+	face = new org.w3c.css.values.CssColor();
     }
 
     /**
@@ -62,13 +62,12 @@ public class CssBorderFaceColorATSC {
 
 	CssValue val = expression.getValue();
 
-	if (val instanceof org.w3c.css.values.ATSCColor ||
-		val instanceof CssColor) {
+	if (val instanceof CssColor) {
 	    face = val;
 	} else if (val.equals(CssProperty.inherit)) {
 	    face = CssProperty.inherit;
 	} else if (val instanceof CssIdent) {
-	    face = new org.w3c.css.values.ATSCColor(ac, (String) val.get());
+	    face = new org.w3c.css.values.CssColor(ac, (String) val.get());
 	} else {
 	    throw new InvalidParamException("value", val.toString(),
 					    "border-color", ac);

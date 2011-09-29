@@ -1,5 +1,5 @@
 //
-// $Id: CssColorCSS2.java,v 1.6 2010-01-05 13:49:42 ylafon Exp $
+// $Id: CssColorCSS2.java,v 1.7 2011-09-29 09:08:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -31,7 +31,7 @@ import org.w3c.css.values.CssValue;
  *   EM { color: red }              /* natural language * /
  *   EM { color: rgb(255,0,0) }     /* RGB range 0-255   * /
  * </PRE>
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssColorCSS2 extends CssProperty {
 
@@ -72,7 +72,7 @@ public class CssColorCSS2 extends CssProperty {
 	    color = val;
 	    expression.next();
 	} else if (val instanceof CssIdent) {
-	    color = new org.w3c.css.values.CssColorCSS2(ac,
+	    color = new org.w3c.css.values.CssColor(ac,
 							(String) val.get());
 	    expression.next();
 	} else {

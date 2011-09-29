@@ -1,4 +1,4 @@
-// $Id: CssBorderFaceColorCSS21.java,v 1.3 2010-01-05 13:49:48 ylafon Exp $
+// $Id: CssBorderFaceColorCSS21.java,v 1.4 2011-09-29 09:08:59 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -65,7 +65,7 @@ public class CssBorderFaceColorCSS21 extends CssBorderFaceColorCSS2 {
 	} else if(val.equals(CssProperty.transparent)) {
 	    setFace(CssProperty.transparent);
 	} else if (val instanceof CssIdent) {
-	    setFace(new org.w3c.css.values.CssColorCSS21(ac, (String) val.get()));
+	    setFace(new org.w3c.css.values.CssColor(ac, (String) val.get()));
 	} else {
 	    throw new InvalidParamException("value", val.toString(),
 					    "border-color", ac);

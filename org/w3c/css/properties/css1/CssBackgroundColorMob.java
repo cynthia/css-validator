@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundColorMob.java,v 1.4 2010-01-05 13:49:39 ylafon Exp $
+// $Id: CssBackgroundColorMob.java,v 1.5 2011-09-29 09:08:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -31,7 +31,7 @@ import org.w3c.css.values.CssValue;
  *   <PRE>
  *   H1 { background-color: #F00 }
  *   </PRE>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBackgroundColorMob extends CssProperty {
 
@@ -62,7 +62,7 @@ public class CssBackgroundColorMob extends CssProperty {
 	setByUser();
 	CssValue val = expression.getValue();
 
-	if (val instanceof org.w3c.css.values.CssColorCSS2) {
+	if (val instanceof org.w3c.css.values.CssColor) {
 	    color = val;
 	    expression.next();
 	} else if (val instanceof CssIdent) {
@@ -73,7 +73,7 @@ public class CssBackgroundColorMob extends CssProperty {
 		color = inherit;
 		expression.next();
 	    } else {
-		color = new org.w3c.css.values.CssColorCSS2(ac, (String) val.get());
+		color = new org.w3c.css.values.CssColor(ac, (String) val.get());
 		expression.next();
 	    }
 	} else {

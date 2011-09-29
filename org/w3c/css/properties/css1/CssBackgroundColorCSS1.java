@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundColorCSS1.java,v 1.5 2010-01-05 13:49:39 ylafon Exp $
+// $Id: CssBackgroundColorCSS1.java,v 1.6 2011-09-29 09:08:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -32,7 +32,7 @@ import org.w3c.css.values.CssValue;
  * H1 { background-color: #F00 }
  * </PRE>
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBackgroundColorCSS1 extends CssBackgroundColor {
 
@@ -74,7 +74,7 @@ public class CssBackgroundColorCSS1 extends CssBackgroundColor {
                     setColor(inherit);
                     break;
                 }
-                setColor(new org.w3c.css.values.CssColorCSS1(ac,
+                setColor(new org.w3c.css.values.CssColor(ac,
                         (String) val.get()));
                 break;
             default:
