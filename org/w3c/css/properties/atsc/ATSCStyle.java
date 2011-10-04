@@ -1,5 +1,5 @@
 //
-// $Id: ATSCStyle.java,v 1.3 2011-09-09 12:16:42 ylafon Exp $
+// $Id: ATSCStyle.java,v 1.4 2011-10-04 13:05:23 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -9,7 +9,7 @@
 package org.w3c.css.properties.atsc;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class ATSCStyle extends org.w3c.css.properties.css2.font.Css2Style {
 
@@ -37,7 +37,6 @@ public class ATSCStyle extends org.w3c.css.properties.css2.font.Css2Style {
     MathlineATSC mathlineATSC;
     ToplineATSC toplineATSC;
     DefinitionSrcATSC definitionSrcATSC;
-    ATSCColor ATSCcolor;
     CssBackgroundColorATSC cssBackgroundColorATSC;
     CssBackgroundImageATSC cssBackgroundImageATSC;
     CssBackgroundRepeatATSC cssBackgroundRepeatATSC;
@@ -156,10 +155,6 @@ public class ATSCStyle extends org.w3c.css.properties.css2.font.Css2Style {
 
     public final DefinitionSrcATSC getDefinitionSrcATSC() {
         return definitionSrcATSC;
-    }
-
-    public final ATSCColor getColorATSC() {
-	return ATSCcolor;
     }
 
     public final CssBackgroundColorATSC getBackgroundColorATSC() {

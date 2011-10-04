@@ -1,4 +1,4 @@
-// $Id: CssColumnRule.java,v 1.2 2011-09-09 15:02:39 ylafon Exp $
+// $Id: CssColumnRule.java,v 1.3 2011-10-04 13:05:24 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -123,6 +123,7 @@ public class CssColumnRule extends CssProperty {
                         } catch (Exception ex) {
                         }
                     }
+
                 default:
                     throw new InvalidParamException("value",
                             expression.getValue(),

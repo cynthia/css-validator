@@ -1,4 +1,4 @@
-// $Id: CssBorderFaceColorCSS21.java,v 1.4 2011-09-29 09:08:59 ylafon Exp $
+// $Id: CssBorderFaceColorCSS21.java,v 1.5 2011-10-04 13:05:25 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -30,7 +30,7 @@ public class CssBorderFaceColorCSS21 extends CssBorderFaceColorCSS2 {
      *
      * @param color A color property
      */
-    public CssBorderFaceColorCSS21(org.w3c.css.properties.css1.CssColorCSS2 color) {
+    public CssBorderFaceColorCSS21(org.w3c.css.properties.css.CssColor color) {
 	super(color);
     }
 

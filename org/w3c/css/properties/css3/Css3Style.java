@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.12 2011-09-27 08:15:46 ylafon Exp $
+// $Id: Css3Style.java,v 1.13 2011-10-04 13:05:25 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -112,8 +112,6 @@ public class Css3Style extends ATSCStyle {
     public CssBackgroundClip cssBackgroundClip;
     public CssBackgroundSize cssBackgroundSize;
     public CssBackgroundOrigin cssBackgroundOrigin;
-    CssBackgroundQuantity cssBackgroundQuantity;
-    CssBackgroundSpacing cssBackgroundSpacing;
     CssTextDecorationCSS3 cssTextDecoration;
     CssWhiteSpaceCSS3 cssWhiteSpace;
     CssWordSpacingCSS3 cssWordSpacing;
@@ -999,24 +997,6 @@ public class Css3Style extends ATSCStyle {
 							   new CssBackgroundOrigin(), style, selector);
 	}
 	return cssBackgroundOrigin;
-    }
-
-    public CssBackgroundQuantity getCssBackgroundQuantity() {
-	if (cssBackgroundQuantity == null) {
-	    cssBackgroundQuantity =
-		(CssBackgroundQuantity) style.CascadingOrder(
-							     new CssBackgroundQuantity(), style, selector);
-	}
-	return cssBackgroundQuantity;
-    }
-
-    public CssBackgroundSpacing getCssBackgroundSpacing() {
-	if (cssBackgroundSpacing == null) {
-	    cssBackgroundSpacing =
-		(CssBackgroundSpacing) style.CascadingOrder(
-							    new CssBackgroundSpacing(), style, selector);
-	}
-	return cssBackgroundSpacing;
     }
 
     public CssTextDecorationCSS3 getCssTextDecoration() {

@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundCSS1.java,v 1.8 2011-09-09 12:16:43 ylafon Exp $
+// $Id: CssBackgroundCSS1.java,v 1.9 2011-10-04 13:05:24 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -47,7 +47,7 @@ import org.w3c.css.values.CssValue;
  * set to their initial value. In the second rule, all individual properties
  * have been specified.
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  * @see org.w3c.css.properties.css.CssBackgroundColor
  * @see org.w3c.css.properties.css.CssBackgroundImage
  * @see org.w3c.css.properties.css.CssBackgroundRepeat
@@ -231,6 +231,7 @@ public class CssBackgroundCSS1 extends CssBackground
      * Overrides this method for a macro
      */
     public void setImportant() {
+        super.setImportant();
         if (color != null) {
             color.important = true;
         }
@@ -253,7 +254,7 @@ public class CssBackgroundCSS1 extends CssBackground
      * Overrides this method for a macro
      */
     public boolean getImportant() {
-        return ((color == null || color.important) &&
+        return important && ((color == null || color.important) &&
                 (image == null || image.important) &&
                 (repeat == null || repeat.important) &&
                 (attachment == null || attachment.important) &&
@@ -292,8 +293,8 @@ public class CssBackgroundCSS1 extends CssBackground
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        ((Css1Style) style).cssBackgroundCSS1.same = same;
-        ((Css1Style) style).cssBackgroundCSS1.byUser = byUser;
+        ((Css1Style) style).cssBackground.same = same;
+        ((Css1Style) style).cssBackground.byUser = byUser;
 
         if (color != null) {
             color.addToStyle(ac, style);
@@ -320,9 +321,9 @@ public class CssBackgroundCSS1 extends CssBackground
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
         if (resolve) {
-            return ((Css1Style) style).getBackgroundCSS1();
+            return ((Css1Style) style).getBackground();
         } else {
-            return ((Css1Style) style).cssBackgroundCSS1;
+            return ((Css1Style) style).cssBackground;
         }
     }
 

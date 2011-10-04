@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderFaceColorCSS1.java,v 1.4 2011-09-29 09:08:59 ylafon Exp $
+// $Id: CssBorderFaceColorCSS1.java,v 1.5 2011-10-04 13:05:24 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,7 +13,7 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderFaceColorCSS1 {
 
@@ -31,8 +31,8 @@ public class CssBorderFaceColorCSS1 {
      *
      * @param color A color property
      */
-    public CssBorderFaceColorCSS1(org.w3c.css.properties.css1.CssColorCSS1 color) {
-	face = color.color;
+    public CssBorderFaceColorCSS1(org.w3c.css.properties.css.CssColor color) {
+	face = color.getColor();
     }
 
     /**
