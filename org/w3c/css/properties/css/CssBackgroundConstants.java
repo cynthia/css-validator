@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundConstants.java,v 1.1 2010-01-05 13:49:37 ylafon Exp $
+// $Id: CssBackgroundConstants.java,v 1.2 2011-10-04 20:08:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,9 +7,10 @@
 package org.w3c.css.properties.css;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public interface CssBackgroundConstants {
+    // TODO REMOVE (and clear other background classes)
   static String[] REPEAT = { "repeat", "repeat-x", "repeat-y", "no-repeat", "inherit" };
     
   static String[] ATTACHMENT = { "scroll", "fixed", "inherit" };
