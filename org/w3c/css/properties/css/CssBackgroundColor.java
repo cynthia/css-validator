@@ -1,4 +1,4 @@
-// $Id: CssBackgroundColor.java,v 1.4 2011-10-04 13:05:24 ylafon Exp $
+// $Id: CssBackgroundColor.java,v 1.5 2011-10-05 11:46:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -15,19 +15,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
 /**
- * http://www.w3.org/TR/2009/CR-css3-background-20091217/#the-background-color
- *
- * Name: 	background-color
- * Value: 	&lt;color&gt;
- * Initial: 	transparent
- * Applies to: 	all elements
- * Inherited: 	no
- * Percentages: 	N/A
- * Media: 	visual
- * Computed value: 	the computed color(s)
- *
- * This property sets the background color of an element. The color is drawn
- * behind any background images.
+ * @since CSS1
  */
 public class CssBackgroundColor extends CssProperty {
 

@@ -1,4 +1,4 @@
-// $Id: CssBackgroundAttachment.java,v 1.5 2011-10-04 13:05:23 ylafon Exp $
+// $Id: CssBackgroundAttachment.java,v 1.6 2011-10-05 11:46:42 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2010.
@@ -14,7 +14,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- *
+ * @since CSS1
  */
 public class CssBackgroundAttachment extends CssProperty {
 

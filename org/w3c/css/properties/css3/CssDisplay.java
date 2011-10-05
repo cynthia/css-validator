@@ -1,4 +1,4 @@
-// $Id: CssDisplay.java,v 1.1 2011-08-31 18:34:51 ylafon Exp $
+// $Id: CssDisplay.java,v 1.2 2011-10-05 11:46:43 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 14th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -93,6 +93,9 @@ public class CssDisplay extends org.w3c.css.properties.css.CssDisplay {
                 value = inherit;
             } else {
                 value = allowed_values.get(id_value);
+            }
+            if (value == null) {
+                // do templates...
             }
             if (value != null) {
                 expression.next();

@@ -1,5 +1,5 @@
 //
-// $Id: CssAzimuth.java,v 1.3 2011-09-11 20:30:22 ylafon Exp $
+// $Id: CssAzimuth.java,v 1.4 2011-10-05 11:46:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,8 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.3 $
+ * @since CSS2
+ * @version $Revision: 1.4 $
  */
 public class CssAzimuth extends CssProperty {
 

@@ -1,4 +1,4 @@
-// $Id: CssBackground.java,v 1.10 2011-10-04 13:05:23 ylafon Exp $
+// $Id: CssBackground.java,v 1.11 2011-10-05 11:46:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 
@@ -15,6 +15,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
 /**
+ * @since CSS1
  */
 public class CssBackground extends CssProperty {
 

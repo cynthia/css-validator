@@ -1,4 +1,4 @@
-// $Id: CssBackgroundClip.java,v 1.4 2011-10-04 13:05:23 ylafon Exp $
+// $Id: CssBackgroundClip.java,v 1.5 2011-10-05 11:46:42 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT 2010  World Wide Web Consortium (MIT, ERCIM, Keio University)
@@ -14,6 +14,7 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
+ * @since CSS3
  */
 
 public class CssBackgroundClip extends CssProperty {
