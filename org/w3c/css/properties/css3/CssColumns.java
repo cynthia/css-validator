@@ -1,4 +1,4 @@
-// $Id: CssColumns.java,v 1.3 2011-10-05 07:12:18 ylafon Exp $
+// $Id: CssColumns.java,v 1.4 2011-10-05 08:18:33 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -20,7 +20,8 @@ import org.w3c.css.values.CssValue;
 import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
- * http://www.w3.org/TR/2009/CR-css3-multicol-20091217/#columns
+ * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#columns
+ *
  * <p/>
  * Name:  	columns
  * Value: 	&lt;‘column-width’&gt; || &lt;‘column-count’&gt;

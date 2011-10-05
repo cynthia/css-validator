@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnRuleWidth.java,v 1.5 2011-10-05 07:12:18 ylafon Exp $
+// $Id: CssColumnRuleWidth.java,v 1.6 2011-10-05 08:18:33 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -16,7 +16,8 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
 /**
- * http://www.w3.org/TR/css3-multicol/
+ * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#crw
+ *
  * <p/>
  * <EM>Value:</EM> &lt;border-width&gt;<BR>
  * <EM>Initial:</EM>medium<BR>

@@ -1,4 +1,4 @@
-// $Id: CssColumnRuleStyle.java,v 1.7 2011-10-05 07:12:17 ylafon Exp $
+// $Id: CssColumnRuleStyle.java,v 1.8 2011-10-05 08:18:33 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten Yves lafon <ylafon@w3.org>
 //
@@ -20,7 +20,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * http://www.w3.org/TR/2009/CR-css3-multicol-20091217/#column-rule-style
+ * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#column-rule-style
  * 
  * Name:  	column-rule-style
  * Value: 	&lt;‘border-style’&gt;

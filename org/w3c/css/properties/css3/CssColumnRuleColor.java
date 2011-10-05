@@ -1,4 +1,4 @@
-// $Id: CssColumnRuleColor.java,v 1.5 2011-10-05 07:12:17 ylafon Exp $
+// $Id: CssColumnRuleColor.java,v 1.6 2011-10-05 08:18:33 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves lafon <ylafon@w3.org>
 //
@@ -15,7 +15,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
 /**
- * http://www.w3.org/TR/2009/CR-css3-multicol-20091217/#column-rule-color
+ * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#column-rule-color
  * <p/>
  * Name:  	column-rule-color
  * Value: 	&lt;color&gt;

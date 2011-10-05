@@ -1,4 +1,4 @@
-// $Id: CssColumnFill.java,v 1.3 2011-10-05 07:12:17 ylafon Exp $
+// $Id: CssColumnFill.java,v 1.4 2011-10-05 08:18:33 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -19,7 +19,7 @@ import org.w3c.css.values.CssValue;
 import java.util.HashMap;
 
 /**
- * http://www.w3.org/TR/2009/CR-css3-multicol-20091217/#filling-columns
+ * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#filling-columns
  * <p/>
  * There are two strategies for filling columns: columns can either be
  * balanced, or not. If columns are balanced, UAs should minimize the variation

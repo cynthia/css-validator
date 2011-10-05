@@ -1,4 +1,4 @@
-// $Id: CssColumnSpan.java,v 1.7 2011-10-05 07:12:18 ylafon Exp $
+// $Id: CssColumnSpan.java,v 1.8 2011-10-05 08:18:33 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 
@@ -19,7 +19,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * http://www.w3.org/TR/2009/CR-css3-multicol-20091217/#column-span
+ * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#column-span
  *
  * Name:  	column-span
  * Value: 	1 | all
