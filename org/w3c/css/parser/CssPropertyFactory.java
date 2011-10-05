@@ -1,5 +1,5 @@
 //
-// $Id: CssPropertyFactory.java,v 1.28 2011-09-17 06:02:26 ylafon Exp $
+// $Id: CssPropertyFactory.java,v 1.29 2011-10-05 07:12:16 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -25,7 +25,7 @@ import java.util.StringTokenizer;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.28 $
+ * @version $Revision: 1.29 $
  */
 public class CssPropertyFactory implements Cloneable {
 
@@ -217,10 +217,11 @@ public class CssPropertyFactory implements Cloneable {
             }
         }
 
-        CssIdent initial = new CssIdent("initial");
+        CssIdent initial = CssIdent.getIdent("initial");
 
         try {
-            if (expression.getValue().equals(initial) && (ac.getCssVersion() == CssVersion.CSS3)) {
+            if ((ac.getCssVersion().compareTo(CssVersion.CSS3) >= 0) && (expression.getCount() == 1)
+                    && expression.getValue().equals(initial)) {
                 // create an instance of your property class
                 Class[] parametersType = {};
                 Constructor constructor = Class.forName(classname).getConstructor(parametersType);
