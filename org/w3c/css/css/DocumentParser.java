@@ -1,5 +1,5 @@
 //
-// $Id: DocumentParser.java,v 1.7 2011-08-29 07:21:00 ylafon Exp $
+// $Id: DocumentParser.java,v 1.8 2011-10-06 18:28:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -18,7 +18,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public final class DocumentParser {
 
@@ -55,7 +55,8 @@ public final class DocumentParser {
                 StyleSheetParser parser = new StyleSheetParser();
                 parser.parseURL(ac, htmlURL, null, null, media, StyleSheetOrigin.AUTHOR);
                 style = parser.getStyleSheet();
-            } else if (urlLower.endsWith(".html") || urlLower.endsWith(".shtml") || urlLower.endsWith("/")) {
+            } else if (urlLower.endsWith(".html") || urlLower.endsWith(".htm") ||
+                    urlLower.endsWith(".shtml") || urlLower.endsWith("/")) {
                 TagSoupStyleSheetHandler handler = new TagSoupStyleSheetHandler(htmlURL, ac);
                 handler.parse(htmlURL);
                 style = handler.getStyleSheet();
