@@ -1,5 +1,5 @@
 //
-// $Id: CssDirection.java,v 1.1 2011-09-04 21:01:54 ylafon Exp $
+// $Id: CssDirection.java,v 1.2 2011-10-07 09:33:19 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,15 +26,14 @@ public class CssDirection extends CssProperty {
     public static final CssIdent rtl;
 
     static {
-        ltr = new CssIdent("ltr");
-        rtl = new CssIdent("rtl");
+        ltr = CssIdent.getIdent("ltr");
+        rtl = CssIdent.getIdent("rtl");
     }
 
     /**
      * Create a new CssDirection
      */
     public CssDirection() {
-        value = ltr;
     }
 
     /**
@@ -46,9 +45,7 @@ public class CssDirection extends CssProperty {
      */
     public CssDirection(ApplContext ac, CssExpression expression,
                         boolean check) throws InvalidParamException {
-        throw new InvalidParamException("value", expression.getValue(),
-                getPropertyName(), ac);
-
+        throw new InvalidParamException("unrecognize", ac);
     }
 
     public CssDirection(ApplContext ac, CssExpression expression)
@@ -126,7 +123,7 @@ public class CssDirection extends CssProperty {
      * It is used by all macro for the function <code>print</code>
      */
     public boolean isDefault() {
-        return value == ltr;
+        return false;
     }
 
 }

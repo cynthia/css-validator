@@ -1,4 +1,4 @@
-// $Id: CssBreakAfter.java,v 1.3 2011-10-04 20:08:11 ylafon Exp $
+// $Id: CssBreakAfter.java,v 1.4 2011-10-07 09:33:19 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 by Yves Lafon <ylafon@w3.org>
 //
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
 /**
- * Present starting with CSS3
+ * @since CSS3
  */
 
 public class CssBreakAfter extends CssProperty {

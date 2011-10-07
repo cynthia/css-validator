@@ -1,12 +1,12 @@
 //
-// $Id: AtRuleMediaCSS2.java,v 1.6 2010-01-05 13:49:33 ylafon Exp $
+// $Id: AtRuleMediaCSS2.java,v 1.7 2011-10-07 09:33:19 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleMedia.java
- * $Id: AtRuleMediaCSS2.java,v 1.6 2010-01-05 13:49:33 ylafon Exp $
+ * $Id: AtRuleMediaCSS2.java,v 1.7 2011-10-07 09:33:19 ylafon Exp $
  */
 package org.w3c.css.parser;
 
@@ -19,7 +19,7 @@ import java.util.Enumeration;
  * This class manages all media defines by CSS2
  *
  * @author Philippe Le Hegaret
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class AtRuleMediaCSS2 extends AtRuleMedia {
 
@@ -95,7 +95,7 @@ public class AtRuleMediaCSS2 extends AtRuleMedia {
 
             for (int i = 0; i < media.length; i++) {
                 // strings are exactly the same so I don't have to use equals
-                if (media[i] == second.media[i]) {
+                if ((media[i] != null) && (media[i] == second.media[i])) {
                     return true;
                 }
             }

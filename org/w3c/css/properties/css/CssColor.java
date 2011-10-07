@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.1 2011-10-04 13:05:24 ylafon Exp $
+// $Id: CssColor.java,v 1.2 2011-10-07 09:33:19 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -14,7 +14,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @since CSS1
  */
 public class CssColor extends CssProperty {
 
