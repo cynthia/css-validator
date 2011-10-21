@@ -1,4 +1,4 @@
-// $Id: AtRuleMedia.java,v 1.1 2011-10-21 01:49:06 ylafon Exp $
+// $Id: AtRuleMedia.java,v 1.2 2011-10-21 12:52:28 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ECIM and Keio University, 2011.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -24,6 +24,14 @@ public abstract class AtRuleMedia extends AtRule {
      */
     public abstract AtRuleMedia addMedia(String restrictor, String medium,
                                          ApplContext ac) throws InvalidParamException;
+
+    /**
+     * Adds a media
+     */
+    public AtRuleMedia addMedia(Media m) {
+        allMedia.add(m);
+        return this;
+    }
 
     /**
      * Add a media feature to the current media, like (color:1)

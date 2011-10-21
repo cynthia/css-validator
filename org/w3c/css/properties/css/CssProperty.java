@@ -1,4 +1,4 @@
-// $Id: CssProperty.java,v 1.4 2011-10-21 01:49:10 ylafon Exp $
+// $Id: CssProperty.java,v 1.5 2011-10-21 12:52:30 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997-2010.
@@ -24,7 +24,7 @@ import org.w3c.css.values.CssIdent;
  * If you want to add some properties to the parser, you should subclass this
  * class.
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public abstract class CssProperty
         implements Cloneable, StyleSheetOrigin {
@@ -156,7 +156,7 @@ public abstract class CssProperty
      * <SAMP> property-name : property-value1 properpty-value2 ...</SAMP>
      * <BR>
      * You should write something like this :
-     * <code>property.getFeatureName() + " : " + property.toString()</code>
+     * <code>property.getPropertyName() + " : " + property.toString()</code>
      */
     public abstract String toString();
 

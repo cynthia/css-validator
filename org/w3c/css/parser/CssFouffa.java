@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.57 2011-10-21 01:49:08 ylafon Exp $
+// $Id: CssFouffa.java,v 1.58 2011-10-21 12:52:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -31,6 +31,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
@@ -51,7 +52,7 @@ import java.util.ArrayList;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.57 $
+ * @version $Revision: 1.58 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -561,7 +562,8 @@ public final class CssFouffa extends CssParser {
      * @throw InvalidParamException
      * An error appears during the property creation.
      */
-    public MediaFeature handleMediaFeature(String feature, CssExpression expression)
+    public MediaFeature handleMediaFeature(AtRuleMedia rule, String feature,
+                                           CssExpression expression)
             throws InvalidParamException {
         MediaFeature mf;
         if (Util.onDebug) {
@@ -569,7 +571,7 @@ public final class CssFouffa extends CssParser {
         }
 
         try {
-            mf = properties.createMediaFeature(ac, getAtRule(), feature, expression);
+            mf = properties.createMediaFeature(ac, rule, feature, expression);
         } catch (InvalidParamException e) {
             throw e;
         } catch (Exception e) {
@@ -797,20 +799,26 @@ public final class CssFouffa extends CssParser {
 
     public CssFouffa(java.io.InputStream stream) {
         super(stream);
-        properties = new CssPropertyFactory("css2");
+        properties = new CssPropertyFactory("css21");
         // loadConfig("css2", null);
     }
 
     public CssFouffa(java.io.Reader stream) {
         super(stream);
-        properties = new CssPropertyFactory("css2");
+        properties = new CssPropertyFactory("css21");
         // loadConfig("css2", null);
     }
 
     public CssFouffa(CssParserTokenManager tm) {
         super(tm);
-        properties = new CssPropertyFactory("css2");
+        properties = new CssPropertyFactory("css21");
         // loadConfig("css2", null);
+    }
+
+    public CssFouffa(ApplContext ac, Reader stream) {
+        super(stream);
+        this.ac = ac;
+        properties = new CssPropertyFactory(ac.getPropertyKey());
     }
 
 }

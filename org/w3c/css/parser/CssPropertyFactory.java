@@ -1,5 +1,5 @@
 //
-// $Id: CssPropertyFactory.java,v 1.30 2011-10-21 01:49:08 ylafon Exp $
+// $Id: CssPropertyFactory.java,v 1.31 2011-10-21 12:52:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -28,7 +28,7 @@ import java.util.StringTokenizer;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.30 $
+ * @version $Revision: 1.31 $
  */
 public class CssPropertyFactory implements Cloneable {
 
@@ -119,7 +119,6 @@ public class CssPropertyFactory implements Cloneable {
         }
 
         classname = properties.getProperty("mediafeature" + "." + feature.toLowerCase());
-
         if (classname == null) {
             try {
                 AtRuleMedia atRuleMedia = (AtRuleMedia) atRule;

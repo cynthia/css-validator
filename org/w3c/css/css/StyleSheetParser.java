@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.19 2011-10-21 01:49:06 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.20 2011-10-21 12:52:28 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,10 +16,12 @@ import org.w3c.css.parser.CssParseException;
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssValidatorListener;
 import org.w3c.css.parser.Errors;
+import org.w3c.css.parser.analyzer.ParseException;
 import org.w3c.css.parser.analyzer.TokenMgrError;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.selectors.IdSelector;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.CssVersion;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Util;
 import org.w3c.css.util.Warning;
@@ -28,13 +30,14 @@ import org.w3c.css.util.Warnings;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringReader;
 import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.19 $
+ * @version $Revision: 1.20 $
  */
 public final class StyleSheetParser
         implements CssValidatorListener, CssParser {
@@ -77,7 +80,7 @@ public final class StyleSheetParser
     /**
      * Adds a vector of properties to a selector.
      *
-     * @param selector     the selector
+     * @param selector   the selector
      * @param properties Properties to associate with contexts
      */
     public void handleRule(ApplContext ac, CssSelectors selector,
@@ -225,12 +228,24 @@ public final class StyleSheetParser
         }
     }
 
-    // TODO this is not OK for CSS3...
-    // big FIXME here, we should reuse the parser...
+    // add media, easy version for CSS version < 3, otherwise, reuse the parser
     private void addMedias(AtRuleMedia m, String medias, ApplContext ac) throws InvalidParamException {
-        StringTokenizer tokens = new StringTokenizer(medias, ",");
-        while (tokens.hasMoreTokens()) {
-            m.addMedia(null, tokens.nextToken().trim(), ac);
+        // before CSS3, let's parse it the easy way...
+        if (ac.getCssVersion().compareTo(CssVersion.CSS3) < 0) {
+            StringTokenizer tokens = new StringTokenizer(medias, ",");
+            while (tokens.hasMoreTokens()) {
+                m.addMedia(null, tokens.nextToken().trim(), ac);
+            }
+        } else {
+            CssFouffa muP = new CssFouffa(ac, new StringReader(medias));
+            try {
+                AtRuleMedia arm = muP.parseMediaDeclaration();
+                if (arm != null) {
+                    m.allMedia = arm.allMedia;
+                }
+            } catch (ParseException pex) {
+                // error already added, so nothing else to do
+            }
         }
     }
 
