@@ -1,5 +1,5 @@
 //
-// $Id: CssCounterReset.java,v 1.4 2011-09-27 08:15:45 ylafon Exp $
+// $Id: CssCounterReset.java,v 1.5 2011-10-21 01:49:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -113,13 +113,13 @@ public class CssCounterReset extends CssProperty {
 		    } else {
 			throw new InvalidParamException("value",
 							expression.floatValue(),
-							getPropertyName(), ac);
+							getFeatureName(), ac);
 		    }
 		}
 	    } else {
 		throw new InvalidParamException("value",
 						expression.floatValue(),
-						getPropertyName(), ac);
+						getFeatureName(), ac);
 	    }
 	    values.addElement(val);
 	    expression.next();

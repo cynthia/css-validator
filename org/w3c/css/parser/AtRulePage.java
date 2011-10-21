@@ -1,12 +1,12 @@
 //
-// $Id: AtRulePage.java,v 1.5 2011-08-29 07:21:00 ylafon Exp $
+// $Id: AtRulePage.java,v 1.6 2011-10-21 01:49:08 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRulePage.java
- * $Id: AtRulePage.java,v 1.5 2011-08-29 07:21:00 ylafon Exp $
+ * $Id: AtRulePage.java,v 1.6 2011-10-21 01:49:08 ylafon Exp $
  */
 package org.w3c.css.parser;
 
@@ -18,7 +18,7 @@ import org.w3c.css.util.InvalidParamException;
  * This class manages all media defines by CSS2
  *
  * @author Philippe Le H�garet
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class AtRulePage extends AtRule {
 
@@ -131,7 +131,7 @@ public class AtRulePage extends AtRule {
     /**
      * The second must only match this one
      */
-    public boolean canMatched(AtRule atRule) {
+    public boolean canMatch(AtRule atRule) {
         AtRulePage atRulePage;
         try {
             atRulePage = (AtRulePage) atRule;

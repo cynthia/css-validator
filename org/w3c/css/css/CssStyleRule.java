@@ -1,4 +1,4 @@
-// $Id: CssStyleRule.java,v 1.20 2011-08-29 07:21:00 ylafon Exp $
+// $Id: CssStyleRule.java,v 1.21 2011-10-21 01:49:06 ylafon Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -82,7 +82,7 @@ public class CssStyleRule {
      * 
      * for (int i = 0; i < properties.size() ; i++) { CssProperty property =
      * (CssProperty)properties.elementAt(i); ret.append("<li>");
-     * ret.append(property.getPropertyName()); ret.append(" : <span
+     * ret.append(property.getFeatureName()); ret.append(" : <span
      * class='vPropertyValue'>"); ret.append(property.toString());
      * ret.append("</span>");
      * if (property.getImportant()) { ret.append(" !important"); } 

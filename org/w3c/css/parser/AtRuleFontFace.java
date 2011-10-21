@@ -1,19 +1,19 @@
 //
-// $Id: AtRuleFontFace.java,v 1.4 2007-11-26 05:07:17 ot Exp $
+// $Id: AtRuleFontFace.java,v 1.5 2011-10-21 01:49:08 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleFontFace.java
- * $Id: AtRuleFontFace.java,v 1.4 2007-11-26 05:07:17 ot Exp $
+ * $Id: AtRuleFontFace.java,v 1.5 2011-10-21 01:49:08 ylafon Exp $
  */
 package org.w3c.css.parser;
 
 /**
  * This class manages all media defines by CSS2
  *
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  * @author  Philippe Le Hegaret
  */
 public class AtRuleFontFace extends AtRule {
@@ -52,7 +52,7 @@ public class AtRuleFontFace extends AtRule {
     /**
      * The second must only match this one
      */
-    public boolean canMatched(AtRule atRule) {
+    public boolean canMatch(AtRule atRule) {
 	return (atRule instanceof AtRuleFontFace);
     }
 

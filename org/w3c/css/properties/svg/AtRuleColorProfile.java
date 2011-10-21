@@ -1,5 +1,5 @@
 //
-// $Id: AtRuleColorProfile.java,v 1.1 2005-08-23 16:25:02 ylafon Exp $
+// $Id: AtRuleColorProfile.java,v 1.2 2011-10-21 01:49:12 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -46,7 +46,7 @@ public class AtRuleColorProfile extends AtRule {
     /**
      * The second must only match this one
      */
-    public boolean canMatched(AtRule atRule) {
+    public boolean canMatch(AtRule atRule) {
 	return (atRule instanceof AtRuleColorProfile);
     }
 

@@ -1,18 +1,18 @@
 //
-// $Id: AtRuleNamespace.java,v 1.1 2009-02-13 14:03:36 ylafon Exp $
+// $Id: AtRuleNamespace.java,v 1.2 2011-10-21 01:49:08 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, Keio University and ERCIM, 2009.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  * AtRuleMedia.java
- * $Id: AtRuleNamespace.java,v 1.1 2009-02-13 14:03:36 ylafon Exp $
+ * $Id: AtRuleNamespace.java,v 1.2 2011-10-21 01:49:08 ylafon Exp $
  */
 package org.w3c.css.parser;
 
 /**
  * This class manages all imports
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @author  Philippe Le Hegaret
  */
 public class AtRuleNamespace extends AtRule {
@@ -40,7 +40,7 @@ public class AtRuleNamespace extends AtRule {
     /**
      * The second must only match this one
      */
-    public boolean canMatched(AtRule atRule) {
+    public boolean canMatch(AtRule atRule) {
 	return false;
     }
 
