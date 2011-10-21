@@ -1,4 +1,4 @@
-// $Id: CssColumnGap.java,v 1.6 2011-10-05 08:18:33 ylafon Exp $
+// $Id: CssColumnGap.java,v 1.7 2011-10-21 18:08:43 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -20,22 +20,6 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#column-gap
- * <p/>
- * Name:  	column-gap
- * Value: 	&lt;length&gt; | normal
- * Initial: 	normal
- * Applies to: 	multicol elements
- * Inherited: 	no
- * Percentages: 	N/A
- * Media: 	visual
- * Computed value: 	absolute length or ‚Äònormal‚Äô
- * <p/>
- * The ‚Äòcolumn-gap‚Äô property sets the gap between columns. If there is a
- * column rule between columns, it will appear in the middle of the gap.
- * <p/>
- * The ‚Äònormal‚Äô value is UA-specific. A value of ‚Äò1em‚Äô is suggested.
- * <p/>
- * Column gaps cannot be negative.
  */
 
 public class CssColumnGap extends org.w3c.css.properties.css.CssColumnGap {
@@ -63,6 +47,10 @@ public class CssColumnGap extends org.w3c.css.properties.css.CssColumnGap {
         setByUser();
         CssValue val = expression.getValue();
         Float value;
+
+        if (expression.getCount() > 1) {
+            throw new InvalidParamException("unrecognize", ac);
+        }
 
         switch (val.getType()) {
             case CssTypes.CSS_NUMBER:

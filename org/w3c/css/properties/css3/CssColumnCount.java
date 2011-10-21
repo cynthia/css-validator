@@ -1,4 +1,4 @@
-// $Id: CssColumnCount.java,v 1.7 2011-10-05 08:18:33 ylafon Exp $
+// $Id: CssColumnCount.java,v 1.8 2011-10-21 18:08:42 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -19,18 +19,6 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#cc
- * <p/>
- * Name:  	column-count
- * Value: 	&lt;integer&gt; | auto
- * Initial: 	auto
- * Applies to: 	non-replaced block-level elements (except table elements),
- * table cells, and inline-block elements
- * Inherited: 	no
- * Percentages: 	N/A
- * Media: 	visual
- * Computed value: 	specified value
- * <p/>
- * This property describes the number of columns of a multicol element.
  */
 
 public class CssColumnCount extends org.w3c.css.properties.css.CssColumnCount {
@@ -58,6 +46,10 @@ public class CssColumnCount extends org.w3c.css.properties.css.CssColumnCount {
         setByUser();
         CssValue val = expression.getValue();
         CssNumber num;
+
+        if (expression.getCount() > 1) {
+            throw new InvalidParamException("unrecognize", ac);
+        }
 
         switch (val.getType()) {
             case CssTypes.CSS_NUMBER:

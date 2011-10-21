@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnRuleWidth.java,v 1.6 2011-10-05 08:18:33 ylafon Exp $
+// $Id: CssColumnRuleWidth.java,v 1.7 2011-10-21 18:08:43 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -17,14 +17,6 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#crw
- *
- * <p/>
- * <EM>Value:</EM> &lt;border-width&gt;<BR>
- * <EM>Initial:</EM>medium<BR>
- * <EM>Applies to:</EM>multicol elements<BR>
- * <EM>Inherited:</EM>no<BR>
- * <EM>Percentages:</EM>N/A<BR>
- * <EM>Media:</EM>:visual
  */
 
 public class CssColumnRuleWidth extends org.w3c.css.properties.css.CssColumnRuleWidth {
@@ -52,7 +44,7 @@ public class CssColumnRuleWidth extends org.w3c.css.properties.css.CssColumnRule
         setByUser();
         CssValue val = expression.getValue();
 
-        if (check && expression.getCount() > 1) {
+        if (expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
 
