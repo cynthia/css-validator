@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.20 2011-10-21 12:52:28 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.21 2011-10-21 14:14:41 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.20 $
+ * @version $Revision: 1.21 $
  */
 public final class StyleSheetParser
         implements CssValidatorListener, CssParser {
@@ -285,7 +285,9 @@ public final class StyleSheetParser
 
             AtRuleMedia m = AtRuleMedia.getInstance(ac.getCssVersion());
             try {
-                addMedias(m, media, ac);
+                if (ac.getCssVersion().compareTo(CssVersion.CSS1) > 0) {
+                    addMedias(m, media, ac);
+                }
                 cssFouffa.setAtRule(m);
             } catch (org.w3c.css.util.InvalidParamException e) {
                 Errors er = new Errors();

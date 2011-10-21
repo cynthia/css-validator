@@ -1,4 +1,4 @@
-// $Id: AtRuleMedia.java,v 1.1 2011-10-21 01:49:07 ylafon Exp $
+// $Id: AtRuleMedia.java,v 1.2 2011-10-21 14:14:41 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -15,7 +15,7 @@ import org.w3c.css.util.InvalidParamException;
 import java.util.ArrayList;
 
 /**
- * @spec TODO
+ * @spec http://www.w3.org/TR/2010/CR-css3-mediaqueries-20100727/
  */
 
 public class AtRuleMedia extends org.w3c.css.media.AtRuleMedia {

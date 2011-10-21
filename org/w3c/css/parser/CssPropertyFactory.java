@@ -1,5 +1,5 @@
 //
-// $Id: CssPropertyFactory.java,v 1.31 2011-10-21 12:52:29 ylafon Exp $
+// $Id: CssPropertyFactory.java,v 1.32 2011-10-21 14:14:41 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -28,7 +28,7 @@ import java.util.StringTokenizer;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.31 $
+ * @version $Revision: 1.32 $
  */
 public class CssPropertyFactory implements Cloneable {
 
@@ -253,7 +253,7 @@ public class CssPropertyFactory implements Cloneable {
         if (atRule instanceof AtRuleMedia) {
             className = PropertiesLoader.getProfile(ac.getPropertyKey()).getProperty(property);
             // a list of media has been specified
-            if (className != null && !media.equals("all")) {
+            if (className != null && media != null && !media.equals("all")) {
                 String propMedia = PropertiesLoader.mediaProperties.getProperty(property);
                 ArrayList<String> list = getMediaList(media);
                 for (String medium : list) {
