@@ -1,5 +1,5 @@
 //
-// $Id: CssResolution.java,v 1.8 2011-10-21 01:49:13 ylafon Exp $
+// $Id: CssResolution.java,v 1.9 2011-10-22 13:36:23 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -13,16 +13,8 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Util;
 
 /**
- * <H3>
- * &nbsp;&nbsp; Resolution units
- * </H3>
- * <p/>
- * The dpi and dpcm units describe the resolution of an output device i.e. the density of
- * the pixels. In dots per inch and dots per centimeter, respectively. These units are only used in the
- * resolution media feature.
- * </P>
- *
- * @version $Revision: 1.8 $
+ * @since CSS3
+ * @spec http://www.w3.org/TR/2010/CR-css3-mediaqueries-20100727/#values
  */
 public class CssResolution extends CssValue {
 

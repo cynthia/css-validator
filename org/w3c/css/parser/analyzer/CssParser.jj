@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.78 2011-10-21 12:52:29 ylafon Exp $
+ * $Id: CssParser.jj,v 1.79 2011-10-22 13:36:23 ylafon Exp $
  *
  */
 
@@ -44,6 +44,7 @@ import org.w3c.css.values.CssAngle;
 import org.w3c.css.values.CssFunction;
 import org.w3c.css.values.CssUnicodeRange;
 import org.w3c.css.values.CssResolution;
+import org.w3c.css.values.CssRatio;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.parser.Frame;
 import org.w3c.css.parser.CssError;
@@ -86,7 +87,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.78 $
+ * @version $Revision: 1.79 $
  */
 public abstract class CssParser {
 
@@ -529,7 +530,7 @@ TOKEN [IGNORE_CASE] :
 TOKEN [IGNORE_CASE] :
 {
   < LENGTH     : <NUM> "pt" 
-                   | <NUM> "mm" 
+               | <NUM> "mm"
 	           | <NUM> "cm" 
 	           | <NUM> "pc" 
 	           | <NUM> "in"
@@ -541,6 +542,7 @@ TOKEN [IGNORE_CASE] :
   | < TIME       : <NUM> ( "ms" | "s" ) >
   | < FREQ       : <NUM> "Hz" | <NUM> "kHz" >
   | < RESOLUTION : <NUM> "dpi" | <NUM> "dpcm" >
+  | < RATIO      : <NUM> ( <_S> )* "/" ( <_S> )* <NUM> >
   | < DATE       : <NUM> "/" <NUM> "/" <NUM> >
   | < DIMEN      : <NUM> <NMSTART> ( <NMCHAR> )* >
   | < PERCENTAGE : <NUM> "%" >
@@ -2139,6 +2141,7 @@ void term(CssExpression exp) :
     | n=<TIME> { setValue(new CssTime(), exp, operator, n, TIME); }
     | n=<FREQ> { setValue(new CssFrequency(), exp, operator, n, FREQ); }
     | n=<RESOLUTION> { setValue(new CssResolution(), exp, operator, n, RESOLUTION); }
+    | n=<RATIO> { setValue(new CssRatio(), exp, operator, n, RATIO); }
     | n=<DATE> { setValue(new CssDate(), exp, operator, n, DATE); }
     | n=<DIMEN> {  
 	  addError(new ParseException(ac.getMsg().getString("parser.unknown-dimension")), n.image); }    
