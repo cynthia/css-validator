@@ -9,13 +9,14 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.31 2011-08-29 07:21:00 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.32 2011-10-23 19:47:21 ylafon Exp $
  */
 package org.w3c.css.css;
 
 import org.w3c.css.parser.CssError;
 import org.w3c.css.parser.Errors;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.CssVersion;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.Util;
@@ -45,7 +46,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.31 $
+ * @version $Revision: 1.32 $
  */
 public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -198,7 +199,7 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
                                 + url.toString() + "]");
                     }
                     String media = atts.get("media");
-                    if (media == null) {
+                    if (media == null && ac.getCssVersion() != CssVersion.CSS1) {
                         media = "all";
                     }
                     styleSheetParser.parseURL(ac, url, atts.get("title"), rel, media,
@@ -298,7 +299,7 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
                                         + url.toString() + "]");
                     }
                     String media = atts.getValue("media");
-                    if (media == null) {
+                    if (media == null && ac.getCssVersion() != CssVersion.CSS1) {
                         media = "all";
                     }
                     styleSheetParser.parseURL(ac, url, atts.getValue("title"),
@@ -312,7 +313,7 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
                 type = atts.getValue("type");
                 title = atts.getValue("title");
 
-                if (media == null) {
+                if (media == null && ac.getCssVersion() != CssVersion.CSS1) {
                     media = "all";
                 }
                 if (Util.onDebug) {

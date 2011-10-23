@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.21 2011-10-21 14:14:41 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.22 2011-10-23 19:47:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  */
 public final class StyleSheetParser
         implements CssValidatorListener, CssParser {
@@ -202,15 +202,19 @@ public final class StyleSheetParser
             //	    cssFouffa.setDefaultMedium(defaultmedium);
             //	    cssFouffa.doConfig();
             if (media == null) {
-                if (ac.getMedium() == null) {
-                    media = "all";
-                } else {
-                    media = ac.getMedium();
+                if (ac.getCssVersion() != CssVersion.CSS1) {
+                    if (ac.getMedium() == null) {
+                        media = "all";
+                    } else {
+                        media = ac.getMedium();
+                    }
                 }
             }
             AtRuleMedia m = AtRuleMedia.getInstance(ac.getCssVersion());
             try {
-                addMedias(m, media, ac);
+                if (media != null) {
+                    addMedias(m, media, ac);
+                }
                 cssFouffa.setAtRule(m);
             } catch (org.w3c.css.util.InvalidParamException e) {
                 Errors er = new Errors();
@@ -278,14 +282,13 @@ public final class StyleSheetParser
             //	    cssFouffa.setResponse(res);
             //	    cssFouffa.setDefaultMedium(defaultmedium);
             //	    cssFouffa.doConfig();
-
-            if (media == null) {
+            if (media == null && ac.getCssVersion() != CssVersion.CSS1) {
                 media = "all";
             }
 
             AtRuleMedia m = AtRuleMedia.getInstance(ac.getCssVersion());
             try {
-                if (ac.getCssVersion().compareTo(CssVersion.CSS1) > 0) {
+                if (media != null) {
                     addMedias(m, media, ac);
                 }
                 cssFouffa.setAtRule(m);
@@ -372,7 +375,9 @@ public final class StyleSheetParser
 
             try {
                 AtRuleMedia media = AtRuleMedia.getInstance(ac.getCssVersion());
-                media.addMedia(null, "all", ac);
+                if (ac.getCssVersion() != CssVersion.CSS1) {
+                    media.addMedia(null, "all", ac);
+                }
                 cssFouffa.setAtRule(media);
             } catch (InvalidParamException e) {
             } //ignore
