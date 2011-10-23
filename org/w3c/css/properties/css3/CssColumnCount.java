@@ -1,4 +1,4 @@
-// $Id: CssColumnCount.java,v 1.8 2011-10-21 18:08:42 ylafon Exp $
+// $Id: CssColumnCount.java,v 1.9 2011-10-23 14:42:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -38,7 +38,8 @@ public class CssColumnCount extends org.w3c.css.properties.css.CssColumnCount {
      * Create a new CssColumnCount
      *
      * @param expression The expression for this property
-     * @throws org.w3c.css.util.InvalidParamException Incorrect value
+     * @throws org.w3c.css.util.InvalidParamException
+     *          Incorrect value
      */
     public CssColumnCount(ApplContext ac, CssExpression expression,
                           boolean check) throws InvalidParamException {
@@ -47,7 +48,7 @@ public class CssColumnCount extends org.w3c.css.properties.css.CssColumnCount {
         CssValue val = expression.getValue();
         CssNumber num;
 
-        if (expression.getCount() > 1) {
+        if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
 

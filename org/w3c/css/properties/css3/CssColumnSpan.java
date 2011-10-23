@@ -1,4 +1,4 @@
-// $Id: CssColumnSpan.java,v 1.9 2011-10-21 18:08:43 ylafon Exp $
+// $Id: CssColumnSpan.java,v 1.10 2011-10-23 14:42:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 
@@ -30,7 +30,7 @@ public class CssColumnSpan extends org.w3c.css.properties.css.CssColumnSpan {
     static CssIdent all;
 
     static {
-        all = new CssIdent("all");
+        all = CssIdent.getIdent("all");
     }
 
     /**
@@ -45,7 +45,8 @@ public class CssColumnSpan extends org.w3c.css.properties.css.CssColumnSpan {
      * Create a new CssColumnSpan
      *
      * @param expression The expression for this property
-     * @throws org.w3c.css.util.InvalidParamException Values are incorrect
+     * @throws org.w3c.css.util.InvalidParamException
+     *          Values are incorrect
      */
     public CssColumnSpan(ApplContext ac, CssExpression expression,
                          boolean check) throws InvalidParamException {
@@ -53,7 +54,7 @@ public class CssColumnSpan extends org.w3c.css.properties.css.CssColumnSpan {
         setByUser(); // tell this property is set by the user
         CssValue val = expression.getValue();
 
-        if (expression.getCount() > 1) {
+        if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
 

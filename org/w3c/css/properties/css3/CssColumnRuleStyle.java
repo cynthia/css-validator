@@ -1,4 +1,4 @@
-// $Id: CssColumnRuleStyle.java,v 1.9 2011-10-21 18:08:43 ylafon Exp $
+// $Id: CssColumnRuleStyle.java,v 1.10 2011-10-23 14:42:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten Yves lafon <ylafon@w3.org>
 //
@@ -21,7 +21,6 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#column-rule-style
- *
  */
 
 public class CssColumnRuleStyle extends org.w3c.css.properties.css.CssColumnRuleStyle {
@@ -49,7 +48,7 @@ public class CssColumnRuleStyle extends org.w3c.css.properties.css.CssColumnRule
         setByUser();
         CssValue val = expression.getValue();
         // too many values
-        if (expression.getCount() > 1) {
+        if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
         // we only use Css Ident part of the CssBorderStyle acceptable values

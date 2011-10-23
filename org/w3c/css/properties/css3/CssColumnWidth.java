@@ -1,4 +1,4 @@
-// $Id: CssColumnWidth.java,v 1.9 2011-10-21 18:08:43 ylafon Exp $
+// $Id: CssColumnWidth.java,v 1.10 2011-10-23 14:42:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewriten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -20,10 +20,11 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/CR-css3-multicol-20110412/#column-width
- *
  */
 
 public class CssColumnWidth extends org.w3c.css.properties.css.CssColumnWidth {
+
+    private static final String propertyName = "column-width";
 
     CssValue width;
 
@@ -44,7 +45,8 @@ public class CssColumnWidth extends org.w3c.css.properties.css.CssColumnWidth {
      * Create a new CssColumnWidth
      *
      * @param expression The expression for this property
-     * @throws org.w3c.css.util.InvalidParamException Incorrect value
+     * @throws org.w3c.css.util.InvalidParamException
+     *          Incorrect value
      */
     public CssColumnWidth(ApplContext ac, CssExpression expression,
                           boolean check) throws InvalidParamException {
@@ -53,7 +55,7 @@ public class CssColumnWidth extends org.w3c.css.properties.css.CssColumnWidth {
         CssValue val = expression.getValue();
         Float value;
 
-        if (expression.getCount() > 1) {
+        if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
 

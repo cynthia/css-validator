@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnRuleWidth.java,v 1.7 2011-10-21 18:08:43 ylafon Exp $
+// $Id: CssColumnRuleWidth.java,v 1.8 2011-10-23 14:42:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -44,7 +44,7 @@ public class CssColumnRuleWidth extends org.w3c.css.properties.css.CssColumnRule
         setByUser();
         CssValue val = expression.getValue();
 
-        if (expression.getCount() > 1) {
+        if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
 

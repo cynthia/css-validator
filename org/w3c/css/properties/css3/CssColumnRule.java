@@ -1,4 +1,4 @@
-// $Id: CssColumnRule.java,v 1.8 2011-10-21 18:08:43 ylafon Exp $
+// $Id: CssColumnRule.java,v 1.9 2011-10-23 14:42:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -49,7 +49,7 @@ public class CssColumnRule extends org.w3c.css.properties.css.CssColumnRule {
         char op;
         int nb_val = expression.getCount();
 
-        if (nb_val > 3) {
+        if (check && nb_val > 3) {
             throw new InvalidParamException("unrecognize", ac);
         }
         setByUser();

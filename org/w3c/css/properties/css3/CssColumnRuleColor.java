@@ -1,4 +1,4 @@
-// $Id: CssColumnRuleColor.java,v 1.7 2011-10-21 18:08:43 ylafon Exp $
+// $Id: CssColumnRuleColor.java,v 1.8 2011-10-23 14:42:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves lafon <ylafon@w3.org>
 //
@@ -41,7 +41,7 @@ public class CssColumnRuleColor extends org.w3c.css.properties.css.CssColumnRule
         setByUser();
         CssValue val = expression.getValue();
 
-        if (expression.getCount() > 1) {
+        if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
         if (inherit.equals(val)) {
