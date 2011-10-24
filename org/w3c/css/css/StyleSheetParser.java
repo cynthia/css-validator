@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.22 2011-10-23 19:47:21 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.23 2011-10-24 19:49:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.22 $
+ * @version $Revision: 1.23 $
  */
 public final class StyleSheetParser
         implements CssValidatorListener, CssParser {
@@ -383,6 +383,10 @@ public final class StyleSheetParser
             } //ignore
 
             try {
+                if (id == null || id.length() == 0) {
+                    id = "nullId-" + Long.toHexString(System.currentTimeMillis());
+                    // TODO add an error/warning ?
+                }
                 selector.addId(new IdSelector(id.substring(1)));
             } catch (InvalidParamException e) {
                 style.removeThisRule();
