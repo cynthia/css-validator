@@ -1,5 +1,5 @@
 //
-// $Id: CssValidator.java,v 1.50 2011-10-23 19:47:21 ylafon Exp $
+// $Id: CssValidator.java,v 1.51 2011-10-31 13:22:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,11 +9,11 @@ package org.w3c.css.servlet;
 
 import org.w3c.css.css.CssParser;
 import org.w3c.css.css.DocumentParser;
+import org.w3c.css.css.HTMLParserStyleSheetHandler;
 import org.w3c.css.css.StyleReport;
 import org.w3c.css.css.StyleReportFactory;
 import org.w3c.css.css.StyleSheet;
 import org.w3c.css.css.StyleSheetParser;
-import org.w3c.css.css.TagSoupStyleSheetHandler;
 import org.w3c.css.error.ErrorReport;
 import org.w3c.css.error.ErrorReportFactory;
 import org.w3c.css.index.IndexGenerator;
@@ -46,7 +46,7 @@ import java.net.URL;
 /**
  * This class is a servlet to use the validator.
  *
- * @version $Revision: 1.50 $
+ * @version $Revision: 1.51 $
  */
 public final class CssValidator extends HttpServlet {
 
@@ -399,7 +399,7 @@ public final class CssValidator extends HttpServlet {
                             .getStyleSheet(), output, warningLevel, errorReport);
                 } else {
                     // else, trying HTML
-                    TagSoupStyleSheetHandler handler = new TagSoupStyleSheetHandler(null, ac);
+                    HTMLParserStyleSheetHandler handler = new HTMLParserStyleSheetHandler(null, ac);
                     handler.parse(is, fileName);
 
                     handleRequest(ac, res, fileName, handler.getStyleSheet(), output,
@@ -664,8 +664,7 @@ public final class CssValidator extends HttpServlet {
                         output, warningLevel, errorReport);
             } else {
                 // else, trying HTML
-                TagSoupStyleSheetHandler handler;
-                handler = new TagSoupStyleSheetHandler(null, ac);
+                HTMLParserStyleSheetHandler handler = new HTMLParserStyleSheetHandler(null, ac);
                 handler.parse(is, fileName);
 
                 handleRequest(ac, res, fileName, handler.getStyleSheet(),
