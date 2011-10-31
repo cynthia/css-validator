@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: TagSoupStyleSheetHandler.java,v 1.9 2011-10-23 19:47:21 ylafon Exp $
+ * $Id: TagSoupStyleSheetHandler.java,v 1.10 2011-10-31 18:32:19 ville Exp $
  */
 package org.w3c.css.css;
 
@@ -47,7 +47,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -174,9 +174,8 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
             if (type != null) {
                 MimeType mt = null;
                 try {
-                    new MimeType(type);
+                    mt = new MimeType(type);
                 } catch (Exception ex) { /* at worst, null */ }
-                ;
                 if (mt != null && (MimeType.TEXT_CSS.match(mt) ==
                         MimeType.MATCH_SPECIFIC_SUBTYPE)) {
                     // we're dealing with a stylesheet...

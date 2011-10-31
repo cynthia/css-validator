@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HTMLParserStyleSheetHandler.java,v 1.1 2011-10-30 21:02:51 ylafon Exp $
+ * $Id: HTMLParserStyleSheetHandler.java,v 1.2 2011-10-31 18:32:19 ville Exp $
  */
 package org.w3c.css.css;
 
@@ -49,7 +49,7 @@ import static nu.validator.htmlparser.common.XmlViolationPolicy.ALLOW;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -177,9 +177,8 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
             if (type != null) {
                 MimeType mt = null;
                 try {
-                    new MimeType(type);
+                    mt = new MimeType(type);
                 } catch (Exception ex) { /* at worst, null */ }
-                ;
                 if (mt != null && (MimeType.TEXT_CSS.match(mt) ==
                         MimeType.MATCH_SPECIFIC_SUBTYPE)) {
                     // we're dealing with a stylesheet...

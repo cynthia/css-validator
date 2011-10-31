@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.32 2011-10-23 19:47:21 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.33 2011-10-31 18:32:19 ville Exp $
  */
 package org.w3c.css.css;
 
@@ -46,7 +46,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.32 $
+ * @version $Revision: 1.33 $
  */
 public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -174,10 +174,8 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
             if (type != null) {
                 MimeType mt = null;
                 try {
-                    new MimeType(type);
-                } catch (Exception ex) { /* at worst, null */
-                }
-                ;
+                    mt = new MimeType(type);
+                } catch (Exception ex) { /* at worst, null */ }
                 if (mt != null
                         && (MimeType.TEXT_CSS.match(mt) == MimeType.MATCH_SPECIFIC_SUBTYPE)) {
                     // we're dealing with a stylesheet...
