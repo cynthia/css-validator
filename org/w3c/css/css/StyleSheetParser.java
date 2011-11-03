@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.23 2011-10-24 19:49:03 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.24 2011-11-03 16:00:39 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.23 $
+ * @version $Revision: 1.24 $
  */
 public final class StyleSheetParser
         implements CssValidatorListener, CssParser {
@@ -172,6 +172,8 @@ public final class StyleSheetParser
     public void parseURL(ApplContext ac, URL url, String title,
                          String kind, String media,
                          int origin) {
+        boolean doneref = false;
+        URL ref = ac.getReferrer();
         setWarningLevel(ac.getWarningLevel());
         if (Util.onDebug) {
             System.err.println("StyleSheet.parseURL(" + url + ", "
@@ -185,7 +187,6 @@ public final class StyleSheetParser
                 return;
             }
         }
-
         try {
             ac.setOrigin(origin);
 //	    if (cssFouffa == null) {
@@ -223,12 +224,18 @@ public final class StyleSheetParser
                 notifyErrors(er);
                 return;
             }
+            ac.setReferrer(url);
+            doneref = true;
             cssFouffa.parseStyle();
         } catch (Exception e) {
             Errors er = new Errors();
             er.addError(new org.w3c.css.parser.CssError(url.toString(),
                     -1, e));
             notifyErrors(er);
+        } finally {
+            if (doneref) {
+                ac.setReferrer(ref);
+            }
         }
     }
 
@@ -263,12 +270,14 @@ public final class StyleSheetParser
     public void parseStyleElement(ApplContext ac, InputStream input,
                                   String title, String media,
                                   URL url, int lineno) {
+        boolean doneref = false;
         style.setWarningLevel(ac.getWarningLevel());
         if (Util.onDebug) {
             System.err.println("StyleSheet.parseStyleElement(" + title + ", "
                     + media + ", " + url
                     + "," + lineno + ")");
         }
+        URL ref = ac.getReferrer();
         try {
 
 //	    if (cssFouffa == null) {
@@ -299,6 +308,8 @@ public final class StyleSheetParser
                 notifyErrors(er);
                 return;
             }
+            ac.setReferrer(url);
+            doneref = true;
             cssFouffa.parseStyle();
         } catch (IOException e) {
             Errors er = new Errors();
@@ -332,6 +343,10 @@ public final class StyleSheetParser
                     cssFouffa.getLine(),
                     new CssParseException(e)));
             notifyErrors(er);
+        } finally {
+            if (doneref) {
+                ac.setReferrer(ref);
+            }
         }
     }
 

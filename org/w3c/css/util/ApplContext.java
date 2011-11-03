@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.23 2011-09-29 09:08:59 ylafon Exp $
+ * $Id: ApplContext.java,v 1.24 2011-11-03 16:00:39 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.23 $
+ * @version $Revision: 1.24 $
  */
 public class ApplContext {
 
@@ -72,6 +72,8 @@ public class ApplContext {
     FakeFile fakefile = null;
     String faketext = null;
     URL fakeurl = null;
+
+    URL referrer = null;
 
     /**
      * Creates a new ApplContext
@@ -488,5 +490,21 @@ public class ApplContext {
             return false;
         }
         return nsdefs.containsKey(prefix);
+    }
+
+    /**
+     * Set the current referrer for possible linked style sheets
+     * @param referrer the referring URL
+     */
+    public void setReferrer(URL referrer) {
+        this.referrer = referrer;
+    }
+
+    /**
+     * get the referrer URL (or null if not relevant)
+     * @return an URL
+     */
+    public URL getReferrer() {
+        return referrer;
     }
 }

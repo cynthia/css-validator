@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.33 2011-10-31 18:32:19 ville Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.34 2011-11-03 16:00:39 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -46,7 +46,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.33 $
+ * @version $Revision: 1.34 $
  */
 public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -527,9 +527,12 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
         //    }
         //}
         source.setByteStream(in);
+        URL ref = ac.getReferrer();
         try {
+            ac.setReferrer(documentURI);
             xmlParser.parse(url.toString());
         } finally {
+            ac.setReferrer(ref);
             in.close();
         }
     }
@@ -583,9 +586,12 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
         //   }
         //}
         source.setSystemId(urlString);
+        URL ref = ac.getReferrer();
         try {
+            ac.setReferrer(documentURI);
             xmlParser.parse(source);
         } finally {
+            ac.setReferrer(ref);
             cis.close();
         }
     }

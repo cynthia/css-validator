@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HTMLParserStyleSheetHandler.java,v 1.2 2011-10-31 18:32:19 ville Exp $
+ * $Id: HTMLParserStyleSheetHandler.java,v 1.3 2011-11-03 16:00:39 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -49,7 +49,7 @@ import static nu.validator.htmlparser.common.XmlViolationPolicy.ALLOW;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -542,9 +542,12 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
         baseURI = new URL(fileName);
         documentURI = new URL(fileName);
         source.setSystemId(fileName);
+        URL ref = ac.getReferrer();
         try {
+            ac.setReferrer(documentURI);
             xmlParser.parse(source);
         } finally {
+            ac.setReferrer(ref);
             in.close();
         }
     }
@@ -596,9 +599,12 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
         //   }
         //}
         source.setByteStream(in);
+        URL ref = ac.getReferrer();
         try {
+            ac.setReferrer(documentURI);
             xmlParser.parse(url.toString());
         } finally {
+            ac.setReferrer(ref);
             in.close();
         }
     }
@@ -650,9 +656,12 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
         //   }
         //}
         source.setSystemId(urlString);
+        URL ref = ac.getReferrer();
         try {
+            ac.setReferrer(documentURI);
             xmlParser.parse(source);
         } finally {
+            ac.setReferrer(ref);
             cis.close();
         }
     }

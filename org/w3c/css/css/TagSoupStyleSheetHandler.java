@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: TagSoupStyleSheetHandler.java,v 1.10 2011-10-31 18:32:19 ville Exp $
+ * $Id: TagSoupStyleSheetHandler.java,v 1.11 2011-11-03 16:00:39 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -47,7 +47,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -71,7 +71,7 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
     String type = null;
     String title = null;
     String charset = null;
-    StringBuilder text = new StringBuilder(255);
+    StringBuilder text = new StringBuilder();
 
     Locator locator;
 
@@ -534,9 +534,12 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         baseURI = new URL(fileName);
         documentURI = new URL(fileName);
         source.setSystemId(fileName);
+        URL ref = ac.getReferrer();
         try {
+            ac.setReferrer(documentURI);
             xmlParser.parse(source);
         } finally {
+            ac.setReferrer(ref);
             in.close();
         }
     }
@@ -588,9 +591,12 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         //   }
         //}
         source.setByteStream(in);
+        URL ref = ac.getReferrer();
         try {
+            ac.setReferrer(documentURI);
             xmlParser.parse(url.toString());
         } finally {
+            ac.setReferrer(ref);
             in.close();
         }
     }
@@ -642,9 +648,12 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         //   }
         //}
         source.setSystemId(urlString);
+        URL ref = ac.getReferrer();
         try {
+            ac.setReferrer(documentURI);
             xmlParser.parse(source);
         } finally {
+            ac.setReferrer(ref);
             cis.close();
         }
     }
