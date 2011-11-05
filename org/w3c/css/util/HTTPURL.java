@@ -4,7 +4,7 @@
  *  http://www.w3.org/Consortium/Legal/
  *
  * HTTPURL.java
- * $Id: HTTPURL.java,v 1.26 2011-11-04 21:07:54 ylafon Exp $
+ * $Id: HTTPURL.java,v 1.27 2011-11-05 09:16:11 ville Exp $
  */
 package org.w3c.css.util;
 
@@ -30,7 +30,7 @@ import java.util.zip.GZIPInputStream;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.26 $
+ * @version $Revision: 1.27 $
  */
 public class HTTPURL {
 
@@ -227,9 +227,6 @@ public class HTTPURL {
                 "Jigsaw/2.2.5 W3C_CSS_Validator_JFouffa/2.0");
         // referrer
         setReferrer(urlC, ref);
-        if (ref != null) {
-            urlC.setRequestProperty("Referer", ref.toExternalForm());
-        }
         // relay authorization information
         if (ac.getCredential() != null) {
             urlC.setRequestProperty("Authorization", ac.getCredential());
