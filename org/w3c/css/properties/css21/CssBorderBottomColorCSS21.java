@@ -1,4 +1,4 @@
-// $Id: CssBorderBottomColorCSS21.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
+// $Id: CssBorderBottomColorCSS21.java,v 1.3 2012-02-09 17:36:31 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -26,13 +26,13 @@ public class CssBorderBottomColorCSS21 extends CssBorderBottomColorCSS2 {
     }
 
     /**
-     * Create a new CssBorderBottomColor
+     * Create a new CssBorderBottomColorCSS21
      *
      * @param expression The expression for this property.
      * @exception InvalidParamException Values are incorrect
      */
     public CssBorderBottomColorCSS21(ApplContext ac, CssExpression expression,
-	    boolean check) throws InvalidParamException {
+                                     boolean check) throws InvalidParamException {
 
 	if(check && expression.getCount() > 1) {
 	    throw new InvalidParamException("unrecognize", ac);

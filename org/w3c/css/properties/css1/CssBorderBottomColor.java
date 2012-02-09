@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderBottomColor.java,v 1.5 2011-09-09 12:16:43 ylafon Exp $
+// $Id: CssBorderBottomColor.java,v 1.6 2012-02-09 17:36:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -15,21 +15,21 @@ import org.w3c.css.values.CssValue;
 
 /**
  * Be careful, this is not a CSS1 property !
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBorderBottomColor extends CssProperty {
 
   CssBorderFaceColor face;
 
   /**
-   * Create a new CssBorderBottomColor
+   * Create a new CssBorderBottomColorCSS21
    */
   public CssBorderBottomColor() {
     face = new CssBorderFaceColor();
   }
 
   /**
-   * Create a new CssBorderBottomColor with an another CssBorderFaceColor
+   * Create a new CssBorderBottomColorCSS21 with an another CssBorderFaceColor
    *
    * @param another An another face.
    */
@@ -41,7 +41,7 @@ public class CssBorderBottomColor extends CssProperty {
   }
 
   /**
-   * Create a new CssBorderBottomColor
+   * Create a new CssBorderBottomColorCSS21
    *
    * @param expression The expression for this property.
    * @exception InvalidParamException Values are incorrect

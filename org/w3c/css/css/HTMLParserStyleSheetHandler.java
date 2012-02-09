@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HTMLParserStyleSheetHandler.java,v 1.3 2011-11-03 16:00:39 ylafon Exp $
+ * $Id: HTMLParserStyleSheetHandler.java,v 1.4 2012-02-09 17:36:26 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -39,7 +39,7 @@ import org.xml.sax.ext.LexicalHandler;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringBufferInputStream;
+import java.io.StringReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -49,7 +49,7 @@ import static nu.validator.htmlparser.common.XmlViolationPolicy.ALLOW;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -412,7 +412,7 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
                         }
                         styleSheetParser
                                 .parseStyleElement(ac,
-                                        new StringBufferInputStream(text.toString()),
+                                        new StringReader(text.toString()),
                                         title, media,
                                         documentURI, line);
                     }

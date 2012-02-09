@@ -1,4 +1,4 @@
-// $Id: CssHeight.java,v 1.1 2011-09-27 08:15:46 ylafon Exp $
+// $Id: CssHeight.java,v 1.2 2012-02-09 17:36:32 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @spec http://www.w3.org/TR/2007/WD-css3-box-20070809/#height
  */
 public class CssHeight extends org.w3c.css.properties.css.CssHeight {
@@ -65,7 +65,7 @@ public class CssHeight extends org.w3c.css.properties.css.CssHeight {
                 val = ((CssNumber) val).getLength();
             case CssTypes.CSS_LENGTH:
                 lenVal = (CssLength) val;
-                if (lenVal.floatValue() < 0.) {
+                if (!lenVal.isPositive()) {
                     throw new InvalidParamException("negative-value",
                             val.toString(), ac);
                 }

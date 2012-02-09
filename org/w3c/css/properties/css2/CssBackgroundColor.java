@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundColorCSS2.java,v 1.2 2011-09-29 09:08:59 ylafon Exp $
+// $Id: CssBackgroundColor.java,v 1.1 2012-02-09 17:36:30 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,49 +13,31 @@ import org.w3c.css.properties.css1.Css1Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * <H4>
- * &nbsp;&nbsp; 'background-color'
- * </H4>
- * <p/>
- * <EM>Value:</EM> &lt;color&gt; | transparent<BR>
- * <EM>Initial:</EM> transparent<BR>
- * <EM>Applies to:</EM> all elements<BR>
- * <EM>Inherited:</EM> no<BR>
- * <EM>Percentage values:</EM> N/A<BR>
- * <p/>
- * This property sets the background color of an element.
- * <PRE>
- * H1 { background-color: #F00 }
- * </PRE>
- *
- * @version $Revision: 1.2 $
+ * @spec http://www.w3.org/TR/2008/REC-CSS2-20080411/colors.html#propdef-background-color
  */
-public class CssBackgroundColorCSS2 extends CssProperty {
+public class CssBackgroundColor extends org.w3c.css.properties.css.CssBackgroundColor {
 
     public CssValue color;
 
-    public static CssIdent transparent = CssIdent.getIdent("transparent");
-
     /**
-     * Create a new CssBackgroundColorCSS2
+     * Create a new CssBackgroundColor
      */
-    public CssBackgroundColorCSS2() {
+    public CssBackgroundColor() {
         color = transparent;
     }
 
     /**
-     * Create a new CssBackgroundColorCSS2
+     * Create a new CssBackgroundColor
      *
      * @param expression The expression for this property
      * @throws InvalidParamException Values are incorrect
      */
-    public CssBackgroundColorCSS2(ApplContext ac, CssExpression expression,
-                                  boolean check) throws InvalidParamException {
+    public CssBackgroundColor(ApplContext ac, CssExpression expression,
+                              boolean check) throws InvalidParamException {
 
         if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
@@ -87,7 +69,7 @@ public class CssBackgroundColorCSS2 extends CssProperty {
         expression.next();
     }
 
-    public CssBackgroundColorCSS2(ApplContext ac, CssExpression expression)
+    public CssBackgroundColor(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
     }
@@ -138,7 +120,7 @@ public class CssBackgroundColorCSS2 extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        CssBackgroundCSS2 cssBackground = ((Css1Style) style).cssBackgroundCSS2;
+        org.w3c.css.properties.css.CssBackground cssBackground = ((Css1Style) style).cssBackground;
         if (cssBackground.color != null)
             style.addRedefinitionWarning(ac, this);
         cssBackground.color = this;
@@ -152,27 +134,20 @@ public class CssBackgroundColorCSS2 extends CssProperty {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
         if (resolve) {
-            return ((Css1Style) style).getBackgroundColorCSS2();
+            return ((Css1Style) style).getBackgroundColor();
         } else {
-            return ((Css1Style) style).cssBackgroundCSS2.color;
+            return ((Css1Style) style).cssBackground.color;
         }
     }
 
     /**
      * Compares two properties for equality.
      *
-     * @param value The other property.
+     * @param property The other property.
      */
     public boolean equals(CssProperty property) {
-        return (property instanceof CssBackgroundColorCSS2 &&
-                color.equals(((CssBackgroundColorCSS2) property).color));
-    }
-
-    /**
-     * Returns the name of this property
-     */
-    public String getPropertyName() {
-        return "background-color";
+        return (property instanceof CssBackgroundColor &&
+                color.equals(((CssBackgroundColor) property).color));
     }
 
     /**

@@ -1,14 +1,14 @@
 //
-// $Id: CssBackgroundAttachmentCSS1.java,v 1.6 2010-01-05 19:49:50 ylafon Exp $
+// $Id: CssBackgroundAttachment.java,v 1.1 2012-02-09 17:36:30 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css1;
+package org.w3c.css.properties.css2;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css.CssBackgroundAttachment;
 import org.w3c.css.properties.css.CssProperty;
+import org.w3c.css.properties.css1.Css1Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -40,11 +40,15 @@ import java.util.HashMap;
  * }
  * </PRE>
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.1 $
  */
-public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
+public class CssBackgroundAttachment extends org.w3c.css.properties.css.CssBackgroundAttachment {
 
-    private static HashMap<String, CssIdent> allowed_values;
+    public static boolean checkMatchingIdent(CssIdent ident) {
+        return allowed_values.containsValue(ident);
+    }
+
+    private static HashMap<String,CssIdent> allowed_values;
     private static CssIdent scroll;
 
     static {
@@ -57,20 +61,20 @@ public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
     CssIdent value;
 
     /**
-     * Create a new CssBackgroundAttachmentCSS1
+     * Create a new CssBackgroundAttachment
      */
-    public CssBackgroundAttachmentCSS1() {
+    public CssBackgroundAttachment() {
         value = scroll;
     }
 
     /**
-     * Creates a new CssBackgroundAttachmentCSS1
+     * Creates a new CssBackgroundAttachment
      *
      * @param expression The expression for this property
      * @throws InvalidParamException Values are incorrect
      */
-    public CssBackgroundAttachmentCSS1(ApplContext ac, CssExpression expression,
-                                       boolean check) throws InvalidParamException {
+    public CssBackgroundAttachment(ApplContext ac, CssExpression expression,
+                                   boolean check) throws InvalidParamException {
 
         if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
@@ -81,6 +85,11 @@ public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
         CssValue val = expression.getValue();
 
         if (val.getType() == CssTypes.CSS_IDENT) {
+            if (inherit.equals(val)) {
+                value = inherit;
+                expression.next();
+                return;
+            }
             CssIdent new_val = allowed_values.get(val.toString());
             if (new_val != null) {
                 value = new_val;
@@ -88,11 +97,13 @@ public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
                 return;
             }
         }
+
+
         throw new InvalidParamException("value", expression.getValue(),
                 getPropertyName(), ac);
     }
 
-    public CssBackgroundAttachmentCSS1(ApplContext ac, CssExpression expression)
+    public CssBackgroundAttachment(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
     }
@@ -109,7 +120,7 @@ public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
      * e.g. his value equals inherit
      */
     public boolean isSoftlyInherited() {
-        return false;
+        return (inherit == value);
     }
 
     /**
@@ -125,7 +136,7 @@ public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        CssBackgroundCSS1 cssBackground = ((Css1Style) style).cssBackgroundCSS1;
+        org.w3c.css.properties.css.CssBackground cssBackground = ((Css1Style) style).cssBackground;
         if (cssBackground.attachment != null)
             style.addRedefinitionWarning(ac, this);
         cssBackground.attachment = this;
@@ -139,9 +150,9 @@ public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
         if (resolve) {
-            return ((Css1Style) style).getBackgroundAttachmentCSS1();
+            return ((Css1Style) style).getBackgroundAttachment();
         } else {
-            return ((Css1Style) style).cssBackgroundCSS1.attachment;
+            return ((Css1Style) style).cssBackground.attachment;
         }
     }
 
@@ -151,8 +162,8 @@ public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
      * @param property The other property.
      */
     public boolean equals(CssProperty property) {
-        return (property instanceof CssBackgroundAttachmentCSS1 &&
-                value == ((CssBackgroundAttachmentCSS1) property).value);
+        return (property instanceof CssBackgroundAttachment &&
+                value == ((CssBackgroundAttachment) property).value);
     }
 
     /**
@@ -162,4 +173,5 @@ public class CssBackgroundAttachmentCSS1 extends CssBackgroundAttachment {
     public boolean isDefault() {
         return (scroll == value);
     }
+
 }

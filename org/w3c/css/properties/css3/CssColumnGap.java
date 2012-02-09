@@ -1,4 +1,4 @@
-// $Id: CssColumnGap.java,v 1.8 2011-10-23 14:42:32 ylafon Exp $
+// $Id: CssColumnGap.java,v 1.9 2012-02-09 17:36:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -46,7 +46,6 @@ public class CssColumnGap extends org.w3c.css.properties.css.CssColumnGap {
                         boolean check) throws InvalidParamException {
         setByUser();
         CssValue val = expression.getValue();
-        Float value;
 
         if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
@@ -56,8 +55,8 @@ public class CssColumnGap extends org.w3c.css.properties.css.CssColumnGap {
             case CssTypes.CSS_NUMBER:
                 val = ((CssNumber) val).getLength();
             case CssTypes.CSS_LENGTH:
-                value = (Float) ((CssLength) val).get();
-                if (value == null || value.floatValue() < 0.0) {
+                CssLength l = (CssLength) val;
+                if (l == null || !l.isPositive()) {
                     throw new InvalidParamException("negative-value",
                             expression.getValue(),
                             getPropertyName(), ac);

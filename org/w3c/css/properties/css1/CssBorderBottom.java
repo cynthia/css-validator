@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderBottom.java,v 1.5 2011-09-09 12:16:43 ylafon Exp $
+// $Id: CssBorderBottom.java,v 1.6 2012-02-09 17:36:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -47,7 +47,7 @@ import org.w3c.css.values.CssValue;
  *   Note that while the 'border-style' property accepts up to four values, this
  *   property only accepts one style value.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBorderBottom extends CssProperty implements CssOperator {
 
@@ -145,7 +145,7 @@ public class CssBorderBottom extends CssProperty implements CssOperator {
 	if (style == null)
 	    style = new CssBorderBottomStyle();
 	if (color == null)
-	    color = new CssBorderBottomColor();
+	    color = new CssBorderBottomColorCSS21();
 	*/
     }
 

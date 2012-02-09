@@ -1,4 +1,4 @@
-// $Id: MediaWidth.java,v 1.1 2011-10-21 01:49:08 ylafon Exp $
+// $Id: MediaWidth.java,v 1.2 2012-02-09 17:36:27 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ECRIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -48,7 +48,7 @@ public class MediaWidth extends MediaFeature {
                     val = ((CssNumber) val).getLength();
                 case CssTypes.CSS_LENGTH:
                     CssLength l = (CssLength) val;
-                    if (l.floatValue() < 0.f) {
+                    if (!l.isPositive()) {
                         throw new InvalidParamException("negative-value",
                                 val.toString(), ac);
                     }

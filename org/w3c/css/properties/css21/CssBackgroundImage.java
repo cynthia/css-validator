@@ -1,14 +1,13 @@
 //
-// $Id: CssBackgroundImageCSS2.java,v 1.1 2010-01-05 13:49:46 ylafon Exp $
+// $Id: CssBackgroundImage.java,v 1.1 2012-02-09 17:36:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 
-package org.w3c.css.properties.css2;
+package org.w3c.css.properties.css21;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css.CssBackgroundImage;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.properties.css1.Css1Style;
 import org.w3c.css.util.ApplContext;
@@ -39,31 +38,33 @@ import org.w3c.css.values.CssValue;
  *
  * @version $Revision: 1.1 $
  */
-public class CssBackgroundImageCSS2 extends CssBackgroundImage {
+public class CssBackgroundImage extends org.w3c.css.properties.css.CssBackgroundImage {
 
     public CssValue url = null;
 
-    static public boolean checkMatchingIdent(CssIdent idval) {
-        return none.equals(idval);
+
+    public static boolean checkMatchingIdent(CssIdent ident) {
+        return none.equals(ident);
     }
 
     /**
-     * Create a new CssBackgroundImageCSS2
+     * Create a new CssBackgroundImage
      */
-    public CssBackgroundImageCSS2() {
+    public CssBackgroundImage() {
         url = none;
     }
 
     /**
-     * Creates a new CssBackgroundImageCSS2
+     * Creates a new CssBackgroundImage
      *
-     * @param ac  The context
+     * @param ac         The context
      * @param expression The expression for this property
-     * @param check if count check must be performed
-     * @throws InvalidParamException Values are incorrect
+     * @param check      if count check must be performed
+     * @throws org.w3c.css.util.InvalidParamException
+     *          Values are incorrect
      */
-    public CssBackgroundImageCSS2(ApplContext ac, CssExpression expression,
-                                  boolean check) throws InvalidParamException {
+    public CssBackgroundImage(ApplContext ac, CssExpression expression,
+                              boolean check) throws InvalidParamException {
 
         if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
@@ -92,7 +93,7 @@ public class CssBackgroundImageCSS2 extends CssBackgroundImage {
         expression.next();
     }
 
-    public CssBackgroundImageCSS2(ApplContext ac, CssExpression expression)
+    public CssBackgroundImage(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
     }
@@ -126,7 +127,7 @@ public class CssBackgroundImageCSS2 extends CssBackgroundImage {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        CssBackgroundCSS2 cssBackground = ((Css1Style) style).cssBackgroundCSS2;
+        org.w3c.css.properties.css.CssBackground cssBackground = ((Css1Style) style).cssBackground;
         if (cssBackground.image != null) {
             style.addRedefinitionWarning(ac, this);
         }
@@ -141,9 +142,9 @@ public class CssBackgroundImageCSS2 extends CssBackgroundImage {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
         if (resolve) {
-            return ((Css1Style) style).getBackgroundImageCSS2();
+            return ((Css1Style) style).getBackgroundImage();
         } else {
-            return ((Css1Style) style).cssBackgroundCSS2.image;
+            return ((Css1Style) style).cssBackground.image;
         }
     }
 
@@ -154,9 +155,9 @@ public class CssBackgroundImageCSS2 extends CssBackgroundImage {
      */
     public boolean equals(CssProperty property) {
         return ((property == null && url == null)
-                || (property instanceof CssBackgroundImageCSS2 &&
+                || (property instanceof CssBackgroundImage &&
                 url != null &&
-                url.equals(((CssBackgroundImageCSS2) property).url)));
+                url.equals(((CssBackgroundImage) property).url)));
     }
 
     /**

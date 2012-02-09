@@ -1,4 +1,4 @@
-// $Id: CssBorderColorCSS21.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
+// $Id: CssBorderColorCSS21.java,v 1.3 2012-02-09 17:36:32 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html

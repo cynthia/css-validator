@@ -1,5 +1,5 @@
 //
-// $Id: CssBorder.java,v 1.6 2011-09-27 08:15:45 ylafon Exp $
+// $Id: CssBorder.java,v 1.7 2012-02-09 17:36:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssBorder extends CssProperty implements CssOperator {
 
@@ -182,7 +182,7 @@ public class CssBorder extends CssProperty implements CssOperator {
 //	top = new CssBorderTop(ac, expression);
 /*
 	right = new CssBorderRight();
-	bottom = new CssBorderBottom();
+	bottom = new CssBorderBottomCSS21();
 	left = new CssBorderLeft();*/
 /*
 	right.width  =  new CssBorderRightWidth((CssBorderFaceWidth) top.width.get());
@@ -195,7 +195,7 @@ public class CssBorder extends CssProperty implements CssOperator {
 
 	right.color  = 	new CssBorderRightColor((CssBorderFaceColor) top.color.get());
 	left.color   =  new CssBorderLeftColor((CssBorderFaceColor) top.color.get());
-	bottom.color =  new CssBorderBottomColor((CssBorderFaceColor) top.color.get());
+	bottom.color =  new CssBorderBottomColorCSS21((CssBorderFaceColor) top.color.get());
 */
     }
 

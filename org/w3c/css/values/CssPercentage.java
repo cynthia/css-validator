@@ -1,5 +1,5 @@
 //
-// $Id: CssPercentage.java,v 1.9 2011-09-27 08:15:46 ylafon Exp $
+// $Id: CssPercentage.java,v 1.10 2012-02-09 17:36:33 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -9,7 +9,8 @@ package org.w3c.css.values;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.Util;
+
+import java.math.BigDecimal;
 
 /**
  * <H3>
@@ -31,7 +32,7 @@ import org.w3c.css.util.Util;
  * In all inherited CSS1 properties, if the value is specified as a percentage,
  * child elements inherit the resultant value, not the percentage value.
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class CssPercentage extends CssValue {
 
@@ -41,14 +42,14 @@ public class CssPercentage extends CssValue {
         return type;
     }
 
-    static Float defaultValue = new Float(0);
-    Float value;
+    private BigDecimal defaultValue = BigDecimal.ZERO;
+    private BigDecimal value;
 
     /**
      * Create a new CssPercentage
      */
     public CssPercentage() {
-        this(defaultValue);
+        this.value = defaultValue;
     }
 
     /**
@@ -57,7 +58,7 @@ public class CssPercentage extends CssValue {
      * @param value The value.
      */
     public CssPercentage(int value) {
-        this(new Float(value));
+        this(new BigDecimal(value));
     }
 
     /**
@@ -66,7 +67,7 @@ public class CssPercentage extends CssValue {
      * @param value the float value.
      */
     public CssPercentage(float value) {
-        this(new Float(value));
+        this(new BigDecimal(value));
     }
 
     /**
@@ -74,7 +75,7 @@ public class CssPercentage extends CssValue {
      *
      * @param value the Float object.
      */
-    public CssPercentage(Float value) {
+    public CssPercentage(BigDecimal value) {
         this.value = value;
     }
 
@@ -90,14 +91,42 @@ public class CssPercentage extends CssValue {
         if (s.charAt(slength - 1) != '%') {
             throw new InvalidParamException("percentage", s, ac);
         }
-        this.value = new Float(s.substring(0, slength - 1));
+        this.value = new BigDecimal(s.substring(0, slength - 1));
     }
 
     /**
      * Returns the current value
      */
     public Object get() {
-        return value;
+        // TODO FIXME
+        return new Float(value.floatValue());
+    }
+
+    /**
+     * Returns true is the value is positive of null
+     *
+     * @return a boolean
+     */
+    public boolean isPositive() {
+        return (value.signum() >= 0);
+    }
+
+    /**
+     * Returns true is the value is positive of null
+     *
+     * @return a boolean
+     */
+    public boolean isStrictlyPositive() {
+        return (value.signum() == 1);
+    }
+
+    /**
+     * Returns true is the value is zero
+     *
+     * @return a boolean
+     */
+    public boolean isZero() {
+        return BigDecimal.ZERO.equals(value);
     }
 
     /**
@@ -111,7 +140,9 @@ public class CssPercentage extends CssValue {
      * Returns a string representation of the object.
      */
     public String toString() {
-        return Util.displayFloat(value) + "%";
+        StringBuilder sb = new StringBuilder();
+        sb.append(value.toPlainString()).append('%');
+        return sb.toString();
     }
 
     /**

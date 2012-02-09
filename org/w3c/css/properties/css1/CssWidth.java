@@ -1,4 +1,4 @@
-// $Id: CssWidth.java,v 1.5 2011-09-27 08:15:45 ylafon Exp $
+// $Id: CssWidth.java,v 1.6 2012-02-09 17:36:29 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#width
  */
 public class CssWidth extends org.w3c.css.properties.css.CssWidth {
@@ -61,7 +61,7 @@ public class CssWidth extends org.w3c.css.properties.css.CssWidth {
                 val = ((CssNumber) val).getLength();
             case CssTypes.CSS_LENGTH:
                 lenVal = (CssLength) val;
-                if (lenVal.floatValue() < 0.) {
+                if (!lenVal.isPositive()) {
                     throw new InvalidParamException("negative-value",
                             val.toString(), ac);
                 }

@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.15 2011-10-21 01:49:10 ylafon Exp $
+// $Id: Css3Style.java,v 1.16 2012-02-09 17:36:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -114,8 +114,6 @@ public class Css3Style extends ATSCStyle {
     public CssBackgroundSize cssBackgroundSize;
     public CssBackgroundOrigin cssBackgroundOrigin;
     CssTextDecorationCSS3 cssTextDecoration;
-    CssWhiteSpaceCSS3 cssWhiteSpace;
-    CssWordSpacingCSS3 cssWordSpacing;
     CssAllSpaceTreatment cssAllSpaceTreatment;
     CssHangingPunctuation cssHangingPunctuation;
     CssLineGrid cssLineGrid;
@@ -975,24 +973,6 @@ public class Css3Style extends ATSCStyle {
                             new CssTextDecorationCSS3(), style, selector);
         }
         return cssTextDecoration;
-    }
-
-    public CssWhiteSpaceCSS3 getCssWhiteSpace() {
-        if (cssWhiteSpace == null) {
-            cssWhiteSpace =
-                    (CssWhiteSpaceCSS3) style.CascadingOrder(
-                            new CssWhiteSpaceCSS3(), style, selector);
-        }
-        return cssWhiteSpace;
-    }
-
-    public CssWordSpacingCSS3 getCssWordSpacing() {
-        if (cssWordSpacing == null) {
-            cssWordSpacing =
-                    (CssWordSpacingCSS3) style.CascadingOrder(
-                            new CssWordSpacingCSS3(), style, selector);
-        }
-        return cssWordSpacing;
     }
 
     public CssAllSpaceTreatment getAllSpaceTreatment() {

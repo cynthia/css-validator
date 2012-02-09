@@ -1,4 +1,4 @@
-// $Id: CssValueList.java,v 1.1 2010-01-05 13:50:01 ylafon Exp $
+// $Id: CssValueList.java,v 1.2 2012-02-09 17:36:33 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -70,10 +70,15 @@ public class CssValueList extends CssValue {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        boolean first = true;
         for (CssValue aCssValue: value) {
-            sb.append(aCssValue.toString()).append(" ");
+            if (!first) {
+                sb.append(' ');
+            } else {
+                first = false;
+            }
+            sb.append(aCssValue.toString());
         }
-        sb.setLength(sb.length()-1);
         return sb.toString();
     }
 

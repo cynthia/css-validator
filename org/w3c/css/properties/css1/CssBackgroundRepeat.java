@@ -1,15 +1,13 @@
 //
-// $Id: CssBackgroundRepeatCSS2.java,v 1.3 2011-10-04 13:05:24 ylafon Exp $
+// $Id: CssBackgroundRepeat.java,v 1.5 2012-02-09 17:36:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css2;
+package org.w3c.css.properties.css1;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css.CssBackgroundRepeat;
-import org.w3c.css.properties.css.CssProperty;
-import org.w3c.css.properties.css1.Css1Style;
+import org.w3c.css.properties.css.*;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -46,15 +44,10 @@ import java.util.HashMap;
  * <p/>
  * In the example above, the image will only be repeated vertically.
  *
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.5 $
  */
-public class CssBackgroundRepeatCSS2 extends CssBackgroundRepeat {
-    // FIXME TODO is that the best way ?
+public class CssBackgroundRepeat extends org.w3c.css.properties.css.CssBackgroundRepeat {
 
-    public static boolean checkMatchingIdent(CssIdent ident) {
-        return allowed_values.containsValue(ident);
-    }
-    
     private static HashMap<String, CssIdent> allowed_values;
 
     static {
@@ -68,10 +61,11 @@ public class CssBackgroundRepeatCSS2 extends CssBackgroundRepeat {
 
     public CssValue value;
 
+
     /**
-     * Create a new CssBackgroundRepeatCSS2
+     * Create a new CssBackgroundRepeat
      */
-    public CssBackgroundRepeatCSS2() {
+    public CssBackgroundRepeat() {
         value = repeat;
     }
 
@@ -81,9 +75,8 @@ public class CssBackgroundRepeatCSS2 extends CssBackgroundRepeat {
      * @param expression The expression for this property
      * @throws InvalidParamException The expression is incorrect
      */
-    public CssBackgroundRepeatCSS2(ApplContext ac, CssExpression expression,
-                                   boolean check) throws InvalidParamException {
-
+    public CssBackgroundRepeat(ApplContext ac, CssExpression expression,
+                               boolean check) throws InvalidParamException {
         if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
@@ -95,19 +88,15 @@ public class CssBackgroundRepeatCSS2 extends CssBackgroundRepeat {
             throw new InvalidParamException("value", expression.getValue(),
                     getPropertyName(), ac);
         }
-        if (inherit.equals(val)) {
-            value = inherit;
-        } else {
-            value = allowed_values.get(val.toString());
-            if (value == null) {
-                throw new InvalidParamException("value", expression.getValue(),
-                        getPropertyName(), ac);
-            }
+        value = allowed_values.get(val.toString());
+        if (value == null) {
+            throw new InvalidParamException("value", expression.getValue(),
+                    getPropertyName(), ac);
         }
         expression.next();
     }
 
-    public CssBackgroundRepeatCSS2(ApplContext ac, CssExpression expression)
+    public CssBackgroundRepeat(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
     }
@@ -120,20 +109,27 @@ public class CssBackgroundRepeatCSS2 extends CssBackgroundRepeat {
     }
 
     /**
+     * Returns true if this property is "softly" inherited
+     * e.g. his value equals inherit
+     */
+    public boolean isSoftlyInherited() {
+        return false;
+    }
+
+    /**
      * Returns a string representation of the object.
      */
     public String toString() {
         return value.toString();
     }
 
-    // TODO FIXME get rid of this when Css1Style gets only one background
     /**
      * Add this property to the CssStyle.
      *
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        CssBackgroundCSS2 cssBackground = ((Css1Style) style).cssBackgroundCSS2;
+        org.w3c.css.properties.css.CssBackground cssBackground = ((Css1Style) style).cssBackground;
         if (cssBackground.repeat != null)
             style.addRedefinitionWarning(ac, this);
         cssBackground.repeat = this;
@@ -147,9 +143,9 @@ public class CssBackgroundRepeatCSS2 extends CssBackgroundRepeat {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
         if (resolve) {
-            return ((Css1Style) style).getBackgroundRepeatCSS2();
+            return ((Css1Style) style).getBackgroundRepeat();
         } else {
-            return ((Css1Style) style).cssBackgroundCSS2.repeat;
+            return ((Css1Style) style).cssBackground.repeat;
         }
     }
 
@@ -159,8 +155,8 @@ public class CssBackgroundRepeatCSS2 extends CssBackgroundRepeat {
      * @param property The other property.
      */
     public boolean equals(CssProperty property) {
-        return (property instanceof CssBackgroundRepeatCSS2 &&
-                value == ((CssBackgroundRepeatCSS2) property).value);
+        return (property instanceof CssBackgroundRepeat &&
+                value == ((CssBackgroundRepeat) property).value);
     }
 
     /**

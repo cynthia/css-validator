@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundColorMob.java,v 1.5 2011-09-29 09:08:59 ylafon Exp $
+// $Id: CssBackgroundColorMob.java,v 1.6 2012-02-09 17:36:28 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@ package org.w3c.css.properties.css1;
 
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
-import org.w3c.css.properties.css2.CssBackgroundColorCSS2;
+import org.w3c.css.properties.css2.CssBackgroundColor;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -31,7 +31,7 @@ import org.w3c.css.values.CssValue;
  *   <PRE>
  *   H1 { background-color: #F00 }
  *   </PRE>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBackgroundColorMob extends CssProperty {
 
@@ -155,8 +155,8 @@ public class CssBackgroundColorMob extends CssProperty {
      * @param value The other property.
      */
     public boolean equals(CssProperty property) {
-	return (property instanceof CssBackgroundColorCSS2 && color != null &&
-		color.equals( ((CssBackgroundColorCSS2) property).color));
+	return (property instanceof CssBackgroundColor && color != null &&
+		color.equals( ((CssBackgroundColor) property).color));
     }
 
     /**

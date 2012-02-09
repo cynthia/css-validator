@@ -1,21 +1,22 @@
 //
-// $Id: CssBackgroundCSS1.java,v 1.9 2011-10-04 13:05:24 ylafon Exp $
+// $Id: CssBackground.java,v 1.1 2012-02-09 17:36:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css1;
+package org.w3c.css.properties.css2;
 
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css.CssBackground;
-import org.w3c.css.properties.css.CssBackgroundConstants;
 import org.w3c.css.properties.css.CssProperty;
+import org.w3c.css.properties.css1.Css1Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssOperator;
+import org.w3c.css.values.CssString;
 import org.w3c.css.values.CssValue;
+
+import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
  * <H4>
@@ -47,28 +48,54 @@ import org.w3c.css.values.CssValue;
  * set to their initial value. In the second rule, all individual properties
  * have been specified.
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.1 $
  * @see org.w3c.css.properties.css.CssBackgroundColor
  * @see org.w3c.css.properties.css.CssBackgroundImage
  * @see org.w3c.css.properties.css.CssBackgroundRepeat
  * @see org.w3c.css.properties.css.CssBackgroundAttachment
  * @see org.w3c.css.properties.css.CssBackgroundPosition
  */
-public class CssBackgroundCSS1 extends CssBackground
-        implements CssOperator, CssBackgroundConstants {
+public class CssBackground extends org.w3c.css.properties.css.CssBackground {
 
-    CssBackgroundColorCSS1 color;
-    CssBackgroundImageCSS1 image;
-    CssBackgroundRepeatCSS1 repeat;
-    CssBackgroundAttachmentCSS1 attachment;
-    CssBackgroundPositionCSS1 position;
+    public CssBackgroundColor color;
+    public CssBackgroundImage image;
+    public CssBackgroundRepeat repeat;
+    public CssBackgroundAttachment attachment;
+    public CssBackgroundPosition position;
 
-    boolean same;
+    public boolean same;
 
     /**
-     * Create a new CssBackgroundCSS1
+     * Duplicate this property.
+     *
+     * @see org.w3c.css.css.CssCascadingOrder#order
      */
-    public CssBackgroundCSS1() {
+    public CssProperty duplicate() {
+        CssBackground cloned = (CssBackground) super.duplicate();
+        if (cloned != null) {
+            if (color != null) {
+                cloned.color = (CssBackgroundColor) color.duplicate();
+            }
+            if (image != null) {
+                cloned.image = (CssBackgroundImage) image.duplicate();
+            }
+            if (repeat != null) {
+                cloned.repeat = (CssBackgroundRepeat) repeat.duplicate();
+            }
+            if (attachment != null) {
+                cloned.attachment = (CssBackgroundAttachment) attachment.duplicate();
+            }
+            if (position != null) {
+                cloned.position = (CssBackgroundPosition) position.duplicate();
+            }
+        }
+        return cloned;
+    }
+
+    /**
+     * Create a new CssBackground
+     */
+    public CssBackground() {
     }
 
     /**
@@ -77,8 +104,8 @@ public class CssBackgroundCSS1 extends CssBackground
      * @param expression The expression for this property
      * @throws InvalidParamException The expression is incorrect
      */
-    public CssBackgroundCSS1(ApplContext ac, CssExpression expression,
-                             boolean check) throws InvalidParamException {
+    public CssBackground(ApplContext ac, CssExpression expression,
+                         boolean check) throws InvalidParamException {
 
         CssValue val;
         char op;
@@ -91,6 +118,8 @@ public class CssBackgroundCSS1 extends CssBackground
 
         setByUser();
 
+        boolean manyValues = (expression.getCount() > 1);
+
         while (find) {
             find = false;
             val = expression.getValue();
@@ -100,16 +129,34 @@ public class CssBackgroundCSS1 extends CssBackground
                 break;
             }
 
+            if (inherit.equals(val)) {
+                if (manyValues) {
+            // if there are many values, we can't have inherit as one of them
+                    throw new InvalidParamException("unrecognize", null, null, ac);
+                }
+                same = true;
+                expression.next();
+                // we exit as find is false
+                continue;
+            }
+
+
+            // quoted strings are not allowed (CssString)
+            if (check && (val instanceof CssString)) {
+                throw new InvalidParamException("unrecognize", ac);
+            }
+
             if (color == null) {
                 try {
-                    color = new CssBackgroundColorCSS1(ac, expression);
+                    color = new CssBackgroundColor(ac, expression);
                     find = true;
                 } catch (InvalidParamException e) {
+                    // nothing to do, image will test this value
                 }
             }
             if (!find && image == null) {
                 try {
-                    image = new CssBackgroundImageCSS1(ac, expression);
+                    image = new CssBackgroundImage(ac, expression);
                     find = true;
                 } catch (InvalidParamException e) {
                     // nothing to do, repeat will test this value
@@ -117,7 +164,7 @@ public class CssBackgroundCSS1 extends CssBackground
             }
             if (!find && repeat == null) {
                 try {
-                    repeat = new CssBackgroundRepeatCSS1(ac, expression);
+                    repeat = new CssBackgroundRepeat(ac, expression);
                     find = true;
                 } catch (InvalidParamException e) {
                     // nothing to do, attachment will test this value
@@ -125,7 +172,7 @@ public class CssBackgroundCSS1 extends CssBackground
             }
             if (!find && attachment == null) {
                 try {
-                    attachment = new CssBackgroundAttachmentCSS1(ac, expression);
+                    attachment = new CssBackgroundAttachment(ac, expression);
                     find = true;
                 } catch (InvalidParamException e) {
                     // nothing to do, position will test this value
@@ -133,7 +180,7 @@ public class CssBackgroundCSS1 extends CssBackground
             }
             if (!find && position == null) {
                 try {
-                    position = new CssBackgroundPositionCSS1(ac, expression);
+                    position = new CssBackgroundPosition(ac, expression);
                     find = true;
                 } catch (InvalidParamException e) {
                     // nothing to do
@@ -144,27 +191,99 @@ public class CssBackgroundCSS1 extends CssBackground
                         ((new Character(op)).toString()),
                         ac);
             }
-            if (check && !find && val != null) {
+            if (!find && val != null) {
                 throw new InvalidParamException("unrecognize", ac);
             }
         }
-        /*
-      if (color == null)
-          color = new CssBackgroundColorCSS1();
-      if (image == null)
-          image = new CssBackgroundImageCSS1();
-      if (repeat == null)
-          repeat = new CssBackgroundRepeatCSS1();
-      if (attachment == null)
-          attachment = new CssBackgroundAttachmentCSS1();
-      if (position == null)
-          position = new CssBackgroundPositionCSS1();
-      */
     }
 
-    public CssBackgroundCSS1(ApplContext ac, CssExpression expression)
+    public CssBackground(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
+    }
+
+    /**
+     * @return Returns the attachment.
+     */
+    public CssBackgroundAttachment getAttachment() {
+        return attachment;
+    }
+
+    /**
+     * @param attachment The attachment to set.
+     */
+    public void setAttachment(CssBackgroundAttachment attachment) {
+        this.attachment = attachment;
+    }
+
+    /**
+     * @return Returns the image.
+     */
+    public CssBackgroundImage getImage() {
+        return image;
+    }
+
+    /**
+     * @param image The image to set.
+     */
+    public void setImage(CssBackgroundImage image) {
+        this.image = image;
+    }
+
+    /**
+     * @return Returns the repeat.
+     */
+    public CssBackgroundRepeat getRepeat() {
+        return repeat;
+    }
+
+    /**
+     * @param repeat The repeat to set.
+     */
+    public void setRepeat(CssBackgroundRepeat repeat) {
+        this.repeat = repeat;
+    }
+
+    /**
+     * @return Returns the same.
+     */
+    public boolean isSame() {
+        return same;
+    }
+
+    /**
+     * @param same The same to set.
+     */
+    public void setSame(boolean same) {
+        this.same = same;
+    }
+
+    /**
+     * Returns the color
+     */
+    public final CssBackgroundColor getColor2() {
+        return color;
+    }
+
+    /**
+     * @param color The color to set.
+     */
+    public void setColor(CssBackgroundColor color) {
+        this.color = color;
+    }
+
+    /**
+     * @return Returns the position.
+     */
+    public CssBackgroundPosition getPosition() {
+        return position;
+    }
+
+    /**
+     * @param position The position to set.
+     */
+    public void setPosition(CssBackgroundPosition position) {
+        this.position = position;
     }
 
     /**
@@ -189,41 +308,45 @@ public class CssBackgroundCSS1 extends CssBackground
      * Returns a string representation of the object.
      */
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        boolean first = true;
-        if (color != null) {
-            sb.append(color);
-            first = false;
-        }
-        if (image != null) {
-            if (!first) {
-                sb.append(' ');
+        if (same) {
+            return inherit.toString();
+        } else {
+            StringBuilder sb = new StringBuilder();
+            boolean addspace = false;
+
+            if (color != null) {
+                sb.append(color);
+                addspace = true;
             }
-            sb.append(image);
-            first = false;
-        }
-        if (repeat != null) {
-            if (!first) {
-                sb.append(' ');
+            if (image != null) {
+                if (addspace) {
+                    sb.append(' ');
+                }
+                sb.append(image);
+                addspace = true;
             }
-            first = false;
-            sb.append(repeat);
-        }
-        if (attachment != null) {
-            if (!first) {
-                sb.append(' ');
+            if (repeat != null) {
+                if (addspace) {
+                    sb.append(' ');
+                }
+                sb.append(repeat);
+                addspace = true;
             }
-            first = false;
-            sb.append(attachment);
-        }
-        if (position != null) {
-            if (!first) {
-                sb.append(' ');
+            if (attachment != null) {
+                if (addspace) {
+                    sb.append(' ');
+                }
+                sb.append(attachment);
+                addspace = true;
             }
-            first = false;
-            sb.append(position);
+            if (position != null) {
+                if (addspace) {
+                    sb.append(' ');
+                }
+                sb.append(position);
+            }
+            return sb.toString();
         }
-        return sb.toString();
     }
 
     /**
@@ -231,7 +354,7 @@ public class CssBackgroundCSS1 extends CssBackground
      * Overrides this method for a macro
      */
     public void setImportant() {
-        super.setImportant();
+        important = true;
         if (color != null) {
             color.important = true;
         }
@@ -254,7 +377,10 @@ public class CssBackgroundCSS1 extends CssBackground
      * Overrides this method for a macro
      */
     public boolean getImportant() {
-        return important && ((color == null || color.important) &&
+        if (same) {
+            return important;
+        }
+        return ((color == null || color.important) &&
                 (image == null || image.important) &&
                 (repeat == null || repeat.important) &&
                 (attachment == null || attachment.important) &&
@@ -361,4 +487,5 @@ public class CssBackgroundCSS1 extends CssBackground
             position.setInfo(line, source);
         }
     }
+
 }

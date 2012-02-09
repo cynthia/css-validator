@@ -1,14 +1,14 @@
 //
-// $Id: CssBackgroundRepeatCSS1.java,v 1.6 2010-01-05 19:49:50 ylafon Exp $
+// $Id: CssBackgroundAttachment.java,v 1.1 2012-02-09 17:36:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css1;
+package org.w3c.css.properties.css21;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css.CssBackgroundRepeat;
 import org.w3c.css.properties.css.CssProperty;
+import org.w3c.css.properties.css1.Css1Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -20,84 +20,90 @@ import java.util.HashMap;
 
 /**
  * <H4>
- * <A NAME="background-repeat">5.3.4 &nbsp;&nbsp; 'background-repeat'</A>
+ * &nbsp;&nbsp; 'background-attachment'
  * </H4>
  * <p/>
- * <EM>Value:</EM> repeat | repeat-x | repeat-y | no-repeat<BR>
- * <EM>Initial:</EM> repeat<BR>
+ * <EM>Value:</EM> scroll | fixed<BR>
+ * <EM>Initial:</EM> scroll<BR>
  * <EM>Applies to:</EM> all elements<BR>
  * <EM>Inherited:</EM> no<BR>
  * <EM>Percentage values:</EM> N/A<BR>
  * <p/>
- * If a background image is specified, the value of 'background-repeat' determines
- * how/if the image is repeated.
- * <p/>
- * A value of 'repeat' means that the image is repeated both horizontally and
- * vertically. The 'repeat-x' ('repeat-y') value makes the image repeat horizontally
- * (vertically), to create a single band of images from one side to the other.
- * With a value of 'no-repeat', the image is not repeated.
+ * If a background image is specified, the value of 'background-attachment'
+ * determines if it is fixed with regard to the canvas or if it scrolls along
+ * with the content.
  * <PRE>
  * BODY {
  * background: red url(pendant.gif);
  * background-repeat: repeat-y;
+ * background-attachment: fixed;
  * }
  * </PRE>
- * <p/>
- * In the example above, the image will only be repeated vertically.
  *
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.1 $
  */
-public class CssBackgroundRepeatCSS1 extends CssBackgroundRepeat {
+public class CssBackgroundAttachment extends org.w3c.css.properties.css.CssBackgroundAttachment {
 
-    private static HashMap<String, CssIdent> allowed_values;
+    public static boolean checkMatchingIdent(CssIdent ident) {
+        return allowed_values.containsValue(ident);
+    }
+
+    private static HashMap<String,CssIdent> allowed_values;
+    private static CssIdent scroll;
 
     static {
         allowed_values = new HashMap<String, CssIdent>();
-        String[] REPEAT = {"repeat", "repeat-x", "repeat-y", "no-repeat"};
-
-        for (String aREPEAT : REPEAT) {
-            allowed_values.put(aREPEAT, CssIdent.getIdent(aREPEAT));
-        }
+        scroll = CssIdent.getIdent("scroll");
+        allowed_values.put("scroll", scroll);
+        allowed_values.put("fixed", CssIdent.getIdent("fixed"));
     }
 
-    public CssValue value;
-
+    CssIdent value;
 
     /**
-     * Create a new CssBackgroundRepeatCSS1
+     * Create a new CssBackgroundAttachment
      */
-    public CssBackgroundRepeatCSS1() {
-        value = repeat;
+    public CssBackgroundAttachment() {
+        value = scroll;
     }
 
     /**
-     * Set the value of the property
+     * Creates a new CssBackgroundAttachment
      *
      * @param expression The expression for this property
-     * @throws InvalidParamException The expression is incorrect
+     * @throws org.w3c.css.util.InvalidParamException Values are incorrect
      */
-    public CssBackgroundRepeatCSS1(ApplContext ac, CssExpression expression,
+    public CssBackgroundAttachment(ApplContext ac, CssExpression expression,
                                    boolean check) throws InvalidParamException {
+
         if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
 
-        CssValue val = expression.getValue();
         setByUser();
 
-        if (val.getType() != CssTypes.CSS_IDENT) {
-            throw new InvalidParamException("value", expression.getValue(),
-                    getPropertyName(), ac);
+        CssValue val = expression.getValue();
+
+        if (val.getType() == CssTypes.CSS_IDENT) {
+            if (inherit.equals(val)) {
+                value = inherit;
+                expression.next();
+                return;
+            }
+            CssIdent new_val = allowed_values.get(val.toString());
+            if (new_val != null) {
+                value = new_val;
+                expression.next();
+                return;
+            }
         }
-        value = allowed_values.get(val.toString());
-        if (value == null) {
-            throw new InvalidParamException("value", expression.getValue(),
-                    getPropertyName(), ac);
-        }
-        expression.next();
+
+
+        throw new InvalidParamException("value", expression.getValue(),
+                getPropertyName(), ac);
     }
 
-    public CssBackgroundRepeatCSS1(ApplContext ac, CssExpression expression)
+    public CssBackgroundAttachment(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
     }
@@ -114,7 +120,7 @@ public class CssBackgroundRepeatCSS1 extends CssBackgroundRepeat {
      * e.g. his value equals inherit
      */
     public boolean isSoftlyInherited() {
-        return false;
+        return (inherit == value);
     }
 
     /**
@@ -130,10 +136,10 @@ public class CssBackgroundRepeatCSS1 extends CssBackgroundRepeat {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        CssBackgroundCSS1 cssBackground = ((Css1Style) style).cssBackgroundCSS1;
-        if (cssBackground.repeat != null)
+        org.w3c.css.properties.css.CssBackground cssBackground = ((Css1Style) style).cssBackground;
+        if (cssBackground.attachment != null)
             style.addRedefinitionWarning(ac, this);
-        cssBackground.repeat = this;
+        cssBackground.attachment = this;
     }
 
     /**
@@ -144,9 +150,9 @@ public class CssBackgroundRepeatCSS1 extends CssBackgroundRepeat {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
         if (resolve) {
-            return ((Css1Style) style).getBackgroundRepeatCSS1();
+            return ((Css1Style) style).getBackgroundAttachment();
         } else {
-            return ((Css1Style) style).cssBackgroundCSS1.repeat;
+            return ((Css1Style) style).cssBackground.attachment;
         }
     }
 
@@ -156,8 +162,8 @@ public class CssBackgroundRepeatCSS1 extends CssBackgroundRepeat {
      * @param property The other property.
      */
     public boolean equals(CssProperty property) {
-        return (property instanceof CssBackgroundRepeatCSS1 &&
-                value == ((CssBackgroundRepeatCSS1) property).value);
+        return (property instanceof CssBackgroundAttachment &&
+                value == ((CssBackgroundAttachment) property).value);
     }
 
     /**
@@ -165,9 +171,7 @@ public class CssBackgroundRepeatCSS1 extends CssBackgroundRepeat {
      * It is used by all macro for the function <code>print</code>
      */
     public boolean isDefault() {
-        return (repeat == value);
+        return (scroll == value);
     }
+
 }
-
-
-

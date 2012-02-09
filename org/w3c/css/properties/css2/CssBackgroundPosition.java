@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundPositionCSS2.java,v 1.2 2010-01-05 19:49:51 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.1 2012-02-09 17:36:30 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,6 @@
 package org.w3c.css.properties.css2;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css.CssBackgroundPosition;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.properties.css1.Css1Style;
 import org.w3c.css.util.ApplContext;
@@ -98,10 +97,10 @@ import static org.w3c.css.values.CssOperator.SPACE;
  * In the example above, the image is placed in the lower right corner of the
  * canvas.
  *
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.1 $
  * @see org.w3c.css.properties.css.CssBackgroundAttachment
  */
-public class CssBackgroundPositionCSS2 extends CssBackgroundPosition {
+public class CssBackgroundPosition extends org.w3c.css.properties.css.CssBackgroundPosition {
 
     public static boolean checkMatchingIdent(CssIdent ident) {
         return allowed_values.containsValue(ident);
@@ -135,20 +134,20 @@ public class CssBackgroundPositionCSS2 extends CssBackgroundPosition {
     public CssValue value;
 
     /**
-     * Create a new CssBackgroundPositionCSS2
+     * Create a new CssBackgroundPosition
      */
-    public CssBackgroundPositionCSS2() {
+    public CssBackgroundPosition() {
         super();
     }
 
     /**
-     * Creates a new CssBackgroundPositionCSS2
+     * Creates a new CssBackgroundPosition
      *
      * @param expression The expression for this property
      * @throws InvalidParamException Values are incorrect
      */
-    public CssBackgroundPositionCSS2(ApplContext ac, CssExpression expression,
-                                     boolean check) throws InvalidParamException {
+    public CssBackgroundPosition(ApplContext ac, CssExpression expression,
+                                 boolean check) throws InvalidParamException {
 
         int nb_val = expression.getCount();
 
@@ -359,7 +358,7 @@ public class CssBackgroundPositionCSS2 extends CssBackgroundPosition {
         }
     }
 
-    public CssBackgroundPositionCSS2(ApplContext ac, CssExpression expression)
+    public CssBackgroundPosition(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
     }
@@ -374,7 +373,7 @@ public class CssBackgroundPositionCSS2 extends CssBackgroundPosition {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        CssBackgroundCSS2 cssBackground = ((Css1Style) style).cssBackgroundCSS2;
+        org.w3c.css.properties.css.CssBackground cssBackground = ((Css1Style) style).cssBackground;
         if (cssBackground.position != null)
             style.addRedefinitionWarning(ac, this);
         cssBackground.position = this;
@@ -388,9 +387,9 @@ public class CssBackgroundPositionCSS2 extends CssBackgroundPosition {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
         if (resolve) {
-            return ((Css1Style) style).getBackgroundPositionCSS2();
+            return ((Css1Style) style).getBackgroundPosition();
         } else {
-            return ((Css1Style) style).cssBackgroundCSS2.position;
+            return ((Css1Style) style).cssBackground.position;
         }
     }
     

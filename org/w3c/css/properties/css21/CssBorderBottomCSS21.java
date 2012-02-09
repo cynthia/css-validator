@@ -1,4 +1,4 @@
-// $Id: CssBorderBottomCSS21.java,v 1.2 2005-09-14 15:14:58 ylafon Exp $
+// $Id: CssBorderBottomCSS21.java,v 1.3 2012-02-09 17:36:31 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -32,7 +32,7 @@ public class CssBorderBottomCSS21 extends CssBorderBottomCSS2 {
      * @exception InvalidParamException The expression is incorrect
      */
     public CssBorderBottomCSS21(ApplContext ac, CssExpression expression,
-	    boolean check) throws InvalidParamException {
+                                boolean check) throws InvalidParamException {
 	CssValue val = null;
 	char op = SPACE;
 	boolean find = true;

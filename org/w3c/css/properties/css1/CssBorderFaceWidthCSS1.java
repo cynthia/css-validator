@@ -1,5 +1,5 @@
 //
-// $Id: CssBorderFaceWidthCSS1.java,v 1.4 2010-01-05 13:49:40 ylafon Exp $
+// $Id: CssBorderFaceWidthCSS1.java,v 1.5 2012-02-09 17:36:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssBorderFaceWidthCSS1 {
 
@@ -54,8 +54,8 @@ public class CssBorderFaceWidthCSS1 {
 	CssValue val = expression.getValue();
 
 	if (val instanceof CssLength) {
-	    float f = ((Float) val.get()).floatValue();
-	    if (f >= 0)
+        CssLength l = (CssLength) val;
+	    if (l.isPositive())
 		this.value = val;
 	    else
 		throw new InvalidParamException("negative-value", val.toString(), ac);

@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: TagSoupStyleSheetHandler.java,v 1.11 2011-11-03 16:00:39 ylafon Exp $
+ * $Id: TagSoupStyleSheetHandler.java,v 1.12 2012-02-09 17:36:26 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -39,7 +39,7 @@ import org.xml.sax.ext.LexicalHandler;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringBufferInputStream;
+import java.io.StringReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -47,7 +47,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -406,7 +406,7 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
                         }
                         styleSheetParser
                                 .parseStyleElement(ac,
-                                        new StringBufferInputStream(text.toString()),
+                                        new StringReader(text.toString()),
                                         title, media,
                                         documentURI, line);
                     }
