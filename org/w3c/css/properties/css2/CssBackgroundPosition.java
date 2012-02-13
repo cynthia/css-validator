@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundPosition.java,v 1.1 2012-02-09 17:36:30 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.2 2012-02-13 15:48:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -97,7 +97,7 @@ import static org.w3c.css.values.CssOperator.SPACE;
  * In the example above, the image is placed in the lower right corner of the
  * canvas.
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @see org.w3c.css.properties.css.CssBackgroundAttachment
  */
 public class CssBackgroundPosition extends org.w3c.css.properties.css.CssBackgroundPosition {
@@ -155,7 +155,6 @@ public class CssBackgroundPosition extends org.w3c.css.properties.css.CssBackgro
             throw new InvalidParamException("unrecognize", ac);
         }
 
-        setByUser();
         setByUser();
         CssValue val;
         CssBackgroundPositionValue b_val = null;

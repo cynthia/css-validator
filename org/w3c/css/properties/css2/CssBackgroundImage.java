@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundImage.java,v 1.1 2012-02-09 17:36:30 ylafon Exp $
+// $Id: CssBackgroundImage.java,v 1.2 2012-02-13 15:48:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,6 +13,7 @@ import org.w3c.css.properties.css1.Css1Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
@@ -35,11 +36,15 @@ import org.w3c.css.values.CssValue;
  * P { background-image: none }
  * </PRE>
  *
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBackgroundImage extends org.w3c.css.properties.css.CssBackgroundImage {
 
     public CssValue url = null;
+
+    public static boolean checkMatchingIdent(CssIdent ident) {
+        return none.equals(ident);
+    }
 
     /**
      * Create a new CssBackgroundImage

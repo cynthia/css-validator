@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundRepeat.java,v 1.1 2012-02-09 17:36:30 ylafon Exp $
+// $Id: CssBackgroundRepeat.java,v 1.2 2012-02-13 15:48:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -19,33 +19,8 @@ import org.w3c.css.values.CssValue;
 import java.util.HashMap;
 
 /**
- * <H4>
- * <A NAME="background-repeat">5.3.4 &nbsp;&nbsp; 'background-repeat'</A>
- * </H4>
- * <p/>
- * <EM>Value:</EM> repeat | repeat-x | repeat-y | no-repeat<BR>
- * <EM>Initial:</EM> repeat<BR>
- * <EM>Applies to:</EM> all elements<BR>
- * <EM>Inherited:</EM> no<BR>
- * <EM>Percentage values:</EM> N/A<BR>
- * <p/>
- * If a background image is specified, the value of 'background-repeat' determines
- * how/if the image is repeated.
- * <p/>
- * A value of 'repeat' means that the image is repeated both horizontally and
- * vertically. The 'repeat-x' ('repeat-y') value makes the image repeat horizontally
- * (vertically), to create a single band of images from one side to the other.
- * With a value of 'no-repeat', the image is not repeated.
- * <PRE>
- * BODY {
- * background: red url(pendant.gif);
- * background-repeat: repeat-y;
- * }
- * </PRE>
- * <p/>
- * In the example above, the image will only be repeated vertically.
- *
- * @version $Revision: 1.1 $
+ * @spec http://www.w3.org/TR/2008/REC-CSS2-20080411/colors.html#propdef-background-repeat
+ * @version $Revision: 1.2 $
  */
 public class CssBackgroundRepeat extends org.w3c.css.properties.css.CssBackgroundRepeat {
     // FIXME TODO is that the best way ?
