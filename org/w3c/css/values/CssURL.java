@@ -1,5 +1,5 @@
 //
-// $Id: CssURL.java,v 1.7 2010-01-05 13:50:01 ylafon Exp $
+// $Id: CssURL.java,v 1.8 2012-02-23 14:28:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -45,7 +45,7 @@ import java.net.URL;
  * Resource Locators (URL)", <A href="ftp://ds.internic.net/rfc/rfc1738.txt">RFC
  * 1738</A>, CERN, Xerox Corporation, University of Minnesota, December 1994
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class CssURL extends CssValue {
 
@@ -59,6 +59,7 @@ public class CssURL extends CssValue {
     String full = null;
 
     URL base;
+    URL urlValue = null;
 
     /**
      * Set the value of this URL.
@@ -97,6 +98,13 @@ public class CssURL extends CssValue {
 //	}
         if (!urlHeading.startsWith("url"))
             throw new InvalidParamException("url", s, ac);
+        // now add the URL to the list of seen URLs in the context
+        try {
+            ac.addLinkedURI(getURL());
+        } catch (MalformedURLException mex) {
+            // error? throw an exception
+            throw new InvalidParamException("url", s, ac);
+        }
     }
 
     /**
@@ -113,7 +121,10 @@ public class CssURL extends CssValue {
      * @throws java.net.MalformedURLException (self explanatory)
      */
     public URL getURL() throws MalformedURLException {
-        return HTTPURL.getURL(base, value);
+        if (urlValue == null) {
+            urlValue = HTTPURL.getURL(base, value);
+        }
+        return urlValue;
     }
 
     /**

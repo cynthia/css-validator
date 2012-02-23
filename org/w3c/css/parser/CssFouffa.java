@@ -1,5 +1,5 @@
 //
-// $Id: CssFouffa.java,v 1.59 2012-02-09 17:36:27 ylafon Exp $
+// $Id: CssFouffa.java,v 1.60 2012-02-23 14:28:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
@@ -53,7 +53,7 @@ import java.util.ArrayList;
  * parser.parseStyle();<BR>
  * </code>
  *
- * @version $Revision: 1.59 $
+ * @version $Revision: 1.60 $
  */
 public final class CssFouffa extends CssParser {
 
@@ -425,16 +425,20 @@ public final class CssFouffa extends CssParser {
 
         URL importedURL;
         try {
-        importedURL = HTTPURL.getURL(url, file);
+            importedURL = HTTPURL.getURL(url, file);
         } catch (MalformedURLException mue) {
             if (!Util.noErrorTrace) {
                 ac.getFrame().addError(new CssError(mue));
-            } 
+            }
             return;
         }
-        
+
         // add it to the list of linked URIs
-        ac.addLinkedURI(importedURL);
+        // only if it was a string (otherwise the URI is already there
+        // as CssURL contains code to add it directly
+        if (!is_url) {
+            ac.addLinkedURI(importedURL);
+        }
         // check if we need to follow it
         if (!ac.followlinks()) {
             // TODO add a warning ?
