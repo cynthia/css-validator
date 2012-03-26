@@ -1,5 +1,5 @@
 //
-// $Id: CssFontWeight.java,v 1.5 2012-03-26 09:20:12 ylafon Exp $
+// $Id: CssFontWeight.java,v 1.6 2012-03-26 11:14:39 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -126,7 +126,7 @@ import org.w3c.css.values.*;
  * values. The only guarantee is that a face of a given value will be no less
  * dark than the faces of lighter values.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssFontWeight extends CssProperty implements CssFontConstant {
 
@@ -184,7 +184,6 @@ public class CssFontWeight extends CssProperty implements CssFontConstant {
                     int vali = num.getInt();
                     if (isCorrectWeight(vali)) { // verify the entire part number
                         this.value = vali;
-                        expr.next();
                         break;
                     }
                 }
