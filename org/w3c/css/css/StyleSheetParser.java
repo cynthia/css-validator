@@ -1,5 +1,5 @@
 //
-// $Id: StyleSheetParser.java,v 1.25 2012-02-09 17:36:26 ylafon Exp $
+// $Id: StyleSheetParser.java,v 1.26 2012-03-26 12:11:25 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- * @version $Revision: 1.25 $
+ * @version $Revision: 1.26 $
  */
 public final class StyleSheetParser
         implements CssValidatorListener, CssParser {
@@ -388,6 +388,16 @@ public final class StyleSheetParser
         if (reader != null) {
             parseStyleElement(ac, reader, title, media, url, lineno);
         }
+    }
+
+    /**
+     * Unify call to the parser for css doc as a reader.
+     * @param ac
+     * @param reader
+     * @param docref
+     */
+    public void parseStyleSheet(ApplContext ac, Reader reader, URL docref) {
+        parseStyleElement(ac, reader, null, null, (docref == null) ? ac.getFakeURL() : docref, 0);
     }
 
     /**

@@ -1,4 +1,4 @@
-// $Id: CssColumnRule.java,v 1.4 2011-10-05 07:12:17 ylafon Exp $
+// $Id: CssColumnRule.java,v 1.5 2012-03-26 12:11:26 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -23,7 +23,7 @@ public class CssColumnRule extends CssProperty {
 
     private static final String propertyName = "column-rule";
 
-    CssValue value;;
+    CssValue value;
     CssColumnRuleWidth rule_width;
     CssColumnRuleStyle rule_style;
     CssColumnRuleColor rule_color;

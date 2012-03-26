@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.25 2012-02-09 17:36:33 ylafon Exp $
+ * $Id: ApplContext.java,v 1.26 2012-03-26 12:11:26 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -27,7 +27,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.25 $
+ * @version $Revision: 1.26 $
  */
 public class ApplContext {
 
@@ -321,7 +321,7 @@ public class ApplContext {
                     // should be dependant on the language)
                     if ((biasedcharset != null) &&
                             !biasedcharset.equalsIgnoreCase(currentCharset)) {
-                        currentQuality = currentQuality * 0.5;
+                        currentQuality *= 0.5;
                     }
                     if (currentQuality > quality) {
                         quality = currentQuality;

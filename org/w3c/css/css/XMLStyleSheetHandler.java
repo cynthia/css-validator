@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: XMLStyleSheetHandler.java,v 1.35 2012-02-09 17:36:26 ylafon Exp $
+ * $Id: XMLStyleSheetHandler.java,v 1.36 2012-03-26 12:11:25 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -35,10 +35,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.LexicalHandler;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringReader;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -46,7 +43,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.35 $
+ * @version $Revision: 1.36 $
  */
 public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -593,6 +590,64 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
         } finally {
             ac.setReferrer(ref);
             cis.close();
+        }
+    }
+
+    public void parse(InputSource source, String fileName) throws IOException, SAXException {
+        org.xml.sax.XMLReader xmlParser = new org.apache.xerces.parsers.SAXParser();
+        try {
+            xmlParser.setProperty("http://xml.org/sax/properties/lexical-handler",
+                    this);
+            xmlParser.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
+            xmlParser.setFeature("http://xml.org/sax/features/validation", false);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        xmlParser.setContentHandler(this);
+        if (fileName != null) {
+            baseURI = new URL(fileName);
+            documentURI = new URL(fileName);
+            source.setSystemId(fileName);
+        }
+        URL ref = ac.getReferrer();
+        try {
+            ac.setReferrer(documentURI);
+            xmlParser.parse(source);
+        } finally {
+            ac.setReferrer(ref);
+        }
+    }
+
+    /**
+     * Parse an HTML document, given as an InputStream
+     *
+     * @param is     the inputstream of the document
+     * @param docref the String version of the URI of the document
+     * @throws IOException
+     * @throws SAXException
+     */
+    public void parse(InputStream is, String docref) throws IOException, SAXException {
+        InputSource inputSource = new InputSource(is);
+        try {
+            parse(inputSource, docref);
+        } finally {
+            is.close();
+        }
+    }
+
+    /**
+     * Parse an HTML document, given as a Reader
+     *
+     * @param reader the Reader of the document
+     * @throws IOException
+     * @throws SAXException
+     */
+    public void parse(Reader reader) throws IOException, SAXException {
+        InputSource inputSource = new InputSource(reader);
+        try {
+            parse(inputSource, null);
+        } finally {
+            reader.close();
         }
     }
 

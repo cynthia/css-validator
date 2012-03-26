@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundATSC.java,v 1.5 2011-09-09 12:16:42 ylafon Exp $
+// $Id: CssBackgroundATSC.java,v 1.6 2012-03-26 12:11:25 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -49,7 +49,7 @@ import org.w3c.css.values.CssValue;
  *   set to their initial value. In the second rule, all individual properties
  *   have been specified.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @see org.w3c.css.properties.css.CssBackgroundColor
  * @see CssBackgroundImage
  * @see org.w3c.css.properties.css.CssBackgroundRepeat
@@ -325,7 +325,7 @@ public class CssBackgroundATSC extends CssProperty
     /**
      * Compares two properties for equality.
      *
-     * @param value The other property.
+     * @param property The other property.
      */
     public boolean equals(CssProperty property) {
 	return false; // FIXME
