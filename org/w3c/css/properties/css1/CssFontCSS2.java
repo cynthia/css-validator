@@ -1,5 +1,5 @@
 //
-// $Id: CssFontCSS2.java,v 1.7 2012-02-09 17:36:29 ylafon Exp $
+// $Id: CssFontCSS2.java,v 1.8 2012-04-03 14:20:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,12 +11,7 @@ import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssLength;
-import org.w3c.css.values.CssOperator;
-import org.w3c.css.values.CssPercentage;
-import org.w3c.css.values.CssValue;
+import org.w3c.css.values.*;
 
 /**
  * <H4>
@@ -64,7 +59,7 @@ import org.w3c.css.values.CssValue;
  * and the 'font-family' ('fantasy'). It follows that the keyword 'normal'
  * applies to the two remaining properties: 'font-style' and 'font-weight'.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  * @see CssFontStyle
  * @see CssFontVariant
  * @see CssFontWeight
@@ -208,9 +203,11 @@ public class CssFontCSS2 extends CssProperty
 
         fontSize = new CssFontSizeCSS2(ac, expression);
 
-        if (op == SLASH) {
+        if (val.getType() == CssTypes.CSS_SWITCH) {
+            expression.next();
+            val = expression.getValue();
             op = expression.getOperator();
-            if (expression.getValue().equals(inherit)) {
+            if (val.equals(inherit)) {
                 throw new InvalidParamException("unrecognize", ac);
             }
             lineHeight = new CssLineHeightCSS2(ac, expression);

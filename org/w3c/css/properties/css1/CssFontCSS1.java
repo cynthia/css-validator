@@ -1,5 +1,5 @@
 //
-// $Id: CssFontCSS1.java,v 1.6 2011-09-09 12:16:44 ylafon Exp $
+// $Id: CssFontCSS1.java,v 1.7 2012-04-03 14:20:54 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,12 +11,7 @@ import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssLength;
-import org.w3c.css.values.CssOperator;
-import org.w3c.css.values.CssPercentage;
-import org.w3c.css.values.CssValue;
+import org.w3c.css.values.*;
 
 /**
  *   <H4>
@@ -72,7 +67,7 @@ import org.w3c.css.values.CssValue;
  * @see CssFontFamily
  * @see CssPercentage
  * @see CssLength
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssFontCSS1 extends CssProperty
     implements CssOperator, CssFontConstantCSS1 {
@@ -190,8 +185,10 @@ public class CssFontCSS1 extends CssProperty
 
 	fontSize = new CssFontSizeCSS1(ac, expression);
 
-	if (op == SLASH) {
-	    op = expression.getOperator();
+    if (val.getType() == CssTypes.CSS_SWITCH) {
+        expression.next();
+        val = expression.getValue();
+        op = expression.getOperator();
 	    lineHeight = new CssLineHeightCSS1(ac, expression);
 	}
 
@@ -337,7 +334,7 @@ public class CssFontCSS1 extends CssProperty
     /**
      * Compares two properties for equality.
      *
-     * @param value The other property.
+     * @param property The other property.
      */
     public boolean equals(CssProperty property) {
 	return false;

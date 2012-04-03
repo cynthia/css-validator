@@ -1,5 +1,5 @@
 // MimeType.java
-// $Id: MimeType.java,v 1.5 2011-08-29 07:21:02 ylafon Exp $
+// $Id: MimeType.java,v 1.6 2012-04-03 14:20:54 ylafon Exp $
 // (c) COPYRIGHT MIT and INRIA, 1996.
 // Please first read the full copyright statement in file COPYRIGHT.html
 
@@ -174,7 +174,7 @@ public class MimeType implements Serializable, Cloneable {
 
     public String toString () {
 	if ( external == null ) {
-	    StringBuffer sb = new StringBuffer (type) ;
+	    StringBuilder sb = new StringBuilder(type) ;
 	    sb.append((char) '/') ;
 	    sb.append (subtype) ;
 	    if ( pnames != null ) {
@@ -202,10 +202,10 @@ public class MimeType implements Serializable, Cloneable {
 	if (name != null) {
 	    if ( pnames != null ) {
 		String lname = name.toLowerCase();
-		for (int i = 0 ; i < pnames.length ; i++) {
-		    if ( pnames[i].equals(name) )
-			return true ;
-		}
+            for (String pname : pnames) {
+                if (pname.equals(name))
+                    return true;
+            }
 	    }
 	}
 	return false ;

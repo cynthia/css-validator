@@ -1,4 +1,4 @@
-// $Id: CssBackgroundClip.java,v 1.6 2012-02-13 21:06:29 ylafon Exp $
+// $Id: CssBackgroundClip.java,v 1.7 2012-04-03 14:20:54 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT 2010  World Wide Web Consortium (MIT, ERCIM, Keio University)
@@ -112,6 +112,13 @@ public class CssBackgroundClip extends org.w3c.css.properties.css.CssBackgroundC
 
     public void set(Object val) {
         value = val;
+    }
+
+    /**
+     * Returns the value of this property
+     */
+    public Object get() {
+        return value;
     }
 
     /**
