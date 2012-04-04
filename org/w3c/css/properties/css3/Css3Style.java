@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.16 2012-02-09 17:36:32 ylafon Exp $
+// $Id: Css3Style.java,v 1.17 2012-04-04 13:58:57 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -27,6 +27,7 @@ import org.w3c.css.properties.css.CssColumnSpan;
 import org.w3c.css.properties.css.CssColumnWidth;
 import org.w3c.css.properties.css.CssColumns;
 import org.w3c.css.properties.css.CssOpacity;
+import org.w3c.css.properties.css.CssBoxShadow;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Util;
 import org.w3c.css.util.Warning;
@@ -34,7 +35,6 @@ import org.w3c.css.util.Warnings;
 
 public class Css3Style extends ATSCStyle {
 
-    public CssOpacity cssOpacity;
     CssColorProfile cssColorProfile;
     CssRenderIntent cssRenderIntent;
     CssFontEffect cssFontEffect;
@@ -110,9 +110,8 @@ public class Css3Style extends ATSCStyle {
     CssClearCSS3 cssClearCSS3;
     CssLineHeightPolicy cssLineHeightPolicy;
     CssLineBoxContain cssLineBoxContain;
-    public CssBackgroundClip cssBackgroundClip;
-    public CssBackgroundSize cssBackgroundSize;
-    public CssBackgroundOrigin cssBackgroundOrigin;
+
+
     CssTextDecorationCSS3 cssTextDecoration;
     CssAllSpaceTreatment cssAllSpaceTreatment;
     CssHangingPunctuation cssHangingPunctuation;
@@ -127,6 +126,10 @@ public class Css3Style extends ATSCStyle {
     CssWhiteSpaceTreatment cssWhiteSpaceTreatment;
     CssWrapOption cssWrapOption;
 
+    public CssOpacity cssOpacity;
+    public CssBackgroundClip cssBackgroundClip;
+    public CssBackgroundSize cssBackgroundSize;
+    public CssBackgroundOrigin cssBackgroundOrigin;
     public CssColumns cssColumns;
     public CssColumnCount cssColumnCount;
     public CssColumnFill cssColumnFill;
@@ -140,6 +143,7 @@ public class Css3Style extends ATSCStyle {
     public CssBreakAfter cssBreakAfter;
     public CssBreakBefore cssBreakBefore;
     public CssBreakInside cssBreakInside;
+    public CssBoxShadow cssBoxShadow;
 
     CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
     CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -224,7 +228,6 @@ public class Css3Style extends ATSCStyle {
     CssBorderCornerFit cssBorderCornerFit;
     CssBorderImageTransform cssBorderImageTransform;
     CssBorderBreak cssBorderBreak;
-    CssBoxShadow cssBoxShadow;
     CssTextIndentCSS3 cssTextIndentCSS3;
     CssBlockProgression cssBlockProgression;
 
