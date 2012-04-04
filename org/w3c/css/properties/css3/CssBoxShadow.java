@@ -1,4 +1,4 @@
-// $Id: CssBoxShadow.java,v 1.6 2012-04-04 14:36:25 ylafon Exp $
+// $Id: CssBoxShadow.java,v 1.7 2012-04-04 14:53:14 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2012 by Yves Lafon <ylafon@w3.org>
 //
@@ -293,6 +293,36 @@ public class CssBoxShadow extends org.w3c.css.properties.css.CssBoxShadow {
         CssValue shadow_mod;
 
         public boolean equals(CssBoxShadowValue v) {
+            if (!v.horizontal_offset.equals(horizontal_offset)) {
+                return false;
+            }
+            if (!v.vertical_offset.equals(vertical_offset)) {
+                return false;
+            }
+            if (blur_radius != null && !blur_radius.equals(v.blur_radius)) {
+                return false;
+            }
+            if (blur_radius == null && v.blur_radius != null) {
+                return false;
+            }
+            if (spread_distance != null && !spread_distance.equals(v.spread_distance)) {
+                return false;
+            }
+            if (spread_distance == null && v.spread_distance != null) {
+                return false;
+            }
+            if (color != null && !color.equals(v.color)) {
+                return false;
+            }
+            if (color == null && v.color != null) {
+                return false;
+            }
+            if (shadow_mod != null && !shadow_mod.equals(v.shadow_mod)) {
+                return false;
+            }
+            if (shadow_mod == null && v.color != shadow_mod) {
+                return false;
+            }
             // at last!
             return true;
         }
