@@ -1,4 +1,4 @@
-// $Id: CssBoxShadow.java,v 1.9 2012-04-05 17:29:21 ylafon Exp $
+// $Id: CssBoxShadow.java,v 1.10 2012-04-05 19:50:25 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2012 by Yves Lafon <ylafon@w3.org>
 //
@@ -331,7 +331,10 @@ public class CssBoxShadow extends org.w3c.css.properties.css.CssBoxShadow {
             StringBuilder sb = new StringBuilder();
             sb.append(horizontal_offset).append(' ').append(vertical_offset);
             if (blur_radius != null) {
-                sb.append(' ').append(blur_radius).append(' ').append(spread_distance);
+                sb.append(' ').append(blur_radius);
+            }
+            if (spread_distance != null) {
+                sb.append(' ').append(spread_distance);
             }
             if (color != null) {
                 sb.append(' ').append(color);
