@@ -1,4 +1,4 @@
-// $Id: CssBoxShadow.java,v 1.7 2012-04-04 14:53:14 ylafon Exp $
+// $Id: CssBoxShadow.java,v 1.8 2012-04-05 09:42:21 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2012 by Yves Lafon <ylafon@w3.org>
 //
@@ -58,7 +58,7 @@ public class CssBoxShadow extends org.w3c.css.properties.css.CssBoxShadow {
 
         setByUser();
         CssValue val = expression.getValue();
-        char op = expression.getOperator();
+        char op;
 
         if (expression.getCount() == 1) {
             // it can be only 'none' or 'inherit'

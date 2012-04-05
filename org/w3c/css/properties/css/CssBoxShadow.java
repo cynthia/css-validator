@@ -1,4 +1,4 @@
-// $Id: CssBoxShadow.java,v 1.1 2012-04-04 13:58:57 ylafon Exp $
+// $Id: CssBoxShadow.java,v 1.2 2012-04-05 09:42:20 ylafon Exp $
 //
 // (c) COPYRIGHT 2012  World Wide Web Consortium (MIT, ERCIM and Keio University)
 // Please first read the full copyright statement at
@@ -24,13 +24,13 @@ public class CssBoxShadow extends CssProperty {
     CssIdent value;
 
     /**
-     * Create a new CssColumnWidth
+     * Create a new CssBoxShadow
      */
     public CssBoxShadow() {
     }
 
     /**
-     * Create a new CssColumnFill
+     * Create a new CssBoxShadow
      *
      * @param ac the context
      * @param expression The expression for this property

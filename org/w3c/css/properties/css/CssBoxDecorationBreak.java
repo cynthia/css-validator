@@ -1,8 +1,6 @@
-// $Id: CssColumnFill.java,v 1.4 2012-04-05 09:42:20 ylafon Exp $
-// From Sijtsche de Jong (sy.de.jong@let.rug.nl)
-// Rewritten 2010 Yves Lafon <ylafon@w3.org>
+// $Id: CssBoxDecorationBreak.java,v 1.1 2012-04-05 09:42:20 ylafon Exp $
 //
-// (c) COPYRIGHT 1995-2010  World Wide Web Consortium (MIT, ERCIM and Keio)
+// (c) COPYRIGHT 2012  World Wide Web Consortium (MIT, ERCIM and Keio University)
 // Please first read the full copyright statement at
 // http://www.w3.org/Consortium/Legal/copyright-software-19980720
 
@@ -19,32 +17,32 @@ import org.w3c.css.values.CssIdent;
  * @since CSS3
  */
 
-public class CssColumnFill extends CssProperty {
+public class CssBoxDecorationBreak extends CssProperty {
 
-    private static final String propertyName = "column-fill";
+    private static final String propertyName = "box-decoration-break";
 
     CssIdent value;
 
     /**
-     * Create a new CssColumnFill
+     * Create a new CssBoxDecorationBreak
      */
-    public CssColumnFill() {
+    public CssBoxDecorationBreak() {
     }
 
     /**
-     * Create a new CssColumnFill
+     * Create a new CssBoxDecorationBreak
      *
      * @param ac the context
      * @param expression The expression for this property
      * @param check if length check is needed
-     * @throws InvalidParamException Incorrect value
+     * @throws org.w3c.css.util.InvalidParamException Incorrect value
      */
-    public CssColumnFill(ApplContext ac, CssExpression expression,
-                         boolean check) throws InvalidParamException {
+    public CssBoxDecorationBreak(ApplContext ac, CssExpression expression,
+                                 boolean check) throws InvalidParamException {
             throw new InvalidParamException("unrecognize", ac);
     }
 
-    public CssColumnFill(ApplContext ac, CssExpression expression)
+    public CssBoxDecorationBreak(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
     }
@@ -55,9 +53,9 @@ public class CssColumnFill extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        if (((Css3Style) style).cssColumnFill != null)
+        if (((Css3Style) style).cssBoxDecorationBreak != null)
             style.addRedefinitionWarning(ac, this);
-        ((Css3Style) style).cssColumnFill = this;
+        ((Css3Style) style).cssBoxDecorationBreak = this;
     }
 
     /**
@@ -68,9 +66,9 @@ public class CssColumnFill extends CssProperty {
      */
     public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
         if (resolve) {
-            return ((Css3Style) style).getColumnFill();
+            return ((Css3Style) style).getBoxDecorationBreak();
         } else {
-            return ((Css3Style) style).cssColumnFill;
+            return ((Css3Style) style).cssBoxDecorationBreak;
         }
     }
 
@@ -80,8 +78,8 @@ public class CssColumnFill extends CssProperty {
      * @param property The other property.
      */
     public boolean equals(CssProperty property) {
-        return (property instanceof CssColumnFill &&
-                value.equals(((CssColumnFill) property).value));
+        return (property instanceof CssBoxDecorationBreak &&
+                value.equals(((CssBoxDecorationBreak) property).value));
     }
 
     /**
