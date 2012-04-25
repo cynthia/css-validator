@@ -1,4 +1,4 @@
-// $Id: CssSwitch.java,v 1.1 2012-04-03 14:20:54 ylafon Exp $
+// $Id: CssSwitch.java,v 1.2 2012-04-25 20:22:07 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -27,6 +27,7 @@ public class CssSwitch extends CssValue {
      * Create a new CssSwitch.
      */
     public CssSwitch() {
+        switch_char = SLASH;
     }
 
     /**

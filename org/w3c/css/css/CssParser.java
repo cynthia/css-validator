@@ -1,5 +1,5 @@
 //
-// $Id: CssParser.java,v 1.7 2012-02-09 17:36:26 ylafon Exp $
+// $Id: CssParser.java,v 1.8 2012-04-25 20:21:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -36,7 +36,7 @@ import java.net.URL;
  * generator.print(new PrintStream(System.out));<br>
  * </code>
  *
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  * @see org.w3c.css.css.StyleSheetParser
  */
 public interface CssParser {
@@ -78,7 +78,7 @@ public interface CssParser {
      * @param url    the URL where the input stream comes from.
      * @param lineno The number line in the source document.
      *               It is used for error message
-     * @see #parseStyleElement(InputStream, URL, int)
+     * @see #parseStyleElement(ApplContext, InputStream, String, String, URL, int)
      * @deprecated Replaced by parseStyleElement
      */
     public abstract void parseStyleElement(ApplContext ac, String input,

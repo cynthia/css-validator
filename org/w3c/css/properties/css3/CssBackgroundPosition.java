@@ -1,4 +1,4 @@
-// $Id: CssBackgroundPosition.java,v 1.1 2011-10-04 13:05:25 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.2 2012-04-25 20:22:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten by Yves Lafon <ylafon@w3.org>
 
@@ -529,24 +529,22 @@ public class CssBackgroundPosition extends org.w3c.css.properties.css.CssBackgro
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            if (horizontal != null) {
-                sb.append(horizontal);
-                if (horizontal_offset != null) {
-                    sb.append(' ').append(horizontal_offset);
-                }
-                if (vertical != null) {
-                    sb.append(' ');
-                }
-            }
             if (vertical != null) {
                 sb.append(vertical);
                 if (vertical_offset != null) {
                     sb.append(' ').append(vertical_offset);
                 }
+                if (horizontal != null) {
+                    sb.append(' ');
+                }
+            }
+            if (horizontal != null) {
+                sb.append(horizontal);
+                if (horizontal_offset != null) {
+                    sb.append(' ').append(horizontal_offset);
+                }
             }
             return sb.toString();
         }
-
     }
-
 }

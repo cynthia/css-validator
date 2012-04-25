@@ -1,5 +1,5 @@
 //
-// $Id: CssBackground.java,v 1.8 2012-02-09 17:36:28 ylafon Exp $
+// $Id: CssBackground.java,v 1.9 2012-04-25 20:21:55 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,13 +8,13 @@ package org.w3c.css.properties.css1;
 
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css.CssBackgroundConstants;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssValue;
+
+import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
  * <H4>
@@ -46,15 +46,14 @@ import org.w3c.css.values.CssValue;
  * set to their initial value. In the second rule, all individual properties
  * have been specified.
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  * @see org.w3c.css.properties.css.CssBackgroundColor
  * @see org.w3c.css.properties.css.CssBackgroundImage
  * @see org.w3c.css.properties.css.CssBackgroundRepeat
  * @see org.w3c.css.properties.css.CssBackgroundAttachment
  * @see org.w3c.css.properties.css.CssBackgroundPosition
  */
-public class CssBackground extends org.w3c.css.properties.css.CssBackground
-        implements CssOperator, CssBackgroundConstants {
+public class CssBackground extends org.w3c.css.properties.css.CssBackground {
 
     CssBackgroundColor color;
     CssBackgroundImage image;
@@ -147,18 +146,6 @@ public class CssBackground extends org.w3c.css.properties.css.CssBackground
                 throw new InvalidParamException("unrecognize", ac);
             }
         }
-        /*
-      if (color == null)
-          color = new CssBackgroundColor();
-      if (image == null)
-          image = new CssBackgroundImage();
-      if (repeat == null)
-          repeat = new CssBackgroundRepeat();
-      if (attachment == null)
-          attachment = new CssBackgroundAttachment();
-      if (position == null)
-          position = new CssBackgroundPosition();
-      */
     }
 
     public CssBackground(ApplContext ac, CssExpression expression)
@@ -219,7 +206,6 @@ public class CssBackground extends org.w3c.css.properties.css.CssBackground
             if (!first) {
                 sb.append(' ');
             }
-            first = false;
             sb.append(position);
         }
         return sb.toString();

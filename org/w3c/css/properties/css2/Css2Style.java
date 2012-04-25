@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.5 2011-09-11 20:30:23 ylafon Exp $
+// $Id: Css2Style.java,v 1.6 2012-04-25 20:22:00 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@ package org.w3c.css.properties.css2;
 import org.w3c.css.properties.aural.ACssStyle;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -44,6 +44,54 @@ public class Css2Style extends ACssStyle {
                     style, selector);
         }
         return cssElevation;
+    }
+
+    /**
+     * Get the border-top-style property
+     */
+    public final org.w3c.css.properties.css.CssBorderTopStyle getBorderTopStyle() {
+        if (cssBorder.borderStyle.top == null) {
+            cssBorder.borderStyle.top =
+                    (org.w3c.css.properties.css.CssBorderTopStyle) style.CascadingOrder(new org.w3c.css.properties.css.CssBorderTopStyle(),
+                            style, selector);
+        }
+        return cssBorder.borderStyle.top;
+    }
+
+    /**
+     * Get the border-right-style property
+     */
+    public final org.w3c.css.properties.css.CssBorderRightStyle getBorderRightStyle() {
+        if (cssBorder.borderStyle.right == null) {
+            cssBorder.borderStyle.right =
+                    (org.w3c.css.properties.css.CssBorderRightStyle) style.CascadingOrder(new org.w3c.css.properties.css.CssBorderRightStyle(),
+                            style, selector);
+        }
+        return cssBorder.borderStyle.right;
+    }
+
+    /**
+     * Get the border-bottom-style property
+     */
+    public final org.w3c.css.properties.css.CssBorderBottomStyle getBorderBottomStyle() {
+        if (cssBorder.borderStyle.bottom == null) {
+            cssBorder.borderStyle.bottom =
+                    (org.w3c.css.properties.css.CssBorderBottomStyle) style.CascadingOrder(new org.w3c.css.properties.css.CssBorderBottomStyle(),
+                            style, selector);
+        }
+        return cssBorder.borderStyle.bottom;
+    }
+
+    /**
+     * Get the border-left-style property
+     */
+    public final org.w3c.css.properties.css.CssBorderLeftStyle getBorderLeftStyle() {
+        if (cssBorder.borderStyle.left == null) {
+            cssBorder.borderStyle.left =
+                    (org.w3c.css.properties.css.CssBorderLeftStyle) style.CascadingOrder(new org.w3c.css.properties.css.CssBorderLeftStyle(),
+                            style, selector);
+        }
+        return cssBorder.borderStyle.left;
     }
 
 }

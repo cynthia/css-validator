@@ -1,4 +1,4 @@
-// $Id: CssStyleRule.java,v 1.21 2011-10-21 01:49:06 ylafon Exp $
+// $Id: CssStyleRule.java,v 1.22 2012-04-25 20:21:52 ylafon Exp $
 // Author: Sijtsche de Jong
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -45,9 +45,7 @@ public class CssStyleRule {
         StringBuilder ret = new StringBuilder();
         if (selectors != null) {
             ret.append(selectors);
-            ret.append(' ');
-            ret.append('{');
-            ret.append('\n');
+            ret.append(" {\n");
         }
 
         for (CssProperty property : properties) {
@@ -59,14 +57,11 @@ public class CssStyleRule {
             if (property.getImportant()) {
                 ret.append(" important");
             }
-            ret.append(';');
-            ret.append('\n');
+            ret.append(";\n");
         }
         if (selectors != null) {
             ret.append(indent);
-            ret.append('}');
-            ret.append('\n');
-            ret.append('\n');
+            ret.append("}\n\n");
         }
         return ret.toString();
     }

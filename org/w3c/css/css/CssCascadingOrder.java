@@ -1,5 +1,5 @@
 //
-// $Id: CssCascadingOrder.java,v 1.10 2011-08-14 09:02:19 ylafon Exp $
+// $Id: CssCascadingOrder.java,v 1.11 2012-04-25 20:21:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -95,7 +95,7 @@ import java.util.Comparator;
  * rules. In a transition phase, this policy will make it easier for stylistic
  * attributes to coexist with style sheets.
  *
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public final class CssCascadingOrder {
 
@@ -205,30 +205,29 @@ public final class CssCascadingOrder {
         propertyData.add(property);
     }
 
-}
-
 // all compare functions used in the cascading order
 
-class CompareExplicitWeight implements Comparator<CssProperty> {
-    public final int compare(CssProperty property1, CssProperty property2) {
-        int val1 = property1.getExplicitWeight();
-        int val2 = property2.getExplicitWeight();
-        return (val1 - val2);
+    class CompareExplicitWeight implements Comparator<CssProperty> {
+        public final int compare(CssProperty property1, CssProperty property2) {
+            int val1 = property1.getExplicitWeight();
+            int val2 = property2.getExplicitWeight();
+            return (val1 - val2);
+        }
     }
-}
 
-class CompareSpecificity implements Comparator<CssProperty> {
-    public final int compare(CssProperty property1, CssProperty property2) {
-        int val1 = property1.getSelectors().getSpecificity();
-        int val2 = property2.getSelectors().getSpecificity();
-        return (val1 - val2);
+    class CompareSpecificity implements Comparator<CssProperty> {
+        public final int compare(CssProperty property1, CssProperty property2) {
+            int val1 = property1.getSelectors().getSpecificity();
+            int val2 = property2.getSelectors().getSpecificity();
+            return (val1 - val2);
+        }
     }
-}
 
-class CompareOrderSpecified implements Comparator<CssProperty> {
-    public final int compare(CssProperty property1, CssProperty property2) {
-        long val1 = property1.getOrderSpecified();
-        long val2 = property2.getOrderSpecified();
-        return ((int) (val1 - val2));
+    class CompareOrderSpecified implements Comparator<CssProperty> {
+        public final int compare(CssProperty property1, CssProperty property2) {
+            long val1 = property1.getOrderSpecified();
+            long val2 = property2.getOrderSpecified();
+            return ((int) (val1 - val2));
+        }
     }
 }

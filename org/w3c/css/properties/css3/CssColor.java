@@ -1,4 +1,4 @@
-// $Id: CssColor.java,v 1.2 2011-10-05 07:12:17 ylafon Exp $
+// $Id: CssColor.java,v 1.3 2012-04-25 20:22:07 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -15,12 +15,11 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/REC-css3-color-20110607/#color0
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssColor extends org.w3c.css.properties.css.CssColor {
 
     CssValue color;
-    org.w3c.css.values.CssColor tempcolor = new org.w3c.css.values.CssColor();
     String attrvalue = null;
 
     /**
@@ -43,6 +42,8 @@ public class CssColor extends org.w3c.css.properties.css.CssColor {
         if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
         }
+
+        org.w3c.css.values.CssColor tempcolor = new org.w3c.css.values.CssColor();
 
         CssValue val = expression.getValue();
         setByUser();

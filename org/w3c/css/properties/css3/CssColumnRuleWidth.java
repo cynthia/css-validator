@@ -1,5 +1,5 @@
 //
-// $Id: CssColumnRuleWidth.java,v 1.8 2011-10-23 14:42:32 ylafon Exp $
+// $Id: CssColumnRuleWidth.java,v 1.9 2012-04-25 20:22:07 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -9,7 +9,6 @@
 package org.w3c.css.properties.css3;
 
 import org.w3c.css.properties.css.CssProperty;
-import org.w3c.css.properties.css1.CssBorderFaceWidthCSS2;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -42,21 +41,9 @@ public class CssColumnRuleWidth extends org.w3c.css.properties.css.CssColumnRule
                               boolean check) throws InvalidParamException {
 
         setByUser();
-        CssValue val = expression.getValue();
-
-        if (check && expression.getCount() > 1) {
-            throw new InvalidParamException("unrecognize", ac);
-        }
-
-        try {
-            CssBorderFaceWidthCSS2 _spec;
-            _spec = new CssBorderFaceWidthCSS2(ac, expression);
-            value = _spec.getValue();
-        } catch (InvalidParamException e) {
-            throw new InvalidParamException("value",
-                    expression.getValue(),
-                    getPropertyName(), ac);
-        }
+        // value is a border-width. in the CR spec it is a CSS2.1 border width
+        // but we will use the CSS3 value here.
+        value = CssBorderWidth.checkBorderSideWidth(ac, this, expression, check);
     }
 
     public CssColumnRuleWidth(ApplContext ac, CssExpression expression)

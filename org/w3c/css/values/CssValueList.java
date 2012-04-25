@@ -1,4 +1,4 @@
-// $Id: CssValueList.java,v 1.2 2012-02-09 17:36:33 ylafon Exp $
+// $Id: CssValueList.java,v 1.3 2012-04-25 20:22:07 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -23,6 +23,10 @@ public class CssValueList extends CssValue {
 
     public final int getType() {
         return type;
+    }
+
+    public int size() {
+        return value.size();
     }
 
     /**
@@ -63,6 +67,13 @@ public class CssValueList extends CssValue {
      */
     public Object get() {
         return value;
+    }
+
+    /**
+     * return a stored value
+     */
+    public CssValue get(int idx) {
+        return value.get(idx);
     }
 
     /**
