@@ -1,4 +1,4 @@
-// $Id: CssBorderTopWidth.java,v 1.5 2012-04-25 20:22:00 ylafon Exp $
+// $Id: CssBorderTopWidth.java,v 1.6 2012-04-26 09:45:50 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -10,8 +10,8 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
+ * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#border-top-width
  * @see CssBorderWidth
- * @version $Revision: 1.5 $
  */
 public class CssBorderTopWidth extends org.w3c.css.properties.css.CssBorderTopWidth {
 

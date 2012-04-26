@@ -1,4 +1,4 @@
-// $Id: CssBorderBottomWidth.java,v 1.5 2012-04-25 20:21:56 ylafon Exp $
+// $Id: CssBorderBottomWidth.java,v 1.6 2012-04-26 09:45:49 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -10,8 +10,8 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#value-def-border-width
- * @version $Revision: 1.5 $
+ * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#border-bottom-width
+ * @see CssBorderWidth
  */
 public class CssBorderBottomWidth extends org.w3c.css.properties.css.CssBorderBottomWidth {
 

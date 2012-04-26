@@ -1,4 +1,4 @@
-// $Id: CssBorderStyle.java,v 1.9 2012-04-25 20:21:59 ylafon Exp $
+// $Id: CssBorderStyle.java,v 1.10 2012-04-26 09:45:49 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -23,14 +23,14 @@ import java.util.ArrayList;
 import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
- * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#value-def-border-style
+ * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#border-style
  */
 public class CssBorderStyle extends org.w3c.css.properties.css.CssBorderStyle {
 
     public static CssIdent allowed_values[];
 
     static {
-        String _val[] = {"none", "hidden", "dotted", "dashed", "solid",
+        String _val[] = {"none", "dotted", "dashed", "solid",
                 "double", "groove", "ridge", "inset", "outset"};
         int i = 0;
         allowed_values = new CssIdent[_val.length];

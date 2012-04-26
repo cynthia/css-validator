@@ -1,4 +1,4 @@
-// $Id: CssBorderRight.java,v 1.6 2012-04-25 20:21:58 ylafon Exp $
+// $Id: CssBorderRight.java,v 1.7 2012-04-26 09:45:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 
@@ -13,7 +13,8 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @since CSS1
+ * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#border-right
+ * @see CssBorder
  */
 public class CssBorderRight extends org.w3c.css.properties.css.CssBorderRight {
 
