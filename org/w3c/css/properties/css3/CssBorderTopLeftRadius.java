@@ -1,9 +1,8 @@
-// $Id: CssBorderTopLeftRadius.java,v 1.5 2012-04-25 20:22:07 ylafon Exp $
+// $Id: CssBorderTopLeftRadius.java,v 1.6 2012-04-26 18:33:31 ylafon Exp $
 //
 // (c) COPYRIGHT 1995-2012  World Wide Web Consortium (MIT, ERCIM, Keio University)
 // Please first read the full copyright statement at
 // http://www.w3.org/Consortium/Legal/copyright-software-19980720
-
 package org.w3c.css.properties.css3;
 
 import org.w3c.css.util.ApplContext;
@@ -12,6 +11,10 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValueList;
 
+/**
+ * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#border-top-left-radius
+ * @see CssBorderRadius
+ */
 public class CssBorderTopLeftRadius extends org.w3c.css.properties.css.CssBorderTopLeftRadius {
 
     /**

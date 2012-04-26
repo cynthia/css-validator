@@ -1,4 +1,4 @@
-// $Id: CssBoxDecorationBreak.java,v 1.1 2012-04-05 09:42:21 ylafon Exp $
+// $Id: CssBoxDecorationBreak.java,v 1.2 2012-04-26 18:33:31 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2012 by Yves Lafon <ylafon@w3.org>
 //
@@ -17,7 +17,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @spec http://www.w3.org/TR/2012/WD-css3-background-20120214/#the-box-decoration-break
+ * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#box-decoration-break
  */
 
 public class CssBoxDecorationBreak extends org.w3c.css.properties.css.CssBoxDecorationBreak {

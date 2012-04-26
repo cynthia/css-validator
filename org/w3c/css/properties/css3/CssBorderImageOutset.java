@@ -1,4 +1,4 @@
-// $Id: CssBorderImageOutset.java,v 1.1 2012-04-25 20:22:05 ylafon Exp $
+// $Id: CssBorderImageOutset.java,v 1.2 2012-04-26 18:33:30 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -17,8 +17,7 @@ import org.w3c.css.values.CssValueList;
 import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
- * @version $Revision: 1.1 $
- * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#the-border-image-outset
+ * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#border-image-outset
  */
 public class CssBorderImageOutset extends org.w3c.css.properties.css.CssBorderImageOutset {
 

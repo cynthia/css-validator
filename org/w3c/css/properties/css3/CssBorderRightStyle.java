@@ -1,4 +1,4 @@
-// $Id: CssBorderRightStyle.java,v 1.1 2012-04-25 20:22:06 ylafon Exp $
+// $Id: CssBorderRightStyle.java,v 1.2 2012-04-26 18:33:31 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -10,8 +10,8 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @since CSS2
- * @version $Revision: 1.1 $
+ * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#border-right-style
+ * @see CssBorderStyle
  */
 public class CssBorderRightStyle extends org.w3c.css.properties.css.CssBorderRightStyle {
 

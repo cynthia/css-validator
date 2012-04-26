@@ -1,4 +1,4 @@
-// $Id: CssBorderBottomRightRadius.java,v 1.5 2012-04-25 20:22:04 ylafon Exp $
+// $Id: CssBorderBottomRightRadius.java,v 1.6 2012-04-26 18:33:30 ylafon Exp $
 //
 // (c) COPYRIGHT 1995-2012  World Wide Web Consortium (MIT, ERCIM, Keio University)
 // Please first read the full copyright statement at
@@ -12,6 +12,10 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValueList;
 
+/**
+ * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#border-bottom-right-radius
+ * @see CssBorderRadius
+ */
 public class CssBorderBottomRightRadius extends org.w3c.css.properties.css.CssBorderBottomRightRadius {
 
     /**

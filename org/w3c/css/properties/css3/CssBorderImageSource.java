@@ -1,4 +1,4 @@
-// $Id: CssBorderImageSource.java,v 1.1 2012-04-25 20:22:05 ylafon Exp $
+// $Id: CssBorderImageSource.java,v 1.2 2012-04-26 18:33:30 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -13,8 +13,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#the-border-image-source
- * @version $Revision: 1.1 $
+ * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#border-image-source
  */
 public class CssBorderImageSource extends org.w3c.css.properties.css.CssBorderImageSource {
 

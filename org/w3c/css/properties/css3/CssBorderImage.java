@@ -1,4 +1,4 @@
-// $Id: CssBorderImage.java,v 1.5 2012-04-26 09:20:00 ylafon Exp $
+// $Id: CssBorderImage.java,v 1.6 2012-04-26 18:33:30 ylafon Exp $
 //
 // (c) COPYRIGHT 1995-2012  World Wide Web Consortium (MIT, ERCIM, Keio University)
 // Please first read the full copyright statement at
@@ -15,6 +15,9 @@ import org.w3c.css.values.CssValue;
 
 import static org.w3c.css.values.CssOperator.SPACE;
 
+/**
+ * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#border-image
+ */
 
 public class CssBorderImage extends org.w3c.css.properties.css.CssBorderImage {
 

@@ -1,4 +1,4 @@
-// $Id: CssBorderBottom.java,v 1.1 2012-04-25 20:22:03 ylafon Exp $
+// $Id: CssBorderBottom.java,v 1.2 2012-04-26 18:33:30 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 
@@ -11,7 +11,8 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @since CSS1
+ * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#border-bottom
+ * @see CssBorder
  */
 public class CssBorderBottom extends org.w3c.css.properties.css.CssBorderBottom {
 

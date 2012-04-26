@@ -1,9 +1,8 @@
-// $Id: CssBorderRadius.java,v 1.6 2012-04-25 20:22:06 ylafon Exp $
+// $Id: CssBorderRadius.java,v 1.7 2012-04-26 18:33:31 ylafon Exp $
 //
 // (c) COPYRIGHT 1995-2012  World Wide Web Consortium (MIT, ERCIM and Keio University)
 // Please first read the full copyright statement at
 // http://www.w3.org/Consortium/Legal/copyright-software-19980720
-
 package org.w3c.css.properties.css3;
 
 import org.w3c.css.properties.css.CssProperty;
@@ -22,7 +21,9 @@ import java.util.ArrayList;
 
 import static org.w3c.css.values.CssOperator.SPACE;
 
-
+/**
+ * @spec http://www.w3.org/TR/2012/CR-css3-background-20120417/#border-radius
+ */
 public class CssBorderRadius extends org.w3c.css.properties.css.CssBorderRadius {
 
 

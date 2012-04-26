@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.19 2012-04-25 20:22:03 ylafon Exp $
+// $Id: Css3Style.java,v 1.20 2012-04-26 18:33:30 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -101,8 +101,6 @@ public class Css3Style extends ATSCStyle {
     CssDisplayRole cssDisplayRole;
     CssMarginOutside cssMarginOutside;
     CssMarginInside cssMarginInside;
-    CssBoxWidth cssBoxWidth;
-    CssBoxHeight cssBoxHeight;
     CssFit cssFit;
     CssLink cssLink;
     CssLinkBehavior cssLinkBehavior;
@@ -798,24 +796,6 @@ public class Css3Style extends ATSCStyle {
                             new CssMarginInside(), style, selector);
         }
         return cssMarginInside;
-    }
-
-    public CssBoxWidth getBoxWidth() {
-        if (cssBoxWidth == null) {
-            cssBoxWidth =
-                    (CssBoxWidth) style.CascadingOrder(
-                            new CssBoxWidth(), style, selector);
-        }
-        return cssBoxWidth;
-    }
-
-    public CssBoxHeight getBoxHeight() {
-        if (cssBoxHeight == null) {
-            cssBoxHeight =
-                    (CssBoxHeight) style.CascadingOrder(
-                            new CssBoxHeight(), style, selector);
-        }
-        return cssBoxHeight;
     }
 
     public CssFit getFit() {
