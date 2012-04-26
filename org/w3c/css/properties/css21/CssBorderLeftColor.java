@@ -1,4 +1,4 @@
-// $Id: CssBorderLeftColor.java,v 1.1 2012-04-25 20:22:02 ylafon Exp $
+// $Id: CssBorderLeftColor.java,v 1.2 2012-04-26 12:53:53 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -10,7 +10,8 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @see
+ * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-left-color
+ * @see CssBorderColor
  */
 public class CssBorderLeftColor extends org.w3c.css.properties.css.CssBorderLeftColor {
 

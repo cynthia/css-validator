@@ -1,4 +1,4 @@
-// $Id: CssBorderLeft.java,v 1.1 2012-04-25 20:22:02 ylafon Exp $
+// $Id: CssBorderLeft.java,v 1.2 2012-04-26 12:53:53 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -10,7 +10,8 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @since CSS1
+ * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-left
+ * @see CssBorder
  */
 public class CssBorderLeft extends org.w3c.css.properties.css.CssBorderLeft {
 
