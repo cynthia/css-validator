@@ -1,4 +1,4 @@
-// $Id: CssBorder.java,v 1.1 2012-04-25 20:22:00 ylafon Exp $
+// $Id: CssBorder.java,v 1.2 2012-04-26 12:40:06 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -19,7 +19,8 @@ import org.w3c.css.values.CssValueList;
 import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
- * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#border-shorthand-properties
+ * @spec http://www.w3.org/TR/2008/REC-CSS2-20080411/box.html#propdef-border
+ * http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#border-shorthand-properties
  */
 public class CssBorder extends org.w3c.css.properties.css.CssBorder {
 

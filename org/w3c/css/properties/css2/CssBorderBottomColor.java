@@ -1,4 +1,4 @@
-// $Id: CssBorderBottomColor.java,v 1.1 2012-04-25 20:22:00 ylafon Exp $
+// $Id: CssBorderBottomColor.java,v 1.2 2012-04-26 12:40:06 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -10,8 +10,8 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @since CSS2
- * @version $Revision: 1.1 $
+ * @spec http://www.w3.org/TR/2008/REC-CSS2-20080411/box.html#propdef-border-bottom-color
+ * @see CssBorderColor
  */
 public class CssBorderBottomColor extends org.w3c.css.properties.css.CssBorderBottomColor {
 
