@@ -1,4 +1,4 @@
-// $Id: CssVersion.java,v 1.2 2011-09-17 06:02:27 ylafon Exp $
+// $Id: CssVersion.java,v 1.3 2012-04-30 13:02:21 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -32,6 +32,6 @@ public enum CssVersion {
 
     // get the default version of CSS
     public static CssVersion getDefault() {
-        return CSS21;
+        return CSS3;
     }
 }
