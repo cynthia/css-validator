@@ -1,5 +1,5 @@
 //
-// $Id: FontWeight.java,v 1.3 2010-01-05 13:49:47 ylafon Exp $
+// $Id: FontWeight.java,v 1.4 2012-05-01 12:59:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,8 +7,6 @@
 /*
  */
 package org.w3c.css.properties.css2.font;
-
-import java.util.Vector;
 
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css.CssProperty;
@@ -19,6 +17,8 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssValue;
+
+import java.util.Vector;
 
 /**
  */
@@ -69,9 +69,9 @@ public class FontWeight extends CssProperty implements FontConstant {
 						    getPropertyName(), ac);
 		}
 	    } else if (val instanceof CssNumber) {
-		Object valf = val.get();
-		if(valf instanceof Integer) {
-		    int vali = ((Integer) valf).intValue();
+            CssNumber num = (CssNumber) val;
+		if(num.isInteger()) {
+		    int vali = num.getInt();
 		    if(isCorrectWeight(vali)) { // verify the entire part number
 			values.addElement(val);
 		    }
@@ -156,7 +156,7 @@ public class FontWeight extends CssProperty implements FontConstant {
     /**
      * Compares two properties for equality.
      *
-     * @param value The other property.
+     * @param property The other property.
      */
     public boolean equals(CssProperty property) {
 	// @@TODO
