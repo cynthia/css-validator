@@ -1,4 +1,4 @@
-// $Id: AttributeBegin.java,v 1.4 2008-05-14 10:13:09 ylafon Exp $
+// $Id: AttributeBegin.java,v 1.5 2012-05-03 09:04:08 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -94,7 +94,9 @@ public class AttributeBegin extends AttributeSelector {
     }
 
     public String toString() {
-	return "[" + getName() + "|=\"" + value + "\"]";
+		StringBuilder sb = new StringBuilder();
+		sb.append('[').append(getName()).append("|=\"").append(value).append("\"]");
+		return sb.toString();
     }
 
 }
