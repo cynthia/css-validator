@@ -1,4 +1,4 @@
-// $Id: CssBorderStyle.java,v 1.1 2012-04-25 20:21:55 ylafon Exp $
+// $Id: CssBorderStyle.java,v 1.2 2012-05-03 13:21:01 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -96,7 +96,7 @@ public class CssBorderStyle extends CssProperty {
             bottom.addToStyle(ac, style);
             left.addToStyle(ac, style);
         }
-        cssBorder.borderWidth.shorthand = shorthand;
+        cssBorder.borderStyle.shorthand = shorthand;
     }
 
     /**

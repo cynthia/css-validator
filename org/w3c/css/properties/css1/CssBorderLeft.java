@@ -1,12 +1,13 @@
-// $Id: CssBorderLeft.java,v 1.7 2012-04-26 09:45:49 ylafon Exp $
+// $Id: CssBorderLeft.java,v 1.8 2012-05-03 13:21:03 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css1;
 
-import org.w3c.css.properties.css2.CssBorderLeftColor;
-import org.w3c.css.properties.css2.CssBorderLeftStyle;
+import org.w3c.css.parser.CssStyle;
+import org.w3c.css.properties.css.CssBorderLeftColor;
+import org.w3c.css.properties.css.CssBorderLeftStyle;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -62,6 +63,31 @@ public class CssBorderLeft extends org.w3c.css.properties.css.CssBorderLeft {
             _color.value = values.color;
         }
     }
+
+	/**
+	 * Add this property to the CssStyle
+	 *
+	 * @param style The CssStyle
+	 */
+	public void addToStyle(ApplContext ac, CssStyle style) {
+		Css1Style css1Style = (Css1Style) style;
+		css1Style.cssBorder.byUser = byUser;
+		if (css1Style.cssBorder.borderLeft != null) {
+			style.addRedefinitionWarning(ac, this);
+		}
+		css1Style.cssBorder.borderLeft = this;
+		if (_width != null) {
+			_width.addToStyle(ac, style);
+		}
+		if (css1Style.cssBorder.borderColor.left != null) {
+			style.addRedefinitionWarning(ac, _color);
+		}
+		css1Style.cssBorder.borderColor.left = _color;
+		if (css1Style.cssBorder.borderStyle.left != null) {
+			style.addRedefinitionWarning(ac, _style);
+		}
+		css1Style.cssBorder.borderStyle.left = _style;
+	}
 
     /**
      * Returns a string representation of the object.
