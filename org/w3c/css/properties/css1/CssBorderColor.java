@@ -1,4 +1,4 @@
-// $Id: CssBorderColor.java,v 1.10 2012-04-26 09:45:49 ylafon Exp $
+// $Id: CssBorderColor.java,v 1.11 2012-05-03 09:04:22 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -123,8 +123,6 @@ public class CssBorderColor extends org.w3c.css.properties.css.CssBorderColor {
                 // can't happen
                 throw new InvalidParamException("unrecognize", ac);
         }
-        throw new InvalidParamException("unrecognize", ac);
-
     }
 
     /**
