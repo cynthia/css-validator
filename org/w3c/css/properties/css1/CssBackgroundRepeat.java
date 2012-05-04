@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundRepeat.java,v 1.5 2012-02-09 17:36:29 ylafon Exp $
+// $Id: CssBackgroundRepeat.java,v 1.6 2012-05-04 12:57:40 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -44,7 +44,7 @@ import java.util.HashMap;
  * <p/>
  * In the example above, the image will only be repeated vertically.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class CssBackgroundRepeat extends org.w3c.css.properties.css.CssBackgroundRepeat {
 
@@ -58,6 +58,15 @@ public class CssBackgroundRepeat extends org.w3c.css.properties.css.CssBackgroun
             allowed_values.put(aREPEAT, CssIdent.getIdent(aREPEAT));
         }
     }
+
+	protected static boolean checkMatchingIdent(CssIdent ident) {
+		for (CssIdent id : allowed_values.values()) {
+			if (id.equals(ident)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
     public CssValue value;
 
