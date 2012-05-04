@@ -1,4 +1,4 @@
-// $Id: CssBorderImage.java,v 1.6 2012-04-26 18:33:30 ylafon Exp $
+// $Id: CssBorderImage.java,v 1.7 2012-05-04 12:57:59 ylafon Exp $
 //
 // (c) COPYRIGHT 1995-2012  World Wide Web Consortium (MIT, ERCIM, Keio University)
 // Please first read the full copyright statement at
@@ -164,7 +164,6 @@ public class CssBorderImage extends org.w3c.css.properties.css.CssBorderImage {
                             }
                             // TODO check for border-image! (none)
                             if (CssBorderImageSource.isMatchingIdent((CssIdent) val)) {
-                                System.err.println("*** matching image slice=" + slice);
                                 if (source != null) {
                                     throw new InvalidParamException("value", val.toString(),
                                             getPropertyName(), ac);
