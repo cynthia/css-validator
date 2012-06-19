@@ -1,4 +1,4 @@
-// $Id: MediaOrientation.java,v 1.2 2012-06-19 18:59:33 ylafon Exp $
+// $Id: MediaOrientation.java,v 1.3 2012-06-19 19:21:22 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ECRIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -14,7 +14,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @spec http://www.w3.org/TR/2010/CR-css3-mediaqueries-20100727/#orientation
+ * @spec http://www.w3.org/TR/2012/REC-css3-mediaqueries-20120619/#orientation
  */
 public class MediaOrientation extends MediaFeature {
 
