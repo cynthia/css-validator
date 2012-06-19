@@ -1,4 +1,4 @@
-// $Id: MediaOrientation.java,v 1.1 2011-10-21 01:49:08 ylafon Exp $
+// $Id: MediaOrientation.java,v 1.2 2012-06-19 18:59:33 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ECRIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -21,8 +21,8 @@ public class MediaOrientation extends MediaFeature {
     static CssIdent portrait, landscape;
 
     static {
-        portrait = CssIdent.getIdent("progressive");
-        landscape = CssIdent.getIdent("interlace");
+        portrait = CssIdent.getIdent("portrait");
+        landscape = CssIdent.getIdent("landscape");
     }
 
     /**
