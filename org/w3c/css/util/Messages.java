@@ -1,5 +1,5 @@
 //
-// $Id: Messages.java,v 1.43 2011-09-17 06:02:27 ylafon Exp $
+// $Id: Messages.java,v 1.44 2012-08-04 21:17:07 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,12 +8,12 @@
 package org.w3c.css.util;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.StringTokenizer;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @version $Revision: 1.43 $
+ * @version $Revision: 1.44 $
  */
 public class Messages {
 
@@ -22,7 +22,7 @@ public class Messages {
      */
     public Utf8Properties<String, String> properties = null;
 
-    public static final Hashtable<String, Utf8Properties<String, String>> languages;
+    public static final ConcurrentHashMap<String, Utf8Properties<String, String>> languages;
     public static final ArrayList<String> languages_name;
 
     /**
@@ -205,7 +205,7 @@ public class Messages {
     }
 
     static {
-        languages = new Hashtable<String, Utf8Properties<String, String>>();
+        languages = new ConcurrentHashMap<String, Utf8Properties<String, String>>();
         languages_name = new ArrayList<String>();
 
         Utf8Properties<String, String> tmp;

@@ -1,5 +1,5 @@
 //
-// $Id: CssSelectors.java,v 1.35 2011-10-21 01:49:08 ylafon Exp $
+// $Id: CssSelectors.java,v 1.36 2012-08-04 21:17:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -38,7 +38,7 @@ import java.util.ArrayList;
  * Invoke a <code>set</code> function to change the selector clears all
  * properties !
  *
- * @version $Revision: 1.35 $
+ * @version $Revision: 1.36 $
  */
 public final class CssSelectors extends SelectorsList
         implements CssSelectorsConstant, Comparable<CssSelectors> {
@@ -270,8 +270,9 @@ public final class CssSelectors extends SelectorsList
     public void addAttribute(AttributeSelector attribute)
             throws InvalidParamException {
         int _s = size();
+		Selector s;
         for (int i = 0; i < _s; i++) {
-            Selector s = (Selector) getSelector(i);
+            s = getSelector(i);
             // add warnings if some selectors are incompatible
             // e.g. [lang=en][lang=fr]
             if (s instanceof AttributeSelector) {

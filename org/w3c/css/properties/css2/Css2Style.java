@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.6 2012-04-25 20:22:00 ylafon Exp $
+// $Id: Css2Style.java,v 1.7 2012-08-04 21:17:05 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@ package org.w3c.css.properties.css2;
 import org.w3c.css.properties.aural.ACssStyle;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -20,11 +20,12 @@ public class Css2Style extends ACssStyle {
     public org.w3c.css.properties.css.CssElevation cssElevation;
 
     /**
-     * aural properties
-     *
+     * font properties
      */
+	public org.w3c.css.properties.css.CssFontStretch cssFontStretch;
+	public org.w3c.css.properties.css.CssFontSizeAdjust cssFontSizeAdjust;
 
-    /**
+	/**
      * Get the azimuth
      */
     public org.w3c.css.properties.css.CssAzimuth getAzimuth() {
@@ -94,4 +95,27 @@ public class Css2Style extends ACssStyle {
         return cssBorder.borderStyle.left;
     }
 
+	/**
+	 * get the font-stretch property
+	 * @return a CssFontStretch instance
+	 */
+	public org.w3c.css.properties.css.CssFontStretch getFontStretch() {
+		if (cssFontStretch == null) {
+			cssFontStretch = (org.w3c.css.properties.css.CssFontStretch) style.CascadingOrder(new org.w3c.css.properties.css.CssFontStretch(),
+					style, selector);
+		}
+		return cssFontStretch;
+	}
+
+	/**
+	 * get the font-size-adjust property
+	 * @return a CssFontSizeAdjust instance
+	 */
+	public org.w3c.css.properties.css.CssFontSizeAdjust getFontSizeAdjust() {
+		if (cssFontSizeAdjust == null) {
+			cssFontSizeAdjust = (org.w3c.css.properties.css.CssFontSizeAdjust) style.CascadingOrder(new org.w3c.css.properties.css.CssFontSizeAdjust(),
+					style, selector);
+		}
+		return cssFontSizeAdjust;
+	}
 }

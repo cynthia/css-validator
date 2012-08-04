@@ -1,10 +1,9 @@
 /* -*-java-extended-*-
-/* -*-java-extended-*-
  *
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.81 2012-04-25 20:21:52 ylafon Exp $
+ * $Id: CssParser.jj,v 1.82 2012-08-04 21:17:03 ylafon Exp $
  *
  */
 
@@ -88,7 +87,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.81 $
+ * @version $Revision: 1.82 $
  */
 public abstract class CssParser {
 
@@ -133,8 +132,6 @@ public abstract class CssParser {
 
     private boolean reinited = false;
     private boolean charsetdeclared = false;
-
-    static StringBuilder SPACE = new StringBuilder(" ");
 
     // to be able to remove a ruleset if the selector is not valid
     protected boolean validSelector = true;

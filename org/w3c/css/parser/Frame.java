@@ -1,5 +1,5 @@
 //
-// $Id: Frame.java,v 1.12 2011-08-29 07:21:00 ylafon Exp $
+// $Id: Frame.java,v 1.13 2012-08-04 21:17:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,7 +12,7 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class Frame {
 
@@ -79,6 +79,18 @@ public class Frame {
         warnings.addWarning(new Warning(getSourceFile(), getLine(),
                 warningMessage, 0, ac));
     }
+
+	/**
+	 * Adds a warning to this frame.
+	 *
+	 * @param warningMessage the warning message
+	 *                       (see org.w3c.css.util.Messages.properties).
+	 * @see org.w3c.css.util.Warning
+	 */
+	public void addWarning(String warningMessage, int level) {
+		warnings.addWarning(new Warning(getSourceFile(), getLine(),
+				warningMessage, level, ac));
+	}
 
     /**
      * Adds a warning to this frame with a message.

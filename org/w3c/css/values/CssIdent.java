@@ -1,5 +1,5 @@
 //
-// $Id: CssIdent.java,v 1.11 2011-09-27 08:15:46 ylafon Exp $
+// $Id: CssIdent.java,v 1.12 2012-08-04 21:17:07 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,17 +11,17 @@ import org.w3c.css.util.ApplContext;
 import java.util.HashMap;
 
 /**
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class CssIdent extends CssValue {
 
-    public static HashMap<String, CssIdent> allowedvalues;
+    public static HashMap<String, CssIdent> cachedValues;
 
     static {
-        allowedvalues = new HashMap<String, CssIdent>();
-        allowedvalues.put("inherit", new CssIdent("inherit"));
-        allowedvalues.put("initial", new CssIdent("initial"));
-        allowedvalues.put("none", new CssIdent("none"));
+        cachedValues = new HashMap<String, CssIdent>();
+        cachedValues.put("inherit", new CssIdent("inherit"));
+        cachedValues.put("initial", new CssIdent("initial"));
+        cachedValues.put("none", new CssIdent("none"));
     }
 
     /**
@@ -31,12 +31,12 @@ public class CssIdent extends CssValue {
      * @return a CssIdent
      */
     public static CssIdent getIdent(String name) {
-        CssIdent val = allowedvalues.get(name);
+        CssIdent val = cachedValues.get(name);
         if (val != null) {
             return val;
         }
         val = new CssIdent(name);
-        allowedvalues.put(name, val);
+        cachedValues.put(name, val);
         return val;
     }
 

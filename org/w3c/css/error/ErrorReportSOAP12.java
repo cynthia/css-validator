@@ -1,15 +1,15 @@
-// $Id: ErrorReportSOAP12.java,v 1.2 2005-09-14 15:14:18 ylafon Exp $
+// $Id: ErrorReportSOAP12.java,v 1.3 2012-08-04 21:17:03 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2003.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.error;
 
+import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.Utf8Properties;
+
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.UnknownHostException;
-
-import org.w3c.css.util.ApplContext;
-import org.w3c.css.util.Utf8Properties;
 
 /**
  * ErrorReportSOAP12<br />
@@ -59,7 +59,7 @@ public class ErrorReportSOAP12 extends ErrorReport {
 	else {
 	    report = messages.getProperty("sender");
 	}
-	processError(report, errorMessage , title + " " + exception);
+	processError(report, errorMessage , title + ' ' + exception);
     }
 
     /**

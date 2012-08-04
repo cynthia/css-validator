@@ -1,5 +1,5 @@
 //
-// $Id: CssStyle.java,v 1.12 2011-09-10 14:20:13 ylafon Exp $
+// $Id: CssStyle.java,v 1.13 2012-08-04 21:17:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import org.w3c.css.util.Warnings;
 /**
  * This class represents a class for one context
  *
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class CssStyle {
 
@@ -54,7 +54,7 @@ public class CssStyle {
     }
 
     /**
-     * Add a warning definition to this style.
+     * Add a warning about redefinition of a property to this style.
      *
      * @param property The property.
      */
@@ -62,6 +62,15 @@ public class CssStyle {
                                              CssProperty property) {
         warnings.addWarning(new Warning(property, "redefinition", 2, ac));
     }
+
+	/**
+	 * Add a warning to this style.
+	 *
+	 * @param warn The Warning.
+	 */
+	public final void addWarning(ApplContext ac, Warning warn) {
+		warnings.addWarning(warn);
+	}
 
     /**
      * Add a property to this style
