@@ -1,4 +1,4 @@
-// $Id: CssLineHeight.java,v 1.1 2012-08-04 21:17:07 ylafon Exp $
+// $Id: CssLineHeight.java,v 1.2 2012-08-04 21:24:28 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -17,7 +17,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2002/WD-css3-linebox-20020515/#line-height
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssLineHeight extends org.w3c.css.properties.css.CssLineHeight {
 
@@ -27,6 +27,7 @@ public class CssLineHeight extends org.w3c.css.properties.css.CssLineHeight {
      * Create a new CssLineHeight
      */
     public CssLineHeight() {
+		value = initial;
     }
 
     /**
