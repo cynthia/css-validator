@@ -1,4 +1,4 @@
-// $Id: CssFontVariant.java,v 1.1 2012-08-04 21:17:07 ylafon Exp $
+// $Id: CssFontVariant.java,v 1.2 2012-08-05 06:22:56 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -20,6 +20,16 @@ public class CssFontVariant extends org.w3c.css.properties.css.CssFontVariant {
 
 	public static final CssIdent normal = CssIdent.getIdent("normal");
 	public static final CssIdent smallCaps = CssIdent.getIdent("small-caps");
+
+	public static final CssIdent getAllowedFontVariant(CssIdent ident) {
+		if (smallCaps.equals(ident)) {
+			return smallCaps;
+		}
+		if (normal.equals(ident)) {
+			return normal;
+		}
+		return null;
+	}
 
 	/**
 	 * Creates a new CssFontVariant
