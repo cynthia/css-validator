@@ -1,4 +1,4 @@
-// $Id: CssFontKerning.java,v 1.1 2012-08-06 08:28:30 ylafon Exp $
+// $Id: CssFontKerning.java,v 1.2 2012-08-06 08:44:36 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -14,7 +14,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @since CSS3
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssFontKerning extends CssProperty {
 
@@ -27,7 +27,7 @@ public class CssFontKerning extends CssProperty {
     }
 
     /**
-     * Creates a new CssFontSize
+     * Creates a new CssFontKerning
      *
      * @param expression The expression for this property
      * @throws org.w3c.css.util.InvalidParamException
