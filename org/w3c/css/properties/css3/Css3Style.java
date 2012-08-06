@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.21 2012-08-04 21:17:06 ylafon Exp $
+// $Id: Css3Style.java,v 1.22 2012-08-06 08:28:31 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -28,6 +28,7 @@ import org.w3c.css.properties.css.CssColumnRuleWidth;
 import org.w3c.css.properties.css.CssColumnSpan;
 import org.w3c.css.properties.css.CssColumnWidth;
 import org.w3c.css.properties.css.CssColumns;
+import org.w3c.css.properties.css.CssFontKerning;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Util;
@@ -139,6 +140,8 @@ public class Css3Style extends ATSCStyle {
     public CssBreakInside cssBreakInside;
     public CssBoxShadow cssBoxShadow;
     public CssBoxDecorationBreak cssBoxDecorationBreak;
+	public CssFontKerning cssFontKerning;
+
 
     CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
     CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -1548,6 +1551,15 @@ public class Css3Style extends ATSCStyle {
         }
         return cssBoxDecorationBreak;
     }
+
+	public CssFontKerning getFontKerning() {
+		if (cssFontKerning == null) {
+			cssFontKerning =
+					(CssFontKerning) style.CascadingOrder(
+							new CssFontKerning(), style, selector);
+		}
+		return cssFontKerning;
+	}
 
     public CssTextIndentCSS3 getTextIndentCSS3() {
         if (cssTextIndentCSS3 == null) {
