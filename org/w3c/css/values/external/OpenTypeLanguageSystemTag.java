@@ -1,4 +1,4 @@
-// $Id: OpenTypeLanguageSystemTag.java,v 1.1 2012-08-07 20:45:53 ylafon Exp $
+// $Id: OpenTypeLanguageSystemTag.java,v 1.2 2012-08-07 21:04:59 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -29,8 +29,8 @@ public class OpenTypeLanguageSystemTag {
 			"GEZ", "GIL", "GMZ", "GON", "GRN", "GRO", "GUA", "GUJ", "HAI",
 			"HAL", "HAR", "HAU", "HAW", "HBN", "HIL", "HIN", "HMA", "HND",
 			"HRI", "HRV", "HUN", "HYE", "IBO", "IJO", "ILO", "IND", "ING",
-			"INU", "IRI", "IRT", "ISL", "ISM", "ITA", "IWR", "JAV", "JII",
-			"JAN", "JUD", "JUL", "KAB", "KAC", "KAL", "KAN", "KAR", "KAT",
+			"INU", "IRI", "IRT", "ISL", "ISM", "ITA", "IWR", "JAN", "JAV",
+			"JII", "JUD", "JUL", "KAB", "KAC", "KAL", "KAN", "KAR", "KAT",
 			"KAZ", "KEB", "KGE", "KHA", "KHK", "KHM", "KHS", "KHV", "KHW",
 			"KIK", "KIR", "KIS", "KKN", "KLM", "KMB", "KMN", "KMO", "KMS",
 			"KNR", "KOD", "KOH", "KOK", "KON", "KOP", "KOR", "KOZ", "KPL",
@@ -46,7 +46,7 @@ public class OpenTypeLanguageSystemTag {
 			"NHC", "NIS", "NIU", "NKL", "NKO", "NLD", "NOG", "NOR", "NSM",
 			"NTA", "NTO", "NYN", "OCI", "OCR", "OJB", "ORI", "ORO", "OSS",
 			"PAA", "PAL", "PAN", "PAP", "PAS", "PGR", "PIL", "PLG", "PLK",
-			"PRO", "PTG", "QIN", "RAJ", "RCR", "RBU", "RIA", "RMS", "ROM",
+			"PRO", "PTG", "QIN", "RAJ", "RBU", "RCR", "RIA", "RMS", "ROM",
 			"ROY", "RSY", "RUA", "RUS", "SAD", "SAN", "SAT", "SAY", "SEK",
 			"SEL", "SGO", "SHN", "SIB", "SID", "SIG", "SKS", "SKY", "SLA",
 			"SLV", "SML", "SMO", "SNA", "SND", "SNH", "SNK", "SOG", "SOT",
