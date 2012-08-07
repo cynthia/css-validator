@@ -1,4 +1,4 @@
-// $Id: CssFontKerning.java,v 1.3 2012-08-06 08:44:36 ylafon Exp $
+// $Id: CssFontKerning.java,v 1.4 2012-08-07 14:53:05 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -60,6 +60,8 @@ public class CssFontKerning extends org.w3c.css.properties.css.CssFontKerning {
 				value = normal;
 			} else if (auto.equals(ident)) {
 				value = auto;
+			} else if (none.equals(ident)) {
+				value = none;
 			} else {
 				throw new InvalidParamException("value",
 						val.toString(),
