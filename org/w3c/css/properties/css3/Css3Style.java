@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.25 2012-08-08 10:02:08 ylafon Exp $
+// $Id: Css3Style.java,v 1.26 2012-08-08 21:05:40 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -30,6 +30,7 @@ import org.w3c.css.properties.css.CssColumnWidth;
 import org.w3c.css.properties.css.CssColumns;
 import org.w3c.css.properties.css.CssFontKerning;
 import org.w3c.css.properties.css.CssFontLanguageOverride;
+import org.w3c.css.properties.css.CssFontSynthesis;
 import org.w3c.css.properties.css.CssFontVariantCaps;
 import org.w3c.css.properties.css.CssFontVariantPosition;
 import org.w3c.css.properties.css.CssOpacity;
@@ -147,6 +148,7 @@ public class Css3Style extends ATSCStyle {
 	public CssFontLanguageOverride cssFontLanguageOverride;
 	public CssFontVariantCaps cssFontVariantCaps;
 	public CssFontVariantPosition cssFontVariantPosition;
+	public CssFontSynthesis cssFontSynthesis;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -1592,6 +1594,15 @@ public class Css3Style extends ATSCStyle {
 							new CssFontVariantCaps(), style, selector);
 		}
 		return cssFontVariantPosition;
+	}
+
+	public CssFontSynthesis getFontSynthesis() {
+		if (cssFontSynthesis == null) {
+			cssFontSynthesis =
+					(CssFontSynthesis) style.CascadingOrder(
+							new CssFontSynthesis(), style, selector);
+		}
+		return cssFontSynthesis;
 	}
 
 	public CssTextIndentCSS3 getTextIndentCSS3() {
