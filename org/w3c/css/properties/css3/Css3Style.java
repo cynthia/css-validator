@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.29 2012-08-10 05:02:13 ylafon Exp $
+// $Id: Css3Style.java,v 1.30 2012-08-13 05:38:56 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -28,6 +28,7 @@ import org.w3c.css.properties.css.CssColumnRuleWidth;
 import org.w3c.css.properties.css.CssColumnSpan;
 import org.w3c.css.properties.css.CssColumnWidth;
 import org.w3c.css.properties.css.CssColumns;
+import org.w3c.css.properties.css.CssFontFeatureSettings;
 import org.w3c.css.properties.css.CssFontKerning;
 import org.w3c.css.properties.css.CssFontLanguageOverride;
 import org.w3c.css.properties.css.CssFontSynthesis;
@@ -155,6 +156,7 @@ public class Css3Style extends ATSCStyle {
 	public CssFontVariantEastAsian cssFontVariantEastAsian;
 	public CssFontVariantLigatures cssFontVariantLigatures;
 	public CssFontVariantNumeric cssFontVariantNumeric;
+	public CssFontFeatureSettings cssFontFeatureSettings;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -1636,6 +1638,15 @@ public class Css3Style extends ATSCStyle {
 							new CssFontVariantNumeric(), style, selector);
 		}
 		return cssFontVariantNumeric;
+	}
+
+	public CssFontFeatureSettings getFontFeatureSettings() {
+		if (cssFontFeatureSettings == null) {
+			cssFontFeatureSettings =
+					(CssFontFeatureSettings) style.CascadingOrder(
+							new CssFontFeatureSettings(), style, selector);
+		}
+		return cssFontFeatureSettings;
 	}
 
 	///
