@@ -1,11 +1,11 @@
-// $Id: CssZIndex.java,v 1.2 2012-08-15 20:10:09 ylafon Exp $
+// $Id: CssZIndex.java,v 1.1 2012-08-15 20:10:10 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997-2010.
 // Please first read the full copyright statement in file COPYRIGHT.html
 /*
  */
-package org.w3c.css.properties.css2;
+package org.w3c.css.properties.css3;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @spec http://www.w3.org/TR/2008/REC-CSS2-20080411/visuren.html#propdef-z-index
+ * @spec http://www.w3.org/TR/2012/WD-css3-positioning-20120207/#z-index
  */
 public class CssZIndex extends org.w3c.css.properties.css.CssZIndex {
 

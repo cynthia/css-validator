@@ -1,4 +1,4 @@
-// $Id: CssZIndex.java,v 1.1 2011-09-04 17:56:31 ylafon Exp $
+// $Id: CssZIndex.java,v 1.2 2012-08-15 20:10:09 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997-2010.
@@ -16,10 +16,9 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
+ * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/visuren.html#propdef-z-index
  */
 public class CssZIndex extends org.w3c.css.properties.css.CssZIndex {
-
-    CssValue value;
 
     /**
      * Create a new CssZIndex
@@ -81,13 +80,6 @@ public class CssZIndex extends org.w3c.css.properties.css.CssZIndex {
     public CssZIndex(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
-    }
-
-    /**
-     * Returns a string representation of the object.
-     */
-    public String toString() {
-        return value.toString();
     }
 
     public boolean isDefault() {

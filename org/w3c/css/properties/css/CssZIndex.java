@@ -1,4 +1,4 @@
-// $Id: CssZIndex.java,v 1.2 2011-09-04 17:56:30 ylafon Exp $
+// $Id: CssZIndex.java,v 1.3 2012-08-15 20:10:09 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997-2010.
@@ -16,12 +16,13 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssValue;
 
 /**
+ * @since CSS2
  */
 public class CssZIndex extends CssProperty {
 
     public static final String propertyName = "z-index";
 
-    CssValue value;
+    public CssValue value;
 
     public static CssIdent auto = CssIdent.getIdent("auto");
 
