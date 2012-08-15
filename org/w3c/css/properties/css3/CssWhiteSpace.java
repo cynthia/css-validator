@@ -1,4 +1,4 @@
-// $Id: CssWhiteSpace.java,v 1.1 2012-02-09 17:36:32 ylafon Exp $
+// $Id: CssWhiteSpace.java,v 1.2 2012-08-15 05:15:32 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -14,8 +14,8 @@ import org.w3c.css.values.CssValue;
 import java.util.HashMap;
 
 /**
- * @version $Revision: 1.1 $
- * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/text.html#white-space-prop
+ * @version $Revision: 1.2 $
+ * @spec http://www.w3.org/TR/2012/WD-css3-text-20120814/#white-space0
  */
 public class CssWhiteSpace extends org.w3c.css.properties.css.CssWhiteSpace {
 
@@ -38,7 +38,6 @@ public class CssWhiteSpace extends org.w3c.css.properties.css.CssWhiteSpace {
     * Create a new CssWhiteSpace
     */
     public CssWhiteSpace() {
-        // TODO raise an error ?
         value = initial;
     }
 
