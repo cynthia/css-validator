@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.31 2012-08-14 20:31:37 ylafon Exp $
+// $Id: Css3Style.java,v 1.32 2012-08-15 20:14:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -126,7 +126,6 @@ public class Css3Style extends ATSCStyle {
 	CssTextOverflow cssTextOverflow;
 	CssTextOverflowEllipsis cssTextOverflowEllipsis;
 	CssTextOverflowMode cssTextOverflowMode;
-	CssWrapOption cssWrapOption;
 
 	public CssOpacity cssOpacity;
 	public CssBackgroundClip cssBackgroundClip;
@@ -989,15 +988,6 @@ public class Css3Style extends ATSCStyle {
 							new CssTextOverflowMode(), style, selector);
 		}
 		return cssTextOverflowMode;
-	}
-
-	public CssWrapOption getWrapOption() {
-		if (cssWrapOption == null) {
-			cssWrapOption =
-					(CssWrapOption) style.CascadingOrder(
-							new CssWrapOption(), style, selector);
-		}
-		return cssWrapOption;
 	}
 
 	public CssColumnGap getColumnGap() {
