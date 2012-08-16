@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.32 2012-08-15 20:14:32 ylafon Exp $
+// $Id: Css3Style.java,v 1.33 2012-08-16 07:01:10 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -52,7 +52,6 @@ public class Css3Style extends ATSCStyle {
 	CssRubyOverhang cssRubyOverhang;
 	CssBoxSizing cssBoxSizing;
 	CssResizer cssResizer;
-	CssKeyEq cssKeyEq;
 	CssTabIndex cssTabIndex;
 	CssUserInput cssUserInput;
 	CssUserModify cssUserModify;
@@ -288,14 +287,6 @@ public class Css3Style extends ATSCStyle {
 		return cssResizer;
 	}
 
-	public CssKeyEq getKeyEq() {
-		if (cssKeyEq == null) {
-			cssKeyEq =
-					(CssKeyEq) style.CascadingOrder(
-							new CssKeyEq(), style, selector);
-		}
-		return cssKeyEq;
-	}
 
 	public CssTabIndex getTabIndex() {
 		if (cssTabIndex == null) {
