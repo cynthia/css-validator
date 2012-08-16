@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.34 2012-08-16 07:07:46 ylafon Exp $
+// $Id: Css3Style.java,v 1.35 2012-08-16 10:03:18 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -77,8 +77,6 @@ public class Css3Style extends ATSCStyle {
 	CssTextAfterOverflow cssTextAfterOverflow;
 	CssPunctuationTrim cssPunctuationTrim;
 	CssTextAutoSpace cssTextAutoSpace;
-	CssKerningMode cssKerningMode;
-	CssKerningPairTreshold cssKerningPairTreshold;
 	CssTextUlStyle cssTextUlStyle;
 	CssTextUlColor cssTextUlColor;
 	CssTextUlMode cssTextUlMode;
@@ -505,24 +503,6 @@ public class Css3Style extends ATSCStyle {
 							new CssTextAutoSpace(), style, selector);
 		}
 		return cssTextAutoSpace;
-	}
-
-	public CssKerningMode getKerningMode() {
-		if (cssKerningMode == null) {
-			cssKerningMode =
-					(CssKerningMode) style.CascadingOrder(
-							new CssKerningMode(), style, selector);
-		}
-		return cssKerningMode;
-	}
-
-	public CssKerningPairTreshold getKerningPairTreshold() {
-		if (cssKerningPairTreshold == null) {
-			cssKerningPairTreshold =
-					(CssKerningPairTreshold) style.CascadingOrder(
-							new CssKerningPairTreshold(), style, selector);
-		}
-		return cssKerningPairTreshold;
 	}
 
 	public CssTextUlStyle getTextUlStyle() {
