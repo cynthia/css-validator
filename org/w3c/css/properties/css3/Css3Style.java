@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.35 2012-08-16 10:03:18 ylafon Exp $
+// $Id: Css3Style.java,v 1.36 2012-08-16 17:17:01 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -86,10 +86,6 @@ public class Css3Style extends ATSCStyle {
 	CssTextLTColor cssTextLTColor;
 	CssTextLTMode cssTextLTMode;
 	CssTextLineThrough cssTextLineThrough;
-	CssTextOverLine cssTextOverLine;
-	CssTextOLStyle cssTextOLStyle;
-	CssTextOLColor cssTextOLColor;
-	CssTextOLMode cssTextOLMode;
 	CssTextCombine cssTextCombine;
 	CssMedia cssMedia;
 	CssDisplayModel cssDisplayModel;
@@ -584,42 +580,6 @@ public class Css3Style extends ATSCStyle {
 							new CssTextLineThrough(), style, selector);
 		}
 		return cssTextLineThrough;
-	}
-
-	public CssTextOverLine getTextOverLine() {
-		if (cssTextOverLine == null) {
-			cssTextOverLine =
-					(CssTextOverLine) style.CascadingOrder(
-							new CssTextOverLine(), style, selector);
-		}
-		return cssTextOverLine;
-	}
-
-	public CssTextOLStyle getTextOLStyle() {
-		if (cssTextOLStyle == null) {
-			cssTextOLStyle =
-					(CssTextOLStyle) style.CascadingOrder(
-							new CssTextOLStyle(), style, selector);
-		}
-		return cssTextOLStyle;
-	}
-
-	public CssTextOLColor getTextOLColor() {
-		if (cssTextOLColor == null) {
-			cssTextOLColor =
-					(CssTextOLColor) style.CascadingOrder(
-							new CssTextOLColor(), style, selector);
-		}
-		return cssTextOLColor;
-	}
-
-	public CssTextOLMode getTextOLMode() {
-		if (cssTextOLMode == null) {
-			cssTextOLMode =
-					(CssTextOLMode) style.CascadingOrder(
-							new CssTextOLMode(), style, selector);
-		}
-		return cssTextOLMode;
 	}
 
 	public CssTextCombine getTextCombine() {
