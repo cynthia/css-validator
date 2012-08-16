@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.36 2012-08-16 17:17:01 ylafon Exp $
+// $Id: Css3Style.java,v 1.37 2012-08-16 20:28:20 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -171,7 +171,6 @@ public class Css3Style extends ATSCStyle {
 	CssCrop cssCrop;
 	CssFitPosition cssFitPosition;
 	CssFloatDisplace cssFloatDisplace;
-	CssIndentEdgeReset cssIndentEdgeReset;
 	CssVisibilityCSS3 cssVisibilityCSS3;
 	CssOverflowCSS3 cssOverflowCSS3;
 	CssOverflowClip cssOverflowClip;
@@ -1192,15 +1191,6 @@ public class Css3Style extends ATSCStyle {
 							new CssFloatDisplace(), style, selector);
 		}
 		return cssFloatDisplace;
-	}
-
-	public CssIndentEdgeReset getIndentEdgeReset() {
-		if (cssIndentEdgeReset == null) {
-			cssIndentEdgeReset =
-					(CssIndentEdgeReset) style.CascadingOrder(
-							new CssIndentEdgeReset(), style, selector);
-		}
-		return cssIndentEdgeReset;
 	}
 
 	public CssVisibilityCSS3 getVisibilityCSS3() {
