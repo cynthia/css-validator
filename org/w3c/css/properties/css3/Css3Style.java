@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.38 2012-08-17 05:16:20 ylafon Exp $
+// $Id: Css3Style.java,v 1.39 2012-08-18 05:36:34 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -82,10 +82,6 @@ public class Css3Style extends ATSCStyle {
 	CssTextUlMode cssTextUlMode;
 	CssTextUlPos cssTextUlPos;
 	CssTextUnderLine cssTextUnderLine;
-	CssTextLTStyle cssTextLTStyle;
-	CssTextLTColor cssTextLTColor;
-	CssTextLTMode cssTextLTMode;
-	CssTextLineThrough cssTextLineThrough;
 	CssTextCombine cssTextCombine;
 	CssMedia cssMedia;
 	CssDisplayModel cssDisplayModel;
@@ -542,42 +538,6 @@ public class Css3Style extends ATSCStyle {
 							new CssTextUnderLine(), style, selector);
 		}
 		return cssTextUnderLine;
-	}
-
-	public CssTextLTStyle getTextLTStyle() {
-		if (cssTextLTStyle == null) {
-			cssTextLTStyle =
-					(CssTextLTStyle) style.CascadingOrder(
-							new CssTextLTStyle(), style, selector);
-		}
-		return cssTextLTStyle;
-	}
-
-	public CssTextLTColor getTextLTColor() {
-		if (cssTextLTColor == null) {
-			cssTextLTColor =
-					(CssTextLTColor) style.CascadingOrder(
-							new CssTextLTColor(), style, selector);
-		}
-		return cssTextLTColor;
-	}
-
-	public CssTextLTMode getTextLTMode() {
-		if (cssTextLTMode == null) {
-			cssTextLTMode =
-					(CssTextLTMode) style.CascadingOrder(
-							new CssTextLTMode(), style, selector);
-		}
-		return cssTextLTMode;
-	}
-
-	public CssTextLineThrough getTextLineThrough() {
-		if (cssTextLineThrough == null) {
-			cssTextLineThrough =
-					(CssTextLineThrough) style.CascadingOrder(
-							new CssTextLineThrough(), style, selector);
-		}
-		return cssTextLineThrough;
 	}
 
 	public CssTextCombine getTextCombine() {
