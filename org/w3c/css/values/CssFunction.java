@@ -1,5 +1,5 @@
 //
-// $Id: CssFunction.java,v 1.8 2010-01-06 09:27:44 ylafon Exp $
+// $Id: CssFunction.java,v 1.9 2012-08-18 20:30:28 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997.
@@ -11,7 +11,7 @@ import org.w3c.css.util.ApplContext;
 /**
  * A CSS float number.
  *
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class CssFunction extends CssValue {
 
@@ -67,7 +67,7 @@ public class CssFunction extends CssValue {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder(name);
-        sb.append('(').append(parameters).append(')');
+        sb.append('(').append(parameters.toStringFromStart()).append(')');
         return sb.toString();
     }
 

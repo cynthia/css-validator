@@ -1,4 +1,4 @@
-// $Id: CssFontVariantLigatures.java,v 1.1 2012-08-09 17:27:34 ylafon Exp $
+// $Id: CssFontVariantLigatures.java,v 1.2 2012-08-18 20:30:28 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -170,7 +170,6 @@ public class CssFontVariantLigatures extends org.w3c.css.properties.css.CssFontV
 			}
 			value = new CssValueList(v);
 		}
-
 	}
 
 	public CssFontVariantLigatures(ApplContext ac, CssExpression expression)

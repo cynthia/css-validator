@@ -1,5 +1,5 @@
 //
-// $Id: CssExpression.java,v 1.11 2011-10-21 01:49:13 ylafon Exp $
+// $Id: CssExpression.java,v 1.12 2012-08-18 20:30:28 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * This class is used by the CSS1 parser to generate all expressions.
  *
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class CssExpression implements CssOperator {
 
@@ -193,9 +193,9 @@ public class CssExpression implements CssOperator {
             ValueOperator vo = items.get(i);
             sb.append(vo.value.toString()).append(vo.operator);
         }
-        // remove the last one
-        if (sb.length() > 0) {
-//            sb.setLength(sb.length() - 1);
+        // remove the last extra operator
+        if (sb.length() > 1) {
+            sb.setLength(sb.length() - 1);
             return sb.toString();
         } else {
             return "**invalid state**";
@@ -211,6 +211,8 @@ public class CssExpression implements CssOperator {
         for (ValueOperator anItem : items) {
             sb.append(anItem.value.toString()).append(anItem.operator);
         }
+		// care for the last extra operator
+		sb.setLength(sb.length() - 1);
         return sb.toString();
     }
 
