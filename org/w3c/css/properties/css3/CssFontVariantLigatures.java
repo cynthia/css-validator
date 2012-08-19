@@ -1,4 +1,4 @@
-// $Id: CssFontVariantLigatures.java,v 1.2 2012-08-18 20:30:28 ylafon Exp $
+// $Id: CssFontVariantLigatures.java,v 1.3 2012-08-19 17:28:25 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -34,7 +34,7 @@ public class CssFontVariantLigatures extends org.w3c.css.properties.css.CssFontV
 	}
 
 	public static final CssIdent getCommonLigValues(CssIdent ident) {
-		String s_id = ident.toString();
+		String s_id = ident.toString().toLowerCase();
 		for (String s : commonLigValues) {
 			if (s_id.equals(s)) {
 				return ident;
@@ -44,7 +44,7 @@ public class CssFontVariantLigatures extends org.w3c.css.properties.css.CssFontV
 	}
 
 	public static final CssIdent getDiscretionaryLigValues(CssIdent ident) {
-		String s_id = ident.toString();
+		String s_id = ident.toString().toLowerCase();
 		for (String s : discretionaryLigValues) {
 			if (s_id.equals(s)) {
 				return ident;
@@ -54,7 +54,7 @@ public class CssFontVariantLigatures extends org.w3c.css.properties.css.CssFontV
 	}
 
 	public static final CssIdent getHistoricalLigValues(CssIdent ident) {
-		String s_id = ident.toString();
+		String s_id = ident.toString().toLowerCase();
 		for (String s : historicalLigValues) {
 			if (s_id.equals(s)) {
 				return ident;

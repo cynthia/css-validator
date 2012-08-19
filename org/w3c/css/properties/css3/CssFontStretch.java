@@ -1,4 +1,4 @@
-// $Id: CssFontStretch.java,v 1.1 2012-08-04 21:17:07 ylafon Exp $
+// $Id: CssFontStretch.java,v 1.2 2012-08-19 17:28:25 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -25,7 +25,7 @@ public class CssFontStretch extends org.w3c.css.properties.css.CssFontStretch {
 	static final HashMap<String, CssIdent> allowed_values;
 
 	static {
-		allowed_values = new HashMap<String, CssIdent>();
+		allowed_values = new HashMap<String, CssIdent>(_allowed_values.length);
 		for (String s : _allowed_values) {
 			allowed_values.put(s, CssIdent.getIdent(s));
 		}
@@ -63,7 +63,7 @@ public class CssFontStretch extends org.w3c.css.properties.css.CssFontStretch {
 			if (inherit.equals(ident)) {
 				value = inherit;
 			} else {
-				value = allowed_values.get(val.toString());
+				value = allowed_values.get(val.toString().toLowerCase());
 				if (value == null) {
 					throw new InvalidParamException("value",
 							val.toString(),

@@ -1,4 +1,4 @@
-// $Id: CssFontStyle.java,v 1.1 2012-08-04 21:17:07 ylafon Exp $
+// $Id: CssFontStyle.java,v 1.2 2012-08-19 17:28:25 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -23,7 +23,7 @@ public class CssFontStyle extends org.w3c.css.properties.css.CssFontStyle {
 	static final ArrayList<CssIdent> allowed_values;
 
 	static {
-		allowed_values = new ArrayList<CssIdent>(3);
+		allowed_values = new ArrayList<CssIdent>(_allowed_values.length);
 		for (String s : _allowed_values) {
 			allowed_values.add(CssIdent.getIdent(s));
 		}

@@ -1,4 +1,4 @@
-// $Id: CssFontWeight.java,v 1.1 2012-08-04 21:17:07 ylafon Exp $
+// $Id: CssFontWeight.java,v 1.2 2012-08-19 17:28:25 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -83,7 +83,7 @@ public class CssFontWeight extends org.w3c.css.properties.css.CssFontWeight {
 					value = inherit;
 					break;
 				}
-				value = allowed_values.get(val.toString());
+				value = allowed_values.get(ident.toString().toLowerCase());
 				if (value == null) {
 					throw new InvalidParamException("value",
 							val.toString(),

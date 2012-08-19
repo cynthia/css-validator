@@ -1,4 +1,4 @@
-// $Id: CssFontSize.java,v 1.1 2012-08-04 21:17:06 ylafon Exp $
+// $Id: CssFontSize.java,v 1.2 2012-08-19 17:28:25 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -87,7 +87,7 @@ public class CssFontSize extends org.w3c.css.properties.css.CssFontSize {
 					value = inherit;
 					break;
 				}
-				value = allowed_values.get(val.toString());
+				value = allowed_values.get(val.toString().toLowerCase());
 				if (value == null) {
 					throw new InvalidParamException("value",
 							expression.getValue().toString(),

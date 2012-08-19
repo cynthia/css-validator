@@ -1,4 +1,4 @@
-// $Id: CssFontVariantPosition.java,v 1.1 2012-08-08 10:02:08 ylafon Exp $
+// $Id: CssFontVariantPosition.java,v 1.2 2012-08-19 17:28:25 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -63,7 +63,7 @@ public class CssFontVariantPosition extends org.w3c.css.properties.css.CssFontVa
 			if (inherit.equals(ident)) {
 				value = inherit;
 			} else {
-				value = allowedValues.get(ident.toString());
+				value = allowedValues.get(ident.toString().toLowerCase());
 				if (value == null) {
 					throw new InvalidParamException("value",
 							val.toString(),
