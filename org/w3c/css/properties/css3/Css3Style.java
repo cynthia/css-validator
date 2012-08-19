@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.40 2012-08-18 20:30:28 ylafon Exp $
+// $Id: Css3Style.java,v 1.41 2012-08-19 06:00:16 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -63,7 +63,6 @@ public class Css3Style extends ATSCStyle {
 	CssMinFontSize cssMinFontSize;
 	CssMaxFontSize cssMaxFontSize;
 	CssTextJustifyTrim cssTextJustifyTrim;
-	CssTextKashidaSpace cssTextKashidaSpace;
 	CssDominantBaseLine cssDominantBaseLine;
 	CssAlignmentBaseLine cssAlignmentBaseLine;
 	CssAlignmentAdjust cssAlignmentAdjust;
@@ -359,15 +358,6 @@ public class Css3Style extends ATSCStyle {
 							new CssTextJustifyTrim(), style, selector);
 		}
 		return cssTextJustifyTrim;
-	}
-
-	public CssTextKashidaSpace getTextKashidaSpace() {
-		if (cssTextKashidaSpace == null) {
-			cssTextKashidaSpace =
-					(CssTextKashidaSpace) style.CascadingOrder(
-							new CssTextJustifyTrim(), style, selector);
-		}
-		return cssTextKashidaSpace;
 	}
 
 	public CssDominantBaseLine getDominantBaseLine() {
