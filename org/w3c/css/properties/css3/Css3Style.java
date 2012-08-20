@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.43 2012-08-19 09:49:34 ylafon Exp $
+// $Id: Css3Style.java,v 1.44 2012-08-20 21:04:39 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -52,7 +52,6 @@ public class Css3Style extends ATSCStyle {
 	CssRubyOverhang cssRubyOverhang;
 	CssBoxSizing cssBoxSizing;
 	CssResizer cssResizer;
-	CssTabIndex cssTabIndex;
 	CssToggleGroup cssToggleGroup;
 	CssGroupReset cssGroupReset;
 	CssWritingMode cssWritingMode;
@@ -255,16 +254,6 @@ public class Css3Style extends ATSCStyle {
 							new CssResizer(), style, selector);
 		}
 		return cssResizer;
-	}
-
-
-	public CssTabIndex getTabIndex() {
-		if (cssTabIndex == null) {
-			cssTabIndex =
-					(CssTabIndex) style.CascadingOrder(
-							new CssTabIndex(), style, selector);
-		}
-		return cssTabIndex;
 	}
 
 	public CssToggleGroup getToggleGroup() {
