@@ -1,5 +1,5 @@
 //
-// $Id: CssIdent.java,v 1.12 2012-08-04 21:17:07 ylafon Exp $
+// $Id: CssIdent.java,v 1.13 2012-08-23 15:15:39 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,9 +11,9 @@ import org.w3c.css.util.ApplContext;
 import java.util.HashMap;
 
 /**
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
-public class CssIdent extends CssValue {
+public class CssIdent extends CssValue implements Comparable<CssIdent> {
 
     public static HashMap<String, CssIdent> cachedValues;
 
@@ -41,6 +41,16 @@ public class CssIdent extends CssValue {
     }
 
     public static final int type = CssTypes.CSS_IDENT;
+
+	public int compareTo(CssIdent other) {
+		int hash, ohash;
+		hash = hashCode();
+		ohash = other.hashCode();
+		if (hash == ohash) {
+			return 0;
+		}
+		return (hash < ohash) ? 1 : -1;
+	}
 
     private int hashcode = 0;
 
