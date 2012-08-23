@@ -1,4 +1,4 @@
-// $Id: CssFontFamily.java,v 1.1 2012-08-04 21:17:06 ylafon Exp $
+// $Id: CssFontFamily.java,v 1.2 2012-08-23 15:15:29 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -37,11 +37,11 @@ public class CssFontFamily extends org.w3c.css.properties.css.CssFontFamily {
 	};
 
 	static {
-		genericNames = new ArrayList<CssIdent>();
+		genericNames = new ArrayList<CssIdent>(_genericNames.length);
 		for (String s : _genericNames) {
 			genericNames.add(CssIdent.getIdent(s));
 		}
-		reservedNames = new ArrayList<CssIdent>();
+		reservedNames = new ArrayList<CssIdent>(_reservedNames.length);
 		for (String s : _reservedNames) {
 			reservedNames.add(CssIdent.getIdent(s));
 		}
