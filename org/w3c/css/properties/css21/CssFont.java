@@ -1,4 +1,4 @@
-// $Id: CssFont.java,v 1.3 2012-08-23 14:33:38 ylafon Exp $
+// $Id: CssFont.java,v 1.4 2012-08-23 14:40:49 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -12,7 +12,7 @@ import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
-import java.util.HashMap;
+import java.util.Arrays;
 
 import static org.w3c.css.values.CssOperator.SPACE;
 
@@ -22,16 +22,26 @@ import static org.w3c.css.values.CssOperator.SPACE;
 public class CssFont extends org.w3c.css.properties.css.CssFont {
 
 	public static final CssIdent normal;
-	public static final HashMap<String, CssIdent> systemFonts;
+	public static final CssIdent[] systemFonts;
 	static final String[] _systemFonts = {"caption", "icon", "menu",
 			"message-box", "small-caption", "status-bar"};
 
 	static {
 		normal = CssIdent.getIdent("normal");
-		systemFonts = new HashMap<String, CssIdent>();
+		systemFonts = new CssIdent[_systemFonts.length];
+		int i = 0;
 		for (String s : _systemFonts) {
-			systemFonts.put(s, CssIdent.getIdent(s));
+			systemFonts[i++] = CssIdent.getIdent(s);
 		}
+		Arrays.sort(systemFonts);
+	}
+
+	public static final CssIdent getSystemFont(CssIdent ident) {
+		int idx = Arrays.binarySearch(systemFonts, ident);
+		if (idx >= 0) {
+			return systemFonts[idx];
+		}
+		return null;
 	}
 
 	/**
@@ -73,7 +83,7 @@ public class CssFont extends org.w3c.css.properties.css.CssFont {
 						break;
 					}
 					CssIdent ident;
-					ident = systemFonts.get(val.toString());
+					ident = getSystemFont((CssIdent) val);
 					if (ident != null) {
 						if (expression.getCount() != 1) {
 							throw new InvalidParamException("value",
