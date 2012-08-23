@@ -1,4 +1,4 @@
-// $Id: CssBackgroundPosition.java,v 1.10 2012-02-16 13:27:58 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.11 2012-08-23 20:25:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten by Yves Lafon <ylafon@w3.org>
 
@@ -38,7 +38,7 @@ public class CssBackgroundPosition extends CssProperty {
         defaultPercent100 = new CssPercentage(100);
     }
 
-    Object value;
+    public CssValue value;
 
     /**
      * Create a new CssBackgroundPosition
@@ -71,10 +71,6 @@ public class CssBackgroundPosition extends CssProperty {
         return value;
     }
 
-    public void set(Object val) {
-        value = val;
-    }
-    
     /**
      * Returns the name of this property
      */
