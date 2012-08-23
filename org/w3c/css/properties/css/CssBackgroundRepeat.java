@@ -1,4 +1,4 @@
-// $Id: CssBackgroundRepeat.java,v 1.6 2011-10-05 11:46:42 ylafon Exp $
+// $Id: CssBackgroundRepeat.java,v 1.7 2012-08-23 21:09:07 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2010.
@@ -11,6 +11,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
  * @since CSS1
@@ -22,7 +23,7 @@ public class CssBackgroundRepeat extends CssProperty {
         repeat = CssIdent.getIdent("repeat");
     }
 
-    public Object value;
+    public CssValue value;
 
     /**
      * Create a new CssBackgroundRepeat
@@ -55,10 +56,6 @@ public class CssBackgroundRepeat extends CssProperty {
 
     public Object get() {
         return value;
-    }
-
-    public void set(Object val) {
-        value = val;
     }
 
     /**
