@@ -1,4 +1,4 @@
-// $Id: CssFont.java,v 1.2 2012-08-05 06:22:55 ylafon Exp $
+// $Id: CssFont.java,v 1.3 2012-08-23 14:33:38 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -119,7 +119,7 @@ public class CssFont extends org.w3c.css.properties.css.CssFont {
 							break;
 						}
 						// font-weight
-						v = CssFontWeight.allowed_values.get(ident.toString());
+						v = CssFontWeight.getAllowedValue(ident);
 						if (v != null) {
 							if (fontWeight != null) {
 								throw new InvalidParamException("value",
@@ -135,7 +135,7 @@ public class CssFont extends org.w3c.css.properties.css.CssFont {
 					// check if we moved past and we now got
 					// a font-size
 					if (state == 0) {
-						CssIdent v = CssFontSize.allowed_values.get(ident.toString());
+						CssIdent v = CssFontSize.getAllowedValue(ident);
 						if (v != null) {
 							// we got a FontSize, so no more style/variant/weight
 							state = 1;
