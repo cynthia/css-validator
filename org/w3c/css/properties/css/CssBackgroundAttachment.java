@@ -1,4 +1,4 @@
-// $Id: CssBackgroundAttachment.java,v 1.6 2011-10-05 11:46:42 ylafon Exp $
+// $Id: CssBackgroundAttachment.java,v 1.7 2012-08-23 17:11:29 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2010.
@@ -8,10 +8,10 @@ package org.w3c.css.properties.css;
 
 import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css1.Css1Style;
-import org.w3c.css.properties.css3.Css3Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssValue;
 
 /**
  * @since CSS1
@@ -19,16 +19,12 @@ import org.w3c.css.values.CssExpression;
 public class CssBackgroundAttachment extends CssProperty {
 
 
-    Object value;
+    public CssValue value;
 
     /**
      * Create a new CssBackgroundAttachment
      */
     public CssBackgroundAttachment() {
-    }
-
-    public void set(Object val) {
-        value = val;
     }
 
     /**
@@ -87,9 +83,9 @@ public class CssBackgroundAttachment extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        if (((Css3Style) style).cssBackground.attachment != null)
+        if (((Css1Style) style).cssBackground.attachment != null)
             style.addRedefinitionWarning(ac, this);
-        ((Css3Style) style).cssBackground.attachment = this;
+        ((Css1Style) style).cssBackground.attachment = this;
 
     }
 
