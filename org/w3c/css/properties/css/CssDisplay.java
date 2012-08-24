@@ -1,4 +1,4 @@
-// $Id: CssDisplay.java,v 1.3 2011-09-04 17:56:30 ylafon Exp $
+// $Id: CssDisplay.java,v 1.4 2012-08-24 07:24:39 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 14th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -14,6 +14,7 @@ import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 
 /**
+ * @since CSS1
  * The 'display' property
  * using CSS21 values for now
  */
