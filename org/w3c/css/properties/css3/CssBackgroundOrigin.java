@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundOrigin.java,v 1.4 2011-10-04 13:05:25 ylafon Exp $
+// $Id: CssBackgroundOrigin.java,v 1.5 2012-08-24 07:08:53 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT 2010  World Wide Web Consortium (MIT, ERCIM, Keio University)
@@ -22,23 +22,7 @@ import java.util.ArrayList;
 import static org.w3c.css.values.CssOperator.COMMA;
 
 /**
- * http://www.w3.org/TR/2009/CR-css3-background-20091217/#the-background-origin
- * <p/>
- * Name: 	background-origin
- * Value: 	&lt;bg-origin&gt; [ , &lt;bg-origin&gt; ]*
- * Initial: 	padding-box
- * Applies to: 	all elements
- * Inherited: 	no
- * Percentages: 	N/A
- * Media: 	visual
- * Computed value: 	same as specified value
- * <p/>
- * For elements rendered as a single box, specifies the background positioning
- * area. For elements rendered as multiple boxes (e.g., inline boxes on several
- * lines, boxes on several pages) specifies which boxes 'box-decoration-break'
- * operates on to determine the background positioning area(s).
- * <p/>
- * &lt;bg-origin&gt; = border-box | padding-box | content-box
+ * @spec http://www.w3.org/TR/2009/CR-css3-background-20091217/#the-background-origin
  */
 
 public class CssBackgroundOrigin extends org.w3c.css.properties.css.CssBackgroundOrigin {
@@ -135,7 +119,6 @@ public class CssBackgroundOrigin extends org.w3c.css.properties.css.CssBackgroun
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        // TODO FIXME -> in CssStyle
         if (((Css3Style) style).cssBackgroundOrigin != null)
             style.addRedefinitionWarning(ac, this);
         ((Css3Style) style).cssBackgroundOrigin = this;
