@@ -1,4 +1,4 @@
-// $Id: CssWhiteSpace.java,v 1.1 2012-02-09 17:36:27 ylafon Exp $
+// $Id: CssWhiteSpace.java,v 1.2 2012-08-24 07:16:22 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -13,11 +13,11 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @since CSS1
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssWhiteSpace extends CssProperty {
 
-    CssValue value;
+    public CssValue value;
 
     /*
     * Create a new CssWhiteSpace
