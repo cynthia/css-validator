@@ -1,4 +1,4 @@
-// $Id: CssFontVariantAlternates.java,v 1.2 2012-08-19 17:28:25 ylafon Exp $
+// $Id: CssFontVariantAlternates.java,v 1.3 2012-08-25 12:41:39 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class CssFontVariantAlternates extends org.w3c.css.properties.css.CssFontVariantAlternates {
 
-	public static final String[] contextualAltValues = {"contextual", "no-contextual"};
+	public static final CssIdent[] contextualAltValues;
 
 	public static final CssIdent normal;
 	public static final CssIdent ruby;
@@ -32,13 +32,33 @@ public class CssFontVariantAlternates extends org.w3c.css.properties.css.CssFont
 		normal = CssIdent.getIdent("normal");
 		ruby = CssIdent.getIdent("ruby");
 		historicalForms = CssIdent.getIdent("historical-forms");
+		String[] _contextualAltValues = {"contextual", "no-contextual"};
+		contextualAltValues = new CssIdent[_contextualAltValues.length];
+		int i = 0;
+		for (String s : _contextualAltValues) {
+			contextualAltValues[i++] = CssIdent.getIdent(s);
+		}
 	}
 
 	public static final CssIdent getContextualAltValues(CssIdent ident) {
-		String s_id = ident.toString().toLowerCase();
-		for (String s : contextualAltValues) {
-			if (s_id.equals(s)) {
-				return ident;
+		for (CssIdent id : contextualAltValues) {
+			if (id.equals(ident)) {
+				return id;
+			}
+		}
+		return null;
+	}
+
+	public static final CssIdent getAllowedIdent(CssIdent ident) {
+		if (ruby.equals(ident)) {
+			return ruby;
+		}
+		if (historicalForms.equals(ident)) {
+			return historicalForms;
+		}
+		for (CssIdent id : contextualAltValues) {
+			if (id.equals(ident)) {
+				return id;
 			}
 		}
 		return null;

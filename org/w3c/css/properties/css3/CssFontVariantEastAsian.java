@@ -1,4 +1,4 @@
-// $Id: CssFontVariantEastAsian.java,v 1.3 2012-08-23 13:55:34 ylafon Exp $
+// $Id: CssFontVariantEastAsian.java,v 1.4 2012-08-25 12:41:39 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -63,7 +63,7 @@ public class CssFontVariantEastAsian extends org.w3c.css.properties.css.CssFontV
 		return null;
 	}
 
-	public static final CssIdent getEastAsianValue(CssIdent ident) {
+	public static final CssIdent getAllowedValue(CssIdent ident) {
 		CssIdent id = getEastAsianWidthValue(ident);
 		if (id == null) {
 			id = getEastAsianVariantValue(ident);
