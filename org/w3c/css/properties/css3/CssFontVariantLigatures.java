@@ -1,4 +1,4 @@
-// $Id: CssFontVariantLigatures.java,v 1.6 2012-08-27 14:55:33 ylafon Exp $
+// $Id: CssFontVariantLigatures.java,v 1.7 2012-08-27 19:17:52 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -133,7 +133,7 @@ public class CssFontVariantLigatures extends org.w3c.css.properties.css.CssFontV
 	 */
 	public CssFontVariantLigatures(ApplContext ac, CssExpression expression, boolean check)
 			throws InvalidParamException {
-		if (check && expression.getCount() > 3) {
+		if (check && expression.getCount() > 4) {
 			throw new InvalidParamException("unrecognize", ac);
 		}
 
