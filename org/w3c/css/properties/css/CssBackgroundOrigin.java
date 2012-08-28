@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundOrigin.java,v 1.7 2011-10-05 11:46:42 ylafon Exp $
+// $Id: CssBackgroundOrigin.java,v 1.8 2012-08-28 20:08:41 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT 2010  World Wide Web Consortium (MIT, ERCIM, Keio University)
@@ -13,6 +13,7 @@ import org.w3c.css.properties.css3.Css3Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssValue;
 
 /**
  * @since CSS3
@@ -20,8 +21,7 @@ import org.w3c.css.values.CssExpression;
 
 public class CssBackgroundOrigin extends CssProperty {
 
-    Object value;
-
+    public CssValue value;
 
     /**
      * Create a new CssBackgroundClip
@@ -52,7 +52,6 @@ public class CssBackgroundOrigin extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        // TODO FIXME -> in CssStyle
         if (((Css3Style) style).cssBackgroundOrigin != null)
             style.addRedefinitionWarning(ac, this);
         ((Css3Style) style).cssBackgroundOrigin = this;
@@ -96,10 +95,6 @@ public class CssBackgroundOrigin extends CssProperty {
         return value;
     }
 
-    public void set(Object val) {
-        value = val;
-    }
-
     /**
      * Returns true if this property is "softly" inherited
      */
@@ -111,7 +106,6 @@ public class CssBackgroundOrigin extends CssProperty {
      * Returns a string representation of the object
      */
     public String toString() {
-
         return value.toString();
     }
 

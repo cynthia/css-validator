@@ -1,4 +1,4 @@
-// $Id: CssBoxShadow.java,v 1.2 2012-04-05 09:42:20 ylafon Exp $
+// $Id: CssBoxShadow.java,v 1.3 2012-08-28 20:08:41 ylafon Exp $
 //
 // (c) COPYRIGHT 2012  World Wide Web Consortium (MIT, ERCIM and Keio University)
 // Please first read the full copyright statement at
@@ -11,7 +11,7 @@ import org.w3c.css.properties.css3.Css3Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
  * @since CSS3
@@ -21,7 +21,7 @@ public class CssBoxShadow extends CssProperty {
 
     private static final String propertyName = "box-shadow";
 
-    CssIdent value;
+    public CssValue value;
 
     /**
      * Create a new CssBoxShadow
@@ -53,8 +53,9 @@ public class CssBoxShadow extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        if (((Css3Style) style).cssBoxShadow != null)
+        if (((Css3Style) style).cssBoxShadow != null) {
             style.addRedefinitionWarning(ac, this);
+		}
         ((Css3Style) style).cssBoxShadow = this;
     }
 

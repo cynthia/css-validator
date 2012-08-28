@@ -1,4 +1,4 @@
-// $Id: CssBackgroundColor.java,v 1.5 2011-10-05 11:46:42 ylafon Exp $
+// $Id: CssBackgroundColor.java,v 1.6 2012-08-28 20:08:41 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -19,7 +19,7 @@ import org.w3c.css.values.CssValue;
  */
 public class CssBackgroundColor extends CssProperty {
 
-    CssValue color;
+    public CssValue value;
 
     /**
      * Create a new CssBackgroundColor
@@ -47,18 +47,18 @@ public class CssBackgroundColor extends CssProperty {
      * Returns the value of this property
      */
     public Object get() {
-        return color;
+        return value;
     }
 
 
     public void set(CssValue col) {
-        color = col;
+        value = col;
     }
     /**
      * Returns the color
      */
     public CssValue getColor() {
-        return color;
+        return value;
     }
 
     /**
@@ -66,14 +66,14 @@ public class CssBackgroundColor extends CssProperty {
      * e.g. his value equals inherit
      */
     public boolean isSoftlyInherited() {
-        return color.equals(inherit);
+        return value.equals(inherit);
     }
 
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
-        return color.toString();
+        return value.toString();
     }
 
 
@@ -110,7 +110,7 @@ public class CssBackgroundColor extends CssProperty {
      */
     public boolean equals(CssProperty property) {
         return (property instanceof CssBackgroundColor &&
-                color.equals(((CssBackgroundColor) property).color));
+                value.equals(((CssBackgroundColor) property).value));
     }
 
     /**
