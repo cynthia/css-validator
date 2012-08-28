@@ -1,4 +1,4 @@
-// $Id: CssFont.java,v 1.4 2012-08-23 14:40:49 ylafon Exp $
+// $Id: CssFont.java,v 1.5 2012-08-28 19:44:04 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -23,10 +23,11 @@ public class CssFont extends org.w3c.css.properties.css.CssFont {
 
 	public static final CssIdent normal;
 	public static final CssIdent[] systemFonts;
-	static final String[] _systemFonts = {"caption", "icon", "menu",
-			"message-box", "small-caption", "status-bar"};
 
 	static {
+		String[] _systemFonts = {"caption", "icon", "menu",
+				"message-box", "small-caption", "status-bar"};
+
 		normal = CssIdent.getIdent("normal");
 		systemFonts = new CssIdent[_systemFonts.length];
 		int i = 0;

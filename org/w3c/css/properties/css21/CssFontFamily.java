@@ -1,4 +1,4 @@
-// $Id: CssFontFamily.java,v 1.2 2012-08-23 14:33:38 ylafon Exp $
+// $Id: CssFontFamily.java,v 1.3 2012-08-28 19:44:04 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -25,18 +25,13 @@ public class CssFontFamily extends org.w3c.css.properties.css.CssFontFamily {
 	public static final ArrayList<CssIdent> genericNames;
 	public static final ArrayList<CssIdent> reservedNames;
 
-	public static final String[] _genericNames = {
-			"serif",
-			"sans-serif",
-			"cursive",
-			"fantasy",
-			"monospace"};
-
-	public static final String[] _reservedNames = {"inherit",
-			"initial", "default"
-	};
-
 	static {
+		String[] _genericNames = {
+				"serif", "sans-serif", "cursive",
+				"fantasy", "monospace"};
+
+		String[] _reservedNames = {"inherit", "initial", "default"};
+
 		genericNames = new ArrayList<CssIdent>(_genericNames.length);
 		for (String s : _genericNames) {
 			genericNames.add(CssIdent.getIdent(s));

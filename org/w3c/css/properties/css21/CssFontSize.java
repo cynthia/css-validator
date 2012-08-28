@@ -1,4 +1,4 @@
-// $Id: CssFontSize.java,v 1.2 2012-08-23 14:33:38 ylafon Exp $
+// $Id: CssFontSize.java,v 1.3 2012-08-28 19:44:04 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -23,10 +23,11 @@ import java.util.Arrays;
 public class CssFontSize extends org.w3c.css.properties.css.CssFontSize {
 
 	public static final CssIdent[] allowed_values;
-	static final String[] absolute_values = {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"};
-	static final String[] relative_values = {"smaller", "larger"};
 
 	static {
+		String[] absolute_values = {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"};
+		String[] relative_values = {"smaller", "larger"};
+
 		allowed_values = new CssIdent[absolute_values.length + relative_values.length];
 		int i = 0;
 		for (String s : absolute_values) {
