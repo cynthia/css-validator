@@ -1,4 +1,4 @@
-// $Id: CssFontFeatureSettings.java,v 1.1 2012-08-13 05:38:56 ylafon Exp $
+// $Id: CssFontFeatureSettings.java,v 1.2 2012-08-28 19:49:14 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -9,6 +9,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssLayerList;
 import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
@@ -31,8 +32,6 @@ public class CssFontFeatureSettings extends org.w3c.css.properties.css.CssFontFe
 		off = CssIdent.getIdent("off");
 
 	}
-
-	public Object value;
 
 	/**
 	 * Create a new CssFontFeatureSettings
@@ -102,7 +101,7 @@ public class CssFontFeatureSettings extends org.w3c.css.properties.css.CssFontFe
 		if (values.size() == 1) {
 			value = values.get(0);
 		} else {
-			value = values;
+			value = new CssLayerList(values);
 		}
 	}
 
@@ -163,27 +162,8 @@ public class CssFontFeatureSettings extends org.w3c.css.properties.css.CssFontFe
 						val.toString(),
 						getPropertyName(), ac);
 		}
-		return new CssValueList(v);
+		return (v.size() == 1) ? v.get(0) : new CssValueList(v);
 	}
 
-	/**
-	 * Returns a string representation of the object.
-	 */
-	public String toString() {
-		if (value instanceof ArrayList) {
-			StringBuilder sb = new StringBuilder();
-			boolean addComa = false;
-			for (Object v : (ArrayList) value) {
-				if (addComa) {
-					sb.append(", ");
-				} else {
-					addComa = true;
-				}
-				sb.append(v);
-			}
-			return sb.toString();
-		}
-		return value.toString();
-	}
 }
 
