@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.27 2012-08-04 21:17:05 ylafon Exp $
+// $Id: Css1Style.java,v 1.28 2012-08-28 19:34:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -83,7 +83,6 @@ public class Css1Style extends CssStyle {
     /**
      * text-shadow property
      */
-    public CssTextShadow cssTextShadow;
     public CssTextShadowATSC cssTextShadowATSC;
     // line-heigth : see cssFont
 
@@ -661,18 +660,6 @@ public class Css1Style extends CssStyle {
                             style, selector);
         }
         return cssTextIndentMob;
-    }
-
-    /**
-     * Get the text-shadow property
-     */
-    public final CssTextShadow getTextShadow() {
-        if (cssTextShadow == null) {
-            cssTextShadow =
-                    (CssTextShadow) style.CascadingOrder(new CssTextShadow(),
-                            style, selector);
-        }
-        return cssTextShadow;
     }
 
     public final CssTextShadowATSC getTextShadowATSC() {
