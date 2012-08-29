@@ -1,4 +1,4 @@
-// $Id: CssFontFeatureSettings.java,v 1.2 2012-08-28 19:49:14 ylafon Exp $
+// $Id: CssFontFeatureSettings.java,v 1.3 2012-08-29 09:50:25 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -21,7 +21,7 @@ import static org.w3c.css.values.CssOperator.COMMA;
 import static org.w3c.css.values.CssOperator.SPACE;
 
 /**
- * @spec http://www.w3.org/TR/2011/WD-css3-fonts-20111004/#propdef-font-feature-settings
+ * @spec http://www.w3.org/TR/2012/WD-css3-fonts-20120823/#propdef-font-feature-settings
  */
 public class CssFontFeatureSettings extends org.w3c.css.properties.css.CssFontFeatureSettings {
 
