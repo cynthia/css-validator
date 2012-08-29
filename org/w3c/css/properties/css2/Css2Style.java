@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.7 2012-08-04 21:17:05 ylafon Exp $
+// $Id: Css2Style.java,v 1.8 2012-08-29 10:08:48 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,9 +7,10 @@
 package org.w3c.css.properties.css2;
 
 import org.w3c.css.properties.aural.ACssStyle;
+import org.w3c.css.properties.css.CssTextShadow;
 
 /**
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -24,6 +25,11 @@ public class Css2Style extends ACssStyle {
      */
 	public org.w3c.css.properties.css.CssFontStretch cssFontStretch;
 	public org.w3c.css.properties.css.CssFontSizeAdjust cssFontSizeAdjust;
+
+	/**
+	 * text properties
+	 */
+	public CssTextShadow cssTextShadow;
 
 	/**
      * Get the azimuth
@@ -118,4 +124,18 @@ public class Css2Style extends ACssStyle {
 		}
 		return cssFontSizeAdjust;
 	}
+
+	/**
+	 * Get the text-shadow property
+	 * @return a CssTextShadow instance
+	 */
+	public final org.w3c.css.properties.css.CssTextShadow getTextShadow() {
+		if (cssTextShadow == null) {
+			cssTextShadow =
+					(org.w3c.css.properties.css.CssTextShadow) style.CascadingOrder(new org.w3c.css.properties.css.CssTextShadow(),
+							style, selector);
+		}
+		return cssTextShadow;
+	}
+
 }
