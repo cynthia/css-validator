@@ -1,4 +1,4 @@
-// $Id: CssWordBreak.java,v 1.4 2012-08-30 12:51:56 ylafon Exp $
+// $Id: CssWordBreak.java,v 1.5 2012-08-30 12:54:32 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -15,7 +15,7 @@ import org.w3c.css.values.CssValue;
 /**
  * @spec http://www.w3.org/TR/2012/WD-css3-text-20120814/#word-break0
  */
-public class CssWordBreak extends org.w3c.css.properties.css.CssOverflowWrap {
+public class CssWordBreak extends org.w3c.css.properties.css.CssWordBreak {
 
 	public static final CssIdent[] allowed_values;
 
