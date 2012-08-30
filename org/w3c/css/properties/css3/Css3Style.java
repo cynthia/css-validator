@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.45 2012-08-30 12:26:45 ylafon Exp $
+// $Id: Css3Style.java,v 1.46 2012-08-30 12:51:56 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -40,6 +40,7 @@ import org.w3c.css.properties.css.CssFontVariantNumeric;
 import org.w3c.css.properties.css.CssFontVariantPosition;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOverflowWrap;
+import org.w3c.css.properties.css.CssWordBreak;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Util;
 import org.w3c.css.util.Warning;
@@ -65,9 +66,6 @@ public class Css3Style extends ATSCStyle {
 	CssAlignmentAdjust cssAlignmentAdjust;
 	CssBaselineShift cssBaselineShift;
 	CssLineBreak cssLineBreak;
-	CssWordBreakCJK cssWordBreakCJK;
-	CssWordBreakInside cssWordBreakInside;
-	CssWordBreak cssWordBreak;
 	CssTextSpace cssTextSpace;
 	CssTextEndOverflow cssTextEndOverflow;
 	CssTextAfterOverflow cssTextAfterOverflow;
@@ -137,6 +135,7 @@ public class Css3Style extends ATSCStyle {
 	public CssFontVariantAlternates cssFontVariantAlternates;
 
 	public CssOverflowWrap cssOverflowWrap;
+	public CssWordBreak cssWordBreak;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -365,24 +364,6 @@ public class Css3Style extends ATSCStyle {
 							new CssLineBreak(), style, selector);
 		}
 		return cssLineBreak;
-	}
-
-	public CssWordBreakCJK getWordBreakCJK() {
-		if (cssWordBreakCJK == null) {
-			cssWordBreakCJK =
-					(CssWordBreakCJK) style.CascadingOrder(
-							new CssWordBreakCJK(), style, selector);
-		}
-		return cssWordBreakCJK;
-	}
-
-	public CssWordBreakInside getWordBreakInside() {
-		if (cssWordBreakInside == null) {
-			cssWordBreakInside =
-					(CssWordBreakInside) style.CascadingOrder(
-							new CssWordBreakInside(), style, selector);
-		}
-		return cssWordBreakInside;
 	}
 
 	public CssWordBreak getWordBreak() {
@@ -1393,7 +1374,7 @@ public class Css3Style extends ATSCStyle {
 		return cssFontVariantAlternates;
 	}
 
-	public CssOverflowWrap getOverflowWrap() {
+	public org.w3c.css.properties.css.CssOverflowWrap getOverflowWrap() {
 		if (cssOverflowWrap == null) {
 			cssOverflowWrap =
 					(CssOverflowWrap) style.CascadingOrder(
