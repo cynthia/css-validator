@@ -1,4 +1,4 @@
-// $Id: CssFontFamily.java,v 1.3 2012-08-30 09:10:57 ylafon Exp $
+// $Id: CssFontFamily.java,v 1.4 2012-08-30 13:19:34 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -141,7 +141,7 @@ public class CssFontFamily extends org.w3c.css.properties.css.CssFontFamily {
 					ArrayList<CssIdent> idval = new ArrayList<CssIdent>();
 					idval.add((CssIdent) val);
 					// we add idents if separated by spaces...
-					while (op == SPACE && !expression.end()) {
+					while (op == SPACE && expression.getRemainingCount() > 1) {
 						expression.next();
 						op = expression.getOperator();
 						val = expression.getValue();
