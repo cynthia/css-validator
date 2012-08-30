@@ -1,4 +1,4 @@
-// $Id: CssFontFamily.java,v 1.1 2012-08-04 21:17:04 ylafon Exp $
+// $Id: CssFontFamily.java,v 1.2 2012-08-30 09:10:56 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -12,15 +12,13 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
-import java.util.ArrayList;
-
 /**
  * @since CSS1
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssFontFamily extends CssProperty {
 
-    public Object value;
+    public CssValue value;
 	public boolean hasGenericFontFamily = false;
 
     /**
@@ -78,19 +76,6 @@ public class CssFontFamily extends CssProperty {
 	 * Returns a string representation of the object.
 	 */
 	public String toString() {
-		if (value instanceof ArrayList) {
-			StringBuilder sb = new StringBuilder();
-			boolean first = true;
-			for (CssValue aCssValue : (ArrayList<CssValue>) value) {
-				if (!first) {
-					sb.append(',');
-				} else {
-					first = false;
-				}
-				sb.append(aCssValue.toString());
-			}
-			return sb.toString();
-		}
 		return value.toString();
 	}
 
