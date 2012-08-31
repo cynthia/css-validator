@@ -1,4 +1,4 @@
-// $Id: CssTextEmphasisStyle.java,v 1.1 2012-08-31 19:52:35 ylafon Exp $
+// $Id: CssTextEmphasisStyle.java,v 1.2 2012-08-31 20:36:41 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -27,7 +27,7 @@ public class CssTextEmphasisStyle extends org.w3c.css.properties.css.CssTextEmph
 
 	static {
 		String[] _shapeStyle = {"filled", "open"};
-		String[] _shapeForm = {"dot", "circle", "double", "circle", "triangle", "sesame"};
+		String[] _shapeForm = {"dot", "circle", "double-circle", "triangle", "sesame"};
 
 		shapeStyle = new CssIdent[_shapeStyle.length];
 		int i = 0;
