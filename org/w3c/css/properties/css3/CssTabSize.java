@@ -1,4 +1,4 @@
-// $Id: CssTabSize.java,v 1.1 2012-08-31 14:04:19 ylafon Exp $
+// $Id: CssTabSize.java,v 1.2 2012-08-31 20:36:57 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -57,6 +57,11 @@ public class CssTabSize extends org.w3c.css.properties.css.CssTabSize {
 				}
 				value = val;
 				break;
+			case CssTypes.CSS_IDENT:
+				if (inherit.equals(val)) {
+					value = inherit;
+					break;
+				}
 			default:
 				throw new InvalidParamException("value",
 						val, getPropertyName(), ac);
