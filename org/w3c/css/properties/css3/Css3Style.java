@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.48 2012-08-31 09:39:50 ylafon Exp $
+// $Id: Css3Style.java,v 1.49 2012-08-31 09:49:00 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -43,6 +43,7 @@ import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOverflowWrap;
 import org.w3c.css.properties.css.CssWordBreak;
 import org.w3c.css.properties.css.CssLineBreak;
+import org.w3c.css.properties.css.CssTextAlignLast;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Util;
@@ -63,7 +64,6 @@ public class Css3Style extends ATSCStyle {
 	CssGlyphOrVert cssGlyphOrVert;
 	CssGlyphHor cssGlyphHor;
 	CssTextJustify cssTextJustify;
-	CssTextAlignLast cssTextAlignLast;
 	CssDominantBaseLine cssDominantBaseLine;
 	CssAlignmentBaseLine cssAlignmentBaseLine;
 	CssAlignmentAdjust cssAlignmentAdjust;
@@ -140,6 +140,7 @@ public class Css3Style extends ATSCStyle {
 	public CssWordBreak cssWordBreak;
 	public CssHyphens cssHyphens;
 	public CssLineBreak cssLineBreak;
+	public CssTextAlignLast cssTextAlignLast;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
