@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.54 2012-08-31 13:52:08 ylafon Exp $
+// $Id: Css3Style.java,v 1.55 2012-08-31 14:04:19 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -42,6 +42,7 @@ import org.w3c.css.properties.css.CssHyphens;
 import org.w3c.css.properties.css.CssLineBreak;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOverflowWrap;
+import org.w3c.css.properties.css.CssTabSize;
 import org.w3c.css.properties.css.CssTextAlignLast;
 import org.w3c.css.properties.css.CssTextDecorationColor;
 import org.w3c.css.properties.css.CssTextDecorationStyle;
@@ -147,6 +148,7 @@ public class Css3Style extends ATSCStyle {
 	public CssTextDecorationStyle cssTextDecorationStyle;
 	public CssTextDecorationColor cssTextDecorationColor;
 	public CssTextEmphasisColor cssTextEmphasisColor;
+	public CssTabSize cssTabSize;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -1430,6 +1432,14 @@ public class Css3Style extends ATSCStyle {
 		return cssTextEmphasisColor;
 	}
 
+	public CssTabSize getTabSize() {
+		if (cssTabSize == null) {
+			cssTabSize =
+					(CssTabSize) style.CascadingOrder(
+							new CssTabSize(), style, selector);
+		}
+		return cssTabSize;
+	}
 	///
 
 	public CssTextIndentCSS3 getTextIndentCSS3() {
