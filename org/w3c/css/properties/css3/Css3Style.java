@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.50 2012-08-31 10:04:08 ylafon Exp $
+// $Id: Css3Style.java,v 1.51 2012-08-31 12:06:32 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -41,6 +41,7 @@ import org.w3c.css.properties.css.CssFontVariantPosition;
 import org.w3c.css.properties.css.CssHyphens;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOverflowWrap;
+import org.w3c.css.properties.css.CssTextDecorationStyle;
 import org.w3c.css.properties.css.CssWordBreak;
 import org.w3c.css.properties.css.CssLineBreak;
 import org.w3c.css.properties.css.CssTextAlignLast;
@@ -142,6 +143,7 @@ public class Css3Style extends ATSCStyle {
 	public CssLineBreak cssLineBreak;
 	public CssTextAlignLast cssTextAlignLast;
 	public CssTextJustify cssTextJustify;
+	public CssTextDecorationStyle cssTextDecorationStyle;
 
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
@@ -1397,6 +1399,15 @@ public class Css3Style extends ATSCStyle {
 							new CssHyphens(), style, selector);
 		}
 		return cssHyphens;
+	}
+
+	public CssTextDecorationStyle getTextDecorationStyle() {
+		if (cssTextDecorationStyle == null) {
+			cssTextDecorationStyle =
+					(CssTextDecorationStyle) style.CascadingOrder(
+							new CssTextDecorationStyle(), style, selector);
+		}
+		return cssTextDecorationStyle;
 	}
 
 	///
