@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.55 2012-08-31 14:04:19 ylafon Exp $
+// $Id: Css3Style.java,v 1.56 2012-08-31 19:52:34 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -47,6 +47,7 @@ import org.w3c.css.properties.css.CssTextAlignLast;
 import org.w3c.css.properties.css.CssTextDecorationColor;
 import org.w3c.css.properties.css.CssTextDecorationStyle;
 import org.w3c.css.properties.css.CssTextEmphasisColor;
+import org.w3c.css.properties.css.CssTextEmphasisStyle;
 import org.w3c.css.properties.css.CssTextJustify;
 import org.w3c.css.properties.css.CssWordBreak;
 import org.w3c.css.util.ApplContext;
@@ -148,6 +149,7 @@ public class Css3Style extends ATSCStyle {
 	public CssTextDecorationStyle cssTextDecorationStyle;
 	public CssTextDecorationColor cssTextDecorationColor;
 	public CssTextEmphasisColor cssTextEmphasisColor;
+	public CssTextEmphasisStyle cssTextEmphasisStyle;
 	public CssTabSize cssTabSize;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
@@ -1432,6 +1434,15 @@ public class Css3Style extends ATSCStyle {
 		return cssTextEmphasisColor;
 	}
 
+	public CssTextEmphasisStyle getTextEmphasisStyle() {
+		if (cssTextEmphasisStyle == null) {
+			cssTextEmphasisStyle =
+					(CssTextEmphasisStyle) style.CascadingOrder(
+							new CssTextEmphasisStyle(), style, selector);
+		}
+		return cssTextEmphasisStyle;
+	}
+	
 	public CssTabSize getTabSize() {
 		if (cssTabSize == null) {
 			cssTabSize =
