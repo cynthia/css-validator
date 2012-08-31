@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.51 2012-08-31 12:06:32 ylafon Exp $
+// $Id: Css3Style.java,v 1.52 2012-08-31 12:25:43 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -39,14 +39,13 @@ import org.w3c.css.properties.css.CssFontVariantLigatures;
 import org.w3c.css.properties.css.CssFontVariantNumeric;
 import org.w3c.css.properties.css.CssFontVariantPosition;
 import org.w3c.css.properties.css.CssHyphens;
+import org.w3c.css.properties.css.CssLineBreak;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOverflowWrap;
-import org.w3c.css.properties.css.CssTextDecorationStyle;
-import org.w3c.css.properties.css.CssWordBreak;
-import org.w3c.css.properties.css.CssLineBreak;
 import org.w3c.css.properties.css.CssTextAlignLast;
+import org.w3c.css.properties.css.CssTextDecorationStyle;
 import org.w3c.css.properties.css.CssTextJustify;
-
+import org.w3c.css.properties.css.CssWordBreak;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Util;
 import org.w3c.css.util.Warning;
@@ -144,7 +143,6 @@ public class Css3Style extends ATSCStyle {
 	public CssTextAlignLast cssTextAlignLast;
 	public CssTextJustify cssTextJustify;
 	public CssTextDecorationStyle cssTextDecorationStyle;
-
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
