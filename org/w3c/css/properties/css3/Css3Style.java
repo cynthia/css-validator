@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.52 2012-08-31 12:25:43 ylafon Exp $
+// $Id: Css3Style.java,v 1.53 2012-08-31 13:34:13 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -43,6 +43,7 @@ import org.w3c.css.properties.css.CssLineBreak;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOverflowWrap;
 import org.w3c.css.properties.css.CssTextAlignLast;
+import org.w3c.css.properties.css.CssTextDecorationColor;
 import org.w3c.css.properties.css.CssTextDecorationStyle;
 import org.w3c.css.properties.css.CssTextJustify;
 import org.w3c.css.properties.css.CssWordBreak;
@@ -143,6 +144,7 @@ public class Css3Style extends ATSCStyle {
 	public CssTextAlignLast cssTextAlignLast;
 	public CssTextJustify cssTextJustify;
 	public CssTextDecorationStyle cssTextDecorationStyle;
+	public CssTextDecorationColor cssTextDecorationColor;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -1406,6 +1408,15 @@ public class Css3Style extends ATSCStyle {
 							new CssTextDecorationStyle(), style, selector);
 		}
 		return cssTextDecorationStyle;
+	}
+
+	public CssTextDecorationColor getTextDecorationColor() {
+		if (cssTextDecorationColor == null) {
+			cssTextDecorationColor =
+					(CssTextDecorationColor) style.CascadingOrder(
+							new CssTextDecorationColor(), style, selector);
+		}
+		return cssTextDecorationColor;
 	}
 
 	///
