@@ -1,4 +1,4 @@
-// $Id: CssTextEmphasisStyle.java,v 1.1 2012-08-31 19:52:34 ylafon Exp $
+// $Id: CssTextEmphasisStyle.java,v 1.2 2012-08-31 20:37:13 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -56,7 +56,7 @@ public class CssTextEmphasisStyle extends CssProperty {
 	 * Returns the name of this property
 	 */
 	public final String getPropertyName() {
-		return "text-emphasis-color";
+		return "text-emphasis-style";
 	}
 
 	/**
