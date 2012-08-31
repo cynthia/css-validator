@@ -1,4 +1,4 @@
-// $Id: CssTextTransform.java,v 1.1 2012-08-31 12:25:43 ylafon Exp $
+// $Id: CssTextTransform.java,v 1.2 2012-08-31 20:23:37 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -21,7 +21,7 @@ public class CssTextTransform extends org.w3c.css.properties.css.CssTextTransfor
 
 	static {
 		String id_values[] = {"none", "capitalize", "uppercase",
-				"lowercase", "full", "width"};
+				"lowercase", "full-width"};
 		allowed_values = new CssIdent[id_values.length];
 		int i = 0;
 		for (String s : id_values) {
