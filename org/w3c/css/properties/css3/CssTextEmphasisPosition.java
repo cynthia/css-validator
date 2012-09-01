@@ -1,4 +1,4 @@
-// $Id: CssTextEmphasisPosition.java,v 1.1 2012-08-31 21:12:04 ylafon Exp $
+// $Id: CssTextEmphasisPosition.java,v 1.2 2012-09-01 16:55:33 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -129,7 +129,7 @@ public class CssTextEmphasisPosition extends org.w3c.css.properties.css.CssTextE
 							getPropertyName(), ac);
 				}
 				nbgot++;
-				if (expression.getRemainingCount() == 1 || (nbgot == 2)) {
+				if (expression.getRemainingCount() == 1 || (!check && nbgot == 2)) {
 					// if we have both, exit
 					// (needed only if check == false...
 					break;
