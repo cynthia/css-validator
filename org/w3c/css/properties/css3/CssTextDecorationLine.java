@@ -1,4 +1,4 @@
-// $Id: CssTextDecorationLine.java,v 1.1 2012-09-01 16:55:50 ylafon Exp $
+// $Id: CssTextDecorationLine.java,v 1.2 2012-09-01 17:03:17 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -58,7 +58,7 @@ public class CssTextDecorationLine extends org.w3c.css.properties.css.CssTextDec
 	 */
 	public CssTextDecorationLine(ApplContext ac, CssExpression expression, boolean check)
 			throws InvalidParamException {
-		if (check && expression.getCount() > 2) {
+		if (check && expression.getCount() > 3) {
 			throw new InvalidParamException("unrecognize", ac);
 		}
 		setByUser();
