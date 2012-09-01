@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.58 2012-09-01 16:55:50 ylafon Exp $
+// $Id: Css3Style.java,v 1.59 2012-09-01 20:21:12 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -46,6 +46,7 @@ import org.w3c.css.properties.css.CssTabSize;
 import org.w3c.css.properties.css.CssTextAlignLast;
 import org.w3c.css.properties.css.CssTextDecorationColor;
 import org.w3c.css.properties.css.CssTextDecorationLine;
+import org.w3c.css.properties.css.CssTextDecorationSkip;
 import org.w3c.css.properties.css.CssTextDecorationStyle;
 import org.w3c.css.properties.css.CssTextEmphasisColor;
 import org.w3c.css.properties.css.CssTextEmphasisPosition;
@@ -148,9 +149,10 @@ public class Css3Style extends ATSCStyle {
 	public CssLineBreak cssLineBreak;
 	public CssTextAlignLast cssTextAlignLast;
 	public CssTextJustify cssTextJustify;
-	public CssTextDecorationStyle cssTextDecorationStyle;
 	public CssTextDecorationColor cssTextDecorationColor;
 	public CssTextDecorationLine cssTextDecorationLine;
+	public CssTextDecorationSkip cssTextDecorationSkip;
+	public CssTextDecorationStyle cssTextDecorationStyle;
 	public CssTextEmphasisColor cssTextEmphasisColor;
 	public CssTextEmphasisPosition cssTextEmphasisPosition;
 	public CssTextEmphasisStyle cssTextEmphasisStyle;
@@ -1436,6 +1438,15 @@ public class Css3Style extends ATSCStyle {
 							new CssTextDecorationLine(), style, selector);
 		}
 		return cssTextDecorationLine;
+	}
+
+	public CssTextDecorationSkip getTextDecorationSkip() {
+		if (cssTextDecorationSkip == null) {
+			cssTextDecorationSkip =
+					(CssTextDecorationSkip) style.CascadingOrder(
+							new CssTextDecorationSkip(), style, selector);
+		}
+		return cssTextDecorationSkip;
 	}
 	
 	public CssTextEmphasisColor getTextEmphasisColor() {
