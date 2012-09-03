@@ -1,4 +1,4 @@
-// $Id: CssTextAlign.java,v 1.1 2012-09-03 15:05:43 ylafon Exp $
+// $Id: CssTextAlign.java,v 1.2 2012-09-03 15:11:37 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -82,19 +82,6 @@ public class CssTextAlign extends org.w3c.css.properties.css.CssTextAlign {
 				throw new InvalidParamException("value",
 						expression.getValue(),
 						getPropertyName(), ac);
-		}
-
-		// ident, so inherit, or allowed value
-		if (inherit.equals(val)) {
-			value = inherit;
-		} else {
-			val = getMatchingIdent((CssIdent) val);
-			if (val == null) {
-				throw new InvalidParamException("value",
-						expression.getValue(),
-						getPropertyName(), ac);
-			}
-			value = val;
 		}
 		expression.next();
 	}
