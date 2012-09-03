@@ -1,4 +1,4 @@
-// $Id: CssTextAlign.java,v 1.1 2012-09-03 15:07:05 ylafon Exp $
+// $Id: CssTextAlign.java,v 1.2 2012-09-03 15:13:37 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -70,6 +70,7 @@ public class CssTextAlign extends org.w3c.css.properties.css.CssTextAlign {
 	 * Create a new CssTextAlign
 	 */
 	public CssTextAlign() {
+		value = initial;
 	}
 
 	/**
