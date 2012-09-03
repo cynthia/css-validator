@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.60 2012-09-02 11:25:37 ylafon Exp $
+// $Id: Css3Style.java,v 1.61 2012-09-03 09:39:22 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -38,6 +38,7 @@ import org.w3c.css.properties.css.CssFontVariantEastAsian;
 import org.w3c.css.properties.css.CssFontVariantLigatures;
 import org.w3c.css.properties.css.CssFontVariantNumeric;
 import org.w3c.css.properties.css.CssFontVariantPosition;
+import org.w3c.css.properties.css.CssHangingPunctuation;
 import org.w3c.css.properties.css.CssHyphens;
 import org.w3c.css.properties.css.CssLineBreak;
 import org.w3c.css.properties.css.CssOpacity;
@@ -99,7 +100,6 @@ public class Css3Style extends ATSCStyle {
 
 	CssTextDecorationCSS3 cssTextDecoration;
 	CssAllSpaceTreatment cssAllSpaceTreatment;
-	CssHangingPunctuation cssHangingPunctuation;
 	CssLineGrid cssLineGrid;
 	CssLineGridMode cssLineGridMode;
 	CssLineGridProgression cssLineGridProgression;
@@ -153,6 +153,7 @@ public class Css3Style extends ATSCStyle {
 	public CssTextEmphasisPosition cssTextEmphasisPosition;
 	public CssTextEmphasisStyle cssTextEmphasisStyle;
 	public CssTextUnderlinePosition cssTextUnderlinePosition;
+	public CssHangingPunctuation cssHangingPunctuation;
 	public CssTabSize cssTabSize;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
