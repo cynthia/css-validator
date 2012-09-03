@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.61 2012-09-03 09:39:22 ylafon Exp $
+// $Id: Css3Style.java,v 1.62 2012-09-03 20:35:45 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -202,7 +202,6 @@ public class Css3Style extends ATSCStyle {
 	CssMarqueeStyle cssMarqueeStyle;
 
 
-	CssTextIndentCSS3 cssTextIndentCSS3;
 	CssBlockProgression cssBlockProgression;
 
 
@@ -1448,15 +1447,6 @@ public class Css3Style extends ATSCStyle {
 		return cssTabSize;
 	}
 	///
-
-	public CssTextIndentCSS3 getTextIndentCSS3() {
-		if (cssTextIndentCSS3 == null) {
-			cssTextIndentCSS3 =
-					(CssTextIndentCSS3) style.CascadingOrder(
-							new CssTextIndentCSS3(), style, selector);
-		}
-		return cssTextIndentCSS3;
-	}
 
 	public CssBlockProgression getBlockProgression() {
 		if (cssBlockProgression == null) {
