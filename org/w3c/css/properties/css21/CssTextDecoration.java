@@ -1,9 +1,9 @@
-// $Id: CssTextDecoration.java,v 1.5 2012-09-04 09:37:39 ylafon Exp $
+// $Id: CssTextDecoration.java,v 1.1 2012-09-04 09:37:38 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css1;
+package org.w3c.css.properties.css21;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
@@ -17,7 +17,7 @@ import org.w3c.css.values.CssValueList;
 import java.util.ArrayList;
 
 /**
- * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#text-decoration
+ * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/text.html#propdef-text-decoration
  */
 public class CssTextDecoration extends org.w3c.css.properties.css.CssTextDecoration {
 
@@ -68,7 +68,14 @@ public class CssTextDecoration extends org.w3c.css.properties.css.CssTextDecorat
 		}
 
 		CssIdent ident = (CssIdent) val;
-		if (none.equals(ident)) {
+		if (inherit.equals(ident)) {
+			value = inherit;
+			if (check && expression.getCount() != 1) {
+				throw new InvalidParamException("value",
+						val.toString(),
+						getPropertyName(), ac);
+			}
+		} else if (none.equals(ident)) {
 			value = none;
 			if (check && expression.getCount() != 1) {
 				throw new InvalidParamException("value",

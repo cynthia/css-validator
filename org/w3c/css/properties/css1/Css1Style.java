@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.32 2012-09-03 20:34:43 ylafon Exp $
+// $Id: Css1Style.java,v 1.33 2012-09-04 09:37:39 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -15,6 +15,7 @@ import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.properties.css.CssZIndex;
 import org.w3c.css.properties.css.CssTextTransform;
 import org.w3c.css.properties.css.CssTextAlign;
+import org.w3c.css.properties.css.CssTextDecoration;
 import org.w3c.css.properties.css.CssTextIndent;
 
 import org.w3c.css.util.ApplContext;
