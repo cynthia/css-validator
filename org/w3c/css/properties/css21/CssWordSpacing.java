@@ -1,12 +1,11 @@
 //
-// $Id: CssWordSpacing.java,v 1.1 2012-02-09 17:36:32 ylafon Exp $
+// $Id: CssWordSpacing.java,v 1.2 2012-09-04 08:23:21 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css21;
 
-import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
@@ -17,11 +16,10 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec  http://www.w3.org/TR/2011/REC-CSS2-20110607/text.html#propdef-word-spacing
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssWordSpacing extends org.w3c.css.properties.css.CssWordSpacing {
 
-    private CssValue value;
     private static CssIdent normal = CssIdent.getIdent("normal");
 
     /**
@@ -69,37 +67,5 @@ public class CssWordSpacing extends org.w3c.css.properties.css.CssWordSpacing {
     public CssWordSpacing(ApplContext ac, CssExpression expression)
             throws InvalidParamException {
         this(ac, expression, false);
-    }
-
-    /**
-     * Returns the value of this property
-     */
-    public Object get() {
-        return value;
-    }
-
-    /**
-     * Returns true if this property is "softly" inherited
-     * e.g. his value equals inherit
-     */
-    public boolean isSoftlyInherited() {
-        return value == inherit;
-    }
-
-    /**
-     * Returns a string representation of the object.
-     */
-    public String toString() {
-        return value.toString();
-    }
-
-    /**
-     * Compares two properties for equality.
-     *
-     * @param property The other property.
-     */
-    public boolean equals(CssProperty property) {
-        return (property instanceof CssWordSpacing &&
-                value.equals(((CssWordSpacing) property).value));
     }
 }
