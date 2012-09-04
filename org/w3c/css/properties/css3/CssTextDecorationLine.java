@@ -1,4 +1,4 @@
-// $Id: CssTextDecorationLine.java,v 1.2 2012-09-01 17:03:17 ylafon Exp $
+// $Id: CssTextDecorationLine.java,v 1.3 2012-09-04 10:27:55 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -30,6 +30,9 @@ public class CssTextDecorationLine extends org.w3c.css.properties.css.CssTextDec
 	}
 
 	public static final CssIdent getAllowedValue(CssIdent ident) {
+		if (none.equals(ident)) {
+			return none;
+		}
 		if (underline.equals(ident)) {
 			return underline;
 		}

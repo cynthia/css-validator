@@ -1,4 +1,4 @@
-// $Id: CssTextEmphasis.java,v 1.2 2012-09-04 09:14:17 ylafon Exp $
+// $Id: CssTextEmphasis.java,v 1.3 2012-09-04 10:27:55 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -10,6 +10,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 import org.w3c.css.values.CssValueList;
@@ -98,6 +99,10 @@ public class CssTextEmphasis extends org.w3c.css.properties.css.CssTextEmphasis 
 									val, getPropertyName(), ac);
 						}
 					}
+			}
+			if (op != CssOperator.SPACE) {
+				throw new InvalidParamException("operator",
+						((new Character(op)).toString()), ac);
 			}
 		}
 		// parse the style exp
