@@ -1,4 +1,4 @@
-// $Id: CssTextJustify.java,v 1.4 2012-08-31 10:04:08 ylafon Exp $
+// $Id: CssTextJustify.java,v 1.5 2012-09-04 12:43:45 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -20,8 +20,8 @@ public class CssTextJustify extends org.w3c.css.properties.css.CssTextJustify {
 	private static CssIdent[] allowed_values;
 
 	static {
-		String id_values[] = {"auto", "none", "inter", "word", "inter",
-				"ideograph", "inter", "cluster", "distribute", "kashida"};
+		String id_values[] = {"auto", "none", "inter-word", "inter-ideograph",
+				"inter-cluster", "distribute", "kashida"};
 		allowed_values = new CssIdent[id_values.length];
 		int i = 0;
 		for (String s : id_values) {
