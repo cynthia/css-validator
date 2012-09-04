@@ -1,4 +1,4 @@
-// $Id: CssTextShadow.java,v 1.2 2012-08-30 17:03:34 ylafon Exp $
+// $Id: CssTextShadow.java,v 1.3 2012-09-04 09:10:27 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -128,9 +128,14 @@ public class CssTextShadow extends org.w3c.css.properties.css.CssTextShadow {
 				values.add(val);
 				exp.next();
 			} else {
+				// we can't have two colors
+				if (color != null) {
+					throw new InvalidParamException("value",
+							val, getPropertyName(), ac);
+				}
 				CssColor c = new CssColor(ac, exp, false);
 				color = c.getColor();
-				// color can be first or last in CSS2
+				// color can be first or last
 				if (values.size() > 0 && exp.getRemainingCount() != 0) {
 					if (color != null) {
 						throw new InvalidParamException("value",
