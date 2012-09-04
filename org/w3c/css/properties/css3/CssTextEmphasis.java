@@ -1,4 +1,4 @@
-// $Id: CssTextEmphasis.java,v 1.1 2012-09-04 09:10:58 ylafon Exp $
+// $Id: CssTextEmphasis.java,v 1.2 2012-09-04 09:14:17 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -64,6 +64,15 @@ public class CssTextEmphasis extends org.w3c.css.properties.css.CssTextEmphasis 
 					break;
 				case CssTypes.CSS_IDENT:
 					CssIdent ident = (CssIdent) val;
+					if (inherit.equals(ident)) {
+						if (expression.getCount() > 1) {
+							throw new InvalidParamException("value", val,
+									getPropertyName(), ac);
+						}
+						value = inherit;
+						expression.next();
+						return;
+					}
 					CssIdent id = CssTextEmphasisStyle.getAllowedValue(ident);
 					if (id != null) {
 						if (styleExp == null) {
