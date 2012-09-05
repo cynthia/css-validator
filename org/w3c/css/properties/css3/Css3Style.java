@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.81 2012-09-05 09:47:40 ylafon Exp $
+// $Id: Css3Style.java,v 1.84 2012-09-05 09:51:07 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -79,8 +79,6 @@ public class Css3Style extends ATSCStyle {
 	CssBaselineShift cssBaselineShift;
 	CssTextSpace cssTextSpace;
 	CssTextEndOverflow cssTextEndOverflow;
-	CssTextAutoSpace cssTextAutoSpace;
-	CssTextCombine cssTextCombine;
 	CssFit cssFit;
 	CssFloatCSS3 cssFloatCSS3;
 	CssClearCSS3 cssClearCSS3;
@@ -161,7 +159,6 @@ public class Css3Style extends ATSCStyle {
 	CssOverflowX cssOverflowX;
 	CssOverflowY cssOverflowY;
 	CssRubySpan cssRubySpan;
-	CssTextBlink cssTextBlink;
 	CssCrop cssCrop;
 	CssFitPosition cssFitPosition;
 	CssVisibilityCSS3 cssVisibilityCSS3;
@@ -367,25 +364,6 @@ public class Css3Style extends ATSCStyle {
 							new CssTextEndOverflow(), style, selector);
 		}
 		return cssTextEndOverflow;
-	}
-
-	public CssTextAutoSpace getTextAutoSpace() {
-		if (cssTextAutoSpace == null) {
-			cssTextAutoSpace =
-					(CssTextAutoSpace) style.CascadingOrder(
-							new CssTextAutoSpace(), style, selector);
-		}
-		return cssTextAutoSpace;
-	}
-
-
-	public CssTextCombine getTextCombine() {
-		if (cssTextCombine == null) {
-			cssTextCombine =
-					(CssTextCombine) style.CascadingOrder(
-							new CssTextCombine(), style, selector);
-		}
-		return cssTextCombine;
 	}
 
 	public CssFit getFit() {
@@ -800,15 +778,6 @@ public class Css3Style extends ATSCStyle {
 							new CssRubySpan(), style, selector);
 		}
 		return cssRubySpan;
-	}
-
-	public CssTextBlink getTextBlink() {
-		if (cssTextBlink == null) {
-			cssTextBlink =
-					(CssTextBlink) style.CascadingOrder(
-							new CssTextBlink(), style, selector);
-		}
-		return cssTextBlink;
 	}
 
 	public CssCrop getCrop() {
