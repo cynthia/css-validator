@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.88 2012-09-05 10:00:51 ylafon Exp $
+// $Id: Css3Style.java,v 1.90 2012-09-05 11:41:08 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -42,6 +42,7 @@ import org.w3c.css.properties.css.CssFontVariantPosition;
 import org.w3c.css.properties.css.CssHangingPunctuation;
 import org.w3c.css.properties.css.CssHyphens;
 import org.w3c.css.properties.css.CssLineBreak;
+import org.w3c.css.properties.css.CssMarqueeDirection;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOverflowWrap;
 import org.w3c.css.properties.css.CssTabSize;
@@ -69,7 +70,6 @@ public class Css3Style extends ATSCStyle {
 	CssRubyOverhang cssRubyOverhang;
 	CssBoxSizing cssBoxSizing;
 	CssResizer cssResizer;
-	CssToggleGroup cssToggleGroup;
 	CssWritingMode cssWritingMode;
 	CssGlyphOrVert cssGlyphOrVert;
 	CssGlyphHor cssGlyphHor;
@@ -129,6 +129,8 @@ public class Css3Style extends ATSCStyle {
 	public CssHangingPunctuation cssHangingPunctuation;
 	public CssTabSize cssTabSize;
 
+	public CssMarqueeDirection cssMarqueeDirection;
+
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
 	CssDropInitialBeforeAdjust cssDropInitialBeforeAdjust;
@@ -166,7 +168,6 @@ public class Css3Style extends ATSCStyle {
 	CssPaddingLeftCSS3 cssPaddingLeftCSS3;
 	CssPaddingRightCSS3 cssPaddingRightCSS3;
 	CssMarquee cssMarquee;
-	CssMarqueeDirection cssMarqueeDirection;
 	CssMarqueeRepetition cssMarqueeRepetition;
 	CssMarqueeSpeed cssMarqueeSpeed;
 	CssMarqueeStyle cssMarqueeStyle;
@@ -231,15 +232,6 @@ public class Css3Style extends ATSCStyle {
 							new CssResizer(), style, selector);
 		}
 		return cssResizer;
-	}
-
-	public CssToggleGroup getToggleGroup() {
-		if (cssToggleGroup == null) {
-			cssToggleGroup =
-					(CssToggleGroup) style.CascadingOrder(
-							new CssToggleGroup(), style, selector);
-		}
-		return cssToggleGroup;
 	}
 
 	public CssWritingMode getWritingMode() {
