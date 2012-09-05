@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.77 2012-09-05 09:31:25 ylafon Exp $
+// $Id: Css3Style.java,v 1.78 2012-09-05 09:35:31 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -169,7 +169,6 @@ public class Css3Style extends ATSCStyle {
 	CssFitPosition cssFitPosition;
 	CssVisibilityCSS3 cssVisibilityCSS3;
 	CssOverflowCSS3 cssOverflowCSS3;
-	CssOverflowClip cssOverflowClip;
 	CssMaxWidthCSS3 cssMaxWidthCSS3;
 	CssMaxHeightCSS3 cssMaxHeightCSS3;
 	CssMinWidthCSS3 cssMinWidthCSS3;
@@ -876,15 +875,6 @@ public class Css3Style extends ATSCStyle {
 							new CssOverflowCSS3(), style, selector);
 		}
 		return cssOverflowCSS3;
-	}
-
-	public CssOverflowClip getOverflowClip() {
-		if (cssOverflowClip == null) {
-			cssOverflowClip =
-					(CssOverflowClip) style.CascadingOrder(
-							new CssOverflowClip(), style, selector);
-		}
-		return cssOverflowClip;
 	}
 
 	public CssMaxHeightCSS3 getMaxHeightCSS3() {
