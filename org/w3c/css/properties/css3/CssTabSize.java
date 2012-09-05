@@ -1,4 +1,4 @@
-// $Id: CssTabSize.java,v 1.2 2012-08-31 20:36:57 ylafon Exp $
+// $Id: CssTabSize.java,v 1.3 2012-09-05 12:21:43 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -43,6 +43,11 @@ public class CssTabSize extends org.w3c.css.properties.css.CssTabSize {
 		switch (val.getType()) {
 			case CssTypes.CSS_NUMBER:
 				CssNumber number = (CssNumber) val;
+				if (!number.isInteger()) {
+					throw new InvalidParamException("integer",
+							val.toString(),
+							getPropertyName(), ac);
+				}
 				if (!number.isPositive()) {
 					throw new InvalidParamException("negative-value",
 							number, getPropertyName(), ac);
