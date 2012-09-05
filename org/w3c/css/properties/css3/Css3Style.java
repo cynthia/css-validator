@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.65 2012-09-05 08:52:44 ylafon Exp $
+// $Id: Css3Style.java,v 1.66 2012-09-05 08:54:47 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -199,10 +199,6 @@ public class Css3Style extends ATSCStyle {
 	CssMarqueeRepetition cssMarqueeRepetition;
 	CssMarqueeSpeed cssMarqueeSpeed;
 	CssMarqueeStyle cssMarqueeStyle;
-
-
-	CssBlockProgression cssBlockProgression;
-
 
 	public org.w3c.css.properties.css.CssBorderImageSource getBorderImageSource() {
 		if (cssBorder.borderImage.source == null) {
@@ -1437,15 +1433,6 @@ public class Css3Style extends ATSCStyle {
 		return cssTabSize;
 	}
 	///
-
-	public CssBlockProgression getBlockProgression() {
-		if (cssBlockProgression == null) {
-			cssBlockProgression =
-					(CssBlockProgression) style.CascadingOrder(
-							new CssBlockProgression(), style, selector);
-		}
-		return cssBlockProgression;
-	}
 
 	/**
 	 * Returns the name of the actual selector
