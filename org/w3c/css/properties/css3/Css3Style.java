@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.76 2012-09-05 09:25:46 ylafon Exp $
+// $Id: Css3Style.java,v 1.77 2012-09-05 09:31:25 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -84,7 +84,6 @@ public class Css3Style extends ATSCStyle {
 	CssPunctuationTrim cssPunctuationTrim;
 	CssTextAutoSpace cssTextAutoSpace;
 	CssTextCombine cssTextCombine;
-	CssMedia cssMedia;
 	CssFit cssFit;
 	CssFloatCSS3 cssFloatCSS3;
 	CssClearCSS3 cssClearCSS3;
@@ -418,15 +417,6 @@ public class Css3Style extends ATSCStyle {
 							new CssTextCombine(), style, selector);
 		}
 		return cssTextCombine;
-	}
-
-	public CssMedia getMedia() {
-		if (cssMedia == null) {
-			cssMedia =
-					(CssMedia) style.CascadingOrder(
-							new CssMedia(), style, selector);
-		}
-		return cssMedia;
 	}
 
 	public CssFit getFit() {
