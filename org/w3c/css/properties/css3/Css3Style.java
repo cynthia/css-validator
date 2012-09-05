@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.93 2012-09-05 12:00:05 ylafon Exp $
+// $Id: Css3Style.java,v 1.94 2012-09-05 12:06:06 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -47,6 +47,7 @@ import org.w3c.css.properties.css.CssMarqueePlayCount;
 import org.w3c.css.properties.css.CssMarqueeSpeed;
 import org.w3c.css.properties.css.CssMarqueeStyle;
 import org.w3c.css.properties.css.CssOpacity;
+import org.w3c.css.properties.css.CssOverflowStyle;
 import org.w3c.css.properties.css.CssOverflowWrap;
 import org.w3c.css.properties.css.CssTabSize;
 import org.w3c.css.properties.css.CssTextAlignLast;
@@ -136,7 +137,8 @@ public class Css3Style extends ATSCStyle {
 	public CssMarqueeSpeed cssMarqueeSpeed;
 	public CssMarqueeStyle cssMarqueeStyle;
 	public CssMarqueePlayCount cssMarqueePlayCount;
-	
+	public CssOverflowStyle cssOverflowStyle;
+
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
 	CssDropInitialBeforeAdjust cssDropInitialBeforeAdjust;
@@ -864,6 +866,15 @@ public class Css3Style extends ATSCStyle {
 							new CssMarqueeStyle(), style, selector);
 		}
 		return cssMarqueeStyle;
+	}
+
+	public CssOverflowStyle getOverflowStyle() {
+		if (cssOverflowStyle == null) {
+			cssOverflowStyle =
+					(CssOverflowStyle) style.CascadingOrder(
+							new CssOverflowStyle(), style, selector);
+		}
+		return cssOverflowStyle;
 	}
 
 	public org.w3c.css.properties.css.CssBorderTopRightRadius getBorderTopRightRadius() {
