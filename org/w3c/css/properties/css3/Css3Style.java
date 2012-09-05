@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.64 2012-09-04 10:27:54 ylafon Exp $
+// $Id: Css3Style.java,v 1.65 2012-09-05 08:52:44 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -98,7 +98,6 @@ public class Css3Style extends ATSCStyle {
 	CssLineHeightPolicy cssLineHeightPolicy;
 	CssLineBoxContain cssLineBoxContain;
 
-	CssAllSpaceTreatment cssAllSpaceTreatment;
 	CssLineGrid cssLineGrid;
 	CssLineGridMode cssLineGridMode;
 	CssLineGridProgression cssLineGridProgression;
@@ -617,15 +616,6 @@ public class Css3Style extends ATSCStyle {
 							new CssBackgroundOrigin(), style, selector);
 		}
 		return cssBackgroundOrigin;
-	}
-
-	public CssAllSpaceTreatment getAllSpaceTreatment() {
-		if (cssAllSpaceTreatment == null) {
-			cssAllSpaceTreatment =
-					(CssAllSpaceTreatment) style.CascadingOrder(
-							new CssAllSpaceTreatment(), style, selector);
-		}
-		return cssAllSpaceTreatment;
 	}
 
 	public CssHangingPunctuation getHangingPunctuation() {
