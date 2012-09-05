@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.86 2012-09-05 09:57:44 ylafon Exp $
+// $Id: Css3Style.java,v 1.87 2012-09-05 09:59:16 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -81,8 +81,6 @@ public class Css3Style extends ATSCStyle {
 	CssFit cssFit;
 	CssFloatCSS3 cssFloatCSS3;
 	CssClearCSS3 cssClearCSS3;
-
-	CssScript cssScript;
 
 	public CssOpacity cssOpacity;
 	public CssBackgroundClip cssBackgroundClip;
@@ -441,15 +439,6 @@ public class Css3Style extends ATSCStyle {
 							new CssHangingPunctuation(), style, selector);
 		}
 		return cssHangingPunctuation;
-	}
-
-	public CssScript getScript() {
-		if (cssScript == null) {
-			cssScript =
-					(CssScript) style.CascadingOrder(
-							new CssScript(), style, selector);
-		}
-		return cssScript;
 	}
 
 	public CssColumnGap getColumnGap() {
