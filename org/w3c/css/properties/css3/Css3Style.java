@@ -1,5 +1,6 @@
 //
-// $Id: Css3Style.java,v 1.71 2012-09-05 09:13:42 ylafon Exp $
+
+// $Id: Css3Style.java,v 1.72 2012-09-05 09:16:54 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -93,9 +94,6 @@ public class Css3Style extends ATSCStyle {
 	CssClearCSS3 cssClearCSS3;
 	CssLineHeightPolicy cssLineHeightPolicy;
 
-	CssLineGrid cssLineGrid;
-	CssLineGridMode cssLineGridMode;
-	CssLineGridProgression cssLineGridProgression;
 	CssLinefeedTreatment cssLinefeedTreatment;
 	CssScript cssScript;
 	CssTextOverflow cssTextOverflow;
@@ -570,33 +568,6 @@ public class Css3Style extends ATSCStyle {
 							new CssHangingPunctuation(), style, selector);
 		}
 		return cssHangingPunctuation;
-	}
-
-	public CssLineGrid getLineGrid() {
-		if (cssLineGrid == null) {
-			cssLineGrid =
-					(CssLineGrid) style.CascadingOrder(
-							new CssLineGrid(), style, selector);
-		}
-		return cssLineGrid;
-	}
-
-	public CssLineGridMode getLineGridMode() {
-		if (cssLineGridMode == null) {
-			cssLineGridMode =
-					(CssLineGridMode) style.CascadingOrder(
-							new CssLineGridMode(), style, selector);
-		}
-		return cssLineGridMode;
-	}
-
-	public CssLineGridProgression getLineGridProgression() {
-		if (cssLineGridProgression == null) {
-			cssLineGridProgression =
-					(CssLineGridProgression) style.CascadingOrder(
-							new CssLineGridProgression(), style, selector);
-		}
-		return cssLineGridProgression;
 	}
 
 	public CssLinefeedTreatment getLinefeedTreatment() {
