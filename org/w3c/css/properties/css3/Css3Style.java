@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.83 2012-09-05 09:49:53 ylafon Exp $
+// $Id: Css3Style.java,v 1.86 2012-09-05 09:57:44 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -78,16 +78,11 @@ public class Css3Style extends ATSCStyle {
 	CssAlignmentAdjust cssAlignmentAdjust;
 	CssBaselineShift cssBaselineShift;
 	CssTextSpace cssTextSpace;
-	CssTextEndOverflow cssTextEndOverflow;
-	CssTextCombine cssTextCombine;
 	CssFit cssFit;
 	CssFloatCSS3 cssFloatCSS3;
 	CssClearCSS3 cssClearCSS3;
 
 	CssScript cssScript;
-	CssTextOverflow cssTextOverflow;
-	CssTextOverflowEllipsis cssTextOverflowEllipsis;
-	CssTextOverflowMode cssTextOverflowMode;
 
 	public CssOpacity cssOpacity;
 	public CssBackgroundClip cssBackgroundClip;
@@ -358,24 +353,6 @@ public class Css3Style extends ATSCStyle {
 		return cssTextSpace;
 	}
 
-	public CssTextEndOverflow getTextEndOverflow() {
-		if (cssTextEndOverflow == null) {
-			cssTextEndOverflow =
-					(CssTextEndOverflow) style.CascadingOrder(
-							new CssTextEndOverflow(), style, selector);
-		}
-		return cssTextEndOverflow;
-	}
-
-	public CssTextCombine getTextCombine() {
-		if (cssTextCombine == null) {
-			cssTextCombine =
-					(CssTextCombine) style.CascadingOrder(
-							new CssTextCombine(), style, selector);
-		}
-		return cssTextCombine;
-	}
-
 	public CssFit getFit() {
 		if (cssFit == null) {
 			cssFit =
@@ -473,33 +450,6 @@ public class Css3Style extends ATSCStyle {
 							new CssScript(), style, selector);
 		}
 		return cssScript;
-	}
-
-	public CssTextOverflow getTextOverflow() {
-		if (cssTextOverflow == null) {
-			cssTextOverflow =
-					(CssTextOverflow) style.CascadingOrder(
-							new CssTextOverflow(), style, selector);
-		}
-		return cssTextOverflow;
-	}
-
-	public CssTextOverflowEllipsis getTextOverflowEllipsis() {
-		if (cssTextOverflowEllipsis == null) {
-			cssTextOverflowEllipsis =
-					(CssTextOverflowEllipsis) style.CascadingOrder(
-							new CssTextOverflowEllipsis(), style, selector);
-		}
-		return cssTextOverflowEllipsis;
-	}
-
-	public CssTextOverflowMode getTextOverflowMode() {
-		if (cssTextOverflowMode == null) {
-			cssTextOverflowMode =
-					(CssTextOverflowMode) style.CascadingOrder(
-							new CssTextOverflowMode(), style, selector);
-		}
-		return cssTextOverflowMode;
 	}
 
 	public CssColumnGap getColumnGap() {
