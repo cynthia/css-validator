@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.67 2012-09-05 09:01:21 ylafon Exp $
+// $Id: Css3Style.java,v 1.68 2012-09-05 09:02:22 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -92,7 +92,6 @@ public class Css3Style extends ATSCStyle {
 	CssFit cssFit;
 	CssLink cssLink;
 	CssLinkBehavior cssLinkBehavior;
-	CssCollapse cssCollapse;
 	CssFloatCSS3 cssFloatCSS3;
 	CssClearCSS3 cssClearCSS3;
 	CssLineHeightPolicy cssLineHeightPolicy;
@@ -512,15 +511,6 @@ public class Css3Style extends ATSCStyle {
 							new CssLinkBehavior(), style, selector);
 		}
 		return cssLinkBehavior;
-	}
-
-	public CssCollapse getCollapse() {
-		if (cssCollapse == null) {
-			cssCollapse =
-					(CssCollapse) style.CascadingOrder(
-							new CssCollapse(), style, selector);
-		}
-		return cssCollapse;
 	}
 
 	public CssFloatCSS3 getFloatCSS3() {
