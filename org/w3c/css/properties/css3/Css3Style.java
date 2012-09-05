@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.80 2012-09-05 09:42:27 ylafon Exp $
+// $Id: Css3Style.java,v 1.81 2012-09-05 09:47:40 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -79,7 +79,6 @@ public class Css3Style extends ATSCStyle {
 	CssBaselineShift cssBaselineShift;
 	CssTextSpace cssTextSpace;
 	CssTextEndOverflow cssTextEndOverflow;
-	CssTextAfterOverflow cssTextAfterOverflow;
 	CssTextAutoSpace cssTextAutoSpace;
 	CssTextCombine cssTextCombine;
 	CssFit cssFit;
@@ -368,15 +367,6 @@ public class Css3Style extends ATSCStyle {
 							new CssTextEndOverflow(), style, selector);
 		}
 		return cssTextEndOverflow;
-	}
-
-	public CssTextAfterOverflow getTextAfterOverflow() {
-		if (cssTextAfterOverflow == null) {
-			cssTextAfterOverflow =
-					(CssTextAfterOverflow) style.CascadingOrder(
-							new CssTextAfterOverflow(), style, selector);
-		}
-		return cssTextAfterOverflow;
 	}
 
 	public CssTextAutoSpace getTextAutoSpace() {
