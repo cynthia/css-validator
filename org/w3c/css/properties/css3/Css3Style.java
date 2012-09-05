@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.73 2012-09-05 09:19:05 ylafon Exp $
+// $Id: Css3Style.java,v 1.74 2012-09-05 09:21:25 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -93,7 +93,6 @@ public class Css3Style extends ATSCStyle {
 	CssFloatCSS3 cssFloatCSS3;
 	CssClearCSS3 cssClearCSS3;
 
-	CssLinefeedTreatment cssLinefeedTreatment;
 	CssScript cssScript;
 	CssTextOverflow cssTextOverflow;
 	CssTextOverflowEllipsis cssTextOverflowEllipsis;
@@ -558,15 +557,6 @@ public class Css3Style extends ATSCStyle {
 							new CssHangingPunctuation(), style, selector);
 		}
 		return cssHangingPunctuation;
-	}
-
-	public CssLinefeedTreatment getLinefeedTreatment() {
-		if (cssLinefeedTreatment == null) {
-			cssLinefeedTreatment =
-					(CssLinefeedTreatment) style.CascadingOrder(
-							new CssLinefeedTreatment(), style, selector);
-		}
-		return cssLinefeedTreatment;
 	}
 
 	public CssScript getScript() {
