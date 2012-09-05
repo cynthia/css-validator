@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.79 2012-09-05 09:37:40 ylafon Exp $
+// $Id: Css3Style.java,v 1.80 2012-09-05 09:42:27 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -64,7 +64,6 @@ import org.w3c.css.util.Warnings;
 
 public class Css3Style extends ATSCStyle {
 
-	CssRenderIntent cssRenderIntent;
 	CssRubyPosition cssRubyPosition;
 	CssRubyAlign cssRubyAlign;
 	CssRubyOverhang cssRubyOverhang;
@@ -198,15 +197,6 @@ public class Css3Style extends ATSCStyle {
 							style, selector);
 		}
 		return cssOpacity;
-	}
-
-	public CssRenderIntent getRenderIntent() {
-		if (cssRenderIntent == null) {
-			cssRenderIntent =
-					(CssRenderIntent) style.CascadingOrder(new CssRenderIntent(),
-							style, selector);
-		}
-		return cssRenderIntent;
 	}
 
 	public CssRubyPosition getRubyPosition() {

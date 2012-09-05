@@ -1,5 +1,5 @@
 //
-// $Id: SVGStyle.java,v 1.5 2011-09-09 12:16:46 ylafon Exp $
+// $Id: SVGStyle.java,v 1.6 2012-09-05 09:42:27 ylafon Exp $
 // From Sijtsche de Jong
 //
 // COPYRIGHT (c) 1995-2002 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -82,7 +82,7 @@ public class SVGStyle extends SVGBasicStyle {
 	return cpName;
     }
 
-    public CssRenderIntent getCssRenderIntent() {
+    public CssRenderIntent getRenderIntent() {
 	if (cssRenderIntent == null) {
 	    cssRenderIntent =
 		(CssRenderIntent) style.CascadingOrder (
