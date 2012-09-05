@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.87 2012-09-05 09:59:16 ylafon Exp $
+// $Id: Css3Style.java,v 1.89 2012-09-05 10:03:07 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -69,7 +69,6 @@ public class Css3Style extends ATSCStyle {
 	CssRubyOverhang cssRubyOverhang;
 	CssBoxSizing cssBoxSizing;
 	CssResizer cssResizer;
-	CssToggleGroup cssToggleGroup;
 	CssWritingMode cssWritingMode;
 	CssGlyphOrVert cssGlyphOrVert;
 	CssGlyphHor cssGlyphHor;
@@ -77,7 +76,6 @@ public class Css3Style extends ATSCStyle {
 	CssAlignmentBaseLine cssAlignmentBaseLine;
 	CssAlignmentAdjust cssAlignmentAdjust;
 	CssBaselineShift cssBaselineShift;
-	CssTextSpace cssTextSpace;
 	CssFit cssFit;
 	CssFloatCSS3 cssFloatCSS3;
 	CssClearCSS3 cssClearCSS3;
@@ -234,15 +232,6 @@ public class Css3Style extends ATSCStyle {
 		return cssResizer;
 	}
 
-	public CssToggleGroup getToggleGroup() {
-		if (cssToggleGroup == null) {
-			cssToggleGroup =
-					(CssToggleGroup) style.CascadingOrder(
-							new CssToggleGroup(), style, selector);
-		}
-		return cssToggleGroup;
-	}
-
 	public CssWritingMode getWritingMode() {
 		if (cssWritingMode == null) {
 			cssWritingMode =
@@ -340,15 +329,6 @@ public class Css3Style extends ATSCStyle {
 							new CssWordBreak(), style, selector);
 		}
 		return cssWordBreak;
-	}
-
-	public CssTextSpace getTextSpace() {
-		if (cssTextSpace == null) {
-			cssTextSpace =
-					(CssTextSpace) style.CascadingOrder(
-							new CssTextSpace(), style, selector);
-		}
-		return cssTextSpace;
 	}
 
 	public CssFit getFit() {
