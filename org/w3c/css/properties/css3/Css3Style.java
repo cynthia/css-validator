@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.92 2012-09-05 11:50:03 ylafon Exp $
+// $Id: Css3Style.java,v 1.93 2012-09-05 12:00:05 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -43,6 +43,7 @@ import org.w3c.css.properties.css.CssHangingPunctuation;
 import org.w3c.css.properties.css.CssHyphens;
 import org.w3c.css.properties.css.CssLineBreak;
 import org.w3c.css.properties.css.CssMarqueeDirection;
+import org.w3c.css.properties.css.CssMarqueePlayCount;
 import org.w3c.css.properties.css.CssMarqueeSpeed;
 import org.w3c.css.properties.css.CssMarqueeStyle;
 import org.w3c.css.properties.css.CssOpacity;
@@ -134,7 +135,8 @@ public class Css3Style extends ATSCStyle {
 	public CssMarqueeDirection cssMarqueeDirection;
 	public CssMarqueeSpeed cssMarqueeSpeed;
 	public CssMarqueeStyle cssMarqueeStyle;
-
+	public CssMarqueePlayCount cssMarqueePlayCount;
+	
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
 	CssDropInitialBeforeAdjust cssDropInitialBeforeAdjust;
@@ -171,8 +173,6 @@ public class Css3Style extends ATSCStyle {
 	CssPaddingTopCSS3 cssPaddingTopCSS3;
 	CssPaddingLeftCSS3 cssPaddingLeftCSS3;
 	CssPaddingRightCSS3 cssPaddingRightCSS3;
-	CssMarquee cssMarquee;
-	CssMarqueeRepetition cssMarqueeRepetition;
 
 	public org.w3c.css.properties.css.CssBorderImageSource getBorderImageSource() {
 		if (cssBorder.borderImage.source == null) {
@@ -830,15 +830,6 @@ public class Css3Style extends ATSCStyle {
 		return cssPaddingRightCSS3;
 	}
 
-	public CssMarquee getMarquee() {
-		if (cssMarquee == null) {
-			cssMarquee =
-					(CssMarquee) style.CascadingOrder(
-							new CssMarquee(), style, selector);
-		}
-		return cssMarquee;
-	}
-
 	public CssMarqueeDirection getMarqueeDirection() {
 		if (cssMarqueeDirection == null) {
 			cssMarqueeDirection =
@@ -848,13 +839,13 @@ public class Css3Style extends ATSCStyle {
 		return cssMarqueeDirection;
 	}
 
-	public CssMarqueeRepetition getMarqueeRepetition() {
-		if (cssMarqueeRepetition == null) {
-			cssMarqueeRepetition =
-					(CssMarqueeRepetition) style.CascadingOrder(
-							new CssMarqueeRepetition(), style, selector);
+	public CssMarqueePlayCount getMarqueePlayCount() {
+		if (cssMarqueePlayCount == null) {
+			cssMarqueePlayCount =
+					(CssMarqueePlayCount) style.CascadingOrder(
+							new CssMarqueePlayCount(), style, selector);
 		}
-		return cssMarqueeRepetition;
+		return cssMarqueePlayCount;
 	}
 
 	public CssMarqueeSpeed getMarqueeSpeed() {
