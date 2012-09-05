@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.75 2012-09-05 09:23:43 ylafon Exp $
+// $Id: Css3Style.java,v 1.76 2012-09-05 09:25:46 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -85,8 +85,6 @@ public class Css3Style extends ATSCStyle {
 	CssTextAutoSpace cssTextAutoSpace;
 	CssTextCombine cssTextCombine;
 	CssMedia cssMedia;
-	CssMarginOutside cssMarginOutside;
-	CssMarginInside cssMarginInside;
 	CssFit cssFit;
 	CssFloatCSS3 cssFloatCSS3;
 	CssClearCSS3 cssClearCSS3;
@@ -429,24 +427,6 @@ public class Css3Style extends ATSCStyle {
 							new CssMedia(), style, selector);
 		}
 		return cssMedia;
-	}
-
-	public CssMarginOutside getMarginOutside() {
-		if (cssMarginOutside == null) {
-			cssMarginOutside =
-					(CssMarginOutside) style.CascadingOrder(
-							new CssMarginOutside(), style, selector);
-		}
-		return cssMarginOutside;
-	}
-
-	public CssMarginInside getMarginInside() {
-		if (cssMarginInside == null) {
-			cssMarginInside =
-					(CssMarginInside) style.CascadingOrder(
-							new CssMarginInside(), style, selector);
-		}
-		return cssMarginInside;
 	}
 
 	public CssFit getFit() {
