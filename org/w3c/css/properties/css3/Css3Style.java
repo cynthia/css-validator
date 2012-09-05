@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.90 2012-09-05 11:41:08 ylafon Exp $
+// $Id: Css3Style.java,v 1.91 2012-09-05 11:46:21 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -43,6 +43,7 @@ import org.w3c.css.properties.css.CssHangingPunctuation;
 import org.w3c.css.properties.css.CssHyphens;
 import org.w3c.css.properties.css.CssLineBreak;
 import org.w3c.css.properties.css.CssMarqueeDirection;
+import org.w3c.css.properties.css.CssMarqueeSpeed;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOverflowWrap;
 import org.w3c.css.properties.css.CssTabSize;
@@ -130,6 +131,7 @@ public class Css3Style extends ATSCStyle {
 	public CssTabSize cssTabSize;
 
 	public CssMarqueeDirection cssMarqueeDirection;
+	public CssMarqueeSpeed cssMarqueeSpeed;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -169,7 +171,6 @@ public class Css3Style extends ATSCStyle {
 	CssPaddingRightCSS3 cssPaddingRightCSS3;
 	CssMarquee cssMarquee;
 	CssMarqueeRepetition cssMarqueeRepetition;
-	CssMarqueeSpeed cssMarqueeSpeed;
 	CssMarqueeStyle cssMarqueeStyle;
 
 	public org.w3c.css.properties.css.CssBorderImageSource getBorderImageSource() {
