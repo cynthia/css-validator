@@ -1,5 +1,5 @@
 //
-// $Id: Css3Style.java,v 1.69 2012-09-05 09:05:11 ylafon Exp $
+// $Id: Css3Style.java,v 1.70 2012-09-05 09:11:17 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -70,7 +70,6 @@ public class Css3Style extends ATSCStyle {
 	CssBoxSizing cssBoxSizing;
 	CssResizer cssResizer;
 	CssToggleGroup cssToggleGroup;
-	CssGroupReset cssGroupReset;
 	CssWritingMode cssWritingMode;
 	CssGlyphOrVert cssGlyphOrVert;
 	CssGlyphHor cssGlyphHor;
@@ -274,15 +273,6 @@ public class Css3Style extends ATSCStyle {
 							new CssToggleGroup(), style, selector);
 		}
 		return cssToggleGroup;
-	}
-
-	public CssGroupReset getGroupReset() {
-		if (cssGroupReset == null) {
-			cssGroupReset =
-					(CssGroupReset) style.CascadingOrder(
-							new CssGroupReset(), style, selector);
-		}
-		return cssGroupReset;
 	}
 
 	public CssWritingMode getWritingMode() {
