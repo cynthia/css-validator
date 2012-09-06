@@ -1,4 +1,4 @@
-// $Id: CssOpacity.java,v 1.1 2011-10-07 09:33:19 ylafon Exp $
+// $Id: CssOpacity.java,v 1.2 2012-09-06 12:37:56 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // (c) COPYRIGHT 1995-2000  World Wide Web Consortium (MIT, INRIA, Keio University)
@@ -11,7 +11,6 @@ import org.w3c.css.parser.CssStyle;
 import org.w3c.css.properties.css3.Css3Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
-import org.w3c.css.util.Util;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssValue;
 
@@ -21,7 +20,7 @@ import org.w3c.css.values.CssValue;
 
 public class CssOpacity extends CssProperty {
 
-    CssValue value;
+    public CssValue value;
 
     /**
      * Create a new CssOpacity
@@ -47,26 +46,14 @@ public class CssOpacity extends CssProperty {
     }
 
     /**
-     * Brings all values back between 0 and 1
-     *
-     * @param opac The value to be modified if necessary
-     */
-    private float clampedValue(ApplContext ac, float opac) {
-        if (opac < 0 || opac > 1) {
-            ac.getFrame().addWarning("out-of-range", Util.displayFloat(opac));
-            return ((opac < 0) ? 0 : 1);
-        } else
-            return (opac);
-    }
-
-    /**
      * Add this property to the CssStyle.
      *
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        if (((Css3Style) style).cssOpacity != null)
+        if (((Css3Style) style).cssOpacity != null) {
             style.addRedefinitionWarning(ac, this);
+		}
         ((Css3Style) style).cssOpacity = this;
     }
 
@@ -90,7 +77,7 @@ public class CssOpacity extends CssProperty {
      * @param property The other property.
      */
     public boolean equals(CssProperty property) {
-        return false;
+        return (property instanceof CssOpacity) && ((CssOpacity)property).value.equals(value);
     }
 
     /**

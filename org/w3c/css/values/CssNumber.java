@@ -1,4 +1,4 @@
-// $Id: CssNumber.java,v 1.12 2012-02-09 17:36:33 ylafon Exp $
+// $Id: CssNumber.java,v 1.13 2012-09-06 12:37:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 /**
  * A CSS number.
  *
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class CssNumber extends CssValue implements CssValueFloat {
 
@@ -205,6 +205,10 @@ public class CssNumber extends CssValue implements CssValueFloat {
         throw new InvalidParamException("zero",
                 value.toString(), "frequency", ac);
     }
+
+	public CssNumber getNumber() throws InvalidParamException {
+		return this;
+	}
 
     /**
      * Returns a string representation of the object.

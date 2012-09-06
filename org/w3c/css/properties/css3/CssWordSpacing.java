@@ -1,4 +1,4 @@
-// $Id: CssWordSpacing.java,v 1.2 2012-09-04 08:33:13 ylafon Exp $
+// $Id: CssWordSpacing.java,v 1.3 2012-09-06 12:37:58 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, INRIA and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -8,7 +8,6 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssOperator;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
@@ -55,7 +54,7 @@ public class CssWordSpacing extends org.w3c.css.properties.css.CssWordSpacing {
 
 			switch (val.getType()) {
 				case CssTypes.CSS_NUMBER:
-					val = ((CssNumber) val).getLength();
+					val = val.getLength();
 				case CssTypes.CSS_LENGTH:
 					v.add(val);
 					break;

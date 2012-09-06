@@ -1,4 +1,4 @@
-// $Id: CssFontFeatureSettings.java,v 1.3 2012-08-29 09:50:25 ylafon Exp $
+// $Id: CssFontFeatureSettings.java,v 1.4 2012-09-06 12:37:57 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -139,7 +139,7 @@ public class CssFontFeatureSettings extends org.w3c.css.properties.css.CssFontFe
 		val = exp.getValue();
 		switch (val.getType()) {
 			case CssTypes.CSS_NUMBER:
-				CssNumber n = (CssNumber) val;
+				CssNumber n = val.getNumber();
 				if (!n.isPositive()) {
 					throw new InvalidParamException("negative-value",
 							val.toString(),

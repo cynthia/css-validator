@@ -1,4 +1,4 @@
-// $Id: CssColumnWidth.java,v 1.2 2011-10-05 07:12:17 ylafon Exp $
+// $Id: CssColumnWidth.java,v 1.3 2012-09-06 12:37:56 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewriten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -13,6 +13,7 @@ import org.w3c.css.properties.css3.Css3Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssValue;
 
 /**
  * @since CSS3
@@ -21,6 +22,8 @@ import org.w3c.css.values.CssExpression;
 public class CssColumnWidth extends CssProperty {
 
     private static final String propertyName = "column-width";
+
+	public CssValue value;
 
     /**
      * Create a new CssColumnWidth
@@ -77,7 +80,7 @@ public class CssColumnWidth extends CssProperty {
      * @param property The other property.
      */
     public boolean equals(CssProperty property) {
-        return false;
+        return value.equals(((CssColumnWidth) property).value);
     }
 
     /**
@@ -91,21 +94,21 @@ public class CssColumnWidth extends CssProperty {
      * Returns the value of this property
      */
     public Object get() {
-        return null;
+        return value;
     }
 
     /**
      * Returns true if this property is "softly" inherited
      */
     public boolean isSoftlyInherited() {
-        return false;
+        return inherit == value;
     }
 
     /**
      * Returns a string representation of the object
      */
     public String toString() {
-        return null;
+        return value.toString();
     }
 
     /**

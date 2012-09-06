@@ -1,4 +1,4 @@
-// $Id: CssFontWeight.java,v 1.3 2012-08-23 13:55:34 ylafon Exp $
+// $Id: CssFontWeight.java,v 1.4 2012-09-06 12:37:57 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -66,7 +66,7 @@ public class CssFontWeight extends org.w3c.css.properties.css.CssFontWeight {
 
 		switch (val.getType()) {
 			case CssTypes.CSS_NUMBER:
-				CssNumber num = (CssNumber) val;
+				CssNumber num = val.getNumber();
 				switch (num.getInt()) {
 					case 100:
 					case 200:

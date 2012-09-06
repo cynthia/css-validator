@@ -1,5 +1,5 @@
 //
-// $Id: CssHeight.java,v 1.1 2011-09-27 08:15:45 ylafon Exp $
+// $Id: CssHeight.java,v 1.2 2012-09-06 12:37:56 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University 2011
@@ -13,15 +13,16 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssHeight extends CssProperty {
 
     public static CssIdent auto = CssIdent.getIdent("auto");
 
-    CssIdent identVal;
+    public CssValue value;
 
     /**
      * Create a new CssWidth
@@ -45,7 +46,7 @@ public class CssHeight extends CssProperty {
      * Returns the value of this property.
      */
     public Object get() {
-        return null;
+        return value;
     }
 
     /**
@@ -60,14 +61,14 @@ public class CssHeight extends CssProperty {
      * e.g. his value equals inherit
      */
     public boolean isSoftlyInherited() {
-        return false;
+        return value == inherit;
     }
 
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
-        return auto.toString();
+        return value.toString();
     }
 
 
@@ -78,8 +79,9 @@ public class CssHeight extends CssProperty {
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
         Css1Style style0 = (Css1Style) style;
-        if (style0.cssHeight != null)
+        if (style0.cssHeight != null) {
             style0.addRedefinitionWarning(ac, this);
+		}
         style0.cssHeight = this;
     }
 
@@ -103,7 +105,7 @@ public class CssHeight extends CssProperty {
      * @param property The other property.
      */
     public boolean equals(CssProperty property) {
-        return (property instanceof CssHeight);
+        return (property instanceof CssHeight) && ((CssHeight)property).value.equals(value);
     }
 
     /**

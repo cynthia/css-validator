@@ -1,4 +1,4 @@
-// $Id: CssBorderImageOutset.java,v 1.2 2012-04-26 18:33:30 ylafon Exp $
+// $Id: CssBorderImageOutset.java,v 1.3 2012-09-06 12:37:57 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -21,77 +21,77 @@ import static org.w3c.css.values.CssOperator.SPACE;
  */
 public class CssBorderImageOutset extends org.w3c.css.properties.css.CssBorderImageOutset {
 
-    /**
-     * Create a new CssBorderImageOutset
-     */
-    public CssBorderImageOutset() {
-        value = initial;
-    }
+	/**
+	 * Create a new CssBorderImageOutset
+	 */
+	public CssBorderImageOutset() {
+		value = initial;
+	}
 
-    /**
-     * Creates a new CssBorderImageOutset
-     *
-     * @param expression The expression for this property
-     * @throws org.w3c.css.util.InvalidParamException
-     *          Expressions are incorrect
-     */
-    public CssBorderImageOutset(ApplContext ac, CssExpression expression, boolean check)
-            throws InvalidParamException {
+	/**
+	 * Creates a new CssBorderImageOutset
+	 *
+	 * @param expression The expression for this property
+	 * @throws org.w3c.css.util.InvalidParamException
+	 *          Expressions are incorrect
+	 */
+	public CssBorderImageOutset(ApplContext ac, CssExpression expression, boolean check)
+			throws InvalidParamException {
 
-        CssValueList valueList = new CssValueList();
-        if (check && expression.getCount() > 4) {
-            throw new InvalidParamException("unrecognize", ac);
-        }
-        CssValue val;
-        char op;
+		CssValueList valueList = new CssValueList();
+		if (check && expression.getCount() > 4) {
+			throw new InvalidParamException("unrecognize", ac);
+		}
+		CssValue val;
+		char op;
 
-        while (!expression.end()) {
-            val = expression.getValue();
-            op = expression.getOperator();
+		while (!expression.end()) {
+			val = expression.getValue();
+			op = expression.getOperator();
 
-            switch (val.getType()) {
-                case CssTypes.CSS_NUMBER:
-                    CssNumber num = (CssNumber)val;
-                    if (!num.isPositive()) {
-                        throw new InvalidParamException("negative-value", num,
-                                getPropertyName(), ac);
-                    }
-                    valueList.add(val);
-                    break;
-                case CssTypes.CSS_LENGTH:
-                    CssLength length = (CssLength)val;
-                    if (!length.isPositive()) {
-                        throw new InvalidParamException("negative-value", length,
-                                getPropertyName(), ac);
-                    }
-                    valueList.add(val);
-                    break;
-                case CssTypes.CSS_IDENT:
-                    if (inherit.equals(val)) {
-                        if (expression.getCount() > 1) {
-                            throw new InvalidParamException("unrecognize", ac);
-                        }
-                        valueList.add(inherit);
-                        break;
-                    }
-                    // unrecognized ident, let it fail
-                default:
-                    throw new InvalidParamException("value", val.toString(),
-                            getPropertyName(), ac);
-            }
-            expression.next();
-            if (op != SPACE) {
-                throw new InvalidParamException("operator",
-                        Character.toString(op),
-                        ac);
-            }
-        }
-        value = (valueList.size() == 1) ? valueList.get(0) : valueList;
-    }
+			switch (val.getType()) {
+				case CssTypes.CSS_NUMBER:
+					CssNumber num = val.getNumber();
+					if (!num.isPositive()) {
+						throw new InvalidParamException("negative-value", num,
+								getPropertyName(), ac);
+					}
+					valueList.add(val);
+					break;
+				case CssTypes.CSS_LENGTH:
+					CssLength length = val.getLength();
+					if (!length.isPositive()) {
+						throw new InvalidParamException("negative-value", length,
+								getPropertyName(), ac);
+					}
+					valueList.add(val);
+					break;
+				case CssTypes.CSS_IDENT:
+					if (inherit.equals(val)) {
+						if (expression.getCount() > 1) {
+							throw new InvalidParamException("unrecognize", ac);
+						}
+						valueList.add(inherit);
+						break;
+					}
+					// unrecognized ident, let it fail
+				default:
+					throw new InvalidParamException("value", val.toString(),
+							getPropertyName(), ac);
+			}
+			expression.next();
+			if (op != SPACE) {
+				throw new InvalidParamException("operator",
+						Character.toString(op),
+						ac);
+			}
+		}
+		value = (valueList.size() == 1) ? valueList.get(0) : valueList;
+	}
 
-    public CssBorderImageOutset(ApplContext ac, CssExpression expression)
-            throws InvalidParamException {
-        this(ac, expression, false);
-    }
+	public CssBorderImageOutset(ApplContext ac, CssExpression expression)
+			throws InvalidParamException {
+		this(ac, expression, false);
+	}
 }
 

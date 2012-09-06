@@ -1,4 +1,4 @@
-// $Id: CssBorderWidth.java,v 1.2 2012-04-26 18:33:31 ylafon Exp $
+// $Id: CssBorderWidth.java,v 1.3 2012-09-06 12:37:57 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -11,7 +11,6 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLength;
-import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 import org.w3c.css.values.CssValueList;
@@ -94,9 +93,8 @@ public class CssBorderWidth extends org.w3c.css.properties.css.CssBorderWidth {
 
             switch (val.getType()) {
                 case CssTypes.CSS_NUMBER:
-                    val = ((CssNumber) val).getLength();
                 case CssTypes.CSS_LENGTH:
-                    CssLength length = (CssLength) val;
+                    CssLength length = val.getLength();
                     if (!length.isPositive()) {
                         throw new InvalidParamException("negative-value", expression.getValue(),
                                 getPropertyName(), ac);
@@ -177,9 +175,8 @@ public class CssBorderWidth extends org.w3c.css.properties.css.CssBorderWidth {
         CssValue val = expression.getValue();
         switch (val.getType()) {
             case CssTypes.CSS_NUMBER:
-                val = ((CssNumber) val).getLength();
             case CssTypes.CSS_LENGTH:
-                CssLength length = (CssLength) val;
+                CssLength length = val.getLength();
                 if (!length.isPositive()) {
                     throw new InvalidParamException("negative-value", expression.getValue(),
                             caller.getPropertyName(), ac);

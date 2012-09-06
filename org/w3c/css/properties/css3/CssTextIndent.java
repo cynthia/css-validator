@@ -1,4 +1,4 @@
-// $Id: CssTextIndent.java,v 1.1 2012-09-03 20:35:45 ylafon Exp $
+// $Id: CssTextIndent.java,v 1.2 2012-09-06 12:37:58 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -9,7 +9,6 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
-import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 import org.w3c.css.values.CssValueList;
@@ -61,7 +60,7 @@ public class CssTextIndent extends org.w3c.css.properties.css.CssTextIndent {
 			op = expression.getOperator();
 			switch (val.getType()) {
 				case CssTypes.CSS_NUMBER:
-					val = ((CssNumber) val).getLength();
+					val = val.getLength();
 				case CssTypes.CSS_LENGTH:
 				case CssTypes.CSS_PERCENTAGE:
 					if (sizeVal != null) {
