@@ -1,4 +1,4 @@
-// $Id: CssLength.java,v 1.11 2012-09-07 14:55:25 ylafon Exp $
+// $Id: CssLength.java,v 1.12 2012-09-07 15:13:42 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Updated 2012 by Yves Lafon <yves@w3.org>
@@ -86,7 +86,7 @@ import java.math.BigDecimal;
  * approximate. For all CSS1 properties, further computations and inheritance
  * should be based on the approximated value.
  *
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  * @see CssPercentage
  */
 public class CssLength extends CssValue {
@@ -123,7 +123,7 @@ public class CssLength extends CssValue {
 		while (unitIdx > 0 && c <= 'z' && c >= 'a') {
 			c = low_s.charAt(--unitIdx);
 		}
-		if (unitIdx == 0 || (unitIdx == length - 1)) {
+		if (unitIdx == length - 1) {
 			throw new InvalidParamException("unit", s, ac);
 		}
 		// we go back to the beginning of the unit
