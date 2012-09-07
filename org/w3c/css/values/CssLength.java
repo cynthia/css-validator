@@ -1,4 +1,4 @@
-// $Id: CssLength.java,v 1.12 2012-09-07 15:13:42 ylafon Exp $
+// $Id: CssLength.java,v 1.13 2012-09-07 20:41:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Updated 2012 by Yves Lafon <yves@w3.org>
@@ -86,7 +86,7 @@ import java.math.BigDecimal;
  * approximate. For all CSS1 properties, further computations and inheritance
  * should be based on the approximated value.
  *
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  * @see CssPercentage
  */
 public class CssLength extends CssValue {
@@ -130,7 +130,7 @@ public class CssLength extends CssValue {
 		unitIdx++;
 		String unit_str = low_s.substring(unitIdx, length);
 		// let's test the unit
-		boolean ok = true;
+
 		// TODO check the  if (!BigDecimal.ZERO.equals(value))) test
 		// that was here earlier
 		// seems legit to always test the unit no matter the value
