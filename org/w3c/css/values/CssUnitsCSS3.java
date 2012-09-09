@@ -1,4 +1,4 @@
-// $Id: CssUnitsCSS3.java,v 1.3 2012-09-07 20:41:11 ylafon Exp $
+// $Id: CssUnitsCSS3.java,v 1.4 2012-09-09 18:22:12 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -143,12 +143,12 @@ public class CssUnitsCSS3 {
 		time.unit = matchedUnit;
 	}
 
-	protected static void parseResolutionUnit(String unit, CssResolution time, ApplContext ac)
+	protected static void parseResolutionUnit(String unit, CssResolution resolution, ApplContext ac)
 			throws InvalidParamException {
 		String matchedUnit = null;
 		for (String s : resolution_units) {
 			if (s.equals(unit)) {
-				time.unit = s;
+				resolution.unit = s;
 				return;
 			}
 		}
