@@ -1,4 +1,4 @@
-// $Id: CssTabSize.java,v 1.4 2012-09-06 12:37:58 ylafon Exp $
+// $Id: CssTabSize.java,v 1.5 2012-09-10 11:47:18 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -48,6 +48,7 @@ public class CssTabSize extends org.w3c.css.properties.css.CssTabSize {
 							val.toString(),
 							getPropertyName(), ac);
 				}
+				number.checkPositiveness(ac, this);
 				if (!number.isPositive()) {
 					throw new InvalidParamException("negative-value",
 							number, getPropertyName(), ac);
