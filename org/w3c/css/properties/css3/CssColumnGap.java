@@ -1,4 +1,4 @@
-// $Id: CssColumnGap.java,v 1.10 2012-09-06 12:37:57 ylafon Exp $
+// $Id: CssColumnGap.java,v 1.11 2012-09-10 17:04:58 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -54,11 +54,7 @@ public class CssColumnGap extends org.w3c.css.properties.css.CssColumnGap {
 			case CssTypes.CSS_NUMBER:
 			case CssTypes.CSS_LENGTH:
 				CssLength l = val.getLength();
-				if (l == null || !l.isPositive()) {
-					throw new InvalidParamException("negative-value",
-							expression.getValue(),
-							getPropertyName(), ac);
-				}
+				l.checkPositiveness(ac, this);
 				columngap = val;
 				break;
 			case CssTypes.CSS_IDENT:

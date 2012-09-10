@@ -1,4 +1,4 @@
-// $Id: CssColumnWidth.java,v 1.12 2012-09-06 12:37:57 ylafon Exp $
+// $Id: CssColumnWidth.java,v 1.13 2012-09-10 17:04:58 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewriten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -21,9 +21,6 @@ import org.w3c.css.values.CssValue;
  */
 
 public class CssColumnWidth extends org.w3c.css.properties.css.CssColumnWidth {
-
-	private static final String propertyName = "column-width";
-
 
 	static CssIdent auto;
 
@@ -64,11 +61,7 @@ public class CssColumnWidth extends org.w3c.css.properties.css.CssColumnWidth {
 						getPropertyName(), ac);
 			case CssTypes.CSS_LENGTH:
 				CssLength l = val.getLength();
-				if (l == null || !l.isStrictlyPositive()) {
-					throw new InvalidParamException("strictly-positive",
-							expression.getValue(),
-							getPropertyName(), ac);
-				}
+				l.checkStrictPositiveness(ac, this);
 				value = val;
 				break;
 			case CssTypes.CSS_IDENT:

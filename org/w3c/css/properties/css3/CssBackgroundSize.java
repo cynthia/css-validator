@@ -1,4 +1,4 @@
-// $Id: CssBackgroundSize.java,v 1.7 2012-09-06 12:37:57 ylafon Exp $
+// $Id: CssBackgroundSize.java,v 1.8 2012-09-10 17:04:58 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -84,10 +84,7 @@ public class CssBackgroundSize extends org.w3c.css.properties.css.CssBackgroundS
 				case CssTypes.CSS_NUMBER:
 				case CssTypes.CSS_LENGTH:
 					CssLength l = val.getLength();
-					if (!l.isPositive()) {
-						throw new InvalidParamException("negative-value",
-								val.toString(), ac);
-					}
+					l.checkPositiveness(ac, this);
 					if (is_complete) {
 						vl = new CssValueList();
 						vl.add(val);
@@ -100,10 +97,7 @@ public class CssBackgroundSize extends org.w3c.css.properties.css.CssBackgroundS
 				case CssTypes.CSS_PERCENTAGE:
 					// per spec only non-negative values are allowed
 					CssPercentage p = val.getPercentage();
-					if (!p.isPositive()) {
-						throw new InvalidParamException("negative-value",
-								val.toString(), ac);
-					}
+					p.checkPositiveness(ac, this);
 					if (is_complete) {
 						vl = new CssValueList();
 						vl.add(val);

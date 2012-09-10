@@ -1,4 +1,4 @@
-// $Id: CssLength.java,v 1.14 2012-09-10 11:58:31 ylafon Exp $
+// $Id: CssLength.java,v 1.15 2012-09-10 17:04:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Updated 2012 by Yves Lafon <yves@w3.org>
@@ -87,7 +87,7 @@ import java.math.BigDecimal;
  * approximate. For all CSS1 properties, further computations and inheritance
  * should be based on the approximated value.
  *
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  * @see CssPercentage
  */
 public class CssLength extends CssCheckableValue {
@@ -273,23 +273,10 @@ public class CssLength extends CssCheckableValue {
 	public void checkStrictPositiveness(ApplContext ac, CssProperty property)
 			throws InvalidParamException {
 		if (!isStrictlyPositive()) {
-			throw new InvalidParamException("negative-value",
+			throw new InvalidParamException("strictly-positive",
 					toString(), property.getPropertyName(), ac);
 		}
 	}
 
-	/**
-	 * check if the value is an integer
-	 * @param ac the validation context
-	 * @param property the property the value is defined in
-	 * @throws InvalidParamException
-	 */
-	public void checkInteger(ApplContext ac, CssProperty property)
-			throws InvalidParamException {
-	}
-
-	public boolean isInteger() {
-		return false;
-	}
 }
 

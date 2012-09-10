@@ -1,4 +1,4 @@
-// $Id: CssBoxShadow.java,v 1.12 2012-09-06 12:37:57 ylafon Exp $
+// $Id: CssBoxShadow.java,v 1.13 2012-09-10 17:04:58 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2012 by Yves Lafon <ylafon@w3.org>
 //
@@ -149,12 +149,7 @@ public class CssBoxShadow extends org.w3c.css.properties.css.CssBoxShadow {
 							break;
 						case 3:
 							CssLength length = val.getLength();
-							if (!length.isPositive()) {
-								throw new InvalidParamException("negative-value",
-										expression.getValue(),
-										getPropertyName(), ac);
-
-							}
+							length.checkPositiveness(ac, this);
 							value.blur_radius = length;
 							break;
 						case 4:

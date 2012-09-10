@@ -1,4 +1,4 @@
-// $Id: CssMarqueePlayCount.java,v 1.4 2012-09-10 11:47:17 ylafon Exp $
+// $Id: CssMarqueePlayCount.java,v 1.5 2012-09-10 17:04:58 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -50,11 +50,7 @@ public class CssMarqueePlayCount extends org.w3c.css.properties.css.CssMarqueePl
 		switch (val.getType()) {
 			case CssTypes.CSS_NUMBER:
 				CssNumber num = val.getNumber();
-				if (!num.isInteger()) {
-					throw new InvalidParamException("integer",
-							val.toString(),
-							getPropertyName(), ac);
-				}
+				num.checkInteger(ac, this);
 				num.checkPositiveness(ac, this);
 				value = num;
 				break;

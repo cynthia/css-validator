@@ -1,4 +1,4 @@
-// $Id: CssZIndex.java,v 1.2 2012-09-06 12:37:58 ylafon Exp $
+// $Id: CssZIndex.java,v 1.3 2012-09-10 17:04:58 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997-2010.
@@ -11,6 +11,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
@@ -47,13 +48,10 @@ public class CssZIndex extends org.w3c.css.properties.css.CssZIndex {
 		setByUser();
 		switch (val.getType()) {
 			case CssTypes.CSS_NUMBER:
-				if (val.getNumber().isInteger()) {
-					value = val;
-					break;
-				}
-				throw new InvalidParamException("integer",
-						val.toString(),
-						getPropertyName(), ac);
+				CssNumber number = val.getNumber();
+				number.checkInteger(ac, this);
+				value = val;
+				break;
 			case CssTypes.CSS_IDENT:
 				CssIdent ide = (CssIdent) val;
 				if (inherit.equals(ide)) {

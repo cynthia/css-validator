@@ -1,4 +1,4 @@
-// $Id: CssColumnCount.java,v 1.11 2012-09-06 12:37:57 ylafon Exp $
+// $Id: CssColumnCount.java,v 1.12 2012-09-10 17:04:58 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -53,15 +53,8 @@ public class CssColumnCount extends org.w3c.css.properties.css.CssColumnCount {
         switch (val.getType()) {
             case CssTypes.CSS_NUMBER:
                 num = val.getNumber();
-                if (!num.isInteger()) {
-                    throw new InvalidParamException("integer",
-                            expression.getValue(), getPropertyName(), ac);
-                }
-                if (!num.isStrictlyPositive()) {
-                    throw new InvalidParamException("strictly-positive",
-                            expression.getValue(),
-                            getPropertyName(), ac);
-                }
+				num.checkInteger(ac, this);
+				num.checkStrictPositiveness(ac, this);
                 value = val;
                 break;
             case CssTypes.CSS_IDENT:

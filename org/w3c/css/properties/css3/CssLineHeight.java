@@ -1,4 +1,4 @@
-// $Id: CssLineHeight.java,v 1.3 2012-09-06 12:37:58 ylafon Exp $
+// $Id: CssLineHeight.java,v 1.4 2012-09-10 17:04:58 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -16,7 +16,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @spec http://www.w3.org/TR/2002/WD-css3-linebox-20020515/#line-height
  */
 public class CssLineHeight extends org.w3c.css.properties.css.CssLineHeight {
@@ -60,26 +60,17 @@ public class CssLineHeight extends org.w3c.css.properties.css.CssLineHeight {
 				break;
 			case CssTypes.CSS_LENGTH:
 				CssLength length = val.getLength();
-				if (!length.isPositive()) {
-					throw new InvalidParamException("negative-value",
-							val.toString(), ac);
-				}
+				length.checkPositiveness(ac, this);
 				value = val;
 				break;
 			case CssTypes.CSS_NUMBER:
 				CssNumber number = val.getNumber();
-				if (!number.isPositive()) {
-					throw new InvalidParamException("negative-value",
-							val.toString(), ac);
-				}
+				number.checkPositiveness(ac, this);
 				value = val;
 				break;
 			case CssTypes.CSS_PERCENTAGE:
 				CssPercentage percent = val.getPercentage();
-				if (!percent.isPositive()) {
-					throw new InvalidParamException("negative-value",
-							val.toString(), ac);
-				}
+				percent.checkPositiveness(ac, this);
 				value = val;
 				break;
 			default:

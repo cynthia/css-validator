@@ -1,4 +1,4 @@
-// $Id: CssBorderRadius.java,v 1.8 2012-09-06 12:37:57 ylafon Exp $
+// $Id: CssBorderRadius.java,v 1.9 2012-09-10 17:04:58 ylafon Exp $
 //
 // (c) COPYRIGHT 1995-2012  World Wide Web Consortium (MIT, ERCIM and Keio University)
 // Please first read the full copyright statement at
@@ -64,18 +64,12 @@ public class CssBorderRadius extends org.w3c.css.properties.css.CssBorderRadius 
 				case CssTypes.CSS_NUMBER:
 				case CssTypes.CSS_LENGTH:
 					CssLength length = val.getLength();
-					if (!length.isPositive()) {
-						throw new InvalidParamException("negative-value", expression.getValue(),
-								getPropertyName(), ac);
-					}
+					length.checkPositiveness(ac, this);
 					cur_radius.add(length);
 					break;
 				case CssTypes.CSS_PERCENTAGE:
 					CssPercentage percentage = val.getPercentage();
-					if (!percentage.isPositive()) {
-						throw new InvalidParamException("negative-value", expression.getValue(),
-								getPropertyName(), ac);
-					}
+					percentage.checkPositiveness(ac, this);
 					cur_radius.add(percentage);
 					break;
 				case CssTypes.CSS_SWITCH:
@@ -204,18 +198,12 @@ public class CssBorderRadius extends org.w3c.css.properties.css.CssBorderRadius 
 				case CssTypes.CSS_NUMBER:
 				case CssTypes.CSS_LENGTH:
 					CssLength length = val.getLength();
-					if (!length.isPositive()) {
-						throw new InvalidParamException("negative-value", expression.getValue(),
-								caller.getPropertyName(), ac);
-					}
+					length.checkPositiveness(ac, caller);
 					res.add(length);
 					break;
 				case CssTypes.CSS_PERCENTAGE:
 					CssPercentage percentage = val.getPercentage();
-					if (!percentage.isPositive()) {
-						throw new InvalidParamException("negative-value", expression.getValue(),
-								caller.getPropertyName(), ac);
-					}
+					percentage.checkPositiveness(ac, caller);
 					res.add(percentage);
 					break;
 				case CssTypes.CSS_IDENT:

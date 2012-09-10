@@ -1,4 +1,4 @@
-// $Id: CssWidth.java,v 1.3 2012-09-06 12:37:58 ylafon Exp $
+// $Id: CssWidth.java,v 1.4 2012-09-10 17:04:58 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -14,7 +14,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @spec http://www.w3.org/TR/2007/WD-css3-box-20070809/#width
  */
 public class CssWidth extends org.w3c.css.properties.css.CssWidth {
@@ -58,18 +58,12 @@ public class CssWidth extends org.w3c.css.properties.css.CssWidth {
 			case CssTypes.CSS_NUMBER:
 			case CssTypes.CSS_LENGTH:
 				CssLength l = val.getLength();
-				if (!l.isPositive()) {
-					throw new InvalidParamException("negative-value",
-							val.toString(), ac);
-				}
+				l.checkPositiveness(ac, this);
 				value = l;
 				break;
 			case CssTypes.CSS_PERCENTAGE:
 				CssPercentage p = val.getPercentage();
-				if (!p.isPositive()) {
-					throw new InvalidParamException("negative-value",
-							val.toString(), ac);
-				}
+				p.checkPositiveness(ac, this);
 				value = p;
 				break;
 			default:
