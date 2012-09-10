@@ -1,4 +1,4 @@
-// $Id: CssNumber.java,v 1.14 2012-09-10 11:47:18 ylafon Exp $
+// $Id: CssNumber.java,v 1.15 2012-09-10 11:58:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 /**
  * A CSS number.
  *
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public class CssNumber extends CssCheckableValue implements CssValueFloat {
 
@@ -252,6 +252,20 @@ public class CssNumber extends CssCheckableValue implements CssValueFloat {
 			throws InvalidParamException {
 		if (!isStrictlyPositive()) {
 			throw new InvalidParamException("negative-value",
+					toString(), property.getPropertyName(), ac);
+		}
+	}
+
+	/**
+	 * check if the value is an integer
+	 * @param ac the validation context
+	 * @param property the property the value is defined in
+	 * @throws InvalidParamException
+	 */
+	public void checkInteger(ApplContext ac, CssProperty property)
+			throws InvalidParamException {
+		if (!isInteger()) {
+			throw new InvalidParamException("integer",
 					toString(), property.getPropertyName(), ac);
 		}
 	}

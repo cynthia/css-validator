@@ -1,4 +1,4 @@
-// $Id: CssLength.java,v 1.13 2012-09-07 20:41:11 ylafon Exp $
+// $Id: CssLength.java,v 1.14 2012-09-10 11:58:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Updated 2012 by Yves Lafon <yves@w3.org>
@@ -7,6 +7,7 @@
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.values;
 
+import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 
@@ -86,10 +87,10 @@ import java.math.BigDecimal;
  * approximate. For all CSS1 properties, further computations and inheritance
  * should be based on the approximated value.
  *
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  * @see CssPercentage
  */
-public class CssLength extends CssValue {
+public class CssLength extends CssCheckableValue {
 
 	public static final int type = CssTypes.CSS_LENGTH;
 
@@ -248,5 +249,47 @@ public class CssLength extends CssValue {
 				unit.equals(((CssLength) value).unit));
 	}
 
+
+	/**
+	 * check if the value is positive or null
+	 * @param ac the validation context
+	 * @param property the property the value is defined in
+	 * @throws InvalidParamException
+	 */
+	public void checkPositiveness(ApplContext ac, CssProperty property)
+			throws InvalidParamException {
+		if (!isPositive()) {
+			throw new InvalidParamException("negative-value",
+					toString(), property.getPropertyName(), ac);
+		}
+	}
+
+	/**
+	 * check if the value is strictly positive
+	 * @param ac the validation context
+	 * @param property the property the value is defined in
+	 * @throws InvalidParamException
+	 */
+	public void checkStrictPositiveness(ApplContext ac, CssProperty property)
+			throws InvalidParamException {
+		if (!isStrictlyPositive()) {
+			throw new InvalidParamException("negative-value",
+					toString(), property.getPropertyName(), ac);
+		}
+	}
+
+	/**
+	 * check if the value is an integer
+	 * @param ac the validation context
+	 * @param property the property the value is defined in
+	 * @throws InvalidParamException
+	 */
+	public void checkInteger(ApplContext ac, CssProperty property)
+			throws InvalidParamException {
+	}
+
+	public boolean isInteger() {
+		return false;
+	}
 }
 
