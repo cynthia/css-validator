@@ -1,4 +1,4 @@
-// $Id: CssBorderLeftStyle.java,v 1.1 2012-04-25 20:21:54 ylafon Exp $
+// $Id: CssBorderLeftStyle.java,v 1.2 2012-09-10 17:04:26 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -6,7 +6,6 @@
 package org.w3c.css.properties.css;
 
 import org.w3c.css.parser.CssStyle;
-import org.w3c.css.properties.css1.Css1Style;
 import org.w3c.css.properties.css2.Css2Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
@@ -15,7 +14,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @since CSS2
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class CssBorderLeftStyle extends CssProperty {
 
@@ -82,7 +81,7 @@ public class CssBorderLeftStyle extends CssProperty {
      * @param style The CssStyle
      */
     public void addToStyle(ApplContext ac, CssStyle style) {
-        if (((Css1Style) style).cssBorder.borderStyle.left != null)
+        if (((Css2Style) style).cssBorder.borderStyle.left != null)
             style.addRedefinitionWarning(ac, this);
         ((Css2Style) style).cssBorder.borderStyle.left = this;
     }
