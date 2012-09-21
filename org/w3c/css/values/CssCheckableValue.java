@@ -1,4 +1,4 @@
-// $Id: CssCheckableValue.java,v 1.3 2012-09-10 17:04:58 ylafon Exp $
+// $Id: CssCheckableValue.java,v 1.4 2012-09-21 14:16:26 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -9,6 +9,8 @@ package org.w3c.css.values;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
+
+import java.math.BigDecimal;
 
 public abstract class CssCheckableValue extends CssValue {
 
@@ -36,4 +38,11 @@ public abstract class CssCheckableValue extends CssValue {
 	public void checkInteger(ApplContext ac, CssProperty property)
 			throws InvalidParamException {
 	}
+
+
+	/**
+	 * set the native value
+	 * @param v the BigDecimal
+	 */
+	public abstract void setValue(BigDecimal v);
 }

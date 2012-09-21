@@ -1,4 +1,4 @@
-// $Id: CssLength.java,v 1.15 2012-09-10 17:04:58 ylafon Exp $
+// $Id: CssLength.java,v 1.16 2012-09-21 14:16:26 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Updated 2012 by Yves Lafon <yves@w3.org>
@@ -87,7 +87,7 @@ import java.math.BigDecimal;
  * approximate. For all CSS1 properties, further computations and inheritance
  * should be based on the approximated value.
  *
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  * @see CssPercentage
  */
 public class CssLength extends CssCheckableValue {
@@ -157,6 +157,15 @@ public class CssLength extends CssCheckableValue {
 			throw new InvalidParamException("invalid-number",
 					low_s.substring(0, unitIdx), ac);
 		}
+	}
+
+
+	/**
+	 * set the native value
+	 * @param v the BigDecimal
+	 */
+	public void setValue(BigDecimal v) {
+		value = v;
 	}
 
 	// return self

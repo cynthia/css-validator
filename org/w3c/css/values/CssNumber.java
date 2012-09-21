@@ -1,4 +1,4 @@
-// $Id: CssNumber.java,v 1.16 2012-09-10 17:04:58 ylafon Exp $
+// $Id: CssNumber.java,v 1.17 2012-09-21 14:16:26 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 /**
  * A CSS number.
  *
- * @version $Revision: 1.16 $
+ * @version $Revision: 1.17 $
  */
 public class CssNumber extends CssCheckableValue implements CssValueFloat {
 
@@ -63,6 +63,18 @@ public class CssNumber extends CssCheckableValue implements CssValueFloat {
 		this.ac = ac;
 	}
 
+	/**
+	 * set the native value
+	 */
+	public void setValue(BigDecimal v) {
+		value = v;
+		try {
+			v.toBigIntegerExact();
+			isInt = true;
+		} catch (ArithmeticException e) {
+			isInt = false;
+		}
+	}
 	/**
 	 * Set the value explicitly
 	 */
