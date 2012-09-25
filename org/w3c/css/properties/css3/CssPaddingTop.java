@@ -1,4 +1,4 @@
-// $Id: CssPaddingTop.java,v 1.1 2012-09-25 19:51:27 ylafon Exp $
+// $Id: CssPaddingTop.java,v 1.2 2012-09-25 20:10:15 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -45,6 +45,6 @@ public class CssPaddingTop extends org.w3c.css.properties.css.CssPaddingTop {
 	public CssPaddingTop(ApplContext ac, CssExpression expression,
 						 boolean check) throws InvalidParamException {
 		setByUser();
-		CssPadding.checkValue(ac, expression, check, this);
+		value = CssPadding.checkValue(ac, expression, check, this);
 	}
 }
