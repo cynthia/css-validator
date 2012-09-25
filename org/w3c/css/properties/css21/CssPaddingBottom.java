@@ -1,23 +1,23 @@
-// $Id: CssPaddingTop.java,v 1.5 2012-09-25 19:51:26 ylafon Exp $
+// $Id: CssPaddingBottom.java,v 1.1 2012-09-25 19:51:26 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css1;
+package org.w3c.css.properties.css21;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#padding-top
+ * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding-bottom
  */
-public class CssPaddingTop extends org.w3c.css.properties.css.CssPaddingTop {
+public class CssPaddingBottom extends org.w3c.css.properties.css.CssPaddingBottom {
 
 	/**
-	 * Create a new CssPaddingTop
+	 * Create a new CssPaddingBottom
 	 */
-	public CssPaddingTop() {
+	public CssPaddingBottom() {
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class CssPaddingTop extends org.w3c.css.properties.css.CssPaddingTop {
 	 * @throws org.w3c.css.util.InvalidParamException
 	 *          The expression is incorrect
 	 */
-	public CssPaddingTop(ApplContext ac, CssExpression expression)
+	public CssPaddingBottom(ApplContext ac, CssExpression expression)
 			throws InvalidParamException {
 		this(ac, expression, false);
 	}
@@ -41,9 +41,10 @@ public class CssPaddingTop extends org.w3c.css.properties.css.CssPaddingTop {
 	 * @throws org.w3c.css.util.InvalidParamException
 	 *          The expression is incorrect
 	 */
-	public CssPaddingTop(ApplContext ac, CssExpression expression,
-						 boolean check) throws InvalidParamException {
+	public CssPaddingBottom(ApplContext ac, CssExpression expression,
+							boolean check) throws InvalidParamException {
 		setByUser();
 		CssPadding.checkValue(ac, expression, check, this);
 	}
+
 }

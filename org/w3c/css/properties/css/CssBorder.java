@@ -1,4 +1,4 @@
-// $Id: CssBorder.java,v 1.1 2012-04-25 20:21:53 ylafon Exp $
+// $Id: CssBorder.java,v 1.2 2012-09-25 19:51:25 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 
@@ -36,7 +36,7 @@ public class CssBorder extends CssProperty {
     public boolean shorthand = false;
 
     /**
-     * Create a new CssBackground
+     * Create a new CssBorder
      */
     public CssBorder() {
     }

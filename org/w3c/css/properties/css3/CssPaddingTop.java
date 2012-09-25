@@ -1,16 +1,16 @@
-// $Id: CssPaddingTop.java,v 1.5 2012-09-25 19:51:26 ylafon Exp $
+// $Id: CssPaddingTop.java,v 1.1 2012-09-25 19:51:27 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css1;
+package org.w3c.css.properties.css3;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#padding-top
+ * @spec http://www.w3.org/TR/2007/WD-css3-box-20070809/#padding-top
  */
 public class CssPaddingTop extends org.w3c.css.properties.css.CssPaddingTop {
 
@@ -18,6 +18,7 @@ public class CssPaddingTop extends org.w3c.css.properties.css.CssPaddingTop {
 	 * Create a new CssPaddingTop
 	 */
 	public CssPaddingTop() {
+		value = initial;
 	}
 
 	/**

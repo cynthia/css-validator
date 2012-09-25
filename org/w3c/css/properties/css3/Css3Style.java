@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.94 2012-09-05 12:06:06 ylafon Exp $
+// $Id: Css3Style.java,v 1.95 2012-09-25 19:51:27 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -170,11 +170,6 @@ public class Css3Style extends ATSCStyle {
 	CssMaxHeightCSS3 cssMaxHeightCSS3;
 	CssMinWidthCSS3 cssMinWidthCSS3;
 	CssMinHeightCSS3 cssMinHeightCSS3;
-	CssPaddingCSS3 cssPaddingCSS3;
-	CssPaddingBottomCSS3 cssPaddingBottomCSS3;
-	CssPaddingTopCSS3 cssPaddingTopCSS3;
-	CssPaddingLeftCSS3 cssPaddingLeftCSS3;
-	CssPaddingRightCSS3 cssPaddingRightCSS3;
 
 	public org.w3c.css.properties.css.CssBorderImageSource getBorderImageSource() {
 		if (cssBorder.borderImage.source == null) {
@@ -785,51 +780,6 @@ public class Css3Style extends ATSCStyle {
 							new CssMinWidthCSS3(), style, selector);
 		}
 		return cssMinWidthCSS3;
-	}
-
-	public CssPaddingCSS3 getPaddingCSS3() {
-		if (cssPaddingCSS3 == null) {
-			cssPaddingCSS3 =
-					(CssPaddingCSS3) style.CascadingOrder(
-							new CssPaddingCSS3(), style, selector);
-		}
-		return cssPaddingCSS3;
-	}
-
-	public CssPaddingTopCSS3 getPaddingTopCSS3() {
-		if (cssPaddingTopCSS3 == null) {
-			cssPaddingTopCSS3 =
-					(CssPaddingTopCSS3) style.CascadingOrder(
-							new CssPaddingTopCSS3(), style, selector);
-		}
-		return cssPaddingTopCSS3;
-	}
-
-	public CssPaddingBottomCSS3 getPaddingBottomCSS3() {
-		if (cssPaddingBottomCSS3 == null) {
-			cssPaddingBottomCSS3 =
-					(CssPaddingBottomCSS3) style.CascadingOrder(
-							new CssPaddingBottomCSS3(), style, selector);
-		}
-		return cssPaddingBottomCSS3;
-	}
-
-	public CssPaddingLeftCSS3 getPaddingLeftCSS3() {
-		if (cssPaddingLeftCSS3 == null) {
-			cssPaddingLeftCSS3 =
-					(CssPaddingLeftCSS3) style.CascadingOrder(
-							new CssPaddingLeftCSS3(), style, selector);
-		}
-		return cssPaddingLeftCSS3;
-	}
-
-	public CssPaddingRightCSS3 getPaddingRightCSS3() {
-		if (cssPaddingRightCSS3 == null) {
-			cssPaddingRightCSS3 =
-					(CssPaddingRightCSS3) style.CascadingOrder(
-							new CssPaddingRightCSS3(), style, selector);
-		}
-		return cssPaddingRightCSS3;
 	}
 
 	public CssMarqueeDirection getMarqueeDirection() {
