@@ -1,4 +1,4 @@
-// $Id: CssPaddingRight.java,v 1.2 2012-09-25 20:01:36 ylafon Exp $
+// $Id: CssPaddingRight.java,v 1.3 2012-09-25 20:04:15 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -81,7 +81,7 @@ public class CssPaddingRight extends CssProperty {
 	 * e.g. his value is equals to inherit
 	 */
 	public boolean isSoftlyInherited() {
-		return value.equals(inherit);
+		return inherit.equals(value);
 	}
 
 	/**

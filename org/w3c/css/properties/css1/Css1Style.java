@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.35 2012-09-25 19:51:25 ylafon Exp $
+// $Id: Css1Style.java,v 1.36 2012-09-25 20:01:36 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -1676,11 +1676,11 @@ public class Css1Style extends CssStyle {
 		}
 		checker.reset();
 
-		if (cssPadding.paddingTop != null) {
+		if (cssPadding.paddingTop != null && !cssPadding.paddingTop.isSoftlyInherited()) {
 			info = cssPadding.paddingTop;
 			checker.compute(cssPadding.paddingTop.value);
 		}
-		if (cssPadding.paddingBottom != null) {
+		if (cssPadding.paddingBottom != null && !cssPadding.paddingBottom.isSoftlyInherited()) {
 			info = cssPadding.paddingBottom;
 			checker.compute(cssPadding.paddingBottom.value);
 		}
@@ -1692,11 +1692,11 @@ public class Css1Style extends CssStyle {
 		}
 		checker.reset();
 
-		if (cssPadding.paddingRight != null) {
+		if (cssPadding.paddingRight != null && !cssPadding.paddingRight.isSoftlyInherited()) {
 			info = cssPadding.paddingRight;
 			checker.compute(cssPadding.paddingRight.value);
 		}
-		if (cssPadding.paddingLeft != null) {
+		if (cssPadding.paddingLeft != null && !cssPadding.paddingLeft.isSoftlyInherited()) {
 			info = cssPadding.paddingLeft;
 			checker.compute(cssPadding.paddingLeft.value);
 		}
