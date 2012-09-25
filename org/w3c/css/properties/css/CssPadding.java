@@ -1,4 +1,4 @@
-// $Id: CssPadding.java,v 1.3 2012-09-25 20:04:15 ylafon Exp $
+// $Id: CssPadding.java,v 1.4 2012-09-25 20:19:45 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -105,6 +105,21 @@ public class CssPadding extends CssProperty {
 		paddingLeft.addToStyle(ac, style);
 		paddingTop.addToStyle(ac, style);
 		paddingRight.addToStyle(ac, style);
+	}
+
+	/**
+	 * Update the source file and the line.
+	 * Overrides this method for a macro
+	 *
+	 * @param line   The line number where this property is defined
+	 * @param source The source file where this property is defined
+	 */
+	public void setInfo(int line, String source) {
+		super.setInfo(line, source);
+		paddingLeft.setInfo(line, source);
+		paddingRight.setInfo(line, source);
+		paddingTop.setInfo(line, source);
+		paddingBottom.setInfo(line, source);
 	}
 
 	/**
