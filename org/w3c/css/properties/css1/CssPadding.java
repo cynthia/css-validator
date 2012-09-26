@@ -1,4 +1,4 @@
-// $Id: CssPadding.java,v 1.7 2012-09-25 19:51:26 ylafon Exp $
+// $Id: CssPadding.java,v 1.8 2012-09-26 08:42:08 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -153,13 +153,8 @@ public class CssPadding extends org.w3c.css.properties.css.CssPadding {
 			case CssTypes.CSS_PERCENTAGE:
 				CssPercentage p = val.getPercentage();
 				p.checkPositiveness(ac, caller);
+				expression.next();
 				return val;
-			case CssTypes.CSS_IDENT:
-				if (inherit.equals(val)) {
-					expression.next();
-					return inherit;
-				}
-				// if not inherit, or not an ident
 				// let it flow to the exception
 		}
 		throw new InvalidParamException("value",
