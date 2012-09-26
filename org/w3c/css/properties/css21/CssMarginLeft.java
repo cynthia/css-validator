@@ -1,23 +1,23 @@
-// $Id: CssMarginBottom.java,v 1.5 2012-09-26 08:43:53 ylafon Exp $
+// $Id: CssMarginLeft.java,v 1.1 2012-09-26 08:43:54 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css1;
+package org.w3c.css.properties.css21;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 
 /**
- * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#margin-bottom
+ * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin-left
  */
-public class CssMarginBottom extends org.w3c.css.properties.css.CssMarginBottom {
+public class CssMarginLeft extends org.w3c.css.properties.css.CssMarginLeft {
 
 	/**
-	 * Create a new CssMarginBottom
+	 * Create a new CssMarginLeft
 	 */
-	public CssMarginBottom() {
+	public CssMarginLeft() {
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class CssMarginBottom extends org.w3c.css.properties.css.CssMarginBottom 
 	 * @throws org.w3c.css.util.InvalidParamException
 	 *          The expression is incorrect
 	 */
-	public CssMarginBottom(ApplContext ac, CssExpression expression)
+	public CssMarginLeft(ApplContext ac, CssExpression expression)
 			throws InvalidParamException {
 		this(ac, expression, false);
 	}
@@ -41,8 +41,8 @@ public class CssMarginBottom extends org.w3c.css.properties.css.CssMarginBottom 
 	 * @throws org.w3c.css.util.InvalidParamException
 	 *          The expression is incorrect
 	 */
-	public CssMarginBottom(ApplContext ac, CssExpression expression,
-						   boolean check) throws InvalidParamException {
+	public CssMarginLeft(ApplContext ac, CssExpression expression,
+						 boolean check) throws InvalidParamException {
 		setByUser();
 		value = CssMargin.checkValue(ac, expression, check, this);
 	}
