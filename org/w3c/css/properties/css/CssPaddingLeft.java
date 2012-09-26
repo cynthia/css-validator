@@ -1,4 +1,4 @@
-// $Id: CssPaddingLeft.java,v 1.4 2012-09-25 20:22:27 ylafon Exp $
+// $Id: CssPaddingLeft.java,v 1.5 2012-09-26 08:41:25 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -106,9 +106,9 @@ public class CssPaddingLeft extends CssProperty {
 	 */
 	public CssProperty getPropertyInStyle(CssStyle style, boolean resolve) {
 		if (resolve) {
-			return ((Css1Style) style).getPaddingBottom();
+			return ((Css1Style) style).getPaddingLeft();
 		} else {
-			return ((Css1Style) style).cssPadding.paddingBottom;
+			return ((Css1Style) style).cssPadding.paddingLeft;
 		}
 	}
 
