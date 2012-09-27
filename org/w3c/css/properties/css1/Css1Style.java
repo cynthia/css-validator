@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.37 2012-09-26 08:43:53 ylafon Exp $
+// $Id: Css1Style.java,v 1.38 2012-09-27 14:57:31 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -165,23 +165,6 @@ public class Css1Style extends CssStyle {
 	 * position property
 	 */
 	public CssPosition cssPosition;
-
-	/**
-	 * top property
-	 */
-	public CssTop cssTop;
-	/**
-	 * left property
-	 */
-	public CssLeft cssLeft;
-	/**
-	 * right property
-	 */
-	public CssRight cssRight;
-	/**
-	 * bottom property
-	 */
-	public CssBottom cssBottom;
 
 	/**
 	 * z-index property
@@ -1007,50 +990,6 @@ public class Css1Style extends CssStyle {
 					(CssClear) style.CascadingOrder(new CssClear(), style, selector);
 		}
 		return cssClear;
-	}
-
-	/**
-	 * Get the top property
-	 */
-	public final CssTop getTop() {
-		if (cssTop == null) {
-			cssTop =
-					(CssTop) style.CascadingOrder(new CssTop(), style, selector);
-		}
-		return cssTop;
-	}
-
-	/**
-	 * Get the left property
-	 */
-	public final CssLeft getLeft() {
-		if (cssLeft == null) {
-			cssLeft =
-					(CssLeft) style.CascadingOrder(new CssLeft(), style, selector);
-		}
-		return cssLeft;
-	}
-
-	/**
-	 * Get the right property
-	 */
-	public final CssRight getRight() {
-		if (cssRight == null) {
-			cssRight =
-					(CssRight) style.CascadingOrder(new CssRight(), style, selector);
-		}
-		return cssRight;
-	}
-
-	/**
-	 * Get the bottom property
-	 */
-	public final CssBottom getBottom() {
-		if (cssBottom == null) {
-			cssBottom =
-					(CssBottom) style.CascadingOrder(new CssBottom(), style, selector);
-		}
-		return cssBottom;
 	}
 
 	/*
