@@ -1,4 +1,4 @@
-// $Id: CssMargin.java,v 1.1 2012-09-26 08:43:54 ylafon Exp $
+// $Id: CssMargin.java,v 1.2 2012-09-27 15:18:48 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -29,6 +29,11 @@ public class CssMargin extends org.w3c.css.properties.css.CssMargin {
 	 * Create a new CssMargin
 	 */
 	public CssMargin() {
+		value = initial;
+		marginBottom = new CssMarginBottom();
+		marginLeft = new CssMarginLeft();
+		marginTop = new CssMarginTop();
+		marginRight = new CssMarginRight();
 	}
 
 
