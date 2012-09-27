@@ -1,4 +1,4 @@
-// $Id: CssTop.java,v 1.1 2012-09-27 14:57:32 ylafon Exp $
+// $Id: CssTop.java,v 1.2 2012-09-27 15:07:50 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -25,6 +25,7 @@ public class CssTop extends org.w3c.css.properties.css.CssTop {
 	 * Create a new CssTop
 	 */
 	public CssTop() {
+		value = initial;
 	}
 
 	/**

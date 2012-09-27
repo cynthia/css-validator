@@ -1,4 +1,4 @@
-// $Id: CssBottom.java,v 1.1 2012-09-27 14:57:32 ylafon Exp $
+// $Id: CssBottom.java,v 1.2 2012-09-27 15:07:50 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -19,6 +19,7 @@ public class CssBottom extends org.w3c.css.properties.css.CssBottom {
 	 * Create a new CssBottom
 	 */
 	public CssBottom() {
+		value = initial;
 	}
 
 	/**
