@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.95 2012-09-25 19:51:27 ylafon Exp $
+// $Id: Css3Style.java,v 1.96 2012-09-27 20:56:41 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -83,7 +83,6 @@ public class Css3Style extends ATSCStyle {
 	CssBaselineShift cssBaselineShift;
 	CssFit cssFit;
 	CssFloatCSS3 cssFloatCSS3;
-	CssClearCSS3 cssClearCSS3;
 
 	public CssOpacity cssOpacity;
 	public CssBackgroundClip cssBackgroundClip;
@@ -348,15 +347,6 @@ public class Css3Style extends ATSCStyle {
 							new CssFloatCSS3(), style, selector);
 		}
 		return cssFloatCSS3;
-	}
-
-	public CssClearCSS3 getClearCSS3() {
-		if (cssClearCSS3 == null) {
-			cssClearCSS3 =
-					(CssClearCSS3) style.CascadingOrder(
-							new CssClearCSS3(), style, selector);
-		}
-		return cssClearCSS3;
 	}
 
 	public CssColumns getColumns() {
