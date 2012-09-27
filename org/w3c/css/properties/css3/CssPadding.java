@@ -1,4 +1,4 @@
-// $Id: CssPadding.java,v 1.2 2012-09-26 08:42:44 ylafon Exp $
+// $Id: CssPadding.java,v 1.3 2012-09-27 15:19:43 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -29,6 +29,10 @@ public class CssPadding extends org.w3c.css.properties.css.CssPadding {
 	 */
 	public CssPadding() {
 		value = initial;
+		paddingBottom = new CssPaddingBottom();
+		paddingLeft = new CssPaddingLeft();
+		paddingTop = new CssPaddingTop();
+		paddingRight = new CssPaddingRight();
 	}
 
 
