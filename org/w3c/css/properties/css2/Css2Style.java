@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.9 2012-09-27 14:57:31 ylafon Exp $
+// $Id: Css2Style.java,v 1.10 2012-09-28 09:51:35 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,12 +9,13 @@ package org.w3c.css.properties.css2;
 import org.w3c.css.properties.aural.ACssStyle;
 import org.w3c.css.properties.css.CssBottom;
 import org.w3c.css.properties.css.CssLeft;
+import org.w3c.css.properties.css.CssPosition;
 import org.w3c.css.properties.css.CssRight;
 import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
 
 /**
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -40,6 +41,7 @@ public class Css2Style extends ACssStyle {
 	public CssLeft cssLeft;
 	public CssRight cssRight;
 
+	public CssPosition cssPosition;
 
 	/**
      * Get the azimuth
@@ -190,5 +192,16 @@ public class Css2Style extends ACssStyle {
 					(CssRight) style.CascadingOrder(new CssRight(), style, selector);
 		}
 		return cssRight;
+	}
+
+	/**
+	 * Get the position property
+	 */
+	public final CssPosition getPosition() {
+		if (cssPosition == null) {
+			cssPosition =
+					(CssPosition) style.CascadingOrder(new CssPosition(), style, selector);
+		}
+		return cssPosition;
 	}
 }

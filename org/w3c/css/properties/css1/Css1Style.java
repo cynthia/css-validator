@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.39 2012-09-27 20:56:41 ylafon Exp $
+// $Id: Css1Style.java,v 1.40 2012-09-28 09:51:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -162,10 +162,6 @@ public class Css1Style extends CssStyle {
 	 * display property
 	 */
 	public CssDisplay cssDisplay;
-	/**
-	 * position property
-	 */
-	public CssPosition cssPosition;
 
 	/**
 	 * z-index property
@@ -242,10 +238,6 @@ public class Css1Style extends CssStyle {
 	 * TV property
 	 */
 	public CssListStyleTV cssListStyleTV;
-	/**
-	 * TV property
-	 */
-	public CssPositionTV cssPositionTV;
 	/**
 	 * TV property
 	 */
@@ -1008,18 +1000,6 @@ public class Css1Style extends CssStyle {
 		return cssDisplay;
 	}
 
-
-	/**
-	 * Get the position property
-	 */
-	public final CssPosition getPosition() {
-		if (cssPosition == null) {
-			cssPosition =
-					(CssPosition) style.CascadingOrder(new CssPosition(), style, selector);
-		}
-		return cssPosition;
-	}
-
 	/**
 	 * Get the z-index property
 	 */
@@ -1353,16 +1333,6 @@ public class Css1Style extends CssStyle {
 		}
 
 		return cssListStyleTV;
-	}
-
-	public final CssPositionTV getPositionTV() {
-		if (cssPositionTV == null) {
-			cssPositionTV =
-					(CssPositionTV) style.CascadingOrder(new CssPositionTV(),
-							style, selector);
-		}
-
-		return cssPositionTV;
 	}
 
 	public final CssTextAlignTV getTextAlignTV() {
