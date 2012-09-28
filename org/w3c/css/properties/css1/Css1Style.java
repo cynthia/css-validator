@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.40 2012-09-28 09:51:34 ylafon Exp $
+// $Id: Css1Style.java,v 1.41 2012-09-28 11:30:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -28,6 +28,7 @@ import org.w3c.css.properties.css.CssMarginBottom;
 import org.w3c.css.properties.css.CssMarginLeft;
 import org.w3c.css.properties.css.CssMarginRight;
 import org.w3c.css.properties.css.CssClear;
+import org.w3c.css.properties.css.CssFloat;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
