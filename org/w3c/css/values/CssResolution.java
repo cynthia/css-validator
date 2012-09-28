@@ -1,5 +1,5 @@
 //
-// $Id: CssResolution.java,v 1.10 2012-09-07 20:41:11 ylafon Exp $
+// $Id: CssResolution.java,v 1.11 2012-09-28 18:37:56 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
@@ -109,7 +109,7 @@ public class CssResolution extends CssValue {
 	 * Returns a string representation of the object.
 	 */
 	public String toString() {
-		return value.toPlainString() + ((BigDecimal.ZERO.equals(value)) ? "dpi" : unit);
+		return value.toPlainString() + ((BigDecimal.ZERO.compareTo(value) == 0) ? "dpi" : unit);
 	}
 
 	/**

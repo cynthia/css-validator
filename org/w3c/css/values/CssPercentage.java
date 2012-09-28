@@ -1,5 +1,5 @@
 //
-// $Id: CssPercentage.java,v 1.13 2012-09-21 14:16:26 ylafon Exp $
+// $Id: CssPercentage.java,v 1.14 2012-09-28 18:37:56 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -33,7 +33,7 @@ import java.math.BigDecimal;
  * In all inherited CSS1 properties, if the value is specified as a percentage,
  * child elements inherit the resultant value, not the percentage value.
  *
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public class CssPercentage extends CssCheckableValue {
 
@@ -97,6 +97,7 @@ public class CssPercentage extends CssCheckableValue {
 
 	/**
 	 * set the native value
+	 *
 	 * @param v the BigDecimal
 	 */
 	public void setValue(BigDecimal v) {
@@ -135,7 +136,7 @@ public class CssPercentage extends CssCheckableValue {
 	 * @return a boolean
 	 */
 	public boolean isZero() {
-		return BigDecimal.ZERO.equals(value);
+		return (BigDecimal.ZERO.compareTo(value) == 0);
 	}
 
 	/**
@@ -170,7 +171,8 @@ public class CssPercentage extends CssCheckableValue {
 
 	/**
 	 * check if the value is positive or null
-	 * @param ac the validation context
+	 *
+	 * @param ac       the validation context
 	 * @param property the property the value is defined in
 	 * @throws InvalidParamException
 	 */
@@ -184,7 +186,8 @@ public class CssPercentage extends CssCheckableValue {
 
 	/**
 	 * check if the value is strictly positive
-	 * @param ac the validation context
+	 *
+	 * @param ac       the validation context
 	 * @param property the property the value is defined in
 	 * @throws InvalidParamException
 	 */

@@ -1,5 +1,5 @@
 //
-// $Id: CssFrequency.java,v 1.10 2012-09-21 14:16:26 ylafon Exp $
+// $Id: CssFrequency.java,v 1.11 2012-09-28 18:37:56 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import java.math.BigDecimal;
  * <p/>
  * <P> For example, 200Hz is a bass sound, and 6kHz is a treble sound.
  *
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public class CssFrequency extends CssCheckableValue {
 
@@ -121,8 +121,8 @@ public class CssFrequency extends CssCheckableValue {
 	 * Returns a string representation of the object.
 	 */
 	public String toString() {
-		if (BigDecimal.ZERO.equals(value)) {
-			return value.toPlainString();
+		if (BigDecimal.ZERO.compareTo(value) == 0) {
+			return BigDecimal.ZERO.toPlainString();
 		}
 		return value.toPlainString() + unit;
 	}
@@ -171,7 +171,7 @@ public class CssFrequency extends CssCheckableValue {
 	 * @return a boolean
 	 */
 	public boolean isZero() {
-		return BigDecimal.ZERO.equals(value);
+		return (BigDecimal.ZERO.compareTo(value) == 0);
 	}
 
 	/**
