@@ -1,4 +1,4 @@
-// $Id: CssPosition.java,v 1.1 2012-09-28 09:51:35 ylafon Exp $
+// $Id: CssPosition.java,v 1.2 2012-09-28 09:55:01 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -13,7 +13,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @spec @@FIXME@@ TV profile
+ * @spec http://www.w3.org/TR/2003/CR-css-tv-20030514
  */
 public class CssPosition extends org.w3c.css.properties.css.CssPosition {
 
