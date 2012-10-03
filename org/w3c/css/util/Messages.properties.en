@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.en,v 1.50 2012-08-14 13:44:56 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.en,v 1.51 2012-10-03 09:48:04 ylafon Exp $
 
 direction: ltr
 language_name: English
@@ -172,6 +172,9 @@ warning.unsupported-import: Imported style sheets are not checked in direct inpu
 # used by org.w3c.css.values.CssColor
 warning.out-of-range: %s is out of range
 error.invalid-color: Invalid RGB function
+
+# used for clipping negative values
+warning.negative: negative value %s will be interpreted as 0
 
 warning.marker: The marker-offset property applies on elements with 'display: marker'
 
