@@ -1,4 +1,4 @@
-// $Id: CssTransitionTimingFunction.java,v 1.1 2012-10-03 15:11:04 ylafon Exp $
+// $Id: CssTransitionTimingFunction.java,v 1.2 2012-10-03 15:18:51 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -213,9 +213,11 @@ public class CssTransitionTimingFunction extends org.w3c.css.properties.css.CssT
 			}
 			// we have a number, continue checks
 			CssNumber number = val.getNumber();
-			// it must be a >0 integer
-			number.checkPositiveness(ac, caller);
-			number.checkLowerEqualThan(ac, 1., caller);
+			// it must be betwee 0 and 1 for X [x1,y1,x2,y2]
+			if ((i & 0x1) == 0) {
+				number.checkPositiveness(ac, caller);
+				number.checkLowerEqualThan(ac, 1., caller);
+			}
 			values.add(val);
 			// go to the next item...
 			funcparam.next();
