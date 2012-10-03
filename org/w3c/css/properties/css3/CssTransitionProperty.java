@@ -1,13 +1,15 @@
-// $Id: CssTransitionProperty.java,v 1.1 2012-10-03 10:21:22 ylafon Exp $
+// $Id: CssTransitionProperty.java,v 1.2 2012-10-03 12:03:46 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css3;
 
+import org.w3c.css.properties.PropertiesLoader;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
+import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLayerList;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
@@ -21,6 +23,7 @@ import static org.w3c.css.values.CssOperator.COMMA;
  */
 public class CssTransitionProperty extends org.w3c.css.properties.css.CssTransitionProperty {
 
+	public static final CssIdent all = CssIdent.getIdent("all");
 	/**
 	 * Create a new CssTransitionProperty
 	 */
@@ -58,8 +61,12 @@ public class CssTransitionProperty extends org.w3c.css.properties.css.CssTransit
 						singleVal = true;
 						sValue = none;
 						values.add(none);
+					} else if (all.equals(val)) {
+						values.add(all);
 					} else {
-						// TOTO check it's an existing property
+						if (PropertiesLoader.getProfile(ac.getPropertyKey()).getProperty(val.toString()) == null) {
+							ac.getFrame().addWarning("noexproperty", val.toString());
+						}
 						values.add(val);
 					}
 					break;
