@@ -1,4 +1,4 @@
-// $Id: CssCheckableValue.java,v 1.4 2012-09-21 14:16:26 ylafon Exp $
+// $Id: CssCheckableValue.java,v 1.5 2012-10-03 09:49:18 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -24,6 +24,7 @@ public abstract class CssCheckableValue extends CssValue {
 	abstract void checkStrictPositiveness(ApplContext ac, CssProperty property)
 			throws InvalidParamException;
 
+	abstract void warnPositiveness(ApplContext ac, CssProperty property);
 
 	public boolean isInteger() {
 		return false;

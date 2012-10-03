@@ -1,5 +1,5 @@
 //
-// $Id: CssPercentage.java,v 1.14 2012-09-28 18:37:56 ylafon Exp $
+// $Id: CssPercentage.java,v 1.15 2012-10-03 09:49:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -33,7 +33,7 @@ import java.math.BigDecimal;
  * In all inherited CSS1 properties, if the value is specified as a percentage,
  * child elements inherit the resultant value, not the percentage value.
  *
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public class CssPercentage extends CssCheckableValue {
 
@@ -196,6 +196,18 @@ public class CssPercentage extends CssCheckableValue {
 		if (!isStrictlyPositive()) {
 			throw new InvalidParamException("strictly-positive",
 					toString(), property.getPropertyName(), ac);
+		}
+	}
+
+	/**
+	 * warn if the value is not positive or null
+	 *
+	 * @param ac       the validation context
+	 * @param property the property the value is defined in
+	 */
+	public void warnPositiveness(ApplContext ac, CssProperty property) {
+		if (!isPositive()) {
+			ac.getFrame().addWarning("negative", toString());
 		}
 	}
 }

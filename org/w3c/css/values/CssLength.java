@@ -1,4 +1,4 @@
-// $Id: CssLength.java,v 1.17 2012-09-28 18:37:56 ylafon Exp $
+// $Id: CssLength.java,v 1.18 2012-10-03 09:49:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Updated September 25th 2000 Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Updated 2012 by Yves Lafon <yves@w3.org>
@@ -87,7 +87,7 @@ import java.math.BigDecimal;
  * approximate. For all CSS1 properties, further computations and inheritance
  * should be based on the approximated value.
  *
- * @version $Revision: 1.17 $
+ * @version $Revision: 1.18 $
  * @see CssPercentage
  */
 public class CssLength extends CssCheckableValue {
@@ -290,5 +290,16 @@ public class CssLength extends CssCheckableValue {
 		}
 	}
 
+	/**
+	 * warn if the value is not positive or null
+	 *
+	 * @param ac       the validation context
+	 * @param property the property the value is defined in
+	 */
+	public void warnPositiveness(ApplContext ac, CssProperty property) {
+		if (!isPositive()) {
+			ac.getFrame().addWarning("negative", toString());
+		}
+	}
 }
 

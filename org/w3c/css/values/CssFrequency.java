@@ -1,5 +1,5 @@
 //
-// $Id: CssFrequency.java,v 1.11 2012-09-28 18:37:56 ylafon Exp $
+// $Id: CssFrequency.java,v 1.12 2012-10-03 09:49:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import java.math.BigDecimal;
  * <p/>
  * <P> For example, 200Hz is a bass sound, and 6kHz is a treble sound.
  *
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class CssFrequency extends CssCheckableValue {
 
@@ -201,6 +201,18 @@ public class CssFrequency extends CssCheckableValue {
 		if (!isStrictlyPositive()) {
 			throw new InvalidParamException("strictly-positive",
 					toString(), property.getPropertyName(), ac);
+		}
+	}
+
+	/**
+	 * warn if the value is not positive or null
+	 *
+	 * @param ac       the validation context
+	 * @param property the property the value is defined in
+	 */
+	public void warnPositiveness(ApplContext ac, CssProperty property) {
+		if (!isPositive()) {
+			ac.getFrame().addWarning("negative", toString());
 		}
 	}
 }

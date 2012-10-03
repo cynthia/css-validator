@@ -1,5 +1,5 @@
 //
-// $Id: CssAngle.java,v 1.14 2012-09-28 18:37:56 ylafon Exp $
+// $Id: CssAngle.java,v 1.15 2012-10-03 09:49:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997-2010.
@@ -28,7 +28,7 @@ import java.math.BigDecimal;
  * <p>Values in these units may be negative. They should be normalized to the
  * range 0-360deg by the UA. For example, -10deg and 350deg are equivalent.
  *
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public class CssAngle extends CssCheckableValue implements CssValueFloat {
 
@@ -225,6 +225,18 @@ public class CssAngle extends CssCheckableValue implements CssValueFloat {
 		if (!isStrictlyPositive()) {
 			throw new InvalidParamException("strictly-positive",
 					toString(), property.getPropertyName(), ac);
+		}
+	}
+
+	/**
+	 * warn if the value is not positive or null
+	 *
+	 * @param ac       the validation context
+	 * @param property the property the value is defined in
+	 */
+	public void warnPositiveness(ApplContext ac, CssProperty property) {
+		if (!isPositive()) {
+			ac.getFrame().addWarning("negative", toString());
 		}
 	}
 }

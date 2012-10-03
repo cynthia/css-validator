@@ -1,5 +1,5 @@
 //
-// $Id: CssTime.java,v 1.11 2012-09-28 18:37:56 ylafon Exp $
+// $Id: CssTime.java,v 1.12 2012-10-03 09:49:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import java.math.BigDecimal;
  * <p/>
  * <p>Time values may not be negative.
  *
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class CssTime extends CssCheckableValue {
 
@@ -122,7 +122,7 @@ public class CssTime extends CssCheckableValue {
 	 */
 	public String toString() {
 		if (BigDecimal.ZERO.compareTo(value) == 0) {
-			return value.toPlainString();
+			return value.toPlainString() + 's';
 		}
 		return value.toPlainString() + unit;
 	}
@@ -191,6 +191,18 @@ public class CssTime extends CssCheckableValue {
 	}
 
 	/**
+	 * warn if the value is not positive or null
+	 *
+	 * @param ac       the validation context
+	 * @param property the property the value is defined in
+	 */
+	public void warnPositiveness(ApplContext ac, CssProperty property) {
+		if (!isPositive()) {
+			ac.getFrame().addWarning("negative", toString());
+		}
+	}
+
+	/**
 	 * check if the value is strictly positive
 	 *
 	 * @param ac       the validation context
@@ -203,6 +215,10 @@ public class CssTime extends CssCheckableValue {
 			throw new InvalidParamException("strictly-positive",
 					toString(), property.getPropertyName(), ac);
 		}
+	}
+
+	public CssTime getTime() throws InvalidParamException {
+		return this;
 	}
 }
 
