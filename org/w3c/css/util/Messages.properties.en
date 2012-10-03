@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.en,v 1.51 2012-10-03 09:48:04 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.en,v 1.52 2012-10-03 12:02:18 ylafon Exp $
 
 direction: ltr
 language_name: English
@@ -175,6 +175,8 @@ error.invalid-color: Invalid RGB function
 
 # used for clipping negative values
 warning.negative: negative value %s will be interpreted as 0
+
+warning.noexproperty: property %s does not exist
 
 warning.marker: The marker-offset property applies on elements with 'display: marker'
 
