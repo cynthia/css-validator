@@ -1,4 +1,4 @@
-// $Id: CssNumber.java,v 1.20 2012-10-03 09:49:18 ylafon Exp $
+// $Id: CssNumber.java,v 1.21 2012-10-03 15:11:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 /**
  * A CSS number.
  *
- * @version $Revision: 1.20 $
+ * @version $Revision: 1.21 $
  */
 public class CssNumber extends CssCheckableValue implements CssValueFloat {
 
@@ -297,6 +297,22 @@ public class CssNumber extends CssCheckableValue implements CssValueFloat {
 	public void warnPositiveness(ApplContext ac, CssProperty property) {
 		if (!isPositive()) {
 			ac.getFrame().addWarning("negative", toString());
+		}
+	}
+
+	/**
+	 * check if the value is positive or null
+	 *
+	 * @param ac       the validation context
+	 * @param property the property the value is defined in
+	 * @throws InvalidParamException
+	 */
+	public void checkLowerEqualThan(ApplContext ac, double d, CssProperty property)
+			throws InvalidParamException {
+		BigDecimal other = BigDecimal.valueOf(d);
+		if (value.compareTo(other) > 0) {
+			throw new InvalidParamException("lowerequal",
+					toString(), other.toPlainString(), ac);
 		}
 	}
 }
