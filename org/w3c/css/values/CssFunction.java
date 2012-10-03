@@ -1,5 +1,5 @@
 //
-// $Id: CssFunction.java,v 1.9 2012-08-18 20:30:28 ylafon Exp $
+// $Id: CssFunction.java,v 1.10 2012-10-03 15:12:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997.
@@ -9,9 +9,9 @@ package org.w3c.css.values;
 import org.w3c.css.util.ApplContext;
 
 /**
- * A CSS float number.
+ * A CSS function.
  *
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class CssFunction extends CssValue {
 
