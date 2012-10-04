@@ -1,4 +1,4 @@
-// $Id: CssBackgroundSize.java,v 1.7 2012-08-28 20:08:41 ylafon Exp $
+// $Id: CssBackgroundSize.java,v 1.8 2012-10-04 13:20:41 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -17,9 +17,6 @@ import org.w3c.css.values.CssValue;
  * @since CSS3
  */
 public class CssBackgroundSize extends CssProperty {
-
-    private static final String propertyName = "background-size";
-
 
     public CssValue value;
 
