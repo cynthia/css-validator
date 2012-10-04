@@ -1,4 +1,4 @@
-// $Id: CssTransitionDelay.java,v 1.1 2012-10-03 09:49:17 ylafon Exp $
+// $Id: CssTransitionDelay.java,v 1.2 2012-10-04 10:26:21 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
