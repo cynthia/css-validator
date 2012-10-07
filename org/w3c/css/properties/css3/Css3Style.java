@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.106 2012-10-07 12:59:37 ylafon Exp $
+// $Id: Css3Style.java,v 1.107 2012-10-07 13:12:17 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -34,6 +34,7 @@ import org.w3c.css.properties.css.CssColumnWidth;
 import org.w3c.css.properties.css.CssColumns;
 import org.w3c.css.properties.css.CssFlexDirection;
 import org.w3c.css.properties.css.CssFlexFlow;
+import org.w3c.css.properties.css.CssFlexGrow;
 import org.w3c.css.properties.css.CssFlexWrap;
 import org.w3c.css.properties.css.CssFontFeatureSettings;
 import org.w3c.css.properties.css.CssFontKerning;
@@ -161,6 +162,7 @@ public class Css3Style extends ATSCStyle {
 	public CssFlexDirection cssFlexDirection;
 	public CssFlexWrap cssFlexWrap;
 	public CssFlexFlow cssFlexFlow;
+	public CssFlexGrow cssFlexGrow;
 	public CssJustifyContent cssJustifyContent;
 	
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
@@ -1194,6 +1196,15 @@ public class Css3Style extends ATSCStyle {
 		return cssFlexFlow;
 	}
 
+	public CssFlexGrow getFlexGrow() {
+		if (cssFlexGrow == null) {
+			cssFlexGrow =
+					(CssFlexGrow) style.CascadingOrder(
+							new CssFlexGrow(), style, selector);
+		}
+		return cssFlexGrow;
+	}
+	
 	public CssJustifyContent getJustifyContent() {
 		if (cssJustifyContent == null) {
 			cssJustifyContent =
