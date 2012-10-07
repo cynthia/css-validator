@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.108 2012-10-07 13:17:28 ylafon Exp $
+// $Id: Css3Style.java,v 1.109 2012-10-07 13:37:29 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -56,6 +56,7 @@ import org.w3c.css.properties.css.CssMarqueePlayCount;
 import org.w3c.css.properties.css.CssMarqueeSpeed;
 import org.w3c.css.properties.css.CssMarqueeStyle;
 import org.w3c.css.properties.css.CssOpacity;
+import org.w3c.css.properties.css.CssOrder;
 import org.w3c.css.properties.css.CssOverflowStyle;
 import org.w3c.css.properties.css.CssOverflowWrap;
 import org.w3c.css.properties.css.CssTabSize;
@@ -166,6 +167,7 @@ public class Css3Style extends ATSCStyle {
 	public CssFlexGrow cssFlexGrow;
 	public CssFlexShrink cssFlexShrink;
 	public CssJustifyContent cssJustifyContent;
+	public CssOrder cssOrder;
 	
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -1223,6 +1225,15 @@ public class Css3Style extends ATSCStyle {
 							new CssJustifyContent(), style, selector);
 		}
 		return cssJustifyContent;
+	}
+
+	public CssOrder getOrder() {
+		if (cssOrder == null) {
+			cssOrder =
+					(CssOrder) style.CascadingOrder(
+							new CssOrder(), style, selector);
+		}
+		return cssOrder;
 	}
 	
 	///
