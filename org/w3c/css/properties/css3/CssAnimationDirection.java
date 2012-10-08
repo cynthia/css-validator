@@ -1,4 +1,4 @@
-// $Id: CssAnimationDirection.java,v 1.1 2012-10-08 09:34:18 ylafon Exp $
+// $Id: CssAnimationDirection.java,v 1.2 2012-10-08 09:57:52 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -75,11 +75,15 @@ public class CssAnimationDirection extends org.w3c.css.properties.css.CssAnimati
 						singleVal = true;
 						sValue = inherit;
 						values.add(inherit);
+						break;
 					} else {
 						CssIdent ident = getAllowedIdent((CssIdent) val);
-						values.add(ident);
+						if (ident != null) {
+							values.add(ident);
+							break;
+						}
 					}
-					break;
+					// let it fail
 				default:
 					throw new InvalidParamException("value",
 							val.toString(),
