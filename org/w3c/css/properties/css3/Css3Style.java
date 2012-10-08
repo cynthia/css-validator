@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.115 2012-10-08 09:06:43 ylafon Exp $
+// $Id: Css3Style.java,v 1.116 2012-10-08 09:21:12 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -17,6 +17,7 @@ import org.w3c.css.properties.css.CssAlignSelf;
 import org.w3c.css.properties.css.CssAnimationDelay;
 import org.w3c.css.properties.css.CssAnimationDuration;
 import org.w3c.css.properties.css.CssAnimationName;
+import org.w3c.css.properties.css.CssAnimationPlayState;
 import org.w3c.css.properties.css.CssAnimationTimingFunction;
 import org.w3c.css.properties.css.CssBackgroundClip;
 import org.w3c.css.properties.css.CssBackgroundOrigin;
@@ -167,6 +168,7 @@ public class Css3Style extends ATSCStyle {
 	public CssAnimationDelay cssAnimationDelay;
 	public CssAnimationDuration cssAnimationDuration;
 	public CssAnimationName cssAnimationName;
+	public CssAnimationPlayState cssAnimationPlayState;
 	public CssAnimationTimingFunction cssAnimationTimingFunction;
 	
 	public CssAlignContent cssAlignContent;
@@ -1140,6 +1142,15 @@ public class Css3Style extends ATSCStyle {
 		return cssAnimationName;
 	}
 
+	public CssAnimationPlayState getAnimationPlayState() {
+		if (cssAnimationPlayState == null) {
+			cssAnimationPlayState =
+					(CssAnimationPlayState) style.CascadingOrder(
+							new CssAnimationPlayState(), style, selector);
+		}
+		return cssAnimationPlayState;
+	}
+	
 	public CssAnimationTimingFunction getAnimationTimingFunction() {
 		if (cssAnimationTimingFunction == null) {
 			cssAnimationTimingFunction =
