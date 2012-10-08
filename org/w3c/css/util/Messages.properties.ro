@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.ro,v 1.9 2011-09-17 06:02:28 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.ro,v 1.10 2012-10-08 10:24:47 ylafon Exp $
 direction: ltr
 language_name: Romanian
 more_options: Mai multe optiuni de validare
@@ -354,7 +354,6 @@ warning.atsc: %s s-ar putea sa nu fie suportat de mediul atsc-tv
 error.onlyATSC: %s este o functie doar pentru mediul atsc-tv 
 
 warning.otherprofile: proprietatea %s nu exista pentru acest profil, dar este validatat conform unui alt profil
-warning.deprecated: Valoarea este critica
 
 warning.float-no-width: In (x)HTML+CSS, elemetele flotante trebuie sa ai o latime declarata. Numai elementele cu latime intrinseca (html, img, input, textarea, select, or object) nu sunt afectate
 

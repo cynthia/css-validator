@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.cs,v 1.4 2011-09-17 06:02:27 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.cs,v 1.5 2012-10-08 10:24:47 ylafon Exp $
 direction: ltr
 language_name: Čeština
 more_options: Další možnosti
@@ -339,7 +339,6 @@ warning.atsc: %s nemusí být  podporována médiem atsc-tv
 error.onlyATSC: %s tato funkce je pouze pro medium  atsc-tv
 
 warning.otherprofile: Pro tento profil neexistuje vlastnost %s, ale je ověřena v souladu s  jiným profilem.
-warning.deprecated:tato hodnota je zastaralá
 
 warning.float-no-width: V (x)HTML+CSS, plovoucí prvky musí mít otevřenou šířku. Netýká se to pouze prvků s vnitřní šířkou (html, img, input, textarea, select nebo object)
 

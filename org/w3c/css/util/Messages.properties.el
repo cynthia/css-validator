@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.el,v 1.3 2011-09-17 06:02:27 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.el,v 1.4 2012-10-08 10:24:47 ylafon Exp $
 language_name: Ελληνικά
 direction: ltr
 more_options: Περισσότερες επιλογές
@@ -362,7 +362,6 @@ warning.atsc: Το %s μπορεί να μην υποστηρίζεται από
 error.onlyATSC: %s η λειτουργία αυτή υποστηρίζεται μόνο για το μέσο atsc-tv
 
 warning.otherprofile: η ιδιότητα %s δεν υπάρχει σ' αυτό το προφίλ, αλλά μπορεί να ελεγχθεί η εγκυρότητα του με βάση ένα άλλο προφίλ
-warning.deprecated: η τιμή αυτή αποδοκιμάζεται
 
 warning.float-no-width: Στο (x)HTML+CSS, τα πλωτά στοιχεία (floated elements) χρειάζεται να έχουν ορισμένο πλάτος. Μόνο τα στοιχεία με φυσικό πλάτος δεν επηρεάζονται (html, img, input, textarea, select, ή object)
 
