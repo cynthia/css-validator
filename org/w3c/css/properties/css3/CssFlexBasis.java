@@ -1,4 +1,4 @@
-// $Id: CssFlexBasis.java,v 1.1 2012-10-07 14:45:52 ylafon Exp $
+// $Id: CssFlexBasis.java,v 1.2 2012-10-08 07:20:48 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -21,6 +21,13 @@ import org.w3c.css.values.CssValue;
 public class CssFlexBasis extends org.w3c.css.properties.css.CssFlexBasis {
 
 	public static final CssIdent auto = CssIdent.getIdent("auto");
+
+	public static final CssIdent getAllowedIdent(CssIdent ident) {
+		if (auto.equals(ident)) {
+			return auto;
+		}
+		return null;
+	}
 
 	/**
 	 * Create a new CssFlexBasis
