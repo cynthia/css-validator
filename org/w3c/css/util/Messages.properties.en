@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.en,v 1.55 2012-10-08 10:48:25 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.en,v 1.56 2012-10-10 07:44:18 ylafon Exp $
 
 direction: ltr
 language_name: English
@@ -403,3 +403,5 @@ error.nomediafeature: Media features are not defined in this CSS level
 error.nomodifiershortmedia: No prefixes are allowed for media features with no value
 error.nomodifiermedia: The media feature %s does not support prefixes
 error.grid: Only 0 and 1 are acceptable values for grid
+
+error.errortoken: Unexpected content "%s" at line %s, expecting on token of %s (skipped %s)
