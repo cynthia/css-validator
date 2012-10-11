@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.45 2012-10-11 12:55:38 ylafon Exp $
+// $Id: Css1Style.java,v 1.46 2012-10-11 13:17:36 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -119,12 +119,6 @@ public class Css1Style extends CssStyle {
 	 */
 	public org.w3c.css.properties.css.CssWidth cssWidth;
 	public CssWidthMob cssWidthMob;
-
-	/**
-	 * max-height property
-	 */
-	public CssMaxHeight cssMaxHeight;
-	public CssMaxHeightATSC cssMaxHeightATSC;
 
 	/**
 	 * height property
@@ -850,25 +844,6 @@ public class Css1Style extends CssStyle {
 					(CssWidthMob) style.CascadingOrder(new CssWidthMob(), style, selector);
 		}
 		return cssWidthMob;
-	}
-
-	/**
-	 * Get the max-height property
-	 */
-	public final CssMaxHeight getMaxHeight() {
-		if (cssMaxHeight == null) {
-			cssMaxHeight =
-					(CssMaxHeight) style.CascadingOrder(new CssMaxHeight(), style, selector);
-		}
-		return cssMaxHeight;
-	}
-
-	public final CssMaxHeightATSC getMaxHeightATSC() {
-		if (cssMaxHeightATSC == null) {
-			cssMaxHeightATSC =
-					(CssMaxHeightATSC) style.CascadingOrder(new CssMaxHeightATSC(), style, selector);
-		}
-		return cssMaxHeightATSC;
 	}
 
 	/**

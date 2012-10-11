@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.122 2012-10-11 12:55:39 ylafon Exp $
+// $Id: Css3Style.java,v 1.123 2012-10-11 13:17:37 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -219,7 +219,6 @@ public class Css3Style extends ATSCStyle {
 	CssFitPosition cssFitPosition;
 	CssVisibilityCSS3 cssVisibilityCSS3;
 	CssOverflowCSS3 cssOverflowCSS3;
-	CssMaxHeightCSS3 cssMaxHeightCSS3;
 
 	public org.w3c.css.properties.css.CssBorderImageSource getBorderImageSource() {
 		if (cssBorder.borderImage.source == null) {
@@ -776,15 +775,6 @@ public class Css3Style extends ATSCStyle {
 							new CssOverflowCSS3(), style, selector);
 		}
 		return cssOverflowCSS3;
-	}
-
-	public CssMaxHeightCSS3 getMaxHeightCSS3() {
-		if (cssMaxHeightCSS3 == null) {
-			cssMaxHeightCSS3 =
-					(CssMaxHeightCSS3) style.CascadingOrder(
-							new CssMaxHeightCSS3(), style, selector);
-		}
-		return cssMaxHeightCSS3;
 	}
 
 	public CssMarqueeDirection getMarqueeDirection() {
