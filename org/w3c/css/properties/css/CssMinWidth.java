@@ -1,4 +1,4 @@
-// $Id: CssMinWidth.java,v 1.1 2012-10-11 09:53:52 ylafon Exp $
+// $Id: CssMinWidth.java,v 1.2 2012-10-11 13:33:59 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -56,7 +56,7 @@ public class CssMinWidth extends CssProperty {
      * Returns the name of this property
      */
     public final String getPropertyName() {
-        return "left";
+        return "min-width";
     }
 
     /**
