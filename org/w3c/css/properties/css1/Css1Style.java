@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.42 2012-10-02 08:42:53 ylafon Exp $
+// $Id: Css1Style.java,v 1.43 2012-10-11 09:53:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -120,11 +120,6 @@ public class Css1Style extends CssStyle {
 	public org.w3c.css.properties.css.CssWidth cssWidth;
 	public CssWidthMob cssWidthMob;
 
-	/**
-	 * min-width property
-	 */
-	public CssMinWidth cssMinWidth;
-	public CssMinWidthATSC cssMinWidthATSC;
 	/**
 	 * max-width property
 	 */
@@ -866,25 +861,6 @@ public class Css1Style extends CssStyle {
 					(CssWidthMob) style.CascadingOrder(new CssWidthMob(), style, selector);
 		}
 		return cssWidthMob;
-	}
-
-	/**
-	 * Get the min-width property
-	 */
-	public final CssMinWidth getMinWidth() {
-		if (cssMinWidth == null) {
-			cssMinWidth =
-					(CssMinWidth) style.CascadingOrder(new CssMinWidth(), style, selector);
-		}
-		return cssMinWidth;
-	}
-
-	public final CssMinWidthATSC getMinWidthATSC() {
-		if (cssMinWidthATSC == null) {
-			cssMinWidthATSC =
-					(CssMinWidthATSC) style.CascadingOrder(new CssMinWidthATSC(), style, selector);
-		}
-		return cssMinWidthATSC;
 	}
 
 	/**

@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.10 2012-09-28 09:51:35 ylafon Exp $
+// $Id: Css2Style.java,v 1.11 2012-10-11 09:53:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,13 +9,14 @@ package org.w3c.css.properties.css2;
 import org.w3c.css.properties.aural.ACssStyle;
 import org.w3c.css.properties.css.CssBottom;
 import org.w3c.css.properties.css.CssLeft;
+import org.w3c.css.properties.css.CssMinWidth;
 import org.w3c.css.properties.css.CssPosition;
 import org.w3c.css.properties.css.CssRight;
 import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
 
 /**
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -43,6 +44,8 @@ public class Css2Style extends ACssStyle {
 
 	public CssPosition cssPosition;
 
+	public CssMinWidth cssMinWidth;
+	
 	/**
      * Get the azimuth
      */
@@ -203,5 +206,13 @@ public class Css2Style extends ACssStyle {
 					(CssPosition) style.CascadingOrder(new CssPosition(), style, selector);
 		}
 		return cssPosition;
+	}
+
+	public final CssMinWidth getMinWidth() {
+		if (cssMinWidth == null) {
+			cssMinWidth =
+					(CssMinWidth) style.CascadingOrder(new CssMinWidth(), style, selector);
+		}
+		return cssMinWidth;
 	}
 }
