@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.11 2012-10-11 09:53:52 ylafon Exp $
+// $Id: Css2Style.java,v 1.12 2012-10-11 12:36:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,6 +9,7 @@ package org.w3c.css.properties.css2;
 import org.w3c.css.properties.aural.ACssStyle;
 import org.w3c.css.properties.css.CssBottom;
 import org.w3c.css.properties.css.CssLeft;
+import org.w3c.css.properties.css.CssMaxWidth;
 import org.w3c.css.properties.css.CssMinWidth;
 import org.w3c.css.properties.css.CssPosition;
 import org.w3c.css.properties.css.CssRight;
@@ -16,7 +17,7 @@ import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
 
 /**
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -45,6 +46,7 @@ public class Css2Style extends ACssStyle {
 	public CssPosition cssPosition;
 
 	public CssMinWidth cssMinWidth;
+	public CssMaxWidth cssMaxWidth;
 	
 	/**
      * Get the azimuth
@@ -214,5 +216,13 @@ public class Css2Style extends ACssStyle {
 					(CssMinWidth) style.CascadingOrder(new CssMinWidth(), style, selector);
 		}
 		return cssMinWidth;
+	}
+
+	public final CssMaxWidth getMaxWidth() {
+		if (cssMaxWidth == null) {
+			cssMaxWidth =
+					(CssMaxWidth) style.CascadingOrder(new CssMaxWidth(), style, selector);
+		}
+		return cssMaxWidth;
 	}
 }
