@@ -1,4 +1,4 @@
-// $Id: CssTransform.java,v 1.1 2012-10-12 14:33:54 ylafon Exp $
+// $Id: CssTransform.java,v 1.2 2012-10-12 20:49:00 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -211,8 +211,7 @@ public class CssTransform extends org.w3c.css.properties.css.CssTransform {
 		}
 		CssValue val;
 		val = expression.getValue();
-		if (val.getType() != CssTypes.CSS_NUMBER &&
-				val.getType() != CssTypes.CSS_LENGTH) {
+		if (val.getType() != type) {
 			throw new InvalidParamException("value",
 					val.toString(),
 					caller.getPropertyName(), ac);
