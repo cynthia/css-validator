@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.125 2012-10-12 09:01:52 ylafon Exp $
+// $Id: Css3Style.java,v 1.126 2012-10-12 12:28:46 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -72,6 +72,7 @@ import org.w3c.css.properties.css.CssOrder;
 import org.w3c.css.properties.css.CssOverflowStyle;
 import org.w3c.css.properties.css.CssOverflowWrap;
 import org.w3c.css.properties.css.CssPerspective;
+import org.w3c.css.properties.css.CssPerspectiveOrigin;
 import org.w3c.css.properties.css.CssTabSize;
 import org.w3c.css.properties.css.CssTextAlignLast;
 import org.w3c.css.properties.css.CssTextDecorationColor;
@@ -198,6 +199,7 @@ public class Css3Style extends ATSCStyle {
 	public CssTransformStyle cssTransformStyle;
 	public CssBackfaceVisibility cssBackfaceVisibility;
 	public CssPerspective cssPerspective;
+	public CssPerspectiveOrigin cssPerspectiveOrigin;
 	
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -1352,6 +1354,14 @@ public class Css3Style extends ATSCStyle {
 		return cssPerspective;
 	}
 
+	public CssPerspectiveOrigin getPerspectiveOrigin() {
+		if (cssPerspectiveOrigin == null) {
+			cssPerspectiveOrigin =
+					(CssPerspectiveOrigin) style.CascadingOrder(
+							new CssPerspectiveOrigin(), style, selector);
+		}
+		return cssPerspectiveOrigin;
+	}
 	///
 
 	/**
