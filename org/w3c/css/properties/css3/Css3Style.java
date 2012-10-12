@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.127 2012-10-12 12:41:29 ylafon Exp $
+// $Id: Css3Style.java,v 1.128 2012-10-12 14:33:54 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -85,6 +85,7 @@ import org.w3c.css.properties.css.CssTextEmphasisPosition;
 import org.w3c.css.properties.css.CssTextEmphasisStyle;
 import org.w3c.css.properties.css.CssTextJustify;
 import org.w3c.css.properties.css.CssTextUnderlinePosition;
+import org.w3c.css.properties.css.CssTransform;
 import org.w3c.css.properties.css.CssTransformOrigin;
 import org.w3c.css.properties.css.CssTransformStyle;
 import org.w3c.css.properties.css.CssTransition;
@@ -202,6 +203,7 @@ public class Css3Style extends ATSCStyle {
 	public CssPerspective cssPerspective;
 	public CssPerspectiveOrigin cssPerspectiveOrigin;
 	public CssTransformOrigin cssTransformOrigin;
+	public CssTransform cssTransform;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -1374,6 +1376,15 @@ public class Css3Style extends ATSCStyle {
 		return cssTransformOrigin;
 	}
 
+	public CssTransform getTransform() {
+		if (cssTransform == null) {
+			cssTransform =
+					(CssTransform) style.CascadingOrder(
+							new CssTransform(), style, selector);
+		}
+		return cssTransform;
+	}
+	
 	///
 
 	/**
