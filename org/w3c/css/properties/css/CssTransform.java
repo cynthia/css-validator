@@ -1,4 +1,4 @@
-// $Id: CssTransform.java,v 1.2 2012-10-12 14:34:14 ylafon Exp $
+// $Id: CssTransform.java,v 1.1 2012-10-12 14:33:54 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -23,7 +23,6 @@ public class CssTransform extends CssProperty {
 	 * Create a new CssTransform
 	 */
 	public CssTransform() {
-		value = initial;
 	}
 
 	/**
