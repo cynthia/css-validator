@@ -1,6 +1,7 @@
-// $Id: CssPerspectiveOrigin.java,v 1.2 2012-10-12 12:31:00 ylafon Exp $
-// Author: Jean-Guilhem Rouel
-// (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
+// $Id: CssPerspectiveOrigin.java,v 1.3 2012-10-12 12:34:45 ylafon Exp $
+// Author: Yves Lafon <ylafon@w3.org>
+//
+// (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css3;
 
