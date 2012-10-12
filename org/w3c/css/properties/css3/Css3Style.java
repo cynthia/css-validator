@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.123 2012-10-11 13:17:37 ylafon Exp $
+// $Id: Css3Style.java,v 1.124 2012-10-12 08:49:04 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -23,6 +23,7 @@ import org.w3c.css.properties.css.CssAnimationIterationCount;
 import org.w3c.css.properties.css.CssAnimationName;
 import org.w3c.css.properties.css.CssAnimationPlayState;
 import org.w3c.css.properties.css.CssAnimationTimingFunction;
+import org.w3c.css.properties.css.CssBackfaceVisibility;
 import org.w3c.css.properties.css.CssBackgroundClip;
 import org.w3c.css.properties.css.CssBackgroundOrigin;
 import org.w3c.css.properties.css.CssBackgroundSize;
@@ -82,6 +83,7 @@ import org.w3c.css.properties.css.CssTextEmphasisPosition;
 import org.w3c.css.properties.css.CssTextEmphasisStyle;
 import org.w3c.css.properties.css.CssTextJustify;
 import org.w3c.css.properties.css.CssTextUnderlinePosition;
+import org.w3c.css.properties.css.CssTransformStyle;
 import org.w3c.css.properties.css.CssTransition;
 import org.w3c.css.properties.css.CssTransitionDelay;
 import org.w3c.css.properties.css.CssTransitionDuration;
@@ -192,6 +194,9 @@ public class Css3Style extends ATSCStyle {
 	public CssJustifyContent cssJustifyContent;
 	public CssOrder cssOrder;
 
+	public CssTransformStyle cssTransformStyle;
+	public CssBackfaceVisibility cssBackfaceVisibility;
+	
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
 	CssDropInitialBeforeAdjust cssDropInitialBeforeAdjust;
@@ -1318,6 +1323,24 @@ public class Css3Style extends ATSCStyle {
 		return cssOrder;
 	}
 
+	public CssTransformStyle getTransformStyle() {
+		if (cssTransformStyle == null) {
+			cssTransformStyle =
+					(CssTransformStyle) style.CascadingOrder(
+							new CssTransformStyle(), style, selector);
+		}
+		return cssTransformStyle;
+	}
+
+	public CssBackfaceVisibility getBackfaceVisibility() {
+		if (cssBackfaceVisibility == null) {
+			cssBackfaceVisibility =
+					(CssBackfaceVisibility) style.CascadingOrder(
+							new CssBackfaceVisibility(), style, selector);
+		}
+		return cssBackfaceVisibility;
+	}
+	
 	///
 
 	/**
