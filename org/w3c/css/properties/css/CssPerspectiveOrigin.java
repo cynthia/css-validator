@@ -1,4 +1,4 @@
-// $Id: CssPerspectiveOrigin.java,v 1.1 2012-10-12 12:28:46 ylafon Exp $
+// $Id: CssPerspectiveOrigin.java,v 1.2 2012-10-12 12:31:00 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -56,7 +56,7 @@ public class CssPerspectiveOrigin extends CssProperty {
 	 * Returns the name of this property
 	 */
 	public final String getPropertyName() {
-		return "perspective";
+		return "perspective-origin";
 	}
 
 	/**

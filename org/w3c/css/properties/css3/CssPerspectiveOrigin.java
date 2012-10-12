@@ -1,4 +1,4 @@
-// $Id: CssPerspectiveOrigin.java,v 1.1 2012-10-12 12:28:46 ylafon Exp $
+// $Id: CssPerspectiveOrigin.java,v 1.2 2012-10-12 12:31:00 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -57,14 +57,14 @@ public class CssPerspectiveOrigin extends org.w3c.css.properties.css.CssPerspect
 	}
 
 	/**
-	 * Create a new CssBackgroundPosition
+	 * Create a new CssTransformOrigin
 	 */
 	public CssPerspectiveOrigin() {
 		super();
 	}
 
 	/**
-	 * Creates a new CssBackgroundPosition
+	 * Creates a new CssTransformOrigin
 	 *
 	 * @param expression The expression for this property
 	 * @throws org.w3c.css.util.InvalidParamException
