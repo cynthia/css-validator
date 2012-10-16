@@ -1,4 +1,4 @@
-// $Id: CssOutlineColor.java,v 1.1 2012-10-16 20:44:01 ylafon Exp $
+// $Id: CssOutlineColor.java,v 1.2 2012-10-16 21:22:53 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -71,6 +71,7 @@ public class CssOutlineColor extends org.w3c.css.properties.css.CssOutlineColor 
 				try {
 					CssColor tcolor = new CssColor(ac, expression, check);
 					value = tcolor.getColor();
+					break;
 				} catch (InvalidParamException e) {
 					// we recreate the exception, as it will have
 					// the wrong property name otherwise
