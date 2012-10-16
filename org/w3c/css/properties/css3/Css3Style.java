@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.130 2012-10-15 15:08:25 ylafon Exp $
+// $Id: Css3Style.java,v 1.131 2012-10-16 20:44:00 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -70,6 +70,7 @@ import org.w3c.css.properties.css.CssMarqueeSpeed;
 import org.w3c.css.properties.css.CssMarqueeStyle;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOrder;
+import org.w3c.css.properties.css.CssOutlineOffset;
 import org.w3c.css.properties.css.CssOverflowStyle;
 import org.w3c.css.properties.css.CssOverflowWrap;
 import org.w3c.css.properties.css.CssPerspective;
@@ -207,7 +208,8 @@ public class Css3Style extends ATSCStyle {
 
 	public CssBoxSizing cssBoxSizing;
 	public CssResize cssResize;
-	
+	public CssOutlineOffset cssOutlineOffset;
+
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
 	CssDropInitialBeforeAdjust cssDropInitialBeforeAdjust;
@@ -227,7 +229,6 @@ public class Css3Style extends ATSCStyle {
 	CssNavRight cssNavRight;
 	CssNavDown cssNavDown;
 	CssNavLeft cssNavLeft;
-	CssOutlineOffset cssOutlineOffset;
 	CssOverflowX cssOverflowX;
 	CssOverflowY cssOverflowY;
 	CssRubySpan cssRubySpan;
@@ -1387,7 +1388,7 @@ public class Css3Style extends ATSCStyle {
 		}
 		return cssTransform;
 	}
-	
+
 	///
 
 	/**

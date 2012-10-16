@@ -1,4 +1,4 @@
-// $Id: CssBorderStyle.java,v 1.2 2012-04-26 12:40:07 ylafon Exp $
+// $Id: CssBorderStyle.java,v 1.3 2012-10-16 20:43:59 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -36,7 +36,7 @@ public class CssBorderStyle extends org.w3c.css.properties.css.CssBorderStyle {
         }
     }
 
-    static CssIdent getMatchingIdent(CssIdent ident) {
+    public static CssIdent getMatchingIdent(CssIdent ident) {
         for (CssIdent id : allowed_values) {
             if (id.equals(ident)) {
                 return id;
@@ -151,7 +151,7 @@ public class CssBorderStyle extends org.w3c.css.properties.css.CssBorderStyle {
      * Check the border-*-style and returns a value.
      * It makes sense to do it only once for all the sides, so by having the code here.
      */
-    protected static CssValue checkBorderSideStyle(ApplContext ac, CssProperty caller, CssExpression expression,
+    public static CssValue checkBorderSideStyle(ApplContext ac, CssProperty caller, CssExpression expression,
                                                    boolean check) throws InvalidParamException {
         if (check && expression.getCount() > 1) {
             throw new InvalidParamException("unrecognize", ac);
