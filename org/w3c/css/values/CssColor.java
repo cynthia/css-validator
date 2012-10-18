@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.22 2011-09-29 09:09:00 ylafon Exp $
+// $Id: CssColor.java,v 1.23 2012-10-18 09:39:51 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import static org.w3c.css.values.CssOperator.COMMA;
 
 /**
- * @version $Revision: 1.22 $
+ * @version $Revision: 1.23 $
  */
 public class CssColor extends CssValue {
 
@@ -186,7 +186,7 @@ public class CssColor extends CssValue {
      * Parse a RGB color.
      * format #(3-6)<hexnum>
      */
-    private void setShortRGBColor(String s, ApplContext ac)
+    public void setShortRGBColor(String s, ApplContext ac)
             throws InvalidParamException {
         int r;
         int g;
