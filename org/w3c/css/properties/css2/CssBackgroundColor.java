@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundColor.java,v 1.1 2012-02-09 17:36:30 ylafon Exp $
+// $Id: CssBackgroundColor.java,v 1.2 2012-10-18 09:46:02 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -47,6 +47,11 @@ public class CssBackgroundColor extends org.w3c.css.properties.css.CssBackground
         CssValue val = expression.getValue();
 
         switch (val.getType()) {
+			case CssTypes.CSS_HASH_IDENT:
+				org.w3c.css.values.CssColor c = new org.w3c.css.values.CssColor();
+				c.setShortRGBColor(val.toString(), ac);
+				setColor(c);
+				break;
             case CssTypes.CSS_COLOR:
                 setColor(val);
                 break;

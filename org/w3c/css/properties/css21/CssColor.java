@@ -1,4 +1,4 @@
-// $Id: CssColor.java,v 1.1 2011-10-04 13:05:25 ylafon Exp $
+// $Id: CssColor.java,v 1.2 2012-10-18 09:46:02 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -13,7 +13,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-color
  * Note that Color check against CSS levels is mostly done in CSS values.
  */
@@ -45,6 +45,11 @@ public class CssColor extends org.w3c.css.properties.css.CssColor {
         CssValue val = expression.getValue();
         setByUser();
         switch (val.getType()) {
+			case CssTypes.CSS_HASH_IDENT:
+				org.w3c.css.values.CssColor c = new org.w3c.css.values.CssColor();
+				c.setShortRGBColor(val.toString(), ac);
+				color = c;
+				break;
             case CssTypes.CSS_IDENT:
                 if (inherit.equals(val)) {
                     inherited = true;

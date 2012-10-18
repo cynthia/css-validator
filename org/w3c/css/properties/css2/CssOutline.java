@@ -1,4 +1,4 @@
-// $Id: CssOutline.java,v 1.2 2012-10-16 21:22:53 ylafon Exp $
+// $Id: CssOutline.java,v 1.3 2012-10-18 09:46:02 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -73,6 +73,7 @@ public class CssOutline extends org.w3c.css.properties.css.CssOutline {
 					throw new InvalidParamException("value",
 							val.toString(),
 							getPropertyName(), ac);
+				case CssTypes.CSS_HASH_IDENT:
 				case CssTypes.CSS_COLOR:
 					if (_color.value == null) {
 						CssExpression ex = new CssExpression();
@@ -151,7 +152,7 @@ public class CssOutline extends org.w3c.css.properties.css.CssOutline {
 			if (_style.value != null) {
 				values.add(_style.value);
 			}
-			if (_color.value != null ){
+			if (_color.value != null) {
 				values.add(_color.value);
 			}
 			value = new CssValueList(values);

@@ -1,4 +1,4 @@
-// $Id: CssColor.java,v 1.13 2011-10-04 13:05:24 ylafon Exp $
+// $Id: CssColor.java,v 1.14 2012-10-18 09:46:02 ylafon Exp $
 //
 // (c) COPYRIGHT MIT,ERCIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -13,7 +13,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#color
  */
 public class CssColor extends org.w3c.css.properties.css.CssColor {
@@ -44,6 +44,11 @@ public class CssColor extends org.w3c.css.properties.css.CssColor {
         CssValue val = expression.getValue();
         setByUser();
         switch (val.getType()) {
+			case CssTypes.CSS_HASH_IDENT:
+				org.w3c.css.values.CssColor c = new org.w3c.css.values.CssColor();
+				c.setShortRGBColor(val.toString(), ac);
+				color = c;
+				break;
             case CssTypes.CSS_IDENT:
                 color = new org.w3c.css.values.CssColor(ac, (String) val.get());
                 break;

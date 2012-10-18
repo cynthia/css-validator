@@ -1,4 +1,4 @@
-// $Id: CssOutlineColor.java,v 1.1 2012-10-16 20:44:00 ylafon Exp $
+// $Id: CssOutlineColor.java,v 1.2 2012-10-18 09:46:02 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -49,6 +49,11 @@ public class CssOutlineColor extends org.w3c.css.properties.css.CssOutlineColor 
 		CssValue val = expression.getValue();
 
 		switch (val.getType()) {
+			case CssTypes.CSS_HASH_IDENT:
+				org.w3c.css.values.CssColor c = new org.w3c.css.values.CssColor();
+				c.setShortRGBColor(val.toString(), ac);
+				value = c;
+				break;
 			case CssTypes.CSS_COLOR:
 				value = val;
 				break;

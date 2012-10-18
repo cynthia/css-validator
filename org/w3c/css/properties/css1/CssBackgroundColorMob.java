@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundColorMob.java,v 1.6 2012-02-09 17:36:28 ylafon Exp $
+// $Id: CssBackgroundColorMob.java,v 1.7 2012-10-18 09:46:01 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,6 +14,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
+import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
@@ -31,7 +32,7 @@ import org.w3c.css.values.CssValue;
  *   <PRE>
  *   H1 { background-color: #F00 }
  *   </PRE>
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class CssBackgroundColorMob extends CssProperty {
 
@@ -76,6 +77,10 @@ public class CssBackgroundColorMob extends CssProperty {
 		color = new org.w3c.css.values.CssColor(ac, (String) val.get());
 		expression.next();
 	    }
+	} else if (val.getType() == CssTypes.CSS_HASH_IDENT) {
+		org.w3c.css.values.CssColor c = new org.w3c.css.values.CssColor();
+		c.setShortRGBColor(val.toString(), ac);
+		color = c;
 	} else {
 	    throw new InvalidParamException("value", val.toString(),
 					    getPropertyName(), ac);

@@ -1,4 +1,4 @@
-// $Id: CssBackground.java,v 1.5 2012-08-28 20:31:06 ylafon Exp $
+// $Id: CssBackground.java,v 1.6 2012-10-18 09:46:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 
@@ -250,6 +250,7 @@ public class CssBackground extends org.w3c.css.properties.css.CssBackground {
 			op = expression.getOperator();
 
 			switch (val.getType()) {
+				case CssTypes.CSS_HASH_IDENT:
 				case CssTypes.CSS_COLOR:
 					// we already got one, fail...
 					if (v.color != null || next_is_size || !is_final) {

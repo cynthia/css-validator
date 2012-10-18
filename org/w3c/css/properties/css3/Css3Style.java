@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.135 2012-10-17 13:50:04 ylafon Exp $
+// $Id: Css3Style.java,v 1.136 2012-10-18 09:46:02 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -71,6 +71,7 @@ import org.w3c.css.properties.css.CssMarqueePlayCount;
 import org.w3c.css.properties.css.CssMarqueeSpeed;
 import org.w3c.css.properties.css.CssMarqueeStyle;
 import org.w3c.css.properties.css.CssNavIndex;
+import org.w3c.css.properties.css.CssNavUp;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOrder;
 import org.w3c.css.properties.css.CssOutlineOffset;
@@ -215,6 +216,7 @@ public class Css3Style extends ATSCStyle {
 	public CssOutlineOffset cssOutlineOffset;
 	public CssImeMode cssImeMode;
 	public CssNavIndex cssNavIndex;
+	public CssNavUp cssNavUp;
 	public CssTextOverflow cssTextOverflow;
 	public CssIcon cssIcon;
 
@@ -231,7 +233,6 @@ public class Css3Style extends ATSCStyle {
 	CssLineStackingStrategy cssLineStackingStrategy;
 	CssTextHeight cssTextHeight;
 	CssAppearance cssAppearance;
-	CssNavUp cssNavUp;
 	CssNavRight cssNavRight;
 	CssNavDown cssNavDown;
 	CssNavLeft cssNavLeft;

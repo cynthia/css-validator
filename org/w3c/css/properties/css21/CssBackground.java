@@ -1,4 +1,4 @@
-// $Id: CssBackground.java,v 1.2 2012-05-04 12:58:22 ylafon Exp $
+// $Id: CssBackground.java,v 1.3 2012-10-18 09:46:02 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // Revised by: Yves Lafon
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005-2008.
@@ -87,6 +87,7 @@ public class CssBackground extends org.w3c.css.properties.css.CssBackground {
 					}
 					find = false;
 					break;
+				case CssTypes.CSS_HASH_IDENT:
 				case CssTypes.CSS_COLOR:
 					if (color == null) {
 						color = new CssBackgroundColor(ac, expression);

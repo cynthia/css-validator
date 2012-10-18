@@ -1,4 +1,4 @@
-// $Id: CssBoxShadow.java,v 1.13 2012-09-10 17:04:58 ylafon Exp $
+// $Id: CssBoxShadow.java,v 1.14 2012-10-18 09:46:03 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2012 by Yves Lafon <ylafon@w3.org>
 //
@@ -187,6 +187,7 @@ public class CssBoxShadow extends org.w3c.css.properties.css.CssBoxShadow {
 					CssColor color = new CssColor(ac, exp, check);
 					value.color = (CssValue) color.get();
 					break;
+				case CssTypes.CSS_HASH_IDENT:
 				case CssTypes.CSS_COLOR:
 				case CssTypes.CSS_FUNCTION:
 					if (got_length != 0) {

@@ -1,4 +1,4 @@
-// $Id: CssBorder.java,v 1.4 2012-09-10 17:04:58 ylafon Exp $
+// $Id: CssBorder.java,v 1.5 2012-10-18 09:46:03 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -123,6 +123,11 @@ public class CssBorder extends org.w3c.css.properties.css.CssBorder {
 					CssLength length = val.getLength();
 					length.checkPositiveness(ac, caller);
 					_width = val;
+					break;
+				case CssTypes.CSS_HASH_IDENT:
+					org.w3c.css.values.CssColor c = new org.w3c.css.values.CssColor();
+					c.setShortRGBColor(val.toString(), ac);
+					_color = c;
 					break;
 				case CssTypes.CSS_COLOR:
 					_color = val;

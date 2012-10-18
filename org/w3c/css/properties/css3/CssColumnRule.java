@@ -1,4 +1,4 @@
-// $Id: CssColumnRule.java,v 1.9 2011-10-23 14:42:32 ylafon Exp $
+// $Id: CssColumnRule.java,v 1.10 2012-10-18 09:46:03 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 //
@@ -63,6 +63,7 @@ public class CssColumnRule extends org.w3c.css.properties.css.CssColumnRule {
                         ac);
             }
             switch (val.getType()) {
+				case CssTypes.CSS_HASH_IDENT:
                 case CssTypes.CSS_FUNCTION:
                 case CssTypes.CSS_COLOR:
                     if (rule_color != null) {

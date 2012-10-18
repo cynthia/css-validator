@@ -1,5 +1,5 @@
 //
-// $Id: CssBackground.java,v 1.10 2012-05-04 12:57:39 ylafon Exp $
+// $Id: CssBackground.java,v 1.11 2012-10-18 09:46:01 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -48,7 +48,7 @@ import static org.w3c.css.values.CssOperator.SPACE;
  * set to their initial value. In the second rule, all individual properties
  * have been specified.
  *
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  * @see org.w3c.css.properties.css.CssBackgroundColor
  * @see org.w3c.css.properties.css.CssBackgroundImage
  * @see org.w3c.css.properties.css.CssBackgroundRepeat
@@ -120,6 +120,7 @@ public class CssBackground extends org.w3c.css.properties.css.CssBackground {
 					}
 					find = false;
 					break;
+				case CssTypes.CSS_HASH_IDENT:
 				case CssTypes.CSS_COLOR:
 					if (color == null) {
 						color = new CssBackgroundColor(ac, expression);

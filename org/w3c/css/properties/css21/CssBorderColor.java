@@ -1,4 +1,4 @@
-// $Id: CssBorderColor.java,v 1.2 2012-04-26 12:53:53 ylafon Exp $
+// $Id: CssBorderColor.java,v 1.3 2012-10-18 09:46:02 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -64,6 +64,11 @@ public class CssBorderColor extends org.w3c.css.properties.css.CssBorderColor {
             op = expression.getOperator();
 
             switch (val.getType()) {
+				case CssTypes.CSS_HASH_IDENT:
+				org.w3c.css.values.CssColor c = new org.w3c.css.values.CssColor();
+				c.setShortRGBColor(val.toString(), ac);
+				res.add(c);
+				break;
                 case CssTypes.CSS_COLOR:
                     res.add(val);
                     break;
@@ -142,6 +147,11 @@ public class CssBorderColor extends org.w3c.css.properties.css.CssBorderColor {
         CssValue val = expression.getValue();
 
         switch (val.getType()) {
+			case CssTypes.CSS_HASH_IDENT:
+				org.w3c.css.values.CssColor c = new org.w3c.css.values.CssColor();
+				c.setShortRGBColor(val.toString(), ac);
+				retval = c;
+				break;
             case CssTypes.CSS_COLOR:
                 retval = val;
                 break;
