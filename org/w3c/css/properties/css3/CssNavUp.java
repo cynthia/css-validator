@@ -1,4 +1,4 @@
-// $Id: CssNavUp.java,v 1.4 2012-10-18 09:45:22 ylafon Exp $
+// $Id: CssNavUp.java,v 1.5 2012-10-18 09:55:39 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -96,7 +96,7 @@ public class CssNavUp extends org.w3c.css.properties.css.CssNavUp {
 
 	// the main check is here (to be shared with other
 	// nav-<dir>
-	public static CssValue checkValues(ApplContext ac, CssExpression expression,
+	protected static CssValue checkValues(ApplContext ac, CssExpression expression,
 									   boolean check, CssProperty caller)
 			throws InvalidParamException {
 		if (check && expression.getCount() > 2) {
