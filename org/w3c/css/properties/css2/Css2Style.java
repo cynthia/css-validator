@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.15 2012-10-16 20:43:59 ylafon Exp $
+// $Id: Css2Style.java,v 1.16 2012-10-19 10:05:52 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,6 +8,7 @@ package org.w3c.css.properties.css2;
 
 import org.w3c.css.properties.aural.ACssStyle;
 import org.w3c.css.properties.css.CssBottom;
+import org.w3c.css.properties.css.CssCursor;
 import org.w3c.css.properties.css.CssLeft;
 import org.w3c.css.properties.css.CssMaxHeight;
 import org.w3c.css.properties.css.CssMaxWidth;
@@ -23,7 +24,7 @@ import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
 
 /**
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -60,6 +61,7 @@ public class Css2Style extends ACssStyle {
 	public CssOutlineStyle cssOutlineStyle;
 	public CssOutlineColor cssOutlineColor;
 	public CssOutline cssOutline;
+	public CssCursor cssCursor;
 	
 	/**
      * Get the azimuth
@@ -285,5 +287,13 @@ public class Css2Style extends ACssStyle {
 					(CssOutline) style.CascadingOrder(new CssOutline(), style, selector);
 		}
 		return cssOutline;
+	}
+	
+	public final CssCursor getCursor() {
+		if (cssCursor == null) {
+			cssCursor =
+					(CssCursor) style.CascadingOrder(new CssCursor(), style, selector);
+		}
+		return cssCursor;
 	}
 }
