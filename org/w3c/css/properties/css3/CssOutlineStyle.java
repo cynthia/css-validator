@@ -1,4 +1,4 @@
-// $Id: CssOutlineStyle.java,v 1.1 2012-10-16 20:44:01 ylafon Exp $
+// $Id: CssOutlineStyle.java,v 1.2 2012-10-19 15:13:55 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -19,6 +19,7 @@ import org.w3c.css.values.CssValue;
 public class CssOutlineStyle extends org.w3c.css.properties.css.CssOutlineStyle {
 
 	public static final CssIdent auto = CssIdent.getIdent("auto");
+	public static final CssIdent hidden = CssIdent.getIdent("hidden");
 
 	public static final CssIdent getMatchingIdent(CssIdent ident) {
 		if (auto.equals(ident)) {
@@ -69,6 +70,11 @@ public class CssOutlineStyle extends org.w3c.css.properties.css.CssOutlineStyle 
 		} else {
 			// here we delegate to BorderStyle implementation
 			value = CssBorderStyle.checkBorderSideStyle(ac, this, expression, check);
+			// but hidden is not a valid value...
+			if (hidden.equals(value)) {
+				throw new InvalidParamException("value", hidden,
+						getPropertyName(), ac);
+			}
 		}
 	}
 
