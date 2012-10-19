@@ -1,4 +1,4 @@
-// $Id: CssTransformOrigin.java,v 1.1 2012-10-12 12:41:29 ylafon Exp $
+// $Id: CssTransformOrigin.java,v 1.2 2012-10-19 13:49:19 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -61,7 +61,7 @@ public class CssTransformOrigin extends org.w3c.css.properties.css.CssTransformO
 	 * Create a new CssTransformOrigin
 	 */
 	public CssTransformOrigin() {
-		super();
+		value = initial;
 	}
 
 	/**
