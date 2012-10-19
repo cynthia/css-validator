@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.3 2011-09-09 12:16:45 ylafon Exp $
+// $Id: Css2Style.java,v 1.4 2012-10-19 10:33:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,9 +10,9 @@ package org.w3c.css.properties.paged;
 
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
-public class Css2Style extends org.w3c.css.properties.css2.user.Css2Style {
+public class Css2Style extends org.w3c.css.properties.css2.table.Css2Style {
 
     Size size;
     Marks marks;
