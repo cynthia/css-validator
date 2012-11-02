@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.48 2012-11-02 13:47:50 ylafon Exp $
+// $Id: Css1Style.java,v 1.49 2012-11-02 13:53:26 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -90,7 +90,6 @@ public class Css1Style extends CssStyle {
 	 * text-align property
 	 */
 	public CssTextAlign cssTextAlign;
-	public CssTextAlignMob cssTextAlignMob;
 	/**
 	 * text-ident property
 	 */
@@ -215,10 +214,6 @@ public class Css1Style extends CssStyle {
 	 * TV property
 	 */
 	public CssListStyleTV cssListStyleTV;
-	/**
-	 * TV property
-	 */
-	public CssTextAlignTV cssTextAlignTV;
 
 	public String[] emptyArray = {};
 
@@ -560,15 +555,6 @@ public class Css1Style extends CssStyle {
 							style, selector);
 		}
 		return cssTextAlign;
-	}
-
-	public final CssTextAlignMob getTextAlignMob() {
-		if (cssTextAlignMob == null) {
-			cssTextAlignMob =
-					(CssTextAlignMob) style.CascadingOrder(new CssTextAlignMob(),
-							style, selector);
-		}
-		return cssTextAlignMob;
 	}
 
 	/**
@@ -1199,16 +1185,6 @@ public class Css1Style extends CssStyle {
 		}
 
 		return cssListStyleTV;
-	}
-
-	public final CssTextAlignTV getTextAlignTV() {
-		if (cssTextAlignTV == null) {
-			cssTextAlignTV =
-					(CssTextAlignTV) style.CascadingOrder(new CssTextAlignTV(),
-							style, selector);
-		}
-
-		return cssTextAlignTV;
 	}
 
 	/**
