@@ -1,4 +1,4 @@
-// $Id: CssOutline.java,v 1.3 2012-10-18 09:46:03 ylafon Exp $
+// $Id: CssOutline.java,v 1.4 2012-11-02 09:48:43 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -61,6 +61,19 @@ public class CssOutline extends org.w3c.css.properties.css.CssOutline {
 			op = expression.getOperator();
 
 			switch (val.getType()) {
+				// temporary, until the parser fixes rgba hsl and others for good
+				case CssTypes.CSS_FUNCTION:
+					if (colorValue == null) {
+						CssExpression ex = new CssExpression();
+						ex.addValue(val);
+						_color = new CssOutlineColor(ac, ex, check);
+						colorValue = _color.value;
+						break;
+					}
+					// else, we already got one...
+					throw new InvalidParamException("value",
+							val.toString(),
+							getPropertyName(), ac);
 				case CssTypes.CSS_NUMBER:
 				case CssTypes.CSS_LENGTH:
 					if (widthValue == null) {
