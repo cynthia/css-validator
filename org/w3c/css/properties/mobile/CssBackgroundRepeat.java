@@ -1,10 +1,10 @@
 //
-// $Id: CssBackgroundRepeat.java,v 1.4 2012-11-02 14:14:13 ylafon Exp $
+// $Id: CssBackgroundRepeat.java,v 1.1 2012-11-02 14:14:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css2;
+package org.w3c.css.properties.mobile;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
@@ -14,8 +14,8 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @version $Revision: 1.4 $
- * @spec http://www.w3.org/TR/2008/REC-CSS2-20080411/colors.html#propdef-background-repeat
+ * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-repeat
+ * @spec http://www.w3.org/TR/2008/CR-css-mobile-20081210/#properties
  */
 public class CssBackgroundRepeat extends org.w3c.css.properties.css.CssBackgroundRepeat {
 
@@ -31,7 +31,7 @@ public class CssBackgroundRepeat extends org.w3c.css.properties.css.CssBackgroun
 		}
 	}
 
-	public static boolean checkMatchingIdent(CssIdent ident) {
+	protected static boolean checkMatchingIdent(CssIdent ident) {
 		return (getMatchingIdent(ident) != null);
 	}
 
@@ -44,7 +44,6 @@ public class CssBackgroundRepeat extends org.w3c.css.properties.css.CssBackgroun
 		return null;
 	}
 
-
 	/**
 	 * Create a new CssBackgroundRepeat
 	 */
@@ -56,7 +55,8 @@ public class CssBackgroundRepeat extends org.w3c.css.properties.css.CssBackgroun
 	 * Set the value of the property
 	 *
 	 * @param expression The expression for this property
-	 * @throws InvalidParamException The expression is incorrect
+	 * @throws org.w3c.css.util.InvalidParamException
+	 *          The expression is incorrect
 	 */
 	public CssBackgroundRepeat(ApplContext ac, CssExpression expression,
 							   boolean check) throws InvalidParamException {

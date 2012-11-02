@@ -1,5 +1,5 @@
 //
-// $Id: CssBackgroundRepeat.java,v 1.2 2012-08-23 21:09:08 ylafon Exp $
+// $Id: CssBackgroundRepeat.java,v 1.3 2012-11-02 14:14:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -30,7 +30,7 @@ public class CssBackgroundRepeat extends org.w3c.css.properties.css.CssBackgroun
 		}
 	}
 
-	protected static boolean checkMatchingIdent(CssIdent ident) {
+	public static boolean checkMatchingIdent(CssIdent ident) {
 		return (getMatchingIdent(ident) != null);
 	}
 
