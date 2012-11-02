@@ -1,5 +1,5 @@
 //
-// $Id: CssTextPropertiesConstants.java,v 1.3 2010-01-05 13:49:45 ylafon Exp $
+// $Id: CssTextPropertiesConstants.java,v 1.4 2012-11-02 13:37:08 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,7 @@
 package org.w3c.css.properties.css1;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public interface CssTextPropertiesConstants {
   public static String[] TEXTDECORATION = {
@@ -18,16 +18,6 @@ public interface CssTextPropertiesConstants {
 
   public static String[] TEXTDECORATIONMOB = {
     "underline", "inherit" };
-
-  public static String[] VERTICALALIGN = {
-    "auto", "use-script", "baseline", "sub", "super", "top", "text-top",
-    "central", "middle", "bottom", "text-bottom", "inherit", "initial" };
-
-  public static String[] VERTICALALIGNMOB = {
-    "baseline", "sub", "super", "inherit" };
-
-  public static String[] VERTICALALIGNTV = {
-    "baseline", "sub", "super", "top", "middle", "bottom", "inherit" };
 
   public static String[] TEXTTRANSFORM = {
     "none", "capitalize", "uppercase", "lowercase", "inherit" };
