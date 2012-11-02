@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.47 2012-11-02 13:37:08 ylafon Exp $
+// $Id: Css1Style.java,v 1.48 2012-11-02 13:47:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -77,7 +77,6 @@ public class Css1Style extends CssStyle {
 	 * text-decoration property
 	 */
 	public CssTextDecoration cssTextDecoration;
-	public CssTextDecorationMob cssTextDecorationMob;
 	/**
 	 * vertical-align property
 	 */
@@ -220,10 +219,6 @@ public class Css1Style extends CssStyle {
 	 * TV property
 	 */
 	public CssTextAlignTV cssTextAlignTV;
-	/**
-	 * TV property
-	 */
-	public CssTextDecorationTV cssTextDecorationTV;
 
 	public String[] emptyArray = {};
 
@@ -529,15 +524,6 @@ public class Css1Style extends CssStyle {
 							style, selector);
 		}
 		return cssTextDecoration;
-	}
-
-	public final CssTextDecorationMob getTextDecorationMob() {
-		if (cssTextDecorationMob == null) {
-			cssTextDecorationMob =
-					(CssTextDecorationMob) style.CascadingOrder(new CssTextDecorationMob(),
-							style, selector);
-		}
-		return cssTextDecorationMob;
 	}
 
 	/**
@@ -1223,16 +1209,6 @@ public class Css1Style extends CssStyle {
 		}
 
 		return cssTextAlignTV;
-	}
-
-	public final CssTextDecorationTV getTextDecorationTV() {
-		if (cssTextDecorationTV == null) {
-			cssTextDecorationTV =
-					(CssTextDecorationTV) style.CascadingOrder(new CssTextDecorationTV(),
-							style, selector);
-		}
-
-		return cssTextDecorationTV;
 	}
 
 	/**
