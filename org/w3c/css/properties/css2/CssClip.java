@@ -1,4 +1,4 @@
-// $Id: CssClip.java,v 1.1 2012-11-05 10:36:13 ylafon Exp $
+// $Id: CssClip.java,v 1.2 2012-11-05 20:44:43 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -61,7 +61,7 @@ public class CssClip extends org.w3c.css.properties.css.CssClip {
 				if (inherit.equals(val)) {
 					value = inherit;
 					break;
-				} else if (auto.equals(inherit)) {
+				} else if (auto.equals(val)) {
 					value = auto;
 					break;
 				}
@@ -70,6 +70,7 @@ public class CssClip extends org.w3c.css.properties.css.CssClip {
 				throw new InvalidParamException("value", val,
 						getPropertyName(), ac);
 		}
+		expression.next();
 	}
 
 	public CssClip(ApplContext ac, CssExpression expression)
@@ -112,7 +113,8 @@ public class CssClip extends org.w3c.css.properties.css.CssClip {
 			expression.next();
 			// as the spec was unclear, we allow comma or space
 			// but no mix of the two
-			if ((op != firstop) || (op != COMMA && op != SPACE)) {
+			// special case at the end as default separator is SPACE
+			if (((op != firstop) || (op != COMMA && op != SPACE)) && !expression.end()) {
 				throw new InvalidParamException("shape-separator",
 						((new Character(op)).toString()), ac);
 			}
