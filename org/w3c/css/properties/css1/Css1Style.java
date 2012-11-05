@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.56 2012-11-05 17:36:11 ylafon Exp $
+// $Id: Css1Style.java,v 1.57 2012-11-05 21:46:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -157,11 +157,7 @@ public class Css1Style extends CssStyle {
 	 */
 	public CssContentCSS2 cssContentCSS2;
 	public CssContent cssContent;
-	/**
-	 * quotes property
-	 */
-	public CssQuotes cssQuotes;
-	public CssQuotesATSC cssQuotesATSC;
+
 	/**
 	 * counter-reset property
 	 */
@@ -911,27 +907,6 @@ public class Css1Style extends CssStyle {
 							style, selector);
 		}
 		return cssContentCSS2;
-	}
-
-	/**
-	 * Get the quotes property
-	 */
-	public final CssQuotes getQuotes() {
-		if (cssQuotes == null) {
-			cssQuotes =
-					(CssQuotes) style.CascadingOrder(new CssQuotes(),
-							style, selector);
-		}
-		return cssQuotes;
-	}
-
-	public final CssQuotesATSC getQuotesATSC() {
-		if (cssQuotesATSC == null) {
-			cssQuotesATSC =
-					(CssQuotesATSC) style.CascadingOrder(new CssQuotesATSC(),
-							style, selector);
-		}
-		return cssQuotesATSC;
 	}
 
 	/**
