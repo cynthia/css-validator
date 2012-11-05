@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.138 2012-11-05 15:35:25 ylafon Exp $
+// $Id: Css3Style.java,v 1.139 2012-11-05 17:36:13 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -79,7 +79,9 @@ import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOrder;
 import org.w3c.css.properties.css.CssOutlineOffset;
 import org.w3c.css.properties.css.CssOverflowStyle;
+import org.w3c.css.properties.css.CssOverflowX;
 import org.w3c.css.properties.css.CssOverflowWrap;
+import org.w3c.css.properties.css.CssOverflowY;
 import org.w3c.css.properties.css.CssPerspective;
 import org.w3c.css.properties.css.CssPerspectiveOrigin;
 import org.w3c.css.properties.css.CssResize;
@@ -226,6 +228,9 @@ public class Css3Style extends ATSCStyle {
 	public CssTextOverflow cssTextOverflow;
 	public CssIcon cssIcon;
 
+	public CssOverflowX cssOverflowX;
+	public CssOverflowY	cssOverflowY;
+
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
 	CssDropInitialBeforeAdjust cssDropInitialBeforeAdjust;
@@ -239,12 +244,9 @@ public class Css3Style extends ATSCStyle {
 	CssLineStackingStrategy cssLineStackingStrategy;
 	CssTextHeight cssTextHeight;
 	CssAppearance cssAppearance;
-	CssOverflowX cssOverflowX;
-	CssOverflowY cssOverflowY;
 	CssRubySpan cssRubySpan;
 	CssCrop cssCrop;
 	CssFitPosition cssFitPosition;
-	CssOverflowCSS3 cssOverflowCSS3;
 
 	public org.w3c.css.properties.css.CssBorderImageSource getBorderImageSource() {
 		if (cssBorder.borderImage.source == null) {
@@ -783,15 +785,6 @@ public class Css3Style extends ATSCStyle {
 							new CssFitPosition(), style, selector);
 		}
 		return cssFitPosition;
-	}
-
-	public CssOverflowCSS3 getOverflowCSS3() {
-		if (cssOverflowCSS3 == null) {
-			cssOverflowCSS3 =
-					(CssOverflowCSS3) style.CascadingOrder(
-							new CssOverflowCSS3(), style, selector);
-		}
-		return cssOverflowCSS3;
 	}
 
 	public CssMarqueeDirection getMarqueeDirection() {

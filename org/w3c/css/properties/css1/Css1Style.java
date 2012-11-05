@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.55 2012-11-05 15:35:24 ylafon Exp $
+// $Id: Css1Style.java,v 1.56 2012-11-05 17:36:11 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -151,11 +151,6 @@ public class Css1Style extends CssStyle {
 	public CssListStyle cssListStyle = new CssListStyle();
 	public CssListStyleCSS2 cssListStyleCSS2 = new CssListStyleCSS2();
 	public CssListStyleCSS1 cssListStyleCSS1 = new CssListStyleCSS1();
-
-	/**
-	 * overflow property
-	 */
-	public CssOverflow cssOverflow;
 
 	/**
 	 * content property
@@ -758,18 +753,6 @@ public class Css1Style extends CssStyle {
 							style, selector);
 		}
 		return cssZIndex;
-	}
-
-	/**
-	 * Get the overflow property
-	 */
-	public final CssOverflow getOverflow() {
-		if (cssOverflow == null) {
-			cssOverflow =
-					(CssOverflow) style.CascadingOrder(new CssOverflow(),
-							style, selector);
-		}
-		return cssOverflow;
 	}
 	/**
 	 * Get the white-space property
