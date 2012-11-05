@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.53 2012-11-05 13:43:18 ylafon Exp $
+// $Id: Css1Style.java,v 1.54 2012-11-05 14:25:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -140,12 +140,6 @@ public class Css1Style extends CssStyle {
 	 * z-index property
 	 */
 	public CssZIndex cssZIndex;
-
-	/**
-	 * unicode-bidi property
-	 */
-	public CssUnicodeBidi cssUnicodeBidi;
-	public CssUnicodeBidiATSC cssUnicodeBidiATSC;
 
 	/**
 	 * white-space property
@@ -793,27 +787,6 @@ public class Css1Style extends CssStyle {
 							style, selector);
 		}
 		return cssVisibility;
-	}
-
-	/**
-	 * Get the unicode-bidi property
-	 */
-	public final CssUnicodeBidi getUnicodeBidi() {
-		if (cssUnicodeBidi == null) {
-			cssUnicodeBidi =
-					(CssUnicodeBidi) style.CascadingOrder(new CssUnicodeBidi(),
-							style, selector);
-		}
-		return cssUnicodeBidi;
-	}
-
-	public final CssUnicodeBidiATSC getUnicodeBidiATSC() {
-		if (cssUnicodeBidiATSC == null) {
-			cssUnicodeBidiATSC =
-					(CssUnicodeBidiATSC) style.CascadingOrder(new CssUnicodeBidiATSC(),
-							style, selector);
-		}
-		return cssUnicodeBidiATSC;
 	}
 
 	/**

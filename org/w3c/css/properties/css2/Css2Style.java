@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.19 2012-11-05 13:43:19 ylafon Exp $
+// $Id: Css2Style.java,v 1.20 2012-11-05 14:25:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,13 +26,14 @@ import org.w3c.css.properties.css.CssPosition;
 import org.w3c.css.properties.css.CssRight;
 import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
+import org.w3c.css.properties.css.CssUnicodeBidi;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.19 $
+ * @version $Revision: 1.20 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -75,7 +76,7 @@ public class Css2Style extends ACssStyle {
 	public CssClip cssClip;
 	public CssMarkerOffset cssMarkerOffset;
 	public CssDirection cssDirection;
-
+	public CssUnicodeBidi cssUnicodeBidi;
 
 	/**
 	 * Get the azimuth
@@ -335,6 +336,7 @@ public class Css2Style extends ACssStyle {
 		}
 		return cssClip;
 	}
+
 	/**
 	 * Get the direction property
 	 */
@@ -345,6 +347,18 @@ public class Css2Style extends ACssStyle {
 							style, selector);
 		}
 		return cssDirection;
+	}
+
+	/**
+	 * Get the unicode-bidi property
+	 */
+	public final CssUnicodeBidi getUnicodeBidi() {
+		if (cssUnicodeBidi == null) {
+			cssUnicodeBidi =
+					(CssUnicodeBidi) style.CascadingOrder(new CssUnicodeBidi(),
+							style, selector);
+		}
+		return cssUnicodeBidi;
 	}
 
 	/**
