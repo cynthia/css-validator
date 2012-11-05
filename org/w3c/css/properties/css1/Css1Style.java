@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.51 2012-11-02 14:34:26 ylafon Exp $
+// $Id: Css1Style.java,v 1.52 2012-11-05 10:36:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -169,11 +169,6 @@ public class Css1Style extends CssStyle {
 	 * overflow property
 	 */
 	public CssOverflow cssOverflow;
-
-	/**
-	 * clip property
-	 */
-	public CssClip cssClip;
 
 	/**
 	 * visibility property
@@ -814,18 +809,6 @@ public class Css1Style extends CssStyle {
 							style, selector);
 		}
 		return cssOverflow;
-	}
-
-	/**
-	 * Get the clip property
-	 */
-	public final CssClip getClip() {
-		if (cssClip == null) {
-			cssClip =
-					(CssClip) style.CascadingOrder(new CssClip(),
-							style, selector);
-		}
-		return cssClip;
 	}
 
 	/**
