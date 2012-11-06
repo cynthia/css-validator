@@ -1,4 +1,4 @@
-// $Id: CssCounterReset.java,v 1.1 2012-11-06 11:22:01 ylafon Exp $
+// $Id: CssCounterReset.java,v 1.2 2012-11-06 12:27:48 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -26,6 +26,7 @@ public class CssCounterReset extends org.w3c.css.properties.css.CssCounterReset 
 	 * Create a new CssCounterReset
 	 */
 	public CssCounterReset() {
+		value = initial;
 	}
 
 	/**

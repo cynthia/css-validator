@@ -1,4 +1,4 @@
-// $Id: CssCounterIncrement.java,v 1.1 2012-11-06 09:49:49 ylafon Exp $
+// $Id: CssCounterIncrement.java,v 1.2 2012-11-06 12:27:47 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -26,6 +26,7 @@ public class CssCounterIncrement extends org.w3c.css.properties.css.CssCounterIn
 	 * Create a new CssCounterIncrement
 	 */
 	public CssCounterIncrement() {
+		value = initial;
 	}
 
 	/**
