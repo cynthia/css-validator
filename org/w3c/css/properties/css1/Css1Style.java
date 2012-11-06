@@ -1,5 +1,5 @@
 //
-// $Id: Css1Style.java,v 1.57 2012-11-05 21:46:49 ylafon Exp $
+// $Id: Css1Style.java,v 1.58 2012-11-06 09:49:48 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -162,10 +162,6 @@ public class Css1Style extends CssStyle {
 	 * counter-reset property
 	 */
 	public CssCounterReset cssCounterReset;
-	/**
-	 * counter-increment property
-	 */
-	public CssCounterIncrement cssCounterIncrement;
 
 	/**
 	 * TV property
@@ -919,18 +915,6 @@ public class Css1Style extends CssStyle {
 							style, selector);
 		}
 		return cssCounterReset;
-	}
-
-	/**
-	 * Get the counter-increment property
-	 */
-	public final CssCounterIncrement getCounterIncrement() {
-		if (cssCounterIncrement == null) {
-			cssCounterIncrement =
-					(CssCounterIncrement) style.CascadingOrder(new CssCounterIncrement(),
-							style, selector);
-		}
-		return cssCounterIncrement;
 	}
 
 	public final CssListStyleTypeTV getListStyleTypeTV() {

@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.23 2012-11-05 21:46:50 ylafon Exp $
+// $Id: Css2Style.java,v 1.24 2012-11-06 09:49:49 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,6 +10,7 @@ import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.properties.aural.ACssStyle;
 import org.w3c.css.properties.css.CssBottom;
 import org.w3c.css.properties.css.CssClip;
+import org.w3c.css.properties.css.CssCounterIncrement;
 import org.w3c.css.properties.css.CssCursor;
 import org.w3c.css.properties.css.CssDirection;
 import org.w3c.css.properties.css.CssLeft;
@@ -36,7 +37,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.23 $
+ * @version $Revision: 1.24 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -83,6 +84,7 @@ public class Css2Style extends ACssStyle {
 	public CssVisibility cssVisibility;
 	public CssOverflow cssOverflow;
 	public CssQuotes cssQuotes;
+	public CssCounterIncrement cssCounterIncrement;
 
 	/**
 	 * Get the azimuth
@@ -399,6 +401,18 @@ public class Css2Style extends ACssStyle {
 		}
 		return cssQuotes;
 	}
+	/**
+	 * Get the counter-increment property
+	 */
+	public final CssCounterIncrement getCounterIncrement() {
+		if (cssCounterIncrement == null) {
+			cssCounterIncrement =
+					(CssCounterIncrement) style.CascadingOrder(new CssCounterIncrement(),
+							style, selector);
+		}
+		return cssCounterIncrement;
+	}
+
 	/**
 	 * Find conflicts in this Style
 	 *
