@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.24 2012-11-06 09:49:49 ylafon Exp $
+// $Id: Css2Style.java,v 1.25 2012-11-06 11:22:01 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -11,6 +11,7 @@ import org.w3c.css.properties.aural.ACssStyle;
 import org.w3c.css.properties.css.CssBottom;
 import org.w3c.css.properties.css.CssClip;
 import org.w3c.css.properties.css.CssCounterIncrement;
+import org.w3c.css.properties.css.CssCounterReset;
 import org.w3c.css.properties.css.CssCursor;
 import org.w3c.css.properties.css.CssDirection;
 import org.w3c.css.properties.css.CssLeft;
@@ -37,7 +38,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.24 $
+ * @version $Revision: 1.25 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -85,6 +86,7 @@ public class Css2Style extends ACssStyle {
 	public CssOverflow cssOverflow;
 	public CssQuotes cssQuotes;
 	public CssCounterIncrement cssCounterIncrement;
+	public CssCounterReset cssCounterReset;
 
 	/**
 	 * Get the azimuth
@@ -411,6 +413,17 @@ public class Css2Style extends ACssStyle {
 							style, selector);
 		}
 		return cssCounterIncrement;
+	}
+	/**
+	 * Get the counter-reset property
+	 */
+	public final CssCounterReset getCounterReset() {
+		if (cssCounterReset == null) {
+			cssCounterReset =
+					(CssCounterReset) style.CascadingOrder(new CssCounterReset(),
+							style, selector);
+		}
+		return cssCounterReset;
 	}
 
 	/**
