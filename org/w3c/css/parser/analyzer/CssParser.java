@@ -72,7 +72,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.89 $
+ * @version $Revision: 1.90 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -4089,6 +4089,15 @@ CssExpression param = null;
         String funcname = n.image.toLowerCase();
         if (funcname.equals("rgb(")) {
             color.setRGBColor(exp, ac);
+            {if (true) return color;}
+        } else if (funcname.equals("rgba(")) {
+            color.setRGBAColor(exp, ac);
+            {if (true) return color;}
+        } else if (funcname.equals("hsl(")) {
+            color.setHSLColor(exp, ac);
+            {if (true) return color;}
+        } else if (funcname.equals("hsla(")) {
+            color.setHSLAColor(exp, ac);
             {if (true) return color;}
         } else if (funcname.equals("atsc-rgba(")) {
             if (getAtRule().toString().equals("@media atsc-tv")) {
