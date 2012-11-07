@@ -1,4 +1,4 @@
-// $Id: CssColor.java,v 1.4 2012-10-18 09:46:03 ylafon Exp $
+// $Id: CssColor.java,v 1.5 2012-11-07 14:28:35 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -15,7 +15,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/REC-css3-color-20110607/#color0
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class CssColor extends org.w3c.css.properties.css.CssColor {
 
@@ -91,15 +91,6 @@ public class CssColor extends org.w3c.css.properties.css.CssColor {
                     } else {
                         attrvalue = "attr(" + v1 + ", " + v2 + ')';
                     }
-                } else if (fname.equals("rgba")) {
-                    tempcolor.setRGBAColor(params, ac);
-                    color = tempcolor;
-                } else if (fname.equals("hsl")) {
-                    tempcolor.setHSLColor(params, ac);
-                    color = tempcolor;
-                } else if (fname.equals("hsla")) {
-                    tempcolor.setHSLAColor(params, ac);
-                    color = tempcolor;
                 } else {
                     throw new InvalidParamException("value",
                             params.getValue(),
