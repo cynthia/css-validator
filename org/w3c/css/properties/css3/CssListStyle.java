@@ -1,4 +1,4 @@
-// $Id: CssListStyle.java,v 1.1 2012-11-07 11:34:59 ylafon Exp $
+// $Id: CssListStyle.java,v 1.2 2012-11-07 15:46:02 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -69,8 +69,7 @@ public class CssListStyle extends org.w3c.css.properties.css.CssListStyle {
 			op = expression.getOperator();
 
 			switch (val.getType()) {
-				case CssTypes.CSS_FUNCTION:
-					//TODO gradient/image
+				case CssTypes.CSS_IMAGE:
 				case CssTypes.CSS_URL:
 					if (imageVal != null) {
 						throw new InvalidParamException("value", val,

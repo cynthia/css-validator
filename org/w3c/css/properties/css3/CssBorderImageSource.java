@@ -1,4 +1,4 @@
-// $Id: CssBorderImageSource.java,v 1.2 2012-04-26 18:33:30 ylafon Exp $
+// $Id: CssBorderImageSource.java,v 1.3 2012-11-07 15:46:02 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -46,6 +46,7 @@ public class CssBorderImageSource extends org.w3c.css.properties.css.CssBorderIm
         CssValue val = expression.getValue();
         switch (val.getType()) {
             case CssTypes.CSS_URL:
+			case CssTypes.CSS_IMAGE:
                 value = val;
                 break;
             case CssTypes.CSS_IDENT:

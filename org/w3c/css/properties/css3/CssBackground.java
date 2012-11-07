@@ -1,4 +1,4 @@
-// $Id: CssBackground.java,v 1.8 2012-11-02 09:48:05 ylafon Exp $
+// $Id: CssBackground.java,v 1.9 2012-11-07 15:46:02 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten 2010 Yves Lafon <ylafon@w3.org>
 
@@ -267,6 +267,7 @@ public class CssBackground extends org.w3c.css.properties.css.CssBackground {
 					break;
 
 				case CssTypes.CSS_URL:
+				case CssTypes.CSS_IMAGE:
 					prev_is_position = false;
 					// we already got one, fail...
 					if (v.bg_image != null || next_is_size) {

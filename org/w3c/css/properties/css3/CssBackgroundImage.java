@@ -1,4 +1,4 @@
-// $Id: CssBackgroundImage.java,v 1.3 2012-08-28 20:31:17 ylafon Exp $
+// $Id: CssBackgroundImage.java,v 1.4 2012-11-07 15:46:02 ylafon Exp $
 // @author Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2010.
@@ -55,7 +55,8 @@ public class CssBackgroundImage extends org.w3c.css.properties.css.CssBackground
             val = expression.getValue();
             op = expression.getOperator();
             switch (val.getType()) {
-                case CssTypes.CSS_URL:
+				case CssTypes.CSS_URL:
+                case CssTypes.CSS_IMAGE:
                     values.add(val);
                     break;
                 case CssTypes.CSS_IDENT:

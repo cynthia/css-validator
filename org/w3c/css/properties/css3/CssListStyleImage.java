@@ -1,4 +1,4 @@
-// $Id: CssListStyleImage.java,v 1.1 2012-11-07 11:34:59 ylafon Exp $
+// $Id: CssListStyleImage.java,v 1.2 2012-11-07 15:46:02 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -58,9 +58,7 @@ public class CssListStyleImage extends org.w3c.css.properties.css.CssListStyleIm
 		op = expression.getOperator();
 
 		switch (val.getType()) {
-			case CssTypes.CSS_FUNCTION:
-				// TODO check gradient, image
-				// perhaps using val.getImage(); ?
+			case CssTypes.CSS_IMAGE:
 			case CssTypes.CSS_URL:
 				value = val;
 				break;

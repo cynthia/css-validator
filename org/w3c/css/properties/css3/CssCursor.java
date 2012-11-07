@@ -1,4 +1,4 @@
-// $Id: CssCursor.java,v 1.1 2012-10-19 10:05:53 ylafon Exp $
+// $Id: CssCursor.java,v 1.2 2012-11-07 15:46:02 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -80,6 +80,7 @@ public class CssCursor extends org.w3c.css.properties.css.CssCursor {
 			op = expression.getOperator();
 			switch (val.getType()) {
 				case CssTypes.CSS_URL:
+				case CssTypes.CSS_IMAGE:
 					if (lastIdent != null) {
 						throw new InvalidParamException("value",
 								val.toString(),
@@ -158,7 +159,7 @@ public class CssCursor extends org.w3c.css.properties.css.CssCursor {
 		// we must have <url number number>
 		CssValue val = expression.getValue();
 		ArrayList<CssValue> values = new ArrayList<CssValue>();
-		if (val.getType() != CssTypes.CSS_URL) {
+		if (val.getType() != CssTypes.CSS_URL && val.getType() != CssTypes.CSS_IMAGE) {
 			throw new InvalidParamException("value",
 					val.toString(),
 					caller.getPropertyName(), ac);
