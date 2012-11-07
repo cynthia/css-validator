@@ -1,9 +1,9 @@
-// $Id: CssListStylePosition.java,v 1.5 2012-11-07 11:34:56 ylafon Exp $
+// $Id: CssListStylePosition.java,v 1.1 2012-11-07 11:34:57 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
-package org.w3c.css.properties.css1;
+package org.w3c.css.properties.css2;
 
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
@@ -13,7 +13,7 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @spec http://www.w3.org/TR/2008/REC-CSS1-20080411/#list-style-position
+ * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/generate.html#propdef-list-style-position
  */
 public class CssListStylePosition extends org.w3c.css.properties.css.CssListStylePosition {
 
@@ -83,12 +83,15 @@ public class CssListStylePosition extends org.w3c.css.properties.css.CssListStyl
 					getPropertyName(), ac);
 		}
 		CssIdent id = (CssIdent) val;
-		value = getAllowedIdent(id);
-		if (value == null) {
-			throw new InvalidParamException("value",
-					val.toString(),
-					getPropertyName(), ac);
-
+		if (inherit.equals(id)) {
+			value = inherit;
+		} else {
+			value = getAllowedIdent(id);
+			if (value == null) {
+				throw new InvalidParamException("value",
+						val.toString(),
+						getPropertyName(), ac);
+			}
 		}
 		expression.next();
 	}
