@@ -1,5 +1,5 @@
 //
-// $Id: CssColor.java,v 1.24 2012-11-07 14:28:35 ylafon Exp $
+// $Id: CssColor.java,v 1.25 2012-11-07 15:46:38 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import static org.w3c.css.values.CssOperator.COMMA;
 
 /**
- * @version $Revision: 1.24 $
+ * @version $Revision: 1.25 $
  */
 public class CssColor extends CssValue {
 
@@ -269,7 +269,7 @@ public class CssColor extends CssValue {
     /**
      * Parse an ident color.
      */
-    private void setIdentColor(String s, ApplContext ac)
+    protected void setIdentColor(String s, ApplContext ac)
             throws InvalidParamException {
         String lower_s = s.toLowerCase();
         switch (ac.getCssVersion()) {
