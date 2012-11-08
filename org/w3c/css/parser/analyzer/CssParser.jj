@@ -3,7 +3,7 @@
  * (c) COPYRIGHT MIT and INRIA, 1997.
  * Please first read the full copyright statement in file COPYRIGHT.html
  *
- * $Id: CssParser.jj,v 1.90 2012-11-07 15:49:16 ylafon Exp $
+ * $Id: CssParser.jj,v 1.91 2012-11-08 16:14:03 ylafon Exp $
  *
  */
 
@@ -93,7 +93,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.90 $
+ * @version $Revision: 1.91 $
  */
 public abstract class CssParser {
 
@@ -2457,6 +2457,22 @@ CssValue function() :
 	    CssImage img = new CssImage();
 	    img.setImageList(exp, ac);
 	    return img;
+        } else if (funcname.equals("linear-gradient(")) {
+            CssImage img = new CssImage();
+            img.setLinearGradient(exp, ac);
+            return img;
+        } else if (funcname.equals("repeating-linear-gradient(")) {
+            CssImage img = new CssImage();
+            img.setRepeatingLinearGradient(exp, ac);
+            return img;
+        } else if (funcname.equals("radial-gradient(")) {
+            CssImage img = new CssImage();
+            img.setRadialGradient(exp, ac);
+            return img;
+        } else if (funcname.equals("repeating-radial-gradient(")) {
+            CssImage img = new CssImage();
+            img.setRepeatingRadialGradient(exp, ac);
+            return img;
 	} else if (funcname.equals("atsc-rgba(")) {
 	    if (getAtRule().toString().equals("@media atsc-tv")) {
 	        color.setATSCRGBAColor(exp, ac);

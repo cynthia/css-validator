@@ -73,7 +73,7 @@ import org.w3c.css.selectors.attributes.AttributeSuffix;
  * A CSS3 parser  
  *
  * @author Philippe Le Hegaret and Sijtsche Smeman
- * @version $Revision: 1.91 $
+ * @version $Revision: 1.92 $
  */
 public abstract class CssParser implements CssParserConstants {
 
@@ -4103,6 +4103,22 @@ CssExpression param = null;
         } else if (funcname.equals("image(")) {
             CssImage img = new CssImage();
             img.setImageList(exp, ac);
+            {if (true) return img;}
+        } else if (funcname.equals("linear-gradient(")) {
+            CssImage img = new CssImage();
+            img.setLinearGradient(exp, ac);
+            {if (true) return img;}
+        } else if (funcname.equals("repeating-linear-gradient(")) {
+            CssImage img = new CssImage();
+            img.setRepeatingLinearGradient(exp, ac);
+            {if (true) return img;}
+        } else if (funcname.equals("radial-gradient(")) {
+            CssImage img = new CssImage();
+            img.setRadialGradient(exp, ac);
+            {if (true) return img;}
+        } else if (funcname.equals("repeating-radial-gradient(")) {
+            CssImage img = new CssImage();
+            img.setRepeatingRadialGradient(exp, ac);
             {if (true) return img;}
         } else if (funcname.equals("atsc-rgba(")) {
             if (getAtRule().toString().equals("@media atsc-tv")) {
