@@ -1,4 +1,4 @@
-// $Id: CssListStyle.java,v 1.1 2012-11-07 11:34:53 ylafon Exp $
+// $Id: CssListStyle.java,v 1.2 2012-11-12 21:29:40 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -71,7 +71,7 @@ public class CssListStyle extends CssProperty {
 	 * Returns the name of this property
 	 */
 	public final String getPropertyName() {
-		return "list-style-position";
+		return "list-style";
 	}
 
 	/**
