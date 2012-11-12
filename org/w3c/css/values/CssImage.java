@@ -1,4 +1,4 @@
-// $Id: CssImage.java,v 1.5 2012-11-09 13:31:31 ylafon Exp $
+// $Id: CssImage.java,v 1.6 2012-11-12 08:47:25 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -142,6 +142,10 @@ public class CssImage extends CssValue {
 					c = new CssColor();
 					c.setShortRGBColor(val.toString(), ac);
 					v.add(c);
+					gotcolor = true;
+					break;
+				case CssTypes.CSS_COLOR:
+					v.add(val);
 					gotcolor = true;
 					break;
 				case CssTypes.CSS_IDENT:
