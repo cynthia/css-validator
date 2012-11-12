@@ -1,4 +1,4 @@
-// $Id: CssListStyleType.java,v 1.1 2012-11-07 11:34:59 ylafon Exp $
+// $Id: CssListStyleType.java,v 1.2 2012-11-12 09:12:21 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -136,6 +136,7 @@ public class CssListStyleType extends org.w3c.css.properties.css.CssListStyleTyp
 						// TODO check counter-style
 						break;
 					}
+					break;
 				}
 			default:
 				throw new InvalidParamException("value",
