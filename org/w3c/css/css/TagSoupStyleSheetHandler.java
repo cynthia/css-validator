@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: TagSoupStyleSheetHandler.java,v 1.13 2012-03-26 12:11:25 ylafon Exp $
+ * $Id: TagSoupStyleSheetHandler.java,v 1.14 2012-11-14 15:32:12 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -31,7 +31,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -560,6 +560,22 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
             reader.close();
         }
     }
+
+	/**
+	 * Parse an HTML document, given as a Reader
+	 * @param reader the Reader of the document
+	 * @param docref the String version of the URI of the document
+	 * @throws IOException
+	 * @throws SAXException
+	 */
+	public void parse(Reader reader, String docref) throws IOException, SAXException {
+		InputSource inputSource = new InputSource(reader);
+		try {
+			parse(inputSource, docref);
+		} finally {
+			reader.close();
+		}
+	}
 
     void parse(URL url) throws Exception {
         InputSource source = new InputSource();

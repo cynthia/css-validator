@@ -9,7 +9,7 @@
  * PURPOSE.
  * See W3C License http://www.w3.org/Consortium/Legal/ for more details.
  *
- * $Id: HTMLParserStyleSheetHandler.java,v 1.5 2012-03-26 12:11:25 ylafon Exp $
+ * $Id: HTMLParserStyleSheetHandler.java,v 1.6 2012-11-14 15:32:12 ylafon Exp $
  */
 package org.w3c.css.css;
 
@@ -46,7 +46,7 @@ import static nu.validator.htmlparser.common.XmlViolationPolicy.ALLOW;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandler,
         ErrorHandler, EntityResolver {
@@ -562,6 +562,22 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
             is.close();
         }
     }
+
+	/**
+	 * Parse an HTML document, given as a Reader
+	 *
+	 * @param reader the Reader of the document
+	 * @throws IOException
+	 * @throws SAXException
+	 */
+	public void parse(Reader reader) throws IOException, SAXException {
+		InputSource inputSource = new InputSource(reader);
+		try {
+			parse(inputSource, null);
+		} finally {
+			reader.close();
+		}
+	}
 
     /**
      * Parse an HTML document, given as a Reader
