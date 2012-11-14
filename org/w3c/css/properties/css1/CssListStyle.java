@@ -1,4 +1,4 @@
-// $Id: CssListStyle.java,v 1.7 2012-11-07 11:34:54 ylafon Exp $
+// $Id: CssListStyle.java,v 1.8 2012-11-14 13:58:27 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -121,7 +121,9 @@ public class CssListStyle extends org.w3c.css.properties.css.CssListStyle {
 				v.add(positionVal);
 			}
 			if (imageVal != null) {
-				v.add(imageVal);
+				if (typeVal != none || imageVal != none) {
+					v.add(imageVal);
+				}
 			}
 			value = (v.size() == 1) ? v.get(0) : new CssValueList(v);
 		}
