@@ -1,5 +1,5 @@
 //
-// $Id: DocumentParser.java,v 1.11 2012-03-26 12:11:25 ylafon Exp $
+// $Id: DocumentParser.java,v 1.12 2012-11-16 18:22:34 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -19,7 +19,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public final class DocumentParser {
 
@@ -55,8 +55,8 @@ public final class DocumentParser {
             csshandler.parseStyleSheet(ac, reader, htmlURL);
             style = csshandler.getStyleSheet();
         } else if (mediatype.match(MimeType.TEXT_HTML) == MimeType.MATCH_SPECIFIC_SUBTYPE) {
-            TagSoupStyleSheetHandler htmlhandler = new TagSoupStyleSheetHandler(htmlURL, ac);
-            //HTMLParserStyleSheetHandler htmlhandler = new HTMLParserStyleSheetHandler(htmlURL, ac);
+            //TagSoupStyleSheetHandler htmlhandler = new TagSoupStyleSheetHandler(htmlURL, ac);
+            HTMLParserStyleSheetHandler htmlhandler = new HTMLParserStyleSheetHandler(htmlURL, ac);
             htmlhandler.parse(reader);
             style = htmlhandler.getStyleSheet();
             if (style != null) {
@@ -93,8 +93,8 @@ public final class DocumentParser {
                 style = parser.getStyleSheet();
             } else if (urlLower.endsWith(".html") || urlLower.endsWith(".htm") ||
                     urlLower.endsWith(".shtml") || urlLower.endsWith("/")) {
-                TagSoupStyleSheetHandler handler = new TagSoupStyleSheetHandler(htmlURL, ac);
-                //HTMLParserStyleSheetHandler handler = new HTMLParserStyleSheetHandler(htmlURL, ac);
+                //TagSoupStyleSheetHandler handler = new TagSoupStyleSheetHandler(htmlURL, ac);
+                HTMLParserStyleSheetHandler handler = new HTMLParserStyleSheetHandler(htmlURL, ac);
                 handler.parse(htmlURL);
                 style = handler.getStyleSheet();
                 if (style != null) {
@@ -146,10 +146,10 @@ public final class DocumentParser {
                 }
 
                 if (contentType.match(MimeType.TEXT_HTML) == MimeType.MATCH_SPECIFIC_SUBTYPE) {
-//                    HTMLParserStyleSheetHandler handler;
-//                    handler = new HTMLParserStyleSheetHandler(htmlURL, ac);
-                    TagSoupStyleSheetHandler handler;
-                    handler = new TagSoupStyleSheetHandler(htmlURL, ac);
+                    HTMLParserStyleSheetHandler handler;
+                    handler = new HTMLParserStyleSheetHandler(htmlURL, ac);
+//                    TagSoupStyleSheetHandler handler;
+//                    handler = new TagSoupStyleSheetHandler(htmlURL, ac);
                     handler.parse(urlString, connection);
                     style = handler.getStyleSheet();
 
