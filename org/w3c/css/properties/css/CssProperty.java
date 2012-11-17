@@ -1,4 +1,4 @@
-// $Id: CssProperty.java,v 1.5 2011-10-21 12:52:30 ylafon Exp $
+// $Id: CssProperty.java,v 1.6 2012-11-17 20:37:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997-2010.
@@ -24,7 +24,7 @@ import org.w3c.css.values.CssIdent;
  * If you want to add some properties to the parser, you should subclass this
  * class.
  *
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public abstract class CssProperty
         implements Cloneable, StyleSheetOrigin {

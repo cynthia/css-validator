@@ -1,4 +1,4 @@
-// $Id: CssListStyleImage.java,v 1.2 2012-11-07 15:46:02 ylafon Exp $
+// $Id: CssListStyleImage.java,v 1.3 2012-11-17 20:37:15 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -20,6 +20,7 @@ public class CssListStyleImage extends org.w3c.css.properties.css.CssListStyleIm
 	 * Create a new CssListStyleImage
 	 */
 	public CssListStyleImage() {
+		value = initial;
 	}
 
 

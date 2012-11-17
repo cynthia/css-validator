@@ -1,4 +1,4 @@
-// $Id: CssFontSize.java,v 1.6 2012-08-23 15:10:56 ylafon Exp $
+// $Id: CssFontSize.java,v 1.7 2012-11-17 20:37:15 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
