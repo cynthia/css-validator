@@ -1,4 +1,4 @@
-// $Id: CssColorCSS3.java,v 1.1 2011-09-29 09:09:00 ylafon Exp $
+// $Id: CssColorCSS3.java,v 1.2 2012-11-17 20:40:00 ylafon Exp $
 // Author: Jean-Guilhem Rouel
 // (c) COPYRIGHT MIT, ERCIM and Keio, 2005.
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -12,6 +12,8 @@ import java.util.HashMap;
 public class CssColorCSS3 {
     protected static final HashMap<String, RGB> definedRGBColorsCSS3;
     private static final RGBA trans;
+
+	static final CssIdent currentColor = CssIdent.getIdent("currentColor");
 
     public static RGB getRGB(String ident) {
         return definedRGBColorsCSS3.get(ident);
