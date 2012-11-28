@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.139 2012-11-05 17:36:13 ylafon Exp $
+// $Id: Css3Style.java,v 1.140 2012-11-28 09:18:17 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -75,6 +75,7 @@ import org.w3c.css.properties.css.CssNavUp;
 import org.w3c.css.properties.css.CssNavDown;
 import org.w3c.css.properties.css.CssNavLeft;
 import org.w3c.css.properties.css.CssNavRight;
+import org.w3c.css.properties.css.CssObjectFit;
 import org.w3c.css.properties.css.CssOpacity;
 import org.w3c.css.properties.css.CssOrder;
 import org.w3c.css.properties.css.CssOutlineOffset;
@@ -230,6 +231,8 @@ public class Css3Style extends ATSCStyle {
 
 	public CssOverflowX cssOverflowX;
 	public CssOverflowY	cssOverflowY;
+	
+	public CssObjectFit cssObjectFit;
 
 	CssDropInitialAfterAdjust cssDropInitialAfterAdjust;
 	CssDropInitialAfterAlign cssDropInitialAfterAlign;
@@ -1400,6 +1403,15 @@ public class Css3Style extends ATSCStyle {
 		return cssTextOverflow;
 	}
 
+	public CssObjectFit getObjectFit() {
+		if (cssObjectFit == null) {
+			cssObjectFit =
+					(CssObjectFit) style.CascadingOrder(
+							new CssObjectFit(), style, selector);
+		}
+		return cssObjectFit;
+	}
+	
 	///
 
 	/**
