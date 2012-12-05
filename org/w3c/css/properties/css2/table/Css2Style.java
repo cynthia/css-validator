@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.5 2012-12-05 15:22:03 ylafon Exp $
+// $Id: Css2Style.java,v 1.6 2012-12-05 15:47:17 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@
 package org.w3c.css.properties.css2.table;
 
 /**
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
 
@@ -17,7 +17,6 @@ public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
     RowSpanATSC rowSpanATSC;
     ColumnSpan columnSpan;
     ColumnSpanATSC columnSpanATSC;
-    CaptionSide captionSide;
     TableLayout tableLayout;
     TableLayoutATSC tableLayoutATSC;
     BorderSpacing borderSpacing;
@@ -81,17 +80,6 @@ public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
 		style.CascadingOrder(new TableLayoutATSC(), style, selector);
 	}
 	return tableLayoutATSC;
-    }
-
-    /**
-     * Get the caption-side property
-     */
-    public final CaptionSide getCaptionSide() {
-	if (captionSide == null) {
-	    captionSide = (CaptionSide)
-		style.CascadingOrder(new CaptionSide(), style, selector);
-	}
-	return captionSide;
     }
 
     /**
