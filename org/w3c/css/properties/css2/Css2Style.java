@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.25 2012-11-06 11:22:01 ylafon Exp $
+// $Id: Css2Style.java,v 1.26 2012-12-05 10:19:37 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,6 +14,7 @@ import org.w3c.css.properties.css.CssCounterIncrement;
 import org.w3c.css.properties.css.CssCounterReset;
 import org.w3c.css.properties.css.CssCursor;
 import org.w3c.css.properties.css.CssDirection;
+import org.w3c.css.properties.css.CssEmptyCells;
 import org.w3c.css.properties.css.CssLeft;
 import org.w3c.css.properties.css.CssMarkerOffset;
 import org.w3c.css.properties.css.CssMaxHeight;
@@ -38,7 +39,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.25 $
+ * @version $Revision: 1.26 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -87,6 +88,8 @@ public class Css2Style extends ACssStyle {
 	public CssQuotes cssQuotes;
 	public CssCounterIncrement cssCounterIncrement;
 	public CssCounterReset cssCounterReset;
+	
+	public CssEmptyCells cssEmptyCells;
 
 	/**
 	 * Get the azimuth
@@ -426,6 +429,14 @@ public class Css2Style extends ACssStyle {
 		return cssCounterReset;
 	}
 
+	public final CssEmptyCells getEmptyCells() {
+		if (cssEmptyCells == null) {
+			cssEmptyCells =
+					(CssEmptyCells) style.CascadingOrder(new CssEmptyCells(),
+							style, selector);
+		}
+		return cssEmptyCells;
+	}
 	/**
 	 * Find conflicts in this Style
 	 *

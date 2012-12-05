@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.3 2011-09-11 20:30:23 ylafon Exp $
+// $Id: Css2Style.java,v 1.4 2012-12-05 10:19:37 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@
 package org.w3c.css.properties.css2.table;
 
 /**
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
 
@@ -24,8 +24,6 @@ public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
     BorderCollapseATSC borderCollapseATSC;
     BorderSpacing borderSpacing;
     BorderSpacingATSC borderSpacingATSC;
-    EmptyCells emptyCells;
-    EmptyCellsATSC emptyCellsATSC;
     SpeakHeader speakHeader;
     SpeakHeaderATSC speakHeaderATSC;
 
@@ -134,25 +132,6 @@ public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
 		style.CascadingOrder(new BorderSpacingATSC(), style, selector);
 	}
 	return borderSpacingATSC;
-    }
-
-    /**
-     * Get the emtpy-cells property
-     */
-    public final EmptyCells getEmptyCells() {
-	if (emptyCells == null) {
-	    emptyCells = (EmptyCells)
-		style.CascadingOrder(new EmptyCells(), style, selector);
-	}
-	return emptyCells;
-    }
-
-    public final EmptyCellsATSC getEmptyCellsATSC() {
-	if (emptyCellsATSC == null) {
-	    emptyCellsATSC = (EmptyCellsATSC)
-		style.CascadingOrder(new EmptyCellsATSC(), style, selector);
-	}
-	return emptyCellsATSC;
     }
 
     /**
