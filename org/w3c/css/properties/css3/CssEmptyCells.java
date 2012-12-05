@@ -1,5 +1,5 @@
 //
-// $Id: CssEmptyCells.java,v 1.1 2012-12-05 10:19:37 ylafon Exp $
+// $Id: CssEmptyCells.java,v 1.2 2012-12-05 10:25:04 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -42,6 +42,7 @@ public class CssEmptyCells extends org.w3c.css.properties.css.CssEmptyCells {
      * Create a new CssEmptyCells
      */
     public CssEmptyCells() {
+		value = initial;
     }
 
     /**
