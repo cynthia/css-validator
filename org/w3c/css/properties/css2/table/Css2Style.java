@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.4 2012-12-05 10:19:37 ylafon Exp $
+// $Id: Css2Style.java,v 1.5 2012-12-05 15:22:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@
 package org.w3c.css.properties.css2.table;
 
 /**
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
 
@@ -20,8 +20,6 @@ public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
     CaptionSide captionSide;
     TableLayout tableLayout;
     TableLayoutATSC tableLayoutATSC;
-    BorderCollapse borderCollapse;
-    BorderCollapseATSC borderCollapseATSC;
     BorderSpacing borderSpacing;
     BorderSpacingATSC borderSpacingATSC;
     SpeakHeader speakHeader;
@@ -94,25 +92,6 @@ public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
 		style.CascadingOrder(new CaptionSide(), style, selector);
 	}
 	return captionSide;
-    }
-
-    /**
-     * Get the border-collapse property
-     */
-    public final BorderCollapse getBorderCollapse() {
-	if (borderCollapse == null) {
-	    borderCollapse = (BorderCollapse)
-		style.CascadingOrder(new BorderCollapse(), style, selector);
-	}
-	return borderCollapse;
-    }
-
-    public final BorderCollapseATSC getBorderCollapseATSC() {
-	if (borderCollapseATSC == null) {
-	    borderCollapseATSC = (BorderCollapseATSC)
-		style.CascadingOrder(new BorderCollapseATSC(), style, selector);
-	}
-	return borderCollapseATSC;
     }
 
     /**

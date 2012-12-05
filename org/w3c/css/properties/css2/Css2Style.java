@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.26 2012-12-05 10:19:37 ylafon Exp $
+// $Id: Css2Style.java,v 1.27 2012-12-05 15:22:03 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,6 +8,7 @@ package org.w3c.css.properties.css2;
 
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.properties.aural.ACssStyle;
+import org.w3c.css.properties.css.CssBorderCollapse;
 import org.w3c.css.properties.css.CssBottom;
 import org.w3c.css.properties.css.CssClip;
 import org.w3c.css.properties.css.CssCounterIncrement;
@@ -39,7 +40,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.26 $
+ * @version $Revision: 1.27 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -89,6 +90,7 @@ public class Css2Style extends ACssStyle {
 	public CssCounterIncrement cssCounterIncrement;
 	public CssCounterReset cssCounterReset;
 	
+	public CssBorderCollapse cssBorderCollapse;
 	public CssEmptyCells cssEmptyCells;
 
 	/**
@@ -429,6 +431,15 @@ public class Css2Style extends ACssStyle {
 		return cssCounterReset;
 	}
 
+	public final CssBorderCollapse getBorderCollapse() {
+		if (cssBorderCollapse == null) {
+			cssBorderCollapse =
+					(CssBorderCollapse) style.CascadingOrder(new CssBorderCollapse(),
+							style, selector);
+		}
+		return cssBorderCollapse;
+	}
+	
 	public final CssEmptyCells getEmptyCells() {
 		if (cssEmptyCells == null) {
 			cssEmptyCells =
