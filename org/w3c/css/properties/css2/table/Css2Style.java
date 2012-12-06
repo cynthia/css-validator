@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.6 2012-12-05 15:47:17 ylafon Exp $
+// $Id: Css2Style.java,v 1.7 2012-12-06 15:54:48 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -9,7 +9,7 @@
 package org.w3c.css.properties.css2.table;
 
 /**
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
 
@@ -17,8 +17,6 @@ public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
     RowSpanATSC rowSpanATSC;
     ColumnSpan columnSpan;
     ColumnSpanATSC columnSpanATSC;
-    TableLayout tableLayout;
-    TableLayoutATSC tableLayoutATSC;
     BorderSpacing borderSpacing;
     BorderSpacingATSC borderSpacingATSC;
     SpeakHeader speakHeader;
@@ -61,25 +59,6 @@ public class Css2Style extends org.w3c.css.properties.css2.Css2Style {
 		style.CascadingOrder(new ColumnSpanATSC(), style, selector);
 	}
 	return columnSpanATSC;
-    }
-
-    /**
-     * Get the table-layout property
-     */
-    public final TableLayout getTableLayout() {
-	if (tableLayout == null) {
-	    tableLayout = (TableLayout)
-		style.CascadingOrder(new TableLayout(), style, selector);
-	}
-	return tableLayout;
-    }
-
-    public final TableLayoutATSC getTableLayoutATSC() {
-	if (tableLayoutATSC == null) {
-	    tableLayoutATSC = (TableLayoutATSC)
-		style.CascadingOrder(new TableLayoutATSC(), style, selector);
-	}
-	return tableLayoutATSC;
     }
 
     /**
