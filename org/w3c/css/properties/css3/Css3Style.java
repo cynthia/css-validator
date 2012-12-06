@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.143 2012-11-28 15:58:54 ylafon Exp $
+// $Id: Css3Style.java,v 1.144 2012-12-06 19:16:43 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -445,6 +445,15 @@ public class Css3Style extends ATSCStyle {
 		return cssColumnCount;
 	}
 
+	public CssColumnSpan getColumnSpan() {
+		if (cssColumnSpan == null) {
+			cssColumnSpan =
+					(CssColumnSpan) style.CascadingOrder(
+							new CssColumnSpan(), style, selector);
+		}
+		return cssColumnSpan;
+	}
+	
 	public CssColumnWidth getColumnWidth() {
 		if (cssColumnWidth == null) {
 			cssColumnWidth =
