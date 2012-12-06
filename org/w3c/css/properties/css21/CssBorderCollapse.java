@@ -1,8 +1,7 @@
+// $Id: CssBorderCollapse.java,v 1.2 2012-12-06 15:35:42 ylafon Exp $
+// Author: Yves Lafon <ylafon@w3.org>
 //
-// $Id: CssBorderCollapse.java,v 1.1 2012-12-05 15:22:03 ylafon Exp $
-// From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
-//
-// (c) COPYRIGHT MIT and INRIA, 1997.
+// (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
 // Please first read the full copyright statement in file COPYRIGHT.html
 package org.w3c.css.properties.css21;
 
