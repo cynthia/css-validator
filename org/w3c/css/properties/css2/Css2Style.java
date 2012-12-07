@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.30 2012-12-06 18:58:13 ylafon Exp $
+// $Id: Css2Style.java,v 1.31 2012-12-07 12:18:56 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -32,6 +32,7 @@ import org.w3c.css.properties.css.CssOverflow;
 import org.w3c.css.properties.css.CssPosition;
 import org.w3c.css.properties.css.CssQuotes;
 import org.w3c.css.properties.css.CssRight;
+import org.w3c.css.properties.css.CssSpeakHeader;
 import org.w3c.css.properties.css.CssTableLayout;
 import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
@@ -43,7 +44,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.30 $
+ * @version $Revision: 1.31 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -98,6 +99,7 @@ public class Css2Style extends ACssStyle {
 	public CssBorderSpacing cssBorderSpacing;
 	public CssEmptyCells cssEmptyCells;
 	public CssTableLayout cssTableLayout;
+	public CssSpeakHeader cssSpeakHeader;
 
 	/**
 	 * Get the azimuth
@@ -480,6 +482,15 @@ public class Css2Style extends ACssStyle {
 							style, selector);
 		}
 		return cssBorderSpacing;
+	}
+
+	public final CssSpeakHeader getSpeakHeader() {
+		if (cssSpeakHeader == null) {
+			cssSpeakHeader =
+					(CssSpeakHeader) style.CascadingOrder(new CssSpeakHeader(),
+							style, selector);
+		}
+		return cssSpeakHeader;
 	}
 	/**
 	 * Find conflicts in this Style
