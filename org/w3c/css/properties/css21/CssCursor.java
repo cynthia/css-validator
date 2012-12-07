@@ -1,4 +1,4 @@
-// $Id: CssCursor.java,v 1.1 2012-10-19 10:05:53 ylafon Exp $
+// $Id: CssCursor.java,v 1.2 2012-12-07 12:32:09 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -90,15 +90,17 @@ public class CssCursor extends org.w3c.css.properties.css.CssCursor {
 						value = inherit;
 						break;
 					}
-					lastIdent = getMatchingIdent((CssIdent) val);
-					// not recognized... exit
 					if (lastIdent == null) {
-						throw new InvalidParamException("value",
-								val.toString(),
-								getPropertyName(), ac);
+						lastIdent = getMatchingIdent((CssIdent) val);
+						// not recognized... exit
+						if (lastIdent == null) {
+							throw new InvalidParamException("value",
+									val.toString(),
+									getPropertyName(), ac);
+						}
+						values.add(val);
+						break;
 					}
-					values.add(val);
-					break;
 				default:
 					throw new InvalidParamException("value",
 							val.toString(),
