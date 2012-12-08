@@ -1,4 +1,4 @@
-# Master localization string file: $Id: Messages.properties.en,v 1.58 2012-11-05 10:36:48 ylafon Exp $
+# Master localization string file: $Id: Messages.properties.en,v 1.59 2012-12-08 15:31:57 ylafon Exp $
 
 direction: ltr
 language_name: English
@@ -387,6 +387,7 @@ error.onlyATSC: %s this function is only for the atsc-tv medium
 
 warning.otherprofile: property %s does not exist for this profile, but is validated conforming to another profile
 warning.deprecated: The value '%s' is deprecated
+warning.deprecatedproperty: The property '%s' is deprecated
 
 warning.float-no-width: In (x)HTML+CSS, floated elements need to have a width declared. Only elements with an intrinsic width (html, img, input, textarea, select, or object) are not affected
 

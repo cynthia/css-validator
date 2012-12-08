@@ -4,7 +4,7 @@
  *  en Informatique et en Automatique, Keio University).
  * All Rights Reserved. http://www.w3.org/Consortium/Legal/
  *
- * $Id: ApplContext.java,v 1.26 2012-03-26 12:11:26 ylafon Exp $
+ * $Id: ApplContext.java,v 1.27 2012-12-08 15:31:57 ylafon Exp $
  */
 package org.w3c.css.util;
 
@@ -27,7 +27,7 @@ import java.util.HashMap;
 
 /**
  * @author Philippe Le Hegaret
- * @version $Revision: 1.26 $
+ * @version $Revision: 1.27 $
  */
 public class ApplContext {
 

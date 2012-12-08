@@ -1,5 +1,5 @@
 //
-// $Id: Warning.java,v 1.15 2011-09-17 06:02:28 ylafon Exp $
+// $Id: Warning.java,v 1.16 2012-12-08 15:31:57 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,7 +12,7 @@ import org.w3c.css.properties.css.CssProperty;
 /**
  * This class is use to manage all warning every where
  *
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public class Warning implements Comparable<Warning> {
     String sourceFile;
