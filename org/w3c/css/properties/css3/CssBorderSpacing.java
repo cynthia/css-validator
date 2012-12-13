@@ -1,4 +1,4 @@
-// $Id: CssBorderSpacing.java,v 1.1 2012-12-06 18:58:14 ylafon Exp $
+// $Id: CssBorderSpacing.java,v 1.2 2012-12-13 12:42:38 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -54,6 +54,7 @@ public class CssBorderSpacing extends org.w3c.css.properties.css.CssBorderSpacin
 			val = expression.getValue();
 			op = expression.getOperator();
 			switch (val.getType()) {
+				case CssTypes.CSS_NUMBER:
 				case CssTypes.CSS_LENGTH:
 					CssLength l = val.getLength();
 					l.checkPositiveness(ac, this);
