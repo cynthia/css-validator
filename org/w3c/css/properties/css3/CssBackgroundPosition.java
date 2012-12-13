@@ -1,4 +1,4 @@
-// $Id: CssBackgroundPosition.java,v 1.6 2012-11-09 13:31:30 ylafon Exp $
+// $Id: CssBackgroundPosition.java,v 1.7 2012-12-13 08:52:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 // Rewritten by Yves Lafon <ylafon@w3.org>
 
@@ -399,65 +399,6 @@ public class CssBackgroundPosition extends org.w3c.css.properties.css.CssBackgro
 
 	public static boolean isVertical(CssIdent ident) {
 		return (top.equals(ident) || bottom.equals(ident));
-	}
-
-	// placeholder for the different values
-
-	public class CssBackgroundPositionValue extends CssValueList {
-		public CssValue vertical = null;
-		public CssValue horizontal = null;
-		public CssValue vertical_offset = null;
-		public CssValue horizontal_offset = null;
-
-		public CssValue val_vertical = defaultPercent0;
-		public CssValue val_horizontal = defaultPercent0;
-
-		public boolean equals(CssBackgroundPositionValue v) {
-			// check vertical compatibility (with optional values)
-			if (!val_vertical.equals(v.val_vertical)) {
-				return false;
-			}
-			if (vertical_offset != null) {
-				if (!vertical_offset.equals(v.vertical_offset)) {
-					return false;
-				}
-			} else if (v.vertical_offset != null) {
-				return false;
-			}
-
-			if (!val_horizontal.equals(v.val_horizontal)) {
-				return false;
-			}
-			if (horizontal_offset != null) {
-				if (!horizontal_offset.equals(v.horizontal_offset)) {
-					return false;
-				}
-			} else if (v.horizontal_offset != null) {
-				return false;
-			}
-			// yeah!
-			return true;
-		}
-
-		public String toString() {
-			StringBuilder sb = new StringBuilder();
-			if (vertical != null) {
-				sb.append(vertical);
-				if (vertical_offset != null) {
-					sb.append(' ').append(vertical_offset);
-				}
-				if (horizontal != null) {
-					sb.append(' ');
-				}
-			}
-			if (horizontal != null) {
-				sb.append(horizontal);
-				if (horizontal_offset != null) {
-					sb.append(' ').append(horizontal_offset);
-				}
-			}
-			return sb.toString();
-		}
 	}
 
 	public static CssValue checkSyntax(CssExpression expression, ApplContext ac, String caller)
