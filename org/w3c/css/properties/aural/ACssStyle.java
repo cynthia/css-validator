@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.7 2011-09-11 20:30:22 ylafon Exp $
+// $Id: ACssStyle.java,v 1.8 2012-12-17 14:21:16 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,11 +14,10 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class ACssStyle extends Css1Style {
 
-  ACssVolume acssVolume;
   ACssPause  acssPause = new ACssPause(); // it's a macro
   ACssCue  acssCue = new ACssCue(); // it's a macro
   ACssSpeechRate acssSpeechRate;
@@ -46,16 +45,6 @@ public class ACssStyle extends Css1Style {
   ACssVoiceDuration acssVoiceDuration;
   ACssInterpretAs  acssInterpretAs;
   ACssPhonemes 	   acssPhonemes;
-
-  /**
-   * Get the volume
-   */
-  public ACssVolume getVolume() {
-    if (acssVolume == null) {
-      acssVolume = (ACssVolume) style.CascadingOrder(new ACssVolume(), style, selector);
-    }
-    return acssVolume;
-  }
 
   /**
    * Get the pause after

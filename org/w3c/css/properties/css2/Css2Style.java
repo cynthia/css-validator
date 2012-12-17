@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.31 2012-12-07 12:18:56 ylafon Exp $
+// $Id: Css2Style.java,v 1.32 2012-12-17 14:21:17 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -8,6 +8,7 @@ package org.w3c.css.properties.css2;
 
 import org.w3c.css.parser.CssSelectors;
 import org.w3c.css.properties.aural.ACssStyle;
+import org.w3c.css.properties.css.CssAzimuth;
 import org.w3c.css.properties.css.CssBorderCollapse;
 import org.w3c.css.properties.css.CssBorderSpacing;
 import org.w3c.css.properties.css.CssBottom;
@@ -17,6 +18,7 @@ import org.w3c.css.properties.css.CssCounterIncrement;
 import org.w3c.css.properties.css.CssCounterReset;
 import org.w3c.css.properties.css.CssCursor;
 import org.w3c.css.properties.css.CssDirection;
+import org.w3c.css.properties.css.CssElevation;
 import org.w3c.css.properties.css.CssEmptyCells;
 import org.w3c.css.properties.css.CssLeft;
 import org.w3c.css.properties.css.CssMarkerOffset;
@@ -38,13 +40,14 @@ import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
 import org.w3c.css.properties.css.CssUnicodeBidi;
 import org.w3c.css.properties.css.CssVisibility;
+import org.w3c.css.properties.css.CssVolume;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.31 $
+ * @version $Revision: 1.32 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -52,8 +55,9 @@ public class Css2Style extends ACssStyle {
 	/**
 	 * aural properties
 	 */
-	public org.w3c.css.properties.css.CssAzimuth cssAzimuth;
-	public org.w3c.css.properties.css.CssElevation cssElevation;
+	public CssAzimuth cssAzimuth;
+	public CssElevation cssElevation;
+	public CssVolume cssVolume;
 
 	/**
 	 * font properties
@@ -491,6 +495,15 @@ public class Css2Style extends ACssStyle {
 							style, selector);
 		}
 		return cssSpeakHeader;
+	}
+
+	public final CssVolume getVolume() {
+		if (cssVolume == null) {
+			cssVolume =
+					(CssVolume) style.CascadingOrder(new CssVolume(),
+							style, selector);
+		}
+		return cssVolume;
 	}
 	/**
 	 * Find conflicts in this Style
