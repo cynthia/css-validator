@@ -1,4 +1,4 @@
-// $Id: CssVolume.java,v 1.1 2012-12-17 14:21:17 ylafon Exp $
+// $Id: CssVolume.java,v 1.2 2012-12-17 15:11:45 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -67,7 +67,7 @@ public class CssVolume extends org.w3c.css.properties.css.CssVolume {
 		op = expression.getOperator();
 
 		// same as CSS21 plus a warning
-		ac.getFrame().addWarning("deprecatedproperty", expression.toStringFromStart());
+		ac.getFrame().addWarning("deprecatedproperty", getPropertyName());
 
 		switch (val.getType()) {
 			case CssTypes.CSS_NUMBER:
