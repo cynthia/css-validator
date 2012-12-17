@@ -1,5 +1,5 @@
 //
-// $Id: CssPercentage.java,v 1.17 2012-12-17 15:21:09 ylafon Exp $
+// $Id: CssPercentage.java,v 1.18 2012-12-17 15:26:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2010.
@@ -33,7 +33,7 @@ import java.math.BigDecimal;
  * In all inherited CSS1 properties, if the value is specified as a percentage,
  * child elements inherit the resultant value, not the percentage value.
  *
- * @version $Revision: 1.17 $
+ * @version $Revision: 1.18 $
  */
 public class CssPercentage extends CssCheckableValue {
 
@@ -239,7 +239,7 @@ public class CssPercentage extends CssCheckableValue {
 		if (value.compareTo(other) > 0) {
 			String[] s = new String[2];
 			s[0] = toString();
-			s[1] = Double.toString(d) + '%';
+			s[1] = other.toPlainString() + '%';
 			ac.getFrame().addWarning("lowerequal", s);
 		}
 	}
