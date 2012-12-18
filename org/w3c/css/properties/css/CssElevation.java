@@ -1,5 +1,5 @@
 //
-// $Id: CssElevation.java,v 1.1 2011-09-11 20:30:22 ylafon Exp $
+// $Id: CssElevation.java,v 1.2 2012-12-18 19:32:29 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -15,11 +15,11 @@ import org.w3c.css.values.CssValue;
 
 
 /**
- * @version $Revision: 1.1 $
+ * @since CSS2
  */
 public class CssElevation extends CssProperty {
 
-    CssValue value;
+    public CssValue value;
 
     /**
      * Create a new CssElevation
