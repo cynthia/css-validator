@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.8 2012-12-17 14:21:16 ylafon Exp $
+// $Id: ACssStyle.java,v 1.9 2012-12-18 09:47:59 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class ACssStyle extends Css1Style {
 
@@ -33,9 +33,7 @@ public class ACssStyle extends Css1Style {
   ACssSpeakDate    acssSpeakDate;
   ACssSpeakNumeral acssSpeakNumeral;
   ACssSpeakTime    acssSpeakTime;
-  ACssSpeak        acssSpeak;
 
-  ACssSpeakCSS3    acssSpeakCSS3;
   ACssVoiceVolume  acssVoiceVolume;
   ACssVoiceBalance acssVoiceBalance;
   ACssVoiceFamilyCSS3 acssVoiceFamilyCSS3;
@@ -231,25 +229,6 @@ public class ACssStyle extends Css1Style {
 	(ACssSpeakTime) style.CascadingOrder(new ACssSpeakTime(), style, selector);
     }
     return acssSpeakTime;
-  }
-
-  /**
-   * Get the speak
-   */
-  public ACssSpeak getSpeak() {
-    if (acssSpeak == null) {
-      acssSpeak =
-	(ACssSpeak) style.CascadingOrder(new ACssSpeak(), style, selector);
-    }
-    return acssSpeak;
-  }
-
-  public ACssSpeakCSS3 getSpeakCSS3() {
-    if (acssSpeakCSS3 == null) {
-      acssSpeakCSS3 =
-	(ACssSpeakCSS3) style.CascadingOrder(new ACssSpeakCSS3(), style, selector);
-    }
-    return acssSpeakCSS3;
   }
 
   public ACssVoiceVolume getVoiceVolume() {
