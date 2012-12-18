@@ -1,4 +1,4 @@
-// $Id: CssSpeak.java,v 1.1 2012-12-18 09:48:00 ylafon Exp $
+// $Id: CssSpeak.java,v 1.2 2012-12-18 09:56:16 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -41,6 +41,7 @@ public class CssSpeak extends org.w3c.css.properties.css.CssSpeak {
 	 * Create a new CssSpeak
 	 */
 	public CssSpeak() {
+		value = initial;
 	}
 
 	/**

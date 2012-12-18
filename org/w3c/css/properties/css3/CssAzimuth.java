@@ -1,5 +1,5 @@
 //
-// $Id: CssAzimuth.java,v 1.1 2012-12-18 09:48:00 ylafon Exp $
+// $Id: CssAzimuth.java,v 1.2 2012-12-18 09:56:16 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -59,6 +59,7 @@ public class CssAzimuth extends org.w3c.css.properties.css.CssAzimuth {
      * Create a new CssAzimuth
      */
     public CssAzimuth() {
+		identValue = initial;
     }
 
     // check if the ident is in the allowed values
