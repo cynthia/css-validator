@@ -1,4 +1,4 @@
-// $Id: CssSpeechRate.java,v 1.1 2012-12-21 15:55:51 ylafon Exp $
+// $Id: CssSpeechRate.java,v 1.2 2012-12-21 18:25:48 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -44,6 +44,7 @@ public class CssSpeechRate extends org.w3c.css.properties.css.CssSpeechRate {
 	 * Create a new CssSpeechRate
 	 */
 	public CssSpeechRate() {
+		value = initial;
 	}
 
 	/**
