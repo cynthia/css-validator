@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.9 2012-12-18 09:47:59 ylafon Exp $
+// $Id: ACssStyle.java,v 1.10 2012-12-21 15:55:47 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,13 +14,12 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class ACssStyle extends Css1Style {
 
   ACssPause  acssPause = new ACssPause(); // it's a macro
   ACssCue  acssCue = new ACssCue(); // it's a macro
-  ACssSpeechRate acssSpeechRate;
   ACssVoiceFamily acssVoiceFamily;
   ACssPitch acssPitch;
   ACssPitchRange acssPitchRange;
@@ -75,16 +74,6 @@ public class ACssStyle extends Css1Style {
       acssPause.pauseBefore = getPauseBefore();
     }
     return acssPause;
-  }
-
-  /**
-   * Get the speech rate
-   */
-  public ACssSpeechRate getSpeechRate() {
-    if (acssSpeechRate == null) {
-      acssSpeechRate = (ACssSpeechRate) style.CascadingOrder(new ACssSpeechRate(), style, selector);
-    }
-    return acssSpeechRate;
   }
 
   /**

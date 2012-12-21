@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.33 2012-12-18 09:47:59 ylafon Exp $
+// $Id: Css2Style.java,v 1.34 2012-12-21 15:55:50 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -36,6 +36,7 @@ import org.w3c.css.properties.css.CssQuotes;
 import org.w3c.css.properties.css.CssRight;
 import org.w3c.css.properties.css.CssSpeak;
 import org.w3c.css.properties.css.CssSpeakHeader;
+import org.w3c.css.properties.css.CssSpeechRate;
 import org.w3c.css.properties.css.CssTableLayout;
 import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
@@ -48,7 +49,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.33 $
+ * @version $Revision: 1.34 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -60,6 +61,7 @@ public class Css2Style extends ACssStyle {
 	public CssElevation cssElevation;
 	public CssVolume cssVolume;
 	public CssSpeak cssSpeak;
+	public CssSpeechRate cssSpeechRate;
 
 	/**
 	 * font properties
@@ -516,6 +518,16 @@ public class Css2Style extends ACssStyle {
 		}
 		return cssSpeak;
 	}
+
+	public final CssSpeechRate getSpeechRate() {
+		if (cssSpeechRate == null) {
+			cssSpeechRate =
+					(CssSpeechRate) style.CascadingOrder(new CssSpeechRate(),
+							style, selector);
+		}
+		return cssSpeechRate;
+	}
+	
 	/**
 	 * Find conflicts in this Style
 	 *
