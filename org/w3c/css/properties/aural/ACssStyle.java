@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.10 2012-12-21 15:55:47 ylafon Exp $
+// $Id: ACssStyle.java,v 1.11 2013-01-02 10:33:06 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public class ACssStyle extends Css1Style {
 
@@ -28,7 +28,6 @@ public class ACssStyle extends Css1Style {
   ACssStress acssStress;
   ACssRichness acssRichness;
 
-  ACssSpeakPunctuation acssSpeakPunctuation;
   ACssSpeakDate    acssSpeakDate;
   ACssSpeakNumeral acssSpeakNumeral;
   ACssSpeakTime    acssSpeakTime;
@@ -173,18 +172,6 @@ public class ACssStyle extends Css1Style {
 					    style, selector);
     }
     return acssRichness;
-  }
-
-  /**
-   * Get the speak punctuation
-   */
-  public ACssSpeakPunctuation getSpeakPunctuation() {
-    if (acssSpeakPunctuation == null) {
-      acssSpeakPunctuation =
-	(ACssSpeakPunctuation) style.CascadingOrder(new ACssSpeakPunctuation(),
-						    style, selector);
-    }
-    return acssSpeakPunctuation;
   }
 
   /**
