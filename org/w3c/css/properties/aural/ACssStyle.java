@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.14 2013-01-02 13:32:29 ylafon Exp $
+// $Id: ACssStyle.java,v 1.15 2013-01-02 13:48:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public class ACssStyle extends Css1Style {
 
@@ -22,7 +22,6 @@ public class ACssStyle extends Css1Style {
   ACssCue  acssCue = new ACssCue(); // it's a macro
   ACssVoiceFamily acssVoiceFamily;
   ACssPitch acssPitch;
-  ACssPitchRange acssPitchRange;
   ACssPlayDuring acssPlayDuring;
 
   ACssSpeakDate    acssSpeakDate;
@@ -89,16 +88,6 @@ public class ACssStyle extends Css1Style {
       acssPitch = (ACssPitch) style.CascadingOrder(new ACssPitch(), style, selector);
     }
     return acssPitch;
-  }
-
-  /**
-   * Get the pitch
-   */
-  public ACssPitchRange getPitchRange() {
-    if (acssPitchRange == null) {
-      acssPitchRange = (ACssPitchRange) style.CascadingOrder(new ACssPitchRange(), style, selector);
-    }
-    return acssPitchRange;
   }
 
   /**
