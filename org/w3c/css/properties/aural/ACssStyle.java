@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.12 2013-01-02 10:52:58 ylafon Exp $
+// $Id: ACssStyle.java,v 1.13 2013-01-02 12:44:13 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,7 +14,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class ACssStyle extends Css1Style {
 
@@ -26,7 +26,6 @@ public class ACssStyle extends Css1Style {
   ACssPlayDuring acssPlayDuring;
 
   ACssStress acssStress;
-  ACssRichness acssRichness;
 
   ACssSpeakDate    acssSpeakDate;
   ACssSpeakTime    acssSpeakTime;
@@ -159,18 +158,6 @@ public class ACssStyle extends Css1Style {
 					    style, selector);
     }
     return acssStress;
-  }
-
-  /**
-   * Get the richness
-   */
-  public ACssRichness getRichness() {
-    if (acssRichness == null) {
-      acssRichness =
-	(ACssRichness) style.CascadingOrder(new ACssRichness(),
-					    style, selector);
-    }
-    return acssRichness;
   }
 
   /**

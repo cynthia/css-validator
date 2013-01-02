@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.36 2013-01-02 10:52:59 ylafon Exp $
+// $Id: Css2Style.java,v 1.37 2013-01-02 12:44:14 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -33,6 +33,7 @@ import org.w3c.css.properties.css.CssOutlineWidth;
 import org.w3c.css.properties.css.CssOverflow;
 import org.w3c.css.properties.css.CssPosition;
 import org.w3c.css.properties.css.CssQuotes;
+import org.w3c.css.properties.css.CssRichness;
 import org.w3c.css.properties.css.CssRight;
 import org.w3c.css.properties.css.CssSpeak;
 import org.w3c.css.properties.css.CssSpeakHeader;
@@ -51,7 +52,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.36 $
+ * @version $Revision: 1.37 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -66,6 +67,7 @@ public class Css2Style extends ACssStyle {
 	public CssSpeechRate cssSpeechRate;
 	public CssSpeakPunctuation cssSpeakPunctuation;
 	public CssSpeakNumeral cssSpeakNumeral;
+	public CssRichness cssRichness;
 
 	/**
 	 * font properties
@@ -548,6 +550,15 @@ public class Css2Style extends ACssStyle {
 							style, selector);
 		}
 		return cssSpeakNumeral;
+	}
+
+	public final CssRichness getRichness() {
+		if (cssRichness == null) {
+			cssRichness =
+					(CssRichness) style.CascadingOrder(new CssRichness(),
+							style, selector);
+		}
+		return cssRichness;
 	}
 	/**
 	 * Find conflicts in this Style
