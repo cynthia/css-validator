@@ -1,4 +1,4 @@
-// $Id: CssSpeakPunctuation.java,v 1.2 2013-01-02 10:41:24 ylafon Exp $
+// $Id: CssSpeakPunctuation.java,v 1.3 2013-01-02 10:42:22 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -14,14 +14,14 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @since CSS2
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CssSpeakPunctuation extends CssProperty {
 
     public CssValue value;
 
     /**
-     * Create a new CssSpeakHeader
+     * Create a new CssSpeakPunctuation
      */
     public CssSpeakPunctuation() {
     }
