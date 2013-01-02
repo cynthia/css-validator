@@ -1,4 +1,4 @@
-// $Id: CssRichness.java,v 1.1 2013-01-02 12:44:14 ylafon Exp $
+// $Id: CssRichness.java,v 1.2 2013-01-02 13:32:29 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -46,9 +46,8 @@ public class CssRichness extends org.w3c.css.properties.css.CssRichness {
 		switch (val.getType()) {
 			case CssTypes.CSS_NUMBER:
 				CssNumber n = val.getNumber();
-				n.warnPositiveness(ac, this);
-				n.warnLowerEqualThan(ac, 100, this);
-				// FIXME clip to 100
+				n.checkPositiveness(ac, this);
+				n.checkLowerEqualThan(ac, 100, this);
 				value = val;
 				break;
 			case CssTypes.CSS_IDENT:
