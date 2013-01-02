@@ -1,4 +1,4 @@
-// $Id: CssSpeakPunctuation.java,v 1.1 2013-01-02 10:33:11 ylafon Exp $
+// $Id: CssSpeakPunctuation.java,v 1.2 2013-01-02 10:55:55 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -14,6 +14,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/aural.html#propdef-speak-punctuation
+ * @deprecated
  */
 public class CssSpeakPunctuation extends org.w3c.css.properties.css.CssSpeakPunctuation {
 
@@ -38,9 +39,10 @@ public class CssSpeakPunctuation extends org.w3c.css.properties.css.CssSpeakPunc
 	}
 
 	/**
-	 * Create a new CssSpeakHeader
+	 * Create a new CssSpeakPunctuation
 	 */
 	public CssSpeakPunctuation() {
+		value = initial;
 	}
 
 	/**

@@ -1,4 +1,4 @@
-// $Id: CssSpeakNumeral.java,v 1.1 2013-01-02 10:52:59 ylafon Exp $
+// $Id: CssSpeakNumeral.java,v 1.2 2013-01-02 10:55:55 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -14,6 +14,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/aural.html#propdef-speak-numeral
+ * @deprecated
  */
 public class CssSpeakNumeral extends org.w3c.css.properties.css.CssSpeakNumeral {
 
