@@ -1,4 +1,4 @@
-// $Id: CssSpeakHeader.java,v 1.3 2013-01-02 10:52:59 ylafon Exp $
+// $Id: CssSpeakNumeral.java,v 1.1 2013-01-02 10:52:59 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -13,15 +13,14 @@ import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssValue;
 
 /**
- * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/aural.html#propdef-speak-header
- * @deprecated
+ * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/aural.html#propdef-speak-numeral
  */
-public class CssSpeakHeader extends org.w3c.css.properties.css.CssSpeakHeader {
+public class CssSpeakNumeral extends org.w3c.css.properties.css.CssSpeakNumeral {
 
 	public static final CssIdent[] allowed_values;
 
 	static {
-		String[] _allowed_values = {"once", "always"};
+		String[] _allowed_values = {"digits", "continuous"};
 		int i = 0;
 		allowed_values = new CssIdent[_allowed_values.length];
 		for (String s : _allowed_values) {
@@ -39,20 +38,20 @@ public class CssSpeakHeader extends org.w3c.css.properties.css.CssSpeakHeader {
 	}
 
 	/**
-	 * Create a new CssSpeakHeader
+	 * Create a new CssSpeakNumeral
 	 */
-	public CssSpeakHeader() {
+	public CssSpeakNumeral() {
 		value = initial;
 	}
 
 	/**
-	 * Creates a new CssSpeakHeader
+	 * Creates a new CssSpeakNumeral
 	 *
 	 * @param expression The expression for this property
 	 * @throws org.w3c.css.util.InvalidParamException
 	 *          Expressions are incorrect
 	 */
-	public CssSpeakHeader(ApplContext ac, CssExpression expression, boolean check)
+	public CssSpeakNumeral(ApplContext ac, CssExpression expression, boolean check)
 			throws InvalidParamException {
 		if (check && expression.getCount() > 1) {
 			throw new InvalidParamException("unrecognize", ac);
@@ -88,9 +87,10 @@ public class CssSpeakHeader extends org.w3c.css.properties.css.CssSpeakHeader {
 		expression.next();
 	}
 
-	public CssSpeakHeader(ApplContext ac, CssExpression expression)
+	public CssSpeakNumeral(ApplContext ac, CssExpression expression)
 			throws InvalidParamException {
 		this(ac, expression, false);
 	}
+
 }
 
