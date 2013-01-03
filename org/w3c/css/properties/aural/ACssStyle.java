@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.15 2013-01-02 13:48:14 ylafon Exp $
+// $Id: ACssStyle.java,v 1.16 2013-01-03 14:57:07 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,12 +14,11 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public class ACssStyle extends Css1Style {
 
   ACssPause  acssPause = new ACssPause(); // it's a macro
-  ACssCue  acssCue = new ACssCue(); // it's a macro
   ACssVoiceFamily acssVoiceFamily;
   ACssPitch acssPitch;
   ACssPlayDuring acssPlayDuring;
@@ -88,39 +87,6 @@ public class ACssStyle extends Css1Style {
       acssPitch = (ACssPitch) style.CascadingOrder(new ACssPitch(), style, selector);
     }
     return acssPitch;
-  }
-
-  /**
-   * Get the cue after
-   */
-  public ACssCueAfter getCueAfter() {
-    if (acssCue.cueAfter == null) {
-      acssCue.cueAfter = (ACssCueAfter) style.CascadingOrder(new ACssCueAfter(), style, selector);
-    }
-    return acssCue.cueAfter;
-  }
-
-  /**
-   * Get the cue before
-   */
-  public ACssCueBefore getCueBefore() {
-    if (acssCue.cueBefore == null) {
-      acssCue.cueBefore = (ACssCueBefore) style.CascadingOrder(new ACssCueBefore(), style, selector);
-    }
-    return acssCue.cueBefore;
-  }
-
-  /**
-   * Get the cue
-   */
-  public ACssCue getCue() {
-    if (acssCue.cueAfter == null) {
-      acssCue.cueAfter = getCueAfter();
-    }
-    if (acssCue.cueBefore == null) {
-      acssCue.cueBefore = getCueBefore();
-    }
-    return acssCue;
   }
 
   /**

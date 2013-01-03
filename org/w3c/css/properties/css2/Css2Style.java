@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.39 2013-01-02 13:48:14 ylafon Exp $
+// $Id: Css2Style.java,v 1.40 2013-01-03 14:57:08 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -16,6 +16,9 @@ import org.w3c.css.properties.css.CssCaptionSide;
 import org.w3c.css.properties.css.CssClip;
 import org.w3c.css.properties.css.CssCounterIncrement;
 import org.w3c.css.properties.css.CssCounterReset;
+import org.w3c.css.properties.css.CssCue;
+import org.w3c.css.properties.css.CssCueAfter;
+import org.w3c.css.properties.css.CssCueBefore;
 import org.w3c.css.properties.css.CssCursor;
 import org.w3c.css.properties.css.CssDirection;
 import org.w3c.css.properties.css.CssElevation;
@@ -54,7 +57,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.39 $
+ * @version $Revision: 1.40 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -72,6 +75,9 @@ public class Css2Style extends ACssStyle {
 	public CssRichness cssRichness;
 	public CssStress cssStress;
 	public CssPitchRange cssPitchRange;
+	public CssCueAfter cssCueAfter;
+	public CssCueBefore cssCueBefore;
+	public CssCue cssCue;
 
 	/**
 	 * font properties
@@ -581,6 +587,33 @@ public class Css2Style extends ACssStyle {
 							style, selector);
 		}
 		return cssPitchRange;
+	}
+
+	public final CssCueAfter getCueAfter() {
+		if (cssCueAfter == null) {
+			cssCueAfter =
+					(CssCueAfter) style.CascadingOrder(new CssCueAfter(),
+							style, selector);
+		}
+		return cssCueAfter;
+	}
+	
+	public final CssCueBefore getCueBefore() {
+		if (cssCueBefore == null) {
+			cssCueBefore =
+					(CssCueBefore) style.CascadingOrder(new CssCueBefore(),
+							style, selector);
+		}
+		return cssCueBefore;
+	}
+
+	public final CssCue getCue() {
+		if (cssCue == null) {
+			cssCue =
+					(CssCue) style.CascadingOrder(new CssCue(),
+							style, selector);
+		}
+		return cssCue;
 	}
 	/**
 	 * Find conflicts in this Style
