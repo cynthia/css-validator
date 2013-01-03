@@ -1,5 +1,5 @@
 //
-// $Id: CssElevation.java,v 1.2 2013-01-02 14:32:20 ylafon Exp $
+// $Id: CssElevation.java,v 1.3 2013-01-03 21:08:19 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -16,6 +16,7 @@ import org.w3c.css.values.CssValue;
 
 /**
  * @spec http://www.w3.org/TR/2011/REC-CSS2-20110607/aural.html#propdef-elevation
+ * @deprecated
  */
 public class CssElevation extends org.w3c.css.properties.css.CssElevation {
 	public static final CssIdent[] allowed_values;
@@ -66,9 +67,9 @@ public class CssElevation extends org.w3c.css.properties.css.CssElevation {
 		ac.getFrame().addWarning("deprecatedproperty", getPropertyName());
 
 		switch (val.getType()) {
+			case CssTypes.CSS_NUMBER:
 			case CssTypes.CSS_ANGLE:
-				// TODO getAngle()
-				CssAngle a = (CssAngle) val;
+				CssAngle a = val.getAngle();
 				float v = a.getDegree();
 				if (v > 90 && v < 270) {
 					throw new InvalidParamException("elevation.range", ac);
