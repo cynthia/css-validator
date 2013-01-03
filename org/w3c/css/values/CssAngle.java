@@ -1,5 +1,5 @@
 //
-// $Id: CssAngle.java,v 1.15 2012-10-03 09:49:18 ylafon Exp $
+// $Id: CssAngle.java,v 1.16 2013-01-03 19:30:45 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio, 1997-2010.
@@ -28,7 +28,7 @@ import java.math.BigDecimal;
  * <p>Values in these units may be negative. They should be normalized to the
  * range 0-360deg by the UA. For example, -10deg and 350deg are equivalent.
  *
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public class CssAngle extends CssCheckableValue implements CssValueFloat {
 
@@ -163,6 +163,10 @@ public class CssAngle extends CssCheckableValue implements CssValueFloat {
 			degree.add(deg360);
 		}
 		return degree;
+	}
+
+	public CssAngle getAngle() {
+		return this;
 	}
 
 	//@@FIXME I should return the remainder for all ...

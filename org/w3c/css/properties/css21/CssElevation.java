@@ -1,5 +1,5 @@
 //
-// $Id: CssElevation.java,v 1.4 2013-01-02 14:32:19 ylafon Exp $
+// $Id: CssElevation.java,v 1.5 2013-01-03 19:30:44 ylafon Exp $
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University 2011
 // Please first read the full copyright statement in file COPYRIGHT.html
@@ -62,9 +62,9 @@ public class CssElevation extends org.w3c.css.properties.css.CssElevation {
 		setByUser();
 
 		switch (val.getType()) {
+			case CssTypes.CSS_NUMBER:
 			case CssTypes.CSS_ANGLE:
-				// TODO getAngle()
-				CssAngle a = (CssAngle) val;
+				CssAngle a = val.getAngle();
 				float v = a.getDegree();
 				if (v > 90 && v < 270) {
 					throw new InvalidParamException("elevation.range", ac);
