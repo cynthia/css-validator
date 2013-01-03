@@ -1,4 +1,4 @@
-// $Id: CssImage.java,v 1.7 2012-11-17 20:40:00 ylafon Exp $
+// $Id: CssImage.java,v 1.8 2013-01-03 21:21:52 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -571,7 +571,7 @@ public class CssImage extends CssValue {
 
 				switch (stopval.getType()) {
 					case CssTypes.CSS_NUMBER:
-						val.getLength();
+						stopval.getLength();
 					case CssTypes.CSS_LENGTH:
 					case CssTypes.CSS_PERCENTAGE:
 						ArrayList<CssValue> stop = new ArrayList<CssValue>(2);
