@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.144 2012-12-06 19:16:43 ylafon Exp $
+// $Id: Css3Style.java,v 1.145 2013-01-04 15:41:44 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -110,6 +110,9 @@ import org.w3c.css.properties.css.CssTransitionDelay;
 import org.w3c.css.properties.css.CssTransitionDuration;
 import org.w3c.css.properties.css.CssTransitionProperty;
 import org.w3c.css.properties.css.CssTransitionTimingFunction;
+import org.w3c.css.properties.css.CssVoiceStress;
+import org.w3c.css.properties.css.CssVoiceDuration;
+import org.w3c.css.properties.css.CssVoiceBalance;
 import org.w3c.css.properties.css.CssWordBreak;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Util;
@@ -118,6 +121,10 @@ import org.w3c.css.util.Warnings;
 
 public class Css3Style extends ATSCStyle {
 
+	public CssVoiceBalance cssVoiceBalance;
+	public CssVoiceDuration cssVoiceDuration;
+	public CssVoiceStress cssVoiceStress;
+	
 	CssRubyPosition cssRubyPosition;
 	CssRubyAlign cssRubyAlign;
 	CssRubyOverhang cssRubyOverhang;
@@ -1452,6 +1459,33 @@ public class Css3Style extends ATSCStyle {
 							new CssImageResolution(), style, selector);
 		}
 		return cssImageResolution;
+	}
+
+	public final CssVoiceBalance getVoiceBalance() {
+		if (cssVoiceBalance == null) {
+			cssVoiceBalance =
+					(CssVoiceBalance) style.CascadingOrder(new CssVoiceBalance(),
+							style, selector);
+		}
+		return cssVoiceBalance;
+	}
+
+	public final CssVoiceStress getVoiceStress() {
+		if (cssVoiceStress == null) {
+			cssVoiceStress =
+					(CssVoiceStress) style.CascadingOrder(new CssVoiceStress(),
+							style, selector);
+		}
+		return cssVoiceStress;
+	}
+
+	public final CssVoiceDuration getVoiceDuration() {
+		if (cssVoiceDuration == null) {
+			cssVoiceDuration =
+					(CssVoiceDuration) style.CascadingOrder(new CssVoiceDuration(),
+							style, selector);
+		}
+		return cssVoiceDuration;
 	}
 	///
 

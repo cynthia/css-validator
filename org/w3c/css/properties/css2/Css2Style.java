@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.44 2013-01-04 15:24:38 ylafon Exp $
+// $Id: Css2Style.java,v 1.45 2013-01-04 15:41:44 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -63,7 +63,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.44 $
+ * @version $Revision: 1.45 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -88,8 +88,7 @@ public class Css2Style extends ACssStyle {
 	public CssPauseAfter cssPauseAfter;
 	public CssPauseBefore cssPauseBefore;
 	public CssPause cssPause;
-	public CssVoiceDuration cssVoiceDuration;
-	public CssVoiceStress cssVoiceStress;
+
 
 	/**
 	 * font properties
@@ -664,23 +663,6 @@ public class Css2Style extends ACssStyle {
 		return cssPause;
 	}
 
-	public final CssVoiceStress getVoiceStress() {
-		if (cssVoiceStress == null) {
-			cssVoiceStress =
-					(CssVoiceStress) style.CascadingOrder(new CssVoiceStress(),
-							style, selector);
-		}
-		return cssVoiceStress;
-	}
-
-	public final CssVoiceDuration getVoiceDuration() {
-		if (cssVoiceDuration == null) {
-			cssVoiceDuration =
-					(CssVoiceDuration) style.CascadingOrder(new CssVoiceDuration(),
-							style, selector);
-		}
-		return cssVoiceDuration;
-	}
 	
 	/**
 	 * Find conflicts in this Style
