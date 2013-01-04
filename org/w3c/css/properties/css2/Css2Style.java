@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.40 2013-01-03 14:57:08 ylafon Exp $
+// $Id: Css2Style.java,v 1.41 2013-01-04 11:07:24 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -34,6 +34,7 @@ import org.w3c.css.properties.css.CssOutlineColor;
 import org.w3c.css.properties.css.CssOutlineStyle;
 import org.w3c.css.properties.css.CssOutlineWidth;
 import org.w3c.css.properties.css.CssOverflow;
+import org.w3c.css.properties.css.CssPitch;
 import org.w3c.css.properties.css.CssPitchRange;
 import org.w3c.css.properties.css.CssPosition;
 import org.w3c.css.properties.css.CssQuotes;
@@ -57,7 +58,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.40 $
+ * @version $Revision: 1.41 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -78,6 +79,7 @@ public class Css2Style extends ACssStyle {
 	public CssCueAfter cssCueAfter;
 	public CssCueBefore cssCueBefore;
 	public CssCue cssCue;
+	public CssPitch cssPitch;
 
 	/**
 	 * font properties
@@ -614,6 +616,15 @@ public class Css2Style extends ACssStyle {
 							style, selector);
 		}
 		return cssCue;
+	}
+
+	public final CssPitch getPitch() {
+		if (cssPitch == null) {
+			cssPitch =
+					(CssPitch) style.CascadingOrder(new CssPitch(),
+							style, selector);
+		}
+		return cssPitch;
 	}
 	/**
 	 * Find conflicts in this Style

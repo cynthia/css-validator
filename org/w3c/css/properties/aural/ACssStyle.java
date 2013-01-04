@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.16 2013-01-03 14:57:07 ylafon Exp $
+// $Id: ACssStyle.java,v 1.17 2013-01-04 11:07:25 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -14,13 +14,12 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssPercentage;
 
 /**
- * @version $Revision: 1.16 $
+ * @version $Revision: 1.17 $
  */
 public class ACssStyle extends Css1Style {
 
   ACssPause  acssPause = new ACssPause(); // it's a macro
   ACssVoiceFamily acssVoiceFamily;
-  ACssPitch acssPitch;
   ACssPlayDuring acssPlayDuring;
 
   ACssSpeakDate    acssSpeakDate;
@@ -77,16 +76,6 @@ public class ACssStyle extends Css1Style {
       acssVoiceFamily = (ACssVoiceFamily) style.CascadingOrder(new ACssVoiceFamily(), style, selector);
     }
     return acssVoiceFamily;
-  }
-
-  /**
-   * Get the pitch
-   */
-  public ACssPitch getPitch() {
-    if (acssPitch == null) {
-      acssPitch = (ACssPitch) style.CascadingOrder(new ACssPitch(), style, selector);
-    }
-    return acssPitch;
   }
 
   /**
