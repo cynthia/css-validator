@@ -1,4 +1,4 @@
-// $Id: CssNumber.java,v 1.24 2012-12-17 15:26:59 ylafon Exp $
+// $Id: CssNumber.java,v 1.25 2013-01-04 15:29:17 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2011
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 /**
  * A CSS number.
  *
- * @version $Revision: 1.24 $
+ * @version $Revision: 1.25 $
  */
 public class CssNumber extends CssCheckableValue implements CssValueFloat {
 
@@ -330,6 +330,39 @@ public class CssNumber extends CssCheckableValue implements CssValueFloat {
 			s[0] = toString();
 			s[1] = other.toPlainString();
 			ac.getFrame().addWarning("lowerequal", s);
+		}
+	}
+
+	/**
+	 * check if the value is lower or equal than...
+	 *
+	 * @param ac       the validation context
+	 * @param property the property the value is defined in
+	 * @throws InvalidParamException
+	 */
+	public void checkGreaterEqualThan(ApplContext ac, double d, CssProperty property)
+			throws InvalidParamException {
+		BigDecimal other = BigDecimal.valueOf(d);
+		if (value.compareTo(other) < 0) {
+			throw new InvalidParamException("greaterequal",
+					toString(), other.toPlainString(), ac);
+		}
+	}
+
+	/**
+	 * check if the value is lower or equal than...
+	 *
+	 * @param ac       the validation context
+	 * @param property the property the value is defined in
+	 * @throws InvalidParamException
+	 */
+	public void warnGreaterEqualThan(ApplContext ac, double d, CssProperty property) {
+		BigDecimal other = BigDecimal.valueOf(d);
+		if (value.compareTo(other) < 0) {
+			String[] s = new String[2];
+			s[0] = toString();
+			s[1] = other.toPlainString();
+			ac.getFrame().addWarning("greaterequal", s);
 		}
 	}
 }
