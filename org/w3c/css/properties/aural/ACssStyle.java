@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.23 2013-01-04 15:41:44 ylafon Exp $
+// $Id: ACssStyle.java,v 1.24 2013-01-04 15:51:15 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,15 +13,12 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.23 $
+ * @version $Revision: 1.24 $
  */
 public class ACssStyle extends Css1Style {
 
 	ACssVoiceFamily acssVoiceFamily;
 	ACssPlayDuring acssPlayDuring;
-
-	ACssSpeakDate acssSpeakDate;
-	ACssSpeakTime acssSpeakTime;
 
 	ACssVoiceVolume acssVoiceVolume;
 	ACssVoiceFamilyCSS3 acssVoiceFamilyCSS3;
@@ -48,28 +45,6 @@ public class ACssStyle extends Css1Style {
 							style, selector);
 		}
 		return acssPlayDuring;
-	}
-
-	/**
-	 * Get the speak date
-	 */
-	public ACssSpeakDate getSpeakDate() {
-		if (acssSpeakDate == null) {
-			acssSpeakDate =
-					(ACssSpeakDate) style.CascadingOrder(new ACssSpeakDate(), style, selector);
-		}
-		return acssSpeakDate;
-	}
-
-	/**
-	 * Get the speak time
-	 */
-	public ACssSpeakTime getSpeakTime() {
-		if (acssSpeakTime == null) {
-			acssSpeakTime =
-					(ACssSpeakTime) style.CascadingOrder(new ACssSpeakTime(), style, selector);
-		}
-		return acssSpeakTime;
 	}
 
 	public ACssVoiceVolume getVoiceVolume() {
