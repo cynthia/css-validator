@@ -1,4 +1,4 @@
-// $Id: CssPitch.java,v 1.1 2013-01-04 11:07:25 ylafon Exp $
+// $Id: CssPitch.java,v 1.2 2013-01-04 16:06:48 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2013.
@@ -64,6 +64,9 @@ public class CssPitch extends org.w3c.css.properties.css.CssPitch {
 		op = expression.getOperator();
 
 		switch (val.getType()) {
+			case CssTypes.CSS_NUMBER:
+				// it should be getFrequency()
+				val.getLength();
 			case CssTypes.CSS_FREQUENCY:
 				value = val;
 				break;
