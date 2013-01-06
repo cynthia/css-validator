@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.45 2013-01-04 15:41:44 ylafon Exp $
+// $Id: Css2Style.java,v 1.46 2013-01-06 21:06:48 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -39,6 +39,7 @@ import org.w3c.css.properties.css.CssPauseAfter;
 import org.w3c.css.properties.css.CssPauseBefore;
 import org.w3c.css.properties.css.CssPitch;
 import org.w3c.css.properties.css.CssPitchRange;
+import org.w3c.css.properties.css.CssPlayDuring;
 import org.w3c.css.properties.css.CssPosition;
 import org.w3c.css.properties.css.CssQuotes;
 import org.w3c.css.properties.css.CssRichness;
@@ -54,8 +55,6 @@ import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
 import org.w3c.css.properties.css.CssUnicodeBidi;
 import org.w3c.css.properties.css.CssVisibility;
-import org.w3c.css.properties.css.CssVoiceDuration;
-import org.w3c.css.properties.css.CssVoiceStress;
 import org.w3c.css.properties.css.CssVolume;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Warning;
@@ -63,7 +62,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.45 $
+ * @version $Revision: 1.46 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -88,6 +87,7 @@ public class Css2Style extends ACssStyle {
 	public CssPauseAfter cssPauseAfter;
 	public CssPauseBefore cssPauseBefore;
 	public CssPause cssPause;
+	public CssPlayDuring cssPlayDuring;
 
 
 	/**
@@ -663,6 +663,14 @@ public class Css2Style extends ACssStyle {
 		return cssPause;
 	}
 
+	public final CssPlayDuring getPlayDuring() {
+		if (cssPlayDuring == null) {
+			cssPlayDuring =
+					(CssPlayDuring) style.CascadingOrder(new CssPlayDuring(),
+							style, selector);
+		}
+		return cssPlayDuring;
+	}
 	
 	/**
 	 * Find conflicts in this Style

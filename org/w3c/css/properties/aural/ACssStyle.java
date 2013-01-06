@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.24 2013-01-04 15:51:15 ylafon Exp $
+// $Id: ACssStyle.java,v 1.25 2013-01-06 21:06:48 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -13,12 +13,11 @@ import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.24 $
+ * @version $Revision: 1.25 $
  */
 public class ACssStyle extends Css1Style {
 
 	ACssVoiceFamily acssVoiceFamily;
-	ACssPlayDuring acssPlayDuring;
 
 	ACssVoiceVolume acssVoiceVolume;
 	ACssVoiceFamilyCSS3 acssVoiceFamilyCSS3;
@@ -33,18 +32,6 @@ public class ACssStyle extends Css1Style {
 			acssVoiceFamily = (ACssVoiceFamily) style.CascadingOrder(new ACssVoiceFamily(), style, selector);
 		}
 		return acssVoiceFamily;
-	}
-
-	/**
-	 * Get the play during
-	 */
-	public ACssPlayDuring getPlayDuring() {
-		if (acssPlayDuring == null) {
-			acssPlayDuring =
-					(ACssPlayDuring) style.CascadingOrder(new ACssPlayDuring(),
-							style, selector);
-		}
-		return acssPlayDuring;
 	}
 
 	public ACssVoiceVolume getVoiceVolume() {
