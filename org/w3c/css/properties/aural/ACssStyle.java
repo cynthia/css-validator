@@ -1,5 +1,5 @@
 //
-// $Id: ACssStyle.java,v 1.26 2013-01-08 11:13:38 ylafon Exp $
+// $Id: ACssStyle.java,v 1.27 2013-01-08 11:39:12 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -12,14 +12,13 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Warnings;
 
 /**
- * @version $Revision: 1.26 $
+ * @version $Revision: 1.27 $
  */
 public class ACssStyle extends Css1Style {
 
 
 	ACssVoiceVolume acssVoiceVolume;
 	ACssVoiceRate acssVoiceRate;
-	ACssVoicePitchRange acssVoicePitchRange;
 
 
 	public ACssVoiceVolume getVoiceVolume() {
@@ -36,14 +35,6 @@ public class ACssStyle extends Css1Style {
 					(ACssVoiceRate) style.CascadingOrder(new ACssVoiceRate(), style, selector);
 		}
 		return acssVoiceRate;
-	}
-
-	public ACssVoicePitchRange getVoicePitchRange() {
-		if (acssVoicePitchRange == null) {
-			acssVoicePitchRange =
-					(ACssVoicePitchRange) style.CascadingOrder(new ACssVoicePitchRange(), style, selector);
-		}
-		return acssVoicePitchRange;
 	}
 
 	/**
