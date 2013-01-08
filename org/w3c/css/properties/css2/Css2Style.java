@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.47 2013-01-08 11:13:38 ylafon Exp $
+// $Id: Css2Style.java,v 1.48 2013-01-08 14:46:18 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -7,7 +7,6 @@
 package org.w3c.css.properties.css2;
 
 import org.w3c.css.parser.CssSelectors;
-import org.w3c.css.properties.aural.ACssStyle;
 import org.w3c.css.properties.css.CssAzimuth;
 import org.w3c.css.properties.css.CssBorderCollapse;
 import org.w3c.css.properties.css.CssBorderSpacing;
@@ -57,15 +56,16 @@ import org.w3c.css.properties.css.CssUnicodeBidi;
 import org.w3c.css.properties.css.CssVisibility;
 import org.w3c.css.properties.css.CssVoiceFamily;
 import org.w3c.css.properties.css.CssVolume;
+import org.w3c.css.properties.css1.Css1Style;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Warning;
 import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.47 $
+ * @version $Revision: 1.48 $
  */
-public class Css2Style extends ACssStyle {
+public class Css2Style extends Css1Style {
 
 	static final CssIdent marker = CssIdent.getIdent("marker");
 	/**
