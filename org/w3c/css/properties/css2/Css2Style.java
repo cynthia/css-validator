@@ -1,5 +1,5 @@
 //
-// $Id: Css2Style.java,v 1.46 2013-01-06 21:06:48 ylafon Exp $
+// $Id: Css2Style.java,v 1.47 2013-01-08 11:13:38 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -55,6 +55,7 @@ import org.w3c.css.properties.css.CssTextShadow;
 import org.w3c.css.properties.css.CssTop;
 import org.w3c.css.properties.css.CssUnicodeBidi;
 import org.w3c.css.properties.css.CssVisibility;
+import org.w3c.css.properties.css.CssVoiceFamily;
 import org.w3c.css.properties.css.CssVolume;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.Warning;
@@ -62,7 +63,7 @@ import org.w3c.css.util.Warnings;
 import org.w3c.css.values.CssIdent;
 
 /**
- * @version $Revision: 1.46 $
+ * @version $Revision: 1.47 $
  */
 public class Css2Style extends ACssStyle {
 
@@ -88,7 +89,7 @@ public class Css2Style extends ACssStyle {
 	public CssPauseBefore cssPauseBefore;
 	public CssPause cssPause;
 	public CssPlayDuring cssPlayDuring;
-
+	public CssVoiceFamily cssVoiceFamily;
 
 	/**
 	 * font properties
@@ -670,6 +671,15 @@ public class Css2Style extends ACssStyle {
 							style, selector);
 		}
 		return cssPlayDuring;
+	}
+
+	public final CssVoiceFamily getVoiceFamily() {
+		if (cssVoiceFamily == null) {
+			cssVoiceFamily =
+					(CssVoiceFamily) style.CascadingOrder(new CssVoiceFamily(),
+							style, selector);
+		}
+		return cssVoiceFamily;
 	}
 	
 	/**
