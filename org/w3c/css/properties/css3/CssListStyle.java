@@ -1,4 +1,4 @@
-// $Id: CssListStyle.java,v 1.5 2012-12-08 15:31:44 ylafon Exp $
+// $Id: CssListStyle.java,v 1.6 2013-01-09 12:16:42 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -116,6 +116,12 @@ public class CssListStyle extends org.w3c.css.properties.css.CssListStyle {
 						typeVal = CssListStyleType.getAllowedIdent(id);
 						if (typeVal != null) {
 							// TODO check the @counter-style
+							typeVal = val;
+							break;
+						} else {
+							// it's still acceptable
+							// but the name should be listed in a
+							// @counter-style rule
 							typeVal = val;
 							break;
 						}
