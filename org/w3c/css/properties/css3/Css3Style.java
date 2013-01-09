@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.148 2013-01-09 09:03:06 ylafon Exp $
+// $Id: Css3Style.java,v 1.149 2013-01-09 09:06:29 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -90,6 +90,7 @@ import org.w3c.css.properties.css.CssPerspective;
 import org.w3c.css.properties.css.CssPerspectiveOrigin;
 import org.w3c.css.properties.css.CssResize;
 import org.w3c.css.properties.css.CssRestAfter;
+import org.w3c.css.properties.css.CssRestBefore;
 import org.w3c.css.properties.css.CssTabSize;
 import org.w3c.css.properties.css.CssTextAlignLast;
 import org.w3c.css.properties.css.CssTextDecorationColor;
@@ -130,6 +131,7 @@ public class Css3Style extends ATSCStyle {
 	public CssVoiceStress cssVoiceStress;
 	public CssVoiceVolume cssVoiceVolume;
 	public CssRestAfter cssRestAfter;
+	public CssRestBefore cssRestBefore;
 
 	
 	CssRubyPosition cssRubyPosition;
@@ -1520,6 +1522,15 @@ public class Css3Style extends ATSCStyle {
 							style, selector);
 		}
 		return cssRestAfter;
+	}
+
+	public final CssRestBefore getRestBefore() {
+		if (cssRestBefore == null) {
+			cssRestBefore =
+					(CssRestBefore) style.CascadingOrder(new CssRestBefore(),
+							style, selector);
+		}
+		return cssRestBefore;
 	}
 	///
 
