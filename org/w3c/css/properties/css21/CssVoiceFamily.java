@@ -1,4 +1,4 @@
-// $Id: CssVoiceFamily.java,v 1.1 2013-01-08 11:13:38 ylafon Exp $
+// $Id: CssVoiceFamily.java,v 1.2 2013-01-09 09:29:07 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2013.
@@ -95,8 +95,8 @@ public class CssVoiceFamily extends org.w3c.css.properties.css.CssVoiceFamily {
 						((new Character(op)).toString()), ac);
 			}
 		}
-		checkValues(ac, values);
 		value = (values.size() > 1) ? new CssLayerList(values) : values.get(0);
+		checkValues(ac, values);
 	}
 
 	public CssVoiceFamily(ApplContext ac, CssExpression expression)
