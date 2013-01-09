@@ -1,4 +1,4 @@
-// $Id: CssVoiceFamily.java,v 1.2 2013-01-09 09:29:07 ylafon Exp $
+// $Id: CssVoiceFamily.java,v 1.3 2013-01-09 21:53:26 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2013.
@@ -23,14 +23,15 @@ import static org.w3c.css.values.CssOperator.SPACE;
  */
 public class CssVoiceFamily extends org.w3c.css.properties.css.CssVoiceFamily {
 
-	public static final ArrayList<CssIdent> genericVoices;
+	public static final CssIdent[] genericVoices;
 
 	static {
 		String[] _genericVoices = {"male", "female", "child"};
 
-		genericVoices = new ArrayList<CssIdent>(_genericVoices.length);
+		genericVoices = new CssIdent[_genericVoices.length];
+		int i = 0;
 		for (String s : _genericVoices) {
-			genericVoices.add(CssIdent.getIdent(s));
+			genericVoices[i++] = CssIdent.getIdent(s);
 		}
 	}
 
