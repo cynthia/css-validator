@@ -1,4 +1,4 @@
-// $Id: CssOutline.java,v 1.4 2012-11-02 09:48:43 ylafon Exp $
+// $Id: CssOutline.java,v 1.5 2013-01-09 09:31:41 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -28,6 +28,7 @@ public class CssOutline extends org.w3c.css.properties.css.CssOutline {
 	 * Create a new CssOutline
 	 */
 	public CssOutline() {
+		value = initial;
 		_color = new CssOutlineColor();
 		_style = new CssOutlineStyle();
 		_width = new CssOutlineWidth();
