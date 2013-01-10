@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.150 2013-01-09 09:10:06 ylafon Exp $
+// $Id: Css3Style.java,v 1.151 2013-01-10 11:34:20 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -92,6 +92,7 @@ import org.w3c.css.properties.css.CssResize;
 import org.w3c.css.properties.css.CssRest;
 import org.w3c.css.properties.css.CssRestAfter;
 import org.w3c.css.properties.css.CssRestBefore;
+import org.w3c.css.properties.css.CssSpeakAs;
 import org.w3c.css.properties.css.CssTabSize;
 import org.w3c.css.properties.css.CssTextAlignLast;
 import org.w3c.css.properties.css.CssTextDecorationColor;
@@ -134,8 +135,9 @@ public class Css3Style extends ATSCStyle {
 	public CssRestAfter cssRestAfter;
 	public CssRestBefore cssRestBefore;
 	public CssRest cssRest;
+	public CssSpeakAs cssSpeakAs;
 
-	
+
 	CssRubyPosition cssRubyPosition;
 	CssRubyAlign cssRubyAlign;
 	CssRubyOverhang cssRubyOverhang;
@@ -471,7 +473,7 @@ public class Css3Style extends ATSCStyle {
 		}
 		return cssColumnSpan;
 	}
-	
+
 	public CssColumnWidth getColumnWidth() {
 		if (cssColumnWidth == null) {
 			cssColumnWidth =
@@ -1542,6 +1544,13 @@ public class Css3Style extends ATSCStyle {
 							style, selector);
 		}
 		return cssRest;
+	}
+
+	public final CssSpeakAs getSpeakAs() {
+		if (cssSpeakAs == null) {
+			cssSpeakAs = (CssSpeakAs) style.CascadingOrder(new CssSpeakAs(), style, selector);
+		}
+		return cssSpeakAs;
 	}
 	///
 
