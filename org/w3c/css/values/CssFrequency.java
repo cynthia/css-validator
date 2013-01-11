@@ -1,5 +1,5 @@
 //
-// $Id: CssFrequency.java,v 1.12 2012-10-03 09:49:18 ylafon Exp $
+// $Id: CssFrequency.java,v 1.13 2013-01-11 10:46:27 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -26,7 +26,7 @@ import java.math.BigDecimal;
  * <p/>
  * <P> For example, 200Hz is a bass sound, and 6kHz is a treble sound.
  *
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class CssFrequency extends CssCheckableValue {
 
@@ -214,6 +214,10 @@ public class CssFrequency extends CssCheckableValue {
 		if (!isPositive()) {
 			ac.getFrame().addWarning("negative", toString());
 		}
+	}
+
+	public CssFrequency getFrequency() {
+		return this;
 	}
 }
 

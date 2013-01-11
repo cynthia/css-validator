@@ -1,5 +1,5 @@
 //
-// $Id: CssValue.java,v 1.10 2013-01-03 19:30:45 ylafon Exp $
+// $Id: CssValue.java,v 1.11 2013-01-11 10:46:27 ylafon Exp $
 // From Philippe Le Hegaret (Philippe.Le_Hegaret@sophia.inria.fr)
 //
 // (c) COPYRIGHT MIT and INRIA, 1997.
@@ -10,7 +10,7 @@ import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 
 /**
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public abstract class CssValue {
 
@@ -71,6 +71,10 @@ public abstract class CssValue {
 	}
 
 	public CssAngle getAngle() throws  InvalidParamException {
+		throw new ClassCastException("unknown");
+	}
+
+	public CssFrequency getFrequency() throws  InvalidParamException {
 		throw new ClassCastException("unknown");
 	}
 }
