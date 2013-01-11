@@ -1,6 +1,6 @@
 //
 
-// $Id: Css3Style.java,v 1.152 2013-01-11 10:47:26 ylafon Exp $
+// $Id: Css3Style.java,v 1.153 2013-01-11 10:51:20 ylafon Exp $
 // From Sijtsche de Jong (sy.de.jong@let.rug.nl)
 //
 // COPYRIGHT (c) 1995-2000 World Wide Web Consortium, (MIT, INRIA, Keio University)
@@ -117,6 +117,7 @@ import org.w3c.css.properties.css.CssTransitionTimingFunction;
 import org.w3c.css.properties.css.CssVoiceBalance;
 import org.w3c.css.properties.css.CssVoiceDuration;
 import org.w3c.css.properties.css.CssVoicePitch;
+import org.w3c.css.properties.css.CssVoiceRange;
 import org.w3c.css.properties.css.CssVoiceRate;
 import org.w3c.css.properties.css.CssVoiceStress;
 import org.w3c.css.properties.css.CssVoiceVolume;
@@ -138,6 +139,7 @@ public class Css3Style extends ATSCStyle {
 	public CssRest cssRest;
 	public CssSpeakAs cssSpeakAs;
 	public CssVoicePitch cssVoicePitch;
+	public CssVoiceRange cssVoiceRange;
 
 	CssRubyPosition cssRubyPosition;
 	CssRubyAlign cssRubyAlign;
@@ -1559,6 +1561,13 @@ public class Css3Style extends ATSCStyle {
 			cssVoicePitch = (CssVoicePitch) style.CascadingOrder(new CssVoicePitch(), style, selector);
 		}
 		return cssVoicePitch;
+	}
+
+	public final CssVoiceRange getVoiceRange() {
+		if (cssVoiceRange == null) {
+			cssVoiceRange = (CssVoiceRange) style.CascadingOrder(new CssVoiceRange(), style, selector);
+		}
+		return cssVoiceRange;
 	}
 	///
 
