@@ -1,4 +1,4 @@
-// $Id: CssUnitsCSS3.java,v 1.5 2013-01-03 13:21:43 ylafon Exp $
+// $Id: CssUnitsCSS3.java,v 1.6 2013-01-11 10:06:21 ylafon Exp $
 // Author: Yves Lafon <ylafon@w3.org>
 //
 // (c) COPYRIGHT MIT, ERCIM and Keio University, 2012.
@@ -27,6 +27,8 @@ public class CssUnitsCSS3 {
 	};
 
 	public static final String volume_unit = "db";
+
+	public static final String semitone_unit = "st";
 
 	private static final BigDecimal[] angle_mult;
 
@@ -162,6 +164,15 @@ public class CssUnitsCSS3 {
 			throws InvalidParamException {
 		if (volume_unit.equals(unit))  {
 			vol.unit = volume_unit;
+			return;
+		}
+		throw new InvalidParamException("unit", unit, ac);
+	}
+
+	protected static void parseSemitoneUnit(String unit, CssSemitone semitone, ApplContext ac)
+			throws InvalidParamException {
+		if (semitone_unit.equals(unit))  {
+			semitone.unit = semitone_unit;
 			return;
 		}
 		throw new InvalidParamException("unit", unit, ac);
