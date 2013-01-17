@@ -23,3 +23,5 @@ bin
 .ensime
 *.egp
 lib
+lib_managed
+retrieved

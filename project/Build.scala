@@ -6,8 +6,6 @@ import sbt.Keys._
  */
 object CssValidatorBuild extends Build {
 
-  lazy val getMissingJars = TaskKey[Unit]("get-missing-jars", "Get missing jars")
-
   val jettyVersion = "8.1.7.v20120910"
   val javaServletVersion = "3.0.0.v201112011016"
 
@@ -39,49 +37,46 @@ object CssValidatorBuild extends Build {
           <artifact name="javax.servlet" type="orbit" ext="jar"/>
         </dependency>,
 
-      libraryDependencies += "org.scalatest" % "scalatest_2.10.0-RC5" % "2.0.M5-B1" % "test",
+      libraryDependencies += "org.scalatest" %% "scalatest" % "2.0.M5b" % "test",
       libraryDependencies += ("com.ning" % "async-http-client" % "1.7.6"  % "test" notTransitive()).exclude("org.jboss.netty", "netty"),
 
 //      libraryDependencies += "org.slf4j" % "slf4j-api" % "1.7.2",
       libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.0.9",
 
-      getMissingJars := {
-        import java.net.URL
-        import java.io.File
-        val tmp = new File(System.getProperty("java.io.tmpdir"))
-        val lib = new File("lib")
-        if (! (lib / "xercesImpl.jar").exists) {
-          val url = new URL("http://www.apache.org/dist/xerces/j/binaries/Xerces-J-bin.2.11.0.zip")
-          lib.mkdir()
-          val files = IO.unzipURL(from = url, toDirectory = tmp, filter = "xerces-2_11_0/xercesImpl.jar" | "xerces-2_11_0/xml-apis.jar")
-          files foreach { file =>
-            println("moving \"" + file.getAbsolutePath + "\" to \"" + lib.getAbsolutePath + "\"")
-            IO.move(file, lib / file.getName)
-          }
-        }
-        if (! (lib / "htmlparser-1.3.1.jar").exists) {
-          val url = new URL("http://about.validator.nu/htmlparser/htmlparser-1.3.1.zip")
-          lib.mkdir()
-          val files = IO.unzipURL(from = url, toDirectory = tmp, filter = "htmlparser-1.3.1/htmlparser-1.3.1.jar")
-          files foreach { file =>
-            println("moving \"" + file.getAbsolutePath + "\" to \"" + lib.getAbsolutePath + "\"")
-            IO.move(file, lib / file.getName)
-          }
-        }
-        if (! (lib / "jigsaw.jar").exists) {
-          val url = new URL("http://jigsaw.w3.org/Distrib/jigsaw_2.2.6.zip")
-          lib.mkdir()
-          val files = IO.unzipURL(from = url, toDirectory = tmp, filter = "Jigsaw/classes/jigsaw.jar")
-          files foreach { file =>
-            println("moving \"" + file.getAbsolutePath + "\" to \"" + lib.getAbsolutePath + "\"")
-            IO.move(file, lib / file.getName)
-          }
-        }
-      },
-
-      (compile in Compile) <<= (compile in Compile).dependsOn(getMissingJars)
+      libraryDependencies += "Xerces-J" % "xercesImpl" % "2.11.0" from jarInZip("http://www.apache.org/dist/xerces/j/binaries/Xerces-J-bin.2.11.0.zip", "xerces-2_11_0/xercesImpl.jar"),
+      libraryDependencies += "Xerces-J" % "xml-apis" % "2.11.0" from jarInZip("http://www.apache.org/dist/xerces/j/binaries/Xerces-J-bin.2.11.0.zip", "xerces-2_11_0/xml-apis.jar"),
+      libraryDependencies += "validator.nu" % "htmlparser" % "1.3.1" from jarInZip("http://about.validator.nu/htmlparser/htmlparser-1.3.1.zip", "htmlparser-1.3.1/htmlparser-1.3.1.jar"),
+      libraryDependencies += "org.w3" % "jigsaw" % "2.2.6" from jarInZip("http://jigsaw.w3.org/Distrib/jigsaw_2.2.6.zip", "Jigsaw/classes/jigsaw.jar")
 
     )
   )
+
+  def jarInZip(url: String, jarPath: String): String = {
+    import java.net.URL
+    import java.io.File
+    val tmp = new File(System.getProperty("java.io.tmpdir"))
+    val retrieved = new File("retrieved")
+    val jarName = new File(jarPath).getName
+    val jarFile = retrieved / jarName
+    if (! jarFile.exists) {
+      if (! retrieved.exists) retrieved.mkdir()
+      val dirName = new File(jarPath).toPath.iterator.next.toString
+      val zipName = new File(new URL(url).getPath).getName
+      val zipFile = (tmp / zipName)
+      if (! zipFile.exists) {
+        println("downloading " + url)
+        IO.download(new URL(url), zipFile)
+      }
+      val files = IO.unzip(
+        from = zipFile,
+        toDirectory = tmp,
+        filter = jarPath)
+      files foreach { file =>
+        println("moving \"" + file.getName + "\" to \"" + retrieved.getAbsolutePath + "\"")
+        IO.move(file, jarFile)
+      }
+    }
+    jarFile.toURI.toString
+  }
 
 }
