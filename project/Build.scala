@@ -39,6 +39,12 @@ object CssValidatorBuild extends Build {
           <artifact name="javax.servlet" type="orbit" ext="jar"/>
         </dependency>,
 
+      libraryDependencies += "org.scalatest" % "scalatest_2.10.0-RC5" % "2.0.M5-B1" % "test",
+      libraryDependencies += ("com.ning" % "async-http-client" % "1.7.6" notTransitive()).exclude("org.jboss.netty", "netty"),
+
+      libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.0.7" % "provided",
+      libraryDependencies += "log4j" % "log4j" % "1.2.16" % "compile",
+
       getMissingJars := {
         import java.net.URL
         import java.io.File
