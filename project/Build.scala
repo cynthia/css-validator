@@ -19,9 +19,9 @@ object CssValidatorBuild extends Build {
       organization := "org.w3",
       version := "1.0-SNAPSHOT",
       scalaVersion := "2.10.0",
-      libraryDependencies += "commons-collections" % "commons-collections" % "3.2.1",
-      libraryDependencies += "commons-lang" % "commons-lang" % "2.6",
-      libraryDependencies += "org.apache.velocity" % "velocity" % "1.7",
+      libraryDependencies += "commons-collections" % "commons-collections" % "3.2.1" intransitive(),
+      libraryDependencies += "commons-lang" % "commons-lang" % "2.6" intransitive(),
+      libraryDependencies += "org.apache.velocity" % "velocity" % "1.7" intransitive(),
       libraryDependencies += "tagsoup" % "tagsoup" % "1.2" from "http://home.ccil.org/~cowan/XML/tagsoup/tagsoup-1.2.jar",
       libraryDependencies += "org.eclipse.jetty" % "jetty-webapp" % jettyVersion % "compile" intransitive(),
       libraryDependencies += "org.eclipse.jetty" % "jetty-util" % jettyVersion % "compile" intransitive(),
@@ -40,10 +40,10 @@ object CssValidatorBuild extends Build {
         </dependency>,
 
       libraryDependencies += "org.scalatest" % "scalatest_2.10.0-RC5" % "2.0.M5-B1" % "test",
-      libraryDependencies += ("com.ning" % "async-http-client" % "1.7.6" notTransitive()).exclude("org.jboss.netty", "netty"),
+      libraryDependencies += ("com.ning" % "async-http-client" % "1.7.6"  % "test" notTransitive()).exclude("org.jboss.netty", "netty"),
 
-      libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.0.7" % "provided",
-      libraryDependencies += "log4j" % "log4j" % "1.2.16" % "compile",
+//      libraryDependencies += "org.slf4j" % "slf4j-api" % "1.7.2",
+      libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.0.9",
 
       getMissingJars := {
         import java.net.URL
@@ -77,10 +77,9 @@ object CssValidatorBuild extends Build {
             IO.move(file, lib / file.getName)
           }
         }
+      },
 
-
-      }
-
+      (compile in Compile) <<= (compile in Compile).dependsOn(getMissingJars)
 
     )
   )

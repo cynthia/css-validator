@@ -12,14 +12,26 @@ import org.eclipse.jetty.util.thread.QueuedThreadPool
 import javax.servlet.DispatcherType
 import java.util.EnumSet
 import com.ning.http.client._
+import java.io._
+
+object PositiveTest {
+
+  implicit class FileW(val file: File) extends AnyVal {
+    def / (child: String): File = new File(file, child)
+  }
+
+}
 
 class PositiveTest extends WordSpec with MustMatchers with BeforeAndAfterAll {
+
+  import PositiveTest.FileW
 
   override def beforeAll(): Unit = {
     server.start()
   }
   
   override def afterAll(): Unit = {
+    client.close()
     server.stop()
   }
 
@@ -64,7 +76,7 @@ class PositiveTest extends WordSpec with MustMatchers with BeforeAndAfterAll {
       connector
     }
     val handlers: ContextHandlerCollection = {
-      val array: Array[Handler] = Array(cssValidator, staticFilesHandler, new DefaultHandler())
+      val array: Array[Handler] = Array(cssValidator, staticFilesHandler)
       val handlers = new ContextHandlerCollection
       handlers.setHandlers(array)
       handlers
@@ -104,10 +116,36 @@ class PositiveTest extends WordSpec with MustMatchers with BeforeAndAfterAll {
     errors
   }
 
-  "test suite" in {
+  def test(path: String, errors: Int) = {
+    s"${path} must have ${errors} errors" in {
+      nbErrors(s"http://localhost:2719/static/${path}") must be(errors)
+    }
+  }
 
-    nbErrors("http://localhost:2719/static/positive/align-content/css3/001.css") must be(0)
+  def testCss(path: String, errors: Int): Suite = new FunSuite with MustMatchers {
+    override def suiteName = path
+    test(s"${path} must have ${errors} errors") {
+      nbErrors("http://localhost:2719/static/positive/align-content/css3/001.css") must be(0)
+    }
+  }
 
+  override def nestedSuites = {
+    val testSuiteBase = new File("autotest/testsuite/properties")
+    val positive = testSuiteBase / "positive"
+    val allDirectories = new FileFilter { def accept(file: File) = file.isDirectory }
+    val allCssFiles = new FileFilter { def accept(file: File) = file.isFile && file.getName.endsWith(".css") }
+    val tests = positive.listFiles(allDirectories) flatMap { propertyDir =>
+      val property = propertyDir.getName
+      propertyDir.listFiles(allDirectories) flatMap { cssLevelDir =>
+        val cssLevel = cssLevelDir.getName
+        cssLevelDir.listFiles(allCssFiles) map { cssFile =>
+          val fileName = cssFile.getName
+          val path = s"positive/${property}/${cssLevel}/${fileName}"
+          testCss(path, 0)
+        }
+      }
+    }
+    tests.toIndexedSeq
   }
 
 }
