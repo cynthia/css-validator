@@ -6,7 +6,7 @@ import sbt.Keys._
  */
 object CssValidatorBuild extends Build {
 
-  val jettyVersion = "8.1.7.v20120910"
+  val jettyVersion = "8.1.12.v20130726"
   val javaServletVersion = "3.0.0.v201112011016"
 
   lazy val cssValidator = Project(
@@ -16,7 +16,7 @@ object CssValidatorBuild extends Build {
     settings = Defaults.defaultSettings ++ Seq(
       organization := "org.w3",
       version := "1.0-SNAPSHOT",
-      scalaVersion := "2.10.0",
+      scalaVersion := "2.11.0-M4",
       libraryDependencies += "commons-collections" % "commons-collections" % "3.2.1" intransitive(),
       libraryDependencies += "commons-lang" % "commons-lang" % "2.6" intransitive(),
       libraryDependencies += "org.apache.velocity" % "velocity" % "1.7" intransitive(),
@@ -37,7 +37,7 @@ object CssValidatorBuild extends Build {
           <artifact name="javax.servlet" type="orbit" ext="jar"/>
         </dependency>,
 
-      libraryDependencies += "org.scalatest" %% "scalatest" % "2.0.M5b" % "test",
+      libraryDependencies += "org.scalatest" %% "scalatest" % "2.0.M6-SNAP35" % "test",
       libraryDependencies += ("com.ning" % "async-http-client" % "1.7.6"  % "test" notTransitive()).exclude("org.jboss.netty", "netty"),
 
 //      libraryDependencies += "org.slf4j" % "slf4j-api" % "1.7.2",
