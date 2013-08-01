@@ -46,8 +46,8 @@ object CssValidatorBuild extends Build {
       libraryDependencies += "Xerces-J" % "xercesImpl" % "2.11.0" from jarInZip("http://www.apache.org/dist/xerces/j/binaries/Xerces-J-bin.2.11.0.zip", "xerces-2_11_0/xercesImpl.jar"),
       libraryDependencies += "Xerces-J" % "xml-apis" % "2.11.0" from jarInZip("http://www.apache.org/dist/xerces/j/binaries/Xerces-J-bin.2.11.0.zip", "xerces-2_11_0/xml-apis.jar"),
       libraryDependencies += "validator.nu" % "htmlparser" % "1.3.1" from jarInZip("http://about.validator.nu/htmlparser/htmlparser-1.3.1.zip", "htmlparser-1.3.1/htmlparser-1.3.1.jar"),
-      libraryDependencies += "org.w3" % "jigsaw" % "2.2.6" from jarInZip("http://jigsaw.w3.org/Distrib/jigsaw_2.2.6.zip", "Jigsaw/classes/jigsaw.jar")
-
+      libraryDependencies += "org.w3" % "jigsaw" % "2.2.6" from jarInZip("http://jigsaw.w3.org/Distrib/jigsaw_2.2.6.zip", "Jigsaw/classes/jigsaw.jar"),
+      libraryDependencies += "joda-time" % "joda-time" % "2.2"
     )
   )
 
