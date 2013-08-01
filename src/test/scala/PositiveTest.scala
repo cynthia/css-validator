@@ -14,6 +14,8 @@ import java.util.EnumSet
 import com.ning.http.client._
 import java.io._
 
+object SlowTest extends Tag("org.w3.assertor.css.SlowTest")
+
 object PositiveTest {
 
   implicit class FileW(val file: File) extends AnyVal {
@@ -22,7 +24,7 @@ object PositiveTest {
 
 }
 
-class PositiveTest extends FunSuite with MustMatchers with BeforeAndAfterAll {
+class PositiveTest extends FlatSpec with MustMatchers with BeforeAndAfterAll {
 
   import PositiveTest.FileW
 
@@ -31,7 +33,6 @@ class PositiveTest extends FunSuite with MustMatchers with BeforeAndAfterAll {
   }
   
   override def afterAll(): Unit = {
-    println(3)
     client.close()
     server.stop()
   }
@@ -117,7 +118,7 @@ class PositiveTest extends FunSuite with MustMatchers with BeforeAndAfterAll {
     errors
   }
 
-  test("Positive Test") {
+  "All Positive Tests" must "have no error" taggedAs(SlowTest) in {
     val testSuiteBase = new File("autotest/testsuite/properties")
     val positive = testSuiteBase / "positive"
     val allDirectories = new FileFilter { def accept(file: File) = file.isDirectory }

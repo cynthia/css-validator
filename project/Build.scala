@@ -17,6 +17,7 @@ object CssValidatorBuild extends Build {
       organization := "org.w3",
       version := "1.0-SNAPSHOT",
       scalaVersion := "2.11.0-M4",
+      testOptions in Test += Tests.Argument("exclude(org.w3.assertor.css.SlowTest)"),
       libraryDependencies += "commons-collections" % "commons-collections" % "3.2.1" intransitive(),
       libraryDependencies += "commons-lang" % "commons-lang" % "2.6" intransitive(),
       libraryDependencies += "org.apache.velocity" % "velocity" % "1.7" intransitive(),
