@@ -8,6 +8,7 @@
 package org.w3c.css.css;
 
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.Connection;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.Util;
 import org.w3c.www.mime.MimeType;
@@ -16,7 +17,6 @@ import org.w3c.www.mime.MimeTypeFormatException;
 import java.io.IOException;
 import java.io.Reader;
 import java.net.URL;
-import java.net.URLConnection;
 
 /**
  * @version $Revision: 1.12 $
@@ -35,7 +35,6 @@ public final class DocumentParser {
 
     private StyleSheet style;
     private URL htmlURL;
-    private Exception exception;
     private ApplContext ac;
 
     public DocumentParser(ApplContext ac, Reader reader) throws Exception {
@@ -112,10 +111,9 @@ public final class DocumentParser {
                 throw new Exception("Unknown file");
             }
         } else {
-            URLConnection connection = null;
+            Connection connection = null;
 
             try {
-                boolean isXML = false;
                 String cType;
 
                 // @@ hum, maybe? (plh, yes probably :-) )
@@ -176,7 +174,7 @@ public final class DocumentParser {
                 }
             } finally {
                 try {
-                    connection.getInputStream().close();
+                    connection.getBody().close();
                 } catch (Exception e) {
                 }
             }

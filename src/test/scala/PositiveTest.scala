@@ -118,6 +118,7 @@ class PositiveTest extends FlatSpec with MustMatchers with BeforeAndAfterAll {
     errors
   }
 
+//  "All Positive Tests" must "have no error" in {
   "All Positive Tests" must "have no error" taggedAs(SlowTest) in {
     val testSuiteBase = new File("autotest/testsuite/properties")
     val positive = testSuiteBase / "positive"

@@ -26,7 +26,6 @@ import org.xml.sax.ext.LexicalHandler;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.HashMap;
 
 /**
@@ -579,7 +578,7 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
 
     void parse(URL url) throws Exception {
         InputSource source = new InputSource();
-        URLConnection connection;
+        Connection connection;
         InputStream in;
         org.xml.sax.XMLReader xmlParser = new org.ccil.cowan.tagsoup.Parser();
         try {
@@ -634,7 +633,7 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         }
     }
 
-    void parse(String urlString, URLConnection connection) throws Exception {
+    void parse(String urlString, Connection connection) throws Exception {
         org.xml.sax.XMLReader xmlParser = new org.ccil.cowan.tagsoup.Parser();
         try {
             xmlParser.setProperty("http://xml.org/sax/properties/lexical-handler",

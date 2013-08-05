@@ -18,6 +18,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,6 +35,126 @@ import java.util.zip.GZIPInputStream;
  */
 public class HTTPURL {
 
+	/** defaults to the old implementation in css-validator */
+	private static ConnectionHandler handler;
+	
+	static {
+		handler = new ConnectionHandler() {
+
+			@Override
+			public Connection getConnection(URL url, URL referrer, int count,
+					ApplContext ac) throws IOException {
+				if (count > 5) {
+					throw new ProtocolException("Server redirected too many " +
+							"times (5)");
+				}
+				// add the referrer, if not the same as the target URL
+				URL ref = (url.equals(referrer) ? null : referrer);
+
+				if (Util.servlet) {
+					String protocol = url.getProtocol();
+					if (!(("https".equalsIgnoreCase(protocol)) || ("http".equalsIgnoreCase(protocol)))) {
+						System.err.println("[WARNING] : someone is trying to get the file: "
+								+ url);
+						throw new FileNotFoundException("import " + url +
+								": Operation not permitted");
+					}
+				}
+
+				URLConnection urlC = url.openConnection();
+
+				if (Util.onDebug) {
+					System.err.println("Accessing " + url);
+					if (ac.getCredential() != null) {
+						System.err.println("with [" + ac.getCredential() + ']');
+					}
+				}
+				// avoid all kind of caches
+				urlC.setRequestProperty("Pragma", "no-cache");
+				urlC.setRequestProperty("Cache-Control", "no-cache, no-store");
+				// for the fun
+				urlC.setRequestProperty("User-Agent",
+						"Jigsaw/2.2.5 W3C_CSS_Validator_JFouffa/2.0");
+				// referrer
+				setReferrer(urlC, ref);
+				// relay authorization information
+				if (ac.getCredential() != null) {
+					urlC.setRequestProperty("Authorization", ac.getCredential());
+				}
+				// relay languages
+				if (ac.getLang() != null) {
+					if (ac.getLang().indexOf('*') == -1) {
+						urlC.setRequestProperty("Accept-Language", ac.getLang() + ",*");
+					} else {
+						urlC.setRequestProperty("Accept-Language", ac.getLang());
+					}
+				}
+				// should I put an Accept header?
+				urlC.setRequestProperty("Accept",
+						"text/css,text/html,text/xml,"
+								+ "application/xhtml+xml,application/xml,"
+								+ "image/svg+xml,*/*;q=0.1");
+
+				if (urlC instanceof HttpURLConnection) {
+					HttpURLConnection httpURL = (HttpURLConnection) urlC;
+					int status;
+
+					httpURL.setInstanceFollowRedirects(false);
+					if (urlC instanceof HttpsURLConnection) {
+						setSSLVerifier((HttpsURLConnection) urlC);
+					}
+					urlC.connect();
+
+					try {
+						status = httpURL.getResponseCode();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+						throw new FileNotFoundException(url + ": " +
+								getHTTPStatusCode(404));
+					}
+
+					switch (status) {
+						case HttpURLConnection.HTTP_OK:
+							// nothing to do
+							break;
+						case HttpURLConnection.HTTP_MOVED_PERM:
+						case HttpURLConnection.HTTP_MOVED_TEMP:
+						case 307:
+							try {
+								URL u = getURL(httpURL.getHeaderField("Location"));
+								return getConnection(u, ref, count + 1, ac);
+							} finally {
+								httpURL.disconnect();
+							}
+						case HttpURLConnection.HTTP_UNAUTHORIZED:
+							String realm = httpURL.getHeaderField("WWW-Authenticate");
+							httpURL.disconnect();
+							if (realm != null) {
+								throw new ProtocolException(realm);
+							}
+						default:
+							try {
+								if (httpURL.getResponseMessage() != null) {
+									throw new FileNotFoundException(url + ": " +
+											httpURL.getResponseMessage());
+								} else {
+									throw new FileNotFoundException(url + ": " +
+											getHTTPStatusCode(status));
+								}
+							} finally {
+								httpURL.disconnect();
+							}
+					}
+				} else {
+					urlC.connect();
+				}
+				return Connection.fromURLConnection(urlC);
+			}
+
+		};
+		
+	}
+	
 	/**
 	 * Don't create this class
 	 */
@@ -150,7 +271,7 @@ public class HTTPURL {
 		return new URL(base, url);
 	}
 
-	private static URLConnection getConnection(URL url, int count)
+	private static Connection getConnection(URL url, int count)
 			throws IOException {
 		return getConnection(url, null, count, null);
 	}
@@ -190,130 +311,26 @@ public class HTTPURL {
 		uConn.setHostnameVerifier(hv);
 	}
 
-	private static URLConnection getConnection(URL url, URL referrer, int count,
+	private static Connection getConnection(URL url, URL referrer, int count,
 											   ApplContext ac)
 			throws IOException {
-		if (count > 5) {
-			throw new ProtocolException("Server redirected too many " +
-					"times (5)");
-		}
-		// add the referrer, if not the same as the target URL
-		URL ref = (url.equals(referrer) ? null : referrer);
-
-		if (Util.servlet) {
-			String protocol = url.getProtocol();
-			if (!(("https".equalsIgnoreCase(protocol)) || ("http".equalsIgnoreCase(protocol)))) {
-				System.err.println("[WARNING] : someone is trying to get the file: "
-						+ url);
-				throw new FileNotFoundException("import " + url +
-						": Operation not permitted");
-			}
-		}
-
-		URLConnection urlC = url.openConnection();
-
-		if (Util.onDebug) {
-			System.err.println("Accessing " + url);
-			if (ac.getCredential() != null) {
-				System.err.println("with [" + ac.getCredential() + ']');
-			}
-		}
-		// avoid all kind of caches
-		urlC.setRequestProperty("Pragma", "no-cache");
-		urlC.setRequestProperty("Cache-Control", "no-cache, no-store");
-		// for the fun
-		urlC.setRequestProperty("User-Agent",
-				"Jigsaw/2.2.5 W3C_CSS_Validator_JFouffa/2.0");
-		// referrer
-		setReferrer(urlC, ref);
-		// relay authorization information
-		if (ac.getCredential() != null) {
-			urlC.setRequestProperty("Authorization", ac.getCredential());
-		}
-		// relay languages
-		if (ac.getLang() != null) {
-			if (ac.getLang().indexOf('*') == -1) {
-				urlC.setRequestProperty("Accept-Language", ac.getLang() + ",*");
-			} else {
-				urlC.setRequestProperty("Accept-Language", ac.getLang());
-			}
-		}
-		// should I put an Accept header?
-		urlC.setRequestProperty("Accept",
-				"text/css,text/html,text/xml,"
-						+ "application/xhtml+xml,application/xml,"
-						+ "image/svg+xml,*/*;q=0.1");
-
-		if (urlC instanceof HttpURLConnection) {
-			HttpURLConnection httpURL = (HttpURLConnection) urlC;
-			int status;
-
-			httpURL.setInstanceFollowRedirects(false);
-			if (urlC instanceof HttpsURLConnection) {
-				setSSLVerifier((HttpsURLConnection) urlC);
-			}
-			urlC.connect();
-
-			try {
-				status = httpURL.getResponseCode();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				throw new FileNotFoundException(url + ": " +
-						getHTTPStatusCode(404));
-			}
-
-			switch (status) {
-				case HttpURLConnection.HTTP_OK:
-					// nothing to do
-					break;
-				case HttpURLConnection.HTTP_MOVED_PERM:
-				case HttpURLConnection.HTTP_MOVED_TEMP:
-				case 307:
-					try {
-						URL u = getURL(httpURL.getHeaderField("Location"));
-						return getConnection(u, ref, count + 1, ac);
-					} finally {
-						httpURL.disconnect();
-					}
-				case HttpURLConnection.HTTP_UNAUTHORIZED:
-					String realm = httpURL.getHeaderField("WWW-Authenticate");
-					httpURL.disconnect();
-					if (realm != null) {
-						throw new ProtocolException(realm);
-					}
-				default:
-					try {
-						if (httpURL.getResponseMessage() != null) {
-							throw new FileNotFoundException(url + ": " +
-									httpURL.getResponseMessage());
-						} else {
-							throw new FileNotFoundException(url + ": " +
-									getHTTPStatusCode(status));
-						}
-					} finally {
-						httpURL.disconnect();
-					}
-			}
-		} else {
-			urlC.connect();
-		}
-		return urlC;
+		return handler.getConnection(url, referrer, count, ac);
 	}
 
-	public static URLConnection getConnection(URL url)
+	public static Connection getConnection(URL url)
 			throws IOException {
 		return getConnection(url, 0);
 	}
 
-	public static URLConnection getConnection(URL url, ApplContext ac)
+	public static Connection getConnection(URL url, ApplContext ac)
 			throws IOException {
 		return getConnection(url, ac.getReferrer(), 0, ac);
 	}
 
 	/* more madness */
-	public static InputStream getInputStream(ApplContext ac, URLConnection uco)
+	public static InputStream getInputStream(ApplContext ac, Connection uco)
 			throws IOException {
-		InputStream orig_stream = uco.getInputStream();
+		InputStream orig_stream = uco.getBody();
 		String charset;
 		String encoding;
 		if (orig_stream == null) {
@@ -339,7 +356,7 @@ public class HTTPURL {
 	}
 
 	public static String getCharacterEncoding(ApplContext ac,
-											  URLConnection uco) {
+											  Connection uco) {
 		String charset = ac.getCharsetForURL(uco.getURL());
 		if (charset != null) {
 			return charset;
@@ -392,7 +409,7 @@ public class HTTPURL {
 			throws Exception {
 		int c;
 		InputStream in = HTTPURL.getConnection(
-				getURL(args[0])).getInputStream();
+				getURL(args[0])).getBody();
 
 		while ((c = in.read()) != -1) {
 			System.err.print((char) c);

@@ -17,6 +17,7 @@ import org.w3c.css.parser.CssError;
 import org.w3c.css.parser.Errors;
 import org.w3c.css.parser.analyzer.TokenMgrError;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.Connection;
 import org.w3c.css.util.CssVersion;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.InvalidParamException;
@@ -39,7 +40,6 @@ import org.xml.sax.ext.LexicalHandler;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.HashMap;
 
 import static nu.validator.htmlparser.common.XmlViolationPolicy.ALLOW;
@@ -597,7 +597,7 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
 
     void parse(URL url) throws Exception {
         InputSource source = new InputSource();
-        URLConnection connection;
+        Connection connection;
         InputStream in;
         org.xml.sax.XMLReader xmlParser = new nu.validator.htmlparser.sax.HtmlParser(ALLOW);
         try {
@@ -652,7 +652,7 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
         }
     }
 
-    void parse(String urlString, URLConnection connection) throws Exception {
+    void parse(String urlString, Connection connection) throws Exception {
         org.xml.sax.XMLReader xmlParser = new nu.validator.htmlparser.sax.HtmlParser(ALLOW);
         try {
             xmlParser.setProperty("http://xml.org/sax/properties/lexical-handler",

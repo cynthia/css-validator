@@ -16,6 +16,7 @@ package org.w3c.css.css;
 import org.w3c.css.parser.CssError;
 import org.w3c.css.parser.Errors;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.Connection;
 import org.w3c.css.util.CssVersion;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.InvalidParamException;
@@ -38,7 +39,6 @@ import org.xml.sax.ext.LexicalHandler;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.HashMap;
 
 /**
@@ -476,7 +476,7 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
 
     void parse(URL url) throws Exception {
         InputSource source = new InputSource();
-        URLConnection connection;
+        Connection connection;
         InputStream in;
         org.xml.sax.XMLReader xmlParser = new org.apache.xerces.parsers.SAXParser();
         try {
@@ -534,7 +534,7 @@ public class XMLStyleSheetHandler implements ContentHandler, LexicalHandler,
         }
     }
 
-    void parse(String urlString, URLConnection connection) throws Exception {
+    void parse(String urlString, Connection connection) throws Exception {
         org.xml.sax.XMLReader xmlParser = new org.apache.xerces.parsers.SAXParser();
         try {
             xmlParser.setProperty(

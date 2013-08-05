@@ -20,6 +20,7 @@ import org.w3c.css.parser.analyzer.TokenMgrError;
 import org.w3c.css.properties.PropertiesLoader;
 import org.w3c.css.properties.css.CssProperty;
 import org.w3c.css.util.ApplContext;
+import org.w3c.css.util.Connection;
 import org.w3c.css.util.CssVersion;
 import org.w3c.css.util.HTTPURL;
 import org.w3c.css.util.InvalidParamException;
@@ -32,10 +33,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
@@ -119,7 +118,7 @@ public final class CssFouffa extends CssParser {
             classStyle = PropertiesLoader.config.getProperty(spec);
         }
 
-        Class style;
+        Class<?> style;
         try {
             style = Class.forName(classStyle);
             ac.setCssSelectorsStyle(style);
@@ -178,7 +177,7 @@ public final class CssFouffa extends CssParser {
      * URL with the relevant one
      */
 
-    private CssFouffa(ApplContext ac, URLConnection uco) throws IOException {
+    private CssFouffa(ApplContext ac, Connection uco) throws IOException {
         this(ac, HTTPURL.getInputStream(ac, uco),
                 HTTPURL.getCharacterEncoding(ac, uco), uco.getURL(), 0);
         String httpCL = uco.getHeaderField("Content-Location");
@@ -246,7 +245,7 @@ public final class CssFouffa extends CssParser {
             classStyle = PropertiesLoader.config.getProperty(spec);
         }
 
-        Class style;
+        Class<?> style;
         try {
             style = Class.forName(classStyle);
             ac.setCssSelectorsStyle(style);
@@ -308,7 +307,7 @@ public final class CssFouffa extends CssParser {
             is = ac.getFakeInputStream(file);
             url = file;
         } else {
-            URLConnection urlC = HTTPURL.getConnection(file, ac);
+            Connection urlC = HTTPURL.getConnection(file, ac);
             is = HTTPURL.getInputStream(ac, urlC);
             url = urlC.getURL();
         }
@@ -481,16 +480,14 @@ public final class CssFouffa extends CssParser {
                         "import URL sorry.");
             }
 
-            URLConnection importURL = HTTPURL.getConnection(importedURL, ac);
-            String charset = HTTPURL.getCharacterEncoding(ac, importURL);
-
-            if (importURL instanceof HttpURLConnection) {
-                HttpURLConnection httpURL = (HttpURLConnection) importURL;
-                String httpCL = httpURL.getHeaderField("Content-Location");
+            Connection importURL = HTTPURL.getConnection(importedURL, ac);
+            
+            if (importURL.isHttpURL()) {
+                String httpCL = importURL.getHeaderField("Content-Location");
                 if (httpCL != null) {
                     importedURL = HTTPURL.getURL(importedURL, httpCL);
                 }
-                String mtype = httpURL.getContentType();
+                String mtype = importURL.getContentType();
                 if (mtype == null) {
                     throw new FileNotFoundException(importURL.getURL() +
                             "No Media Type defined");
@@ -829,7 +826,7 @@ public final class CssFouffa extends CssParser {
     /**
      * Set the style
      */
-    public void setStyle(Class style) {
+    public void setStyle(Class<?> style) {
         ac.setCssSelectorsStyle(style);
     }
 
