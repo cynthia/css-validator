@@ -601,7 +601,7 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         in = HTTPURL.getInputStream(ac, connection);
         String streamEncoding = HTTPURL.getCharacterEncoding(ac, connection);
 
-        String httpCL = connection.getHeaderField("Content-Location");
+        String httpCL = connection.getContentLocation();
         if (httpCL != null) {
             baseURI = HTTPURL.getURL(baseURI, httpCL);
             documentURI = baseURI;
@@ -650,7 +650,7 @@ public class TagSoupStyleSheetHandler implements ContentHandler, LexicalHandler,
         InputStream cis = HTTPURL.getInputStream(ac, connection);
         InputSource source = new InputSource(cis);
         String streamEncoding = HTTPURL.getCharacterEncoding(ac, connection);
-        String httpCL = connection.getHeaderField("Content-Location");
+        String httpCL = connection.getContentLocation();
         if (httpCL != null) {
             baseURI = HTTPURL.getURL(baseURI, httpCL);
             documentURI = baseURI;

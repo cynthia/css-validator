@@ -20,7 +20,7 @@ public abstract class Connection {
 	
 	public abstract URL getURL();
 	
-	public abstract String getHeaderField(String name);
+	public abstract String getContentLocation();
 	
 	public abstract String getContentType();
 	
@@ -43,11 +43,6 @@ public abstract class Connection {
 			}
 
 			@Override
-			public String getHeaderField(String name) {
-				return conn.getHeaderField(name);
-			}
-
-			@Override
 			public String getContentType() {
 				return conn.getContentType();
 			}
@@ -60,6 +55,11 @@ public abstract class Connection {
 			@Override
 			public boolean isHttpURL() {
 				return conn instanceof HttpURLConnection;
+			}
+
+			@Override
+			public String getContentLocation() {
+				return conn.getHeaderField("Content-Location");
 			}
 		};
 		

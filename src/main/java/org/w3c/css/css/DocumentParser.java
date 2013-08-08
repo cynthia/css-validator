@@ -117,7 +117,7 @@ public final class DocumentParser {
                 connection = HTTPURL.getConnection(htmlURL, ac);
                 htmlURL = connection.getURL();
 
-                String httpCL = connection.getHeaderField("Content-Location");
+                String httpCL = connection.getContentLocation();
                 if (httpCL != null) {
                     htmlURL = HTTPURL.getURL(htmlURL, httpCL);
                 }

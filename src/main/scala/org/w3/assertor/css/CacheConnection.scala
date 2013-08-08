@@ -7,8 +7,10 @@ import java.util._
 
 class CacheConnection(url: URL, cr: CacheResponse) extends Connection {
 
+  val headers: Map[String, List[String]] = cr.getHeaders()
+
   def getBody(): InputStream = cr.getBody()
-  def getHeaders(): Map[String, List[String]] = cr.getHeaders()
+  def getContentLocation(): String = ???
   def getHeaderField(name: String): String = ???
   def getContentEncoding(): String = ???
   def getContentType(): String = ???

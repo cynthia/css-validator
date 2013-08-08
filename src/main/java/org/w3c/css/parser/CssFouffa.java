@@ -180,7 +180,7 @@ public final class CssFouffa extends CssParser {
     private CssFouffa(ApplContext ac, Connection uco) throws IOException {
         this(ac, HTTPURL.getInputStream(ac, uco),
                 HTTPURL.getCharacterEncoding(ac, uco), uco.getURL(), 0);
-        String httpCL = uco.getHeaderField("Content-Location");
+        String httpCL = uco.getContentLocation();
         if (httpCL != null) {
             setURL(HTTPURL.getURL(getURL(), httpCL));
         }
@@ -483,7 +483,7 @@ public final class CssFouffa extends CssParser {
             Connection importURL = HTTPURL.getConnection(importedURL, ac);
             
             if (importURL.isHttpURL()) {
-                String httpCL = importURL.getHeaderField("Content-Location");
+                String httpCL = importURL.getContentLocation();
                 if (httpCL != null) {
                     importedURL = HTTPURL.getURL(importedURL, httpCL);
                 }

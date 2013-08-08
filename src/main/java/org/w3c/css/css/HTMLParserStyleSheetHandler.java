@@ -620,7 +620,7 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
         in = HTTPURL.getInputStream(ac, connection);
         String streamEncoding = HTTPURL.getCharacterEncoding(ac, connection);
 
-        String httpCL = connection.getHeaderField("Content-Location");
+        String httpCL = connection.getContentLocation();
         if (httpCL != null) {
             baseURI = HTTPURL.getURL(baseURI, httpCL);
             documentURI = baseURI;
@@ -669,7 +669,7 @@ public class HTMLParserStyleSheetHandler implements ContentHandler, LexicalHandl
         InputStream cis = HTTPURL.getInputStream(ac, connection);
         InputSource source = new InputSource(cis);
         String streamEncoding = HTTPURL.getCharacterEncoding(ac, connection);
-        String httpCL = connection.getHeaderField("Content-Location");
+        String httpCL = connection.getContentLocation();
         if (httpCL != null) {
             baseURI = HTTPURL.getURL(baseURI, httpCL);
             documentURI = baseURI;
