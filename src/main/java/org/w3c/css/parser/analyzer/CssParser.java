@@ -5,18 +5,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.net.URL;
-import java.math.BigDecimal;
-
 import org.w3c.css.values.CssValue;
-import org.w3c.css.values.CssCheckableValue;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssString;
 import org.w3c.css.values.CssURL;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssNumber;
-import org.w3c.css.values.CssColor;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssImage;
 import org.w3c.css.values.CssPercentage;
@@ -32,7 +27,6 @@ import org.w3c.css.values.CssSemitone;
 import org.w3c.css.values.CssTypes;
 import org.w3c.css.values.CssVolume;
 import org.w3c.css.properties.css.CssProperty;
-import org.w3c.css.parser.Frame;
 import org.w3c.css.parser.CssError;
 import org.w3c.css.parser.CssErrorToken;
 import org.w3c.css.parser.CssSelectors;
@@ -52,8 +46,6 @@ import org.w3c.css.util.CssVersion;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.util.WarningParamException;
 import org.w3c.css.util.Util;
-import org.w3c.css.util.Messages;
-
 import org.w3c.css.selectors.AdjacentSiblingSelector;
 import org.w3c.css.selectors.AttributeSelector;
 import org.w3c.css.selectors.ChildSelector;
@@ -932,11 +924,9 @@ new ParseException(ac.getMsg().getString("generator.dontmixhtml")), n.image);
     AtRule old = getAtRule();
     AtRuleMedia newRule = AtRuleMedia.getInstance(ac.getCssVersion());
     setAtRule(newRule);
-    Token n;
-    CssProperty p = null;
     boolean isCss1 =  (ac.getCssVersion() == CssVersion.CSS1);
     try {
-      n = jj_consume_token(MEDIA_SYM);
+      jj_consume_token(MEDIA_SYM);
       label_18:
       while (true) {
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -1070,9 +1060,8 @@ Token w,h,n;
   }
 
   final public void mediaquerylist(AtRuleMedia mediaRule) throws ParseException {
-  CssVersion v = ac.getCssVersion();
-  boolean isCss1 =  (v == CssVersion.CSS1);
-    mediaquery(mediaRule);
+  ac.getCssVersion();
+  mediaquery(mediaRule);
     label_24:
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -1101,8 +1090,7 @@ Token w,h,n;
   }
 
   final public void mediaquery(AtRuleMedia mediaRule) throws ParseException {
-  CssVersion v = ac.getCssVersion();
-  boolean isCss1 =  (v == CssVersion.CSS1);
+  ac.getCssVersion();
   Token n;
   String mediarestrictor = null;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -1206,8 +1194,7 @@ Token w,h,n;
   }
 
   final public void mediaexpression(AtRuleMedia mediaRule, boolean defaultMedia) throws ParseException {
-  CssVersion v = ac.getCssVersion();
-  boolean isCss1 =  (v == CssVersion.CSS1);
+  ac.getCssVersion();
   CssExpression val = null;
   String mediaFeatureName = null;
   Token n;
@@ -1432,8 +1419,7 @@ Token w,h,n;
   }
 
   final public ArrayList<CssProperty> pageContent() throws ParseException {
-  CssProperty prop;
-    ArrayList<CssProperty> v = new ArrayList<CssProperty>();
+  ArrayList<CssProperty> v = new ArrayList<CssProperty>();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case ATTOP:
     case ATRIGHT:
@@ -1452,21 +1438,20 @@ Token w,h,n;
   }
 
   final public ArrayList<CssProperty> prefAtRule() throws ParseException {
-  Token n;
-    ArrayList<CssProperty> v;
+  ArrayList<CssProperty> v;
     try {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case ATTOP:
-        n = jj_consume_token(ATTOP);
+        jj_consume_token(ATTOP);
         break;
       case ATBOTTOM:
-        n = jj_consume_token(ATBOTTOM);
+        jj_consume_token(ATBOTTOM);
         break;
       case ATLEFT:
-        n = jj_consume_token(ATLEFT);
+        jj_consume_token(ATLEFT);
         break;
       case ATRIGHT:
-        n = jj_consume_token(ATRIGHT);
+        jj_consume_token(ATRIGHT);
         break;
       default:
         jj_la1[54] = jj_gen;
@@ -1627,8 +1612,6 @@ Token w,h,n;
     } catch (ParseException e) {
        // TODO fix the error
         Token t = getToken(1);
-        int _line = t.beginLine;
-        int _col  = t.beginColumn;
         StringBuilder s = new StringBuilder();
         s.append(" [");
         s.append(getToken(0).image);
@@ -2108,8 +2091,7 @@ Token w,h,n;
  * @exception ParseException exception during the parse
  */
   final public void atRuleDeclaration() throws ParseException {
- Token n;
-    n = jj_consume_token(ATKEYWORD);
+ jj_consume_token(ATKEYWORD);
             //ac.getFrame().addWarning("at-rule", token.toString());
             ac.getFrame().addError(
                           new CssError(new InvalidParamException("at-rule",
@@ -3106,7 +3088,6 @@ Token w,h,n;
   }
 
   final public void negation(CssSelectors s) throws ParseException {
-    Token n;
     CssSelectors ns = new CssSelectors(ac, null);
     jj_consume_token(FUNCTIONNOT);
     label_86:
@@ -4296,7 +4277,7 @@ CssExpression param = null;
             }
         }
     }
-    String statement = s.toString().trim();
+    s.toString().trim();
     addError(e, s.toString());
   }
 

@@ -43,7 +43,6 @@ public class Widths extends CssProperty implements CssOperator {
     	throws InvalidParamException {
 	CssValue val;
 	char op;
-	int i = 0;
 	setByUser();
 
 	do {

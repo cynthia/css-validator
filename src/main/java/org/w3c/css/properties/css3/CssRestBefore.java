@@ -61,10 +61,8 @@ public class CssRestBefore extends org.w3c.css.properties.css.CssRestBefore {
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		switch (val.getType()) {
 			case CssTypes.CSS_TIME:

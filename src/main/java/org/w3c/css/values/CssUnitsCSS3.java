@@ -150,7 +150,6 @@ public class CssUnitsCSS3 {
 
 	protected static void parseResolutionUnit(String unit, CssResolution resolution, ApplContext ac)
 			throws InvalidParamException {
-		String matchedUnit = null;
 		for (String s : resolution_units) {
 			if (s.equals(unit)) {
 				resolution.unit = s;

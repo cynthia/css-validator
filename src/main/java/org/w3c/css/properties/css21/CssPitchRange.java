@@ -38,10 +38,8 @@ public class CssPitchRange extends org.w3c.css.properties.css.CssPitchRange {
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		switch (val.getType()) {
 			case CssTypes.CSS_NUMBER:

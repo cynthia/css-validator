@@ -61,8 +61,7 @@ public class CssFlexBasis extends org.w3c.css.properties.css.CssFlexBasis {
 
 		switch (val.getType()) {
 			case CssTypes.CSS_IDENT:
-				CssIdent ident = (CssIdent) val;
-				if (inherit.equals(val)) {
+			if (inherit.equals(val)) {
 					value = inherit;
 				} else if (auto.equals(val)) {
 					value = auto;

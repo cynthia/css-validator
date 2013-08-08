@@ -58,10 +58,8 @@ public class CssTableLayout extends org.w3c.css.properties.css.CssTableLayout {
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		// same as CSS2plus a warning
 		ac.getFrame().addWarning("atsc", val.toString());

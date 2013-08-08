@@ -28,8 +28,6 @@ import static org.w3c.css.values.CssOperator.SPACE;
 
 public class CssColumns extends org.w3c.css.properties.css.CssColumns {
 
-    private static final String propertyName = "columns";
-
     CssIdent value = null;
     CssColumnWidth width = null;
     CssColumnCount count = null;

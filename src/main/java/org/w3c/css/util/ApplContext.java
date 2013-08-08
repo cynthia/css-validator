@@ -409,7 +409,6 @@ public class ApplContext {
      * automatic discovery
      */
     public Charset getCharsetObjForURL(URL url) {
-        Charset c;
         if (uricharsets == null) {
             return null;
         }

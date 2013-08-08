@@ -50,7 +50,6 @@ public class TranslationTableGenerator {
     // inside)
     public static VelocityContext vc = new VelocityContext();
     private static String html_files_path = "../../../../";
-    private static boolean done = false;
     private static String template_name = "translations.vm";
 
 
@@ -200,7 +199,6 @@ public class TranslationTableGenerator {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            done = true;
         }
     }
 }

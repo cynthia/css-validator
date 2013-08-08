@@ -59,10 +59,8 @@ public class CssSpeak extends org.w3c.css.properties.css.CssSpeak {
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		switch (val.getType()) {
 			case CssTypes.CSS_IDENT:

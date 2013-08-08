@@ -59,7 +59,7 @@ public class ColorProfile extends CssProperty implements CssOperator {
 	CssValue val = expression.getValue();
 	int counter = 0;
 	boolean correct = true;
-	String errorval = new String();
+	new String();
 
 	if (val.equals(inherit)) {
 	    value = inherit;
@@ -84,15 +84,15 @@ public class ColorProfile extends CssProperty implements CssOperator {
 			    values.addElement(val);
 			} else {
 			    correct = false;
-			    errorval = val.toString();
+			    val.toString();
 			}
 		    } else {
 			correct = false;
-			errorval = val.toString();
+			val.toString();
 		    }
 		} else {
 		    correct = false;
-		    errorval = val.toString();
+		    val.toString();
 		}
 
 		expression.next();

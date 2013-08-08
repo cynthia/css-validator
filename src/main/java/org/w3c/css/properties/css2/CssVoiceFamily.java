@@ -65,7 +65,7 @@ public class CssVoiceFamily extends org.w3c.css.properties.css.CssVoiceFamily {
 			CssValue val = expression.getValue();
 			switch (val.getType()) {
 				case CssTypes.CSS_STRING:
-					String s = val.toString();
+				val.toString();
 					values.add(val);
 					break;
 				case CssTypes.CSS_IDENT:

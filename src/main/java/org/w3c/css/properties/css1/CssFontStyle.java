@@ -50,10 +50,8 @@ public class CssFontStyle extends org.w3c.css.properties.css.CssFontStyle {
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		if (val.getType() == CssTypes.CSS_IDENT) {
 			CssIdent ident = (CssIdent) val;

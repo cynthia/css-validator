@@ -46,10 +46,8 @@ public class CssVoiceDuration extends org.w3c.css.properties.css.CssVoiceDuratio
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		switch (val.getType()) {
 			case CssTypes.CSS_TIME:

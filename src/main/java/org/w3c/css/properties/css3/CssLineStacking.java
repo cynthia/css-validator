@@ -46,8 +46,6 @@ implements CssOperator {
 	CssValue val = expression.getValue();
 	int maxvalues = 3;
 	boolean correct = true;
-	char op = SPACE;
-
 	while (correct && (val != null) && (maxvalues-- > 0)) {
 
 	    correct = false;
@@ -84,7 +82,7 @@ implements CssOperator {
 	    }
 
 	    val = expression.getValue();
-	    op = expression.getOperator();
+	    expression.getOperator();
 
 	}
 

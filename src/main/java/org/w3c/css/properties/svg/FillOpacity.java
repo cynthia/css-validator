@@ -58,7 +58,7 @@ public class FillOpacity extends CssProperty {
 	    correct = true;
 	} else {
 	    try {
-		CssOpacity opac = new CssOpacity(ac, expression);
+		new CssOpacity(ac, expression);
 		value = val;
 		expression.next();
 		correct = true;

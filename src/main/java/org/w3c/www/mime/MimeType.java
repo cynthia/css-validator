@@ -205,7 +205,7 @@ public class MimeType implements Serializable, Cloneable {
 	public boolean hasParameter(String name) {
 		if (name != null) {
 			if (pnames != null) {
-				String lname = name.toLowerCase();
+				name.toLowerCase();
 				for (String pname : pnames) {
 					if (pname.equals(name))
 						return true;

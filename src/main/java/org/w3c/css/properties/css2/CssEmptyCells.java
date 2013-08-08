@@ -59,10 +59,8 @@ public class CssEmptyCells extends org.w3c.css.properties.css.CssEmptyCells {
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		if (val.getType() == CssTypes.CSS_IDENT) {
 			CssIdent id = (CssIdent) val;

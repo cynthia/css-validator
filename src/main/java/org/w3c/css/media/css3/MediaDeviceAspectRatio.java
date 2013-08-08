@@ -83,7 +83,6 @@ public class MediaDeviceAspectRatio extends MediaFeature {
      */
     public boolean equals(MediaFeature other) {
         try {
-            MediaDeviceAspectRatio mar = (MediaDeviceAspectRatio) other;
             if (value == null) {
                 return (other.value == null);
             }

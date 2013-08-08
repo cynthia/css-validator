@@ -60,10 +60,8 @@ public class CssSpeakHeader extends org.w3c.css.properties.css.CssSpeakHeader {
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		// same as CSS21 plus a warning
 		ac.getFrame().addWarning("deprecatedproperty", getPropertyName());

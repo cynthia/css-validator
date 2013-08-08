@@ -7,7 +7,6 @@ package org.w3c.css.properties.css3;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssPercentage;
 import org.w3c.css.values.CssTypes;
@@ -46,8 +45,7 @@ public class CssWidth extends org.w3c.css.properties.css.CssWidth {
 
 		switch (val.getType()) {
 			case CssTypes.CSS_IDENT:
-				CssIdent ident = (CssIdent) val;
-				if (inherit.equals(val)) {
+			if (inherit.equals(val)) {
 					value = inherit;
 				} else if (auto.equals(val)) {
 					value = auto;

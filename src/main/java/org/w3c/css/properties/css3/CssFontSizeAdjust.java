@@ -60,10 +60,8 @@ public class CssFontSizeAdjust extends org.w3c.css.properties.css.CssFontSizeAdj
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		switch (val.getType()) {
 			case CssTypes.CSS_IDENT:

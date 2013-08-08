@@ -216,7 +216,6 @@ public class Warning implements Comparable<Warning> {
 
     private String warn(String warning, String[] args, ApplContext ac) {
         String str = ac.getMsg().getWarningString(warning);
-        int j;
         if (str == null) {
             return "can't find the warning message for " + warning;
         } else {

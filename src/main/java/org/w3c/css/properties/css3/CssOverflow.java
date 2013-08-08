@@ -139,10 +139,8 @@ public class CssOverflow extends org.w3c.css.properties.css.CssOverflow {
 		}
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		if (val.getType() != CssTypes.CSS_IDENT) {
 			throw new InvalidParamException("value", val,

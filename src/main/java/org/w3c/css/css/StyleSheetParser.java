@@ -283,8 +283,7 @@ public final class StyleSheetParser
         URL ref = ac.getReferrer();
         try {
 
-//	    if (cssFouffa == null) {
-            String charset = ac.getCharsetForURL(url);
+ac.getCharsetForURL(url);
             cssFouffa = new CssFouffa(ac, reader, url, lineno);
             cssFouffa.addListener(this);
 //	    } else {

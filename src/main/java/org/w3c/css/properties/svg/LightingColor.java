@@ -63,8 +63,6 @@ public class LightingColor extends CssProperty implements CssOperator {
 	boolean correct = true;
 	String errorval = "";
 	char op = expression.getOperator();
-	CssColor color;
-
 	if (val.equals(inherit)) {
 	    lightingColor = inherit;
 	    expression.next();
@@ -73,7 +71,7 @@ public class LightingColor extends CssProperty implements CssOperator {
 	    expression.next();
 	} else {
 	    try {
-		color = new CssColor(ac, expression);
+		new CssColor(ac, expression);
 		values.addElement(val);
 		//expression.next();
 	    } catch (InvalidParamException e) {

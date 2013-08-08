@@ -74,10 +74,8 @@ public class CssListStyleType extends org.w3c.css.properties.css.CssListStyleTyp
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		if (val.getType() != CssTypes.CSS_IDENT) {
 			throw new InvalidParamException("value", val,

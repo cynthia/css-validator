@@ -49,15 +49,13 @@ public class CssTextIndent extends org.w3c.css.properties.css.CssTextIndent {
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		CssValue sizeVal = null;
 		CssValue hangVal = null;
 		CssValue eachVal = null;
 
 		while (!expression.end()) {
 			val = expression.getValue();
-			op = expression.getOperator();
+			expression.getOperator();
 			switch (val.getType()) {
 				case CssTypes.CSS_NUMBER:
 					val = val.getLength();

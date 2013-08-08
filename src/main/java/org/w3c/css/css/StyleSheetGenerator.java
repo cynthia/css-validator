@@ -381,8 +381,6 @@ public class StyleSheetGenerator extends StyleReport {
         if (error.getContexts() != null && error.getContexts().size() != 0) {
             ht_error.put("CtxName", "codeContext");
             StringBuilder buf = new StringBuilder();
-            // Loop on the list of contexts for errors
-            Enumeration e;
             Iterator li = error.getContexts().iterator();
             while (li.hasNext()) {
                 Object t = li.next();

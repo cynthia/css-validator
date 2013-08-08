@@ -17,7 +17,6 @@ import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
 import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssOperator;
-import org.w3c.css.values.CssValue;
 
 /**
  */
@@ -43,7 +42,7 @@ public class FontVariant extends CssProperty implements FontConstant {
     public FontVariant(ApplContext ac, CssExpression expression, boolean check)
     	throws InvalidParamException {
 	char op = expression.getOperator();
-	CssValue val = expression.getValue();
+	expression.getValue();
 	setByUser();
 
 	do {

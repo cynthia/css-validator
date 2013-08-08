@@ -61,10 +61,8 @@ public class CssPauseAfter extends org.w3c.css.properties.css.CssPauseAfter {
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		switch (val.getType()) {
 			case CssTypes.CSS_TIME:

@@ -59,8 +59,6 @@ public class EnableBackground extends CssProperty implements CssOperator {
 	this.ac = ac;
 	setByUser(); // tell this property is set by the user
 	CssValue val = expression.getValue();
-	char op = SPACE;
-
 	if (val instanceof CssIdent) {
 	    if (val.equals(inherit)) {
 		value = inherit;
@@ -78,7 +76,7 @@ public class EnableBackground extends CssProperty implements CssOperator {
 	    values.addElement(val);
 	    expression.next();
 	    val = expression.getValue();
-	    op = expression.getOperator();
+	    expression.getOperator();
 
 	    // second value
 	    if (val instanceof CssNumber) {
@@ -89,7 +87,7 @@ public class EnableBackground extends CssProperty implements CssOperator {
 			getPropertyName(), ac);
 	    }
 	    val = expression.getValue();
-	    op = expression.getOperator();
+	    expression.getOperator();
 
 	    // third value
 	    try {
@@ -102,7 +100,7 @@ public class EnableBackground extends CssProperty implements CssOperator {
 	    }
 
 	    val = expression.getValue();
-	    op = expression.getOperator();
+	    expression.getOperator();
 
 	    // fourth value
 	    try {

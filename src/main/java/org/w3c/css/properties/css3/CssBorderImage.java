@@ -418,7 +418,7 @@ public class CssBorderImage extends org.w3c.css.properties.css.CssBorderImage {
 	private CssExpression getOutsetExpression(ApplContext ac, CssExpression expression)
 			throws InvalidParamException {
 		CssExpression exp = new CssExpression();
-		CssValue val, tval;
+		CssValue val;
 		char op;
 
 		while (exp.getCount() < 4 && !expression.end()) {

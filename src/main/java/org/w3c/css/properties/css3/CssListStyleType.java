@@ -113,10 +113,8 @@ public class CssListStyleType extends org.w3c.css.properties.css.CssListStyleTyp
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		switch (val.getType()) {
 			case CssTypes.CSS_STRING:

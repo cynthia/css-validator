@@ -43,7 +43,7 @@ public class CssColor extends org.w3c.css.properties.css.CssColor {
             throw new InvalidParamException("unrecognize", ac);
         }
 
-        org.w3c.css.values.CssColor tempcolor = new org.w3c.css.values.CssColor();
+        new org.w3c.css.values.CssColor();
 
         CssValue val = expression.getValue();
         setByUser();

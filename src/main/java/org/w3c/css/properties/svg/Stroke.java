@@ -74,7 +74,7 @@ public class Stroke extends CssProperty implements CssOperator {
 	    expression.next();
 	} else {
 	    try {
-		CssColor color = new CssColor(ac, expression);
+		new CssColor(ac, expression);
 		values.addElement(val);
 		//expression.next();
 
@@ -151,7 +151,7 @@ public class Stroke extends CssProperty implements CssOperator {
 		    //-------------
 
 		    try {
-			CssColor color = new CssColor(ac, expression);
+			new CssColor(ac, expression);
 			values.addElement(val);
 			//expression.next();
 

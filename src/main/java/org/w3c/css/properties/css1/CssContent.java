@@ -129,7 +129,7 @@ public class CssContent extends CssProperty {
 			    CssExpression expr = new CssExpression();
 			    expr.addValue(v);
 			    try {
-				CssListStyleType listStyleType = new CssListStyleType(ac, expr);
+				new CssListStyleType(ac, expr);
 			    } catch (InvalidParamException e) {
 				throw new InvalidParamException("counter",
 								params.getValue(),

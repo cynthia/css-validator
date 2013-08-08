@@ -57,7 +57,7 @@ public class StrokeWidth extends CssProperty {
 	    correct = true;
 	} else {
 	    try {
-		CssWidth width = new CssWidth(ac, expression);
+		new CssWidth(ac, expression);
 		value = val;
 		expression.next();
 		correct = true;

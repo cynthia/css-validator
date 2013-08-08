@@ -35,16 +35,13 @@ public final class DocumentParser {
 
     private StyleSheet style;
     private URL htmlURL;
-    private ApplContext ac;
-
     public DocumentParser(ApplContext ac, Reader reader) throws Exception {
         this(ac, reader, "urn:unknown", null);
     }
 
     public DocumentParser(ApplContext ac, Reader reader, String urlString, MimeType mediatype) throws Exception {
         this.htmlURL = HTTPURL.getURL(urlString);
-        this.ac = ac;
-        String media = ac.getMedium();
+        ac.getMedium();
 
         if (mediatype == null) {
             mediatype = MimeType.TEXT_CSS;
@@ -79,7 +76,6 @@ public final class DocumentParser {
      */
     public DocumentParser(ApplContext ac, String urlString) throws Exception {
         this.htmlURL = HTTPURL.getURL(urlString);
-        this.ac = ac;
         urlString = htmlURL.toString();
         String urlLower = urlString.toLowerCase();
         String media = ac.getMedium();
@@ -116,8 +112,7 @@ public final class DocumentParser {
             try {
                 String cType;
 
-                // @@ hum, maybe? (plh, yes probably :-) )
-                String credential = ac.getCredential();
+                ac.getCredential();
 
                 connection = HTTPURL.getConnection(htmlURL, ac);
                 htmlURL = connection.getURL();

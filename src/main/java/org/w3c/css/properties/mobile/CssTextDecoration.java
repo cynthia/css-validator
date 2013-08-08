@@ -58,10 +58,8 @@ public class CssTextDecoration extends org.w3c.css.properties.css.CssTextDecorat
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		if (val.getType() != CssTypes.CSS_IDENT) {
 			throw new InvalidParamException("value",

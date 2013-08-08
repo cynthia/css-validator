@@ -8,8 +8,6 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
-
 /**
  * @author betehess
  * 
@@ -20,8 +18,6 @@ public abstract class Connection {
 	
 	public abstract InputStream getBody() throws IOException;
 	
-	public abstract Map<String,List<String>> getHeaders() throws IOException;
-
 	public abstract URL getURL();
 	
 	public abstract String getHeaderField(String name);
@@ -35,11 +31,6 @@ public abstract class Connection {
 	/** wraps a URLConnection */
 	public static Connection fromURLConnection(final URLConnection conn) {
 		return new Connection() {
-			
-			@Override
-			public Map<String, List<String>> getHeaders() throws IOException {
-				return conn.getHeaderFields();
-			}
 			
 			@Override
 			public InputStream getBody() throws IOException {

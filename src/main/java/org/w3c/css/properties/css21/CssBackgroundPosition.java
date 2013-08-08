@@ -128,8 +128,6 @@ public class CssBackgroundPosition extends org.w3c.css.properties.css.CssBackgro
     public void check(CssBackgroundPositionValue v, ApplContext ac)
             throws InvalidParamException {
         int nb_keyword = 0;
-        int nb_percentage = 0;
-        int nb_length = 0;
         int nb_values = v.value.size();
 
         if (nb_values > 2) {
@@ -141,11 +139,9 @@ public class CssBackgroundPosition extends org.w3c.css.properties.css.CssBackgro
                 case CssTypes.CSS_NUMBER:
                     aValue = ((CssNumber) aValue).getLength();
                 case CssTypes.CSS_LENGTH:
-                    nb_length++;
-                    break;
+				break;
                 case CssTypes.CSS_PERCENTAGE:
-                    nb_percentage++;
-                    break;
+				break;
                 case CssTypes.CSS_IDENT:
                     nb_keyword++;
                     break;

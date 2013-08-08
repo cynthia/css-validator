@@ -7,7 +7,6 @@ package org.w3c.css.properties.css1;
 import org.w3c.css.util.ApplContext;
 import org.w3c.css.util.InvalidParamException;
 import org.w3c.css.values.CssExpression;
-import org.w3c.css.values.CssIdent;
 import org.w3c.css.values.CssLength;
 import org.w3c.css.values.CssNumber;
 import org.w3c.css.values.CssPercentage;
@@ -45,8 +44,7 @@ public class CssHeight extends org.w3c.css.properties.css.CssHeight {
 
 		switch (val.getType()) {
 			case CssTypes.CSS_IDENT:
-				CssIdent ident = (CssIdent) val;
-				if (auto.equals(val)) {
+			if (auto.equals(val)) {
 					value = auto;
 				} else {
 					throw new InvalidParamException("unrecognize", ac);

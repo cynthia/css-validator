@@ -59,10 +59,8 @@ public class CssFlexDirection extends org.w3c.css.properties.css.CssFlexDirectio
 		setByUser();
 
 		CssValue val;
-		char op;
-
 		val = expression.getValue();
-		op = expression.getOperator();
+		expression.getOperator();
 
 		if (val.getType() == CssTypes.CSS_IDENT) {
 			CssIdent ident = (CssIdent) val;

@@ -161,6 +161,14 @@ public class HTTPURL {
 	private HTTPURL() {
 	}
 
+	/**
+	 * override the default connectionHandler. This is not synchronized and
+	 * should not be set dynamically. You would typically call that at
+	 * initialization time.
+	 */
+	public static void setConnectionHandler(ConnectionHandler connectionHandler) {
+		HTTPURL.handler = connectionHandler;
+	}
 
 	public static String getHTTPStatusCode(int status) {
 		switch (status) {
