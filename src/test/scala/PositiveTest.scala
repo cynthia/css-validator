@@ -13,6 +13,8 @@ import javax.servlet.DispatcherType
 import java.util.EnumSet
 import com.ning.http.client._
 import java.io._
+import org.w3c.css.util._
+import java.net.URL
 
 object SlowTest extends Tag("org.w3.assertor.css.SlowTest")
 
@@ -24,11 +26,38 @@ object PositiveTest {
 
 }
 
+object FSBasedConnectionHandler extends ConnectionHandler {
+
+  import PositiveTest.FileW
+
+  val r = "^.+static/(.+)$".r
+
+  val base = new File("./autotest/testsuite/properties")
+
+  def getConnection(url: URL, referrer: URL, count: Int, ac: ApplContext): Connection = new Connection {
+
+    val r(path) = url.toString
+    val file = base / path
+
+    def getBody(): InputStream = new FileInputStream(file)
+    def getContentEncoding(): String = null
+    def getContentLocation(): String = null
+    def getContentType(): String = "text/css"
+    def getURL(): URL = url
+    def isHttpURL(): Boolean = true
+  }
+
+}
+
+
+
+
 class PositiveTest extends FlatSpec with MustMatchers with BeforeAndAfterAll {
 
   import PositiveTest.FileW
 
   override def beforeAll(): Unit = {
+    HTTPURL.setConnectionHandler(FSBasedConnectionHandler)
     server.start()
   }
   
@@ -78,7 +107,7 @@ class PositiveTest extends FlatSpec with MustMatchers with BeforeAndAfterAll {
       connector
     }
     val handlers: ContextHandlerCollection = {
-      val array: Array[Handler] = Array(cssValidator, staticFilesHandler)
+      val array: Array[Handler] = Array(cssValidator/*, staticFilesHandler*/)
       val handlers = new ContextHandlerCollection
       handlers.setHandlers(array)
       handlers
@@ -114,8 +143,17 @@ class PositiveTest extends FlatSpec with MustMatchers with BeforeAndAfterAll {
     val encodedUrl = java.net.URLEncoder.encode(url, "UTF-8")
     val serviceUrl = s"http://localhost:2719/css/?uri=${encodedUrl}&profile=css3&output=json"
     val response = client.prepareHead(serviceUrl).execute().get()
+//    val response = client.prepareGet(serviceUrl).execute().get()
+//    val body = response.getResponseBody()
+//    println(body)
     val errors = response.getHeader("X-W3C-Validator-Errors").toInt
     errors
+  }
+
+  "positive/pause/css21/001.css" must " CURRENTLY have 4 errors" in {
+    val url = "http://localhost:2719/static/positive/pause/css21/001.css"
+    val errors = nbErrors(url)
+    errors must be(4)
   }
 
 //  "All Positive Tests" must "have no error" in {
