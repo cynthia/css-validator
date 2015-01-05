@@ -347,6 +347,8 @@ warning.notforusermedium: プロパティ %s はこの usermedium には存在�
 warning.notversion: %s はこの CSS : %s バージョンでは利用できません
 warning.otherprofile: プロパティ %s はこのプロファイルには存在しませんが、他のプロファイルでは正当です
 warning.xsl: 値 %s は XSL にのみ適用可能です
+warning.deprecated: 値'%s'は廃止されました
+warning.deprecatedproperty: プロパティ'%s'は廃止されました
 
 parser.unknown-dimension: 不明なディメンション
 generator.dontmixhtml: パースエラーが発生しました。スタイルシートにHTMLシンタックスが含まれています。
@@ -357,3 +359,16 @@ parser.charsetcss1: @charset は CSS1 には存在しません。
 parser.attrcss1: 属性選択子 は CSS1 には存在しません。
 parser.invalid_id_selector: 不正な ID 選択子です。
 parser.import_not_allowed: @charset と @import 以外の有効な文の後に @import は指定できません。
+
+error.bg_order: CSS3 background宣言(declarations)時に「bg_position」と「bg_size」が同時に存在する場合は、「bg_position」が/「bg_size」より先に宣言する必要があります。
+
+warning.deprecatedmedia: メディア"％s"は廃止されました
+error.nomediarestrictor: メディア制限は対応するCSSレベルには存在しません
+error.nomediafeature: 対応するCSSレベルには、メディア特性が存在しません
+error.nomodifiershortmedia: メディア特性に値がない場合は、プレフィックスを使用することができません
+error.nomodifiermedia: メディア特性 %sは、プレフィックスを対応していません
+error.grid: gridには、0と1のみ有効です
+
+# Left untranslated due to ambiguity. See https://github.com/w3c/css-validator/issues/4
+# error.errortoken: Unexpected content "%s" at line %s, expecting on token of %s (skipped %s)
+error.selectorname: %s は不正な選択子です。
