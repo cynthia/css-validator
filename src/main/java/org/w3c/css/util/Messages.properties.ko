@@ -1,4 +1,4 @@
-# Korean translation, last updated at 2008-11-11 based on Messages.properties.en,v 1.31
+# Korean translation, last updated at 2015-01-06 based on Messages.properties.en,v 1.61
 
 direction: ltr
 language_name: 한국어
@@ -58,6 +58,11 @@ enter_CSS: 검사할 CSS를 입력하여 주십시오
 submit_input: 검사할 내용을 저장
 note: 주의
 note_xhtml_valid: (X)HTML 문서에 포함된 CSS 스타일시트를 검사하기 이전에, <a href="http://validator.w3.org/">(X)HTML 문법 검사</a>를 하는 것을 권장합니다.
+vendorext: 제조사 확장
+vext_default: 기본값
+vext_errors: 오류
+vext_warnings: 경고
+
 # End of variables added along with Index page template
 
 W3C_validator_results: W3C CSS 검사 결과
@@ -69,7 +74,7 @@ errors: 오류
 # warnings_count <!-- generated on the fly -->
 warnings: 경고
 validated_CSS: 검사 된 CSS
-congrats: 축하합니다! 발견된 오류가 없습니다.
+congrats: 축하드립니다! 오류가 발견되지 않았습니다.
 # The sentence defined by doc_validates_before_link and doc_validates_after_link variables goes: \
 # "This document validates as CSSXX!" where XX stands for the CSS version used \
 # Since the content of the link about the CSS version is generated on the fly, \
@@ -123,14 +128,15 @@ output-encoding-name: utf-8
 # You can change the level warning like this (example) :
 # warning.redefinition.level: 5
 #  level is an integer between 0 and 9 (all others values are ignored)
-warning.redefinition: %s에 대한 재정의
+warning.redefinition: %s 에 대한 재정의
 
 # used by xml parser 
 warning.style-inside-comment: HTML 문서의 주석에 스타일 규칙을 넣으면 유저 에이전트(브라우저 등)에 의하여 누락될 수 있으므로 권장되지 않습니다
 warning.style-type: style 요소에는 text/css라는 값을 갖는 type 속성을 추가해야 합니다.
+warning.link-type: 'link' 요소에 'text/css' 값을 갖는 'type' 속성을 추가해야 합니다.
 
 # used by org.w3c.css.properties.Css1Style
-warning.same-colors: %s와 %s는 같은 색상
+warning.same-colors: %s 와 %s 은/는 같은 색상
 warning.no-color: 색상을 설정하지 않았거나 투명으로 설정하였음에도 불구하고 배경색을 지정하였습니다. 색상 스타일의 상호 연결로 가독성이 보장되는지 확인하시기 바랍니다.
 warning.no-background-color: 배경색이 지정되지 않았거나 배경색이 투명으로 설정되었음에도 색상을 선정하였습니다. 색상 스타일의 상호 연결로 가독성이 보장되는지 확인하시기 바랍니다.
 #warning.color.mixed-capitalization is now obsolete
@@ -138,16 +144,16 @@ warning.no-background-color: 배경색이 지정되지 않았거나 배경색이
 warning.no-generic-family: %s: 마지막 제공된 서체 후보 이외에도 일반적이 대안을 제공할 것을 권장합니다
 warning.with-space: 공백을 포함한 서체명은 따옴표로 구분을 지어야 합니다. 따옴표를 사용하지 않으면, 문자열 앞과 뒤에 오는 공백은 무시되며, 단어 사이의 공백들은 한개의 공백으로 변환됩니다.
 warning.no-padding: 배경색이 지정되었을 경우 내부 여백(padding)을 사용할 것을 권장합니다.
-warning.same-colors2: 전경색 %s 와 배경색 %s이 같습니
+warning.same-colors2: 전경색 %s 와 배경색 %s 이 같습니다
 warning.relative-absolute: %s 에서 크기에 대한 절대값과 상대값이 발견되었습니다. 혼용하는 것은 좋은 스타일시트가 못됩니다.
 # used by org.w3c.css.properties.CssSelectors
-warning.unknown-html: %s는 HTML 요소가 아닙니다
+warning.unknown-html: %s 은/는 HTML 요소가 아닙니다
 warning.html-inside: HTML 요소는 다른 요사의 하위에 있어서는 안됩니다
 warning.body-inside: BODY 요소는 HTML 요소 이외의 요소에 종속될 수 없습니다
-warning.pseudo-classes: 비정규 앵커 클래스 %s 는 A 요소 이외에는 효가가 없습니다
+warning.pseudo-classes: 비정규 앵커 클래스 %s 은/는 A 요소 이외에는 효가가 없습니다
 
 # not used by org.w3c.css.properties.CssSelectors for the moment
-warning.noinside: %s 는 인라인 요소에 존재할 수 없습니다
+warning.noinside: %s 은/는 인라인 요소에 존재할 수 없습니다
 warning.withblock: 주의 바랍니다. 비정규 요소는 블럭 단위 요소에서만 사용할 수 있습니다
 warning.block-level: 이 속성은 블럭 단위에 요소에서만 사용 가능합니다
 
@@ -158,31 +164,31 @@ warning.no-declaration: 규칙에 대한 정의가 없습니다
 warning.unsupported-import: 불러온 스타일시트가 직접 입력과 파일 업로드 모드에 대한 검사가 이루어지지 않았습니다
 
 # used by org.w3c.css.values.CssColor
-warning.out-of-range: %s 는 범주를 벗어난 값입니다
+warning.out-of-range: %s 은/는 범주를 벗어난 값입니다
 error.invalid-color: 올바르지 않은 RGB 정의
 
 warning.marker: marker-offset속성은 'display: marker' 속성에만 적용됩니다
 
 # used by org.w3c.css.properties.ACssStyle
-warning.relative: 속성 %s 에서는 상대값을 사용하는 것으로 좋은 스타일시트를 만들 수 있습니다
+warning.relative: 좋은 스타일시트 구성을 위해 속성 %s 에는 상대값을 사용하는 것을 권장합니다
 
 # used by org.w3c.css.css.StyleSheetParser and org.w3c.css.css.StyleSheetXMLParser
-error.at-rule: 죄송합니다. %s에 대한 at-rule은 구현되지 않았습니다
+error.at-rule: 죄송합니다. %s 에 대한 at-rule은 구현되지 않았습니다
 
 # used by all properties and values
-error.operator: %s는 올바른 연산자가 아닙니다
-error.negative-value: %s에서는 음수가 허용되지 않습니다
-error.few-value: 속성 %s에 대한 매개변수가 부족합니다
+error.operator: %s 은/는 올바른 연산자가 아닙니다
+error.negative-value: %s 에서는 음수가 허용되지 않습니다
+error.few-value: 속성 %s 에 대한 매개변수가 부족합니다
 
 # be careful here, values comes first
 # You can't write something like this : For the color, blue is an incorrect value
-error.value: %s 는 올바른 %s 값이 아닙니다
+error.value: %s 은/는 올바른 %s 값이 아닙니다
 
 #used by org.w3c.css.properties3.CssToggleGroup
-error.groupname: %s는 올바른 그룹 이름이 아닙니다. 올바른 이름을 사용하기 바랍니다
+error.groupname: %s 은/는 올바른 그룹 이름이 아닙니다. 올바른 이름을 사용하기 바랍니다
 
 #used by org.w3c.css.properties3.CssGroupReset
-error.nogroup: %s는 toggle-group속성에 대해 설정되지 않았습니다
+error.nogroup: %s 은/는 toggle-group속성에 대해 설정되지 않았습니다
 
 #used by org.w3c.css.properties3.CssGlyphOrVert
 error.anglevalue: 값이 -360에서 360 사이여야 하며, 90으로 나누어질 수 있어야 합니다
@@ -191,17 +197,17 @@ error.anglevalue: 값이 -360에서 360 사이여야 하며, 90으로 나누어�
 error.percentage: 퍼센트 값이 필요합니다
 
 #used by org.w3c.css.properties.CssTextAlign
-warning.xsl: 값 %s는 XSL에서만 사용됩니다
+warning.xsl: 값 %s 은/는 XSL에서만 사용됩니다
 
 #used by org.w3c.css.parser.analyzer.CssParser
-warning.medialist: 매체 목록은 'media :' %s로 시작되어야 합니다
-error.nocomb: 이 프로파일 또는 버전에서 선택자에 대한 혼합자 %s는 허용되지 않습니다
+warning.medialist: 미디어 목록은 'media :' %s 로 시작되어야 합니다
+error.nocomb: 이 프로파일 또는 버전에서 선택자에 대한 혼합자 %s 은/는 허용되지 않습니다
 
 #used by org.w3c.css.properties.CssDirection
 warning.direction: 블럭 단위 요소에서는 'direction' 보다 CSS3의 새로운 'writing-mode' 속성을 사용하기 바랍니다
 
 # used by org.w3c.css.properties.CssTextDecoration
-error.same-value: %s가 중복되어 정의 되었습니다
+error.same-value: %s 이/가 중복되어 정의 되었습니다
 
 error.generic-family.quote: 일반적인 패밀리 명칭은 키워드이므로 따옴표로 묶어서는 안됩니다
 
@@ -220,7 +226,7 @@ error.format: 올바르지 않은 형식 정의 format(<string>[,<string>]*)
 error.local: 올바르지 않은 형식 정의 local(<string>|<ident>+)
 
 # used by org.w3c.css.values.CssAngle, org.w3c.css.values.CssFrequency, org.w3c.css.values.CssTime, org.w3c.css.values.CssLength
-error.unit: %s 는 올바른 단위가 아닙니다
+error.unit: %s 은/는 올바른 단위가 아닙니다
 
 # used by org.w3c.css.aural.ACssAzimuth
 error.degree: 위치는 각도로 표현되어야 합니다
@@ -238,41 +244,46 @@ error.integer: 이 값은 정수여야 합니다.
 error.comma: 쉼표 구분자가 없습니다.
 
 # used by org.w3c.css.values.CssPercentage
-error.percent: %s는 올바른 퍼센트 수치가 아닙니다
+error.percent: %s 은/는 올바른 퍼센트 수치가 아닙니다
 
 # used by org.w3c.css.values.CssString
-error.string: %s는 올바른 문자열이 아닙니다
+error.string: %s 은/는 올바른 문자열이 아닙니다
 
 # used by org.w3c.css.values.CssURL
-error.url: %s는 올바른 URL이 아닙니다
+error.url: %s 은/는 올바른 URL이 아닙니다
 
 # used by org.w3c.css.values.CssColor
-error.rgb: %s는 올바른 3자리 또는 6자리의 16진수로 표현된 색상이 아닙니다
-error.angle: %s는 올바른 각도가 아닙니다. 0과 360사이의 값만 허용됩니다
+error.rgb: %s 은/는 올바른 3자리 또는 6자리의 16진수로 표현된 색상이 아닙니다
+error.angle: %s 은/는 올바른 각도가 아닙니다. 0과 360사이의 값만 허용됩니다
 
 # used by org.w3c.css.values.CssNumber
-error.zero: 오직 0만이 %s일 수 있습니다. 값 뒤에는 반드시 단위가 표현되어야 합니다
+error.zero: 오직 0 만이 %s 일 수 있습니다. 값 뒤에는 반드시 단위가 표현되어야 합니다
 
 #used by org.w3c.css.properties.CssColumnCount
-error.strictly-positive: %s는 유효하지 않습니다. 0보다 큰 값만이 허용됩니다.
+error.strictly-positive: %s 는 유효하지 않습니다. 0 보다 큰 값만 허용됩니다.
+error.lowerequal: %s 는 유효하지 않습니다. %s 이하의 값만 허용됩니다.
+error.lower: %s 는 유효하지 않습니다. %s 보다 작은 값만 허용됩니다.
+
+error.greaterequal: %s 는 유효하지 않습니다. %s 이상의 값만 허용됩니다.
+error.greater: %s 는 유효하지 않습니다. %s 보다 큰 값만 허용됩니다.
 
 # used by org.w3c.css.parser.CssPropertyFactory
-error.noexistence-at-all: 속성 %s는 존재하지 않는 속성입니다
-error.noexistence-media: 속성 %s는 매체 %s에 존재하지 않습니다
-error.noexistence: 속성 %s는 %s에 존재하지 않지만 %s에는 존재합니다
-warning.noexistence: 속성 %s는 %s에 존재하지 않지만 %s에는 존재합니다
-warning.noexistence-media: 속성 %s는 매체 %s에 존재하지 않습니다
-warning.notforusermedium : 속성 %s는 이 usermedium에 대하여 존재하지 않습니다
-warning.noothermedium : 다른 매체를 위한 속성은 usermedium에서 동작하지 않을 수 있습니다
-warning.vendor-extension: 속성 %s는 알 수 없는 벤더 확장입니다
+error.noexistence-at-all: 속성 %s 은/는 존재하지 않는 속성입니다
+error.noexistence-media: 속성 %s 은/는 미디어 %s 에 존재하지 않습니다
+error.noexistence: 속성 %s 은/는 %s 에 존재하지 않지만 %s 에는 존재합니다
+warning.noexistence: 속성 %s 은/는 %s 에 존재하지 않지만 %s 에는 존재합니다
+warning.noexistence-media: 속성 %s 은/는 미디어 %s 에 존재하지 않습니다
+warning.notforusermedium : 속성 %s 은/는 이 usermedium에 대하여 존재하지 않습니다
+warning.noothermedium : 다른 미디어를 위한 속성은 usermedium에서 동작하지 않을 수 있습니다
+warning.vendor-extension: 속성 %s 은/는 알 수 없는 벤더 확장입니다
 # used by org.w3c.css.parser.AtRule*
 error.noatruleyet: @import를 제외한 여타 @규칙은 CSS1 %s 에서 지원되지 않을 수 있습니다
 # used by org.w3c.css.parser.analyzer.CssParser
-error.notforcss1: 값 %s는 CSS1에서 존재하지 않습니다
-warning.pseudo: 알려지지 않은 비정규 요소 또는 비정규 클래스 %s가 기본 프로파일 (%s)에 포함되어 있습니다
+error.notforcss1: 값 %s 은/는 CSS1에서 존재하지 않습니다
+warning.pseudo: 알려지지 않은 비정규 요소 또는 비정규 클래스 %s 가 기본 프로파일 (%s)에 포함되어 있습니다
 warning.nocomb: 혼합자 %s 는 이 프로파일 (%s) 에서는 지시자에 사용될 수 없습니다
 warning.charsetspecial: 이 프로파일은 @charset:에 대한 매우 엄격한 규칙이 있습니다. @charset 이후에 정확하게 한개의 공백이 있어야 하며, 그 직후에 따옴표로 묶인 인코딩 명 바로 뒤에 세미콜론을 사용하여야 합니다.
-warning.notversion: %s는 이 버전의 CSS에서 사용할 수 없습니다 : %s
+warning.notversion: %s 은/는 이 버전의 CSS에서 사용할 수 없습니다 : %s
 
 # used by org.w3c.css.parser.CssFouffa
 error.unrecognize: 너무 많은 값 또는 값이 인식되지 않습니다
@@ -285,20 +296,20 @@ generator.dontmixhtml:  해석 오류. 스타일 시트는 HTML 구문을 포함
 error.unknown: 알 수 없는 오류
 
 # used by org.w3c.css.parser.CssSelectors
-error.pseudo-element: 비정규 요소 %s는 %s에서 나타날 수 없습니다
-error.pseudo-class: 비정규 클래스 .%s는 HTML문서상 %s에서 나타날 수 없습니다
+error.pseudo-element: 비정규 요소 %s 은/는 %s 에서 나타날 수 없습니다
+error.pseudo-class: 비정규 클래스 .%s 은/는 HTML문서상 %s 에서 나타날 수 없습니다
 error.pseudo: 알 수 없는 비정규 요소 또는 비정규 클래스 %s
-error.id: ID 지시지 #%s는 올바르지 않습니다 ! 단순 지시자에서는 한가지 ID지시자만 사용될 수 있습니다: %s.
-error.space: 속성 지시자 ~= 가 사용될 경우, 값 %s에 정의 된 값은 공백을 포함할 수 없습니다.
-error.todo : 죄송합니다. 기능 %s는 아직 구현되지 않았습니다.
-error.incompatible: %s와 %s 는 호환이 되지 않습니다
-warning.incompatible: %s와 %s 는 호환이 되지 않습니다
-error.notformobile: %s는 모바일 프로파일에서 사용될 수 없습니다
-error.notforatsc: %s는 ATSC 프로파일에서 사용될 수 없습니다
-error.notfortv: %s는 TV 프로파일에서 사용될 수 없습니다
-error.notversion: %s 는 이 버전의 CSS에서 사용할 수 없습니다 : %s
+error.id: ID 지시지 #%s 은/는 올바르지 않습니다! 단순 지시자에서는 한가지 ID지시자만 사용될 수 있습니다: %s.
+error.space: 속성 지시자 ~= 가 사용될 경우, 값 %s 에 정의 된 값은 공백을 포함할 수 없습니다.
+error.todo : 죄송합니다. 기능 %s 은/는 아직 구현되지 않았습니다.
+error.incompatible: %s 와 %s 은/는 호환이 되지 않습니다
+warning.incompatible: %s 와 %s 은/는 호환이 되지 않습니다
+error.notformobile: %s 은/는 모바일 프로파일에서 사용될 수 없습니다
+error.notforatsc: %s 은/는 ATSC 프로파일에서 사용될 수 없습니다
+error.notfortv: %s 은/는 TV 프로파일에서 사용될 수 없습니다
+error.notversion: %s 은/는 이 버전의 CSS에서 사용할 수 없습니다 : %s
 
-error.media: 알 수 없는 매체 %s 
+error.media: 알 수 없는 미디어 %s 
 error.page: 알 수 없는 비정규 명칭 페이지 %s
 
 error.unrecognized.link: 알 수 없는 link 요소 또는 xml-stylesheet PI.
@@ -339,24 +350,31 @@ warning.old_class: CSS1에서는 클래스 이름이 길이가 아니었을 경�
 servlet.invalid-request: 올바르지 않은 요청을 하였습니다.
 servlet.process: 객체를 처리할 수 없습니다
 
-warning.atsc: %s는 atsc-tv 매체에서 지원되지 않을 수 있습니다
-error.onlyATSC: %s는 atsc-tv 매체에서만 사용 가능합니다
+warning.atsc: %s 은/는 atsc-tv 미디어에서 지원되지 않을 수 있습니다
+error.onlyATSC: %s 은/는 atsc-tv 미디어에서만 사용 가능합니다
 
-warning.otherprofile: 속성 %s는 이 프로파일에 존재하지 않습니다만, 다른 프로파일에 의하여 유효하다고 검증되었습니다
+warning.otherprofile: 속성 %s 은/는 이 프로파일에 존재하지 않습니다만, 다른 프로파일에 의하여 유효하다고 검증되었습니다
+warning.deprecated: 값 '%s'은/는 표준에서 제외 될 대상으로 사용을 권장하지 않습니다
+warning.deprecatedproperty: 속성 '%s'은/는 표준에서 제외 될 대상으로 사용을 권장하지 않습니다
 
 warning.float-no-width: (x)HTML+CSS에서는 플로팅된 요소에는 너비(width) 선언이 반드시 필요합니다. 고유의 너비를 갖는 요소(html, img, input, textarea, select, 또는 object)는 해당사항이 없습니다.
 
 parser.charsetcss1: @charset은 CSS1에는 존재하지 않습니다.
 parser.attrcss1: 속성선택자는 CSS1에는 존재하지 않습니다.
+
 parser.invalid_id_selector: 올바르지 않은 ID 선택자
 parser.import_not_allowed: @import는 @charset과 @import 이외의 유효한 절의 뒤에 올 수 없습니다.
 
 error.bg_order: CSS3 background 선언 시 'bg_position'과 'bg_size'가 동시에 존재하는 경우 'bg_position'이 / 'bg_size'보다 먼저 선언되어야 합니다.
 
-# vendor extensions
-vendorext: 제조사 확장
-vext_default: 기본값
-vext_errors: 오류
-vext_warnings: 경고
+warning.deprecatedmedia: 미디어 "%s"은/는 표준에서 제외 될 대상으로 사용을 권장하지 않습니다
+error.nomediarestrictor: 미디어 제한자는 해당 CSS 레벨에서 정의되어 있지 않습니다
+error.nomediafeature: 해당 CSS 레벨에는 미디어 특성이 정의되어 있지 않습니다
+error.nomodifiershortmedia: 값이 없는 미디어 특성에는 접두어가 허용되지 않습니다
+error.nomodifiermedia: 미디어 특성 %s은 접두어를 지원하지 않습니다
+error.grid: grid에는 0 과 1만 유효합니다
 
-warning.link-type: 'link' 요소에 'text/css' 값을 갖는 'type' 속성을 추가해야 합니다.
+# Left untranslated due to ambiguity
+# error.errortoken: Unexpected content "%s" at line %s, expecting on token of %s (skipped %s)
+# error.errortoken: 예상되지 않은 내용 "%s" 이 %s 행에 있습니다. %s (%s 를 건너뜀)
+error.selectorname: 선택자 %s 이/가 잘못되었습니다.
